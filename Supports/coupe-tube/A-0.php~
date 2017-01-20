@@ -1,0 +1,2 @@
+<h1>Diagramme A-0</h1>
+<?php Ajouter_image(Dossier_Image(), 'diagrammeA-0.png', 'diagramme A-0 du mini coupe-tube');

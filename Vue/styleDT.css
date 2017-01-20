@@ -1,0 +1,155 @@
+#page { /* conteneur */
+	width: 1400px;
+	height: 800px;
+	margin: auto;
+	position: relative;
+}
+/* Mise en page des blocs ------------------------------------------------------------------------------- */
+#logo, header, nav, section, footer { position: absolute; }
+
+#logo, header	{ height: 90px; }	/* première ligne		*/
+nav, #logo		{ width: 180px;
+						left: 0px }	/* première colonne	*/
+
+nav, section {
+ 	top: 95px;							/* deuxième ligne		*/
+ 	bottom: 65px;
+}
+header, section {						/* deuxième colonne	*/
+	left: 190px;
+	right: 0px;
+}
+footer {									/* troisième ligne	*/
+	left: 50px;
+	right: 50px;
+	bottom: 0;
+}
+
+/* le logo  ----------------------------------------------------------------------------------------------------------- */
+#logo { text-align: center; }	/* logo qui sera cliquable pour télécharger l'archive zip qui contient la maquette */ 
+
+#logo img {
+	max-height: 80px;
+	max-width: 170px;
+	padding: 4px;
+}
+
+/* l'en-tete ---------------------------------------------------------------------------------------------------------- */
+header {
+	text-align: center;
+	background-color: #FFFFDD;
+}
+header p {
+	font-family: arial;
+	font-size: 1.6em;
+}
+
+/* zone centrale --------------------------------------------------------------------------------------------------- */
+section { overflow: auto; }
+
+section h1 {
+	text-decoration: underline;
+	text-align: center;
+	font-size: 1.4em;
+	margin-top: 0;
+}
+section ul { margin:0; }
+
+section a { text-decoration: none;}
+
+section a:hover { text-decoration: underline;}
+
+/* pied de page --------------------------------------------------------------------------------------------------- */
+footer {
+	text-align: center;
+	font-size: 0.8em;
+	border-top: 1px solid black;
+}
+footer img {
+	height:32px;
+	vertical-align:middle;
+}
+
+/* class et id ------------------------------------------------------------------------------------------------------- */
+.icone { /* formatage affichage */
+	height: 40px;
+	vertical-align: middle;
+	padding: 2px;
+	margin: 2px;
+	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------- pour la navigation --------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+nav {
+	text-align: center;
+	font-family: arial;
+}
+nav a { text-decoration: none; } /* aucun lien n'est souligné */
+
+nav a:hover { text-decoration: underline; }/* les liens hors ceux du menu sont soulignés au passage de la souris */
+
+nav ul {
+	list-style-type: none;
+	margin-bottom: 30px;
+	margin-top: 0;
+	padding: 0;
+}
+/* menu --------------------------------------------------------------------------------------------------- */
+nav li, nav li a { color: white; } /* tous les items du menu sont écrits en blanc*/
+
+nav li {
+	line-height: 30px;
+	margin-bottom: 5px;
+}
+
+nav li a {
+	display: block;
+	background-color: red;
+}
+nav li, nav li a:hover, .menu_selectionne { background-color: maroon; } /* couleur du menu sélectionné (pas de lien) et celui sous la souris */
+
+nav li a:hover { text-decoration: none; } /* les liens survolés du menu et sous menu ne sont pas soulignés*/
+
+/* sous-menu ------------------------------------------------------------------------------------------------------------------ */
+nav ul ul {
+	margin: 0;
+	border: 1px solid maroon; /* meme couleur que le menu sélectionné */
+	background-color: white;
+}
+nav ul ul a {
+	display: block;
+	font-weight: normal;
+}
+nav ul ul li, nav ul ul a, nav ul ul a:hover {
+	color: black;				/* tous les textes du sous-menu sont en noir */
+	background-color: white;	/* sur fond blanc */
+	margin-bottom: 1px;
+}
+nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
+
+nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) apparaît en gras */
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------- */
+#nomenclature p { text-align: center; }
+
+#nomenclature {
+	width: 750px;
+	margin: auto;
+}
+
+#nomenclature table {
+	border-collapse: collapse;
+	text-align: center;
+	margin: 20px;
+}
+#nomenclature td, #nomenclature th {
+	border-bottom: 1px solid black;
+	padding: 3px;
+}
+#nomenclature td img { height: 90px; }
+
+#nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
