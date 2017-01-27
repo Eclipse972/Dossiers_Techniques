@@ -7,9 +7,9 @@ define("SUPPORT", '_support');
 define("UTILISATEUR", '_utilisateur');
 
 require 'Controleur/fonctions.php';			// quelques fonctions utiles
-require 'Modele/classe_interpreteur2commandes.php';
 require 'Modele/classe_association.php';
 require 'Modele/classe_support.php';
+require 'Modele/classe_menu.php';
 
 $LISTE_SUPPORTS = array(
 //	new Support('nom',								'pti_nom',			'dossier')
@@ -38,8 +38,8 @@ if(isset($LISTE_SUPPORTS[$id])) {
 	$_SESSION[MENU]->Configurer_menu();
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 	$_SESSION[ID_PAGE] = (isset($_SESSION[MENU]->T_page[$id])) ? $id : $_SESSION[ID_PAGE] = 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
-	include 'Vue/pageHTMLV2.php'; 	// inclut le code de la page
+	include 'Vue/pageHTML.php'; 	// inclut le code de la page
 	
-} else include 'Vue/listeDsupportsV2.php'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
+} else include 'Vue/listeDsupports.php'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
 
 ?>
