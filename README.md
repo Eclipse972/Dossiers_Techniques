@@ -12,3 +12,5 @@ L'introduction de cette fonctionalité modifie en profondeur les fichiers suivan
 - index.php:
 - pageHTML.php: la zone navigation travaillais avec deux paramètre pour chaque page maintenat il n'en faut plus qu'un.
 - classe_support.php: implémentation de la structure des pages du support. Ce qui impacte le menu de navigation.
+- fonctions.php:
+- classe_menu.php
