@@ -1,4 +1,4 @@
-<?php // fichier de configuration du bouton poussoir
+<?php // nomenclature du bouton poussoir
 Ligne_nomenclature( 1, 1, 'Corps',						'','','Corps');
 Ligne_nomenclature( 2, 2, 'Borne',						'','','borne');
 Ligne_nomenclature( 3, 4, 'Vis CS M2-4',				'','','Vis_CS');

@@ -1,0 +1,11 @@
+#fichiers edrawing
+*.eprt
+*.easm
+*.edrw
+
+#images
+*.png
+*.jpg
+
+#fichiers de sauvegarde 
+*~

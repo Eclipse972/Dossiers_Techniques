@@ -1,16 +1,18 @@
 <?php
-function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observation, $lien_image) {
+function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observation, $image, $fichier = null, $extension = '.EPRT') {
 	echo "<tr>\n";
 	echo "<td>", $repere, "</td>\n";
-	
-	echo "<td>", $lien_image, "</td>\n";		// on ajoute le lien image
-	
+
+	if(!isset($fichier)) $fichier = $image;	// si le nom de fichier n'est pas précisé on prend le même que celui de l'image
+	echo '<td>', Lien_image_fichier($_SESSION[SUPPORT]->dossier, $image, $fichier, $extension), '</td>',"\n";	// on ajoute le lien image-fichier
+
 	echo "<td>", $designation;					// désignation
 	if($nombre > 1) echo ' (x', $nombre, ')';	// si plusieurs exemplaires alors on rajoute la quantité
 	echo "</td>\n";								// on ferme la cellule
-	echo "<td>", $matiere, "</td>\n";			// matière
-	echo "<td>", $observation, "</td>\n";		// observation	
-	echo "</tr>\n";								// fin de la ligne
+	
+	echo "<td>", $matiere, "</td>\n";		// matière
+	echo "<td>", $observation, "</td>\n";	// observation	
+	echo "</tr>\n\n";							// fin de la ligne
 }	
 ?>
 
@@ -32,10 +34,9 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 </thead>
 
 <tbody>
-<?php	
-foreach ($_SESSION[SUPPORT]->nomenclature as $rep => $piece) {
-	Ligne_nomenclature($rep, $piece->quantite, $piece->designation, $piece->matiere, $piece->observation, $piece->lien);
-}
+<?php
+	// existence du fichier à tester et générer un message d'erreur si besoin
+	include $_SESSION[SUPPORT]->dossier.'nomenclature.php';	// ce fichier ne contient que des instructions Ligne_nomenclature
 ?>
 </tbody>
 
