@@ -2,9 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" href="Vue/base.css" />
-<link rel="stylesheet" href="Vue/navigation.css" />
-<?php echo '<link rel="stylesheet" href="Vue/', $STYLE, '.css" />', "\n"; ?>
+<link rel="stylesheet" href="Vue/styleDT.css" />
 <title>Les Dossiers techniques de ChristopHe</title>
 </head>
 
@@ -20,11 +18,13 @@
 </header>
 
 <nav>					
-<?php include 'Vue/menu.php'; ?>
+<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]);	
+?>
+<a href="index.php">SOMMAIRE</a>
 </nav>
 
 <section>
-<?php echo $CONTENU, "\n"; ?>
+<?php	$_SESSION[MENU]->Afficher_page($_SESSION[ID_PAGE]);	?>
 </section>
 
 <footer>				

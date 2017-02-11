@@ -7,9 +7,9 @@ define("SUPPORT", '_support');
 define("UTILISATEUR", '_utilisateur');
 
 require 'Controleur/fonctions.php';			// quelques fonctions utiles
-require 'Modele/classe_interpreteur2commandes.php';
 require 'Modele/classe_association.php';
 require 'Modele/classe_support.php';
+require 'Modele/classe_menu.php';
 
 $LISTE_SUPPORTS = array(
 //	new Support('nom',								'pti_nom',			'dossier')
@@ -30,26 +30,16 @@ $LISTE_SUPPORTS = array(
 
 session_start(); // On démarre la session AVANT toute chose
 
-// test de l'existence des paramètres dans l'URL. il y en 3: id, menu et ss_menu. L'existence du dernier n'est pas vérifiée
-if(isset($_GET['id']))
-		$scenario = 1;
-else	$scenario = 3;
-if(isset($_GET['menu'])) $scenario--;
+$id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+if(isset($LISTE_SUPPORTS[$id])) {
+	$_SESSION[SUPPORT] = $LISTE_SUPPORTS[$id];
+	$_SESSION[ID_SUPPORT] = $id;
+	$_SESSION[MENU] = new Menu($_SESSION[SUPPORT]->dossier);
+	$_SESSION[MENU]->Configurer_menu();
+	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+	$_SESSION[ID_PAGE] = (isset($_SESSION[MENU]->T_page[$id])) ? $id : $_SESSION[ID_PAGE] = 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
+	include 'Vue/pageHTML.php'; 	// inclut le code de la page
+	
+} else include 'Vue/listeDsupports.php'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
 
-switch($scenario) {
-case 1: // id est défini et menu non => création du support puis stockage dans la session si pas d'erreur
-	include 'Controleur/scenario1.php';
-	break;
-case 2: // id non défini et menu défini => on recherche la page du DT et on l'affiche
-	include 'Controleur/scenario2.php';	// détermine le code à afficher en fonction des paramètres
-	include 'Vue/pageHTML.php'; 			// inclut le code de la page
-	break;
-case 3: // id et menu non définis => on affiche la liste des supports
-	include 'Vue/listeDsupports.php'; // inclusion de la page liste des supports
-	break;
-default: // id et menu sont définis => que faire ?
-	$_SESSION[SUPPORT] = null;	// on détruit le tableau de session.
-	$erreur = 'Erreur sur les param&egrave;tres';
-	include 'Vue/erreur.php';	// inclusion de la page d'erreur
-}
 ?>

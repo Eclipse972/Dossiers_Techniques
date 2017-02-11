@@ -41,7 +41,7 @@ function Afficher_menu($id_item_selectionne) {
 			echo $this->T_item[$id];
 			$this->afficher_sous_menu($id, $id_item_selectionne);
 		}
-		else echo '<a href="indexV2.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
+		else echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
 		echo '</li>',"\n";
 		$id = 2*$id+1;
 	}
@@ -58,7 +58,7 @@ function Afficher_sous_menu($id_racine,$id_item_selectionne) {
 		echo "\t",'<li>';
 		if($id == $id_item_selectionne)
 			 echo $this->T_item[$id];
-		else echo '<a href="indexV2.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
+		else echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
 		echo '</li>',"\n";
 		$id = 2*$id;
 	}
@@ -79,7 +79,7 @@ function Afficher_page($id) {	// donne le nom de la page à télécharger associ
 			Afficher_dessin_densemble();
 			break;
 		case 'nomenclature': 
-			include 'Vue/nomenclatureV2.php';
+			include 'Vue/nomenclature.php';
 			break;
 		default:	// ce n'est pas un mot réservé
 			include $dossier.$script.'.php';
