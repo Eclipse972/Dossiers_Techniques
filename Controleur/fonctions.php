@@ -1,16 +1,33 @@
 <?php // quelques fonctions utiles
-function lienHTML($param_menu, $param_sous_menu, $texte, $menu_selectionne = false) {
-	if($param_sous_menu == '')
-		if($menu_selectionne) 
-				return '<a href ="index.php?menu='.$param_menu.'" class="menu_selectionne">'.$texte.'</a>';
-		else	return '<a href ="index.php?menu='.$param_menu.'">'.$texte.'</a>';
-	else		return '<a href ="index.php?menu='.$param_menu.'&ss_menu='.$param_sous_menu.'">'.$texte.'</a>';
+
+function Extraire_identifiant($param) {
+	if(isset($_GET[$param]))			// si le paramètre existe existe 
+			return (int) $_GET[$param];	// alors il est converti en nomnre entier
+	else	return -1;					// -1 est retourné sinon
 }
 
-function Extraire_paramètre($param) {
-	if(isset($_GET[$param]))					// si le paramètre existe existe 
-			return (string) $_GET[$param];	// il est converti en chaîne de caractères 
-	else	return '';								// une chaîne vide sinon
+function Lien_image_fichier($dossier, $image, $fichier = null, $extension = '.EPRT') {
+	$fichier = (isset($fichier)) ? $fichier.$extension : $image.$extension;
+	$fichier =	(file_exists($dossier.'pieces/'.$fichier))		? $dossier.'pieces/'.$fichier		: '#';					// si le fichier n'existe pas alors le lien est vide
+	$image	 = 	(file_exists($dossier.'images/'.$image.'.png'))	? $dossier.'images/'.$image.'.png'	: 'Vue/pas2photo.png';	// si l'image n'existe pas alors on remplace par l'image "pas de photo"
+	return '<a href="'.$fichier.'"><img src="'.$image.'"></a>';	// prévoir texte alternatif $code .= 'alt ="'. ?? .'"></a>';
+
+}
+
+function Afficher_association($titre, $lien,$commentaire = null) {	// renvoie le code html pour afficher la page d'une association
+	echo "\n\t<h1>", $titre, "</h1>";
+	echo "\n\t<p>Cliquez sur l&#145;image pour t&eacute;l&eacute;charger le fichier au format eDrawing.</p>";	// message
+	echo "\n\t", $lien;	// image cliquable
+	if (isset($commentaire))	echo "\n\t<p>".$commentaire.'</p>';	// commentaire éventuel sous l'image
+
+}
+
+function Afficher_dessin_densemble() {
+	Afficher_association('Dessin d&#145;ensemble','');	
+}
+
+function Afficher_eclate() {
+	Afficher_association('&Eacute;clat&eacute;','');
 }
 
 function Ajouter_image($image, $alt, $class = null, $style = null)	{

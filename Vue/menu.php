@@ -1,6 +1,6 @@
 <?php
 echo "<ul>\n";
-foreach($_SESSION[SUPPORT]->menu as $item => $texte) {
+foreach($_SESSION[MENU] as $item => $texte) {
 	echo "<li>";
 
 	if($item == $param_menu) {	// le menu courant est égale au paramètre menu
