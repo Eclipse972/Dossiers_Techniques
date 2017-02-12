@@ -25,11 +25,7 @@
 		foreach ($LISTE_SUPPORTS as $id => $support)	{
 			$No_colonne++;
 			$No_colonne = $No_colonne % $NB_colonne;
-<<<<<<< HEAD
 			if($No_colonne==0)	echo "\n\t", '<tr>';								// nouvelle ligne
-=======
-			if($No_colonne==0)	echo "\n\t", '<tr>';						// nouvelle ligne
->>>>>>> 1f058c3825825006364c0136ea9b2d2e5c53e9cb
 			echo "\n\t\t", '<td><a href="index.php?support=', $id, '">';	// lien
 			echo '<img src="', $support->dossier.'images/', $support->image, '" alt="', $support->nom, '">'; // image
 			echo $support->nom;	// nom du support

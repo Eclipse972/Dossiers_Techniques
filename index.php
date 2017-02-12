@@ -7,7 +7,6 @@ define("SUPPORT", '_support');
 define("UTILISATEUR", '_utilisateur');
 
 require 'Controleur/fonctions.php';			// quelques fonctions utiles
-require 'Modele/classe_association.php';
 require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';
 
