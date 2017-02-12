@@ -14,7 +14,7 @@
 </header>
 
 <section>
-	<h1>Cliquez sur l&#145;image ou le nom du support pour ouvrir son dossier technique</h1>
+	<h1>Cliquez sur l&apos;image ou le nom du support pour ouvrir son dossier technique</h1>
 	<table>
 	<?php
 		$_SESSION[SUPPORT] = null; // on détruit le support en cours
