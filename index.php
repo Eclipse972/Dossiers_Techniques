@@ -11,20 +11,20 @@ require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';
 
 $LISTE_SUPPORTS = array(
-//	new Support('nom',								'pti_nom',			'dossier')
+//	new Support('nom',									'pti_nom',		'dossier')
 	new Support('bouton poussoir',					'BP',				'BP'),
-	new Support('but&eacute;e 5 axes',				'butee', 			'butee5axes'),
-	new Support('cambreuse',						'cambreuse',		'cambreuse'),
-	new Support('cric bouteille',					'cric',				'cric_bouteille'),
-	new Support('cric hydraulique 2 tonnes',		'cric',				'cric_hydraulique'),
-	new Support('&eacute;lectrovanne',				'electrovanne',		'electrovanne'),
-	new Support('&eacute;tau de mod&eacute;lisme',	'etau',				'etau'),
-	new Support('extracteur de roulement',			'extracteur',		'extracteur2roulement'),
-	new Support('mini coupe-tube',					'mini_coupe-tube',	'coupe-tube'),
-	new Support('pince de marquage',				'pince',			'x2marquage'),
-	new Support('pince de robot',					'pince',			'pince2robot'),
-	new Support('pompe &agrave; palettes',			'pompe',			'pompeApalettes'),
-	new Support('vanne sph&eacute;rique',			'vanne',			'vanne')
+	new Support('but&eacute;e 5 axes',				'butee', 		'butee5axes',		'de la ','la '),
+	new Support('cambreuse',							'cambreuse',	'cambreuse',		'de la ','la '),
+	new Support('cric bouteille',						'cric',			'cric_bouteille'),
+	new Support('cric hydraulique 2 tonnes',		'cric',			'cric_hydraulique'),
+	new Support('&eacute;lectrovanne',				'electrovanne','electrovanne',			'de l&#145;','l&#145;'),
+	new Support('&eacute;tau de mod&eacute;lisme','etau',			'etau',						'de l&#145;','l&#145;'),
+	new Support('extracteur de roulement',			'extracteur',	'extracteur2roulement',	'de l&#145;','l&#145;'),
+	new Support('mini coupe-tube',					'mini_coupe-tube','coupe-tube'),
+	new Support('pince de marquage',					'pince',			'x2marquage',		'de la ','la '),
+	new Support('pince de robot',						'pince',			'pince2robot',		'de la ','la '),
+	new Support('pompe &agrave; palettes',			'pompe',			'pompeApalettes', 'de la ','la '),
+	new Support('vanne sph&eacute;rique',			'vanne',			'vanne'				'de la ','la ')
 );
 
 session_start(); // On démarre la session AVANT toute chose
