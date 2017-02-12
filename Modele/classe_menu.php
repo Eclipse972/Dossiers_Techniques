@@ -18,7 +18,7 @@ function Ajoute_item($page, $texte) {	// le code équivalent est à retirer de l
 	$this->T_item[$this->id_item_courant] = $texte;
 	$this->T_page[$this->id_item_courant] = $page;
 }
-function Ajoute_sous_item($texte, $page) {
+function Ajoute_sous_item($page, $texte) {
 	$this->id_sous_item_courant = 2*$this->id_sous_item_courant;
 	$this->T_item[$this->id_sous_item_courant] = $texte;
 	$this->T_page[$this->id_sous_item_courant] = $page;
