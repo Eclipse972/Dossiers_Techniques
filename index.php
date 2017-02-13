@@ -6,6 +6,12 @@
 define("SUPPORT", '_support');
 define("UTILISATEUR", '_utilisateur');
 
+function Extraire_identifiant($param) {
+	if(isset($_GET[$param]))			// si le paramètre existe existe 
+			return (int) $_GET[$param];	// alors il est converti en nomnre entier
+	else	return -1;					// -1 est retourné sinon
+}
+
 require 'Controleur/fonctions.php';			// quelques fonctions utiles
 require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';

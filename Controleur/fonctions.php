@@ -1,17 +1,10 @@
 <?php // quelques fonctions utiles
 
-function Extraire_identifiant($param) {
-	if(isset($_GET[$param]))			// si le paramètre existe existe 
-			return (int) $_GET[$param];	// alors il est converti en nomnre entier
-	else	return -1;					// -1 est retourné sinon
-}
-
 function Lien_image_fichier($dossier, $image, $fichier = null, $extension = '.EPRT') {
 	$fichier = (isset($fichier)) ? $fichier.$extension : $image.$extension;
 	$fichier =	(file_exists($dossier.'pieces/'.$fichier))		? $dossier.'pieces/'.$fichier		: '#';					// si le fichier n'existe pas alors le lien est vide
 	$image	 = 	(file_exists($dossier.'images/'.$image.'.png'))	? $dossier.'images/'.$image.'.png'	: 'Vue/pas2photo.png';	// si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return '<a href="'.$fichier.'"><img src="'.$image.'"></a>';	// prévoir texte alternatif $code .= 'alt ="'. ?? .'"></a>';
-
 }
 
 function Afficher_association($titre, $lien,$commentaire = null) {	// renvoie le code html pour afficher la page d'une association
