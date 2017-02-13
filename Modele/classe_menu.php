@@ -11,6 +11,7 @@ function Menu($dossier) { // constructeur
 	$this->T_page = array();	// tableau vide
 	$this->id_item_courant = 0;
 	$this->dossier = $dossier;
+	require $dossier.'creation_menu.php'; // charge les instructions pour créer le menu
 }
 function Ajoute_item($page, $texte) {	// le code équivalent est à retirer de la classe support
 	$this->id_item_courant = 2*$this->id_item_courant+1;
@@ -22,10 +23,6 @@ function Ajoute_sous_item($page, $texte) {
 	$this->id_sous_item_courant = 2*$this->id_sous_item_courant;
 	$this->T_item[$this->id_sous_item_courant] = $texte;
 	$this->T_page[$this->id_sous_item_courant] = $page;
-}
-
-function Configurer_menu(){ // charge les instructions pour créer le menu seul. /!\ le cric hydraulique est utilisé comme exemple 
-	require $this->dossier.'creation_menu.php';
 }
 
 function Afficher_menu($id_item_selectionne) {

@@ -33,8 +33,7 @@ $id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoy�
 if(isset($LISTE_SUPPORTS[$id])) {
 	$_SESSION[SUPPORT] = $LISTE_SUPPORTS[$id];
 	$_SESSION[ID_SUPPORT] = $id;
-	$_SESSION[MENU] = new Menu($_SESSION[SUPPORT]->dossier);
-	$_SESSION[MENU]->Configurer_menu();
+	$_SESSION[MENU] = new Menu($_SESSION[SUPPORT]->dossier);	//
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 	$_SESSION[ID_PAGE] = (isset($_SESSION[MENU]->T_page[$id])) ? $id : $_SESSION[ID_PAGE] = 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
 	include 'Vue/pageHTML.php'; 	// inclut le code de la page
