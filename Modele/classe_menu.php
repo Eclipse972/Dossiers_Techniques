@@ -64,6 +64,9 @@ function Afficher_sous_menu($id_racine,$id_item_selectionne) {
 function Afficher_page($id) {	// donne le nom de la page à télécharger associée à l'id sélectionné dans le menu
 	$script = (isset($_SESSION[MENU]->T_page[$id])) ? $_SESSION[MENU]->T_page[$id] : 'erreur 404';
 	$dossier = $_SESSION[SUPPORT]->dossier;
+	// variables pour les associations image-fichier
+	$image = '';
+	$fichier = '';
 	
 	switch($script) {	// on  regarde si script est un mot réservé
 		case 'erreur 404' :
