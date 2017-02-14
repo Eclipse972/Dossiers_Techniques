@@ -24,7 +24,30 @@
 </nav>
 
 <section>
-<?php	$_SESSION[MENU]->Afficher_page($_SESSION[ID_PAGE]);	?>
+<?php	
+	$script = (isset($_SESSION[MENU]->T_page[$_SESSION[ID_PAGE]])) ? $_SESSION[MENU]->T_page[$_SESSION[ID_PAGE]] : 'erreur 404'; //
+	$dossier = $_SESSION[SUPPORT]->dossier;
+	// variables pour les associations image-fichier
+	$image = '';
+	$fichier = '';
+	
+	switch($script) {	// on  regarde si script est un mot réservé
+		case 'erreur 404' :
+			echo '<h1>Page introuvable</h1>';
+			break;
+		case 'eclate':
+			Afficher_eclate();
+			break;
+		case 'dessin_densemble':
+			Afficher_dessin_densemble();
+			break;
+		case 'nomenclature': 
+			include 'Vue/nomenclature.php';
+			break;
+		default:	// ce n'est pas un mot réservé
+			include $dossier.$script.'.php';
+	}
+?>
 </section>
 
 <footer>				
