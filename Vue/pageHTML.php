@@ -17,12 +17,11 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 <?php echo '<img src="'.$_SESSION[SUPPORT]->dossier.'images/'.$_SESSION[SUPPORT]->image.'" alt="logo">', "\n"; ?>
 </div>
 
-<header>				
-<?php echo '<p>Dossier technique ', $_SESSION[SUPPORT]->du, $_SESSION[SUPPORT]->nom, "</p>\n"; ?>
+<header> <?php echo '<p>Dossier technique ', $_SESSION[SUPPORT]->du, $_SESSION[SUPPORT]->nom, "</p>\n"; ?>
 </header>
 
 <nav>					
-<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]);	?>
+<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]); ?>
 <a href="index.php">SOMMAIRE</a>
 </nav>
 
@@ -53,8 +52,7 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 ?>
 </section>
 
-<footer>				
-<?php	include 'pied2page.php'; ?>
+<footer> <?php	include 'pied2page.php'; ?>
 </footer>
 
 </div>
