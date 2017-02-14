@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet" href="Vue/styleDT.css" />
 <title>Les Dossiers techniques de ChristopHe</title>
+<?php
+require 'Vue/image-fichier.php';	// fonctions pour l'affichage des associations image-fichier
+require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
+?>
 </head>
 
 <body>

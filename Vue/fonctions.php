@@ -1,4 +1,4 @@
-<?php // quelques fonctions utiles
+<?php // quelques fonctions utiles pour l'affichage
 
 function Ajouter_image($image, $alt, $class = null, $style = null)	{
 	// ajoute l'image (avec son extension) du support courant. Cette images se trouve dans le répertoire /images.
