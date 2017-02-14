@@ -22,8 +22,7 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 </header>
 
 <nav>					
-<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]);	
-?>
+<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]);	?>
 <a href="index.php">SOMMAIRE</a>
 </nav>
 
@@ -55,10 +54,7 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 </section>
 
 <footer>				
-<?php 
-	include 'pied2page.php';
-	echo "\n";
-?>
+<?php	include 'pied2page.php'; ?>
 </footer>
 
 </div>
