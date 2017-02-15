@@ -1,11 +1,9 @@
 <?php // quelques fonctions pour gérer les associations image-fichier
 
-function Lien_image_fichier($dossier, $image, $fichier = null, $extension = '.EPRT') {
+function Lien_image_fichier($image, $fichier = null, $extension = '.EPRT') {
+	$dossier = $_SESSION[SUPPORT]->dossier;
 	$fichier = (isset($fichier)) ? $fichier.$extension : $image.$extension;
 	$fichier = (file_exists($dossier.'pieces/'.$fichier))		? $dossier.'pieces/'.$fichier		: '#';	// si le fichier n'existe pas alors le lien est vide
-	
-	echo '<!-- fichier = ',$fichier,' -->';
-	
 	$image	= (file_exists($dossier.'images/'.$image.'.png'))	? $dossier.'images/'.$image.'.png'	: 'Vue/pas2photo.png';	// si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return '<a href="'.$fichier.'"><img src="'.$image.'"></a>';	// prévoir texte alternatif $code .= 'alt ="'. ?? .'"></a>';
 }
@@ -18,14 +16,21 @@ function Afficher_association($titre, $lien,$commentaire = null) {	// renvoie le
 }
 
 function Afficher_dessin_densemble($image = null, $fichier = null) {
-	if (!isset($image))
+	if (!isset($image))	// nom par défaut dessin_support.png
 		$image = 'dessin_'.$_SESSION[SUPPORT]->pti_nom;
-	if (!isset($fichier))
+	if (!isset($fichier))	// nom par défaut: support.EDRW
 		$fichier = $_SESSION[SUPPORT]->pti_nom;
-	$lien = Lien_image_fichier($_SESSION[SUPPORT]->dossier, $image, $fichier, '.EDRW');
-	Afficher_association('Dessin d&#145;ensemble', $lien);	
+	$lien = Lien_image_fichier($image, $fichier, '.EDRW');
+	Afficher_association('Dessin d&apos;ensemble', $lien);	
 }
 
-function Afficher_eclate() {
-	Afficher_association('&Eacute;clat&eacute;','');
+function Afficher_eclate($image = null, $fichier = null) {
+	if (!isset($image))	// nom par défaut eclate_support.png
+		$image = 'eclate_'.$_SESSION[SUPPORT]->pti_nom;
+	if (!isset($fichier))	// nom par défaut: support.EASM
+		$fichier = $_SESSION[SUPPORT]->pti_nom;
+		
+echo '<!-- image =',$image,"-->\n";
+	$lien = Lien_image_fichier($image, $fichier, '.EASM');
+	Afficher_association('&Eacute;clat&eacute;', $lien);
 }
