@@ -3,7 +3,7 @@
 function Lien_image_fichier($image, $fichier = null, $extension = '.EPRT') {
 	$dossier = $_SESSION[SUPPORT]->dossier;
 	$fichier = (isset($fichier)) ? $fichier.$extension : $image.$extension;
-	$fichier = (file_exists($dossier.'pieces/'.$fichier))		? $dossier.'pieces/'.$fichier		: '#';	// si le fichier n'existe pas alors le lien est vide
+	$fichier = (file_exists($dossier.'fichiers/'.$fichier))		? $dossier.'fichiers/'.$fichier	: '#';	// si le fichier n'existe pas alors le lien est vide
 	$image	= (file_exists($dossier.'images/'.$image.'.png'))	? $dossier.'images/'.$image.'.png'	: 'Vue/pas2photo.png';	// si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return '<a href="'.$fichier.'"><img src="'.$image.'"></a>';	// prévoir texte alternatif $code .= 'alt ="'. ?? .'"></a>';
 }
