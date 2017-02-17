@@ -12,7 +12,6 @@ function Extraire_identifiant($param) {
 	else	return -1;					// -1 est retourné sinon
 }
 
-require 'Controleur/fonctions.php';			// quelques fonctions utiles
 require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';
 

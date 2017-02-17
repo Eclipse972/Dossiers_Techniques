@@ -61,28 +61,4 @@ function Afficher_sous_menu($id_racine,$id_item_selectionne) {
 	}
 	echo "\t",'</ul>',"\n";
 }
-function Afficher_page($id) {	// donne le nom de la page à télécharger associée à l'id sélectionné dans le menu
-	$script = (isset($_SESSION[MENU]->T_page[$id])) ? $_SESSION[MENU]->T_page[$id] : 'erreur 404';
-	$dossier = $_SESSION[SUPPORT]->dossier;
-	// variables pour les associations image-fichier
-	$image = '';
-	$fichier = '';
-	
-	switch($script) {	// on  regarde si script est un mot réservé
-		case 'erreur 404' :
-			echo '<h1>Page introuvable</h1>';
-			break;
-		case 'eclate':
-			Afficher_eclate();
-			break;
-		case 'dessin_densemble':
-			Afficher_dessin_densemble();
-			break;
-		case 'nomenclature': 
-			include 'Vue/nomenclature.php';
-			break;
-		default:	// ce n'est pas un mot réservé
-			include $dossier.$script.'.php';
-	}
-}
 }
