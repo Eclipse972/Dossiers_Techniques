@@ -13,7 +13,7 @@ function Menu($dossier) { // constructeur
 	$this->dossier = $dossier;
 	require $dossier.'creation_menu.php'; // charge les instructions pour créer le menu
 }
-function Ajoute_item($page, $texte) {	// le code équivalent est à retirer de la classe support
+function Ajoute_item($page, $texte) {
 	$this->id_item_courant = 2*$this->id_item_courant+1;
 	$this->id_sous_item_courant = $this->id_item_courant;
 	$this->T_item[$this->id_item_courant] = $texte;
