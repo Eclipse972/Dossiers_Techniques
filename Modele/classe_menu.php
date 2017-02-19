@@ -43,6 +43,7 @@ function Afficher_menu($id_item_selectionne) {
 		$id = 2*$id+1;
 	}
 	echo '</ul>',"\n";
+	echo '<a href="index.php">SOMMAIRE</a>',"\n";
 }
 
 function Afficher_sous_menu($id_racine,$id_item_selectionne) {

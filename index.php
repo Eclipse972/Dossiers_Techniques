@@ -3,8 +3,9 @@
 	contrôleur principal
 ************************************************************************************************************************************/
 // mes constantes
-define("SUPPORT", '_support');
-define("UTILISATEUR", '_utilisateur');
+define("SUPPORT",		0);
+define("ID_SUPPORT", 1);
+define("ID_PAGE",		2);
 
 function Extraire_identifiant($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe existe 
@@ -30,7 +31,7 @@ $LISTE_SUPPORTS = array(
 	new Support('pince de robot',						'pince',			'pince2robot',		'de la ','la '),
 	new Support('pompe &agrave; palettes',			'pompe',			'pompeApalettes', 'de la ','la '),
 	new Support('vanne sph&eacute;rique',			'vanne',			'vanne',				'de la ','la ')
-);
+);	// ID: remplacer le tableau par une instruction switch. Ainsi on ne crée que le support utile et le tableau LISRE_SUPPORT devien tinutile.
 
 session_start(); // On démarre la session AVANT toute chose
 
@@ -38,11 +39,9 @@ $id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoy�
 if(isset($LISTE_SUPPORTS[$id])) {
 	$_SESSION[SUPPORT] = $LISTE_SUPPORTS[$id];
 	$_SESSION[ID_SUPPORT] = $id;
-	$_SESSION[MENU] = new Menu($_SESSION[SUPPORT]->dossier);	//
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-	$_SESSION[ID_PAGE] = (isset($_SESSION[MENU]->T_page[$id])) ? $id : $_SESSION[ID_PAGE] = 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
+	$_SESSION[ID_PAGE] = (isset($_SESSION[SUPPORT]->menu->T_page[$id])) ? $id : $_SESSION[ID_PAGE] = 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
 	include 'Vue/pageHTML.php'; 	// inclut le code de la page
 	
 } else include 'Vue/listeDsupports.php'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
-
 ?>
