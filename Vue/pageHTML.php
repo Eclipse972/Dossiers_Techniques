@@ -29,10 +29,10 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 			echo '<h1>Page introuvable</h1>';
 			break;
 		case 'eclate':
-			Afficher_eclate();
+			$_SESSION[SUPPORT]->Afficher_eclate();
 			break;
 		case 'dessin_densemble':
-			Afficher_dessin_densemble();
+			$_SESSION[SUPPORT]->Afficher_dessin_densemble();
 			break;
 		case 'nomenclature': 
 			include 'Vue/nomenclature.php';
