@@ -16,10 +16,10 @@ function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// const
 	$this->menu		= new Menu($this->dossier);
 }
 function Afficher_dessin_densemble()
-	{ Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$_SESSION[SUPPORT]->pti_nom, $_SESSION[SUPPORT]->pti_nom, '.EDRW'); }
+	{ Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW'); }
 
 function Afficher_eclate()
-	{ Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$_SESSION[SUPPORT]->pti_nom, $_SESSION[SUPPORT]->pti_nom, '.EASM'); }
+	{ Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$this->pti_nom, $this->pti_nom, '.EASM'); }
 
 function Afficher_menu()
 	{ $this->menu->Afficher_menu($_SESSION[ID_PAGE]); }
@@ -32,4 +32,7 @@ function Titre()
 
 function Execute($script)
 	{ include $this->dossier.$script.'.php'; }
+
+function Afficher_nomenclature()
+	{ include $this->dossier.'nomenclature.php'; }	// ce fichier ne contient que des instructions Ligne_nomenclature
 }
