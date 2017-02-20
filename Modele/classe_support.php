@@ -25,7 +25,7 @@ function Afficher_menu()
 	{ $this->menu->Afficher_menu($_SESSION[ID_PAGE]); }
 
 function Image()
-	{ echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">', "\n"; }
+	{ echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
 
 function Titre()
 	{ echo '<p>Dossier technique ', $this->du, $this->nom, "</p>\n"; } 
@@ -35,4 +35,7 @@ function Execute($script)
 
 function Afficher_nomenclature()
 	{ include $this->dossier.'nomenclature.php'; }	// ce fichier ne contient que des instructions Ligne_nomenclature
+
+function Page_existe($id)
+	{ return isset($this->menu->T_page[$id]); }
 }
