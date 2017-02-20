@@ -13,22 +13,13 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 <body>
 <div id="page">
 
-<div id="logo">
-<?php echo '<img src="'.$_SESSION[SUPPORT]->dossier.'images/'.$_SESSION[SUPPORT]->image.'" alt="logo">', "\n"; ?>
-</div>
-
-<header> <?php echo '<p>Dossier technique ', $_SESSION[SUPPORT]->du, $_SESSION[SUPPORT]->nom, "</p>\n"; ?>
-</header>
-
-<nav>					
-<?php	$_SESSION[MENU]->Afficher_menu($_SESSION[ID_PAGE]); ?>
-<a href="index.php">SOMMAIRE</a>
-</nav>
+<div id="logo">	<?php $_SESSION[SUPPORT]->Image(); ?>				</div>
+<header>				<?php $_SESSION[SUPPORT]->Titre(); ?>				</header>
+<nav>					<?php	$_SESSION[SUPPORT]->Afficher_menu(); ?>	</nav>
 
 <section>
 <?php	
-	$script = (isset($_SESSION[MENU]->T_page[$_SESSION[ID_PAGE]])) ? $_SESSION[MENU]->T_page[$_SESSION[ID_PAGE]] : 'erreur 404'; //
-	$dossier = $_SESSION[SUPPORT]->dossier;
+	$script = (isset($_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]])) ? $_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]] : 'erreur 404'; //
 	// variables pour les associations image-fichier
 	$image = '';
 	$fichier = '';
@@ -38,22 +29,21 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 			echo '<h1>Page introuvable</h1>';
 			break;
 		case 'eclate':
-			Afficher_eclate();
+			$_SESSION[SUPPORT]->Afficher_eclate();
 			break;
 		case 'dessin_densemble':
-			Afficher_dessin_densemble();
+			$_SESSION[SUPPORT]->Afficher_dessin_densemble();
 			break;
 		case 'nomenclature': 
 			include 'Vue/nomenclature.php';
 			break;
 		default:	// ce n'est pas un mot réservé
-			include $dossier.$script.'.php';
+			$_SESSION[SUPPORT]->Execute($script);
 	}
 ?>
 </section>
 
-<footer> <?php	include 'pied2page.php'; ?>
-</footer>
+<footer> <?php	include 'pied2page.php'; ?></footer>
 
 </div>
 

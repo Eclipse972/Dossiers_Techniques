@@ -33,12 +33,7 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 </tr>
 </thead>
 
-<tbody>
-<?php
-	// existence du fichier à tester et générer un message d'erreur si besoin
-	include $_SESSION[SUPPORT]->dossier.'nomenclature.php';	// ce fichier ne contient que des instructions Ligne_nomenclature
-?>
-</tbody>
+<tbody>	<?php $_SESSION[SUPPORT]->Afficher_nomenclature(); ?>	</tbody>
 
 </table>
 </div>
