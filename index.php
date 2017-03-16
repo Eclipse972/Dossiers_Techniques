@@ -39,6 +39,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 $id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 $_SESSION[SUPPORT] = Selectionne_support($id);
+$_SESSION[ID_SUPPORT] = $id;	// variable utilisée pour les liens
 
 if(isset($_SESSION[SUPPORT])) {
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
