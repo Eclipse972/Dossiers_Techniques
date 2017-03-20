@@ -77,4 +77,22 @@ footer img {
 	padding: 2px;
 	margin: 2px;
 	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
+	
+#nomenclature {
+	width: 750px;
+	margin: auto;
+}
+
+#nomenclature table {
+	border-collapse: collapse;
+	text-align: center;
+	margin: 20px;
+}
+#nomenclature td, #nomenclature th {
+	border-bottom: 1px solid black;
+	padding: 3px;
+}
+#nomenclature td img { height: 90px; }
+
+#nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
 }
