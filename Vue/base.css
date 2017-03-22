@@ -77,15 +77,28 @@ footer img {
 	padding: 2px;
 	margin: 2px;
 	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
-	
+}
+.image_centree {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto; 
+}
+.colonne { /* colonne moitié de page */
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0;
+	padding-top: 0;
+	width: 49%;
+}
+
+/* nomenclature ------------------------------------------------------------------------------------------------------- */
 #nomenclature {
 	width: 750px;
 	margin: auto;
 }
-
 #nomenclature table {
 	border-collapse: collapse;
-	text-align: center;
+	text-align: left;
 	margin: 20px;
 }
 #nomenclature td, #nomenclature th {

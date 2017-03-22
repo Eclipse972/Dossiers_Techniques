@@ -2,7 +2,7 @@
 Ligne_nomenclature( 1, 1, 'Embase de cric',							'EN AW-2017',	'', 'Embase');
 Ligne_nomenclature( 2, 1, 'Corps de pompe',							'EN AW-2017',	'', 'Corps2pompe');
 Ligne_nomenclature( 3, 1, 'Piston de pompe',							'S 235',			'', 'piston_pompe');
-Ligne_nomenclature( 4, 2, 'Axe d&&apos;;articulation',			'S 235',			'', 'axe_articulation');
+Ligne_nomenclature( 4, 2, 'Axe d&apos;articulation',				'S 235',			'', 'axe_articulation');
 Ligne_nomenclature( 5, 4, 'Segment d&apos;arr&ecirc;t radial 6 x 0,7','',		'', 'segment_arret');
 Ligne_nomenclature( 6, 1, 'Articulation',								'EN AW-2017',	'', 'articulation');
 Ligne_nomenclature( 7, 1, 'Piston r&eacute;cepteur',				'EN AW-2017',	'', 'piston_recepteur');
@@ -13,7 +13,7 @@ Ligne_nomenclature(11, 4, '&Eacute;crou M4',							'',				'', 'ecrouM4');
 Ligne_nomenclature(12, 4, 'Rondelle M4',								'',				'', 'rondelleM4');
 Ligne_nomenclature(13, 4, 'Tirant',										'S 235',			'', 'tirant');
 Ligne_nomenclature(14, 1, 'Biellette',									'S 235',			'', 'biellette');
-Ligne_nomenclature(15, 1, 'Axe d&apos;;articulation de chape',	'',				'', 'axe_chape');
+Ligne_nomenclature(15, 1, 'Axe d&apos;articulation de chape',	'',				'', 'axe_chape');
 Ligne_nomenclature(16, 1, 'Pointeau',									'',				'Vis sans t&ecirc;te à bout plat HC M10-30 modifi&eacute;e', 'pointeau');
 Ligne_nomenclature(17, 1, 'Joint de pointeau de retour',			'',				'', 'joint2pointeau');
 Ligne_nomenclature(18, 1, 'Chandelle',									'EN AW-2017',	'', 'Chandelle');

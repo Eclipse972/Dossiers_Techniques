@@ -17,7 +17,7 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 ?>
 
 <h1>Nomenclature</h1>
-<p>Cliquez sur l&#145;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger.</p>
+<p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger.</p>
 <p>Attention: les images ne sont pas &agrave; l&#145;&eacute;chelle.</p>
 <div id="nomenclature">
 
