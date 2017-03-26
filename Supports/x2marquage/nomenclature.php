@@ -1,5 +1,5 @@
 <?php // nomenclature de la pince de marquage
-Ligne_nomenclature( 1, 1, 'Support de v&eacute;rin',							'','', 'this2verin');
+Ligne_nomenclature( 1, 1, 'Support de v&eacute;rin',							'','', 'support2verin');
 Ligne_nomenclature( 2, 1, 'Fond',													'','', 'fond');
 Ligne_nomenclature( 3, 1, 'Plaque avant',											'','', 'plaque_avant');
 Ligne_nomenclature( 4, 4, 'Goupile ISO 87-34-5x16-A',							'','', 'goupille');
