@@ -16,4 +16,3 @@ $this->Ajoute_item('nomenclature',		'Nomenclature');
 $this->Ajoute_item('entretien',			'Entretien du cric');
 $this->Ajoute_sous_item('pb_levage',	'Probl&egrave;me au levage');
 $this->Ajoute_sous_item('pb_descente',	'Probl&egrave;me à la descente');
-$this->Ajoute_item('remerciements',		'Remerciements');
