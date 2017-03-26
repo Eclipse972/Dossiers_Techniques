@@ -21,12 +21,12 @@ Ligne_nomenclature(19, 1,	'Plaque de support de vérin de cambrage',				'',					
 Ligne_nomenclature(20, 1,	'Plaque de support de vérin de bridage',				'',					'',						'Plaque_bridage');
 Ligne_nomenclature(21, 1,	'Cale',															'EN AW 2017',		'',						'Cale');
 Ligne_nomenclature(22, 4,	'Support de fixation',										'S 235',				'',						'Support2fixation');
-Ligne_nomenclature(23, 4,	'Bride d&#145;arbre',										'S 235',				'',						'Bride_darbre');
+Ligne_nomenclature(23, 4,	'Bride d&apos;arbre',										'S 235',				'',						'Bride_darbre');
 Ligne_nomenclature(24, 2,	'Tige de guidage',											'',					'',						'Tige2guidage');
 Ligne_nomenclature(25, 1,	'Plaque support de posoir',								'S 235',				'',						'Plaque_support2posoir');
-Ligne_nomenclature(26, 1,	'Support de vis d&#145;arr&ecirc;t',					'S 235',				'',						'Support2vis_darret');
-Ligne_nomenclature(27, 2,	'Support d&#145:axe d&#145;&eacute;querre',			'',					'',						'Support_daxe_dequerre');
-Ligne_nomenclature(28, 2,	'Axe d&#145;&eacute;querre',								'',					'',						'Axe_dequerre');
+Ligne_nomenclature(26, 1,	'Support de vis d&apos;arr&ecirc;t',					'S 235',				'',						'Support2vis_darret');
+Ligne_nomenclature(27, 2,	'Support d&apos:axe d&apos;&eacute;querre',			'',					'',						'Support_daxe_dequerre');
+Ligne_nomenclature(28, 2,	'Axe d&apos;&eacute;querre',								'',					'',						'Axe_dequerre');
 Ligne_nomenclature(29, 1,	'&Eacute;crou H M8',											'',					'ISO EN 4032',			'EcrouHM8');
 Ligne_nomenclature(30,20,	'Vis CHC M6-16-14',											'',					'',						'CHCM6-16-14');
 Ligne_nomenclature(31,16,	'Vis CHC M8-16-14',											'',					'',						'CHCM8-16-14');

@@ -1,5 +1,5 @@
 <h1>Fonctionnement</h1>
-<p>L&#145;ouverture et la fermeture se font manuellement.Le passage du fluide ou son blocage est assur&eacute; par une sphère trou&eacute;e. L&#145;utilisateur agit sur la manette qui va entraîner le sphère en rotation.</p>
+<p>L&apos;ouverture et la fermeture se font manuellement.Le passage du fluide ou son blocage est assur&eacute; par une sphère trou&eacute;e. L&apos;utilisateur agit sur la manette qui va entraîner le sphère en rotation.</p>
 
 <div class="colonne">
 <h2>Vanne ouverte</h2>

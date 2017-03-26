@@ -18,7 +18,7 @@
 		echo '<p>Erreur : ', $erreur, ' !</p>', "\n"; 
 		// prévoir du code qui stocke les erreurs
 	?>
-	<p><a href="index.php">Retour à l&#145;index</a></p>
+	<p><a href="index.php">Retour à l&apos;index</a></p>
 </section>
 
 <footer>

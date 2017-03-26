@@ -3,7 +3,7 @@ $this->Ajoute_item('MES',					'Mise en situation');
 $this->Ajoute_item('fonctionnement',	'Fonctionnement');
 $this->Ajoute_sous_item('monte',  		'mont&eacute;e');
 $this->Ajoute_sous_item('descend',  	'descente');
-$this->Ajoute_sous_item('precautions', 'pr&eacute;cautions d&#145;utilisation');
+$this->Ajoute_sous_item('precautions', 'pr&eacute;cautions d&apos;utilisation');
 $this->Ajoute_item('mvt',					'Mouvements du cric');
 $this->Ajoute_sous_item('mvt-face',		'de face');
 $this->Ajoute_sous_item('mvt-3d',		'en perspective');

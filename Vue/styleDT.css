@@ -69,16 +69,6 @@ footer img {
 	height:32px;
 	vertical-align:middle;
 }
-
-/* class et id ------------------------------------------------------------------------------------------------------- */
-.icone { /* formatage affichage */
-	height: 40px;
-	vertical-align: middle;
-	padding: 2px;
-	margin: 2px;
-	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
-}
-
 /* ---------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la navigation --------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------------------------- */
@@ -153,3 +143,24 @@ nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) ap
 #nomenclature td img { height: 90px; }
 
 #nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+
+/* class et id ------------------------------------------------------------------------------------------------------- */
+.icone { /* formatage affichage */
+	height: 40px;
+	vertical-align: middle;
+	padding: 2px;
+	margin: 2px;
+	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
+}
+.image_centree {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto; 
+}
+.colonne { /* colonne moitié de page */
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0;
+	padding-top: 0;
+	width: 49%;
+}
