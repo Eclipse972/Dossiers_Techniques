@@ -13,9 +13,15 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 <body>
 <div id="page">
 
-<div id="logo">	<?php $_SESSION[SUPPORT]->Image(); ?>				</div>
-<header>				<?php $_SESSION[SUPPORT]->Titre(); ?>				</header>
-<nav>					<?php	$_SESSION[SUPPORT]->Afficher_menu(); ?>	</nav>
+<div id="logo">
+	<?php $_SESSION[SUPPORT]->Image(); ?>
+</div>
+<header>
+	<?php $_SESSION[SUPPORT]->Titre(); ?>
+</header>
+<nav>
+	<?php	$_SESSION[SUPPORT]->Afficher_menu(); ?>
+</nav>
 
 <section>
 <?php	
