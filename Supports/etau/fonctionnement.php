@@ -1,3 +1,3 @@
 <h1>Fonctionnement</h1>
-<p>La semelle de l’étau (10) est fixée à un établi. L’utilisateur en tournant la poignée (09) autour de l’axe X fait translater le mors mobile (01) par rapport à la semelle (10) suivant l’axe X et provoque l’écartement ou le rapprochement du mors mobile (01) par rapport au mors fixe (02).</p>
+<p>La semelle de l&apos;&eacute;tau (10) est fix&eacute;e &agrave; un &eacute;tabli. L&apos;utilisateur en tournant la poign&eacute;e (09) autour de l&apos;axe X fait translater le mors mobile (01) par rapport &agrave; la semelle (10) suivant l&apos;axe X et provoque l&apos;&eacute;cartement ou le rapprochement du mors mobile (01) par rapport au mors fixe (02).</p>
 <?php Ajouter_image('fonctionnement.png', 'l&apos;&eacute;tau');

@@ -1,6 +1,0 @@
-section { text-align: center; }
-section img { /* image centrée sans texte sur les cotés */
-	display: block;
-	max-width: 790px;
-	max-height: 570px;
-	margin: 0 auto;

@@ -27,7 +27,7 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 <tr>
 <th>Rep</th>
 <th>Image</th>
-<th>D&eacute;signation<br>(x quantité)</th>
+<th>D&eacute;signation<br>(x quantit&eacute;)</th>
 <th>Mati&egrave;re</th>
 <th>Observations</th>
 </tr>

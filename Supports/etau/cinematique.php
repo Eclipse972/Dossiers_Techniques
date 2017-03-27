@@ -1,2 +1,2 @@
 <h1>Cin&eacute;matique</h1>
-<p>l&apos;&eacute;tau est compos&eacute; de quatre classes d&#145&eacute;quivalence et de quatre liaisons.</p>
+<p>l&apos;&eacute;tau est compos&eacute; de quatre classes d&apos;&eacute;quivalence et de quatre liaisons.</p>

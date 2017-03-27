@@ -6,5 +6,5 @@ Ligne_nomenclature(4, 2, 'Axe de rouleau',								'','', 'axe2rouleau');
 Ligne_nomenclature(5, 1, 'Molette',											'','', 'molette');
 Ligne_nomenclature(6, 1, 'Axe de molette',								'','', 'axe2molette');
 Ligne_nomenclature(7, 1, 'Axe de manoeuvre',								'','', 'axe2manoeuvre');
-Ligne_nomenclature(8, 1, 'Anneau &eacute;lastique d&#145;arbre',	'','', 'anneau_elastique');
+Ligne_nomenclature(8, 1, 'Anneau &eacute;lastique d&apos;arbre',	'','', 'anneau_elastique');
 Ligne_nomenclature(9, 1, 'Bouton de manoeuvre',							'','', 'bouton2manoeuvre');
