@@ -4,7 +4,7 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 	echo "<td>", $repere, "</td>\n";
 
 	if(!isset($fichier)) $fichier = $image;	// si le nom de fichier n'est pas précisé on prend le même que celui de l'image
-	echo '<td>', Lien_image_fichier($image, $fichier, $extension), '</td>',"\n";	// on ajoute le lien image-fichier
+	echo '<td>', Lien_image_fichier($image, $fichier, $extension, $designation), '</td>',"\n";	// on ajoute le lien image-fichier
 
 	echo "<td>", $designation;					// désignation
 	if($nombre > 1) echo ' (x', $nombre, ')';	// si plusieurs exemplaires alors on rajoute la quantité
