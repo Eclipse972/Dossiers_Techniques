@@ -1,4 +1,4 @@
-page en construction
+<p>page en construction</p>
 <p><b>FP</b> : Soulever une charge</p>
 <p><b>FC1</b> : Transformer l&apos;&eacute;nergie m&eacute;canique de l&apos;utilisateur</p>
 <p><b>FC2</b> : S&apos;adapter aux dimensions de la charge</p>
