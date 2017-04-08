@@ -3,7 +3,7 @@
 lors de la conception d&apos;un syst&egrave;me m&eacute;canique de freinage pour un nouveau produit.
 </p>
 <p>En effet la cin&eacute;matique de fonctionnement du frein a n&eacute;cessit&eacute; l&apos;obligation de cambrer
-les branches pour que les patins de frein  se trouvent dans le prolongement du ski 
+les branches pour que les patins de frein se trouvent dans le prolongement du ski 
 une fois la chaussure enclench&eacute;e dans la fixation (voir photos 1 et 2).
 </p>
 <?php Ajouter_image('photo1et2_mes.png', 'Photos 1 et 2');?>

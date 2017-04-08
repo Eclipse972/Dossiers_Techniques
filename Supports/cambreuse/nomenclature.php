@@ -31,7 +31,7 @@ Ligne_nomenclature(29, 1,	'&Eacute;crou H M8',											'',					'ISO EN 4032',	
 Ligne_nomenclature(30,20,	'Vis CHC M6-16-14',											'',					'',						'CHCM6-16-14');
 Ligne_nomenclature(31,16,	'Vis CHC M8-16-14',											'',					'',						'CHCM8-16-14');
 Ligne_nomenclature(32, 1,	'Support de but&eacute;e',									'C 40',				'',						'Support2butee');
-Ligne_nomenclature(33, 5,	'But&eacute;e de positionnement ext&eacuterieure',	'C 40',				'',						'Butte2positionnement_ext');
+Ligne_nomenclature(33, 5,	'But&eacute;e de positionnement ext&eacute;rieure','C 40',				'',						'Butte2positionnement_ext');
 Ligne_nomenclature(34, 2,	'Goupille 3 x 20',											'',					'ISO 8752',				'Goupille3x20');
 Ligne_nomenclature(35, 4,	'Vis t&ecirc;te frais&eacute;e M6-12',					'',					'ISO 10642',			'VisFSM6-12');
 Ligne_nomenclature(36, 1,	'Appui fil d=8 L = 150',									'',					'',						'Appui_fil_d8_L150');

@@ -7,4 +7,4 @@ $this->Ajoute_sous_item('position3',		'&Eacute;tape 3');
 $this->Ajoute_sous_item('caracteristiques',	'Caract&eacute;ristiques');
 $this->Ajoute_item('dessin_densemble',		'Dessin d&apos;ensemble');
 $this->Ajoute_item('nomenclature',			'Nomenclature');
-$this->Ajoute_item('eclate',				'&Eacute;clat&eacute;');
+$this->Ajoute_item('eclate',					'&Eacute;clat&eacute;');
