@@ -6,7 +6,7 @@
 define("SUPPORT",		0);
 define("ID_SUPPORT", 1);
 define("ID_PAGE",		2);
-define("NB_SUPPORT", 13);
+define("NB_SUPPORT", 14);
 
 function Extraire_identifiant($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe existe 
@@ -27,7 +27,8 @@ function Selectionne_support($id) {
 		case  9: return new Support('pince de marquage',				'pince',			'x2marquage',		'de la ','la ');
 		case 10: return new Support('pince de robot',					'pince',			'pince2robot',		'de la ','la ');
 		case 11: return new Support('pompe &agrave; palettes',		'pompe',			'pompeApalettes', 'de la ','la ');
-		case 12: return new Support('vanne sph&eacute;rique',			'vanne',			'vanne',				'de la ','la ');
+		case 12: return new Support('pr&eacute;henseur de culasse',	'prehenseur',	'prehenseur');
+		case 13: return new Support('vanne sph&eacute;rique',			'vanne',			'vanne',				'de la ','la ');
 		default: return null;	// mettre à jour la constante NB_SUPPORT pour toute modification
 	}
 }
