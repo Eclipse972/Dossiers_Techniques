@@ -11,6 +11,6 @@ function Lien_image_fichier($image, $fichier, $extension, $alt) {
 function Afficher_association($titre, $image, $fichier, $extension, $commentaire = '') {	// renvoie le code html pour afficher la page d'une association
 	echo "\n\t<h1>", $titre, "</h1>";
 	echo "\n\t<p>Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier au format eDrawing.</p>";	// message
-	echo "\n\t", Lien_image_fichier($image, $fichier, $extension );	// image cliquable
+	echo "\n\t", Lien_image_fichier($image, $fichier, $extension, $titre);	// image cliquable
 	echo "\n\t<p>".$commentaire.'</p>';	// commentaire éventuel sous l'image
 }
