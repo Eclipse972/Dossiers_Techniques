@@ -12,15 +12,11 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 
 <body>
 <div id="page">
+<div id="logo"><?php $_SESSION[SUPPORT]->Image(); ?></div>
+<header><?php $_SESSION[SUPPORT]->Titre(); ?></header>
 
-<div id="logo">
-	<?php $_SESSION[SUPPORT]->Image(); ?>
-</div>
-<header>
-	<?php $_SESSION[SUPPORT]->Titre(); ?>
-</header>
 <nav>
-	<?php	$_SESSION[SUPPORT]->Afficher_menu(); ?>
+<?php	$_SESSION[SUPPORT]->Afficher_menu(); ?>
 </nav>
 
 <section>
@@ -46,10 +42,13 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 		default:	// ce n'est pas un mot réservé
 			$_SESSION[SUPPORT]->Execute($script);
 	}
+echo "\n"; // retour à la ligne pour rendre le code plus présentable
 ?>
 </section>
 
-<footer> <?php	include 'pied2page.php'; ?></footer>
+<footer>
+<?php	include 'pied2page.php'; ?>
+</footer>
 
 </div>
 

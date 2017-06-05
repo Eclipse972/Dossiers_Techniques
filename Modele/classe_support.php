@@ -28,7 +28,7 @@ function Image()
 	{ echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
 
 function Titre()
-	{ echo '<p>Dossier technique ', $this->du, $this->nom, "</p>\n"; } 
+	{ echo '<p>Dossier technique ', $this->du, $this->nom, '</p>'; } 
 
 function Execute($script)
 	{ include $this->dossier.$script.'.php'; }
