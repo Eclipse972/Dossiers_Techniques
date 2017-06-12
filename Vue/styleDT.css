@@ -59,6 +59,12 @@ section a { text-decoration: none;}
 
 section a:hover { text-decoration: underline;}
 
+section img {
+	max-height: 700px;
+	max-width: 800px;
+	padding: 4px;
+}
+
 /* pied de page --------------------------------------------------------------------------------------------------- */
 footer {
 	text-align: center;
