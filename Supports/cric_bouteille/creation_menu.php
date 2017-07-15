@@ -1,5 +1,4 @@
 <?php // menu du cric bouteille
-$this->Ajoute_item('MES',				'Mise en situation');
 $this->Ajoute_item('fonctionnement','Fonctionnement');
 $this->Ajoute_sous_item('montee',	'Mont&eacute;e');
 $this->Ajoute_sous_item('descente',	'Descente');

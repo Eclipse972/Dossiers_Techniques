@@ -1,5 +1,4 @@
 <?php // menu du cric hydraulique
-$this->Ajoute_item('MES',					'Mise en situation');
 $this->Ajoute_item('fonctionnement',	'Fonctionnement');
 $this->Ajoute_sous_item('monte',  		'mont&eacute;e');
 $this->Ajoute_sous_item('descend',  	'descente');

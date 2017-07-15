@@ -9,7 +9,10 @@ var $id_sous_item_courant;	// idem
 function Menu($dossier) { // constructeur
 	$this->T_item = array();	// tableau vide
 	$this->T_page = array();	// tableau vide
-	$this->id_item_courant = 0;
+	// premier item par défaut. Il est inutile de la mettre dans le script creation_menu
+	$this->T_item[1] = 'Mise en situation';
+	$this->T_page[1] = 'MES';
+	$this->id_item_courant = 1;
 	$this->dossier = $dossier;
 	require $dossier.'creation_menu.php'; // charge les instructions pour créer le menu
 }

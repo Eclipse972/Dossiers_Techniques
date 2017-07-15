@@ -1,5 +1,4 @@
 <?php // menu du préhenseur de culasse
-$this->Ajoute_item('MES',								'Mise en situation');
 $this->Ajoute_sous_item('dispositif_transfert',	'Dispositif de transfert');
 $this->Ajoute_sous_item('transfert1',				'&eacute;tape 1');
 $this->Ajoute_sous_item('transfert2',				'&eacute;tape 2');

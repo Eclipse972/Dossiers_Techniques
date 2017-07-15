@@ -1,5 +1,4 @@
 <?php // menu de la cambreuse
-$this->Ajoute_item('MES',						'Mise ensituation');
 $this->Ajoute_item('fonctionnement',		'Fonctionnement');
 $this->Ajoute_sous_item('position1',		'&Eacute;tape 1');
 $this->Ajoute_sous_item('position2',		'&Eacute;tape 2');
