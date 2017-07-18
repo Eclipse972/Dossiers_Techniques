@@ -1,5 +1,5 @@
 <IfDefine Free>
-php 5
+php56 1
 </IfDefine>
 Options -Indexes
 <Files ".ht*">
