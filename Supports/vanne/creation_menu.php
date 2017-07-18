@@ -1,5 +1,5 @@
 <?php // menu de la vanne sphérique
 $this->Ajoute_item('fonctionnement',	'Fonctionnement');
-$this->Ajoute_item('dessin_densemble',	'Dessin d&apos;ensemble');
-$this->Ajoute_item('nomenclature',		'Nomenclature');
-$this->Ajoute_item('eclate',				'&Eacute;clat&eacute;');
+$this->Ajoute_dessin_densemble();
+$this->Ajoute_nomenclature();
+$this->Ajoute_eclate();

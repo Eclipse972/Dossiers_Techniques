@@ -22,6 +22,18 @@ function Ajoute_item($page, $texte) {
 	$this->T_item[$this->id_item_courant] = $texte;
 	$this->T_page[$this->id_item_courant] = $page;
 }
+// items  réservés
+function Ajoute_dessin_densemble() {
+	$this->Ajoute_item('dessin_densemble', 'Dessin d&apos;ensemble');
+}
+function Ajoute_eclate() {
+	$this->Ajoute_item('eclate', '&Eacute;clat&eacute;');
+}
+function Ajoute_nomenclature() {
+	$this->Ajoute_item('nomenclature', 'Nomenclature');
+}
+// fin des items réservés
+
 function Ajoute_sous_item($page, $texte) {
 	$this->id_sous_item_courant = 2*$this->id_sous_item_courant;
 	$this->T_item[$this->id_sous_item_courant] = $texte;

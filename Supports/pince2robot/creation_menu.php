@@ -1,4 +1,4 @@
 <?php // menu de la pince de robot
 $this->Ajoute_item('fonctionnement',	'Fonctionnement');
-$this->Ajoute_item('nomenclature',		'Nomenclature');
-$this->Ajoute_item('eclate',				'&Eacute;clat&eacute;');
+$this->Ajoute_nomenclature();
+$this->Ajoute_eclate();

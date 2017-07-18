@@ -11,7 +11,7 @@ $this->Ajoute_sous_item('pieuvre',		'diagramme des int&eacute;racteurs');
 $this->Ajoute_sous_item('fast_levage',	'FAST "Levage du v&eacute;hicule"');
 $this->Ajoute_sous_item('fast_depose',	'FAST "D&eacute;pose du v&eacute;hicule"');
 $this->Ajoute_item('eclate_cric',		'&Eacute;clat&eacute;');
-$this->Ajoute_item('nomenclature',		'Nomenclature');
+$this->Ajoute_nomenclature();
 $this->Ajoute_item('entretien',			'Entretien du cric');
 $this->Ajoute_sous_item('pb_levage',	'Probl&egrave;me au levage');
 $this->Ajoute_sous_item('pb_descente',	'Probl&egrave;me à la descente');
