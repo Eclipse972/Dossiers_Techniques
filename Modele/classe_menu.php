@@ -22,16 +22,17 @@ function Ajoute_item($page, $texte) {
 	$this->T_item[$this->id_item_courant] = $texte;
 	$this->T_page[$this->id_item_courant] = $page;
 }
-// items  réservés
-function Ajoute_dessin_densemble() {
-	$this->Ajoute_item('dessin_densemble', 'Dessin d&apos;ensemble');
+// items réservés
+function Ajoute_dessin_densemble()	{ $this->Ajoute_item('dessin_densemble', 'Dessin d&apos;ensemble'); }
+function Ajoute_eclate()			{ $this->Ajoute_item('eclate', '&Eacute;clat&eacute;'); }
+function Ajoute_nomenclature()		{ $this->Ajoute_item('nomenclature', 'Nomenclature'); }
+// futurs items
+function Ajoute_CE($eclate_CE, $T_nom_CE, $T_CE) {
+	// $eclate_CE: image montrant éclaté en CE
+	// $T_nom_CE: tableau contenant les nom des CE. 
+	// $T_CE: tableau contant le nom des association image fichier
 }
-function Ajoute_eclate() {
-	$this->Ajoute_item('eclate', '&Eacute;clat&eacute;');
-}
-function Ajoute_nomenclature() {
-	$this->Ajoute_item('nomenclature', 'Nomenclature');
-}
+function Ajoute_diagrammeA0() {}
 // fin des items réservés
 
 function Ajoute_sous_item($page, $texte) {
