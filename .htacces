@@ -1,5 +1,5 @@
 <IfDefine Free>
-php56 1
+AddType application/x-httpd-php5 .php
 </IfDefine>
 Options -Indexes
 <Files ".ht*">
