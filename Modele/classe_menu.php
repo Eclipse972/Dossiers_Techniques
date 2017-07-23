@@ -31,9 +31,13 @@ function Ajoute_CE($eclate_CE, $T_nom_CE, $T_CE) {
 	// $eclate_CE: image montrant éclaté en CE
 	// $T_nom_CE: tableau contenant les nom des CE. 
 	// $T_CE: tableau contant le nom des association image fichier
+	Ajoute_item('eclate_CE', 'Classes d&apos;&eacute;quivalence');
+	foreach($T_nom as $i => $nom){
+		Ajoute_sous_item('CE'.$i, $nom);
+	}
 }
-function Ajoute_diagrammeA0() {}
-// fin des items réservés
+function Ajoute_diagrammeA0($action, $MOE, $MOS, $energie, $configurtion, $reglage, $exploitation, $VA, $disposotof, $autres_sorties) {}
+// fin des items réservés,
 
 function Ajoute_sous_item($page, $texte) {
 	$this->id_sous_item_courant = 2*$this->id_sous_item_courant;
