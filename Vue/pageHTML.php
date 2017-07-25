@@ -32,6 +32,6 @@
 		default:	// ce n'est pas un mot réservé
 			$_SESSION[SUPPORT]->Execute($script);
 	}
-echo "\n"; // retour à la ligne pour rendre le code plus présentable
 ?>
+
 </section>

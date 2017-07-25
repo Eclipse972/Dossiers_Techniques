@@ -12,7 +12,7 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 	
 	echo "<td>", $matiere, "</td>\n";		// matière
 	echo "<td>", $observation, "</td>\n";	// observation	
-	echo "</tr>\n\n";							// fin de la ligne
+	echo "</tr>\n\n";						// fin de la ligne
 }	
 ?>
 
@@ -33,7 +33,9 @@ function Ligne_nomenclature($repere, $nombre, $designation, $matiere, $observati
 </tr>
 </thead>
 
-<tbody>	<?php $_SESSION[SUPPORT]->Afficher_nomenclature(); ?>	</tbody>
+<tbody>
+<?php $_SESSION[SUPPORT]->Afficher_nomenclature(); ?>
+</tbody>
 
 </table>
 </div>
