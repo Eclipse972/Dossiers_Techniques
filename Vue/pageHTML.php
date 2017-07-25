@@ -1,18 +1,5 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8" />
-<link rel="stylesheet" href="Vue/styleDT.css" />
-<title>Les Dossiers techniques de ChristopHe</title>
-<?php
-require 'Vue/image-fichier.php';	// fonctions pour l'affichage des associations image-fichier
-require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
-?>
-</head>
-
-<body>
-<div id="page">
 <div id="logo"><?php $_SESSION[SUPPORT]->Image(); ?></div>
+
 <header><?php $_SESSION[SUPPORT]->Titre(); ?></header>
 
 <nav>
@@ -20,7 +7,10 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 </nav>
 
 <section>
-<?php	
+<?php
+	require 'Vue/image-fichier.php';	// fonctions pour l'affichage des associations image-fichier
+	require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
+	
 	$script = (isset($_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]])) ? $_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]] : 'erreur 404'; //
 	// variables pour les associations image-fichier
 	$image = '';
@@ -45,13 +35,3 @@ require 'Vue/fonctions.php';		// fonctions diverses pour l'affichage
 echo "\n"; // retour à la ligne pour rendre le code plus présentable
 ?>
 </section>
-
-<footer>
-<?php	include 'pied2page.php'; ?>
-</footer>
-
-</div>
-
-</body>
-
-</html>

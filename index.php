@@ -4,7 +4,7 @@
 ************************************************************************************************************************************/
 // mes constantes
 define("SUPPORT",		0);
-define("ID_SUPPORT", 1);
+define("ID_SUPPORT",	1);
 define("ID_PAGE",		2);
 
 function Extraire_identifiant($param) {
@@ -26,7 +26,35 @@ $_SESSION[ID_SUPPORT] = $id;	// variable utilisée pour les liens
 if(isset($_SESSION[SUPPORT])) {
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 	$_SESSION[ID_PAGE] = ($_SESSION[SUPPORT]->Page_existe($id)) ? $id : 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
-	include 'Vue/pageHTML.php'; 	// inclut le code de la page
+	$code = 'pageHTML'; 	// code de la page
+	$CSS = 'styleDT';
 }
-else include 'Vue/listeDsupports.php'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
+else {
+	$code = 'listeDsupports'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
+	$CSS = 'style_liste';
+}
+//*************************************************************************************************************************************
 ?>
+
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />	
+	<?php echo '<link rel="stylesheet" href="Vue/',$CSS,'.css" />'; ?>
+	<title>Les Dossiers techniques de ChristopHe</title>
+</head>
+
+<body>
+<div id="page"><!-- contient tout l'affichage -->
+
+<?php include 'Vue/'.$code.'.php';  ?>
+
+<footer>
+<?php	include 'Vue/pied2page.php'; ?>
+</footer>
+
+</div>
+
+</body>
+
+</html>

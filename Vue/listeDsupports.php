@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8" />	
-	<link rel="stylesheet" href="Vue/style_liste.css" />
-	<title>Les Dossiers techniques de ChristopHe</title>
-</head>
-
-<body>
-<div id="page"><!-- contient tout l'affichage -->
-
 <header>		<p>Liste des dossiers techniques</p>	</header>
 
 <section>
@@ -17,7 +6,7 @@
 	<?php
 	$_SESSION[SUPPORT] = null; // on détruit le support en cours
 	$cache = 'Vue/listeDsupports.cache';
-	if(file_exists($cache) && time()-filemtime($cache) < 3600) {	// le cache existe et son âge est inférieur à ... en secondes
+	if(file_exists($cache) && time()-filemtime($cache) < 3600) {	// le cache existe et son âge est inférieur à ... secondes
 		readfile($cache);
 	}
 	else {
@@ -53,11 +42,3 @@
 	?>
 	</table>
 </section>
-
-<footer>
-<?php include 'pied2page.php'; ?>
-</footer>
-
-</div>
-</body>
-</html>
