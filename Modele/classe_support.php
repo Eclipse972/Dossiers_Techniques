@@ -15,12 +15,21 @@ function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// const
 	$this->le		= $le;
 	$this->menu		= new Menu($this->dossier);
 }
+// Associations image-fichier -----------------------------------------------------------------------------
+function Afficher_association($type) { // la page est composée d'une seul image avec un texte de présentation.
+	// les pièces de nomenclature ont un traitement différent bien quelles soient aussi des association image_fichier
+	switxh ($type) {
+		case 'dessin_densemble':
+		case 'eclate':
+		defaut :
+	}
+}
 function Afficher_dessin_densemble()
 	{ Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW'); }
 
 function Afficher_eclate()
 	{ Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$this->pti_nom, $this->pti_nom, '.EASM'); }
-
+// -------------------------------------------------------------------------------------------------------
 function Afficher_menu()
 	{ $this->menu->Afficher_menu($_SESSION[ID_PAGE]); }
 
