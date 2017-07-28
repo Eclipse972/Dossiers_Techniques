@@ -1,7 +1,7 @@
 <?php // nomenclature du cric hydraulique
-Ligne_nomenclature( 1, 1, 'Flasque gauche',							'','', 'flasque_gauche', 'flasque_gauche','EASM');
-Ligne_nomenclature( 2, 1, 'Flasque droit',							'','', 'flasque_droit', 'flasque_droit','EASM');
-Ligne_nomenclature( 3, 2, 'Roulette directrice assembl&eacute;e','','', 'roulette_directrice', 'roulette_directrice','EASM');
+Ligne_nomenclature( 1, 1, 'Flasque gauche',							'','', 'flasque_gauche', 'flasque_gauche','.EASM');
+Ligne_nomenclature( 2, 1, 'Flasque droit',							'','', 'flasque_droit', 'flasque_droit','.EASM');
+Ligne_nomenclature( 3, 2, 'Roulette directrice assembl&eacute;e','','', 'roulette_directrice', 'roulette_directrice','.EASM');
 Ligne_nomenclature( 4, 2, 'Roue avant',								'','', 'roue_avant');
 Ligne_nomenclature( 5, 2, 'Axe roues avant',							'','', 'axe_roues_avant');
 Ligne_nomenclature( 6, 2, 'Axe pivot v&eacute;rin',				'','', 'axe_pivot_verin');
