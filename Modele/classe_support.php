@@ -18,10 +18,10 @@ function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// const
 // Associations image-fichier -----------------------------------------------------------------------------
 function Afficher_association($type) { // la page est composée d'une seul image avec un texte de présentation.
 	// les pièces de nomenclature ont un traitement différent bien quelles soient aussi des association image_fichier
-	switxh ($type) {
+	switch($type) {
 		case 'dessin_densemble':
 		case 'eclate':
-		defaut :
+		default:
 	}
 }
 function Afficher_dessin_densemble()

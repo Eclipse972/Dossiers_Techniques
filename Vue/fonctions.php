@@ -18,7 +18,7 @@ function Ajouter_image($image, $alt, $class = null, $style = null)	{
 	echo '<img src="', Image($image,$_SESSION[SUPPORT]->dossier),'"';
 
 	if (isset($class)) echo ' class="', $class, '"'; // class
-	
+
 	if (isset($style)) echo ' style="', $style, '"'; // pour utiliser style il faut mettre class = null
 
 	echo ' alt="', $alt, '">';	// cette balise devient obligatoire
