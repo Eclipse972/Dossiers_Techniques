@@ -4,11 +4,11 @@
 <div class="colonne">
 <h2>Vanne ouverte</h2>
 <p>Lorsque la manette est orient&eacute;e parallèlement au tuyau le fluide peut passer.</p>
-<?php Ajouter_image('vanne_ouverte.png', 'vanne ouverte', null, 'width:300px'); ?>
+<?php Ajouter_image('vanne_ouverte', 'vanne ouverte', null, 'width:300px'); ?>
 </div>
 
 <div class="colonne">
 <h2>Vanne ferm&eacute;e</h2>
 <p>Lorsque la manette est orient&eacute;e perpendiculairement au tuyau le fluide ne peut plus passer.</p>
-<?php Ajouter_image('vanne_fermee.png', 'vanne ferm&eacute;e', null, 'width:300px'); ?>
+<?php Ajouter_image('vanne_fermee', 'vanne ferm&eacute;e', null, 'width:300px'); ?>
 </div>

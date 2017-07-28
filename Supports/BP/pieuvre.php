@@ -1,5 +1,5 @@
 <h1>Diagramme pieuvre</h1>
-<?php Ajouter_image('pieuvre.png', 'Diagramme pieuvre');?>
+<?php Ajouter_image('pieuvre', 'Diagramme pieuvre');?>
 <p>Fonctions du bouton-poussoir:</p>
 <ul>
 <li>Fp : fermer un circuit &eacute;lectrique lorsque l&apos;utilisateur appuie sur le bouton.</li>

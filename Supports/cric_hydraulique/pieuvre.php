@@ -1,5 +1,5 @@
 <h1>Diagramme des int&eacute;racteurs ou diagramme pieuvre</h1>
-<?php Ajouter_image('pieuvre.png', 'diagramme pieuvre'); ?>
+<?php Ajouter_image('pieuvre', 'diagramme pieuvre'); ?>
 
 <p>FP1: l&apos;utilisateur doit pouvoir lever son v&eacute;hicule</p>
 <p>FP2: l&apos;utilisateur doit pouvoir d&eacute;poser son v&eacute;hicule</p>
