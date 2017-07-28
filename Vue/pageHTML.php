@@ -8,22 +8,22 @@
 
 <section>
 <?php
+// si l'item existe on renvoie alors le nom du script sinon la page mise en situation 
+$script = (isset($_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]])) ?
+	$_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]]; : 'MES';	
+
 require 'Vue/fonctions.php'; // fonctions diverses pour l'affichage
-	
-if (isset($_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]])) {
-	$script = $_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]];
-	switch($script) { // on regarde si script est un mot réservé
-	case 'eclate':
-		$_SESSION[SUPPORT]->Afficher_eclate();
-		break;
-	case 'dessin_densemble':
-		$_SESSION[SUPPORT]->Afficher_dessin_densemble();
-		break;
-	case 'nomenclature':
-		include 'Vue/nomenclature.php';
-		break;
-	default: $_SESSION[SUPPORT]->Execute($script); // ce n'est pas un mot réservé
-	}	
-	} else  echo '<h1>Page introuvable</h1>'; // l'identifiant est erroné
+switch($script) { // on regarde si script est un mot réservé
+case 'eclate':
+	$_SESSION[SUPPORT]->Afficher_eclate();
+	break;
+case 'dessin_densemble':
+	$_SESSION[SUPPORT]->Afficher_dessin_densemble();
+	break;
+case 'nomenclature':
+	include 'Vue/nomenclature.php';
+	break;
+default: $_SESSION[SUPPORT]->Execute($script); // ce n'est pas un mot réservé
+}
 ?>
 </section>
