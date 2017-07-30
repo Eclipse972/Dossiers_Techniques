@@ -39,8 +39,11 @@ function Image()
 function Titre()
 	{ echo '<p>Dossier technique ', $this->du, $this->nom, '</p>'; } 
 
-function Execute($script)
-	{ include $this->dossier.$script.'.php'; }
+function Execute($script) {
+	if (file_exists($this->dossier.$script.'.php'))
+		include $this->dossier.$script.'.php';
+	else include 'Vue/en_construction.php';
+}
 
 function Afficher_nomenclature()
 	{ include $this->dossier.'nomenclature.php'; }	// ce fichier ne contient que des instructions Ligne_nomenclature
