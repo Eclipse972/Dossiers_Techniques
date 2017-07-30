@@ -18,7 +18,7 @@ Ligne_nomenclature(16, 1, 'Entretoise ep. 1.8',					'','', 'entretoise_ep1.8');
 Ligne_nomenclature(17, 1, 'Enclume',							'','', 'enclume');
 Ligne_nomenclature(18, 1, 'Plaque d&apos;appui',				'','', 'plaque_dappui');
 Ligne_nomenclature(19, 1, 'Poinçon',							'','', 'poincon');
-Ligne_nomenclature(20, 1, 'Roulement SNR 624EE',				'','', 'roulement',2,'.EASM');
+Ligne_nomenclature(20, 1, 'Roulement SNR 624EE',				'','', 'roulement','roulement','.EASM');
 Ligne_nomenclature(21,13, 'Vis FHC NF E 27-160M3X0,5-8-8.8',	'','', 'visFHC');
 Ligne_nomenclature(22, 8, 'Vis CZX NF E25-11 M3-0,5-10-4,8-1',	'','', 'visCZX');
 Ligne_nomenclature(23, 1, 'Vis sans t&ecirc;te &agrave; bout plat NF E-27-180 M3x0,5-8-3,3h','','', 'vis_sans_tete',6);
