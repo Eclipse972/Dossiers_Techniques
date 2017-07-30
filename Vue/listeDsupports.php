@@ -26,7 +26,8 @@
 		}
 		// en sortie on s'arrete sur une colonne autre que la dernière
 		if($No_colonne!=$NB_colonne-1) echo "\n\t", '</tr>', "\n";
-	
+		echo '<!-- cache généré le ', date("d/m/Y \à H:i:s"),' -->', "\n";
+		
 		$page = ob_get_contents(); // copie du contenu du tampon dans une chaîne
 		ob_end_clean(); // effacement du contenu du tampon et arrêt de son fonctionnement
 
