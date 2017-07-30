@@ -7,26 +7,26 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
 #logo, header, nav, section, footer { position: absolute; }
 
-#logo, header	{ height: 90px; }	/* première ligne		*/
-nav, #logo		{ width: 180px;
-						left: 0px }	/* première colonne	*/
+#logo, header	{	height: 90px; }	/* première ligne	*/
+nav, #logo		{	width: 180px;
+					left: 0px }		/* première colonne	*/
 
 nav, section {
- 	top: 95px;							/* deuxième ligne		*/
+ 	top: 95px;						/* deuxième ligne	*/
  	bottom: 65px;
 }
-header, section {						/* deuxième colonne	*/
+header, section {					/* deuxième colonne	*/
 	left: 190px;
 	right: 0px;
 }
-footer {									/* troisième ligne	*/
+footer {							/* troisième ligne	*/
 	left: 50px;
 	right: 50px;
 	bottom: 0;
 }
 
 /* le logo  ----------------------------------------------------------------------------------------------------------- */
-#logo { text-align: center; }	/* logo qui sera cliquable pour télécharger l'archive zip qui contient la maquette */ 
+#logo { text-align: center; }
 
 #logo img {
 	max-height: 80px;
@@ -130,25 +130,30 @@ nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) ap
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------------- */
-#nomenclature p { text-align: center; }
-
 #nomenclature {
-	width: 750px;
 	margin: auto;
-}
-
-#nomenclature table {
 	border-collapse: collapse;
-	text-align: center;
-	margin: 20px;
 }
+#nomenclature thead { display:block; }
+#nomenclature tbody {
+	display:block;
+	height:450px;
+	overflow-y:scroll;
+}
+#nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+
 #nomenclature td, #nomenclature th {
 	border-bottom: 1px solid black;
 	padding: 3px;
 }
-#nomenclature td img { height: 90px; }
+/* lagreur des colonnes */
+#nomenclature thead tr th:nth-child(1), #nomenclature tbody tr td:nth-child(1) { width:40px; text-align: center; }
+#nomenclature thead tr th:nth-child(2), #nomenclature tbody tr td:nth-child(2) { width:200px; text-align: center; }
+#nomenclature thead tr th:nth-child(3), #nomenclature tbody tr td:nth-child(3) { width:350px; }
+#nomenclature thead tr th:nth-child(4), #nomenclature tbody tr td:nth-child(4) { width:150px; }
+#nomenclature thead tr th:nth-child(5), #nomenclature tbody tr td:nth-child(5) { width:200px; }
 
-#nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+#nomenclature td img { height: 90px; }
 
 /* class et id ------------------------------------------------------------------------------------------------------- */
 .icone { /* formatage affichage */
