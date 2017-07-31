@@ -132,18 +132,21 @@ nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) ap
 /* -------------------------------------------------------------------------------------------------------------------- */
 #nomenclature {
 	margin: auto;
-	border-collapse: collapse;
+	border: 1px solid black;
 }
-#nomenclature thead { display:block; }
+#nomenclature thead {
+	display:block;
+	background-color: yellow;
+}
 #nomenclature tbody {
 	display:block;
 	height:450px;
 	overflow-y:scroll;
 }
-#nomenclature tbody tr:hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+#nomenclature tbody tr:nth-child(even) { background-color: #FFFFBB; }
+#nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
 
 #nomenclature td, #nomenclature th {
-	border-bottom: 1px solid black;
 	padding: 3px;
 }
 /* lagreur des colonnes */
