@@ -1,4 +1,10 @@
 <?php
+function Meme_lignee($parent, $descendant) {
+	while ($parent < $descendant)
+		$parent = $parent * 2; // doubler l'identifiant du parent donne celui de l'enfant
+	return ($parent == $descendant);
+}
+
 class Menu {	// menu sur deux niveaux
 var $dossier;	// dossier du support
 var $T_item;	// tableau associatif de la forme identifiant => texte pour les items des deux niveaux
@@ -50,16 +56,10 @@ function Afficher_menu($id_item_selectionne) {
 	echo '<ul>',"\n";
 	$id = 1;
 	while(isset($this->T_item[$id])) {
-		echo '<li>';
-		$id_parent = $id;	// on part de l'id courant
-		while($id_parent < $id_item_selectionne)
-			$id_parent = 2*$id_parent;		// doubler l'identifiant d'un parent donne l'identifiant de l'enfant
-			
-		if($id_parent == $id_item_selectionne) { // est ce qu'un des descendants et l'id sélectionné?
-			echo $this->T_item[$id];
-			$this->afficher_sous_menu($id, $id_item_selectionne);
-		}
-		else echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
+		// un menu est sélectionné si lui ùême ou un de ces descendants est sélectionné
+		echo (Meme_lignee($id, $id_item_selectionne)) ? '<li id="menu_selectionne">' : '<li>';					// balise li
+		echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';	// le lien
+		if(Meme_lignee($id, $id_item_selectionne)) $this->afficher_sous_menu($id, $id_item_selectionne);		// affichage du sous menu si besoin
 		echo '</li>',"\n";
 		$id = 2*$id+1;
 	}
