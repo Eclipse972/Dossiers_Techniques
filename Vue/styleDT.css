@@ -104,28 +104,28 @@ nav li a {
 	display: block;
 	background-color: red;
 }
-nav li, nav li a:hover, .menu_selectionne { background-color: maroon; } /* couleur du menu sélectionné (pas de lien) et celui sous la souris */
+nav li a:hover, #menu_selectionne a { background-color: maroon; } /* couleur du menu sélectionné (pas de lien) et celui sous la souris */
 
 nav li a:hover { text-decoration: none; } /* les liens survolés du menu et sous menu ne sont pas soulignés*/
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
-nav ul ul {
+#menu_selectionne ul {
 	margin: 0;
 	border: 1px solid maroon; /* meme couleur que le menu sélectionné */
 	background-color: white;
 }
-nav ul ul a {
+#menu_selectionne ul a {
 	display: block;
 	font-weight: normal;
 }
-nav ul ul li, nav ul ul a, nav ul ul a:hover {
+ #menu_selectionne ul li, #menu_selectionne ul a, #menu_selectionne ul a:hover {
 	color: black;				/* tous les textes du sous-menu sont en noir */
 	background-color: white;	/* sur fond blanc */
 	margin-bottom: 1px;
 }
-nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
+#menu_selectionne ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
 
-nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) apparaît en gras */
+#menu_selectionne ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) apparaît en gras */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
@@ -146,9 +146,8 @@ nav ul ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) ap
 #nomenclature tbody tr:nth-child(even) { background-color: #FFFFBB; }
 #nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
 
-#nomenclature td, #nomenclature th {
-	padding: 3px;
-}
+#nomenclature td, #nomenclature th { padding: 3px; }
+
 /* lagreur des colonnes */
 #nomenclature thead tr th:nth-child(1), #nomenclature tbody tr td:nth-child(1) { width:40px; text-align: center; }
 #nomenclature thead tr th:nth-child(2), #nomenclature tbody tr td:nth-child(2) { width:200px; text-align: center; }
