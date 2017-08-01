@@ -16,14 +16,7 @@ function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// const
 	$this->menu		= new Menu($this->dossier);
 }
 // Associations image-fichier -----------------------------------------------------------------------------
-function Afficher_association($type) { // la page est composée d'une seul image avec un texte de présentation.
-	// les pièces de nomenclature ont un traitement différent bien quelles soient aussi des association image_fichier
-	switch($type) {
-		case 'dessin_densemble':
-		case 'eclate':
-		default:
-	}
-}
+// la fonction Afficher_association est dans le script Vue/fonction.php
 function Afficher_dessin_densemble()
 	{ Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW'); }
 

@@ -31,8 +31,12 @@ function Lien_image_fichier($image, $fichier, $extension, $alt) {
 }
 
 function Afficher_association($titre, $image, $fichier, $extension, $commentaire = '') {	// renvoie le code html pour afficher la page d'une association
-	echo "\n<h1>", $titre, "</h1>";
-	echo "\n<p>Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier au format eDrawing.</p>";	// message
-	echo "\n", Lien_image_fichier($image, $fichier, $extension, $titre);	// image cliquable
-	echo "\n<p>".$commentaire."</p>\n";	// commentaire éventuel sous l'image
+	if ((Image($image, $_SESSION[SUPPORT]->dossier) == 'Vue/pas2photo.png') && (Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier)=='#'))
+		include 'Vue/en_construction.php'; // si ni l'image ni le fichier n'exist alors on affiche en construction
+	else {
+		echo "\n<h1>", $titre, "</h1>";
+		echo "\n<p>Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier au format eDrawing.</p>";	// message
+		echo "\n", Lien_image_fichier($image, $fichier, $extension, $titre);	// image cliquable
+		echo "\n<p>".$commentaire."</p>\n";	// commentaire éventuel sous l'image
+	}
 }
