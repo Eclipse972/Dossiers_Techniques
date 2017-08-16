@@ -6,9 +6,8 @@
 	<?php
 	$_SESSION[SUPPORT] = null; // on détruit le support en cours
 	$cache = 'Vue/listeDsupports.cache';
-	if(file_exists($cache) && time()-filemtime($cache) < 3600) {	// le cache existe et son âge est inférieur à ... secondes
+	if(file_exists($cache) && time()-filemtime($cache) < 3600)	// le cache existe et son âge est inférieur à ... secondes
 		readfile($cache);
-	}
 	else {
 		ob_start(); // ouverture du tampon
 		$No_colonne = -1;
@@ -21,7 +20,7 @@
 			$support = Selectionne_support($id);
 			echo $support->Image(); // image
 			echo $support->nom;		// nom du support
-			echo '</a></td>';			// fin de cellule
+			echo '</a></td>';		// fin de cellule
 			if($No_colonne==$NB_colonne-1) echo "\n\t", '</tr>';	// fin de ligne si dernière colonne atteinte
 		}
 		// en sortie on s'arrete sur une colonne autre que la dernière
