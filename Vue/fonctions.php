@@ -1,14 +1,11 @@
 <?php // quelques fonctions utiles pour l'affichage
 function Image($image,$dossier) { // recherche l'image dans le dossier spécifié. Si l'image n'existe pas on renvoie l'image de remplacement
-	//echo 'parmètres: ', $image, ' et ', $dossier;
-	$image = $dossier.'images/'.$image.'.png';
-	if (!file_exists($image))
+	if (!file_exists($image = $dossier.'images/'.$image.'.png'))
 		$image = 'Vue/pas2photo.png'; // si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return $image;
 }
 function Fichier($fichier,$extension,$dossier) { // recherche l'image dans le dossier spécifié. Si l'image n'existe pas on renvoie l'image de remplacement
-	$fichier = $dossier.'fichiers/'.$fichier.$extension;
-	if (!file_exists($fichier))
+	if (!file_exists($fichier = $dossier.'fichiers/'.$fichier.$extension))
 		$fichier = '#'; // si le fichier n'existe pas alors on remplace par #
 	return $fichier;
 }
