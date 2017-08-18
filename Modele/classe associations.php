@@ -1,9 +1,9 @@
 <?php
-class association_image_fichier {
+class Association_image_fichier {
 var $image;
 var $fichier;
 
-function association_image_fichier($dossier, $image, $fichier, $extension) { // constructeur
+function Association_image_fichier($dossier, $image, $fichier, $extension) { // constructeur
 	$this->image = Image($dossier, $image);
 	$this->fichier = Fichier($dossier, $fichier, $extension);
 }
@@ -19,5 +19,11 @@ function Afficher($titre, $image_alt, $commentaire = '') {
 		echo "\n", '<p>', $commentaire, '</p>', "\n";	// commentaire éventuel sous l'image
 	}
 }
+}
+// classes filles
+class Dessin_densemble extends Association_image_fichier {
+}
+
+class Eclate extends Association_image_fichier {
 }
 ?>
