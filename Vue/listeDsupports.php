@@ -9,13 +9,20 @@
 	if(file_exists($cache) && time()-filemtime($cache) < 3600)	// le cache existe et son âge est inférieur à ... secondes
 		readfile($cache);
 	else {
-		ob_start(); // ouverture du tampon
+		// connection à la base de données
+		
+		// requete pour sélectionner tous les supports. le résultat est mis dans un tableau
+		
+		// fermeture de la base de données
+		
 		$No_colonne = -1;
 		$NB_colonne = 4;
+		ob_start(); // ouverture du tampon
+		// construire le tableau pour l'affichage
 		for($id=0; $id<NB_SUPPORT; $id++) {
 			$No_colonne++;
 			$No_colonne = $No_colonne % $NB_colonne;
-			if($No_colonne==0)	echo "\n\t", '<tr>';							// nouvelle ligne
+			if($No_colonne==0)	echo "\n\t", '<tr>';					// nouvelle ligne
 			echo "\n\t\t", '<td><a href="index.php?support=', $id, '">';// lien
 			$support = Selectionne_support($id);
 			echo $support->Image(); // image
@@ -23,10 +30,9 @@
 			echo '</a></td>';		// fin de cellule
 			if($No_colonne==$NB_colonne-1) echo "\n\t", '</tr>';	// fin de ligne si dernière colonne atteinte
 		}
-		// en sortie on s'arrete sur une colonne autre que la dernière
+		// si en sortie on s'arrete sur une colonne autre que la dernière
 		if($No_colonne!=$NB_colonne-1) echo "\n\t", '</tr>', "\n";
 		echo '<!-- cache généré le ', date("d/m/Y \à H:i:s"),' -->', "\n";
-		
 		$page = ob_get_contents(); // copie du contenu du tampon dans une chaîne
 		ob_end_clean(); // effacement du contenu du tampon et arrêt de son fonctionnement
 
