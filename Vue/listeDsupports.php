@@ -5,6 +5,10 @@
 	<table>
 	<?php
 	$_SESSION[SUPPORT] = null; // on détruit le support en cours
+	
+	GererCache('Vue/sommaire', 'Vue/listeDsupports');
+	
+	/*
 	$cache = 'Vue/listeDsupports.cache';
 	if(file_exists($cache) && time()-filemtime($cache) < 3600)	// le cache existe et son âge est inférieur à ... secondes
 		readfile($cache);
@@ -46,7 +50,7 @@
 		}
 		
 		echo $page ; // affichage de la page
-	}
+	}*/
 	?>
 	</table>
 </section>

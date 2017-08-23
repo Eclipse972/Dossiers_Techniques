@@ -17,6 +17,7 @@ function Extraire_identifiant($param) {
 require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';
 require 'Controleur/BD.php';
+require 'Controleur/cache.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
