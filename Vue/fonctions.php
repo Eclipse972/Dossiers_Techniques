@@ -1,7 +1,9 @@
 <?php // quelques fonctions utiles pour l'affichage
+define (PAS2PHOTO, 'Vue/images/pas2photo.png');
+
 function Image($image,$dossier) { // recherche l'image dans le dossier spécifié. Si l'image n'existe pas on renvoie l'image de remplacement
 	if (!file_exists($image = $dossier.'images/'.$image.'.png'))
-		$image = 'Vue/pas2photo.png'; // si l'image n'existe pas alors on remplace par l'image "pas de photo"
+		$image = PAS2PHOTO; // si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return $image;
 }
 function Fichier($fichier,$extension,$dossier) { // recherche l'image dans le dossier spécifié. Si l'image n'existe pas on renvoie l'image de remplacement
@@ -28,7 +30,7 @@ function Lien_image_fichier($image, $fichier, $extension, $alt) {
 }
 
 function Afficher_association($titre, $image, $fichier, $extension, $commentaire = '') {	// renvoie le code html pour afficher la page d'une association
-	if ((Image($image, $_SESSION[SUPPORT]->dossier) == 'Vue/pas2photo.png') && (Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier)=='#'))
+	if ((Image($image, $_SESSION[SUPPORT]->dossier) == PAS2PHOTO) && (Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier)=='#'))
 		include 'Vue/en_construction.php'; // si ni l'image ni le fichier n'exist alors on affiche en construction
 	else {
 		echo "\n<h1>", $titre, "</h1>";
