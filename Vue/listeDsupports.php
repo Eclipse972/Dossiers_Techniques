@@ -10,10 +10,12 @@
 		readfile($cache);
 	else {
 		// connection à la base de données
+		include 'connexion.php';
 		
 		// requete pour sélectionner tous les supports. le résultat est mis dans un tableau
 		
 		// fermeture de la base de données
+		mysql_close($sql["connect"]);
 		
 		$No_colonne = -1;
 		$NB_colonne = 4;
