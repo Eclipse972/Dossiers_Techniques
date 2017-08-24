@@ -6,7 +6,6 @@
 define("SUPPORT",	0);
 define("ID_SUPPORT",1);
 define("ID_PAGE",	2);
-define("NB_SUPPORT",15);
 
 function Extraire_identifiant($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe existe 
