@@ -10,7 +10,6 @@
 <?php
 $script = $_SESSION[SUPPORT]->menu->T_page[$_SESSION[ID_PAGE]]; // le test pour savoir si le script existe est déjà fait dans index.php
 
-require 'Vue/fonctions.php'; // fonctions diverses pour l'affichage
 switch($script) { // on regarde si script est un mot réservé
 case 'eclate':
 	$_SESSION[SUPPORT]->Afficher_eclate();

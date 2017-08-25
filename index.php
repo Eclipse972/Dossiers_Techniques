@@ -15,13 +15,16 @@ function Extraire_identifiant($param) {
 
 require 'Modele/classe_support.php';
 require 'Modele/classe_menu.php';
-require 'Controleur/BD.php';
+require 'Modele/classe_BD.php';
+require 'Vue/fonctions.php';
 require 'Controleur/cache.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
 $id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-$_SESSION[SUPPORT] = Selectionne_support($id);
+$connexionBD = new base2donnees();
+$_SESSION[SUPPORT] = $connexionBD->Support($id);
+$connexionBD->Fermer();
 $_SESSION[ID_SUPPORT] = $id;	// variable utilisée pour les liens
 
 if(isset($_SESSION[SUPPORT])) {
