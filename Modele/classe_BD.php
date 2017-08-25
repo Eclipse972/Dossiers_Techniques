@@ -20,11 +20,9 @@ function Support($id) {
 }
 function Vignette($id) {
 	$support = Select_support($id); // lecture de la base
-	if ($support != null) {
-		$nom = $support[0];
-		$image='<img src="'.Image($support[1],'Supports/'.$support[2].'/').'" alt = "'.$nom.'">';
-		return $nom.$image;
-	} else return null;
+	if ($support != null)
+		return $support[0].'<img src="'.Image($support[1],'Supports/'.$support[2].'/').'" alt = "'.$nom.'">';
+	else return null;
 }
 
 }	// fin de la classe base de données
@@ -54,7 +52,7 @@ function Select_support($id) {
 
 // table articles
 function Select_article($id) {
-	switch($id) {
+	switch($id) {	//	  du			le
 	case 1: return array('du ',			'le ');
 	case 2: return array('de la ',		'la ');
 	case 3: return array('de l&apos;',	'l&apos;');
@@ -64,11 +62,11 @@ function Select_article($id) {
 
 // jointure support-article
 function Select_support_article($id) {
-	$reponse = Select_support($id);
+	$reponse = Select_support($id); // lecture de la base support
 	if ($reponse != null) {
 		$articles  = Select_article($reponse[3]);
-		$reponse[] = $articles[0];
-		$reponse[] = $articles[1];
+		$reponse[3] = $articles[0];
+		$reponse[4] = $articles[1];
 	}
 	return $reponse;
 }
