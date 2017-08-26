@@ -28,8 +28,10 @@ section h1 {
 }
 section a { text-decoration: none;}
 
-section table { margin: auto; }
-
+section table {
+	margin: auto;
+	text-align: center;
+}
 section td {
 	padding: 9px;
 }

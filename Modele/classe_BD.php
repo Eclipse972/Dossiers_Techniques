@@ -1,28 +1,30 @@
 <?php
 class base2donnees {
 var $serveur;
-var $login;
-var $mdp;
+var $identifiant;
+var $mot2passe;
 var $base;
-var $reponse;
+var $connexion;
+var $base_selectionnee;
 
 function base2donnees() { // constructeur
-	// ouverture et connexion à la base
+	include 'connexion.php';
+	// ouverture de la base
+	$this->connexion = mysql_connect($this->serveur, $this->identifiant, $this->mot2passe);
+	
+	// connexion à la base
+	//$this->base_selectionnee = mysql_select_db($this->base, $this->connexion);
 }
 function Fermer() {
 	// fermeture de la base de données
 }
 function Support($id) {
 	$support = Select_support_article($id); // lecture de la base
-	if ($support != null) 
-		return new Support($support[0], $support[1], $support[2], $support[3], $support[4]);
-	else return null;
+	return ($support != null) ? new Support($support[0], $support[1], $support[2], $support[3], $support[4]) : null;
 }
 function Vignette($id) {
 	$support = Select_support($id); // lecture de la base
-	if ($support != null)
-		return $support[0].'<img src="'.Image($support[1],'Supports/'.$support[2].'/').'" alt = "'.$nom.'">';
-	else return null;
+	return ($support != null) ? $support[0].'<br><img src="'.Image($support[1],'Supports/'.$support[2].'/').'" alt = "'.$support[0].'">': null;
 }
 
 }	// fin de la classe base de données

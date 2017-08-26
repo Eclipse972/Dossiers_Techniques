@@ -3,6 +3,7 @@ function GererCache($script, $cache, $delai = 2) {
 	//  $script sans l'extension .php
 	// $cache doit contenir le chemin d'accès sans l'extension. Par exemple  'Vue/listeDsupports(.cache)';
 	// délai en heures
+	$cache .= '.cache';
 	if(file_exists($cache) && time()-filemtime($cache) < $delai*3600)
 		readfile($cache);
 	else {
