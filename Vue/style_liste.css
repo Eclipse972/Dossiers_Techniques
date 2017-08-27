@@ -40,7 +40,7 @@ section td:hover {
 	background-color: #FFFFDD;	/* la case change de couleur au passage de la souris */
 }
 section img { /* formatage affichage */
-	height: 80px;
+	height: 100px;
 	vertical-align: middle;
 	padding: 2px;
 	margin: 2px;
