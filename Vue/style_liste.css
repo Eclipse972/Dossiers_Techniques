@@ -1,31 +1,4 @@
-#page { /* conteneur */
-	width: 1400px;
-	height: 800px;
-	margin: auto;
-}
-/* l'en-tete --------------------------------------------------------------------------------------------------- */
-header {
-	text-align: center;
-	background-color: #FFFFDD;
-}
-header p { 
-	padding: 20px;
-	font-family: arial;
-	font-size: 2.5em;
-}
-
 /* zone centrale --------------------------------------------------------------------------------------------------- */
-section {
-	width: 100%;
-	font-family: "comic sans MS";
-	padding: 3px;
-}
-section h1 {
-	text-decoration: underline;
-	text-align: center;
-	font-size: 1.4em;
-	margin-top: 0;
-}
 section a { text-decoration: none;}
 
 section table {
@@ -44,15 +17,4 @@ section img { /* formatage affichage */
 	vertical-align: middle;
 	padding: 2px;
 	margin: 2px;
-}
-/* pied de page --------------------------------------------------------------------------------------------------- */
-footer {
-	text-align: center;
-	font-family: "comic sans MS";
-	font-size: 0.8em;
-	border-top: 1px solid black;
-}
-footer img {
-	height:32px;
-	vertical-align:middle;
 }

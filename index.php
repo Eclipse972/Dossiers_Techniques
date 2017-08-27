@@ -43,7 +43,8 @@ else {
 <!doctype html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8" />	
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="Vue/commun.css" />
 	<?php echo '<link rel="stylesheet" href="Vue/',$CSS,'.css" />'; ?>
 	<title>Les Dossiers techniques de ChristopHe</title>
 </head>
