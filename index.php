@@ -8,7 +8,7 @@ define("ID_SUPPORT",1);
 define("ID_PAGE",	2);
 
 function Extraire_identifiant($param) {
-	if(isset($_GET[$param]))			// si le paramètre existe existe 
+	if(isset($_GET[$param]))			// si le paramètre existe 
 			return (int) $_GET[$param];	// alors il est converti en nombre entier
 	else	return -1;					// -1 est retourné sinon
 }
