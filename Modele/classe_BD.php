@@ -36,5 +36,7 @@ function ListeDvignettes() {
 	}
 	return $tableau;
 }
+function Nomenclature($support_ID) {
+}
 }
 ?>
