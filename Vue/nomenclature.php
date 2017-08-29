@@ -1,5 +1,6 @@
 <h1>Nomenclature</h1>
 <p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
+<p>Cliquez sur le nom de la mati&eagrave; pour trouver sa défition sur wikip&eacute;dia.</p>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 
 <table id="nomenclature">

@@ -7,6 +7,7 @@ var $dossier;
 var $du;
 var $le;
 var $menu;
+var $No_page;	// numéro de la page actuelle
 
 function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->id		= $id;
@@ -16,6 +17,7 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->du		= $du;
 	$this->le		= $le;
 	$this->menu		= new Menu($this->dossier);
+	$this->No_page	= 1;
 }
 // Associations image-fichier -----------------------------------------------------------------------------
 // la fonction Afficher_association est dans le script Vue/fonction.php
@@ -28,7 +30,7 @@ function Afficher_eclate() {
 }
 // -------------------------------------------------------------------------------------------------------
 function Afficher_menu()
-	{ $this->menu->Afficher_menu($_SESSION[ID_PAGE]); }
+	{ $this->menu->Afficher_menu($_SESSION[SUPPORT]->No_page); }
 
 function Image()
 	{ echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
@@ -44,7 +46,7 @@ function Execute($script) {
 
 function Afficher_nomenclature() {
 	$connexionBD = new base2donnees;	
-	$nomenclature = $connexionBD->Nomenclature($_SESSION[ID_SUPPORT], $this->dossier);
+	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id, $this->dossier);
 	$connexionBD->Fermer();
 	if (isset($nomenclature )) {
 		foreach ($nomenclature as $piece) $piece->Afficher();

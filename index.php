@@ -4,8 +4,6 @@
 ************************************************************************************************************************************/
 // mes constantes
 define("SUPPORT",	0);
-define("ID_SUPPORT",1);
-define("ID_PAGE",	2);
 
 function Extraire_identifiant($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe 
@@ -26,11 +24,10 @@ $id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoy�
 $connexionBD = new base2donnees();
 $_SESSION[SUPPORT] = $connexionBD->Support($id);
 $connexionBD->Fermer();
-$_SESSION[ID_SUPPORT] = $id;	// variable utilisée pour les liens
 
 if(isset($_SESSION[SUPPORT])) {
 	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-	$_SESSION[ID_PAGE] = ($_SESSION[SUPPORT]->Page_existe($id)) ? $id : 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
+	$_SESSION[SUPPORT]->No_page = ($_SESSION[SUPPORT]->Page_existe($id)) ? $id : 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
 	$code = 'pageHTML'; // code de la page
 	$CSS = 'styleDT';
 }

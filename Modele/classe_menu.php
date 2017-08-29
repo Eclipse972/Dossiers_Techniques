@@ -58,7 +58,7 @@ function Afficher_menu($id_item_selectionne) {
 	while(isset($this->T_item[$id])) {
 		// un menu est sélectionné si lui ùême ou un de ces descendants est sélectionné
 		echo (Meme_lignee($id, $id_item_selectionne)) ? '<li id="menu_selectionne">' : '<li>';					// balise li
-		echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';	// le lien
+		echo '<a href="index.php?support=',$_SESSION[SUPPORT]->id,'&page=',$id,'">',$this->T_item[$id],'</a>';	// le lien
 		if(Meme_lignee($id, $id_item_selectionne)) $this->afficher_sous_menu($id, $id_item_selectionne);		// affichage du sous menu si besoin
 		echo '</li>',"\n";
 		$id = 2*$id+1;
@@ -77,7 +77,7 @@ function Afficher_sous_menu($id_racine,$id_item_selectionne) {
 		echo "\t",'<li>';
 		if($id == $id_item_selectionne)
 			 echo $this->T_item[$id];
-		else echo '<a href="index.php?support=',$_SESSION[ID_SUPPORT],'&page=',$id,'">',$this->T_item[$id],'</a>';
+		else echo '<a href="index.php?support=',$_SESSION[SUPPORT]->id,'&page=',$id,'">',$this->T_item[$id],'</a>';
 		echo '</li>',"\n";
 		$id = 2*$id;
 	}
