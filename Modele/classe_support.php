@@ -7,7 +7,7 @@ var $du;
 var $le;
 var $menu;
 
-function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// constructeur
+function Support($nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->nom		= $nom;
 	$this->pti_nom	= $pti_nom;
 	$this->dossier	= 'Supports/'.$dossier.'/';
