@@ -14,6 +14,7 @@ function Extraire_identifiant($param) {
 }
 
 require 'Modele/classe_support.php';
+require 'Modele/classe_associations.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_BD.php';
 require 'Vue/fonctions.php';

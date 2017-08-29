@@ -37,6 +37,15 @@ function ListeDvignettes() {
 	return $tableau;
 }
 function Nomenclature($support_ID) {
+	$tableau = null;
+	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
+					FROM Supports, Pieces, Materiaux
+					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID='.$support_ID.' ORDER BY repere ASC');
+	while ($ligne = mysql_fetch_assoc($this->resultat)) {
+		$ligne['extension'] = ($ligne['extension']>0) ? '.EASM' : '.EPRT'; // la valeur numérique pour l'extension est remplacée par la version texte
+		$tableau[] = new Piece($ligne);
+	}
+	return $tableau;
 }
 }
 ?>

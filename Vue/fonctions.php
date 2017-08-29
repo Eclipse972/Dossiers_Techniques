@@ -25,17 +25,14 @@ function Ajouter_image($image, $alt, $class = null, $style = null)	{
 
 // quelques fonctions pour gérer les associations image-fichier
 
-function Lien_image_fichier($image, $fichier, $extension, $alt) {
-	return '<a href="'.Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier).'"><img src="'.Image($image, $_SESSION[SUPPORT]->dossier).'" alt = "'.$alt.'"></a>';
-}
-
 function Afficher_association($titre, $image, $fichier, $extension, $commentaire = '') {	// renvoie le code html pour afficher la page d'une association
 	if ((Image($image, $_SESSION[SUPPORT]->dossier) == PAS2PHOTO) && (Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier)=='#'))
 		include 'Vue/en_construction.php'; // si ni l'image ni le fichier n'exist alors on affiche en construction
 	else {
 		echo "\n<h1>", $titre, "</h1>";
 		echo "\n<p>Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier au format eDrawing.</p>";	// message
-		echo "\n", Lien_image_fichier($image, $fichier, $extension, $titre);	// image cliquable
+		echo "\n",'<a href="'.Fichier($fichier,$extension,$_SESSION[SUPPORT]->dossier).'">';	// lien vers le fichier
+		echo '<img src="'.Image($image, $_SESSION[SUPPORT]->dossier).'" alt = "'.$alt.'"></a>'; // image cliquable
 		echo "\n<p>".$commentaire."</p>\n";	// commentaire éventuel sous l'image
 	}
 }

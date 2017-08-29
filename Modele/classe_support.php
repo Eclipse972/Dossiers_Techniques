@@ -17,11 +17,13 @@ function Support($nom, $pti_nom, $dossier, $du  = 'du ', $le = 'le ') {	// const
 }
 // Associations image-fichier -----------------------------------------------------------------------------
 // la fonction Afficher_association est dans le script Vue/fonction.php
-function Afficher_dessin_densemble()
-	{ Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW'); }
+function Afficher_dessin_densemble() {
+	Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW');
+}
 
-function Afficher_eclate()
-	{ Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$this->pti_nom, $this->pti_nom, '.EASM'); }
+function Afficher_eclate() {
+	Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$this->pti_nom, $this->pti_nom, '.EASM');
+}
 // -------------------------------------------------------------------------------------------------------
 function Afficher_menu()
 	{ $this->menu->Afficher_menu($_SESSION[ID_PAGE]); }
@@ -38,8 +40,14 @@ function Execute($script) {
 	else include 'Vue/en_construction.php';
 }
 
-function Afficher_nomenclature()
-	{ include $this->dossier.'nomenclature.php'; }	// ce fichier ne contient que des instructions Ligne_nomenclature
+function Afficher_nomenclature() {
+	$connexionBD = new base2donnees;	
+	$nomenclature = $connexionBD->Nomenclature($_SESSION[ID_SUPPORT], $this->dossier);
+	$connexionBD->Fermer();
+	if (isset($nomenclature )) {
+		foreach ($nomenclature as $piece) $piece->Afficher();
+	} else echo '<h1>Erreur Nomenclature</h1>';
+}
 
 function Page_existe($id)
 	{ return isset($this->menu->T_page[$id]); }
