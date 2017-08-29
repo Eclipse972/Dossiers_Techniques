@@ -22,11 +22,13 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 // Associations image-fichier -----------------------------------------------------------------------------
 // la fonction Afficher_association est dans le script Vue/fonction.php
 function Afficher_dessin_densemble() {
-	Afficher_association('Dessin d&apos;ensemble', 'dessin_'.$this->pti_nom, $this->pti_nom, '.EDRW');
+	$page = new Dessin_densemble($this->dossier, $this->pti_nom,$this->pti_nom);
+	$page->Afficher();
 }
 
 function Afficher_eclate() {
-	Afficher_association('&Eacute;clat&eacute;', 'eclate_'.$this->pti_nom, $this->pti_nom, '.EASM');
+	$page = new Eclate($this->dossier, $this->pti_nom, $this->pti_nom);
+	$page->Afficher();
 }
 // -------------------------------------------------------------------------------------------------------
 function Afficher_menu()
@@ -46,7 +48,7 @@ function Execute($script) {
 
 function Afficher_nomenclature() {
 	$connexionBD = new base2donnees;	
-	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id, $this->dossier);
+	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id);
 	$connexionBD->Fermer();
 	if (isset($nomenclature )) {
 		foreach ($nomenclature as $piece) $piece->Afficher();
