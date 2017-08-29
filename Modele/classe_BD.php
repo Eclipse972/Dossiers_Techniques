@@ -24,7 +24,7 @@ function Support($id) {
 	$this->Requete('SELECT nom, pti_nom, dossier, du, le FROM Supports, Articles WHERE article_ID=Articles.ID AND Supports.ID='.$id);
 	if (mysql_num_rows($this->resultat)>0) {
 		$ligne = mysql_fetch_assoc($this->resultat);
-		return new Support($ligne['nom'], $ligne['pti_nom'], $ligne['dossier'], $ligne['du'], $ligne['le']);
+		return new Support($id, $ligne['nom'], $ligne['pti_nom'], $ligne['dossier'], $ligne['du'], $ligne['le']);
 	} else return null;
 }
 function ListeDvignettes() {

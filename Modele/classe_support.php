@@ -1,5 +1,6 @@
 <?php
 class Support {
+var $id;
 var $nom;		// nom complet
 var $pti_nom;	// nom raccourci utilisable comme nom de fichier (pas de caractère accentué, ni d'espace, ...)
 var $dossier;
@@ -7,7 +8,8 @@ var $du;
 var $le;
 var $menu;
 
-function Support($nom, $pti_nom, $dossier, $du, $le) {	// constructeur
+function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
+	$this->id		= $id;
 	$this->nom		= $nom;
 	$this->pti_nom	= $pti_nom;
 	$this->dossier	= 'Supports/'.$dossier.'/';
