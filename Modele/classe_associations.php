@@ -54,7 +54,7 @@ function Piece($T_param) {  // constructeur utilisant le résultat de la requêt
 	$this->repere = $T_param['repere'];
 	$this->quantité = $T_param['quantité'];
 	$this->matiere = $T_param['matiere'];
-	$this->URL_matiere =  $T_param['URL_matiere'];
+	$this->URL_matiere =  $T_param['URL_wiki'];
 	$this->observation =  $T_param['observation'];
 	
 	$T_param['dossier'] = 'Supports/'.$T_param['dossier'].'/';
@@ -74,7 +74,7 @@ function Afficher() {
 	echo '</td>',"\n";										// on ferme la cellule
 	
 	echo '<td>';	// matière
-	if($this->matiere!='')	echo '<a href=https://fr.wikipedia.org/wiki/',$this->URL_matiere,'">',$this->matiere,'</a>';
+	if($this->matiere!='')	echo '<a href=https://fr.wikipedia.org/wiki/',$this->URL_matiere,'" target="_blank">',$this->matiere,'</a>';
 	echo '</td>',"\n";
 
 	echo '<td>', $this->observation, '</td>',"\n";	// observation	
