@@ -15,7 +15,6 @@ header p {
 }
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
-	width: 100%;
 	font-family: "comic sans MS";
 	padding: 3px;
 	overflow: auto;

@@ -8,7 +8,7 @@
 
 <section>
 <?php
-$script = $_SESSION[SUPPORT]->menu->T_page[$_SESSION[SUPPORT]->No_page]; // le test pour savoir si le script existe est déjà fait dans index.php
+$script = $_SESSION[SUPPORT]->Script(); // le test pour savoir si le script existe est déjà fait dans index.php
 
 switch($script) { // on regarde si script est un mot réservé
 case 'eclate':

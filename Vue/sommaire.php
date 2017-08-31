@@ -6,8 +6,7 @@ $ListeDvignettes = $connexionBD->ListeDVignettes();
 while (isset($ListeDvignettes[$id])) {
 	$No_colonne = $id % $NB_colonne;
 	if($No_colonne==0)	echo "\n\t", '<tr>'; // nouvelle ligne
-	//						lien								identifiant					vignette = nom + image			fin de cellule
-	echo "\n\t\t", '<td><a href="index.php?support=', $ListeDvignettes[$id]['ID'], '">', $ListeDvignettes[$id]['vignette'],'</a></td>';
+	echo "\n\t\t", '<td>', $ListeDvignettes[$id],'</td>';
 	if($No_colonne==$NB_colonne-1) echo "\n\t", '</tr>';	// fin de ligne si dernière colonne atteinte
 	$id++;
 }

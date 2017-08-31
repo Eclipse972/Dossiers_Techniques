@@ -26,8 +26,16 @@ $_SESSION[SUPPORT] = $connexionBD->Support($id);
 $connexionBD->Fermer();
 
 if(isset($_SESSION[SUPPORT])) {
-	$id = Extraire_identifiant('page');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-	$_SESSION[SUPPORT]->No_page = ($_SESSION[SUPPORT]->Page_existe($id)) ? $id : 1;	// si la page n'existe pas ou est inconnue on prend la page 1 par défaut
+	$item		= Extraire_identifiant('item');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+	$sous_item	= Extraire_identifiant('sous_item');
+	if($sous_item == -1) $sous_item++; // si sous-item absent on met à 0
+	if ($_SESSION[SUPPORT]->Page_existe($item,$sous_item)) { // si la page n'existe pas ou est inconnue on prend la page mise en situation
+		$_SESSION[SUPPORT]->item  = $item;
+		$_SESSION[SUPPORT]->sous_item  = $sous_item;
+	} else {
+		$_SESSION[SUPPORT]->item  = 1;
+		$_SESSION[SUPPORT]->sous_item  = 0;
+	}
 	$code = 'pageHTML'; // code de la page
 	$CSS = 'styleDT';
 }
