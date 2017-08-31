@@ -16,7 +16,6 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->dossier	= 'Supports/'.$dossier.'/';
 	$this->du		= $du;
 	$this->le		= $le;
-	$this->menu		= new Menu($this->dossier);
 	$this->item		= 1; // N° item actuel
 	$this->sous_item= 0; // N° sous-item actuel
 }
@@ -32,8 +31,7 @@ function Afficher_eclate() {
 	$page->Afficher();
 }
 // -------------------------------------------------------------------------------------------------------
-function Afficher_menu() {
-	//$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_page);
+function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_page);
 	$connexionBD	= new base2donnees;
 	$T_items		= $connexionBD->Liste_item($this->id);
 	$T_sous_items 	= $connexionBD->Liste_sous_item($this->id,$this->item);
@@ -41,18 +39,19 @@ function Afficher_menu() {
 	echo '<ul>',"\n";
 	$i=1;
 	while (isset($T_items[$i])) {	// affichage du menu
-		echo ($i==$this->item) ? '<li id="menu_selectionne">' : '<li>';	
+		echo ($i==$this->item) ? '<li id="item_selectionne">' : '<li>';	
 		echo $T_items[$i]; // lien
 		if ($i==$this->item) { // affichage du sous-menu?
-			echo '<ul>',"\n";
+			echo "\n\t",'<ul>',"\n";
 			$j=1;
 			while (isset($T_sous_items[$j])) {
-				echo ($j==$this->sous_item) ? '<li id="menu_selectionne">' : '<li>';
+				echo"\t";
+				echo ($j==$this->sous_item) ? '<li id="sous_item_selectionne">' : '<li>';
 				echo $T_sous_items[$j]; // lien
 				echo '</li>',"\n";
 				$j++;
 			}
-			echo '</ul>',"\n";
+			echo "\t",'</ul>',"\n";
 		}
 		$i++;
 		echo '</li>',"\n";

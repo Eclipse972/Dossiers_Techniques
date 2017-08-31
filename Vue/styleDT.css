@@ -47,8 +47,6 @@ nav {
 }
 nav a { text-decoration: none; } /* aucun lien n'est souligné */
 
-nav a:hover { text-decoration: underline; }/* les liens hors ceux du menu sont soulignés au passage de la souris */
-
 nav ul {
 	list-style-type: none;
 	margin-bottom: 30px;
@@ -56,39 +54,37 @@ nav ul {
 	padding: 0;
 }
 /* menu --------------------------------------------------------------------------------------------------- */
-nav li, nav li a { color: white; } /* tous les items du menu sont écrits en blanc*/
-
 nav li {
 	line-height: 30px;
 	margin-bottom: 5px;
-}
-
-nav li a {
-	display: block;
 	background-color: red;
 }
-nav li a:hover, #menu_selectionne a { background-color: maroon; } /* couleur du menu sélectionné (pas de lien) et celui sous la souris */
+nav li a {
+	display: block;
+	color: white;   /* tous les items du menu sont écrits en blanc*/
+}
 
-nav li a:hover { text-decoration: none; } /* les liens survolés du menu et sous menu ne sont pas soulignés*/
+nav li:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
-#menu_selectionne ul {
+nav ul ul {
 	margin: 0;
 	border: 1px solid maroon; /* meme couleur que le menu sélectionné */
 	background-color: white;
 }
-#menu_selectionne ul a {
+nav ul ul a {
 	display: block;
+	color: black; 	/* tous les textes du sous-menu sont en noir */
 	font-weight: normal;
-}
- #menu_selectionne ul li, #menu_selectionne ul a, #menu_selectionne ul a:hover {
-	color: black;				/* tous les textes du sous-menu sont en noir */
 	background-color: white;	/* sur fond blanc */
 	margin-bottom: 1px;
 }
-#menu_selectionne ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
 
-#menu_selectionne ul li { font-weight: bold; } /* un sous-item sélectionné (sans lien) apparaît en gras */
+nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
+
+#sous_item_selectionne a { font-weight:bold; }
+
+/* un sous-item sélectionné (sans lien) apparaît en gras */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
