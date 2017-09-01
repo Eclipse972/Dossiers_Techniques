@@ -45,7 +45,10 @@ nav {
 	text-align: center;
 	font-family: arial;
 }
-nav a { text-decoration: none; } /* aucun lien n'est souligné */
+nav a {
+	display: block;
+	text-decoration: none; /* aucun lien n'est souligné */
+}
 
 nav ul {
 	list-style-type: none;
@@ -59,32 +62,25 @@ nav li {
 	margin-bottom: 5px;
 	background-color: red;
 }
-nav li a {
-	display: block;
-	color: white;   /* tous les items du menu sont écrits en blanc*/
-}
+nav li a { color: white; } /* tous les items du menu sont écrits en blanc*/
 
-nav li:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
+nav a:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
 nav ul ul {
 	margin: 0;
 	border: 1px solid maroon; /* meme couleur que le menu sélectionné */
-	background-color: white;
+	background-color: white; /*le fond entre les boutons doit être */
 }
 nav ul ul a {
-	display: block;
 	color: black; 	/* tous les textes du sous-menu sont en noir */
 	font-weight: normal;
 	background-color: white;	/* sur fond blanc */
 	margin-bottom: 1px;
 }
-
 nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
 
-#sous_item_selectionne a { font-weight:bold; }
-
-/* un sous-item sélectionné (sans lien) apparaît en gras */
+#sous_item_selectionne a { font-weight:bold; } /* un sous-item sélectionné apparaît en gras */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
