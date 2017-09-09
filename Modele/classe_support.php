@@ -20,7 +20,6 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->sous_item= 0; // N° sous-item actuel
 }
 // Associations image-fichier -----------------------------------------------------------------------------
-// la fonction Afficher_association est dans le script Vue/fonction.php
 function Afficher_dessin_densemble() {
 	$page = new Dessin_densemble($this->dossier, $this->pti_nom,$this->pti_nom);
 	$page->Afficher();
@@ -41,11 +40,11 @@ function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_p
 	while (isset($T_items[$i])) {	// affichage du menu
 		echo ($i==$this->item) ? '<li id="item_selectionne">' : '<li>';	
 		echo $T_items[$i]; // lien
-		if ($i==$this->item) { // affichage du sous-menu?
+		if (($i==$this->item) && isset($T_sous_items)) { // si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
 			echo "\n\t",'<ul>',"\n";
 			$j=1;
 			while (isset($T_sous_items[$j])) {
-				echo"\t";
+				echo "\t";
 				echo ($j==$this->sous_item) ? '<li id="sous_item_selectionne">' : '<li>';
 				echo $T_sous_items[$j]; // lien
 				echo '</li>',"\n";
