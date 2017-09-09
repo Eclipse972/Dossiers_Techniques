@@ -60,8 +60,8 @@ class Piece extends Association_image_fichier {
 		$this->observation =  $T_param['observation'];
 
 		$T_param['dossier'] = 'Supports/'.$T_param['dossier'].'/';
- 
-		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $this->nom, $T_param['fichier'], $T_param['extension']); // constructeur de la classe mère.
+
+		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $T_param['fichier'], $T_param['extension']); // constructeur de la classe mère.
 		// Rem: l'image et le fichier doivent porter le même nom. image_alt = nom de la pièce
 	}
 	function Afficher() {
