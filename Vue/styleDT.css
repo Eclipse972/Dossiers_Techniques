@@ -64,7 +64,7 @@ nav li a {
 	color: white; /* tous les items du menu sont écrits en blanc*/
 }
 
-nav li a:hover, #item_selectionne a { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
 nav ul ul {
