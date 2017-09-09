@@ -36,7 +36,7 @@ function ListeDvignettes() {
 					ORDER BY nom ASC');
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
 		$lien = '<a href="index.php?support='.$ligne['ID'].'">';
-		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/').'" alt = "'.$ligne['nom'].'">';
+		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/').'" alt = "'.$ligne['nom'].'">';
 		$tableau[] = $lien.$ligne['nom'].'<br>'.$image.'</a>';
 	}
 	return $tableau;

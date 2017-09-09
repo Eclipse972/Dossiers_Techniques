@@ -2,7 +2,7 @@
 define (PAS2PHOTO, 'Vue/images/pas2photo.png');
 
 function Image($image,$dossier) { // recherche l'image dans le dossier spécifié. Si l'image n'existe pas on renvoie l'image de remplacement
-	if (!file_exists($image = $dossier.'images/'.$image.'.png'))
+	if (!file_exists($image = $dossier.$image.'.png'))
 		$image = PAS2PHOTO; // si l'image n'existe pas alors on remplace par l'image "pas de photo"
 	return $image;
 }
@@ -14,7 +14,7 @@ function Fichier($fichier,$extension,$dossier) { // recherche l'image dans le do
 
 function Ajouter_image($image, $alt, $class = null, $style = null)	{
 	// ajoute l'image (sans l'extension) du support courant. Cette images se trouve dans le répertoire /images.
-	echo '<img src="', Image($image,$_SESSION[SUPPORT]->dossier),'"';
+	echo '<img src="', Image($image,$_SESSION[SUPPORT]->dossier.'images/'),'"';
 
 	if (isset($class)) echo ' class="', $class, '"'; // class
 

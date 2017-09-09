@@ -7,7 +7,7 @@ class Association_image_fichier {
 
 	function Association_image_fichier($dossier, $image, $fichier, $extension, $titre = '') { // constructeur
 		// les nom de l'image et du fichier ne sont pas forcément identiques
-		$this->image	= Image($image, $dossier);
+		$this->image	= Image($image, $dossier.'images/');
 		$this->fichier	= Fichier($fichier, $extension, $dossier);
 		$this->titre	= $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 	}
