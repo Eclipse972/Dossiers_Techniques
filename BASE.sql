@@ -1,17 +1,14 @@
--- phpMyAdmin SQL Dump
--- version 3.1.5
--- http://www.phpmyadmin.net
--- Généré le : Dim 10 Septembre 2017 à 01:01
--- Version du serveur: 5.0.83
--- Version de PHP: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Articles`
---
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+
+
 
 CREATE TABLE IF NOT EXISTS `Articles` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -20,20 +17,13 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   PRIMARY KEY  (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='articles pour le nom des supports' AUTO_INCREMENT=7 ;
 
---
--- Contenu de la table `Articles`
---
 
 INSERT INTO `Articles` (`ID`, `du`, `le`) VALUES
 (1, 'du ', 'le '),
 (2, 'de la ', 'la '),
 (3, 'de l&apos;', 'l&apos;');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Associations_image-fichier`
---
 
 CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -43,9 +33,6 @@ CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
   UNIQUE KEY `suppoort-type` (`support_ID`,`type_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
---
--- Contenu de la table `Associations_image-fichier`
---
 
 INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fichier`) VALUES
 (0, 1, 'dessin_BP', 'BP'),
@@ -70,11 +57,7 @@ INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fic
 (13, 1, 'dessin_vanne', 'vanne'),
 (13, 2, 'eclate_vanne', 'vanne');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Items_menu`
---
 
 CREATE TABLE IF NOT EXISTS `Items_menu` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -85,9 +68,6 @@ CREATE TABLE IF NOT EXISTS `Items_menu` (
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
---
--- Contenu de la table `Items_menu`
---
 
 INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) VALUES
 (0, 1, 0, 'Mise en situation', 'MES'),
@@ -194,11 +174,7 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (14, 3, 0, 'Vue &eacute;clat&eacute;e', 'vue_eclatee'),
 (14, 4, 0, 'Nomenclature', 'nomenclature');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Materiaux`
---
 
 CREATE TABLE IF NOT EXISTS `Materiaux` (
   `ID` int(11) unsigned NOT NULL auto_increment,
@@ -208,9 +184,6 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   UNIQUE KEY `formule` (`formule`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=14 ;
 
---
--- Contenu de la table `Materiaux`
---
 
 INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (0, '', '#'),
@@ -228,11 +201,7 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
 (13, 't&eacute;flon', 'T%C3%A9flon');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Pieces`
---
 
 CREATE TABLE IF NOT EXISTS `Pieces` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -246,9 +215,6 @@ CREATE TABLE IF NOT EXISTS `Pieces` (
   KEY `support-repère` (`support_ID`,`repere`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
---
--- Contenu de la table `Pieces`
---
 
 INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
 (14, 'carter gauche', 1, 1, 0, '', 'carter_gauche', 0),
@@ -465,11 +431,7 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (9, 'Vis ISO 4762-M5x16-8.8', 24, 8, 0, '', 'visISO', 0),
 (9, 'Ressort de rappel', 25, 1, 0, '', 'ressort', 0);
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Supports`
---
 
 CREATE TABLE IF NOT EXISTS `Supports` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -481,9 +443,6 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   UNIQUE KEY `nom` (`nom`,`dossier`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=15 ;
 
---
--- Contenu de la table `Supports`
---
 
 INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (0, 'bouton poussoir', 'BP', 'BP', 1),
@@ -502,11 +461,7 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (13, 'vanne sph&eacute;rique', 'vanne', 'vanne', 2),
 (14, 'alternateur', 'alternateur', 'alternateur', 3);
 
--- --------------------------------------------------------
 
---
--- Structure de la table `Type_association`
---
 
 CREATE TABLE IF NOT EXISTS `Type_association` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -517,9 +472,6 @@ CREATE TABLE IF NOT EXISTS `Type_association` (
   UNIQUE KEY `script` (`script`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=10 ;
 
---
--- Contenu de la table `Type_association`
---
 
 INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
 (1, 'dessin d''ensemble', 'dessin_densenble', '.EDRW'),
@@ -531,3 +483,7 @@ INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
 (7, 'CE pièce unique sortie', 'piece_sortie', '.EPRT'),
 (8, 'CE pièce unique bâti', 'piece_bati', '.EPRT'),
 (9, 'éclaté en classe d''équivalence', 'eclate_CE', '.EASM');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
