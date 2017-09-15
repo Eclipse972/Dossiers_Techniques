@@ -5,7 +5,7 @@
 // mes constantes
 define("SUPPORT",	0);
 
-function Extraire_identifiant($param) {
+function Extraire_parametre($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe 
 			return (int) $_GET[$param];	// alors il est converti en nombre entier
 	else	return -1;					// -1 est retourné sinon
@@ -19,14 +19,14 @@ require 'Controleur/cache.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
-$id = Extraire_identifiant('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+$id = Extraire_parametre('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 $connexionBD = new base2donnees();
 $_SESSION[SUPPORT] = $connexionBD->Support($id);
 $connexionBD->Fermer();
 
 if(isset($_SESSION[SUPPORT])) {
-	$item		= Extraire_identifiant('item');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-	$sous_item	= Extraire_identifiant('sous_item');
+	$item		= Extraire_parametre('item');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+	$sous_item	= Extraire_parametre('sous_item');
 	if($sous_item == -1) $sous_item++; // si sous-item absent on met à 0
 	if ($_SESSION[SUPPORT]->Page_existe($item,$sous_item)) { // si la page n'existe pas ou est inconnue on prend la page mise en situation
 		$_SESSION[SUPPORT]->item  = $item;
