@@ -466,14 +466,14 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 CREATE TABLE IF NOT EXISTS `Type_association` (
   `ID` int(10) unsigned NOT NULL auto_increment,
   `nom` varchar(32) collate latin1_general_ci NOT NULL,
-  `script` varchar(20) collate latin1_general_ci NOT NULL,
+  `classe` varchar(20) collate latin1_general_ci NOT NULL,
   `extension` varchar(5) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
-  UNIQUE KEY `script` (`script`)
+  UNIQUE KEY `script` (`classe`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=10 ;
 
 
-INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
+INSERT INTO `Type_association` (`ID`, `nom`, `classe`, `extension`) VALUES
 (1, 'dessin d''ensemble', 'dessin_densenble', '.EDRW'),
 (2, 'éclaté', 'eclate', '.EASM'),
 (3, 'classe d''équivalence entrée', 'CE_entree', '.EASM'),
