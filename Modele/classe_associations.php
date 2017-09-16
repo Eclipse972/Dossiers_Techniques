@@ -6,27 +6,27 @@ class Association_image_fichier {
 	var $titre;
 
 	function Association_image_fichier($dossier, $image, $fichier, $extension, $titre = '') { // constructeur
-		// les nom de l'image et du fichier ne sont pas forcément identiques
+		// les noms de l'image et du fichier ne sont pas forcément identiques
 		$this->image	= Image($image, $dossier.'images/');
 		$this->fichier	= Fichier($fichier, $extension, $dossier.'fichiers/');
 		$this->titre	= $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 	}
 	function Afficher($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
-		//	si		l'image n'existe pas			  et le fichier n'existe pas
+		//	si		l'image n'existe pas		  et le fichier n'existe pas
 		if (($this->image == 'Vue/pas2photo.png') && ($this->fichier == '#'))
 			include 'Vue/en_construction.php'; // alors on charge la page "en construction"
 		else {
 			echo "\n", '<h1>', $this->titre, '</h1>';
-			echo "\n", '<p>Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>';	// message
+			echo "\n", '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>';	// message
 			echo "\n", '<a href="', $this->fichier, '">';	// lien vers le fichier
-			echo '<img src="', $this->image, '" alt = "', $this->titre, '"></a>';	// image avec texte alternatif
-			echo "\n", '<p>', $commentaire, '</p>', "\n";	// commentaire éventuel sous l'image
+			echo '<img src="', $this->image, '" class="association" alt = "', $this->titre, '"></a>';	// image avec texte alternatif
+			echo "\n", '<p style="text-align:center">', $commentaire, '</p>', "\n";	// commentaire éventuel sous l'image
 		}
 	}
 }
 
 // classes filles simples ---------------------------------------------------------------------------------------------------------------
-// Les filles sont identiques à leur mère avec des valeurs particulières pour les variable membre
+// Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
 class Dessin_densemble extends Association_image_fichier {
 	function Dessin_densemble($dossier, $image, $fichier) { // constructeur
 		parent::Association_image_fichier($dossier, 'dessin_'.$image, $fichier, '.EDRW', 'Dessin d&apos;ensemble');
@@ -38,7 +38,7 @@ class Eclate extends Association_image_fichier {
 		parent::Association_image_fichier($dossier, 'eclate_'.$image, $fichier, '.EASM', '&Eacute;clat&eacute;');
 	}
 	function Afficher() {
-		parent::Afficher('Une fois la maquette num&eacute;rique ouverte dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 	}
 }
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------

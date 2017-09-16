@@ -34,8 +34,8 @@ section a { text-decoration: none;}
 section a:hover { text-decoration: underline;}
 
 section img {
-	max-height: 700px;
-	max-width: 800px;
+	/*max-height: 700px;
+	max-width: 800px;*/
 	padding: 4px;
 }
 /* ---------------------------------------------------------------------------------------------------------------------- */
@@ -132,4 +132,10 @@ nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est col
 	margin-top: 0;
 	padding-top: 0;
 	width: 49%;
+}
+.association {
+	height: 500px;
+	display: block;
+	margin: auto; 
+}
 }
