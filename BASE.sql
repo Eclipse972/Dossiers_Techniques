@@ -1,3 +1,11 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.5
+-- http://www.phpmyadmin.net
+--
+-- Serveur: dossiers.techniques.sql.free.fr
+-- Généré le : Ven 05 Janvier 2018 à 20:35
+-- Version du serveur: 5.0.83
+-- Version de PHP: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -7,8 +15,15 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+--
+-- Base de données: `dossiers_techniques`
+--
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Articles`
+--
 
 CREATE TABLE IF NOT EXISTS `Articles` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -17,13 +32,20 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   PRIMARY KEY  (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='articles pour le nom des supports' AUTO_INCREMENT=7 ;
 
+--
+-- Contenu de la table `Articles`
+--
 
 INSERT INTO `Articles` (`ID`, `du`, `le`) VALUES
 (1, 'du ', 'le '),
 (2, 'de la ', 'la '),
 (3, 'de l&apos;', 'l&apos;');
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Associations_image-fichier`
+--
 
 CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -33,6 +55,9 @@ CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
   UNIQUE KEY `suppoort-type` (`support_ID`,`type_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `Associations_image-fichier`
+--
 
 INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fichier`) VALUES
 (0, 1, 'dessin_BP', 'BP'),
@@ -55,9 +80,15 @@ INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fic
 (11, 1, 'dessin_pompe', 'pompe'),
 (11, 2, 'eclate_pompe', 'pompe'),
 (13, 1, 'dessin_vanne', 'vanne'),
-(13, 2, 'eclate_vanne', 'vanne');
+(13, 2, 'eclate_vanne', 'vanne'),
+(15, 1, 'dessin_casseNoix', 'casseNoix'),
+(15, 2, 'eclate_casseNoix', 'casseNoix');
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Items_menu`
+--
 
 CREATE TABLE IF NOT EXISTS `Items_menu` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -68,6 +99,9 @@ CREATE TABLE IF NOT EXISTS `Items_menu` (
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Contenu de la table `Items_menu`
+--
 
 INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) VALUES
 (0, 1, 0, 'Mise en situation', 'MES'),
@@ -172,9 +206,18 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (14, 1, 0, 'Mise en situation', 'MES'),
 (14, 2, 0, 'Vue d&apos;ensemble', 'ensemble'),
 (14, 3, 0, 'Vue &eacute;clat&eacute;e', 'vue_eclatee'),
-(14, 4, 0, 'Nomenclature', 'nomenclature');
+(14, 4, 0, 'Nomenclature', 'nomenclature'),
+(15, 1, 0, 'Mise en situation', 'MES'),
+(15, 2, 0, 'Diagramme A-0', 'A-0'),
+(15, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
+(15, 4, 0, '&Eacute;clat&eacute;', 'eclate'),
+(15, 5, 0, 'Nomenclature', 'nomenclature');
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Materiaux`
+--
 
 CREATE TABLE IF NOT EXISTS `Materiaux` (
   `ID` int(11) unsigned NOT NULL auto_increment,
@@ -182,8 +225,11 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   `URL_wiki` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `formule` (`formule`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=17 ;
 
+--
+-- Contenu de la table `Materiaux`
+--
 
 INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (0, '', '#'),
@@ -199,9 +245,16 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (10, 'PF 21 (Bak&eacute;lite)', 'Bak%C3%A9lite'),
 (11, 'PMMA', 'Polym%C3%A9thacrylate_de_m%C3%A9thyle'),
 (12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
-(13, 't&eacute;flon', 'T%C3%A9flon');
+(13, 't&eacute;flon', 'T%C3%A9flon'),
+(14, 'S 275', 'Acier#Aciers_non_alli.C3.A9s'),
+(15, 'stub', '#'),
+(16, 'h&ecirc;tre', '');
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Pieces`
+--
 
 CREATE TABLE IF NOT EXISTS `Pieces` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -215,6 +268,9 @@ CREATE TABLE IF NOT EXISTS `Pieces` (
   KEY `support-repère` (`support_ID`,`repere`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
+--
+-- Contenu de la table `Pieces`
+--
 
 INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
 (14, 'carter gauche', 1, 1, 0, '', 'carter_gauche', 0),
@@ -248,9 +304,9 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (1, 'axe', 4, 1, 9, '', 'axe4', 0),
 (1, 'vis CHc M4 - 55', 5, 1, 9, '', 'vis4x55', 0),
 (1, 'embase', 6, 1, 9, 'commerce', 'embase', 0),
-(1, 'interm&eacute;diaire', 7, 1, 9, '', 'intermediaire', 0),
+(1, 'intermédiaire', 7, 1, 9, '', 'intermediaire', 0),
 (1, 'bouton', 8, 1, 9, '', 'bouton', 0),
-(1, 'tige filet&eacute;e', 9, 1, 9, 'commerce', 'tige_filetee', 0),
+(1, 'tige filetée', 9, 1, 9, 'commerce', 'tige_filetee', 0),
 (1, 'axe', 10, 1, 9, '', 'axe10', 0),
 (1, 'embout', 11, 1, 9, '', 'embout', 0),
 (1, 'tige', 12, 1, 9, '', 'tige', 0),
@@ -429,9 +485,31 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (9, 'Vis CZX NF E25-11 M3-0,5-10-4,8-1', 22, 8, 0, '', 'visCZX', 0),
 (9, 'Vis sans t&ecirc;te &agrave; bout plat NF E-27-180 M3x0,5-8-3,3h', 23, 1, 0, '', 'vis_sans_tete', 0),
 (9, 'Vis ISO 4762-M5x16-8.8', 24, 8, 0, '', 'visISO', 0),
-(9, 'Ressort de rappel', 25, 1, 0, '', 'ressort', 0);
+(9, 'Ressort de rappel', 25, 1, 0, '', 'ressort', 0),
+(15, 'colonne', 1, 2, 14, '', 'colonne', 0),
+(15, 'embout', 3, 1, 6, '', 'embout', 0),
+(15, 'levier', 2, 1, 15, '', 'levier', 0),
+(15, 'excentrique', 4, 1, 6, '', 'excentrique', 0),
+(15, 'piston', 5, 1, 14, '', 'piston', 0),
+(15, 'coupelle', 6, 1, 9, '', 'coupelle', 0),
+(15, 'r&eacute;hausse', 7, 1, 9, '', 'rehausse', 0),
+(15, 'bague', 8, 1, 6, 'mont&eacute; serr&eacute; dans le bloc coulisse', 'bague', 0),
+(15, 'bloc coulisse', 9, 1, 9, '', 'bloc_coulisse', 0),
+(15, 'bloc pivot', 10, 2, 9, '', 'bloc_pivot', 0),
+(15, 'socle', 11, 1, 16, '', 'socle', 0),
+(15, 'goupille 6x26', 12, 1, 0, 'mont&eacute;e serr&eacute;e dans le bloc pivot', 'goupille', 0),
+(15, 'vis CHc M5-16', 13, 2, 0, '', 'vis', 0),
+(15, '&eacute;crou H M6', 14, 2, 0, '', 'ecrou', 0),
+(15, 'rondelle ', 15, 2, 0, '', 'rondelle', 0),
+(15, 'ressort dint=16, 10 spires', 16, 1, 0, '', 'ressort', 0),
+(15, 'Vis sans t&ecirc;te HC &agrave; bout plat M5 - 6', 17, 2, 0, '', 'visSANStete', 0),
+(15, 'plaquette support', 18, 1, 0, '', 'plaquette', 0);
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Supports`
+--
 
 CREATE TABLE IF NOT EXISTS `Supports` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -441,8 +519,11 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   `article_ID` int(10) unsigned NOT NULL default '1',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `nom` (`nom`,`dossier`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=16 ;
 
+--
+-- Contenu de la table `Supports`
+--
 
 INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (0, 'bouton poussoir', 'BP', 'BP', 1),
@@ -459,21 +540,29 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (11, 'pompe &agrave; palettes', 'pompe', 'pompeApalettes', 2),
 (12, 'pr&eacute;henseur de culasse', 'prehenseur', 'prehenseur', 1),
 (13, 'vanne sph&eacute;rique', 'vanne', 'vanne', 2),
-(14, 'alternateur', 'alternateur', 'alternateur', 3);
+(14, 'alternateur', 'alternateur', 'alternateur', 3),
+(15, 'casse-noix', 'casseNoix', 'casse_noix', 1);
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `Type_association`
+--
 
 CREATE TABLE IF NOT EXISTS `Type_association` (
   `ID` int(10) unsigned NOT NULL auto_increment,
   `nom` varchar(32) collate latin1_general_ci NOT NULL,
-  `classe` varchar(20) collate latin1_general_ci NOT NULL,
+  `script` varchar(20) collate latin1_general_ci NOT NULL,
   `extension` varchar(5) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
-  UNIQUE KEY `script` (`classe`)
+  UNIQUE KEY `script` (`script`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=10 ;
 
+--
+-- Contenu de la table `Type_association`
+--
 
-INSERT INTO `Type_association` (`ID`, `nom`, `classe`, `extension`) VALUES
+INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
 (1, 'dessin d''ensemble', 'dessin_densenble', '.EDRW'),
 (2, 'éclaté', 'eclate', '.EASM'),
 (3, 'classe d''équivalence entrée', 'CE_entree', '.EASM'),
