@@ -55,6 +55,9 @@ class Piece extends Association_image_fichier {
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
 		$this->quantité = $T_param['quantité'];
+		// test
+		echo $T_param['quantité'],'/';
+		
 		$this->matiere = $T_param['matiere'];
 		$this->URL_matiere =  $T_param['URL_wiki'];
 		$this->observation =  $T_param['observation'];
@@ -70,9 +73,10 @@ class Piece extends Association_image_fichier {
 
 		echo '<td><a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "'.$this->nom.'"></a></td>',"\n";	// lien image-fichier
 
-		echo '<td>', $this->nom;								// désignation
-		if($this->nombre > 1) echo ' (x', $this->nombre, ')';	// si plusieurs exemplaires alors on rajoute la quantité
-		echo '</td>',"\n";										// on ferme la cellule
+		echo '<td>', $this->nom;	// désignation
+		if($this->quantité > 1)					// si plusieurs exemplaires
+			echo ' (x', $this->quantité, ')';	// alors on rajoute la quantité
+		echo '</td>',"\n";	// on ferme la cellule
 
 		echo '<td>';	// matière
 		if($this->matiere!='')	echo '<a href=https://fr.wikipedia.org/wiki/',$this->URL_matiere,'" target="_blank">',$this->matiere,'</a>';
