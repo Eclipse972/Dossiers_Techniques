@@ -1,5 +1,5 @@
 <?php	// construit le tableau pour l'affichage
-$NB_colonne = 5;
+$NB_colonne = 6;
 $id = 0;
 $connexionBD = new base2donnees();
 $ListeDvignettes = $connexionBD->ListeDVignettes();
