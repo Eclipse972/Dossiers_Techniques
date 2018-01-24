@@ -14,7 +14,7 @@ function lieu($fonction) { // pour affihcer la fonction dans laquelle est lancé
 	$this->message('Lieu : '.$fonction.' ----------------------');
 }
 
-function afficher_variable($nom, $valeur) {
+function afficher_variable($nom, $valeur) { // ne permet d'aficher que des variables simples. Pour un tableau il faut utiliser des boucles pour chaque case
 	$this->message('variable '.$nom.' = '.$valeur);
 }
 
