@@ -131,7 +131,10 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (15, 5, 0, 'Nomenclature', 'nomenclature'),
 (16, 1, 0, 'Mise en situation', 'MES'),
 (16, 2, 0, 'Fonctionnement', 'fonctionnement'),
-(16, 3, 0, 'Caract&eacute;ristiques', 'caracteristiques');
+(16, 3, 0, 'Caract&eacute;ristiques', 'caracteristiques'),
+(16, 4, 0, 'Montage de bridage', 'montage_bridage'),
+(16, 5, 0, '&Eacute;clat&eacute;', 'vue_eclatee'),
+(16, 6, 0, 'Dessin d&apos;ensemble', 'dessin_densemble');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

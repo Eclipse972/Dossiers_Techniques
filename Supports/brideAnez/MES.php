@@ -5,7 +5,7 @@
 <?php Ajouter_image('unite_distribution_eau', 'Unit&eacute; de distribution d&apos;eau', null, 'width:500px'); ?>
 </div>
 <div class="colonne">
-<h2>Raccord rotaatif</h2>
+<h2>Raccord rotatif</h2>
 <?php Ajouter_image('raccord', 'raccord rotatif virtuel', null, 'width:300px'); ?>
 </div>
 <h1>Mise en situation</h1>
