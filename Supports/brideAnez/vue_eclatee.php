@@ -1,2 +1,1 @@
-<h1>Vue &eacute;clat&eacute;e</h1>
-<?php Ajouter_image('vue_eclatee', 'vue &eacute;clat&eacute;e', null, 'width:1200px');
+<?php $_SESSION[SUPPORT]->Afficher_association('vue_eclatee', 'vue_eclatee', '.EDRW', 'vue &eacute;clat&eacute;e') 
