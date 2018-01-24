@@ -4,7 +4,6 @@
 ************************************************************************************************************************************/
 // mes constantes
 define("SUPPORT",	0);
-define("TRACEUR",	1);
 
 function Extraire_parametre($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe 
@@ -24,7 +23,7 @@ session_start(); // On démarre la session AVANT toute chose
 $id = Extraire_parametre('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 $connexionBD = new base2donnees();
 $_SESSION[SUPPORT] = $connexionBD->Support($id);
-$_SESSION[TRACEUR] = new Traceur;
+$TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
 $connexionBD->Fermer();
 
@@ -70,5 +69,5 @@ else {
 </div>
 
 </body>
-
+<?php $TRACEUR->afficher_rapport(); ?>
 </html>
