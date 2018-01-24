@@ -1,11 +1,9 @@
 <?php
 class Traceur {
 	var $rapport;
-	var $fin;
 	
 function Traceur() { // constructeur
-	$this->rapport[1] = 'Rapport du ';
-	$this->fin = '- Fin du rapport -';
+	$this->rapport = null; // rapport vide
 }
 
 function message($message) { // ajout d'un message dans le rapport
@@ -20,21 +18,13 @@ function afficher_variable($nom, $valeur) {
 	$this->message('variable '.$nom.' = '.$valeur);
 }
 
-function termine() {
-	$this->message($this->fin); // fin du rapport
-}
-
-function rapport_vide() {
-	returrn (isset($this->rapport[2])); // le rappport est non vide s'il existe une seconde
-}
-
 function afficher_rapport() {
-	echo "/n/*/n"; // début du bloc de commentaire
-	
-	foreach($this->rapport as $ligne) {
-		echo $ligne, "/n";
-	}
-	echo "/n- Fin du rapport -*//n"; // fin du bloc de commentaire
+	echo '<!-- '; // début du bloc de commentaire
+	if (isset($this->rapport)) {
+		echo '--------------------- RAPPORT DU ', date("d/m/Y \à H:i:s"),"--------------------- \n";
+		foreach($this->rapport as $ligne) { echo $ligne, "\n"; }
+	} else echo "--------------------- RAPPORT VIDE ---------------------";
+	echo ' -->',"\n";
 }
 }
 
