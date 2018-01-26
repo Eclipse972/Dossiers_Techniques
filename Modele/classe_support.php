@@ -20,6 +20,11 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->sous_item= 0; // N° sous-item actuel
 }
 // Associations image-fichier -----------------------------------------------------------------------------
+function Afficher_association($image, $fichier, $extension, $titre) {
+	$page = new Association_image_fichier($this->dossier, $image, $fichier, $extension, $titre);
+	$page->Afficher();
+}
+
 function Afficher_dessin_densemble() {
 	$page = new Dessin_densemble($this->dossier, $this->pti_nom,$this->pti_nom);
 	$page->Afficher();
