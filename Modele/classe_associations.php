@@ -44,8 +44,6 @@ class Eclate extends Association_image_fichier {
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------
 // Les filles ont plus de propriétés que leur mère: plus de variable et/ou de fonction
 class Piece extends Association_image_fichier {
-	//global $TRACEUR;
-	
 	var	$nom;
 	var	$repere;
 	var $quantite;
@@ -53,15 +51,17 @@ class Piece extends Association_image_fichier {
 	var $URL_matiere;
 	var $observation;
 
-	//$TRACEUR->lieu('classe_association.php/Piece');
-	
 	function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
+		global $TRACEUR;
+		$TRACEUR->lieu('classe_association.php/Piece (constructeur)');
+		$TRACEUR->afficher_variable('nom',$T_param['nom']);
+		$TRACEUR->afficher_variable('repere',$T_param['repere']);
+		$TRACEUR->afficher_variable('quantité',$T_param['quantité']);
+		$TRACEUR->afficher_variable('lien matiere',$T_param['URL_wiki']);		
+		
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
-		$this->quantité = $T_param['quantité'];
-		
-		//$TRACEUR->afficher_variable('paramètre quantité',$T_param['quantité']);
-			
+		$this->quantité = $T_param['quantité'];			
 		$this->matiere = $T_param['matiere'];
 		$this->URL_matiere =  $T_param['URL_wiki'];
 		$this->observation =  $T_param['observation'];
