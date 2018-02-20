@@ -42,19 +42,13 @@ function ListeDvignettes() {
 	return $tableau;
 }
 function Nomenclature($support_ID) {
-	//global $TRACEUR;
-	//$TRACEUR->lieu('classe_BD.php/Nomenclature');
-	
-	$tableau = null;
+$tableau = null;
 	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
 					FROM Supports, Pieces, Materiaux
 					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID='.$support_ID.' 
 					ORDER BY repere ASC');
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
 		$ligne['extension'] = ($ligne['assemblage']>0) ? '.EASM' : '.EPRT'; // la valeur numérique pour l'extension est remplacée par la version texte
-		
-		//$TRACEUR->afficher_variable('quantité',$ligne['quantite']);
-		
 		$tableau[] = new Piece($ligne);
 	}
 	return $tableau;
