@@ -54,10 +54,7 @@ class Piece extends Association_image_fichier {
 	function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
 		global $TRACEUR;
 		$TRACEUR->lieu('classe_association.php/Piece (constructeur)');
-		$TRACEUR->afficher_variable('nom',$T_param['nom']);
-		$TRACEUR->afficher_variable('repere',$T_param['repere']);
-		$TRACEUR->afficher_variable('quantité',$T_param['quantité']);
-		$TRACEUR->afficher_variable('lien matiere',$T_param['URL_wiki']);		
+		$TRACEUR->afficher_tableau('tableau de paramètres',$T_param);	
 		
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
