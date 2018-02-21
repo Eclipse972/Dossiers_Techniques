@@ -18,6 +18,14 @@ function afficher_variable($nom, $valeur) { // ne permet d'aficher que des varia
 	$this->message('variable '.$nom.' = '.$valeur);
 }
 
+function afficher_tableau($nom, $tableau) {
+	$this->message('tableau : '.$nom.' ----------------------');
+	foreach($tableau as $cle => $valeur) {
+		$this->message($cle.' => '.$valeur);
+	}
+	$this->message('fin de tableau '.$nom.' ----------------------');
+}
+
 function afficher_rapport() {
 	echo '<!-- '; // début du bloc de commentaire
 	if (isset($this->rapport)) {
