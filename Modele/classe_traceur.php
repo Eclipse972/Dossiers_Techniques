@@ -23,7 +23,7 @@ function afficher_tableau($nom, $tableau) {
 	foreach($tableau as $cle => $valeur) {
 		$this->message($cle.' => '.$valeur);
 	}
-	$this->message('fin de tableau '.$nom.' ----------------------');
+	$this->message('fin de tableau '.$nom." ----------------------\n");
 }
 
 function afficher_rapport() {
