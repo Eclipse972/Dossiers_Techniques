@@ -53,16 +53,12 @@ class Piece extends Association_image_fichier {
 
 	function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
 		global $TRACEUR;
-		$TRACEUR->lieu('classe_association.php/Piece (constructeur)');
-		$TRACEUR->afficher_tableau('tableau de paramètres',$T_param);	
-		
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
-		$this->quantité = $T_param['quantité'];			
+		$this->quantite = $T_param['quantite'];	
 		$this->matiere = $T_param['matiere'];
 		$this->URL_matiere =  $T_param['URL_wiki'];
 		$this->observation =  $T_param['observation'];
-
 		$T_param['dossier'] = 'Supports/'.$T_param['dossier'].'/';
 
 		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $T_param['fichier'], $T_param['extension']); // constructeur de la classe mère.
@@ -75,8 +71,8 @@ class Piece extends Association_image_fichier {
 		echo '<td><a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "'.$this->nom.'"></a></td>',"\n";	// lien image-fichier
 
 		echo '<td>', $this->nom;	// désignation
-		if($this->quantité > 1)					// si plusieurs exemplaires
-			echo ' (x', $this->quantité, ')';	// alors on rajoute la quantité
+		if($this->quantite > 1)					// si plusieurs exemplaires
+			echo ' (x', $this->quantite, ')';	// alors on rajoute la quantité
 		echo '</td>',"\n";	// on ferme la cellule
 
 		echo '<td>';	// matière
