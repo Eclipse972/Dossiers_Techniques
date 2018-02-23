@@ -33,6 +33,12 @@ class Dessin_densemble extends Association_image_fichier {
 	}
 }
 
+class Dessin_de_definition extends Association_image_fichier {
+	function Dessin_de_definition($dossier, $fichier) { // constructeur
+		parent::Association_image_fichier($dossier, 'def_'.$fichier, 'def_'.$fichier, '.EDRW', 'Dessin de d&eacute;finition');
+	}
+}
+
 class Eclate extends Association_image_fichier {
 	function Eclate($dossier, $image, $fichier) {
 		parent::Association_image_fichier($dossier, 'eclate_'.$image, $fichier, '.EASM', '&Eacute;clat&eacute;');
