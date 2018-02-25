@@ -16,7 +16,7 @@ function Afficher_menu() {
 	if(!isset($T_items)) {
 		echo 'MENU INEXISTANT';
 		$connexionBD->Fermer();
-		return;		// o sort de la finction
+		return;		// on sort de la fonction
 	}
 	$T_sous_items 	= $connexionBD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
 	$connexionBD->Fermer();
