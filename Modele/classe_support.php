@@ -6,8 +6,8 @@ var $pti_nom;	// nom raccourci utilisable comme nom de fichier (pas de caractèr
 var $dossier;
 var $du;
 var $le;
-var $menu;
-var $No_page;	// numéro de la page actuelle
+var $item;
+var $sous_item;	// numéro de la page actuelle
 
 function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->id		= $id;
