@@ -24,12 +24,10 @@ function Afficher_association($image, $fichier, $extension, $titre) {
 	$page = new Association_image_fichier($this->dossier, $image, $fichier, $extension, $titre);
 	$page->Afficher();
 }
-
 function Afficher_dessin_densemble() {
 	$page = new Dessin_densemble($this->dossier, $this->pti_nom,$this->pti_nom);
 	$page->Afficher();
 }
-
 function Afficher_eclate() {
 	$page = new Eclate($this->dossier, $this->pti_nom, $this->pti_nom);
 	$page->Afficher();
@@ -41,30 +39,17 @@ function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_p
 	$T_sous_items 	= $connexionBD->Liste_sous_item($this->id,$this->item,$this->sous_item);
 	$connexionBD->Fermer();
 	echo '<ul>',"\n";
-	$i=1;
-	while (isset($T_items[$i])) {	// affichage du menu
-		echo '<li>';	
-		echo $T_items[$i]; // lien
-		echo '</li>',"\n";
+	foreach($T_items as $i => $item) {	// affichage du menu
+		echo '<li>',$item,'</li>',"\n";	// lien
 		if (($i==$this->item) && isset($T_sous_items)) { // si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
 			echo "\n\t",'<ul>',"\n";
-			$j=1;
-			while (isset($T_sous_items[$j])) {
-				echo "\t";
-				echo '<li>';
-				echo $T_sous_items[$j]; // lien
-				echo '</li>',"\n";
-				$j++;
-			}
+			foreach($T_sous_items as $sous_item)	echo "\t",'<li>',$sous_item,'</li>',"\n";
 			echo "\t",'</ul>',"\n";
 		}
-		$i++;
-		
 	}
 	echo '</ul>',"\n";
 	echo '<a href="index.php">SOMMAIRE</a>',"\n";
 }
-
 function Image() { echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
 
 function Titre() { echo '<p>Dossier technique ', $this->du, $this->nom, '</p>'; } 
@@ -74,7 +59,6 @@ function Execute($script) {
 		include $this->dossier.$script.'.php';
 	else include 'Vue/en_construction.php';
 }
-
 function Afficher_nomenclature() {
 	$connexionBD = new base2donnees;	
 	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id);
@@ -83,7 +67,6 @@ function Afficher_nomenclature() {
 		foreach ($nomenclature as $piece) $piece->Afficher();
 	} else echo '<h1>Erreur Nomenclature</h1>';
 }
-
 function Page_existe($item,$sous_item) {
 	$connexionBD = new base2donnees;
 	$test = $connexionBD->Page_existe($this->id,$item,$sous_item);
