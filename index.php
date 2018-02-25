@@ -58,15 +58,12 @@ else {
 </head>
 
 <body>
-<div id="page"><!-- contient tout l'affichage -->
 
 <?php include 'Vue/'.$code.'.php';  ?>
 
 <footer>
 <?php	include 'Vue/pied2page.php'; ?>
 </footer>
-
-</div>
 
 </body>
 <?php $TRACEUR->afficher_rapport(); ?>
