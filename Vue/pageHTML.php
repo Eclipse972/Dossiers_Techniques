@@ -8,7 +8,11 @@
 <div id="corps">
 
 <Nav>
-<?php $_SESSION[SUPPORT]->Afficher_menu(); ?>
+<?php
+	$menu = new Menu($_SESSION[SUPPORT]->id, $_SESSION[SUPPORT]->item, $_SESSION[SUPPORT]->sous_item);
+	/*$_SESSION[SUPPORT]->Afficher_menu(); */
+	$menu->Afficher_menu();
+?>
 </nav>
 
 <section>
