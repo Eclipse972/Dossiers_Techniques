@@ -32,24 +32,6 @@ function Afficher_eclate() {
 	$page = new Eclate($this->dossier, $this->pti_nom, $this->pti_nom);
 	$page->Afficher();
 }
-// -------------------------------------------------------------------------------------------------------
-/*function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_page);
-	$connexionBD	= new base2donnees;
-	$T_items		= $connexionBD->Liste_item($this->id,$this->item);
-	$T_sous_items 	= $connexionBD->Liste_sous_item($this->id,$this->item,$this->sous_item);
-	$connexionBD->Fermer();
-	echo '<ul>',"\n";
-	foreach($T_items as $i => $item) {	// affichage du menu
-		echo '<li>',$item,'</li>',"\n";	// lien
-		if (($i==$this->item) && isset($T_sous_items)) { // si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
-			echo "\n\t",'<ul>',"\n";
-			foreach($T_sous_items as $sous_item)	echo "\t",'<li>',$sous_item,'</li>',"\n";
-			echo "\t",'</ul>',"\n";
-		}
-	}
-	echo '</ul>',"\n";
-	echo '<a href="index.php">SOMMAIRE</a>',"\n";
-}*/
 function Image() { echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
 
 function Titre() { echo '<p>Dossier technique ', $this->du, $this->nom, '</p>'; } 
