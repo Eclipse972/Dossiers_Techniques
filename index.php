@@ -11,10 +11,7 @@ function Extraire_parametre($param) {
 	else	return -1;					// -1 est retourné sinon
 }
 
-require 'Modele/classe_support.php';
-require 'Modele/classe_associations.php';
-require 'Modele/classe_BD.php';
-require 'Modele/classe_traceur.php'; 
+include 'Modele/mes_classes.php';
 require 'Vue/fonctions.php';
 require 'Controleur/cache.php';
 
