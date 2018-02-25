@@ -1,87 +1,68 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
-#logo, header, nav, section, footer { position: absolute; }
-
-#logo, header	{	height: 90px; }	/* première ligne	*/
-nav, #logo		{	width: 180px;
-					left: 0px }		/* première colonne	*/
+#corps {
+	width:1400px; /* même largeur que header */
+	margin:auto;
+	min-height:550px;
+	background-color:white;
+}
+section {width:1180px}
 
 nav, section {
- 	top: 95px;						/* deuxième ligne	*/
- 	bottom: 65px;
-}
-header, section {					/* deuxième colonne	*/
-	left: 190px;
-	right: 0px;
-}
-footer {							/* troisième ligne	*/
-	left: 50px;
-	right: 50px;
-	bottom: 0;
-}
-/* le logo  ----------------------------------------------------------------------------------------------------------- */
-#logo { text-align: center; }
-
-#logo img {
-	max-height: 80px;
-	max-width: 170px;
-	padding: 4px;
+	display:inline-block;
+	vertical-align:top;
 }
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section ul { margin:0; }
 
-section a { text-decoration: none;}
+section a { text-decoration:none;}
 
 section a:hover { text-decoration: underline;}
 
-section img {
-	/*max-height: 700px;
-	max-width: 800px;*/
-	padding: 4px;
-}
+section img { padding: 4px; }
 /* ---------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la navigation --------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------------------------- */
 nav {
-	text-align: center;
-	font-family: arial;
+	width:200px;
+	text-align:center;
+	font-family:arial;
 }
-nav a {	text-decoration: none; } /* aucun lien n'est souligné */
+nav a {	text-decoration:none; } /* aucun lien n'est souligné */
 
 nav ul {
-	list-style-type: none;
+	list-style-type:none;
 	margin-bottom: 30px;
-	margin-top: 0;
 	padding: 0;
 }
 /* menu --------------------------------------------------------------------------------------------------- */
 nav li {
 	line-height: 30px;
-	margin-bottom: 5px;
-	background-color: red;
+	margin-bottom: 10px;
 }
 nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
+	font-weight:bold;
+	background-color: red;
+	border-radius:9px;
 }
 
 nav li a:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
-nav ul ul {
-	margin: 0;
-	border: 1px solid maroon; /* meme couleur que le menu sélectionné */
-	background-color: white; /*le fond entre les boutons doit être */
-}
-nav ul ul a {
-	display: block;
-	color: black; 	/* tous les textes du sous-menu sont en noir */
-	font-weight: normal;
-	background-color: white;	/* sur fond blanc */
-	margin-bottom: 1px;
-}
-nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
+nav ul ul {	margin: 5px; }
 
-#sous_item_selectionne a { font-weight:bold; } /* un sous-item sélectionné apparaît en gras */
+nav ul ul a {
+	color: black; 	/* tous les textes du sous-menu sont en noir */
+	background-color:white;	/* sur fond blanc */
+	border-radius:0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
+	
+}
+nav ul ul a {font-weight:normal;}
+
+nav ul ul li {font-weight:bold;}
+
+nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
@@ -96,8 +77,6 @@ nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est col
 }
 #nomenclature tbody {
 	display:block;
-	height:450px;
-	overflow-y:scroll;
 }
 #nomenclature tbody tr:nth-child(even) { background-color: #FFFFBB; }
 #nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/

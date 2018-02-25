@@ -67,28 +67,33 @@ function Script($support, $item, $sous_item) { // nom du script à exécuter
 	$reponse = mysql_fetch_assoc($this->resultat);
 	return $reponse['script'];
 }
-function Liste_item($support) { return $this->Item($support); }
-
-function Liste_sous_item($support,$item) { return $this->Item($support,$item); }
-
-function Item($support, $item = null) {
-	// début de ...
-	$requete = 'SELECT texte FROM Items_menu WHERE support_ID='.$support.' AND ';	// requête 
-	$lien	 = '<a href="index.php?support='.$support.'&item=';						// lien avec le premier paramètre
-	if(isset($item)) {
-		$requete .= 'item='.$item.' AND sous_item>0';
-		$lien .= $item.'&sous_item=';
-	} else
-		$requete .= 'sous_item=0';
-	
-	$this->Requete($requete);
+function Liste_item($support, $item) {	
+	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID='.$support.' AND sous_item=0');
 	$i=1;
 	$tableau = null;
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
-		$tableau[$i] = $lien.$i.'">'.$ligne['texte'].'</a>'; // ajout de la valeur courante et le texte puis fermeture de la balise
+		$a = ($i != $item) ? '<a ': '<a id="item_selectionne" ';
+		$tableau[$i] = $a.'href="index.php?support='.$support.'&item='.$i.'">'.$ligne['texte'].'</a>'; // ajout de la valeur courante et le texte puis fermeture de la balise
 		$i++;
 	}
-	return $tableau;	
+	return $tableau;
+}
+function Liste_sous_item($support,$item,$sous_item) {
+	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID='.$support.' AND item='.$item.' AND sous_item>0');
+	$i=1;
+	$tableau = null;
+	while ($ligne = mysql_fetch_assoc($this->resultat)) {
+		if ($i != $sous_item) {
+			$debut = '<a href="index.php?support='.$support.'&item='.$item.'&sous_item='.$i.'">';
+			$fin   = '</a>';
+		} else {
+			$debut = '';
+			$fin   = '';
+		}		
+		$tableau[$i] = $debut.$ligne['texte'].$fin; // ajout de la valeur courante et le texte puis fermeture de la balise
+		$i++;
+	}
+	return $tableau;
 }
 }
 ?>

@@ -1,8 +1,13 @@
-<div id="logo"><?php $_SESSION[SUPPORT]->Image(); ?></div>
+<header>
+	<?php
+		$_SESSION[SUPPORT]->Image();
+		$_SESSION[SUPPORT]->Titre();
+	?>
+</header>
 
-<header><?php $_SESSION[SUPPORT]->Titre(); ?></header>
+<div id="corps">
 
-<nav>
+<Nav>
 <?php $_SESSION[SUPPORT]->Afficher_menu(); ?>
 </nav>
 
@@ -24,3 +29,5 @@ default: $_SESSION[SUPPORT]->Execute($script); // ce n'est pas un mot réservé
 }
 ?>
 </section>
+
+</div>

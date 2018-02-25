@@ -37,20 +37,21 @@ function Afficher_eclate() {
 // -------------------------------------------------------------------------------------------------------
 function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_page);
 	$connexionBD	= new base2donnees;
-	$T_items		= $connexionBD->Liste_item($this->id);
-	$T_sous_items 	= $connexionBD->Liste_sous_item($this->id,$this->item);
+	$T_items		= $connexionBD->Liste_item($this->id,$this->item);
+	$T_sous_items 	= $connexionBD->Liste_sous_item($this->id,$this->item,$this->sous_item);
 	$connexionBD->Fermer();
 	echo '<ul>',"\n";
 	$i=1;
 	while (isset($T_items[$i])) {	// affichage du menu
-		echo ($i==$this->item) ? '<li id="item_selectionne">' : '<li>';	
+		echo '<li>';	
 		echo $T_items[$i]; // lien
+		echo '</li>',"\n";
 		if (($i==$this->item) && isset($T_sous_items)) { // si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
 			echo "\n\t",'<ul>',"\n";
 			$j=1;
 			while (isset($T_sous_items[$j])) {
 				echo "\t";
-				echo ($j==$this->sous_item) ? '<li id="sous_item_selectionne">' : '<li>';
+				echo '<li>';
 				echo $T_sous_items[$j]; // lien
 				echo '</li>',"\n";
 				$j++;
@@ -58,7 +59,7 @@ function Afficher_menu() { //$this->menu->Afficher_menu($_SESSION[SUPPORT]->No_p
 			echo "\t",'</ul>',"\n";
 		}
 		$i++;
-		echo '</li>',"\n";
+		
 	}
 	echo '</ul>',"\n";
 	echo '<a href="index.php">SOMMAIRE</a>',"\n";

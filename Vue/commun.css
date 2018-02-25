@@ -1,18 +1,31 @@
-#page { /* conteneur */
-	width: 1400px;
-	height: 800px;
-	margin: auto;
-	position: relative;
+body { background-color:#AED6F1;}
+
+header, footer { 
+	width:1400px;
+	margin:auto;
 }
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */
 header {
 	text-align: center;
 	background-color: #FFFFDD;
+	margin-bottom:5px;
 }
+header img {
+	max-height: 80px;
+	max-width: 170px;
+	padding: 4px;
+	vertical-align:middle;
+}
+
 header p {
 	font-family: arial;
 	font-size: 1.6em;
+	text-align: center;
+	display:inline-block; /* affiche le texte juste aprè l'image */
+	width:1200px;/* trouver comment prendre la largeur restante. auto ne le fait pas*/
+	vertical-align:middle;
 }
+
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
 	font-family: "comic sans MS";

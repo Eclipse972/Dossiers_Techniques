@@ -1,4 +1,9 @@
 /* zone centrale --------------------------------------------------------------------------------------------------- */
+section {
+	width:1400px; /* même largeur que header */
+	margin:auto;
+	background-color:white;
+}
 section a { text-decoration: none;}
 
 section table {
