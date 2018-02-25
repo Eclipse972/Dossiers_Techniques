@@ -1,6 +1,6 @@
 <?php
-require 'classe_support.php';
-require 'classe_associations.php';
-require 'classe_BD.php';
-require 'classe_menu.php';
-require 'classe_traceur.php'; 
+require 'Modele/classe_support.php';
+require 'Modele/classe_associations.php';
+require 'Modele/classe_BD.php';
+require 'Modele/classe_menu.php';
+require 'Modele/classe_traceur.php'; 
