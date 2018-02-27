@@ -21,12 +21,17 @@ function Requete($requete) {
 	$this->resultat = mysql_query($requete);
 }
 function Support($id) {
-	$this->Requete('SELECT nom, pti_nom, dossier, du, le 
-					FROM Supports, Articles 
-					WHERE article_ID=Articles.ID AND Supports.ID='.$id);
+	$T_articles = array (
+		1 => array('du' => 'du ',		'le' => 'le '),
+		2 => array('du' => 'de la ',	'le' => 'la '),
+		3 => array('du' => 'de l&apos;','le' => 'l&apos')
+	);
+	$this->Requete('SELECT nom, pti_nom, dossier, article_ID 
+					FROM Supports
+					WHERE Supports.ID='.$id);
 	if (mysql_num_rows($this->resultat)>0) {
 		$ligne = mysql_fetch_assoc($this->resultat);
-		return new Support($id, $ligne['nom'], $ligne['pti_nom'], $ligne['dossier'], $ligne['du'], $ligne['le']);
+		return new Support($id, $ligne['nom'], $ligne['pti_nom'], $ligne['dossier'], $T_articles[$ligne['article_ID']]['du'], $T_articles[$ligne['article_ID']]['le']);
 	} else return null;
 }
 function ListeDvignettes() {
