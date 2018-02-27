@@ -13,8 +13,7 @@ function Extraire_parametre($param) {
 
 include 'Modele/mes_classes.php';
 require 'Vue/fonctions.php';
-require 'Controleur/cache.php';
-require 'Controleur/liens.php';
+include 'Controleur/scripts.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
