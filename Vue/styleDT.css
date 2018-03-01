@@ -3,9 +3,11 @@
 	width:1400px; /* même largeur que header */
 	margin:auto;
 	min-height:550px;
+}
+section {
+	width:1180px;
 	background-color:white;
 }
-section {width:1180px}
 
 nav, section {
 	display:inline-block;

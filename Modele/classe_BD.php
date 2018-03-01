@@ -40,9 +40,8 @@ function ListeDvignettes() {
 					FROM Supports 
 					ORDER BY nom ASC');
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
-		$lien = '<a href="index.php?support='.$ligne['ID'].'">';
 		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/').'" alt = "'.$ligne['nom'].'">';
-		$tableau[] = $lien.$ligne['nom'].'<br>'.$image.'</a>';
+		$tableau[] = Lien($ligne['nom'].'<br>'.$image, $ligne['ID']);
 	}
 	return $tableau;
 }
@@ -77,8 +76,7 @@ function Liste_item($support, $item) {
 	$i=1;
 	$tableau = null;
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
-		$a = ($i != $item) ? '<a ': '<a id="item_selectionne" ';
-		$tableau[$i] = $a.'href="index.php?support='.$support.'&item='.$i.'">'.$ligne['texte'].'</a>'; // ajout de la valeur courante et le texte puis fermeture de la balise
+		$tableau[$i] = ($i != $item) ? Lien($ligne['texte'], $support, $i) : Lien_item_selectionne($ligne['texte'], $support, $i);
 		$i++;
 	}
 	return $tableau;
@@ -88,14 +86,8 @@ function Liste_sous_item($support,$item,$sous_item) {
 	$i=1;
 	$tableau = null;
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
-		if ($i != $sous_item) {
-			$debut = '<a href="index.php?support='.$support.'&item='.$item.'&sous_item='.$i.'">';
-			$fin   = '</a>';
-		} else {
-			$debut = '';
-			$fin   = '';
-		}		
-		$tableau[$i] = $debut.$ligne['texte'].$fin; // ajout de la valeur courante et le texte puis fermeture de la balise
+		$tableau[$i] = ($i != $sous_item) ? Lien($ligne['texte'], $support, $item, $i) : $ligne['texte'];
+		//	si sous_item est le sélectonné alors lien 									sinon texte seul
 		$i++;
 	}
 	return $tableau;
