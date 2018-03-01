@@ -14,7 +14,13 @@
 </thead>
 
 <tbody>
-<?php $_SESSION[SUPPORT]->Afficher_nomenclature(); ?>
+<?php
+	$connexionBD = new base2donnees;	
+	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id);
+	$connexionBD->Fermer();
+	if (isset($nomenclature)) {
+		foreach ($nomenclature as $piece) $piece->Afficher();
+	} else echo '<h1>Erreur Nomenclature</h1>';?>
 </tbody>
 </table>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>

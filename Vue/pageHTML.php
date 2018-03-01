@@ -1,7 +1,7 @@
 <header>
 	<?php
-		$_SESSION[SUPPORT]->Image();
-		$_SESSION[SUPPORT]->Titre();
+		$_SESSION[SUPPORT]->Image();	//logo
+		echo '<p>Dossier technique ', $_SESSION[SUPPORT]->du, $_SESSION[SUPPORT]->nom, '</p>', "\n"; 
 	?>
 </header>
 
@@ -16,20 +16,11 @@
 
 <section>
 <?php
-$script = $_SESSION[SUPPORT]->Script(); // le test pour savoir si le script existe est déjà fait dans index.php
-
-switch($script) { // on regarde si script est un mot réservé
-case 'eclate':
-	$_SESSION[SUPPORT]->Afficher_eclate();
-	break;
-case 'dessin_densemble':
-	$_SESSION[SUPPORT]->Afficher_dessin_densemble();
-	break;
-case 'nomenclature':
-	include 'Vue/nomenclature.php';
-	break;
-default: $_SESSION[SUPPORT]->Execute($script); // ce n'est pas un mot réservé
-}
+$page = new Page;
+$connexionBD = new base2donnees;
+$script = $connexionBD->Script($_SESSION[SUPPORT]->id,$_SESSION[SUPPORT]->item,$_SESSION[SUPPORT]->sous_item);
+$connexionBD->Fermer();
+$page->Afficher($script);
 ?>
 </section>
 
