@@ -2,11 +2,11 @@
 #corps {
 	width:1400px; /* même largeur que header */
 	margin:auto;
-	min-height:550px;
 }
 section {
 	width:1180px;
 	background-color:white;
+	min-height:550px;
 }
 
 nav, section {
