@@ -19,46 +19,12 @@ function Support($id, $nom, $pti_nom, $dossier, $du, $le) {	// constructeur
 	$this->item		= 1; // N° item actuel
 	$this->sous_item= 0; // N° sous-item actuel
 }
-// Associations image-fichier -----------------------------------------------------------------------------
-function Afficher_association($image, $fichier, $extension, $titre) {
-	$page = new Association_image_fichier($this->dossier, $image, $fichier, $extension, $titre);
-	$page->Afficher();
-}
-function Afficher_dessin_densemble() {
-	$page = new Dessin_densemble($this->dossier, $this->pti_nom,$this->pti_nom);
-	$page->Afficher();
-}
-function Afficher_eclate() {
-	$page = new Eclate($this->dossier, $this->pti_nom, $this->pti_nom);
-	$page->Afficher();
-}
 function Image() { echo '<img src="',$this->dossier,'images/',$this->pti_nom.'.png" alt="',$this->le,$this->nom,'">'; }
 
-function Titre() { echo '<p>Dossier technique ', $this->du, $this->nom, '</p>'; } 
-
-function Execute($script) {
-	if (file_exists($this->dossier.$script.'.php'))
-		include $this->dossier.$script.'.php';
-	else include 'Vue/en_construction.php';
-}
-function Afficher_nomenclature() {
-	$connexionBD = new base2donnees;	
-	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id);
-	$connexionBD->Fermer();
-	if (isset($nomenclature)) {
-		foreach ($nomenclature as $piece) $piece->Afficher();
-	} else echo '<h1>Erreur Nomenclature</h1>';
-}
 function Page_existe($item,$sous_item) {
 	$connexionBD = new base2donnees;
 	$test = $connexionBD->Page_existe($this->id,$item,$sous_item);
 	$connexionBD->Fermer();
 	return $test;
-}
-function Script() { // exécute le script de la page actuelle
-	$connexionBD = new base2donnees;
-	$script = $connexionBD->Script($this->id,$this->item,$this->sous_item);
-	$connexionBD->Fermer();
-	return $script;
 }
 }
