@@ -1,7 +1,5 @@
 <header>
-	<?php
-		echo $_SESSION[IMAGE], $_SESSION[TITRE], "\n"; 
-	?>
+	<?php	echo $_SESSION[IMAGE], $_SESSION[TITRE], "\n";	?>
 </header>
 
 <div id="corps">

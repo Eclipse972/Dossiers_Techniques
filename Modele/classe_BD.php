@@ -21,11 +21,9 @@ function Requete($requete) {
 	$this->resultat = mysql_query($requete);
 }
 function Support($id) {
-	$T_articles = array (
-		1 => array('du' => 'du ',		'le' => 'le '),
-		2 => array('du' => 'de la ',	'le' => 'la '),
-		3 => array('du' => 'de l&apos;','le' => 'l&apos;')
-	);
+	$T_du = array ('du ', 'de la ', 'de l&apos;');
+	$T_le = array ('le ', 'la ',	'l&apos;');
+	
 	$this->Requete('SELECT nom, pti_nom, dossier, article_ID 
 					FROM Supports
 					WHERE Supports.ID='.$id);
@@ -34,8 +32,8 @@ function Support($id) {
 		$support[ID]		= $id;
 		$support[PTI_NOM]	= $ligne['pti_nom'];
 		$support[DOSSIER]	= 'Supports/'.$ligne['dossier'].'/';
-		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$T_articles[$ligne['article_ID']]['le'].$ligne['nom'].'">';
-		$support[TITRE]		= '<p>Dossier technique '.$T_articles[$ligne['article_ID']]['du'].$ligne['nom'].'</p>';
+		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$T_le[$ligne['article_ID']-1].$ligne['nom'].'">';
+		$support[TITRE]		= '<p>Dossier technique '.$T_du[$ligne['article_ID']-1].$ligne['nom'].'</p>';
 	} else $support = null;
 	return $support;
 }
