@@ -15,11 +15,9 @@ function Afficher_menu() {
 	// test de l'existence des items à faire
 	if(!isset($T_items)) {
 		echo 'MENU INEXISTANT';
-		$connexionBD->Fermer();
 		return;		// on sort de la fonction
 	}
 	$T_sous_items 	= $connexionBD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
-	$connexionBD->Fermer();
 	echo '<ul>',"\n";
 	foreach($T_items as $i => $item) {	// affichage du menu
 		echo '<li>',$item,'</li>',"\n";	// lien

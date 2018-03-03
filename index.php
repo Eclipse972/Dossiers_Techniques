@@ -28,7 +28,6 @@ $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 $id = Extraire_parametre('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 $connexionBD = new base2donnees();
 $_SESSION = $connexionBD->Support($id);
-$connexionBD->Fermer();
 
 $code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports'; // code de la page suivat l'existence du support
 $CSS  = (isset($_SESSION)) ? 'styleDT'	: 'style_liste'; 
@@ -39,7 +38,6 @@ if(isset($_SESSION)) { // si le support existe
 	if ($sous_item == -1) $sous_item++; // si le sous-item n'existe pas on remplace par 0
 	$connexionBD = new base2donnees;
 	$page_existe = $connexionBD->Page_existe($_SESSION[ID], $item, $sous_item);
-	$connexionBD->Fermer();
 
 	$_SESSION[ITEM]		 = ($page_existe) ? $item		: 1;
 	$_SESSION[SOUS_ITEM] = ($page_existe) ? $sous_item	: 0;

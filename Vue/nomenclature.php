@@ -17,7 +17,6 @@
 <?php
 	$connexionBD = new base2donnees;	
 	$nomenclature = $connexionBD->Nomenclature($_SESSION[ID]);
-	$connexionBD->Fermer();
 	if (isset($nomenclature)) {
 		foreach ($nomenclature as $piece) $piece->Afficher();
 	} else echo '<h1>Erreur Nomenclature</h1>';?>

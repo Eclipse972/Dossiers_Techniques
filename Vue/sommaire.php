@@ -10,6 +10,5 @@ while (isset($ListeDvignettes[$id])) {
 	if($No_colonne==$NB_colonne-1) echo "\n\t", '</tr>';	// fin de ligne si dernière colonne atteinte
 	$id++;
 }
-$connexionBD->Fermer();
 // si en sortie on s'arrete sur une colonne autre que la dernière
 if($No_colonne!=$NB_colonne-1) echo "\n\t", '</tr>', "\n";
