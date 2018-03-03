@@ -1,6 +1,6 @@
 <header>
 	<?php
-		echo $_SESSION[IMAGE],'<p>Dossier technique ', $_SESSION[DU], $_SESSION[NOM], '</p>', "\n"; 
+		echo $_SESSION[IMAGE], $_SESSION[TITRE], "\n"; 
 	?>
 </header>
 

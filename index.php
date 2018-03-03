@@ -4,13 +4,12 @@
 ************************************************************************************************************************************/
 // mes constantes
 define("ID",		1);
-define("NOM",		2);
-define("PTI_NOM",	3);
-define("DOSSIER",	4);
-define("ITEM",		5);
-define("SOUS_ITEM",	6);
-define("DU",		7);
-define("LE",		8);
+define("PTI_NOM",	2);
+define("DOSSIER",	3);
+define("ITEM",		4);
+define("SOUS_ITEM",	5);
+define("IMAGE",		6);
+define("TITREE",	7);
 
 function Extraire_parametre($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe 

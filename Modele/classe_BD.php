@@ -31,14 +31,11 @@ function Support($id) {
 					WHERE Supports.ID='.$id);
 	if (mysql_num_rows($this->resultat)>0) {
 		$ligne = mysql_fetch_assoc($this->resultat);
-		//return new Support($id, $ligne['nom'], $ligne['pti_nom'], $ligne['dossier'], $T_articles[$ligne['article_ID']]['du'], $T_articles[$ligne['article_ID']]['le']);
 		$support[ID]		= $id;
-		$support[NOM]		= $ligne['nom'];
 		$support[PTI_NOM]	= $ligne['pti_nom'];
 		$support[DOSSIER]	= 'Supports/'.$ligne['dossier'].'/';
-		$support[DU]		= $T_articles[$ligne['article_ID']]['du'];
-		$support[LE]		= $T_articles[$ligne['article_ID']]['le'];
-		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$support[LE].$support[NOM].'">';
+		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$T_articles[$ligne['article_ID']]['le'].$ligne['nom'].'">';
+		$support[TITRE]		= '<p>Dossier technique '.$T_articles[$ligne['article_ID']]['du'].$ligne['nom'].'</p>';
 	} else $support = null;
 	return $support;
 }
