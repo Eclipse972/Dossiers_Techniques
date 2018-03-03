@@ -3,16 +3,9 @@ class Page {
 function Page(){ // constructeur
 	
 }
-/* Où ettre cette fonction ?
- * function Afficher_association($image, $fichier, $extension, $titre) {
-	$page = new Association_image_fichier($this->dossier, $image, $fichier, $extension, $titre);
-	$page->Afficher();
-}
- */
 function Afficher($script) {
 	switch($script) { // on regarde si script est un mot réservé
 	case 'eclate':
-		//$_SESSION[SUPPORT]->Afficher_eclate();
 		$page = new Eclate($_SESSION[SUPPORT]->dossier, $_SESSION[SUPPORT]->pti_nom, $_SESSION[SUPPORT]->pti_nom);
 		$page->Afficher();
 		break;
