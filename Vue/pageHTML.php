@@ -1,7 +1,6 @@
 <header>
 	<?php
-		$_SESSION[SUPPORT]->Image();	//logo
-		echo '<p>Dossier technique ', $_SESSION[SUPPORT]->du, $_SESSION[SUPPORT]->nom, '</p>', "\n"; 
+		echo $_SESSION[IMAGE],'<p>Dossier technique ', $_SESSION[DU], $_SESSION[NOM], '</p>', "\n"; 
 	?>
 </header>
 
@@ -9,7 +8,7 @@
 
 <Nav>
 <?php
-	$menu = new Menu($_SESSION[SUPPORT]->id, $_SESSION[SUPPORT]->item, $_SESSION[SUPPORT]->sous_item);
+	$menu = new Menu($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
 	$menu->Afficher_menu();
 ?>
 </nav>
@@ -18,7 +17,7 @@
 <?php
 $page = new Page;
 $connexionBD = new base2donnees;
-$script = $connexionBD->Script($_SESSION[SUPPORT]->id,$_SESSION[SUPPORT]->item,$_SESSION[SUPPORT]->sous_item);
+$script = $connexionBD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
 $connexionBD->Fermer();
 $page->Afficher($script);
 ?>

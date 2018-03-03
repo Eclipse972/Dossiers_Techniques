@@ -16,7 +16,7 @@
 <tbody>
 <?php
 	$connexionBD = new base2donnees;	
-	$nomenclature = $connexionBD->Nomenclature($_SESSION[SUPPORT]->id);
+	$nomenclature = $connexionBD->Nomenclature($_SESSION[ID]);
 	$connexionBD->Fermer();
 	if (isset($nomenclature)) {
 		foreach ($nomenclature as $piece) $piece->Afficher();

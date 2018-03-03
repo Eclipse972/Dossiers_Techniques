@@ -12,7 +12,7 @@ function Fichier_existe($fichier,$extension,$dossier,$substitution) {
 }
 function Ajouter_image($image, $alt, $class = null, $style = null)	{
 	// ajoute l'image (sans l'extension) du support courant. Cette images se trouve dans le répertoire /images.
-	echo '<img src="', Image($image,$_SESSION[SUPPORT]->dossier.'images/'),'"';
+	echo '<img src="', Image($image,$_SESSION[DOSSIER].'images/'),'"';
 
 	if (isset($class)) echo ' class="', $class, '"'; // class
 
