@@ -3,7 +3,14 @@
 	contrôleur principal
 ************************************************************************************************************************************/
 // mes constantes
-define("SUPPORT",	0);
+define("ID",		1);
+define("NOM",		2);
+define("PTI_NOM",	3);
+define("DOSSIER",	4);
+define("ITEM",		5);
+define("SOUS_ITEM",	6);
+define("DU",		7);
+define("LE",		8);
 
 function Extraire_parametre($param) {
 	if(isset($_GET[$param]))			// si le paramètre existe 
@@ -17,30 +24,26 @@ include 'Controleur/scripts.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
-$id = Extraire_parametre('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
-$connexionBD = new base2donnees();
-$_SESSION[SUPPORT] = $connexionBD->Support($id);
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
+$id = Extraire_parametre('support');	// si support n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
+$connexionBD = new base2donnees();
+$_SESSION = $connexionBD->Support($id);
 $connexionBD->Fermer();
 
-if(isset($_SESSION[SUPPORT])) {
+$code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports'; // code de la page suivat l'existence du support
+$CSS  = (isset($_SESSION)) ? 'styleDT'	: 'style_liste'; 
+
+if(isset($_SESSION)) { // si le support existe
 	$item		= Extraire_parametre('item');	// si page n'existe pas -1 est renvoyé et cet identifiant est forcément invalide
 	$sous_item	= Extraire_parametre('sous_item');
-	if($sous_item == -1) $sous_item++; // si sous-item absent on met à 0
-	if ($_SESSION[SUPPORT]->Page_existe($item,$sous_item)) { // si la page n'existe pas ou est inconnue on prend la page mise en situation
-		$_SESSION[SUPPORT]->item  = $item;
-		$_SESSION[SUPPORT]->sous_item  = $sous_item;
-	} else {
-		$_SESSION[SUPPORT]->item  = 1;
-		$_SESSION[SUPPORT]->sous_item  = 0;
-	}
-	$code = 'pageHTML'; // code de la page
-	$CSS = 'styleDT';
-}
-else {
-	$code = 'listeDsupports'; // le support n'existe pas ou est inconnu alors on affiche la liste des supports
-	$CSS = 'style_liste';
+	if ($sous_item == -1) $sous_item++; // si le sous-item n'existe pas on remplace par 0
+	$connexionBD = new base2donnees;
+	$page_existe = $connexionBD->Page_existe($_SESSION[ID], $item, $sous_item);
+	$connexionBD->Fermer();
+
+	$_SESSION[ITEM]		 = ($page_existe) ? $item		: 1;
+	$_SESSION[SOUS_ITEM] = ($page_existe) ? $sous_item	: 0;
 }
 //*************************************************************************************************************************************
 ?>
