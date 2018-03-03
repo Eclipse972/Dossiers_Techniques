@@ -1,3 +1,3 @@
 <?php
-$dessin = new Dessin_de_definition($_SESSION[SUPPORT]->dossier, 'reservoir');
+$dessin = new Dessin_de_definition($_SESSION[DOSSIER], 'reservoir');
 $dessin->Afficher();

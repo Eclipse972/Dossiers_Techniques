@@ -1,3 +1,3 @@
 <?php
-$dessin = new Dessin_de_definition($_SESSION[SUPPORT]->dossier, 'tirants_M4');
+$dessin = new Dessin_de_definition($_SESSION[DOSSIER], 'tirants_M4');
 $dessin->Afficher();
