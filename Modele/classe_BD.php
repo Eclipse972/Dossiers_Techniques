@@ -42,7 +42,7 @@ function ListeDvignettes() {
 	$tableau = null;
 	$this->Requete('SELECT ID, nom, pti_nom, dossier 
 					FROM Supports 
-					ORDER BY nom ASC');
+					ORDER BY pti_nom ASC');
 	while ($ligne = mysql_fetch_assoc($this->resultat)) {
 		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/').'" alt = "'.$ligne['nom'].'">';
 		$tableau[] = Lien($ligne['nom'].'<br>'.$image, $ligne['ID']);
