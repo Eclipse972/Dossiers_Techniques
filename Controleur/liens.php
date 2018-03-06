@@ -1,11 +1,11 @@
 <?php
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
 	$lien = '<a href="index.php?p=';
-	$lien .= chr(ord('a')+$support);
+	$lien .= chr(origine+$support);
 	if (isset($item)) {
-		$lien .= chr(ord('a')+$item);
-		if (isset($sous_item)) $lien .=chr(ord('a')+$sous_item);
-	} // Si l'iteme n'existe pas il n'y a pas de sous-item
+		$lien .= chr(origine+$item);
+		if (isset($sous_item)) $lien .=chr(origine+$sous_item);
+	} // Si l'item n'existe pas il n'y a pas de sous-item
 	$lien .= '">'.$texte.'</a>';
 	return $lien;
 }

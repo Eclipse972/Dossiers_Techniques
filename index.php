@@ -10,6 +10,7 @@ define("ITEM",		4);
 define("SOUS_ITEM",	5);
 define("IMAGE",		6);
 define("TITREE",	7);
+define("origine",	64); // code asci de @
 
 include 'Modele/mes_classes.php';
 require 'Vue/fonctions.php';
@@ -24,9 +25,9 @@ if(isset($_GET["p"]))	// si le paramètre existe
 	$param = substr((string) $_GET["p"],0,3);	// alors il est converti en nombre chaîne de 3 caractères
 else $param = null;
 
-$id			= (isset($param[0])) ? ord($param[0])-ord('a') : -1;
-$item		= (isset($param[1])) ? ord($param[1])-ord('a') : 1;
-$sous_item	= (isset($param[2])) ? ord($param[2])-ord('a') : 0;
+$id			= (isset($param[0])) ? ord($param[0])-origine : -1;
+$item		= (isset($param[1])) ? ord($param[1])-origine : 1;
+$sous_item	= (isset($param[2])) ? ord($param[2])-origine : 0;
 
 $connexionBD = new base2donnees();
 $_SESSION = $connexionBD->Support($id); // création du support s'il existe
