@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 07 Mars 2018 à 01:59
+-- Généré le : Sam 24 Mars 2018 à 21:06
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   `URL_wiki` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `formule` (`formule`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=22 ;
 
 --
 -- Contenu de la table `Materiaux`
@@ -258,7 +258,8 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (17, 'EN-GJS-600-2', 'Fonte_(m%C3%A9tallurgie)#Fonte_GS_(graphite_sph%C3%A9ro%C3%AFdal,_aussi_appel%C3%A9e_fonte_ductile)'),
 (18, 'C 55', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
 (19, '55 Cr3', 'Acier#Aciers_faiblement_alli.C3.A9s'),
-(20, 'E 295', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral');
+(20, 'E 295', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
+(21, 'C35', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29');
 
 -- --------------------------------------------------------
 
@@ -533,7 +534,16 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (16, 'Segment de guidage de 40', 17, 1, 13, '', 'segment2guidage40', 0),
 (16, 'Bague anti extrusion 34-40', 18, 3, 13, '', 'bague_anti_extrusion34-40', 0),
 (16, 'Joint torique 35,6x3,6', 19, 2, 0, 'Commerce', 'joint_torique35,6x3,6', 0),
-(16, 'Douille', 20, 1, 0, 'Commerce', 'douille', 0);
+(16, 'Douille', 20, 1, 0, 'Commerce', 'douille', 0),
+(16, 'Joint torique 16,6x2,7', 21, 1, 0, 'Commerce', 'joint_torique16.9x2.7', 0),
+(16, 'Bague anti-extrusion 18-21', 22, 1, 13, '', 'bague_anti-extrusion18-21', 0),
+(16, 'Goupille &eacute;lastique 4 x 35', 24, 1, 0, 'Commerce', 'goupille4x35', 0),
+(16, 'chape', 25, 1, 21, '', 'chape', 0),
+(16, 'Segment de guidage de 18', 23, 1, 21, '', 'racleur18', 0),
+(16, 'Axe de chape', 26, 1, 0, '', 'axe2chape', 0),
+(16, 'Axe de chape', 26, 1, 18, '', 'axe2chape', 0),
+(16, 'Plaquette plastique', 27, 1, 0, '', 'plaquette_plastique', 0),
+(16, 'Ressort de compression', 28, 1, 0, 'Commerce', 'ressort', 0);
 
 -- --------------------------------------------------------
 
