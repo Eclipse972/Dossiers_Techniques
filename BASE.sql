@@ -2,27 +2,21 @@
 -- version 3.1.5
 -- http://www.phpmyadmin.net
 --
--- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 24 Mars 2018 à 21:06
--- Version du serveur: 5.0.83
--- Version de PHP: 5.3.9
+-- Host: dossiers.techniques.sql.free.fr
+-- Generation Time: May 19, 2018 at 01:34 AM
+-- Server version: 5.0.83
+-- PHP Version: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
--- Base de données: `dossiers_techniques`
+-- Database: `dossiers_techniques`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Associations_image-fichier`
+-- Table structure for table `Associations_image-fichier`
 --
 
 CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
@@ -34,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `Associations_image-fichier` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Contenu de la table `Associations_image-fichier`
+-- Dumping data for table `Associations_image-fichier`
 --
 
 INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fichier`) VALUES
@@ -65,7 +59,7 @@ INSERT INTO `Associations_image-fichier` (`support_ID`, `type_ID`, `image`, `fic
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Items_menu`
+-- Table structure for table `Items_menu`
 --
 
 CREATE TABLE IF NOT EXISTS `Items_menu` (
@@ -78,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `Items_menu` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Contenu de la table `Items_menu`
+-- Dumping data for table `Items_menu`
 --
 
 INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) VALUES
@@ -161,21 +155,21 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (12, 1, 0, 'Mise en situation', 'MES'),
 (12, 1, 1, 'Dispositif de transfert', 'dispositif_transfert'),
 (12, 1, 2, '&eacute;tape 1', 'transfert1'),
-(12, 1, 4, '&eacute;tape 2', 'transfert2'),
-(12, 1, 5, '&eacute;tape 3 et 4', 'transfert3et4'),
-(12, 1, 6, '&eacute;tape 5', 'transfert5'),
-(12, 1, 7, '&eacute;tape 6', 'transfert6'),
-(12, 2, 0, '&Eacute;clat&eacute;', 'eclate_CE'),
-(12, 2, 1, 'CE1: b&acirc;ti', 'CE1'),
-(12, 2, 2, 'CE2: tige de v&eacute;rin', 'CE2'),
-(12, 2, 3, 'CE3: biellette', 'CE3'),
-(12, 2, 4, 'CE4: deux doigts', 'CE4'),
-(12, 2, 5, 'CE5: un doigt', 'CE5'),
-(12, 3, 0, 'M&eacute;canique', 'mecanique'),
-(12, 3, 1, 'd&eacute;placement de la tige''', 'tige'),
-(12, 3, 2, 'd&eacute;placement de la pince', 'pince'),
-(12, 3, 3, 'effort de la tige de v&eacute;rin', 'effort_verin'),
-(12, 3, 4, 'effort de l&apos;articulation', 'effort_articulation'),
+(12, 1, 3, '&eacute;tape 2', 'transfert2'),
+(12, 1, 4, '&eacute;tape 3 et 4', 'transfert3et4'),
+(12, 1, 5, '&eacute;tape 5', 'transfert5'),
+(12, 1, 6, '&eacute;tape 6', 'transfert6'),
+(12, 5, 0, '&Eacute;clat&eacute;', 'eclate_CE'),
+(12, 5, 1, 'CE1: b&acirc;ti', 'CE1'),
+(12, 5, 2, 'CE2: tige de v&eacute;rin', 'CE2'),
+(12, 5, 3, 'CE3: biellette', 'CE3'),
+(12, 5, 4, 'CE4: bras avec deux doigts', 'CE4'),
+(12, 5, 5, 'CE5: bras avec un doigt', 'CE5'),
+(12, 6, 0, 'M&eacute;canique', 'mecanique'),
+(12, 6, 1, 'd&eacute;placement de la tige', 'tige'),
+(12, 6, 2, 'd&eacute;placement de la pince', 'pince'),
+(12, 6, 3, 'effort de la tige de v&eacute;rin', 'effort_verin'),
+(12, 6, 4, 'effort de l&apos;articulation', 'effort_articulation'),
 (13, 1, 0, 'Mise en situation', 'MES'),
 (13, 2, 0, 'Fonctionnement', 'fonctionnement'),
 (13, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
@@ -194,8 +188,8 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (16, 2, 0, 'Fonctionnement', 'fonctionnement'),
 (16, 3, 0, 'Caract&eacute;ristiques', 'caracteristiques'),
 (16, 4, 0, 'Montage de bridage', 'montage_bridage'),
-(16, 5, 0, '&Eacute;clat&eacute;', 'vue_eclatee'),
-(16, 6, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
+(16, 5, 0, '&Eacute;clat&eacute; du montage', 'vue_eclatee'),
+(16, 7, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
 (1, 2, 0, 'Pr&eacute;sentation des axes', 'presentation_axes'),
 (1, 2, 1, 'axe N°1', 'axe1'),
 (1, 2, 2, 'axe N°2', 'axe2'),
@@ -217,12 +211,28 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (3, 7, 12, 'poussoir tarage', 'def_poussoir_tarage'),
 (3, 7, 13, 'r&eacute;servoir', 'def_reservoir'),
 (3, 7, 14, 'tirant M4', 'def_tirants_M4'),
-(16, 7, 0, 'Nomenclature', 'nomenclature');
+(16, 9, 0, 'Nomenclature', 'nomenclature'),
+(16, 2, 1, 'd&eacute;but de la phase 1', 'debut_ph1'),
+(16, 2, 2, 'phase 1', 'phase1'),
+(16, 2, 3, 'd&eacute;but de la phase 2', 'debut_ph2'),
+(16, 2, 4, 'phase 2', 'phase2'),
+(16, 6, 0, 'Sous-ensembles', 'sous-ensembles'),
+(16, 6, 1, 'corps de bride', 'corps2bride'),
+(16, 6, 2, 'nez de bride', 'nez_bride'),
+(16, 6, 3, 'piston complet', 'piston_complet'),
+(16, 6, 4, 'plaquette', 'plaquette'),
+(16, 6, 5, 'ressort', 'ressort'),
+(16, 8, 0, '&Eacute;clat&eacute; de la bride', 'eclate_bride'),
+(12, 2, 0, 'Fonctionnement', 'fonctionnement'),
+(12, 2, 2, 'fermeture', 'fermeture'),
+(12, 2, 1, 'ouverture', 'ouverture'),
+(12, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
+(12, 4, 0, 'Nomenclature', 'nomenclature');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Materiaux`
+-- Table structure for table `Materiaux`
 --
 
 CREATE TABLE IF NOT EXISTS `Materiaux` (
@@ -231,10 +241,10 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   `URL_wiki` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `formule` (`formule`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=26 ;
 
 --
--- Contenu de la table `Materiaux`
+-- Dumping data for table `Materiaux`
 --
 
 INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
@@ -259,12 +269,16 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (18, 'C 55', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
 (19, '55 Cr3', 'Acier#Aciers_faiblement_alli.C3.A9s'),
 (20, 'E 295', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
-(21, 'C35', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29');
+(21, 'C35', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
+(22, 'S 185', 'Acier#Aciers_non_alli.C3.A9s'),
+(23, 'X 12 Cr 13', 'Désignation_des_métaux_et_alliages#Aciers'),
+(24, 'Cu Al10 Fe', 'Alliage_de_cuivre'),
+(25, 'EN AW 2018', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Pieces`
+-- Table structure for table `Pieces`
 --
 
 CREATE TABLE IF NOT EXISTS `Pieces` (
@@ -280,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `Pieces` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
 --
--- Contenu de la table `Pieces`
+-- Dumping data for table `Pieces`
 --
 
 INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
@@ -543,12 +557,42 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (16, 'Axe de chape', 26, 1, 0, '', 'axe2chape', 0),
 (16, 'Axe de chape', 26, 1, 18, '', 'axe2chape', 0),
 (16, 'Plaquette plastique', 27, 1, 0, '', 'plaquette_plastique', 0),
-(16, 'Ressort de compression', 28, 1, 0, 'Commerce', 'ressort', 0);
+(16, 'Ressort de compression', 28, 1, 0, 'Commerce', 'ressort', 0),
+(12, 'Ch&acirc;ssis', 1, 1, 14, '', 'chassis', 0),
+(12, 'Renfort', 2, 2, 22, '', 'renfort', 0),
+(12, 'Vis H M5 8', 3, 4, 0, '', 'visHM5-8', 0),
+(12, 'Vis H M 10', 4, 14, 0, '', 'visHM6-10', 0),
+(12, 'Rail TKSD', 5, 4, 0, '', 'railTKSD', 0),
+(12, 'Chariot', 6, 4, 0, '', 'chariot', 0),
+(12, 'Ensemble m&eacute;cano-soud&eacute; 2 doigts', 7, 1, 0, '', 'ensemble2doigts', 1),
+(12, 'Vis HM8 16', 8, 4, 0, '', 'visHM8-16', 0),
+(12, 'Rondelle M8', 9, 4, 0, '', 'rondelleM8', 0),
+(12, 'Guide ressort', 10, 4, 0, '', 'guide', 0),
+(12, 'Vis CHc M8 12', 11, 3, 0, '', 'visCHcM8-12', 0),
+(12, 'Doigt', 13, 3, 23, '', 'doigt', 0),
+(12, 'Vic CHc M5 16', 14, 32, 0, '', 'visCHcM5-16', 0),
+(12, '&Eacute;crou H M16', 15, 4, 0, '', 'ecrouHM16', 0),
+(12, '&Eacute;querre mobile', 16, 2, 0, '', 'equerreUPN', 0),
+(12, 'Carter', 18, 1, 0, '', 'carter', 0),
+(12, 'Bague', 19, 4, 24, '', 'bague2biellette', 0),
+(12, 'Biellette', 20, 2, 25, '', 'biellette', 0),
+(12, 'Fixation v&eacute;rin', 21, 2, 0, '', 'bride', 0),
+(12, 'Corps de v&eacute;rin Joucomatic', 22, 1, 0, 'K 63 D 80 M', 'corps2verin', 0),
+(12, 'Noix', 23, 1, 0, '', 'noix', 0),
+(12, 'Ensemble m&eacute;cano-soud&eacute; 1 doigt', 24, 1, 0, '', 'ensemble1doigt', 1),
+(12, 'Piston du v&eacute;rin', 25, 1, 0, '', 'piston', 0),
+(12, 'Ressort', 26, 1, 0, '', 'ressort', 0),
+(12, '&Eacute;querre fixe', 27, 2, 0, '', 'equerre_fixe', 0),
+(12, 'Vis CHc M8 30', 28, 4, 0, '', 'visCHcM8-30', 0),
+(12, 'Vis CHc M6 25', 29, 4, 0, '', 'visCHcM6-25', 0),
+(12, 'Rondelle M6', 30, 4, 0, '', 'rondelleM6', 0),
+(12, 'Vis CHc M10 25', 31, 4, 0, '', 'visCHcM10-25', 0),
+(12, 'Vis CHc M4 22', 32, 16, 0, '', 'visCHcM4-22', 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Supports`
+-- Table structure for table `Supports`
 --
 
 CREATE TABLE IF NOT EXISTS `Supports` (
@@ -562,7 +606,7 @@ CREATE TABLE IF NOT EXISTS `Supports` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=17 ;
 
 --
--- Contenu de la table `Supports`
+-- Dumping data for table `Supports`
 --
 
 INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
@@ -587,7 +631,7 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Type_association`
+-- Table structure for table `Type_association`
 --
 
 CREATE TABLE IF NOT EXISTS `Type_association` (
@@ -600,7 +644,7 @@ CREATE TABLE IF NOT EXISTS `Type_association` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=11 ;
 
 --
--- Contenu de la table `Type_association`
+-- Dumping data for table `Type_association`
 --
 
 INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
@@ -614,7 +658,3 @@ INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
 (8, 'CE pièce unique bâti', 'piece_bati', '.EPRT'),
 (9, 'éclaté en classe d''équivalence', 'eclate_CE', '.EASM'),
 (10, 'association', 'association', '');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
