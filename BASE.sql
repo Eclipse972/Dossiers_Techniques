@@ -3,11 +3,17 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: dossiers.techniques.sql.free.fr
--- Generation Time: May 19, 2018 at 01:34 AM
+-- Generation Time: May 29, 2018 at 08:57 PM
 -- Server version: 5.0.83
 -- PHP Version: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `dossiers_techniques`
@@ -191,11 +197,11 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (16, 5, 0, '&Eacute;clat&eacute; du montage', 'vue_eclatee'),
 (16, 7, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
 (1, 2, 0, 'Pr&eacute;sentation des axes', 'presentation_axes'),
-(1, 2, 1, 'axe N°1', 'axe1'),
-(1, 2, 2, 'axe N°2', 'axe2'),
-(1, 2, 3, 'axe N°3', 'axe3'),
-(1, 2, 4, 'axe N°4', 'axe4'),
-(1, 2, 5, 'axe N°5', 'axe5'),
+(1, 2, 1, 'axe 1', 'axe1'),
+(1, 2, 2, 'axe 2', 'axe2'),
+(1, 2, 3, 'axe 3', 'axe3'),
+(1, 2, 4, 'axe 4', 'axe4'),
+(1, 2, 5, 'axe 5', 'axe5'),
 (3, 7, 0, 'Dessins de d&eacute;finition', 'dessins2definition'),
 (3, 7, 1, 'axe d&apos;articulation', 'def_axe_articulation'),
 (3, 7, 2, 'biellette', 'def_biellette'),
@@ -241,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   `URL_wiki` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `formule` (`formule`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=26 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `Materiaux`
@@ -273,7 +279,9 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (22, 'S 185', 'Acier#Aciers_non_alli.C3.A9s'),
 (23, 'X 12 Cr 13', 'Désignation_des_métaux_et_alliages#Aciers'),
 (24, 'Cu Al10 Fe', 'Alliage_de_cuivre'),
-(25, 'EN AW 2018', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage');
+(25, 'EN AW 2018', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
+(26, 'PTFE', 'Polytétrafluoroéthylène'),
+(27, 'GE 295', 'Acier#Aciers_non_alli%C3%A9s_d''usage_g%C3%A9n%C3%A9ral');
 
 -- --------------------------------------------------------
 
@@ -329,9 +337,9 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (1, 'axe', 4, 1, 9, '', 'axe4', 0),
 (1, 'vis CHc M4 - 55', 5, 1, 9, '', 'vis4x55', 0),
 (1, 'embase', 6, 1, 9, 'commerce', 'embase', 0),
-(1, 'intermédiaire', 7, 1, 9, '', 'intermediaire', 0),
+(1, 'interm&eacute;diaire', 7, 1, 9, '', 'intermediaire', 0),
 (1, 'bouton', 8, 1, 9, '', 'bouton', 0),
-(1, 'tige filetée', 9, 1, 9, 'commerce', 'tige_filetee', 0),
+(1, 'tige filet&eacute;e', 9, 1, 9, 'commerce', 'tige_filetee', 0),
 (1, 'axe', 10, 1, 9, '', 'axe10', 0),
 (1, 'embout', 11, 1, 9, '', 'embout', 0),
 (1, 'tige', 12, 1, 9, '', 'tige', 0),
@@ -474,18 +482,18 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (11, 'Joint torique 50.40x3.53', 7, 1, 0, '', 'joint_torique', 0),
 (11, 'Plaque', 8, 1, 0, '', 'plaque', 0),
 (11, 'Vis ISO 10642-m3X12-8.8', 9, 8, 0, '', 'Vis', 0),
-(13, 'Corps', 1, 1, 0, '', 'corps', 0),
-(13, 'Raccord', 2, 2, 0, '', 'raccord', 0),
-(13, 'Bille', 3, 1, 0, '', 'bille', 0),
-(13, 'Joint de si&egrave;ge', 4, 2, 0, '', 'joint2siege', 0),
+(13, 'Corps', 1, 1, 5, '', 'corps', 0),
+(13, 'Raccord', 2, 2, 5, '', 'raccord', 0),
+(13, 'Bille', 3, 1, 5, '', 'bille', 0),
+(13, 'Joint de si&egrave;ge', 4, 2, 26, '', 'joint2siege', 0),
 (13, 'Axe de manoeuvre', 5, 1, 0, '', 'axe2manoeuvre', 0),
-(13, 'Rondelle but&eacute;e', 6, 1, 0, '', 'rondelle_butee', 0),
-(13, 'Rondelle L3', 7, 1, 0, '', 'rondelle_L3', 0),
-(13, 'Manette', 8, 1, 0, '', 'manette', 0),
-(13, 'Vis', 9, 1, 0, '', 'vis', 0),
+(13, 'Rondelle but&eacute;e', 6, 1, 20, '', 'rondelle_butee', 0),
+(13, 'Rondelle L3', 7, 1, 5, '', 'rondelle_L3', 0),
+(13, 'Manette', 8, 1, 27, 'Rouge', 'manette', 0),
+(13, 'Vis', 9, 1, 5, '', 'vis', 0),
 (13, 'Joint torique', 10, 1, 0, '', 'joint_torique', 0),
 (13, 'Joint torique', 11, 2, 0, '', 'joint_torique2', 0),
-(13, 'But&eacute;e', 12, 1, 0, '', 'butee', 0),
+(13, 'But&eacute;e', 12, 1, 20, '', 'butee', 0),
 (9, 'Support de v&eacute;rin', 1, 1, 0, '', 'support2verin', 0),
 (9, 'Fond', 2, 1, 0, '', 'fond', 0),
 (9, 'Plaque avant', 3, 1, 0, '', 'plaque_avant', 0),
@@ -530,7 +538,7 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (15, 'Vis sans t&ecirc;te HC &agrave; bout plat M5 - 6', 17, 2, 0, '', 'visSANStete', 0),
 (15, 'plaquette support', 18, 1, 0, '', 'plaquette', 0),
 (16, 'T&ecirc;te de bride', 1, 1, 17, '', 'tete2bride', 0),
-(16, 'Corps de v&eacute;rin', 2, 1, 17, '', 'corps2verin', 0),
+(16, 'Corps de v&eacute;rin', 2, 1, 17, 'Image avec 1/4 enlev&eacute', 'corps2verin', 0),
 (16, 'Support lame de ressort', 3, 1, 12, '', 'support_lame2ressort', 0),
 (16, 'Vis &agrave; t&ecirc;te cylindrique &agrave; 6 pans creux M3-6', 4, 3, 0, 'Commerce', 'visCHcM3-6', 0),
 (16, 'Vis &agrave; t&ecirc;te frais&eacute;e fendue M4-13', 5, 2, 0, 'Commerce', 'visFSM4-13', 0),
@@ -658,3 +666,7 @@ INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
 (8, 'CE pièce unique bâti', 'piece_bati', '.EPRT'),
 (9, 'éclaté en classe d''équivalence', 'eclate_CE', '.EASM'),
 (10, 'association', 'association', '');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
