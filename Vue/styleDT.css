@@ -45,11 +45,11 @@ nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
 	font-weight:bold;
-	background-color: red;
+	background-color: #2f323a;
 	border-radius:9px;
 }
 
-nav li a:hover, #item_selectionne { background-color: maroon; } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #item_selectionne { background-color: #6d7487; } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
 nav ul ul {	margin: 5px; }

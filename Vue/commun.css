@@ -1,4 +1,4 @@
-body { background-color:#AED6F1;}
+body { background-color:#EDEDED;}
 
 header, footer { 
 	width:1400px;
@@ -7,7 +7,7 @@ header, footer {
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */
 header {
 	text-align: center;
-	background-color: #FFFFDD;
+	background-color:#3A758C;
 	margin-bottom:5px;
 }
 header img {
