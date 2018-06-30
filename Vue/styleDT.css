@@ -1,4 +1,6 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
+header { background-image:linear-gradient(to right, white, #6d7487); }
+
 #corps {
 	width:1400px; /* même largeur que header */
 	margin:auto;

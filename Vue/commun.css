@@ -7,7 +7,6 @@ header, footer {
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */
 header {
 	text-align: center;
-	background-image:linear-gradient(to right, white, #6d7487);
 	margin-bottom:5px;
 }
 header img {
