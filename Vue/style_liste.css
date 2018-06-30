@@ -1,4 +1,4 @@
-header { background-color:#6d7487; }
+header { background-color:#00768E; }
 
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
@@ -17,7 +17,7 @@ section td {
 }
 
 section td:hover {	
-	background-color: #FFFFDD;	/* la case change de couleur au passage de la souris */
+	background-color: #FFFFCC;	/* la case change de couleur au passage de la souris */
 }
 section img { /* formatage affichage */
 	height: 100px;

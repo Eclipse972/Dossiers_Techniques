@@ -1,5 +1,5 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
-header { background-image:linear-gradient(to right, white, #6d7487); }
+header { background-image:linear-gradient(to right, white, #00768E); }
 
 #corps {
 	width:1400px; /* même largeur que header */
@@ -48,7 +48,7 @@ nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
 	font-weight:bold;
-	background-color: #2f323a;
+	background-color: #00768E;
 	border-radius:9px;
 }
 
