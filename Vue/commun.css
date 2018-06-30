@@ -7,7 +7,7 @@ header, footer {
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */
 header {
 	text-align: center;
-	background-color:#3A758C;
+	background-image:linear-gradient(to right, white, #6d7487);
 	margin-bottom:5px;
 }
 header img {
@@ -17,32 +17,34 @@ header img {
 	vertical-align:middle;
 }
 
-header p {
-	font-family: arial;
-	font-size: 1.6em;
+header p {font-weight:bold;
+	font-family: 'Quicksand', sans-serif;
+	font-weight:bold;
+	font-size: 40px;
 	text-align: center;
-	display:inline-block; /* affiche le texte juste aprè l'image */
+	display:inline-block; /* affiche le texte juste après l'image */
 	width:1200px;/* trouver comment prendre la largeur restante. auto ne le fait pas*/
 	vertical-align:middle;
 }
 
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
-	font-family: "comic sans MS";
+	font-family: 'Quicksand', sans-serif;
 	padding: 3px;
+	font-size: 20px;
 	overflow: auto;
 }
 section h1 {
 	text-decoration: underline;
 	text-align: center;
-	font-size: 1.4em;
+	font-size: 25px;
 	margin-top: 0;
 }
 /* pied de page --------------------------------------------------------------------------------------------------- */
 footer {
 	text-align: center;
-	font-family: "comic sans MS";
-	font-size: 0.8em;
+	font-family: 'Quicksand', sans-serif;
+	font-size:16px;
 }
 footer img {
 	height:32px;
