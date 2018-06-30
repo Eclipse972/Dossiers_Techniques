@@ -986,7 +986,7 @@
 <node TEXT="classe_BD" ID="ID_988705127" CREATED="1527580141263" MODIFIED="1528719153104" STYLE="fork">
 <node TEXT="variables" ID="ID_1785825609" CREATED="1528719140906" MODIFIED="1528719157283"/>
 <node TEXT="m&#xe9;thodes" ID="ID_1906912109" CREATED="1528719157949" MODIFIED="1528719168185"/>
-<node TEXT="connexion.php" ID="ID_1001218008" CREATED="1528719254169" MODIFIED="1528719314267"><richcontent TYPE="NOTE">
+<node TEXT="connexion.php" ID="ID_1001218008" CREATED="1528719254169" MODIFIED="1529625593422"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -994,10 +994,11 @@
   </head>
   <body>
     <p>
-      C script contient les identifiants de connexion &#224; la BD. C'est le seul scipt qui n'est pas suivi par git
+      Ce script contient les identifiants de connexion &#224; la BD. C'est le seul script qui n'est pas suivi par git
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
