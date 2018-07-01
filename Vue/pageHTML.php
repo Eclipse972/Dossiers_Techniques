@@ -13,10 +13,14 @@
 
 <section>
 <?php
-$page = new Page;
 $connexionBD = new base2donnees;
 $script = $connexionBD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
-$page->Afficher($script);
+if (file_exists($_SESSION[DOSSIER].$script.'.php')) // si le script dans le dossier du support existe
+	include $_SESSION[DOSSIER].$script.'.php';
+elseif (file_exists('Vue/'.$script.'.php')) // sinon c'est un mot clé
+	include('Vue/'.$script.'.php');
+else
+	include 'Vue/en_construction.php'; // si le script n'existe nulle part ...
 ?>
 </section>
 
