@@ -1,6 +1,8 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
 header { background-image:linear-gradient(to right, white, var(--couleur5)); }
 
+header p { margin:0; }
+
 #corps {
 	width:var(--largeur_page);
 	margin:auto;

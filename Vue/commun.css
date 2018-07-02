@@ -33,7 +33,6 @@ header p {
 	font-weight:bold;
 	font-size: 36px;
 	text-align: center;
-	margin:0;
 	display:inline-block; /* affiche le texte juste après l'image */
 	width:1200px;/* trouver comment prendre la largeur restante. auto ne le fait pas*/
 	vertical-align:middle;
