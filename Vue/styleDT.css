@@ -1,8 +1,8 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
-header { background-image:linear-gradient(to right, white, #00768E); }
+header { background-image:linear-gradient(to right, white, var(--couleur5)); }
 
 #corps {
-	width:1400px; /* même largeur que header */
+	width:var(--largeur_page);
 	margin:auto;
 }
 section {
@@ -51,11 +51,11 @@ nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
 	font-weight:bold;
-	background-color: #00768E;
+	background-color:var(--couleur4);
 	border-radius:9px;
 }
 
-nav li a:hover, #item_selectionne { background-color: #6d7487; } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #item_selectionne { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ------------------------------------------------------------------------------------------------------------------ */
 nav ul ul {	margin: 5px; }
@@ -70,7 +70,7 @@ nav ul ul a {font-weight:normal;}
 
 nav ul ul li {font-weight:bold;}
 
-nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est coloré en jaune */
+nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------- pour la nomenclature ----------------------------------------------- */
@@ -81,13 +81,13 @@ nav ul ul a:hover { background-color: yellow; } /* le sous item survolé est col
 }
 #nomenclature thead {
 	display:block;
-	background-color: yellow;
+	background-color: var(--couleur2);
 }
 #nomenclature tbody {
 	display:block;
 }
-#nomenclature tbody tr:nth-child(even) { background-color: #FFFFBB; }
-#nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: yellow; } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+#nomenclature tbody tr:nth-child(even) { background-color: var(--couleur3); }
+#nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: var(--couleur1); } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
 
 #nomenclature td, #nomenclature th { padding: 3px; }
 

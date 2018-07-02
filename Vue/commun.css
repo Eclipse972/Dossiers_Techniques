@@ -1,7 +1,19 @@
-body { background-color:#EDEDED;}
+body {
+	/* déclaration des variables */
+	/* palette de couleurs Source http://www.code-couleur.com/palettes.html */
+	--couleur1: #E6E2AF;
+	--couleur2: #A7A37E;
+	--couleur3: #EFECCA;
+	--couleur4: #046380;
+	--couleur5: #002F2F;
+	
+	--largeur_page:1400px;
+	/* fin de déclaraion de variables */
+	background-color:var(--couleur3);
+}
 
 header, footer { 
-	width:1400px;
+	width:var(--largeur_page);
 	margin:auto;
 }
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */

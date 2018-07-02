@@ -1,8 +1,8 @@
-header { background-color:#00768E; }
+header { background-color:var(--couleur4); }
 
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
-	width:1400px; /* même largeur que header */
+	width:var(--largeur_page);
 	margin:auto;
 	background-color:white;
 }
@@ -17,7 +17,7 @@ section td {
 }
 
 section td:hover {	
-	background-color: #FFFFCC;	/* la case change de couleur au passage de la souris */
+	background-color: var(--couleur1);	/* la case change de couleur au passage de la souris */
 }
 section img { /* formatage affichage */
 	height: 100px;
