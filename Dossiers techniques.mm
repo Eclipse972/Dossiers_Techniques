@@ -63,6 +63,66 @@
 </hook>
 <node TEXT="mes choix" POSITION="left" ID="ID_6" CREATED="1527579372171" MODIFIED="1527837522626" STYLE="fork">
 <edge WIDTH="2"/>
+<node TEXT="Pourquoi ce site?" ID="ID_1784952177" CREATED="1530492366471" MODIFIED="1530492446800">
+<node TEXT="objectif z&#xe9;ro papier" ID="ID_1037076862" CREATED="1530492398033" MODIFIED="1530492541687"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Un dossier technique est un gros document qui est &#224; peinene lus par les &#233;l&#232;ves
+    </p>
+    <p>
+      Il n'est pas possible de le r&#233;utiliser &#233;norm&#233;ment
+    </p>
+    <p>
+      un paquet de dossier techniques papier est encombrant et p&#232;se lourd
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="me former &#xe0; la cr&#xe9;ation ex nihilo" ID="ID_1087836346" CREATED="1530492413796" MODIFIED="1530492551347">
+<node TEXT="l&apos;interface" ID="ID_1282169363" CREATED="1530492842828" MODIFIED="1530492847616"/>
+<node TEXT="d&#xe9;couverte de l&apos;utilisation d&apos;une base de donn&#xe9;es" ID="ID_1607613619" CREATED="1530492853511" MODIFIED="1530492870394"/>
+<node TEXT="la programmation pure et dure" ID="ID_1026543947" CREATED="1530492871775" MODIFIED="1530492880445"/>
+</node>
+</node>
+<node TEXT="programmation" ID="ID_852697978" CREATED="1527836900140" MODIFIED="1527836908758" STYLE="fork">
+<node TEXT="langages" ID="ID_7" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
+<node TEXT="html5+css3" ID="ID_10" CREATED="1527579372171" MODIFIED="1527837987885" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Il est possible de valider mes pages W3C
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+                            <head/>
+                            <body>
+                                <p>version disponible chez free.</p>
+                            </body>
+                        </html>
+</richcontent>
+</node>
+</node>
+<node TEXT="style" ID="ID_22" CREATED="1527579372171" MODIFIED="1527836921813" STYLE="fork">
+<node TEXT="architecture MVC" ID="ID_23" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"/>
+<node TEXT="orient&#xe9;e objet" ID="ID_24" CREATED="1527579372171" MODIFIED="1527837296455" STYLE="fork"/>
+</node>
+</node>
 <node TEXT="h&#xe9;bergement free" ID="ID_20" CREATED="1527579372171" MODIFIED="1527837238569" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -107,38 +167,6 @@
 </node>
 <node TEXT="mySQL" ID="ID_1500337976" CREATED="1527836402439" MODIFIED="1527836434831" STYLE="fork"/>
 <node TEXT="phpmyadmin" ID="ID_117" CREATED="1527579372171" MODIFIED="1527837682976" STYLE="fork"/>
-</node>
-<node TEXT="programmation" ID="ID_852697978" CREATED="1527836900140" MODIFIED="1527836908758" STYLE="fork">
-<node TEXT="langages" ID="ID_7" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
-<node TEXT="html5+css3" ID="ID_10" CREATED="1527579372171" MODIFIED="1527837987885" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Il est possible de valider mes pages W3C
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>version disponible chez free.</p>
-                            </body>
-                        </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="style" ID="ID_22" CREATED="1527579372171" MODIFIED="1527836921813" STYLE="fork">
-<node TEXT="architecture MVC" ID="ID_23" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"/>
-<node TEXT="orient&#xe9;e objet" ID="ID_24" CREATED="1527579372171" MODIFIED="1527837296455" STYLE="fork"/>
-</node>
 </node>
 <node TEXT="nom des fichiers et dossiers" ID="ID_161" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -514,7 +542,7 @@
 </node>
 <node TEXT="autres" ID="ID_66" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
 </node>
-<node TEXT="les scripts php" ID="ID_13" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="les scripts" ID="ID_13" CREATED="1527579372186" MODIFIED="1530490157741" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                         <head/>
@@ -523,62 +551,7 @@
                         </body>
                     </html>
 </richcontent>
-<node TEXT="erreur" ID="ID_78" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>page d'erreurs du site.</p>
-                                <p>param&#232;tre num&#233;ro de l'erreur. Mes code erreur et les code erreurs http ne doivent pas interf&#233;rer.</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="site" ID="ID_186" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>fonctionalit&#233; a venir: suite &#224; une erreur on doit revenir &#224; la page pr&#233;c&#233;dente dabs l'historique</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="support inconnu" ID="ID_188" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="fichier pi&#xe8;ce manquant" ID="ID_189" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="erreur inconnue" ID="ID_190" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="http" ID="ID_185" CREATED="1527579372186" MODIFIED="1527579372186" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>affiche les erreur du serveur freenotement la 404. Le renvoi vers ma page d'erreurs perso se fait au fichier .htacces.</p>
-                                    <p/>
-                                    <p>Suite &#224; une erreur on doit retourner &#224; la liste des supports</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="403" ID="ID_191" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="404" ID="ID_187" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="500" ID="ID_192" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="503" ID="ID_193" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-</node>
 <node TEXT="listeDsupports" ID="ID_77" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="menu" ID="ID_303" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      affiche la nomenclature en utilisant des objets Piece
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 <node TEXT="pageHTML" ID="ID_76" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -678,19 +651,6 @@
 </node>
 </node>
 </node>
-<node TEXT="page_association" ID="ID_94" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>permet d'afficher les associations</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="dessin d&apos;ensemble" ID="ID_95" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="&#xe9;clat&#xe9;" ID="ID_96" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="&#xe9;clat&#xe9; en classe d&apos;&#xe9;quivalence" ID="ID_97" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
 <node TEXT="pied2page" ID="ID_79" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -700,6 +660,71 @@
                             </body>
                         </html>
 </richcontent>
+</node>
+<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1530490442318"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Ce sont des script utilisables par tous le support qui en font la demande.
+    </p>
+    <p>
+      fonctionnement
+    </p>
+    <p>
+      si un script n'est pas dans le dossie du support c'est un mot cl&#233;. Si loe mot cl&#233; est inconnu on affiche &quot;En construction&quot;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="eclate" ID="ID_96" CREATED="1527579372186" MODIFIED="1530490296973" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cr&#233;e un objet eclate et l'affiche
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="dessin_densemble" ID="ID_95" CREATED="1527579372186" MODIFIED="1530490266316" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cr&#233;e un objet dessin&#160;&#160;d'ensmble et l'affiche
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      affiche la nomenclature en utilisant des objets Piece
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 </node>
 </node>
@@ -1027,16 +1052,27 @@
 </richcontent>
 <node TEXT="d&#xe9;finitions des constantes" ID="ID_163" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 <node TEXT="scripts &#xe0; t&#xe9;l&#xe9;charger" ID="ID_164" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="param&#xe8;tres" ID="ID_42" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="param&#xe8;tres" ID="ID_42" CREATED="1527579372218" MODIFIED="1530491404905" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>Ce script accepte trois param&#232;tres.</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Ce script accepte trois param&#232;tres. ces param&#232;tres sont impl&#233;ment&#233;s dans un mot de 3 lettres.
+    </p>
+    <p>
+      chaque lettre appartion &#224; l'ensemble A.., 0,..9 Ce qui donne 36 possibilit&#233;.
+    </p>
+    <p>
+      C'est largement uffisant pour le menu mais risque de poser probl&#232;me pour les support
+    </p>
+  </body>
+</html>
+
 </richcontent>
-<node TEXT="id" ID="ID_44" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="1e lettre: identifiant du support" ID="ID_44" CREATED="1527579372218" MODIFIED="1530491269686" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                                 <head/>
@@ -1068,77 +1104,33 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="sc&#xe9;narios" ID="ID_152" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="session" ID="ID_194" CREATED="1527579372218" MODIFIED="1530491165178" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>suivant la pr&#233;sence ou non des param&#232;tres id et menu, plusieurs sc&#233;narios sont possibles.</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="id est d&#xe9;fini et menu non" ID="ID_153" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      La variable de session permet de stock&#233; entre autres
+    </p>
+    <p>
+      l'identifiant et le nom du support courant
+    </p>
+    <p>
+      son r&#233;oertion
+    </p>
+    <p>
+      et l'&#233;tat du menu
+    </p>
+    <p>
+      ainsi que d'autres chose &#224; voir dans le code de index.php
+    </p>
+  </body>
+</html>
 
-<html>
-                                <head/>
-                                <body>
-                                    <p>cr&#233;ation du support puis stockage dans la variable de session si pas d'erreur</p>
-                                </body>
-                            </html>
 </richcontent>
 </node>
-<node TEXT="id non d&#xe9;fini et menu d&#xe9;fini" ID="ID_154" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>On recherche la page du dossier technique du support courant et on l'affiche. L'absence du param&#232;tre id n'est pas un probl&#232;me car le support courant est stock&#233; dans la m&#233;moire de session.</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="menu est un mot r&#xe9;serv&#xe9;" ID="ID_168" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>La page d&#233;di&#233;e au mot-cl&#233; sp&#233;cifi&#233; est appel&#233;e.</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="menu n&apos;est pas un mot r&#xe9;serv&#xe9;" ID="ID_169" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>on va chercher la page</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="id et menu non d&#xe9;finis" ID="ID_155" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>on affiche la liste des supports</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="id et menu sont d&#xe9;finis" ID="ID_156" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>affichage d'une page d'erreur</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="session" ID="ID_194" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
 <node TEXT="fonctions.php" ID="ID_80" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1313,15 +1305,22 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="dossier images" ID="ID_26" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="dossier images" ID="ID_26" CREATED="1527579372218" MODIFIED="1530490634524" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                        <head/>
-                        <body>
-                            <p>Contient toutes les images au forma png</p>
-                            <p>"nom" est &#224; remplacer par le nom raccourci du support.</p>
-                        </body>
-                    </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Contient toutes les images au forma png ou gif (pour les animations)
+    </p>
+    <p>
+      &quot;nom&quot; est &#224; remplacer par le nom raccourci du support.
+    </p>
+  </body>
+</html>
+
 </richcontent>
 <node TEXT="nom" ID="ID_109" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1388,7 +1387,7 @@
 <node TEXT="&#xe0; r&#xe9;fl&#xe9;chir : pi&#xe8;ces d&#xe9;formables" ID="ID_122" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
 </node>
-<node TEXT="dossier pieces" ID="ID_27" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="dossier fichier" ID="ID_27" CREATED="1527579372218" MODIFIED="1530490571366" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                         <head/>
@@ -1397,44 +1396,64 @@
                         </body>
                     </html>
 </richcontent>
-<node TEXT="nom.EASM" ID="ID_105" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT=".EASM" ID="ID_105" CREATED="1527579372218" MODIFIED="1530490761579" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>L'assemblage doit contenir l'&#233;clat&#233;</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      'assemblage doit contenir l'&#233;clat&#233;
+    </p>
+    <p>
+      syst&#232;me complet
+    </p>
+    <p>
+      classe d'&#233;quivalence
+    </p>
+    <p>
+      sous-ensemble
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
-<node TEXT="nom.EDRW" ID="ID_106" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT=".EDRW" ID="ID_106" CREATED="1527579372218" MODIFIED="1530490821857" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>Attention de fichier est associ&#233; avec l'image dessin_nom.png.</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Attention de fichier est associ&#233; avec l'image dessin_nom.png.
+    </p>
+    <p>
+      par exeemple: dessin d'ensemble ou de d&#233;finition
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
-<node TEXT="CE_classe_nom.EASM" ID="ID_120" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT=".EPRT" ID="ID_806184112" CREATED="1530490838149" MODIFIED="1530490974713"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>assemblage aevc la version &#233;clat&#233;e</p>
-                            </body>
-                        </html>
-</richcontent>
-</node>
-<node TEXT="CE_classe_nom.EPRT " ID="ID_121" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      fichier pi&#232;ce
+    </p>
+    <p>
+      par exemple les pi&#232;ces de la nomenclature
+    </p>
+  </body>
+</html>
 
-<html>
-                            <head/>
-                            <body>
-                                <p>classe d'&#233;quivalence r&#233;duite &#224; une pi&#232;ce</p>
-                            </body>
-                        </html>
 </richcontent>
 </node>
 </node>
@@ -1447,105 +1466,6 @@
                         </body>
                     </html>
 </richcontent>
-</node>
-<node TEXT="configuration.php" ID="ID_29" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                        <head/>
-                        <body>
-                            <p>C'est ce script qui va compl&#233;ter la d&#233;finition de base du support courant. Certaines variable membre recevront une valeur.</p>
-                            <p>la syntaxe est&#160;: support-&gt;fonction(param&#232;tre);</p>
-                        </body>
-                    </html>
-</richcontent>
-<node TEXT="articles" ID="ID_91" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="pti nom" ID="ID_92" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="menu" ID="ID_85" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>Chaque item du menu ou du sous menu associe un mot cl&#233; avec un nom de fichier.</p>
-                                <p>Le mot-cl&#233; servira comme param&#232;tre menu &#224; index.php</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="pages g&#xe9;n&#xe9;r&#xe9;es automatiquement" ID="ID_82" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>Elles sont g&#233;n&#233;r&#233;es automatiquement gr&#226;ce &#224; mot-cl&#233; indiqu&#233; dans le menu (et pas dans le sous-menu).</p>
-                                    <p/>
-                                    <p>Il faut bien sur avoir cr&#233;&#233; les fichiers edrawing et images associ&#233;s.</p>
-                                    <p/>
-                                    <p>L'affichage proprement dit est assur&#233; par la partie vue du site EN COURS</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="dessin d&apos;ensemble" ID="ID_87" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="&#xe9;clat&#xe9;" ID="ID_88" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="nomenclature" ID="ID_89" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="classe d&apos;&#xe9;quivalence" ID="ID_90" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="Impl&#xe9;mentations &#xe0; venir" ID="ID_93" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>sch&#233;ma cin&#233;matique</p>
-                                        <p>diagramme pieuvre</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="pages g&#xe9;n&#xe9;r&#xe9;es manuellement" ID="ID_81" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>attention: certain mot-cl&#233; sont r&#233;serv&#233;s</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="r&#xe9;daction" ID="ID_100" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>Elles devront &#234;tre r&#233;dig&#233;s comme de simples fichier HTML enregistr&#233;es en .PHP. Pour afficher une image il faut utiliser le script PHP suivant pour avoir acc&#232;s au dossier.</p>
-                                        <p>script&#160;:</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="les styles" ID="ID_101" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>Les formatages sont cr&#233;&#233;s dans la feuille de style autre.css dans le r&#233;pertoire Vue.</p>
-                                    </body>
-                                </html>
-</richcontent>
-<node TEXT="images" ID="ID_166" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="colonnes" ID="ID_167" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-</node>
-</node>
-</node>
-<node TEXT="sous-menu" ID="ID_144" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>Chaque sous-item du sous menu associe un mot cl&#233; avec un nom de fichier.</p>
-                                <p>Le mot-cl&#233; servira comme param&#232;tre ss_menu &#224; index.php</p>
-                                <p>il n'y a pas de mot r&#233;serv&#233; pour les sous-item. peut &#234;tre dans dans l'avenir</p>
-                            </body>
-                        </html>
-</richcontent>
-</node>
-<node TEXT="nomenclature" ID="ID_86" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
 </node>
 </node>

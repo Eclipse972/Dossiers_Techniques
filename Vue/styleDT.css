@@ -9,7 +9,6 @@ header p { margin:0; }
 }
 section {
 	width:1180px;
-	background-color:white;
 	min-height:550px;
 }
 
@@ -34,7 +33,7 @@ section img {
 nav {
 	width:200px;
 	text-align:center;
-	font-family:'Quicksand', sans-serif;
+	/*font-family:'Quicksand', sans-serif;*/
 	font-size:20px;
 }
 nav a {	text-decoration:none; } /* aucun lien n'est souligné */

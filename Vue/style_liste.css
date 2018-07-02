@@ -6,7 +6,6 @@ header p { margin:30px; }
 section {
 	width:var(--largeur_page);
 	margin:auto;
-	background-color:white;
 }
 section a { text-decoration: none;}
 
