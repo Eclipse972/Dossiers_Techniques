@@ -33,7 +33,6 @@ section img {
 nav {
 	width:200px;
 	text-align:center;
-	/*font-family:'Quicksand', sans-serif;*/
 	font-size:20px;
 }
 nav a {	text-decoration:none; } /* aucun lien n'est souligné */
