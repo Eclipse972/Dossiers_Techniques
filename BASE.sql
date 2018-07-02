@@ -3,17 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: dossiers.techniques.sql.free.fr
--- Generation Time: May 29, 2018 at 08:57 PM
+-- Generation Time: Jul 03, 2018 at 01:50 AM
 -- Server version: 5.0.83
 -- PHP Version: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `dossiers_techniques`
@@ -123,7 +117,7 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (4, 7, 0, 'Nomenclature', 'nomenclature'),
 (4, 8, 0, 'Entretien du cric', 'entretien'),
 (4, 8, 1, 'Probl&egrave;me au levage', 'pb_levage'),
-(4, 8, 2, 'Probl&egrave;me à la descente', 'pb_descente'),
+(4, 8, 2, 'Probl&egrave;me &agrave; la descente', 'pb_descente'),
 (5, 1, 0, 'Mise en situation', 'MES'),
 (5, 2, 0, 'Fonctionnement', 'fonctionnement'),
 (5, 3, 0, 'Analyse fonctionnelle', 'AF'),
@@ -233,7 +227,26 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`) 
 (12, 2, 2, 'fermeture', 'fermeture'),
 (12, 2, 1, 'ouverture', 'ouverture'),
 (12, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
-(12, 4, 0, 'Nomenclature', 'nomenclature');
+(12, 4, 0, 'Nomenclature', 'nomenclature'),
+(17, 1, 0, 'Mise en situation', 'MES'),
+(17, 2, 0, '&Eacute;l&eacute;ments constitutifs', 'elements'),
+(17, 2, 1, 'corps', 'corps'),
+(17, 2, 2, 'V&eacute;rin', 'verin'),
+(17, 2, 3, 'Enclume', 'enclume'),
+(17, 2, 4, 'Embiellage', 'embiellage'),
+(17, 2, 5, 'Levier', 'levier'),
+(17, 4, 0, 'Dessin d&apos;ensemble', 'dessin_densemble'),
+(17, 7, 0, 'Flasque droit', 'situation_flasque'),
+(17, 7, 1, 'flasque', 'flasque'),
+(17, 7, 2, 'dessin de d&eacute;finition', 'def_flasque'),
+(17, 8, 0, 'M&eacute;canique', 'mecanique'),
+(17, 8, 1, 'efforts embiellage/Levier', 'effort_embiellage'),
+(17, 8, 2, 'effort de marquage', 'effort_marquage'),
+(17, 8, 3, 'vitesse de la biellette', 'vitesse_biellette'),
+(17, 8, 4, 'vitesse du Levier', 'vitesse_levier'),
+(17, 3, 0, 'Fonctionnement', 'fonctionnement'),
+(17, 5, 0, '&Eacute;clat&eacute;', 'eclate'),
+(17, 6, 0, 'Classes d&apos;&eacute;quivalence', 'CE');
 
 -- --------------------------------------------------------
 
@@ -611,7 +624,7 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   `article_ID` int(10) unsigned NOT NULL default '1',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `nom` (`nom`,`dossier`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `Supports`
@@ -634,39 +647,5 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (13, 'vanne sph&eacute;rique', 'vanne', 'vanne', 2),
 (14, 'alternateur', 'alternateur', 'alternateur', 3),
 (15, 'casse-noix', 'casseNoix', 'casse_noix', 1),
-(16, 'bride &agrave; nez', 'bride', 'brideAnez', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Type_association`
---
-
-CREATE TABLE IF NOT EXISTS `Type_association` (
-  `ID` int(10) unsigned NOT NULL auto_increment,
-  `nom` varchar(32) collate latin1_general_ci NOT NULL,
-  `script` varchar(20) collate latin1_general_ci NOT NULL,
-  `extension` varchar(5) collate latin1_general_ci NOT NULL,
-  PRIMARY KEY  (`ID`),
-  UNIQUE KEY `script` (`script`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `Type_association`
---
-
-INSERT INTO `Type_association` (`ID`, `nom`, `script`, `extension`) VALUES
-(1, 'dessin d''ensemble', 'dessin_densenble', '.EDRW'),
-(2, 'éclaté', 'eclate', '.EASM'),
-(3, 'classe d''équivalence entrée', 'CE_entree', '.EASM'),
-(4, 'classe d''équivalence sortie', 'CE_sortie', '.EASM'),
-(5, 'classe d''équivalence bâti', 'CE_bati', '.EASM'),
-(6, 'CE pièce unique entrée', 'piece_entree', '.EPRT'),
-(7, 'CE pièce unique sortie', 'piece_sortie', '.EPRT'),
-(8, 'CE pièce unique bâti', 'piece_bati', '.EPRT'),
-(9, 'éclaté en classe d''équivalence', 'eclate_CE', '.EASM'),
-(10, 'association', 'association', '');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(16, 'bride &agrave; nez', 'bride', 'brideAnez', 2),
+(17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3);
