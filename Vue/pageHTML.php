@@ -14,11 +14,12 @@
 <section>
 <?php
 $connexionBD = new base2donnees;
-$script = $connexionBD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
-if (file_exists($_SESSION[DOSSIER].$script.'.php')) // si le script dans le dossier du support existe
-	include $_SESSION[DOSSIER].$script.'.php';
-elseif (file_exists('Vue/'.$script.'.php')) // sinon c'est un mot clé
-	include('Vue/'.$script.'.php');
+$T_instruction = $connexionBD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
+$script = $T_instruction['script'].'.php';
+if (file_exists($_SESSION[DOSSIER].$script)) // si le script dans le dossier du support existe
+	include $_SESSION[DOSSIER].$script;
+elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
+	include('Vue/'.$script);
 else
 	include 'Vue/en_construction.php'; // si le script n'existe nulle part ...
 ?>

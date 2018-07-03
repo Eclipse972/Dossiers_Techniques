@@ -73,12 +73,12 @@ function Page_existe($support, $item, $sous_item) {
 	return $test;
 }
 function Script($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT script 
+	$this->Requete('SELECT script, param1, param2, param3, param4 
 					FROM Items_menu 
 					WHERE support_ID='.$support.' AND item='.$item.' AND sous_item=' .$sous_item);
-	$reponse = mysql_fetch_assoc($this->resultat);
+	$T_reponse = mysql_fetch_assoc($this->resultat); // la réponse est un tableau
 	$this->Fermer();
-	return $reponse['script'];
+	return $T_reponse;
 }
 function Liste_item($support, $item) {	
 	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID='.$support.' AND sous_item=0');
