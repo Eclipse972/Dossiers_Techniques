@@ -29,7 +29,7 @@ class Association_image_fichier {
 // Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
 class Dessin_densemble extends Association_image_fichier {
 	function Dessin_densemble($dossier, $image, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, 'dessin_'.$image, $fichier, '.EDRW', 'Dessin d&apos;ensemble');
+		parent::Association_image_fichier($dossier, $image, $fichier, '.EDRW', 'Dessin d&apos;ensemble');
 	}
 }
 
@@ -41,7 +41,7 @@ class Dessin_de_definition extends Association_image_fichier {
 
 class Eclate extends Association_image_fichier {
 	function Eclate($dossier, $image, $fichier) {
-		parent::Association_image_fichier($dossier, 'eclate_'.$image, $fichier, '.EASM', '&Eacute;clat&eacute;');
+		parent::Association_image_fichier($dossier,$image, $fichier, '.EASM', '&Eacute;clat&eacute;');
 	}
 	function Afficher() {
 		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
