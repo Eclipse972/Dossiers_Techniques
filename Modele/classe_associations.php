@@ -34,8 +34,8 @@ class Dessin_densemble extends Association_image_fichier {
 }
 
 class Dessin_de_definition extends Association_image_fichier {
-	function Dessin_de_definition($dossier, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, 'def_'.$fichier, 'def_'.$fichier, '.EDRW', 'Dessin de d&eacute;finition');
+	function Dessin_de_definition($dossier, $image, $fichier) { // constructeur
+		parent::Association_image_fichier($dossier, $image, $fichier, '.EDRW', 'Dessin de d&eacute;finition');
 	}
 }
 
