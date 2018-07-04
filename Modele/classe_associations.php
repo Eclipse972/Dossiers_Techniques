@@ -5,10 +5,10 @@ class Association_image_fichier {
 	var $fichier;	// au fichier
 	var $titre;
 
-	function Association_image_fichier($dossier, $image, $fichier, $extension, $titre = '') { // constructeur
+	function Association_image_fichier($dossier, $image, $fichier, $titre = '') { // constructeur
 		// les noms de l'image et du fichier ne sont pas forcément identiques
 		$this->image	= Image($image, $dossier.'images/');
-		$this->fichier	= Fichier($fichier, $extension, $dossier.'fichiers/');
+		$this->fichier	= Fichier($fichier, $dossier.'fichiers/');
 		$this->titre	= $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 	}
 	function Afficher($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
@@ -29,19 +29,19 @@ class Association_image_fichier {
 // Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
 class Dessin_densemble extends Association_image_fichier {
 	function Dessin_densemble($dossier, $image, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, $image, $fichier, '.EDRW', 'Dessin d&apos;ensemble');
+		parent::Association_image_fichier($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
 	}
 }
 
 class Dessin_de_definition extends Association_image_fichier {
 	function Dessin_de_definition($dossier, $image, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, $image, $fichier, '.EDRW', 'Dessin de d&eacute;finition');
+		parent::Association_image_fichier($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition');
 	}
 }
 
 class Eclate extends Association_image_fichier {
 	function Eclate($dossier, $image, $fichier) {
-		parent::Association_image_fichier($dossier,$image, $fichier, '.EASM', '&Eacute;clat&eacute;');
+		parent::Association_image_fichier($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
 	}
 	function Afficher() {
 		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
@@ -67,7 +67,7 @@ class Piece extends Association_image_fichier {
 		$this->observation =  $T_param['observation'];
 		$T_param['dossier'] = 'Supports/'.$T_param['dossier'].'/';
 
-		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $T_param['fichier'], $T_param['extension']); // constructeur de la classe mère.
+		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $T_param['fichier'].$T_param['extension']); // constructeur de la classe mère.
 		// Rem: l'image et le fichier doivent porter le même nom. image_alt = nom de la pièce
 	}
 	function Afficher() {
