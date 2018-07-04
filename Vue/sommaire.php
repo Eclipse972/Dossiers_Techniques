@@ -1,5 +1,5 @@
 <?php	// construit le tableau pour l'affichage
-$NB_colonne = 6;
+function Sommaire($NB_colonne) {
 $id = 0;
 $connexionBD = new base2donnees();
 $ListeDvignettes = $connexionBD->ListeDVignettes();
@@ -12,3 +12,5 @@ while (isset($ListeDvignettes[$id])) {
 }
 // si en sortie on s'arrete sur une colonne autre que la dernière
 if($No_colonne!=$NB_colonne-1) echo "\n\t", '</tr>', "\n";
+}
+Sommaire(6); // tableau avec 6 colonnes

@@ -1,3 +1,6 @@
 <?php // association éclaté
-$page = new Eclate($_SESSION[DOSSIER], $T_instruction['param1'], $T_instruction['param2']);
+function Eclate($image, $fichier) {
+$page = new Eclate($_SESSION[DOSSIER], $image, $fichier);
 $page->Afficher();
+}
+Eclate($T_instruction['param1'], $T_instruction['param2']);
