@@ -82,7 +82,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="me former &#xe0; la cr&#xe9;ation ex nihilo" ID="ID_1087836346" CREATED="1530492413796" MODIFIED="1530492551347">
@@ -258,278 +257,38 @@
 </richcontent>
 <edge WIDTH="2"/>
 <node TEXT="les feuilles de style" ID="ID_14" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
-<node TEXT="base.css : commun &#xe0; toutes les pages" ID="ID_133" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="commun.css" ID="ID_1063769515" CREATED="1530656953763" MODIFIED="1530657018188"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>Une feuille de style de base commune &#224; toutes le pages</p>
-                                <p>ici sont d&#233;finies les zones d'affichage</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Ciontient toutes les d&#233;claration communes &#224; toutes les pages. En particulier la palette de couleur stock&#233;e dans des variables.
+    </p>
+  </body>
+</html>
+
 </richcontent>
-<node TEXT="#page" ID="ID_262" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="style_liste" ID="ID_1755359752" CREATED="1530657021129" MODIFIED="1530657461003"/>
+<node TEXT="styleDT" ID="ID_997226206" CREATED="1530657036427" MODIFIED="1530657044694"/>
+</node>
+<node TEXT="les images" ID="ID_31" CREATED="1527579372186" MODIFIED="1530657142112" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                                <head/>
-                                <body>
-                                    <p>Zone qui contient la totalit&#233; de la page du site.</p>
-                                    <p>Elle est centr&#233;e horizontalement.</p>
-                                    <p>Ses dimensions restent &#224; optimiser pour l'affichage sur les &#233;crans des salle B137/B203.</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="#logo" ID="ID_195" CREATED="1527579372171" MODIFIED="1527579372171" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      elles sont stock&#233;es dans un dossier images
+    </p>
+  </body>
+</html>
 
-<html>
-                                <head/>
-                                <body>
-                                    <p>div qui contiendra le logo. ce sera en fait une vignette du support s&#233;lectionn&#233;.</p>
-                                    <p/>
-                                    <p>Le logo n'apparait que dans les pages &#224; 5 zones.</p>
-                                </body>
-                            </html>
 </richcontent>
-</node>
-<node TEXT="header" ID="ID_170" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>1e ligne + 2e colonne</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="position" ID="ID_177" CREATED="1527579372186" MODIFIED="1527579372186" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>la position d&#233;pend du nombre de zones</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="p" ID="ID_178" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="nav" ID="ID_171" CREATED="1527579372186" MODIFIED="1527579372186" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>2e ligne + 1e colonne</p>
-                                    <p/>
-                                    <p>la zone navigation ne doit pas &#234;tre ici mais dans la feuille 5zones car sur la 3zones iln'y a pas de partie navigation</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="section" ID="ID_172" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>2e ligne + 2e colonne</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="a" ID="ID_175" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="h1" ID="ID_176" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="h2" ID="ID_284" CREATED="1527579372186" MODIFIED="1527579372186" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>Style &#224; d&#233;finir. par d&#233;faut ile est plus gros que h1!</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="ul" ID="ID_174" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="footer" ID="ID_173" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="image" ID="ID_265" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="style de caract&#xe8;res?" ID="ID_266" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT=".icone" ID="ID_204" CREATED="1527579372186" MODIFIED="1527579372186">
-<edge COLOR="#ff0000"/>
-<richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>d&#233;finie la taille des icones</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="les pages &#xe0; 5 zones" ID="ID_220" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>listes des zones:</p>
-                                <p>logo - ent&#234;te</p>
-                                <p>navigation- section</p>
-                                <p>pied de page</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="association_image_fichier" ID="ID_197" CREATED="1527579372186" MODIFIED="1527579372186"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>d&#233;fini des id pour l'affiche de page association image fichier tels que : dessin d'ensemble, &#233;clat&#233;,...</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="alignement du texte" ID="ID_198" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>le texte est centr&#233;</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="l&apos;image" ID="ID_199" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>c'est un bloc avec une taille d&#233;finie</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="navigation" ID="ID_205" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>d&#233;finie l'apparence du menu de navigation. Le menu est constitu&#233; d'une liste d'item et pour l'item s&#233;lectionn&#233; une sous-liste d'item</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="police de carct&#xe8;res" ID="ID_206" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="liste" ID="ID_207" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>chaque item de la liste appara&#238;t sous forme d'un bloc.</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="sous-liste" ID="ID_208" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>chaque item de la sous-liste appara&#238;t sous forme d'un bloc.</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="les liens" ID="ID_209" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>d&#233;fini comment doivent appara&#238;tre les liens lorsqu'ils sont dans la liste ou la sous-liste.</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="nomenclature" ID="ID_210" CREATED="1527579372186" MODIFIED="1527579372186" BACKGROUND_COLOR="#ff9900" STYLE="bubble"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>d&#233;fini l'apparence du tableau qui contiendra la nomenclature.</p>
-                                    <p/>
-                                    <p>Une seule page utilise ce style . Il serait plus judicieux de mettre ce style directement dans la page.</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="autre" ID="ID_311" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>d&#233;fini les &#233;tiquette class et id</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="colonne" ID="ID_309" CREATED="1527579372186" MODIFIED="1527579372186">
-<edge COLOR="#feffff"/>
-</node>
-<node TEXT="image_centree" ID="ID_310" CREATED="1527579372186" MODIFIED="1527579372186">
-<edge COLOR="#feffff"/>
-</node>
-</node>
-</node>
-<node TEXT="les pages &#xe0; 3 zones" ID="ID_219" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>listes des zones:</p>
-                                <p>ent&#234;te</p>
-                                <p>section</p>
-                                <p>pied de page</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="style_liste" ID="ID_130" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>Ce style est totalement ind&#233;pendant de la feuille de style base. Le style de la page d'erreur est totalement ind&#233;pendant des autres pages du site.</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="tableau" ID="ID_182" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="header" ID="ID_292" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="p" ID="ID_295" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="section" ID="ID_293" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="h1" ID="ID_296" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="a" ID="ID_297" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="table" ID="ID_298" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="td" ID="ID_299" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="img" ID="ID_300" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="footer" ID="ID_294" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="img" ID="ID_301" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="lien" ID="ID_183" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="images" ID="ID_184" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>le conteneur est le meme pour la pages 3 et 5 zones donc  il doit &#234;tre d&#233;finiti dans la feuille base.</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="style_erreur" ID="ID_131" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-</node>
-<node TEXT="les images" ID="ID_31" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="logo" ID="ID_64" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="favicon" ID="ID_65" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
 <node TEXT="pas2photo" ID="ID_132" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -538,6 +297,21 @@
                                 <p>affiche cette image lorque l'image d'origine est absente</p>
                             </body>
                         </html>
+</richcontent>
+</node>
+<node TEXT="favicon" ID="ID_65" CREATED="1527579372186" MODIFIED="1530657085505" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      non encore impl&#233;ment&#233;
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 <node TEXT="autres" ID="ID_66" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
@@ -661,7 +435,7 @@
                         </html>
 </richcontent>
 </node>
-<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1530490442318"><richcontent TYPE="NOTE">
+<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1530656642939"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -676,6 +450,12 @@
     </p>
     <p>
       si un script n'est pas dans le dossie du support c'est un mot cl&#233;. Si loe mot cl&#233; est inconnu on affiche &quot;En construction&quot;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Chaque script est associ&#233; &#224; 4 param&#232;tres stock&#233; dans la BD. Si l'appel utilise moins de 4 param&#232;tres les derniers sont vides et ignor&#233;s/
     </p>
   </body>
 </html>
@@ -693,7 +473,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="dessin_densemble" ID="ID_95" CREATED="1527579372186" MODIFIED="1530490266316" STYLE="fork"><richcontent TYPE="NOTE">
@@ -705,6 +484,24 @@
   <body>
     <p>
       cr&#233;e un objet dessin&#160;&#160;d'ensmble et l'affiche
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="dessin_definition" ID="ID_1838466230" CREATED="1530656463886" MODIFIED="1530656476164"/>
+<node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      permet d'affichier n'importe association
+    </p>
+    <p>
+      Dans certains cas j'ai besoin d'un 5e param&#232;tre? dans ce cas je reste sur l'ancienne version qui fait appel &#224; l'asociation comme le script &quot;elements&quot; pour l'unit&#233; de marquage
     </p>
   </body>
 </html>
@@ -1070,7 +867,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="1e lettre: identifiant du support" ID="ID_44" CREATED="1527579372218" MODIFIED="1530491269686" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1128,7 +924,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1148,7 +943,11 @@
 <node TEXT="Dossier_Piece" ID="ID_150" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 <node TEXT="Chiffre_en_lettres" ID="ID_151" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
-<node TEXT="page d&apos;administration &#xe0; venir" ID="ID_52" CREATED="1527579372218" MODIFIED="1527579372218" BACKGROUND_COLOR="#ea9999" STYLE="bubble"/>
+<node TEXT="page d&apos;administration &#xe0; venir" ID="ID_52" CREATED="1527579372218" MODIFIED="1527579372218" BACKGROUND_COLOR="#ea9999" STYLE="bubble">
+<node TEXT="contr&#xf4;le de l&apos;int&#xe9;grit&#xe9; d&apos;u support" ID="ID_1280660387" CREATED="1530657545035" MODIFIED="1530657571461"/>
+<node TEXT="cr&#xe9;ation/modification/supression d&apos;un support" ID="ID_21948710" CREATED="1530657576930" MODIFIED="1530657624853"/>
+<node TEXT="cr&#xe9;ation/modification d&apos;un menu" ID="ID_1907753568" CREATED="1530657625186" MODIFIED="1530657748615"/>
+</node>
 </node>
 <node TEXT="Base de donn&#xe9;es" POSITION="left" ID="ID_124628161" CREATED="1527579778570" MODIFIED="1528741666144" STYLE="fork">
 <edge WIDTH="2"/>
@@ -1156,7 +955,6 @@
 <node TEXT="Tables" ID="ID_1455796385" CREATED="1527579973656" MODIFIED="1527579979532">
 <node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
 <node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>
-<node TEXT="associaion" ID="ID_1897076061" CREATED="1527579846709" MODIFIED="1527579852604"/>
 <node TEXT="mati&#xe8;re" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1527579845459"/>
 <node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
 </node>
@@ -1320,7 +1118,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="nom" ID="ID_109" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1417,7 +1214,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT=".EDRW" ID="ID_106" CREATED="1527579372218" MODIFIED="1530490821857" STYLE="fork"><richcontent TYPE="NOTE">
@@ -1435,7 +1231,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT=".EPRT" ID="ID_806184112" CREATED="1530490838149" MODIFIED="1530490974713"><richcontent TYPE="NOTE">
@@ -1453,7 +1248,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
