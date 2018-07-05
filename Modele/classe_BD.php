@@ -33,7 +33,7 @@ function Support($id) {
 		$support[PTI_NOM]	= $ligne['pti_nom'];
 		$support[DOSSIER]	= 'Supports/'.$ligne['dossier'].'/';
 		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$T_le[$ligne['article_ID']-1].$ligne['nom'].'">';
-		$support[TITRE]		= $T_du[$ligne['article_ID']-1].$ligne['nom'];
+		$support[TITRE]		= 'Dossier technique '.$T_du[$ligne['article_ID']-1].$ligne['nom'];
 	} else $support = null;
 	$this->Fermer();
 	return $support;

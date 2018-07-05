@@ -55,7 +55,7 @@ if (isset($_SESSION)) { // si le support existe
 
 <header>
 	<?php echo (isset($_SESSION)) ? $_SESSION[IMAGE] : ''; ?>
-	<p class="font-effect-outline"><?php echo (isset($_SESSION)) ? 'Dossier technique '.$_SESSION[TITRE] : 'Liste des dossiers techniques'; ?></p>
+	<p class="font-effect-outline"><?php echo (isset($_SESSION)) ? $_SESSION[TITRE] : 'Liste des dossiers techniques'; ?></p>
 </header>
 
 <?php
