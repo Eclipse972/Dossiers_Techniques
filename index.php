@@ -33,20 +33,10 @@ $connexionBD = new base2donnees();
 $_SESSION = $connexionBD->Support($id); // création du support s'il existe
 // suivant l'existence du support
 if (isset($_SESSION)) { // si le support existe
-	$image = $_SESSION[IMAGE];
-	$titre = 'Dossier technique '.$_SESSION[TITRE]; // titre de la page
-	$code  = 'pageHTML';	// code de la page
-	$CSS   = 'styleDT';	// feuille de style
 	$connexionBD = new base2donnees;
 	$page_existe = $connexionBD->Page_existe($_SESSION[ID], $item, $sous_item);
-
 	$_SESSION[ITEM]		 = ($page_existe) ? $item		: 1;
 	$_SESSION[SOUS_ITEM] = ($page_existe) ? $sous_item	: 0;
-} else {
-	$image = '';
-	$titre = 'Liste des dossiers techniques';
-	$code  = 'listeDsupports';
-	$CSS   = 'style_liste';
 }
 //*************************************************************************************************************************************
 ?>
@@ -57,18 +47,21 @@ if (isset($_SESSION)) { // si le support existe
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
 	<link rel="stylesheet" href="Vue/commun.css" />
-	<?php echo '<link rel="stylesheet" href="Vue/',$CSS,'.css" />',"\n"; ?>
+	<link rel="stylesheet" href="Vue/<?php echo (isset($_SESSION)) ? 'styleDT' : 'style_liste'; ?>.css" />
 	<title>Les Dossiers techniques de ChristopHe</title>
 </head>
 
 <body>
 
 <header>
-	<?php echo $image; ?><p class="font-effect-outline"><?php echo $titre; ?></p>
+	<?php echo (isset($_SESSION)) ? $_SESSION[IMAGE] : ''; ?>
+	<p class="font-effect-outline"><?php echo (isset($_SESSION)) ? 'Dossier technique '.$_SESSION[TITRE] : 'Liste des dossiers techniques'; ?></p>
 </header>
 
-<?php include 'Vue/'.$code.'.php';  ?>
-
+<?php
+	$code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports';;
+	include 'Vue/'.$code.'.php';
+?>
 <footer>
 <?php	include 'Vue/pied2page.php'; ?>
 </footer>
