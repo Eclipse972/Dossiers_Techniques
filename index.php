@@ -51,7 +51,7 @@ if(isset($_SESSION)) { // si le support existe
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
 	<link rel="stylesheet" href="Vue/commun.css" />
-	<?php echo '<link rel="stylesheet" href="Vue/',$CSS,'.css" />'; ?>
+	<?php echo '<link rel="stylesheet" href="Vue/',$CSS,'.css" />',"\n"; ?>
 	<title>Les Dossiers techniques de ChristopHe</title>
 </head>
 
