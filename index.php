@@ -9,7 +9,7 @@ define("DOSSIER",	3);
 define("ITEM",		4);
 define("SOUS_ITEM",	5);
 define("IMAGE",		6);
-define("TITREE",	7);
+define("TITRE",		7);
 define("origine",	64); // code asci de @
 
 include 'Modele/mes_classes.php';
@@ -32,15 +32,21 @@ $sous_item	= (isset($param[2])) ? ord($param[2])-origine : 0;
 $connexionBD = new base2donnees();
 $_SESSION = $connexionBD->Support($id); // création du support s'il existe
 // suivant l'existence du support
-$code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports'; // code de la page
-$CSS  = (isset($_SESSION)) ? 'styleDT'	: 'style_liste';	// feuille de style
-
-if(isset($_SESSION)) { // si le support existe
+if (isset($_SESSION)) { // si le support existe
+	$image = $_SESSION[IMAGE];
+	$titre = 'Dossier technique '.$_SESSION[TITRE]; // titre de la page
+	$code  = 'pageHTML';	// code de la page
+	$CSS   = 'styleDT';	// feuille de style
 	$connexionBD = new base2donnees;
 	$page_existe = $connexionBD->Page_existe($_SESSION[ID], $item, $sous_item);
 
 	$_SESSION[ITEM]		 = ($page_existe) ? $item		: 1;
 	$_SESSION[SOUS_ITEM] = ($page_existe) ? $sous_item	: 0;
+} else {
+	$image = '';
+	$titre = 'Liste des dossiers techniques';
+	$code  = 'listeDsupports';
+	$CSS   = 'style_liste';
 }
 //*************************************************************************************************************************************
 ?>
@@ -56,6 +62,10 @@ if(isset($_SESSION)) { // si le support existe
 </head>
 
 <body>
+
+<header>
+	<?php echo $image; ?><p class="font-effect-outline"><?php echo $titre; ?></p>
+</header>
 
 <?php include 'Vue/'.$code.'.php';  ?>
 

@@ -12,8 +12,7 @@ function Menu($support, $item, $sous_item) {	// constructeur
 function Afficher_menu() {
 	$connexionBD	= new base2donnees;
 	$T_items		= $connexionBD->Liste_item($this->ID_support,$this->item); // tableau contenant les items
-	// test de l'existence des items à faire
-	if(!isset($T_items)) {
+	if(!isset($T_items)) { // test de l'existence des items à faire
 		echo 'MENU INEXISTANT';
 		return;		// on sort de la fonction
 	}
@@ -28,6 +27,6 @@ function Afficher_menu() {
 		}
 	}
 	echo '</ul>',"\n";
-	echo '<a href="index.php">SOMMAIRE</a>',"\n";	
+	echo '<a href="index.php">SOMMAIRE</a>',"\n";
 }
 }
