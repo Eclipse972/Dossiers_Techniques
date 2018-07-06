@@ -59,7 +59,7 @@ if (isset($_SESSION)) { // si le support existe
 </header>
 
 <?php
-	$code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports';;
+	$code = (isset($_SESSION)) ? 'pageHTML' : 'listeDsupports';
 	include 'Vue/'.$code.'.php';
 ?>
 <footer>
