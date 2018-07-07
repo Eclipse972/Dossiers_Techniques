@@ -1,3 +1,13 @@
+<?php
+$connexionBD = new base2donnees();
+if ($connexionBD->Page_existe($_SESSION[ID], $item, $sous_item)) {
+	$_SESSION[ITEM]		 = $item; // on stocke dans la session
+	$_SESSION[SOUS_ITEM] = $sous_item;
+} else{ 
+	$_SESSION[ITEM]		 = 1; // on utilise la page mise en situation
+	$_SESSION[SOUS_ITEM] = 0;
+}
+?>
 <div id="corps">
 <nav>
 <?php // le code html sera à inclure dans le script si cela pose problème avec l'implémentation du cache
