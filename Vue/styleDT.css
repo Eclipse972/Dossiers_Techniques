@@ -121,7 +121,7 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol√
 	width: 49%;
 }
 .association {
-	height: 500px;
+	max-height: 550px;
 	display: block;
 	margin: auto; 
 }
