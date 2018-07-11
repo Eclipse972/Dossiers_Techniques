@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.331">
+<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="4.176">
     <properties fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -269,7 +269,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="style_liste" ID="ID_1755359752" CREATED="1530657021129" MODIFIED="1530657461003"/>
@@ -287,7 +286,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="pas2photo" ID="ID_132" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -311,7 +309,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="autres" ID="ID_66" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
@@ -459,7 +456,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="eclate" ID="ID_96" CREATED="1527579372186" MODIFIED="1530490296973" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -505,7 +501,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
@@ -520,6 +515,36 @@
     </p>
   </body>
 </html>
+</richcontent>
+</node>
+<node TEXT="image_dessus" ID="ID_206936328" CREATED="1531135319622" MODIFIED="1531135398377"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      certaines pages sont de simple image avec un titre et un commentaire en dessous de l'image.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="image_dessous" ID="ID_1477834829" CREATED="1531135370561" MODIFIED="1531135428281"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      certaines pages sont de simple image avec un titre et un commentaire au dessus de l'image.
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 </node>
