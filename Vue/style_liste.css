@@ -1,7 +1,3 @@
-header { background-color:var(--couleur4); }
-
-header p { margin:30px; }
-
 /* zone centrale --------------------------------------------------------------------------------------------------- */
 section {
 	width:var(--largeur_page);

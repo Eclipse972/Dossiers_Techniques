@@ -19,7 +19,10 @@ header, footer {
 	text-align: center;
 }
 /* l'en-tete ---------------------------------------------------------------------------------------------------------- */
-header { margin-bottom:5px; }
+header {
+	margin-bottom:5px;
+	background-image:linear-gradient(to right, white, var(--couleur5));
+}
 
 header img, header p { vertical-align:middle; }
 
@@ -30,6 +33,7 @@ header img {
 }
 
 header p {
+	margin:30px;
 	font-weight:bold;
 	font-size: 36px;
 	display:inline-block; /* affiche le texte juste après l'image */
