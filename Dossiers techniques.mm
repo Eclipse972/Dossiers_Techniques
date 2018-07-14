@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="4.176">
+<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.771">
     <properties fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -61,7 +61,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<node TEXT="mes choix" POSITION="left" ID="ID_6" CREATED="1527579372171" MODIFIED="1527837522626" STYLE="fork">
+<node TEXT="mes choix" POSITION="left" ID="ID_6" CREATED="1527579372171" MODIFIED="1531430492229" STYLE="fork">
 <edge WIDTH="2"/>
 <node TEXT="Pourquoi ce site?" ID="ID_1784952177" CREATED="1530492366471" MODIFIED="1530492446800">
 <node TEXT="objectif z&#xe9;ro papier" ID="ID_1037076862" CREATED="1530492398033" MODIFIED="1530492541687"><richcontent TYPE="NOTE">
@@ -88,6 +88,74 @@
 <node TEXT="l&apos;interface" ID="ID_1282169363" CREATED="1530492842828" MODIFIED="1530492847616"/>
 <node TEXT="d&#xe9;couverte de l&apos;utilisation d&apos;une base de donn&#xe9;es" ID="ID_1607613619" CREATED="1530492853511" MODIFIED="1530492870394"/>
 <node TEXT="la programmation pure et dure" ID="ID_1026543947" CREATED="1530492871775" MODIFIED="1530492880445"/>
+<node TEXT="utilisation de git" ID="ID_936334619" CREATED="1531545039643" MODIFIED="1531545045700"/>
+</node>
+</node>
+<node TEXT="Que dois contenir un dossier technique ?" ID="ID_1562570477" CREATED="1531542860076" MODIFIED="1531542942291">
+<node TEXT="minimum vital" ID="ID_5363806" CREATED="1531542887207" MODIFIED="1531542929270">
+<node TEXT="mise en situation" ID="ID_1836155831" CREATED="1531542965229" MODIFIED="1531542975423"/>
+<node TEXT="fonctionnement avec des animations" ID="ID_1549021980" CREATED="1531542978844" MODIFIED="1531543006899"/>
+<node TEXT="dessin d&apos;ensemble" ID="ID_286190938" CREATED="1531543008178" MODIFIED="1531543020679"/>
+<node TEXT="nomenclature" ID="ID_39811875" CREATED="1531543037733" MODIFIED="1531543040193"/>
+<node TEXT="&#xe9;clat&#xe9;" ID="ID_1630330964" CREATED="1531543192681" MODIFIED="1531543196751">
+<node TEXT="simple" ID="ID_790730937" CREATED="1531543053965" MODIFIED="1531543220853"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      pour les m&#233;canismes avec peu de pi&#232;ces
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="classe d&apos;&#xe9;quivalence en sous ensembles" ID="ID_1101885040" CREATED="1531543094975" MODIFIED="1531543242941"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pour les m&#233;canismes complexes avec des lignes qui montrent les liaisons comme sur une notice de montage.
+    </p>
+    <p>
+      Il n'est pas exclu de mettre aussi un &#233;clat&#233; simple
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node TEXT="autres pages" ID="ID_1346949675" CREATED="1531542898914" MODIFIED="1531543457823"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Cette liste n'est pas exhaustive.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="diagramme" ID="ID_1754426113" CREATED="1531543271967" MODIFIED="1531543278449">
+<node TEXT="A-0" ID="ID_984014884" CREATED="1531543283796" MODIFIED="1531543289171"/>
+<node TEXT="FAST" ID="ID_1192286883" CREATED="1531543293322" MODIFIED="1531543298408"/>
+<node TEXT="pieuvre" ID="ID_767426143" CREATED="1531543299329" MODIFIED="1531543317451"/>
+</node>
+<node TEXT="&#xe9;tude m&#xe9;canique" ID="ID_1448293104" CREATED="1531543325074" MODIFIED="1531543349349">
+<node TEXT="cin&#xe9;matique" ID="ID_51694456" CREATED="1531543350390" MODIFIED="1531543366202"/>
+<node TEXT="statique" ID="ID_541621040" CREATED="1531543368829" MODIFIED="1531543373226"/>
+</node>
+<node TEXT="graphe de (d&#xe9;)montage" ID="ID_1883972540" CREATED="1531543386447" MODIFIED="1531543398749"/>
+<node TEXT="dessins de d&#xe9;finition" ID="ID_269650533" CREATED="1531543412555" MODIFIED="1531543419378"/>
+<node TEXT="gamme d&apos;usinage" ID="ID_1182831810" CREATED="1531543428479" MODIFIED="1531543435101"/>
 </node>
 </node>
 <node TEXT="programmation" ID="ID_852697978" CREATED="1527836900140" MODIFIED="1527836908758" STYLE="fork">
@@ -106,14 +174,21 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1531430646182" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>version disponible chez free.</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      version disponible pour les pages perso de free.
+    </p>
+    <p>
+      Certaines pages ont une version plus r&#233;cente.
+    </p>
+  </body>
+</html>
 </richcontent>
 </node>
 </node>
@@ -167,7 +242,7 @@
 <node TEXT="mySQL" ID="ID_1500337976" CREATED="1527836402439" MODIFIED="1527836434831" STYLE="fork"/>
 <node TEXT="phpmyadmin" ID="ID_117" CREATED="1527579372171" MODIFIED="1527837682976" STYLE="fork"/>
 </node>
-<node TEXT="nom des fichiers et dossiers" ID="ID_161" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="nom des fichiers et dossiers" ID="ID_161" CREATED="1527579372171" MODIFIED="1531430492217" STYLE="fork" HGAP="24" VSHIFT="-12"><richcontent TYPE="NOTE">
 
 <html>
                         <head/>
@@ -213,18 +288,77 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
-<node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1527838124967" STYLE="fork"/>
-<node TEXT="PHP5 ou sup&#xe9;rieure" ID="ID_319" CREATED="1527579372171" MODIFIED="1527579868908" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="s&#xe9;curit&#xe9;" ID="ID_367280909" CREATED="1531541882682" MODIFIED="1531541932145"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>La gestion du DOM et XML est possible &#224; partir de cette version qui n'est pas disponible chez free au 7/2/2016</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Une r&#232;gle fondamentale en informatique: ne as faire confiance &#224; l'utilisateur
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="manipulation du param&#xe8;tre" ID="ID_302137086" CREATED="1531541959860" MODIFIED="1531542032451"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Normalement toutes entr&#233;e invalide d&#233;bouche sur ma page en construction
+    </p>
+  </body>
+</html>
 </richcontent>
 </node>
+<node TEXT="les images" ID="ID_1233967994" CREATED="1531542431012" MODIFIED="1531542454540"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Si l&#8217;image n'existe pas elle est remplac&#233;e par un fichier pas2photo.png
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="les fichiers" ID="ID_1855714245" CREATED="1531542458358" MODIFIED="1531542492302"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Si le fichier dans le r&#233;pertoire /fichier n'sxiste pas un lien vide est renvoy&#233;.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node TEXT="SQL injection" ID="ID_1850054605" CREATED="1531541936055" MODIFIED="1531541991082"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      pas encore test&#233;
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
 <node TEXT="utilisation de caches" ID="ID_956296161" CREATED="1527841303929" MODIFIED="1527841468583" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -240,6 +374,51 @@
     </p>
   </body>
 </html>
+</richcontent>
+</node>
+<node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1527838124967" STYLE="fork"/>
+<node TEXT="page d&apos;administration" ID="ID_198666458" CREATED="1531545107478" MODIFIED="1531545422035"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      proposer des outil pour la cr&#233;ation/mdification/suppression de support
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="contr&#xf4;ler l&apos;int&#xe9;grit&#xe9; d&apos;un support" ID="ID_1156952579" CREATED="1531545441205" MODIFIED="1531545551042"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      pas de fichier orphelin
+    </p>
+    <p>
+      tous les fihcier pr&#233;sents
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="manipuler un support" ID="ID_1952221262" CREATED="1531545480904" MODIFIED="1531545496129"/>
+</node>
+<node TEXT="PHP5 ou sup&#xe9;rieure" ID="ID_319" CREATED="1527579372171" MODIFIED="1527579868908" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+                            <head/>
+                            <body>
+                                <p>La gestion du DOM et XML est possible &#224; partir de cette version qui n'est pas disponible chez free au 7/2/2016</p>
+                            </body>
+                        </html>
 </richcontent>
 </node>
 </node>
@@ -529,7 +708,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="image_dessous" ID="ID_1477834829" CREATED="1531135370561" MODIFIED="1531135428281"><richcontent TYPE="NOTE">
@@ -544,7 +722,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -976,7 +1153,20 @@
 </node>
 <node TEXT="Base de donn&#xe9;es" POSITION="left" ID="ID_124628161" CREATED="1527579778570" MODIFIED="1528741666144" STYLE="fork">
 <edge WIDTH="2"/>
-<node TEXT="version" ID="ID_834857297" CREATED="1527580002839" MODIFIED="1527580012044"/>
+<node TEXT="version MySQL 5.0.77" ID="ID_834857297" CREATED="1527580002839" MODIFIED="1531430574651"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      je n'ai pas le choix
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 <node TEXT="Tables" ID="ID_1455796385" CREATED="1527579973656" MODIFIED="1527579979532">
 <node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
 <node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>
@@ -1286,6 +1476,33 @@
                     </html>
 </richcontent>
 </node>
+</node>
+<node TEXT="cr&#xe9;er un support les mains dans le cambouis" POSITION="right" ID="ID_731065834" CREATED="1531545235468" MODIFIED="1531545655047"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pour le moment il faut coder
+    </p>
+    <p>
+      en php et/ou html
+    </p>
+    <p>
+      manipuler la BD avec phpmyadmin
+    </p>
+    <p>
+      Ceci n'est pas &#224; la port&#233;e d'un n&quot;ophyte/ Ce travail sera failt&#233; par la cration d'une parge d'administration.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<edge WIDTH="2"/>
+<node TEXT="sur le site" ID="ID_1572455856" CREATED="1531545607274" MODIFIED="1531545611505"/>
+<node TEXT="dans la base de donn&#xe9;es" ID="ID_235226339" CREATED="1531545614645" MODIFIED="1531545630819"/>
 </node>
 </node>
 </map>
