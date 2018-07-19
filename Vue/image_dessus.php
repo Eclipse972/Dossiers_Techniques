@@ -1,6 +1,3 @@
-<?php
-echo '<h1>'.$T_instruction['param1'].'</h1>';	// titre
-Ajouter_image($T_instruction['param2'], $T_instruction['param3'],'association');	// image
-echo '<p>'.$T_instruction['param4'].'</p>';		// texte au dessous de l'image
-
+<?php //		titre						texte					image					texte alternatif	au dessus
+Page_image($T_instruction['param1'], $T_instruction['param4'], $T_instruction['param2'], $T_instruction['param3'], true);
 
