@@ -19,16 +19,17 @@ function Ajouter_image($image, $alt, $class = null, $style = null)	{
 	echo (isset($style)) ? ' style="'.$style.'"' : ''; // pour utiliser style il faut mettre class = null
 	echo ' alt="', $alt, '">',"\n";	// cette balise devient obligatoire
 }
-function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur = 1000) {
+function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur) {
+	if ($largeur=='') $largeur = 1000;
 	echo '<div style="width:', $largeur, 'px;margin:auto;">',"\n";
 	echo '<h1>'.$titre.'</h1>',"\n";
-	$texte = '<p>'.$texte.'</p>';
+	$texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
 	/* Remarques
 		mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
 		mettre du code html: </p>code html. la balise fermante va créé un paragraphe vide
 	*/
-	if (!$dessus) echo $texte,"\n";
+	if (!$dessus) echo $texte;
 	Ajouter_image($image, $commentaire,'association');
-	if ($dessus) echo $texte,"\n";
+	if ($dessus) echo $texte;
 	echo '</div>',"\n";
 }
