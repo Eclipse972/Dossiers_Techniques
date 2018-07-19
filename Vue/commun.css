@@ -63,7 +63,7 @@ footer img {
 	margin: auto;
 }
 
-#titre { width:1180px; }
+#titre { width:var(--largeur_2e_colonne); }
 
 #titre p {
 	margin:30px;
