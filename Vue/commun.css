@@ -8,6 +8,7 @@ body {
 	--couleur5: #002F2F;
 	
 	--largeur_page:1400px;
+	--largeur_1e_colonne:200px;
 	/* fin de déclaraion de variables */
 	background-color:var(--couleur3);
 	font-family: 'Quicksand', sans-serif;
@@ -16,31 +17,14 @@ body {
 header, footer { 
 	width:var(--largeur_page);
 	margin:auto;
-	text-align: center;
 }
-/* l'en-tete ---------------------------------------------------------------------------------------------------------- */
+/* l'en-tete ---------------------------------------------------------------------------------- */
 header {
 	margin-bottom:5px;
 	background-image:linear-gradient(to right, white, var(--couleur5));
 }
 
-header img, header p { vertical-align:middle; }
-
-header img {
-	max-height: 80px;
-	max-width: 170px;
-	padding: 4px;
-}
-
-header p {
-	margin:30px;
-	font-weight:bold;
-	font-size: 36px;
-	display:inline-block; /* affiche le texte juste après l'image */
-	width:1200px;/* trouver comment prendre la largeur restante. auto ne le fait pas*/
-}
-
-/* zone centrale --------------------------------------------------------------------------------------------------- */
+/* zone centrale ------------------------------------------------------------------------------- */
 section {
 	padding: 3px;
 	font-size: 20px;
@@ -53,11 +37,38 @@ section h1 {
 	font-size: 25px;
 	margin-top: 0;
 }
-/* pied de page --------------------------------------------------------------------------------------------------- */
-footer { font-size:16px; }
+/* pied de page -------------------------------------------------------------------------------- */
+footer {
+	font-size:16px;
+	text-align: center;
+}
 
 footer img {
 	height:32px;
 	vertical-align:middle;
 }
+/* logo  et titre de lapage ------------------------------------------------------------------- */
+#logo, #titre {
+	display:inline-block;
+	vertical-align:middle;
+}
+#logo {
+	width:var(--largeur_1e_colonne);
+}
 
+#logo img {
+	max-height: 80px;
+	max-width: 170px;
+	padding: 4px;
+	display: block;
+	margin: auto;
+}
+
+#titre { width:1180px; }
+
+#titre p {
+	margin:30px;
+	font-weight:bold;
+	font-size: 36px;
+	text-align:center;
+}

@@ -40,8 +40,10 @@ $_SESSION = $connexionBD->Support($id); // création du support s'il existe
 <body>
 
 <header>
-	<?php echo (isset($_SESSION)) ? $_SESSION[IMAGE] : '<img src="Vue/images/logo.png" alt="logo">'; ?>
+	<div id="logo"><?php echo (isset($_SESSION)) ? $_SESSION[IMAGE] : '<img src="Vue/images/logo.png" alt="logo">'; ?></div>
+	<div id="titre">
 	<p class="font-effect-outline"><?php echo (isset($_SESSION)) ? $_SESSION[TITRE] : 'Liste des dossiers techniques'; ?></p>
+	</div>
 </header>
 
 <?php
