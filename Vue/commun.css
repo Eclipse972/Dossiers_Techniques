@@ -7,15 +7,16 @@ body {
 	--couleur4: #046380;
 	--couleur5: #002F2F;
 	
-	--largeur_page:1400px;
 	--largeur_1e_colonne:200px;
+	--largeur_2e_colonne:1200px;
+	--marge_section:3px;
 	/* fin de déclaraion de variables */
 	background-color:var(--couleur3);
 	font-family: 'Quicksand', sans-serif;
 }
 
-header, footer { 
-	width:var(--largeur_page);
+header, section, footer, #corps { 
+	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + var(--marge_section) * 2);
 	margin:auto;
 }
 /* l'en-tete ---------------------------------------------------------------------------------- */
@@ -26,7 +27,7 @@ header {
 
 /* zone centrale ------------------------------------------------------------------------------- */
 section {
-	padding: 3px;
+	padding: var(--marge_section);
 	font-size: 20px;
 	overflow: auto;
 	background-color:white;
@@ -52,9 +53,7 @@ footer img {
 	display:inline-block;
 	vertical-align:middle;
 }
-#logo {
-	width:var(--largeur_1e_colonne);
-}
+#logo { width:var(--largeur_1e_colonne); }
 
 #logo img {
 	max-height: 80px;

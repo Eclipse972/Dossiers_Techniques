@@ -1,21 +1,14 @@
 /* zone centrale --------------------------------------------------------------------------------------------------- */
-section {
-	width:var(--largeur_page);
-	margin:auto;
-}
-section a { text-decoration: none;}
+section a { text-decoration: none; }
 
 section table {
 	margin: auto;
 	text-align: center;
 }
-section td {
-	padding: 9px;
-}
+section td { padding: 9px; }
 
-section td:hover {	
-	background-color: var(--couleur1);	/* la case change de couleur au passage de la souris */
-}
+section td:hover { background-color: var(--couleur1); } /* la case change de couleur au passage de la souris */
+
 section img { /* formatage affichage */
 	height: 100px;
 	vertical-align: middle;
