@@ -1,0 +1,14 @@
+ErrorDocument 403 http://dossiers.techniques.free.fr/erreur.php?code=403
+ErrorDocument 404 http://dossiers.techniques.free.fr/erreur.php?code=404
+ErrorDocument 500 http://dossiers.techniques.free.fr/erreur.php?code=500
+
+<IfDefine Free>
+php 1
+</IfDefine>
+Options -Indexes
+
+<Files ".ht*">
+Order allow,deny
+Deny from all
+Satisfy all
+</Files>
