@@ -1,7 +1,4 @@
 # les fichiers edrawing et image doivent être indexés sinon les modifications/suppression ne seront pas suivies
 
-#fichiers de sauvegarde 
-*~
-
 #identifiants
 connexion.php
