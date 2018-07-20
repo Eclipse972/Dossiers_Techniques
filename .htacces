@@ -1,9 +1,0 @@
-<IfDefine Free>
-AddType application/x-httpd-php5 .php
-</IfDefine>
-Options -Indexes
-<Files ".ht*">
-Order allow,deny
-Deny from all
-Satisfy all
-</Files>
