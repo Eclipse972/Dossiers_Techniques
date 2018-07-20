@@ -3,5 +3,5 @@
 #fichiers de sauvegarde 
 *~
 
-# dossier privé
-privé/
+#identifiants
+connexion.php
