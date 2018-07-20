@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.771">
+<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.464">
     <properties fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -174,7 +174,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1531430646182" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1532079111423" STYLE="fork" LINK="#ID_319"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -301,6 +301,26 @@
   </body>
 </html>
 </richcontent>
+<node TEXT=".htaccess" ID="ID_1196597595" CREATED="1532078835684" MODIFIED="1532078843671">
+<node TEXT="redirection de certaines erreur cot&#xe9; serveur" ID="ID_1126580115" CREATED="1532079988024" MODIFIED="1532080000379"/>
+<node TEXT="interdire l&apos;acc&#xe8;s aux r&#xe9;pertoires" ID="ID_250257288" CREATED="1532080006593" MODIFIED="1532080028211"/>
+<node TEXT="activation de php5 version free" ID="ID_1189853443" CREATED="1532080036729" MODIFIED="1532080050274"/>
+</node>
+<node TEXT="page d&apos;erreur ersonalis&#xe9;e" ID="ID_1492783616" CREATED="1532078862283" MODIFIED="1532078906112"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      les erreurs prises en charge sont d&#233;clar&#233;es dans .htaccess
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="manipulation du param&#xe8;tre" ID="ID_302137086" CREATED="1531541959860" MODIFIED="1531542032451"><richcontent TYPE="NOTE">
 
 <html>
@@ -315,7 +335,8 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="les images" ID="ID_1233967994" CREATED="1531542431012" MODIFIED="1531542454540"><richcontent TYPE="NOTE">
+<node TEXT="pour les supports" ID="ID_796932194" CREATED="1532079554803" MODIFIED="1532079562383">
+<node TEXT="les images absentes" ID="ID_1233967994" CREATED="1531542431012" MODIFIED="1532078924232"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -329,7 +350,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="les fichiers" ID="ID_1855714245" CREATED="1531542458358" MODIFIED="1531542492302"><richcontent TYPE="NOTE">
+<node TEXT="les fichiers absents" ID="ID_1855714245" CREATED="1531542458358" MODIFIED="1532078942307"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -343,7 +364,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="SQL injection" ID="ID_1850054605" CREATED="1531541936055" MODIFIED="1531541991082"><richcontent TYPE="NOTE">
+<node TEXT="script absent" ID="ID_519616040" CREATED="1532079460995" MODIFIED="1532079549516"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -351,11 +372,13 @@
   </head>
   <body>
     <p>
-      pas encore test&#233;
+      C'est le script en-construction qui est ex&#233;cut&#233; en cas d'absence
     </p>
   </body>
 </html>
+
 </richcontent>
+</node>
 </node>
 </node>
 <node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
@@ -376,7 +399,21 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1527838124967" STYLE="fork"/>
+<node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1532079038471" STYLE="fork"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      On peut convertir un fichier vid&#233;o de SW en gir anim&#233;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="page d&apos;administration" ID="ID_198666458" CREATED="1531545107478" MODIFIED="1531545422035"><richcontent TYPE="NOTE">
 
 <html>
@@ -389,7 +426,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="contr&#xf4;ler l&apos;int&#xe9;grit&#xe9; d&apos;un support" ID="ID_1156952579" CREATED="1531545441205" MODIFIED="1531545551042"><richcontent TYPE="NOTE">
 
@@ -406,21 +442,29 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="manipuler un support" ID="ID_1952221262" CREATED="1531545480904" MODIFIED="1531545496129"/>
 </node>
-<node TEXT="PHP5 ou sup&#xe9;rieure" ID="ID_319" CREATED="1527579372171" MODIFIED="1527579868908" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="PHP5 ou sup&#xe9;rieure" ID="ID_319" CREATED="1527579372171" MODIFIED="1532079908768" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
-                            <head/>
-                            <body>
-                                <p>La gestion du DOM et XML est possible &#224; partir de cette version qui n'est pas disponible chez free au 7/2/2016</p>
-                            </body>
-                        </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      La gestion du DOM et XML est possible &#224; partir de cette version qui n'est pas disponible chez free au 7/2/2016
+    </p>
+    <p>
+      La gestion de la BD s fait avec PDO. Entre autre elle permet la gestion de mani&#232;re transparente vers d'au SGBR COMME POSTGREsql et oracle.
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
+<node TEXT="se prot&#xe9;ger des injections SQL" ID="ID_1850054605" CREATED="1531541936055" MODIFIED="1532079962071" LINK="https://www.bases-hacking.org/sql-injection.html"/>
 </node>
 </node>
 <node TEXT="Vue" POSITION="right" ID="ID_3" CREATED="1527579372171" MODIFIED="1528741666140" STYLE="fork"><richcontent TYPE="NOTE">
@@ -1170,7 +1214,27 @@
 <node TEXT="Tables" ID="ID_1455796385" CREATED="1527579973656" MODIFIED="1527579979532">
 <node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
 <node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>
-<node TEXT="mati&#xe8;re" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1527579845459"/>
+<node TEXT="mati&#xe8;re" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1532079772676"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      chaque mati&#232;re revient plusieurs fois.
+    </p>
+    <p>
+      Elles sont r&#233;f&#233;renc&#233;es dans cette table.
+    </p>
+    <p>
+      Lors de l'affichage de la nomenclature un lien vers wikip&#233;dia est ajout&#233; si possible
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
 </node>
 <node TEXT="requ&#xea;tes" ID="ID_1264990938" CREATED="1527580012670" MODIFIED="1527580017944"/>
@@ -1498,7 +1562,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <edge WIDTH="2"/>
 <node TEXT="sur le site" ID="ID_1572455856" CREATED="1531545607274" MODIFIED="1531545611505"/>
