@@ -24,8 +24,8 @@ $id			= $param[0];
 $item		= $param[1];
 $sous_item	= $param[2];
 
-$connexionBD = new base2donnees();
-$_SESSION = $connexionBD->Support($id); // création du support s'il existe
+$_BD = new base2donnees();
+$_SESSION = $_BD->Support($id); // création du support s'il existe
 ?>
 <!doctype html>
 <html lang="fr">

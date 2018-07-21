@@ -10,13 +10,13 @@ public function __construct($support, $item, $sous_item) {	// constructeur
 	$this->sous_item	= $sous_item;
 }
 public function Afficher_menu() {
-	$connexionBD	= new base2donnees;
-	$T_items		= $connexionBD->Liste_item($this->ID_support,$this->item); // tableau contenant les items
+	$BD	= new base2donnees; // cette BD est locale
+	$T_items = $BD->Liste_item($this->ID_support,$this->item); // tableau contenant les items
 	if(!isset($T_items)) { // test de l'existence des items à faire
 		echo 'MENU INEXISTANT';
 		return;		// on sort de la fonction
 	}
-	$T_sous_items 	= $connexionBD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
+	$T_sous_items 	= $BD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
 	echo '<ul>',"\n";
 	foreach($T_items as $i => $item) {	// affichage du menu
 		echo '<li>',$item,'</li>',"\n";	// lien
