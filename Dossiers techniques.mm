@@ -174,7 +174,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="php4" ID="ID_12" CREATED="1527579372171" MODIFIED="1532079111423" STYLE="fork" LINK="#ID_319"><richcontent TYPE="NOTE">
+<node TEXT="php 5.6.8" ID="ID_1329467330" CREATED="1532148465485" MODIFIED="1532148571844"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -182,13 +182,11 @@
   </head>
   <body>
     <p>
-      version disponible pour les pages perso de free.
-    </p>
-    <p>
-      Certaines pages ont une version plus r&#233;cente.
+      pendant longtemp j'&#233;tais coinc&#233; sur la version 4. Cela &#233;tait &#224; une simple erreur de frappe: .htacces au lieu de .htaccess.
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
@@ -318,7 +316,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="manipulation du param&#xe8;tre" ID="ID_302137086" CREATED="1531541959860" MODIFIED="1531542032451"><richcontent TYPE="NOTE">
@@ -376,7 +373,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -411,7 +407,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="page d&apos;administration" ID="ID_198666458" CREATED="1531545107478" MODIFIED="1531545422035"><richcontent TYPE="NOTE">
@@ -445,24 +440,6 @@
 </richcontent>
 </node>
 <node TEXT="manipuler un support" ID="ID_1952221262" CREATED="1531545480904" MODIFIED="1531545496129"/>
-</node>
-<node TEXT="PHP5 ou sup&#xe9;rieure" ID="ID_319" CREATED="1527579372171" MODIFIED="1532079908768" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      La gestion du DOM et XML est possible &#224; partir de cette version qui n'est pas disponible chez free au 7/2/2016
-    </p>
-    <p>
-      La gestion de la BD s fait avec PDO. Entre autre elle permet la gestion de mani&#232;re transparente vers d'au SGBR COMME POSTGREsql et oracle.
-    </p>
-  </body>
-</html>
-
-</richcontent>
 </node>
 <node TEXT="se prot&#xe9;ger des injections SQL" ID="ID_1850054605" CREATED="1531541936055" MODIFIED="1532079962071" LINK="https://www.bases-hacking.org/sql-injection.html"/>
 </node>
@@ -1197,7 +1174,7 @@
 </node>
 <node TEXT="Base de donn&#xe9;es" POSITION="left" ID="ID_124628161" CREATED="1527579778570" MODIFIED="1528741666144" STYLE="fork">
 <edge WIDTH="2"/>
-<node TEXT="version MySQL 5.0.77" ID="ID_834857297" CREATED="1527580002839" MODIFIED="1531430574651"><richcontent TYPE="NOTE">
+<node TEXT="version MySQL 5.0.77 avec utilisation de PDO" ID="ID_834857297" CREATED="1527580002839" MODIFIED="1532148639692"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -1232,7 +1209,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
