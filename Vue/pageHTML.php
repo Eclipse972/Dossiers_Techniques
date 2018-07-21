@@ -1,7 +1,7 @@
 <?php
-if ($_BD->Page_existe($_SESSION[ID], $item, $sous_item)) {
-	$_SESSION[ITEM]		 = $item; // on stocke dans la session
-	$_SESSION[SOUS_ITEM] = $sous_item;
+if ($_BD->Page_existe($_SESSION[ID], $_ITEM, $_SOUS_ITEM)) {
+	$_SESSION[ITEM]		 = $_ITEM; // on stocke dans la session
+	$_SESSION[SOUS_ITEM] = $_SOUS_ITEM;
 } else{ 
 	$_SESSION[ITEM]		 = 1; // on utilise la page mise en situation
 	$_SESSION[SOUS_ITEM] = 0;
