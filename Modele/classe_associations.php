@@ -1,17 +1,17 @@
 <?php
 class Association_image_fichier {
 	// contient le chemin complet pour accéder ...
-	var $image;		// à l'image
-	var $fichier;	// au fichier
-	var $titre;
+	protected $image;	// à l'image
+	protected $fichier;	// au fichier
+	protected $titre;
 
-	function Association_image_fichier($dossier, $image, $fichier, $titre = '') { // constructeur
+	public function __construct($dossier, $image, $fichier, $titre = '') {
 		// les noms de l'image et du fichier ne sont pas forcément identiques
 		$this->image	= Image($image, $dossier.'images/');
 		$this->fichier	= Fichier($fichier, $dossier.'fichiers/');
 		$this->titre	= $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 	}
-	function Afficher($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
+	public function Afficher($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
 		//	si		l'image n'existe pas		  et le fichier n'existe pas
 		if (($this->image == 'Vue/pas2photo.png') && ($this->fichier == '#'))
 			include 'Vue/en_construction.php'; // alors on charge la page "en construction"
@@ -26,38 +26,38 @@ class Association_image_fichier {
 }
 
 // classes filles simples ---------------------------------------------------------------------------------------------------------------
-// Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
+// Les filles sont identiques à leur mère avec des valeurs particulières pour les privateiables membre
 class Dessin_densemble extends Association_image_fichier {
-	function Dessin_densemble($dossier, $image, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
+	public function Dessin_densemble($dossier, $image, $fichier) { // constructeur
+		parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
 	}
 }
 
 class Dessin_de_definition extends Association_image_fichier {
-	function Dessin_de_definition($dossier, $image, $fichier) { // constructeur
-		parent::Association_image_fichier($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition');
+	public function Dessin_de_definition($dossier, $image, $fichier) { // constructeur
+		parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition');
 	}
 }
 
 class Eclate extends Association_image_fichier {
-	function Eclate($dossier, $image, $fichier) {
-		parent::Association_image_fichier($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
+	public function Eclate($dossier, $image, $fichier) {
+		parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
 	}
-	function Afficher() {
+	public function Afficher() {
 		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 	}
 }
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------
-// Les filles ont plus de propriétés que leur mère: plus de variable et/ou de fonction
+// Les filles ont plus de propriétés que leur mère: plus de privateiable et/ou de fonction
 class Piece extends Association_image_fichier {
-	var	$nom;
-	var	$repere;
-	var $quantite;
-	var $matiere;
-	var $URL_matiere;
-	var $observation;
+	private	$nom;
+	private	$repere;
+	private $quantite;
+	private $matiere;
+	private $URL_matiere;
+	private $observation;
 
-	function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
+	public function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
 		global $TRACEUR;
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
@@ -67,10 +67,10 @@ class Piece extends Association_image_fichier {
 		$this->observation =  $T_param['observation'];
 		$T_param['dossier'] = 'Supports/'.$T_param['dossier'].'/';
 
-		parent::Association_image_fichier($T_param['dossier'], $T_param['fichier'], $T_param['fichier'].$T_param['extension']); // constructeur de la classe mère.
+		parent::__construct($T_param['dossier'], $T_param['fichier'], $T_param['fichier'].$T_param['extension']); // constructeur de la classe mère.
 		// Rem: l'image et le fichier doivent porter le même nom. image_alt = nom de la pièce
 	}
-	function Afficher() {
+	public function Afficher() {
 		echo '<tr>',"\n";
 		echo '<td>', $this->repere, '</td>',"\n";
 

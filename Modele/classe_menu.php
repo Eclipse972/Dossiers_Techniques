@@ -1,15 +1,15 @@
 <?php
 class Menu {
-var $ID_support;
-var $item;
-var $sous_item;
+private $ID_support;
+private $item;
+private $sous_item;
 
-function Menu($support, $item, $sous_item) {	// constructeur
+public function __construct($support, $item, $sous_item) {	// constructeur
 	$this->ID_support	= $support;	// le support doit être validé en amont
 	$this->item			= $item;
 	$this->sous_item	= $sous_item;
 }
-function Afficher_menu() {
+public function Afficher_menu() {
 	$connexionBD	= new base2donnees;
 	$T_items		= $connexionBD->Liste_item($this->ID_support,$this->item); // tableau contenant les items
 	if(!isset($T_items)) { // test de l'existence des items à faire
