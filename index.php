@@ -19,10 +19,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
-$param = Extraire_parametre();
-$id			= $param[0];
-$item		= $param[1];
-$sous_item	= $param[2];
+Extraire_parametre($id, $item, $sous_item);
 
 $_BD = new base2donnees();
 $_SESSION = $_BD->Support($id); // création du support s'il existe
