@@ -12,11 +12,10 @@ function Fichier_existe($fichier,$dossier,$substitution) {
 		$fichier = $substitution; // si le fichier n'existe pas alors on remplace par la substitution
 	return $fichier;
 }
-function Ajouter_image($image, $alt, $class = null, $style = null)	{
+function Ajouter_image($image, $alt, $supplement = null)	{
 	// ajoute l'image du support courant. Cette image se trouve dans le répertoire /images.
 	echo '<img src="', Image($image, $_SESSION[DOSSIER].'images/', $extension),'"';
-	echo (isset($class)) ? ' class="'.$class.'"' : ''; // class
-	echo (isset($style)) ? ' style="'.$style.'"' : ''; // pour utiliser style il faut mettre class = null
+	echo (isset($supplement)) ? ' '.$supplement : ''; // supplément : class=... et/ou style=...
 	echo ' alt="', $alt, '">',"\n";	// cette balise devient obligatoire
 }
 function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur) {
@@ -29,7 +28,7 @@ function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur) {
 		mettre du code html: </p>code html. la balise fermante va créé un paragraphe vide
 	*/
 	if (!$dessus) echo $texte;
-	Ajouter_image($image, $commentaire,'association');
+	Ajouter_image($image, $commentaire,'class=association');
 	if ($dessus) echo $texte;
 	echo '</div>',"\n";
 }

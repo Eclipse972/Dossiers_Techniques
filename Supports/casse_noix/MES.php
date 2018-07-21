@@ -3,10 +3,10 @@
 
 <div class="colonne">
 <h2>levier lev&eacute;</h2>
-<?php Ajouter_image($T_instruction['param1'], 'levier lev&eacute;', null, 'width:300px'); ?>
+<?php Ajouter_image($T_instruction['param1'], 'levier lev&eacute;', 'style=width:300px'); ?>
 </div>
 
 <div class="colonne">
 <h2>levier baiss&eacute;e</h2>
-<?php Ajouter_image($T_instruction['param2'], 'levier baiss&eacute;e', null, 'width:300px'); ?>
+<?php Ajouter_image($T_instruction['param2'], 'levier baiss&eacute;e', 'style=width:300px'); ?>
 </div>
