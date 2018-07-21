@@ -29,7 +29,7 @@ else {
 	elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
 		include('Vue/'.$script);
 	else {
-		include 'Vue/en_construction.php'; // si le script n'existe nulle part ...
+		include 'Vue/oups.php'; // si le script n'existe nulle part ...
 		$erreur = true;
 	}
 	$page = ob_get_contents(); // copie du contenu du tampon
