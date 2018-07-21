@@ -19,7 +19,7 @@ public function Fermer() { $this->resultat->closeCursor(); }	 // Termine le trai
 
 public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
 	$tableau = null;
-	$this->resultat = $this->BD->query('SELECT ID, nom, pti_nom, dossier FROM Supports ORDER BY pti_nom ASC');
+	$this->resultat = $this->BD->query('SELECT ID, nom, pti_nom, dossier FROM Supports ORDER BY pti_nom ASC, nom ASC');
 	while ($ligne = $this->resultat->fetch()) {
 		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/').'" alt = "'.$ligne['nom'].'">';
 		$tableau[] = Lien($ligne['nom'].'<br>'.$image, $ligne['ID']);
