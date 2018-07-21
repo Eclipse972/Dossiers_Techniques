@@ -10,9 +10,11 @@ if ($_BD->Page_existe($_SESSION[ID], $_ITEM, $_SOUS_ITEM)) {
 <div id="corps">
 <nav>
 <?php
-$cache = $_SESSION[DOSSIER].'page_'.$_SESSION[ITEM].'-'.$_SESSION[SOUS_ITEM].'.cache';
-if(file_exists($cache)) // le cache est conservé jusqu'à suppression manuelle sur le serveur
-	readfile($cache);
+$cache = 'Vue/cache/page_'.$_SESSION[ID].'-'.$_SESSION[ITEM].'-'.$_SESSION[SOUS_ITEM].'.cache';
+$vie = 1; // durée de vie en heure
+
+if(file_exists($cache) && time()-filemtime($cache) < $vie * 3600))
+	readfile($cache);// le cache est lu s'il existe et qu'il n'est pas trop vieux
 else {
 	ob_start(); // ouverture du tampon
 	$menu = new Menu($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]); // création du menu

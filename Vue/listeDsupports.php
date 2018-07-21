@@ -2,7 +2,7 @@
 function Gerer_index($NB_colonne) { 
 // l'index ne change pas très souvent. Il sera renouvelé seulement en cas de suppression manuelle sur le serveur
 	global $_BD; // accès à la base de données
-	$cache = 'Vue/index.cache';
+	$cache = 'Vue/cache/index.cache';
 	if(file_exists($cache))
         readfile($cache); // lecture du cache
 	else { // création du cache
