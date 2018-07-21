@@ -26,21 +26,21 @@ class Association_image_fichier {
 }
 
 // classes filles simples ---------------------------------------------------------------------------------------------------------------
-// Les filles sont identiques à leur mère avec des valeurs particulières pour les privateiables membre
+// Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
 class Dessin_densemble extends Association_image_fichier {
-	public function Dessin_densemble($dossier, $image, $fichier) { // constructeur
+	public function __construct($dossier, $image, $fichier) { // constructeur
 		parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
 	}
 }
 
 class Dessin_de_definition extends Association_image_fichier {
-	public function Dessin_de_definition($dossier, $image, $fichier) { // constructeur
+	public function __construct($dossier, $image, $fichier) { // constructeur
 		parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition');
 	}
 }
 
 class Eclate extends Association_image_fichier {
-	public function Eclate($dossier, $image, $fichier) {
+	public function __construct($dossier, $image, $fichier) {
 		parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
 	}
 	public function Afficher() {
@@ -57,7 +57,7 @@ class Piece extends Association_image_fichier {
 	private $URL_matiere;
 	private $observation;
 
-	public function Piece($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
+	public function __construct($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
 		global $TRACEUR;
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
