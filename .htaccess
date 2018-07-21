@@ -3,7 +3,7 @@ ErrorDocument 404 http://dossiers.techniques.free.fr/erreur.php?code=404
 ErrorDocument 500 http://dossiers.techniques.free.fr/erreur.php?code=500
 
 <IfDefine Free>
-# php 1
+php56 1
 </IfDefine>
 Options -Indexes
 
