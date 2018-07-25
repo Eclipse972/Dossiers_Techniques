@@ -70,9 +70,10 @@ $tableau = null;
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
 	$this->resultat = null;
-	$this->Requete('SELECT * FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
+	$this->Requete('SELECT COUNT(*) AS nb_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
+	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
 	$this->Fermer();
-	return ($this->resultat != null);
+	return ($T_reponse['nb_page'] == 1);
 }
 public function Script($support, $item, $sous_item) { // nom du script à exécuter
 	$this->Requete('SELECT script, param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
