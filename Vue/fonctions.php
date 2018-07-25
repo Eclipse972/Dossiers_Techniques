@@ -19,7 +19,7 @@ function Ajouter_image($image, $alt, $supplement = null)	{
 	echo ' alt="', $alt, '">',"\n";	// cette balise devient obligatoire
 }
 function Page_image($titre, $texte, $image, $commentaire, $dessus, $hauteur) {
-	echo '<div style="width:1000px;margin:auto;">',"\n";
+	echo '<div id="page_image">',"\n";
 	echo '<h1>'.$titre.'</h1>',"\n";
 	$texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
 	/* Remarques
