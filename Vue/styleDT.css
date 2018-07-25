@@ -120,5 +120,9 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol√
 #page_image {
 	width:80%;
 	margin:auto;
-1}
+}
+#page_image img {
+	max-height: 450px;
+	display: block;
+	margin: auto; 
 }
