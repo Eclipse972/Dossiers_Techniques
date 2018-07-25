@@ -1,6 +1,4 @@
 <?php
-$LISTE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62 possibilités
-
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
 	global $LISTE;
 	$lien = '<a href="index.php?p='.$LISTE[$support];

@@ -10,7 +10,7 @@ if ($_BD->Page_existe($_SESSION[ID], $_ITEM, $_SOUS_ITEM)) {
 <div id="corps">
 <nav>
 <?php
-$cache = 'Vue/cache/page_'.$_SESSION[ID].'-'.$_SESSION[ITEM].'-'.$_SESSION[SOUS_ITEM].'.cache';
+$cache = 'Vue/cache/page_'.$LISTE[$_SESSION[ID]].$LISTE[$_SESSION[ITEM]].$LISTE[$_SESSION[SOUS_ITEM]].'.cache';
 $vie = 1; // durée de vie en heure
 
 if(file_exists($cache) && time()-filemtime($cache) < $vie * 3600)

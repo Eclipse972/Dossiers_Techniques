@@ -10,6 +10,7 @@ define("ITEM",		4);
 define("SOUS_ITEM",	5);
 define("IMAGE",		6);
 define("TITRE",		7);
+$LISTE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62 possibilités
 
 include 'Modele/mes_classes.php';
 require 'Vue/fonctions.php';
