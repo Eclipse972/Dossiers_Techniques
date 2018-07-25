@@ -18,9 +18,8 @@ function Ajouter_image($image, $alt, $supplement = null)	{
 	echo (isset($supplement)) ? ' '.$supplement : ''; // supplément : class=... et/ou style=...
 	echo ' alt="', $alt, '">',"\n";	// cette balise devient obligatoire
 }
-function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur) {
-	if ($largeur=='') $largeur = 1000;
-	echo '<div style="width:', $largeur, 'px;margin:auto;">',"\n";
+function Page_image($titre, $texte, $image, $commentaire, $dessus, $hauteur) {
+	echo '<div style="width:1000px;margin:auto;">',"\n";
 	echo '<h1>'.$titre.'</h1>',"\n";
 	$texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
 	/* Remarques
@@ -28,7 +27,8 @@ function Page_image($titre, $texte, $image, $commentaire, $dessus, $largeur) {
 		mettre du code html: </p>code html. la balise fermante va créé un paragraphe vide
 	*/
 	if (!$dessus) echo $texte;
-	Ajouter_image($image, $commentaire,'class=association');
+	if ($hauteur == '')	$hauteur= 400;
+	Ajouter_image($image, $commentaire,'class="association" style=height:'.$hauteur.'px;');
 	if ($dessus) echo $texte;
 	echo '</div>',"\n";
 }
