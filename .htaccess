@@ -7,6 +7,12 @@ php56 1
 </IfDefine>
 Options -Indexes
 
+#protection du fichier de connexion
+<files connexion.php>
+order allow,deny
+deny from all
+</files>
+
 <Files ".ht*">
 Order allow,deny
 Deny from all
