@@ -1,3 +1,11 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.5
+-- http://www.phpmyadmin.net
+--
+-- Host: dossiers.techniques.sql.free.fr
+-- Generation Time: Jul 26, 2018 at 02:49 AM
+-- Server version: 5.0.83
+-- PHP Version: 5.3.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -7,8 +15,15 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+--
+-- Database: `dossiers_techniques`
+--
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `Items_menu`
+--
 
 CREATE TABLE IF NOT EXISTS `Items_menu` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -23,21 +38,24 @@ CREATE TABLE IF NOT EXISTS `Items_menu` (
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Dumping data for table `Items_menu`
+--
 
 INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, `param1`, `param2`, `param3`, `param4`) VALUES
-(0, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mes.png', 'mise en situation', 'Ce bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.'),
-(0, 2, 0, 'Diagramme pieuvre', 'image_dessus', 'Diagramme pieuvre', 'pieuvre.png', 'Diagramme pieuvre', 'Fonctions du bouton-poussoir:</p>\r\n<ul>\r\n<li>Fp : fermer un circuit &eacute;lectrique lorsque l&apos;utilisateur appuie sur le bouton.</li>\r\n<li>F1 : isoler &eacute;lectriquement l&apos;utilisateur du circuit &eacute;lectrique.</li>\r\n<li>F2 : se fixer sur le pupitre de mani&egrave;re rapide et d&eacute;montable</li>\r\n<li>F3 : assurer une liaison compl&egrave;te et d&eacute;montable des fils du circuit &eacute;lectrique</li>\r\n<li>F4 : avoir un bel aspect</li>\r\n</ul><p>-'),
+(0, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mes.png', 'Ce bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.', ''),
+(0, 2, 0, 'Diagramme pieuvre', 'image_dessus', 'Diagramme pieuvre', 'pieuvre.png', 'Fonctions du bouton-poussoir:</p>\r\n<ul>\r\n<li>Fp : fermer un circuit &eacute;lectrique lorsque l&apos;utilisateur appuie sur le bouton.</li>\r\n<li>F1 : isoler &eacute;lectriquement l&apos;utilisateur du circuit &eacute;lectrique.</li>\r\n<li>F2 : se fixer sur le pupitre de mani&egrave;re rapide et d&eacute;montable</li>\r\n<li>F3 : assurer une liaison compl&egrave;te et d&eacute;montable des fils du circuit &eacute;lectrique</li>\r\n<li>F4 : avoir un bel aspect</li>\r\n</ul>', '750'),
 (0, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_BP', 'BP', '', ''),
 (0, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_BP', 'BP', '', ''),
 (0, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
-(1, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'MES.png', 'But&eacute;ee 5 axes', 'La &laquo; but&eacute;e de positionnement 5 axes &raquo; permet de positionner rapidement, pr&eacute;cis&eacute;ment et de mani&egrave;re r&eacute;p&eacute;titive les pi&egrave;ces, \r\nsur une machine outil dot&eacute;e d&apos;une rainure en T, pour les diff&eacute;rentes op&eacute;rations d&apos;usinage.'),
+(1, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'MES.png', 'La &laquo; but&eacute;e de positionnement 5 axes &raquo; permet de positionner rapidement, pr&eacute;cis&eacute;ment et de mani&egrave;re r&eacute;p&eacute;titive les pi&egrave;ces, \r\nsur une machine outil dot&eacute;e d&apos;une rainure en T, pour les diff&eacute;rentes op&eacute;rations d&apos;usinage.', ''),
 (1, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (1, 3, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_butee', 'butee', '', ''),
 (2, 1, 0, 'Mise en situation', 'MES', 'photo1et2_mes.png', 'photo34_et4bis_mes.png', '', ''),
 (2, 2, 0, 'Fonctionnement', 'fonctionnement', '', '', '', ''),
-(2, 2, 1, '&Eacute;tape 1', 'image_dessous', '&Eacute;tape 1', 'position1.png', 'position 1', 'L&apos;op&eacute;rateur met en place les branches de frein sur le posoir.<br>Nota: le flasque avant est cach&eacute;'),
-(2, 2, 2, '&Eacute;tape 2', 'image_dessous', '&Eacute;tape 2', 'position2.png', 'position 2', 'Le v&eacute;rin pneumatique de bridage est actionn&eacute; en premier de façon à bloquer les branches dans le posoir sur leur partie avant.<br>Nota: le flasque avant est cach&eacute;'),
-(2, 2, 3, '&Eacute;tape 3', 'image_dessous', '&Eacute;tape 3', 'position3.png', 'position 3', 'Ensuite, le v&eacute;rin pneumatique de cambrage actionne par l&apos;interm&eacute;diaire de la bielle le basculeur qui pivote autour de deux axes (28). Le basculeur soul&egrave;ve alors la partie arri&egrave;re des branches de frein pour leur donner la forme souhait&eacute;e.<br>Nota: le flasque avant est cach&eacute;'),
+(2, 2, 1, '&Eacute;tape 1', 'image_dessous', '&Eacute;tape 1', 'position1.png', 'L&apos;op&eacute;rateur met en place les branches de frein sur le posoir.<br>Nota: le flasque avant est cach&eacute;', ''),
+(2, 2, 2, '&Eacute;tape 2', 'image_dessous', '&Eacute;tape 2', 'position2.png', 'Le v&eacute;rin pneumatique de bridage est actionn&eacute; en premier de fa&ccedil;on &agrave; bloquer les branches dans le posoir sur leur partie avant.<br>Nota: le flasque avant est cach&eacute;', ''),
+(2, 2, 3, '&Eacute;tape 3', 'image_dessous', '&Eacute;tape 3', 'position3.png', 'Ensuite, le v&eacute;rin pneumatique de cambrage actionne par l&apos;interm&eacute;diaire de la bielle le basculeur qui pivote autour de deux axes (28). Le basculeur soul&egrave;ve alors la partie arri&egrave;re des branches de frein pour leur donner la forme souhait&eacute;e.<br>Nota: le flasque avant est cach&eacute;', ''),
 (2, 3, 0, 'Caract&eacute;ristiques', 'caracteristiques', '', '', '', ''),
 (2, 4, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_cambreuse', 'cambreuse', '', ''),
 (2, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_cambreuse', 'cambreuse', '', ''),
@@ -45,11 +63,11 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (3, 2, 0, 'Fonctionnement', 'fonctionnement', '', '', '', ''),
 (3, 2, 1, 'Mont&eacute;e', 'montee', 'action_manuelle.png', '', '', ''),
 (3, 2, 2, 'Descente', 'descente', 'action_manuelle_descente.png', 'decharge.png', '', ''),
-(3, 3, 0, 'Analyse fonctionnelle', 'image_dessus', 'Diagramme pieuvre', 'pieuvre.png', 'diagramme pieuvre', '<b>FP</b> : Soulever une charge</p>\r\n<p><b>FC1</b> : Transformer l&apos;&eacute;nergie m&eacute;canique de l&apos;utilisateur</p>\r\n<p><b>FC2</b> : S&apos;adapter aux dimensions de la charge</p>\r\n<p><b>FC3</b> : R&eacute;sister aux efforts transmissibles</p>\r\n<p><b>FC4</b> : &Ecirc;tre facilement manipulable</p>\r\n<p><b>FC5</b> : &Eacute;viter le levage de charges trop lourdes</p>\r\n<p><b>FC6</b> : S&apos;adapter au milieu ext&eacute;rieur'),
+(3, 3, 0, 'Analyse fonctionnelle', 'image_dessus', 'Diagramme pieuvre', 'pieuvre.png', '<b>FP</b> : Soulever une charge</p>\r\n<p><b>FC1</b> : Transformer l&apos;&eacute;nergie m&eacute;canique de l&apos;utilisateur</p>\r\n<p><b>FC2</b> : S&apos;adapter aux dimensions de la charge</p>\r\n<p><b>FC3</b> : R&eacute;sister aux efforts transmissibles</p>\r\n<p><b>FC4</b> : &Ecirc;tre facilement manipulable</p>\r\n<p><b>FC5</b> : &Eacute;viter le levage de charges trop lourdes</p>\r\n<p><b>FC6</b> : S&apos;adapter au milieu ext&eacute;rieur', ''),
 (3, 4, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_cric', 'cric', '', ''),
 (3, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (3, 6, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_cric', 'cric', '', ''),
-(4, 1, 0, 'Mise en situation', 'image_dessus', 'Mise en situation', 'mise_en_situation.png', 'le cric pr&ecirc;t &agrave; soulever un v&eacute;hicule', 'Le cric roulant est utilis&eacute; par les mainteneurs de v&eacute;hicules automobiles l&eacute;gers afin d&apos;effectuer des op&eacute;rations de maintenance où il y a n&eacute;cessit&eacute; de soulever une partie du v&eacute;hicule.</p> \r\n<p>Exemple: soulever une partie du v&eacute;hicule de mani&egrave;re à d&eacute;monter une roue dans le but d&apos;en changer le pneumatique.'),
+(4, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mise_en_situation.png', 'Le cric roulant est utilis&eacute; par les mainteneurs de v&eacute;hicules automobiles l&eacute;gers afin d&apos;effectuer des op&eacute;rations de maintenance o&ugrave; il y a n&eacute;cessit&eacute; de soulever une partie du v&eacute;hicule.</p> \r\n<p>Exemple: soulever une partie du v&eacute;hicule de mani&egrave;re &agrave; d&eacute;monter une roue dans le but d&apos;en changer le pneumatique.', ''),
 (4, 2, 0, 'Fonctionnement', 'fonctionnement', '', '', '', ''),
 (4, 2, 1, 'mont&eacute;e', 'monte', 'vis2descente.png', 'fermer_vis2descente.png', 'pomper.png', ''),
 (4, 2, 2, 'descente', 'descend', 'vis2descente.png', 'ouvrir_vis2descente.png', '', ''),
@@ -58,7 +76,7 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (4, 3, 1, 'de face', 'mvt-face', '', '', '', ''),
 (4, 3, 2, 'en perspective', 'mvt-3d', '', '', '', ''),
 (4, 4, 0, 'Analyse fonctionnelle', 'AF', '', '', '', ''),
-(4, 4, 1, 'diagramme des int&eacute;racteurs', 'image_dessus', 'Diagramme des int&eacute;racteurs ou diagramme pieuvre', 'pieuvre.png', 'diagramme pieuvre', 'FP1: l&apos;utilisateur doit pouvoir lever son v&eacute;hicule</p>\r\n<p>FP2: l&apos;utilisateur doit pouvoir d&eacute;poser son v&eacute;hicule</p>\r\n<p>Fc1: Le cric doit pouvoir soulever un v&eacute;hicule de 2 tonnes</p>\r\n<p>Fc2: Le cric doit suffisamment soulever le v&eacute;hicule</p>\r\n<p>Fc3: Le cric doit facilement se positionner</p>\r\n<p>Fc4: Le cric doit s&apos;adapter &agrave; des hauteurs de ch&acirc;ssis diff&eacute;rentes</p>\r\n<p>Fc5: Le cric doit r&eacute;sister &agrave; son milieu</p>\r\n<p>Fc6: Le cric doit &ecirc;tre transportable'),
+(4, 4, 1, 'diagramme des int&eacute;racteurs', 'image_dessus', 'Diagramme pieuvre', 'pieuvre.png', 'FP1: l&apos;utilisateur doit pouvoir lever son v&eacute;hicule</p>\r\n<p>FP2: l&apos;utilisateur doit pouvoir d&eacute;poser son v&eacute;hicule</p>\r\n<p>Fc1: Le cric doit pouvoir soulever un v&eacute;hicule de 2 tonnes</p>\r\n<p>Fc2: Le cric doit suffisamment soulever le v&eacute;hicule</p>\r\n<p>Fc3: Le cric doit facilement se positionner</p>\r\n<p>Fc4: Le cric doit s&apos;adapter &agrave; des hauteurs de ch&acirc;ssis diff&eacute;rentes</p>\r\n<p>Fc5: Le cric doit r&eacute;sister &agrave; son milieu</p>\r\n<p>Fc6: Le cric doit &ecirc;tre transportable', ''),
 (4, 4, 2, 'FAST "Levage du v&eacute;hicule"', 'image_dessus', 'FAST levage du v&eacute;hicule', 'fast_levage.png', 'FAST levage du v&eacute;hicule', ''),
 (4, 4, 3, 'FAST "D&eacute;pose du v&eacute;hicule"', 'image_dessus', 'FAST d&eacute;pose du v&eacute;hicule', 'fast_depose.png', 'FAST d&eacute;pose du v&eacute;hicule', ''),
 (4, 5, 0, '&Eacute;clat&eacute;', 'image_dessus', '&Eacute;clat&eacute;', 'cric_hydrau_eclate.png', 'le cric &eacute;clat&eacute;', ''),
@@ -71,8 +89,8 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (5, 3, 0, 'Analyse fonctionnelle', 'AF', 'pieuvre.png', '', '', ''),
 (5, 4, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_electrovanne', 'electrovanne', '', ''),
 (5, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
-(6, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'etau.png', 'l&apos;&eacute;tau', 'L&apos;&eacute;tau de mod&eacute;liste repr&eacute;sent&eacute; ci-dessous est un outil employ&eacute; par les mod&eacute;listes pour maintenir en position une ou plusieurs pi&egrave;ces entre elles (MAP des pi&egrave;ces) afin de r&eacute;aliser des op&eacute;rations diverses telles que : Collage, Per	&ccedil;age, etc'),
-(6, 2, 0, 'Fonctionnement', 'image_dessous', 'Fonctionnement', 'fonctionnement.png', 'l&apos;&eacute;tau\r\n', 'La semelle de l&apos;&eacute;tau (10) est fix&eacute;e &agrave; un &eacute;tabli. L&apos;utilisateur en tournant la poign&eacute;e (09) autour de l&apos;axe X fait translater le mors mobile (01) par rapport &agrave; la semelle (10) suivant l&apos;axe X et provoque l&apos;&eacute;cartement ou le rapprochement du mors mobile (01) par rapport au mors fixe (02).'),
+(6, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'etau.png', 'L&apos;&eacute;tau de mod&eacute;liste repr&eacute;sent&eacute; ci-dessous est un outil employ&eacute; par les mod&eacute;listes pour maintenir en position une ou plusieurs pi&egrave;ces entre elles (MAP des pi&egrave;ces) afin de r&eacute;aliser des op&eacute;rations diverses telles que : Collage, Per	&ccedil;age, etc', ''),
+(6, 2, 0, 'Fonctionnement', 'image_dessous', 'Fonctionnement', 'fonctionnement.png', 'La semelle de l&apos;&eacute;tau (10) est fix&eacute;e &agrave; un &eacute;tabli. L&apos;utilisateur en tournant la poign&eacute;e (09) autour de l&apos;axe X fait translater le mors mobile (01) par rapport &agrave; la semelle (10) suivant l&apos;axe X et provoque l&apos;&eacute;cartement ou le rapprochement du mors mobile (01) par rapport au mors fixe (02).', ''),
 (6, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_etau', 'etau', '', ''),
 (6, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (6, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_etau', 'etau', '', ''),
@@ -82,8 +100,8 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (7, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_extracteur', 'extracteur', '', ''),
 (7, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (7, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_extracteur', 'extracteur', '', ''),
-(8, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mini_coupe-tube.png', 'mini coupe-tube', 'Le coupe-tube est l&apos;un des outils manuels indispensables du plombier. Ce coupe-tube permet de sectionner des tubes de cuivre de 3 &agrave; 22 mm de diam&egrave;tre ext&eacute;rieur. Il existe des coupe-tubes de diff&eacute;rentes tailles en fonction des diam&egrave;tres de tubes &agrave; sectionner.'),
-(8, 2, 0, 'Diagramme A-0', 'image_dessus', '>Diagramme A-0', 'diagrammeA-0.png', 'diagramme A-0 du mini coupe-tube', ''),
+(8, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mini_coupe-tube.png', 'Le coupe-tube est l&apos;un des outils manuels indispensables du plombier. Ce coupe-tube permet de sectionner des tubes de cuivre de 3 &agrave; 22 mm de diam&egrave;tre ext&eacute;rieur. Il existe des coupe-tubes de diff&eacute;rentes tailles en fonction des diam&egrave;tres de tubes &agrave; sectionner.', ''),
+(8, 2, 0, 'Diagramme A-0', 'image_dessus', 'Diagramme A-0', 'diagrammeA-0.png', 'diagramme A-0 du mini coupe-tube', ''),
 (8, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_mini_coupe-tube', 'mini_coupe-tube', '', ''),
 (8, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_mini_coupe-tube', 'mini_coupe-tube', '', ''),
 (8, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
@@ -92,7 +110,7 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (9, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_pince', 'pince', '', ''),
 (9, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (9, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_pince', 'pince', '', ''),
-(10, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation et fonctionnement', 'pince.png', 'pince de robot', 'La pince de robot est un organe de pr&eacute;hension. C&apos;est a dire qu&apos;il sert a saisir des pi&egrave;ces d&apos;un centre d&apos;usinage. \r\nCette pince se trouve en bout de bras manipulateur.'),
+(10, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation et fonctionnement', 'pince.png', 'La pince de robot est un organe de pr&eacute;hension. C&apos;est a dire qu&apos;il sert a saisir des pi&egrave;ces d&apos;un centre d&apos;usinage. \r\nCette pince se trouve en bout de bras manipulateur.', ''),
 (10, 2, 0, 'Fonctionnement', 'fonctionnement', '', '', '', ''),
 (10, 3, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (10, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_pince', 'pince', '', ''),
@@ -102,33 +120,28 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (11, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_pompe', 'pompe', '', ''),
 (12, 1, 0, 'Mise en situation', 'MES', 'mes1.png', 'mes2.png', '', ''),
 (12, 1, 1, 'Dispositif de transfert', 'image_dessus', 'Dispositif de transfert', 'dispositif_transfert.png', 'dispositif de transfert', ''),
-(12, 1, 2, '&eacute;tape 1', 'image_dessous', '&Eacute;tape 1 du transfert', 'etape1.png', '&eacute;tape 1', 'La culasse et son adaptateur arrivent sur le plateau rotatif</p>\r\n<p>Celui-ci effectue une rotation d&apos;un quart de tour</p>\r\n<p>Les deux pr&eacute;henseurs sont &agrave; vide'),
-(12, 1, 3, '&eacute;tape 2', 'image_dessous', '&Eacute;tape 2 du transfert', 'etape2.png', '&eacute;tape 2', 'Le portique descend, un pr&eacute;henseur attrape l&apos;adaptateur de culasse.'),
+(12, 1, 2, '&eacute;tape 1', 'image_dessous', '&Eacute;tape 1 du transfert', 'etape1.png', 'La culasse et son adaptateur arrivent sur le plateau rotatif</p>\r\n<p>Celui-ci effectue une rotation d&apos;un quart de tour</p>\r\n<p>Les deux pr&eacute;henseurs sont &agrave; vide', ''),
+(12, 1, 3, '&eacute;tape 2', 'image_dessous', '&Eacute;tape 2 du transfert', 'etape2.png', 'Le portique descend, un pr&eacute;henseur attrape l&apos;adaptateur de culasse.', ''),
 (12, 1, 4, '&eacute;tape 3 et 4', 'transfert3et4', 'etape3.png', 'etape4.png', '', ''),
-(12, 1, 5, '&eacute;tape 5', 'image_dessous', '&Eacute;tape 5 du transfert', 'etape5.png', '&eacute;tape 5', 'Le portique se d&eacute;place vers le centre d&apos;usinage o&ugrave; une culasse attend d&apos;&ecirc;tre usin&eacute;e.'),
-(12, 1, 6, '&eacute;tape 6', 'image_dessous', '&Eacute;tape 6 du transfert', 'etape6.png', '&eacute;tape 6', 'Le portique am&egrave;ne le pr&eacute;henseur vide dans le centre d&apos;usinage afin de chercher la culasse usin&eacute;e (avec son adaptateur).<br>Il place ensuite la culasse &agrave; usiner dans le centre d&apos;usinage et transfererera par la suite la culasse usin&eacute;e vers le prochain convoyeur.\r\n'),
+(12, 1, 5, '&eacute;tape 5', 'image_dessous', '&Eacute;tape 5 du transfert', 'etape5.png', 'Le portique se d&eacute;place vers le centre d&apos;usinage o&ugrave; une culasse attend d&apos;&ecirc;tre usin&eacute;e.', ''),
+(12, 1, 6, '&eacute;tape 6', 'image_dessous', '&Eacute;tape 6 du transfert', 'etape6.png', 'Le portique am&egrave;ne le pr&eacute;henseur vide dans le centre d&apos;usinage afin de chercher la culasse usin&eacute;e (avec son adaptateur).<br>Il place ensuite la culasse &agrave; usiner dans le centre d&apos;usinage et transfererera par la suite la culasse usin&eacute;e vers le prochain convoyeur.\r\n', ''),
 (12, 5, 0, '&Eacute;clat&eacute;', 'eclate_CE', 'eclate_CE.png', '', '', ''),
 (12, 5, 1, 'CE1: b&acirc;ti', 'association', 'CE1', 'CE1.EASM', 'Le b&acirc;ti', ''),
 (12, 5, 2, 'CE2: tige de v&eacute;rin', 'association', 'CE2', 'CE2.EASM', 'La tige de v&eacute;rin', ''),
 (12, 5, 3, 'CE3: biellette', 'association', 'CE3', 'CE3.EASM', 'Les biellettes', ''),
 (12, 5, 4, 'CE4: bras avec deux doigts', 'association', 'CE4', 'CE4.EASM', 'deux doigts', ''),
 (12, 5, 5, 'CE5: bras avec un doigt', 'association', 'CE5', 'CE5.EASM', 'un doigt', ''),
-(12, 6, 0, 'M&eacute;canique', 'image_dessous', 'Simulations m&eacute;caniques', 'vue2dessus.png', 'Vue de dessus du pr&eacute;henseur', 'Courbes des d&eacute;placements obtenues &agrave; l&apos;aide d&apos;un logiciel de calcul et de simulation pour une vitesse en sortie de tige du piston V = 60mm/s<br>Vue du dessus du pr&eacute;henseur en position ferm&eacute;e'),
+(12, 6, 0, 'M&eacute;canique', 'image_dessous', 'Simulations m&eacute;caniques', 'vue2dessus.png', 'Courbes des d&eacute;placements obtenues &agrave; l&apos;aide d&apos;un logiciel de calcul et de simulation pour une vitesse en sortie de tige du piston V = 60mm/s<br>Vue du dessus du pr&eacute;henseur en position ferm&eacute;e', ''),
 (12, 6, 1, 'd&eacute;placement de la tige', 'image_dessus', '&Eacute;volution du d&eacute;placement de la TIGE du v&eacute;rin par rapport au CHÂSSIS en fonction du temps', 'tige.png', 'courbe de d&eacute;placement de la tige', ''),
 (12, 6, 2, 'd&eacute;placement de la pince', 'image_dessus', '&Eacute;volution du d&eacute;placement de la PINCE par rapport au CH&Acirc;SSIS en fonction du temps.', 'pince.png', 'courbe de d&eacute;placement de la pince', ''),
 (12, 6, 3, 'effort de la tige de v&eacute;rin', 'effort_verin', 'effort_tige.png', 'tableau_effort_tige.png', '', ''),
 (12, 6, 4, 'effort de l&apos;articulation', 'effort_articulation', 'effort_articulation.png', 'tableau_effort_articulation.png', '', ''),
-(13, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'MES_vanne.png', 'Vanne dans un circuit hydraulique', 'Cette vanne autorise ou non le passage d&apos;un fluide de A vers B (voir dessin d&apos;ensemble). Il suffit d&apos;agir sur la manette 8 de 1/4 de tour pour ouvrir ou fermer le passage du fluide.</p>\r\n<p>Domaines d&apos;utilisation: air comprim&eacute;, huile, gaz, eau chaude, eau froide, eau de mer, fuel, d&eacute;tergent.</p>\r\n<p>Exemple d&apos;utilisation &agrave; l"atelier de maintenance : ouvrir ou fermer le circuit d&apos;air comprim&eacute;\r\n'),
-(13, 2, 0, 'Fonctionnement', 'fonctionnement', 'vanne_ouverte.png', 'vanne_fermee.png', '', ''),
-(13, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_vanne', 'vanne', '', ''),
-(13, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
-(13, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_vanne', 'vanne', '', ''),
-(14, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mes.png', 'mise en situation', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.'),
-(14, 2, 0, 'Dessin d&apos;ensemble', 'image_dessous', 'Dessin d&apos;ensemble', 'ensemble.png', 'dessin d&apos;ensemble', ''),
+(14, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mes.png', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.', ''),
+(14, 2, 0, 'Dessin d&apos;ensemble', 'image_dessous', 'Dessin d&apos;ensemble', 'ensemble.png', '', ''),
 (14, 3, 0, '&Eacute;clat&eacute;', 'image_dessous', '&Eacute;clat&eacute;', 'eclate.png', 'vue &eacute;clat&eacute;e de l&apos;alternateur', ''),
 (14, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (15, 1, 0, 'Mise en situation', 'MES', 'levier_leve.png', 'levier_baisse.png', '', ''),
-(15, 2, 0, 'Diagramme A-0', 'image_dessus', 'Diagramme A-0', 'diagrammeA0.png', 'Diagramme A-0', ''),
+(15, 2, 0, 'Diagramme A-0', 'image_dessus', 'Diagramme A-0', 'diagrammeA0.png', '', ''),
 (15, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_casseNoix', 'casseNoix', '', ''),
 (15, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_casseNoix', 'casseNoix', '', ''),
 (15, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
@@ -139,11 +152,11 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (16, 5, 0, '&Eacute;clat&eacute; du montage', 'association', 'vue_eclatee', 'vue_eclatee.EDRW', 'vue &eacute;clat&eacute;e', ''),
 (16, 7, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_bride', 'bride', '', ''),
 (1, 2, 0, 'Pr&eacute;sentation des axes', 'presentation_axes', '', '', '', ''),
-(1, 2, 1, 'axe 1', 'image_dessous', 'Axe N&deg;1', 'axe1.gif', 'axe 1', 'Rotation de 360&deg; de la pi&egrave;ce (2) autour de la pi&egrave;ce (1).'),
-(1, 2, 2, 'axe 2', 'image_dessous', 'Axe N&deg;2', 'axe2.gif', 'axe 2', 'Rotation de 90&deg; de la pi&egrave;ce (3) autour de la pi&egrave;ce (2).'),
-(1, 2, 3, 'axe 3', 'image_dessous', 'Axe N&deg;3', 'axe3.gif', 'axe 3', 'Rotation de 90&deg; de la pi&egrave;ce (6) autour de la pi&egrave;ce (3).'),
-(1, 2, 4, 'axe 4', 'image_dessous', 'Axe N&deg;4', 'axe4.gif', 'axe 4', 'Rotation de 360&deg; de la pi&egrave;ce (7) autour de la pi&egrave;ce (6).'),
-(1, 2, 5, 'axe 5', 'image_dessous', 'Axe N&deg;5', 'axe5.gif', 'axe 5', 'Translation de la pi&egrave;ce (12) dans la pi&egrave;ce (7).'),
+(1, 2, 1, 'axe 1', 'image_dessous', 'Axe N&deg;1', 'axe1.gif', 'Rotation de 360&deg; de la pi&egrave;ce (2) autour de la pi&egrave;ce (1).', ''),
+(1, 2, 2, 'axe 2', 'image_dessous', 'Axe N&deg;2', 'axe2.gif', 'Rotation de 90&deg; de la pi&egrave;ce (3) autour de la pi&egrave;ce (2).', ''),
+(1, 2, 3, 'axe 3', 'image_dessous', 'Axe N&deg;3', 'axe3.gif', 'Rotation de 90&deg; de la pi&egrave;ce (6) autour de la pi&egrave;ce (3).', ''),
+(1, 2, 4, 'axe 4', 'image_dessous', 'Axe N&deg;4', 'axe4.gif', 'Rotation de 360&deg; de la pi&egrave;ce (7) autour de la pi&egrave;ce (6).', ''),
+(1, 2, 5, 'axe 5', 'image_dessous', 'Axe N&deg;5', 'axe5.gif', 'Translation de la pi&egrave;ce (12) dans la pi&egrave;ce (7).', ''),
 (3, 7, 0, 'Dessins de d&eacute;finition', 'dessins2definition', '', '', '', ''),
 (3, 7, 1, 'axe d&apos;articulation', 'dessin_definition', 'def_axe_articulation', 'def_axe_articulation', '', ''),
 (3, 7, 2, 'biellette', 'dessin_definition', 'def_biellette', 'def_biellette', '', ''),
@@ -160,10 +173,10 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (3, 7, 13, 'r&eacute;servoir', 'dessin_definition', 'def_reservoir', 'def_reservoir', '', ''),
 (3, 7, 14, 'tirant M4', 'dessin_definition', 'def_tirants_M4', 'def_tirants_M4', '', ''),
 (16, 9, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
-(16, 2, 1, 'd&eacute;but de la phase 1', 'image_dessus', 'D&eacute;but de la phase 1', 'nez_rentre.png', 'nez rentr&eacute;''); ?>\r\n<p>La tige du v&eacute;rin et le nez sont totalement rentr&eacut', 'La tige du v&eacute;rin et le nez sont totalement rentr&eacute;s. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.</p>\r\n<p>On alimente ensuite la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 1.'),
-(16, 2, 2, 'phase 1', 'image_dessus', 'La phase 1', 'sortie_nez.gif', 'sortie du nez', 'Le piston pousse le nez. Pour &eacute;viter qu&apos;il tourne il y a une lame de ressort (non visible sur l&apos;animation) sous le nez qui le maintient &agrave; l&apos;horizontale<br>La phase se termine lorsque l&apos;axe entre en contact avec le c&ocirc;t&eacute; droit du trou oblong.'),
-(16, 2, 3, 'd&eacute;but de la phase 2', 'image_dessus', 'D&eacute;but de la phase 2', 'debut_rotation.png', 'nez sorti', 'Le nez est totalement sorti mais la tige de v&eacute;rin n''est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; gauche du trou oblong qui se trouve sur le nez.<br>On continue d''alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.'),
-(16, 2, 4, 'phase 2', 'image_dessus', 'La phase 2', 'rotation_nez.gif', 'rotation du nez', 'Le piston pousse le nez mais celui-ci ne peut plus avancer &agrave; cause de l&apos;axe en contact avec le trou oblong. Le seul mouvement possible est une rotation autour de l&apos;axe.<br>La lame de ressort (non visible sur l&apos;animation) ne peut plus maintenir le nez &agrave; l&apos;horizontale et se d&eacute;forme.'),
+(16, 2, 1, 'd&eacute;but de la phase 1', 'image_dessus', 'D&eacute;but de la phase 1', 'nez_rentre.png', 'La tige du v&eacute;rin et le nez sont totalement rentr&eacute;s. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.</p>\r\n<p>On alimente ensuite la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 1.', '800'),
+(16, 2, 2, 'phase 1', 'image_dessus', 'La phase 1', 'sortie_nez.gif', 'Le piston pousse le nez. Pour &eacute;viter qu&apos;il tourne il y a une lame de ressort (non visible sur l&apos;animation) sous le nez qui le maintient &agrave; l&apos;horizontale<br>La phase se termine lorsque l&apos;axe entre en contact avec le c&ocirc;t&eacute; droit du trou oblong.', '800'),
+(16, 2, 3, 'd&eacute;but de la phase 2', 'image_dessus', 'D&eacute;but de la phase 2', 'debut_rotation.png', 'Le nez est totalement sorti mais la tige de v&eacute;rin n''est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; gauche du trou oblong qui se trouve sur le nez.<br>On continue d''alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.', '800'),
+(16, 2, 4, 'phase 2', 'image_dessus', 'La phase 2', 'rotation_nez.gif', 'Le piston pousse le nez mais celui-ci ne peut plus avancer &agrave; cause de l&apos;axe en contact avec le trou oblong. Le seul mouvement possible est une rotation autour de l&apos;axe.<br>La lame de ressort (non visible sur l&apos;animation) ne peut plus maintenir le nez &agrave; l&apos;horizontale et se d&eacute;forme.', '800'),
 (16, 6, 0, 'Sous-ensembles', 'sous-ensembles', '', '', '', ''),
 (16, 6, 1, 'corps de bride', 'association', 'corps2bride', 'corps2bride.EASM', 'Corps de bride', 'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique'),
 (16, 6, 2, 'nez de bride', 'association', 'nez2bride', 'nez2bride.EPRT', 'Le nez de la bride', ''),
@@ -172,8 +185,8 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (16, 6, 5, 'ressort', 'association', 'ressort', 'ressort.EPRT', 'Le ressort de ompression de la bride', ''),
 (16, 8, 0, '&Eacute;clat&eacute; de la bride', 'eclate_bride', '', '', '', ''),
 (12, 2, 0, 'Fonctionnement', 'image_dessus', 'Fonctionnement', 'fonctionnement.png', '&eacute;l&eacute;ments constitutifs du pr&eacute;henseur', ''),
-(12, 2, 2, 'Fermeture', 'image_dessus', 'Fermeture', 'fermeture.gif', 'fermeture', 'La tige de v&eacute;rin rentre. La noix monte et entra&icirc;ne les biellettes<br>Les biellettes rapprochent les deux bras. Les ressorts se rel&acirc;chent.'),
-(12, 2, 1, 'ouverture', 'image_dessus', 'Ouverture', 'ouverture.gif', 'ouverture', 'La tige de v&eacute;rin sort. La noix descend et pousse les biellettes<br>Les biellettes &eacute;cartent les deux bras. Les ressorts se compriment.'),
+(12, 2, 2, 'Fermeture', 'image_dessus', 'Fermeture', 'fermeture.gif', 'La tige de v&eacute;rin rentre. La noix monte et entra&icirc;ne les biellettes<br>Les biellettes rapprochent les deux bras. Les ressorts se rel&acirc;chent.', ''),
+(12, 2, 1, 'ouverture', 'image_dessus', 'Ouverture', 'ouverture.gif', 'La tige de v&eacute;rin sort. La noix descend et pousse les biellettes<br>Les biellettes &eacute;cartent les deux bras. Les ressorts se compriment.', ''),
 (12, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_prehenseur', 'prehenseur', '', ''),
 (12, 4, 0, 'Nomenclature', 'nomenclature', '', '', '', ''),
 (17, 1, 0, 'Mise en situation', 'MES', 'usine.png', 'photo.png', '', ''),
@@ -194,9 +207,18 @@ INSERT INTO `Items_menu` (`support_ID`, `item`, `sous_item`, `texte`, `script`, 
 (17, 8, 4, 'vitesse du Levier', 'image_dessus', 'courbe de la vitesse du levier par rapport &agrave; l&apos;embase</h1>\r\n', 'vitesse_levier.png', 'courbe', ''),
 (17, 3, 0, 'Fonctionnement', 'fonctionnement', '', '', '', ''),
 (17, 5, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_unite2marquage', 'unite2marquage', '', ''),
-(17, 6, 0, 'Classes d&apos;&eacute;quivalence', 'CE', '', '', '', '');
+(17, 6, 0, 'Classes d&apos;&eacute;quivalence', 'CE', '', '', '', ''),
+(18, 2, 0, 'Fonctionnement', 'fonctionnement', 'vanne_ouverte.png', 'vanne_fermee.png', '', ''),
+(18, 4, 0, '&Eacute;clat&eacute;', 'eclate', 'eclate_vanne', 'vanne', '', ''),
+(18, 3, 0, 'Dessin d&apos;ensemble', 'dessin_densemble', 'dessin_vanne', 'vanne', '', ''),
+(18, 1, 0, 'Mise en situation', 'image_dessous', 'Mise en situation', 'mes.png', 'Cette vanne autorise ou non le passage d&apos;un fluide de A vers B (voir dessin d&apos;ensemble). Il suffit d&apos;agir sur la manette 8 de 1/4 de tour pour ouvrir ou fermer le passage du fluide.</p>\r\n<p>Domaines d&apos;utilisation: air comprim&eacute;, huile, gaz, eau chaude, eau froide, eau de mer, fuel, d&eacute;tergent.</p>\r\n<p>Exemple d&apos;utilisation &agrave; l"atelier de maintenance : ouvrir ou fermer le circuit d&apos;air comprim&eacute;\r\n', ''),
+(18, 5, 0, 'Nomenclature', 'nomenclature', '', '', '', '');
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `Materiaux`
+--
 
 CREATE TABLE IF NOT EXISTS `Materiaux` (
   `ID` int(11) unsigned NOT NULL auto_increment,
@@ -206,6 +228,9 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
   UNIQUE KEY `formule` (`formule`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
 
+--
+-- Dumping data for table `Materiaux`
+--
 
 INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (0, '', '#'),
@@ -237,7 +262,11 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (26, 'PTFE', 'Polytétrafluoroéthylène'),
 (27, 'GE 295', 'Acier#Aciers_non_alli%C3%A9s_d''usage_g%C3%A9n%C3%A9ral');
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `Pieces`
+--
 
 CREATE TABLE IF NOT EXISTS `Pieces` (
   `support_ID` int(10) unsigned NOT NULL,
@@ -251,6 +280,9 @@ CREATE TABLE IF NOT EXISTS `Pieces` (
   KEY `support-repère` (`support_ID`,`repere`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
+--
+-- Dumping data for table `Pieces`
+--
 
 INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
 (14, 'carter gauche', 1, 1, 0, '', 'carter_gauche', 0),
@@ -429,18 +461,6 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (11, 'Joint torique 50.40x3.53', 7, 1, 0, '', 'joint_torique', 0),
 (11, 'Plaque', 8, 1, 0, '', 'plaque', 0),
 (11, 'Vis ISO 10642-m3X12-8.8', 9, 8, 0, '', 'Vis', 0),
-(13, 'Corps', 1, 1, 5, '', 'corps', 0),
-(13, 'Raccord', 2, 2, 5, '', 'raccord', 0),
-(13, 'Bille', 3, 1, 5, '', 'bille', 0),
-(13, 'Joint de si&egrave;ge', 4, 2, 26, '', 'joint2siege', 0),
-(13, 'Axe de manoeuvre', 5, 1, 0, '', 'axe2manoeuvre', 0),
-(13, 'Rondelle but&eacute;e', 6, 1, 20, '', 'rondelle_butee', 0),
-(13, 'Rondelle L3', 7, 1, 5, '', 'rondelle_L3', 0),
-(13, 'Manette', 8, 1, 27, 'Rouge', 'manette', 0),
-(13, 'Vis', 9, 1, 5, '', 'vis', 0),
-(13, 'Joint torique', 10, 1, 0, '', 'joint_torique', 0),
-(13, 'Joint torique', 11, 2, 0, '', 'joint_torique2', 0),
-(13, 'But&eacute;e', 12, 1, 20, '', 'butee', 0),
 (9, 'Support de v&eacute;rin', 1, 1, 0, '', 'support2verin', 0),
 (9, 'Fond', 2, 1, 0, '', 'fond', 0),
 (9, 'Plaque avant', 3, 1, 0, '', 'plaque_avant', 0),
@@ -542,9 +562,24 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (12, 'Vis CHc M6 25', 29, 4, 0, '', 'visCHcM6-25', 0),
 (12, 'Rondelle M6', 30, 4, 0, '', 'rondelleM6', 0),
 (12, 'Vis CHc M10 25', 31, 4, 0, '', 'visCHcM10-25', 0),
-(12, 'Vis CHc M4 22', 32, 16, 0, '', 'visCHcM4-22', 0);
+(12, 'Vis CHc M4 22', 32, 16, 0, '', 'visCHcM4-22', 0),
+(18, 'raccord', 1, 1, 0, '', 'raccord', 0),
+(18, 'joint de bague', 2, 1, 0, '', 'joint2bague', 0),
+(18, 'bague', 3, 2, 0, '', 'bague', 0),
+(18, 'bille', 4, 1, 0, '', 'bille', 0),
+(18, 'corps', 5, 1, 0, '', 'corps', 0),
+(18, 'joint entraineur', 6, 1, 0, '', 'joint_entraineur', 0),
+(18, 'entraineur', 7, 1, 0, '', 'entraineur', 0),
+(18, 'guide entraineur', 8, 1, 0, '', 'guide_entraineur', 0),
+(18, 'but&eacute;e mobile', 9, 1, 0, '', 'butee_mobile', 0),
+(18, 'levier de man&oelig;uvre', 10, 1, 0, '', 'levier', 0),
+(18, 'vis', 11, 1, 0, '', 'vis', 0);
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `Supports`
+--
 
 CREATE TABLE IF NOT EXISTS `Supports` (
   `ID` int(10) unsigned NOT NULL auto_increment,
@@ -554,8 +589,11 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   `article_ID` int(10) unsigned NOT NULL default '1',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `nom` (`nom`,`dossier`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=19 ;
 
+--
+-- Dumping data for table `Supports`
+--
 
 INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (0, 'bouton poussoir', 'BP', 'BP', 1),
@@ -571,11 +609,11 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`) VALUES
 (10, 'pince de robot', 'pince', 'pince2robot', 2),
 (11, 'pompe &agrave; palettes', 'pompe', 'pompeApalettes', 2),
 (12, 'pr&eacute;henseur de culasse', 'prehenseur', 'prehenseur', 1),
-(13, 'vanne sph&eacute;rique', 'vanne', 'vanne', 2),
 (14, 'alternateur', 'alternateur', 'alternateur', 3),
 (15, 'casse-noix', 'casseNoix', 'casse_noix', 1),
 (16, 'bride &agrave; nez', 'bride', 'brideAnez', 2),
-(17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3);
+(17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3),
+(18, 'vanne Legris', 'vanne', 'Legris', 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
