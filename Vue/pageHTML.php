@@ -11,7 +11,7 @@ if ($_BD->Page_existe($_SESSION[ID], $_ITEM, $_SOUS_ITEM)) {
 <nav>
 <?php
 $cache = 'Vue/cache/page_'.$LISTE[$_SESSION[ID]].$LISTE[$_SESSION[ITEM]].$LISTE[$_SESSION[SOUS_ITEM]].'.cache';
-$vie = 1; // durée de vie en heure
+$vie = 2; // durée de vie en heure
 
 if(file_exists($cache) && time()-filemtime($cache) < $vie * 3600)
 	readfile($cache);// le cache est lu s'il existe et qu'il n'est pas trop vieux
