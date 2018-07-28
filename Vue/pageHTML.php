@@ -21,6 +21,7 @@ else {
 	$menu->Afficher_menu();
 ?>
 </nav>
+
 <section>
 <?php
 	$T_instruction = $_BD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
