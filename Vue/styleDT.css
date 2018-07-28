@@ -1,8 +1,5 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
-section {
-	width:calc(var(--largeur_2e_colonne) - var(--marge_section) * 2); /*on écrase la valeur définie dans commun.css*/
-	min-height:550px;
-}
+section { width:calc(var(--largeur_2e_colonne) - var(--marge_section) * 2); } /*on remplace la valeur définie dans commun.css*/
 
 nav, section {
 	display:inline-block;
