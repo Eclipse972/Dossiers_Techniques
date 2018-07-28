@@ -7,7 +7,7 @@
 <tr>
 <th>Rep</th>
 <th>Image</th>
-<th>D&eacute;signation<br>(x quantit&eacute;)</th>
+<th>D&eacute;signation (x quantit&eacute;)</th>
 <th>Mati&egrave;re</th>
 <th>Observations</th>
 </tr>

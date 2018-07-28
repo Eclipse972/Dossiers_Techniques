@@ -71,6 +71,7 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol√
 #nomenclature thead {
 	display:block;
 	background-color: var(--couleur2);
+	height:40px;
 }
 #nomenclature tbody {
 	display:block;
