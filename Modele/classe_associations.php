@@ -58,7 +58,6 @@ class Piece extends Association_image_fichier {
 	private $observation;
 
 	public function __construct($T_param) {  // constructeur utilisant le résultat d'une requête transmise sous forme de tableau associatif
-		global $TRACEUR;
 		$this->nom = $T_param['nom'];
 		$this->repere = $T_param['repere'];
 		$this->quantite = $T_param['quantite'];	
