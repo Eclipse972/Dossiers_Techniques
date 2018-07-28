@@ -41,7 +41,7 @@ $_SESSION = $_BD->Support($_ID); // création du support s'il existe
 	<div id="logo">
 	<?php
 		if (isset($_SESSION))
-			echo '<a href="#">',$_SESSION[IMAGE],'</a>'; // le logo est un lien vide pour le moment
+			echo Lien($_SESSION[IMAGE],$_SESSION[ID],0); // le logo est un lien la page à propos (ITEM=0)
 		else echo'<img src="Vue/images/logo.png" alt="logo">';
 	?>
 	</div>
