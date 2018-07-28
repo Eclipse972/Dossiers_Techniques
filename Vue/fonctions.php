@@ -24,7 +24,7 @@ function Page_image($titre, $texte, $image, $commentaire, $dessus, $hauteur) {
 	$texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
 	/* Remarques
 		mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
-		mettre du code html: </p>code html. la balise fermante va créé un paragraphe vide
+		mettre du code html: </p>code html<p>. les balises qui entourent le code vont créé 2 paragraphes vides
 	*/
 	if (!$dessus) echo $texte;
 	if ($hauteur == '')	$hauteur= 400;
