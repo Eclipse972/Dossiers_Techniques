@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: dossiers.techniques.sql.free.fr
--- Generation Time: Aug 09, 2018 at 08:23 PM
+-- Generation Time: Aug 09, 2018 at 08:49 PM
 -- Server version: 5.0.83
 -- PHP Version: 5.3.9
 
@@ -22,11 +22,28 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Commentaires`
+--
+
+CREATE TABLE IF NOT EXISTS `Commentaires` (
+  `support_ID` smallint(5) NOT NULL,
+  `texte` text collate latin1_general_ci NOT NULL,
+  `lien` varchar(32) collate latin1_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `Commentaires`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Items_menu`
 --
 
 CREATE TABLE IF NOT EXISTS `Items_menu` (
-  `support_ID` int(10) unsigned NOT NULL,
+  `support_ID` smallint(5) unsigned NOT NULL,
   `item` tinyint(1) unsigned NOT NULL,
   `sous_item` tinyint(1) unsigned NOT NULL default '0',
   `texte` text collate latin1_general_ci NOT NULL,
@@ -269,7 +286,7 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Pieces` (
-  `support_ID` int(10) unsigned NOT NULL,
+  `support_ID` smallint(5) unsigned NOT NULL,
   `nom` varchar(64) collate latin1_general_ci NOT NULL,
   `repere` int(10) unsigned NOT NULL,
   `quantite` int(10) unsigned NOT NULL default '1',
@@ -582,7 +599,7 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 --
 
 CREATE TABLE IF NOT EXISTS `Supports` (
-  `ID` int(10) unsigned NOT NULL auto_increment,
+  `ID` smallint(5) unsigned NOT NULL auto_increment,
   `nom` varchar(32) collate latin1_general_ci NOT NULL,
   `pti_nom` varchar(32) collate latin1_general_ci NOT NULL,
   `dossier` varchar(32) collate latin1_general_ci NOT NULL,
