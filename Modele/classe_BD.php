@@ -54,6 +54,13 @@ public function Support($id) {
 	return $support;
 }
 
+public function ZIP_Support($id) { // retourne le nom de l'archive contenant la maquette numérique
+	$this->Requete('SELECT zip FROM Supports WHERE Supports.ID= ?', [$id]);
+	$ligne = $this->resultat->fetch();
+	$this->Fermer();
+	return $ligne['zip'].'.zip';
+}
+
 public function Nomenclature($support_ID) {
 $tableau = null;
 	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
