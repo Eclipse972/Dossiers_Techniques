@@ -1,21 +1,24 @@
 <?php
 class base2donnees {
-private $BD;
 private $resultat;
+private $BD; // PDO initialisé dans connexion.php
 
 public function __construct() { // constructeur
-	try
-	{	// On se connecte à MySQL
-		include 'connexion.php'; // script non suivi par git
-	//	$this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe'); 
-	}
-	catch (Exception $e)
-	{	// En cas d'erreur, on affiche un message et on arrête tout
+	try	{// On se connecte à MySQL grâce au script non suivi par git
+		include 'connexion.php';
+	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe'); 
+	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
 	}
 }
 
-public function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
+private function Requete($requete, array $T_parametre) {
+	$this->resultat = $this->BD->prepare($requete);
+	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
+	$this->resultat->execute($T_parametre);
+}
+
+private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
 public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
 	$tableau = null;
@@ -31,12 +34,6 @@ public function ListeDvignettes() { // seule fonction à utiliser une requête s
 	Toutes les fonctions qui suivent font appel à des requêtes paramétrées
 	**********************************************************************
 */
-public function Requete($requete, array $T_parametre) { // utilisation des paramètres à venir
-	$this->resultat = $this->BD->prepare($requete);
-	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
-	$this->resultat->execute($T_parametre);
-}
-
 public function Support($id) {
 	$T_du = array ('du ', 'de la ', 'de l&apos;');
 	$T_le = array ('le ', 'la ',	'l&apos;');
