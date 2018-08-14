@@ -1,4 +1,8 @@
 # les fichiers edrawing et image doivent être indexés sinon les modifications/suppression ne seront pas suivies
 
-#identifiants
+# identifiants
 connexion.php
+
+#
+les archives zip dont certaines dépassent les 100Mo. Limite de github
+*.zip
