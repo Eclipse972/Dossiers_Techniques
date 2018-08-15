@@ -3,6 +3,5 @@
 # identifiants
 connexion.php
 
-#
-les archives zip dont certaines dépassent les 100Mo. Limite de github
+# les archives zip dont certaines dépassent les 100Mo. Limite de github
 *.zip
