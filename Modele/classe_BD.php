@@ -58,8 +58,28 @@ public function ZIP_Support($id) { // retourne le nom de l'archive contenant la 
 	return $ligne['zip'].'.zip';
 }
 
+public function Description_maquette($id) {
+	$tableau = null;
+	$this->Requete('SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC', [$id]);
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[] = $ligne['texte'];
+	}
+	$this->Fermer();
+	return $tableau;
+}
+
+public function Lien_support($id) {
+	$tableau = null;
+	$this->Requete('SELECT texte, lien FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC', [$id]);
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[] = '<a href="'.$ligne['lien'].'" target="_blank">'.$ligne['texte'].'</a>';
+	}
+	$this->Fermer();
+	return $tableau;
+}
+
 public function Nomenclature($support_ID) {
-$tableau = null;
+	$tableau = null;
 	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
 					FROM Supports, Pieces, Materiaux
 					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID= ?

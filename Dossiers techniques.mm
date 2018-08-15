@@ -186,7 +186,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -259,6 +258,27 @@
                                 <p>Ce format de fichier est plus l&#233;ger que les fichiers de SolidWorks. De plus ils sont adapt&#233;s &#224; la visualisation. Le site ne sert qu'&#224; &#231;a.</p>
                             </body>
                         </html>
+</richcontent>
+</node>
+<node TEXT="archive ZIP" ID="ID_1639534686" CREATED="1534294361306" MODIFIED="1534294536301"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Eles contiennentn la maquette num&#233;rique du uport avec &#233;ventuellement des dessins d'ensmble ou plus rarement&#160;&#160;de d&#233;fiition.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Attention: C'est fichiers pouvabnt &#234;tre volumineux (&gt;100Mo), J'ai choisis de ne pas les uivre avec git. Ca provoque une erreur.
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 <node TEXT="images" ID="ID_15" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
@@ -377,7 +397,6 @@
 </node>
 </node>
 </node>
-<node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
 <node TEXT="utilisation de caches" ID="ID_956296161" CREATED="1527841303929" MODIFIED="1527841468583" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -395,6 +414,7 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
 <node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1532079038471" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -1050,6 +1070,10 @@
 <node TEXT="variables" ID="ID_448932453" CREATED="1528719227900" MODIFIED="1528719231437"/>
 <node TEXT="m&#xe9;thodes" ID="ID_1381446743" CREATED="1528719235949" MODIFIED="1528719239787"/>
 </node>
+<node TEXT="classe_support.php" ID="ID_1778972174" CREATED="1534294594116" MODIFIED="1534294640775">
+<node TEXT="variable" ID="ID_319425506" CREATED="1534294617858" MODIFIED="1534294623564"/>
+<node TEXT="m&#xe9;thode" ID="ID_522029242" CREATED="1534294627240" MODIFIED="1534294631923"/>
+</node>
 </node>
 <node TEXT="Controleur" POSITION="right" ID="ID_4" CREATED="1527579372186" MODIFIED="1528741666143" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1190,7 +1214,35 @@
 </node>
 <node TEXT="Tables" ID="ID_1455796385" CREATED="1527579973656" MODIFIED="1527579979532">
 <node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
+<node TEXT="Commentaires" ID="ID_1569054552" CREATED="1534294666277" MODIFIED="1534294734874"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cette table contient les commentaire sur la maquete num&#233;tique du support.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Deux types
+    </p>
+    <p>
+      1- simple texte
+    </p>
+    <p>
+      2- len hypertexte
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 <node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>
+<node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
 <node TEXT="mati&#xe8;re" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1532079772676"><richcontent TYPE="NOTE">
 
 <html>
@@ -1211,11 +1263,10 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
 </node>
 <node TEXT="requ&#xea;tes" ID="ID_1264990938" CREATED="1527580012670" MODIFIED="1527580017944"/>
 </node>
-<node TEXT="dossier support" POSITION="right" ID="ID_25" CREATED="1527579372218" MODIFIED="1528741666143" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="Supports" POSITION="right" ID="ID_25" CREATED="1527579372218" MODIFIED="1534294808048" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                     <head/>

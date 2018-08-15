@@ -1,3 +1,3 @@
 <p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
  - <a href="#">Me contacter</a>
- - derni&egrave;re mise à jour: 28 juillet 2018</p>
+ - derni&egrave;re mise à jour: 15 ao&ucirc;t 2018</p>
