@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: dossiers.techniques.sql.free.fr
--- Generation Time: Aug 09, 2018 at 08:49 PM
+-- Generation Time: Aug 17, 2018 at 07:08 AM
 -- Server version: 5.0.83
 -- PHP Version: 5.3.9
 
@@ -27,14 +27,48 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `Commentaires` (
   `support_ID` smallint(5) NOT NULL,
+  `ordre` tinyint(1) NOT NULL default '0' COMMENT 'présentation',
   `texte` text collate latin1_general_ci NOT NULL,
-  `lien` varchar(32) collate latin1_general_ci NOT NULL
+  `lien` varchar(64) collate latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `Commentaires`
 --
 
+INSERT INTO `Commentaires` (`support_ID`, `ordre`, `texte`, `lien`) VALUES
+(14, 2, 'dessin de l&apos;&eacute;clat&eacute;', ''),
+(0, 1, 'configuration contenant &eacute;corch&eacute; disponible', ''),
+(0, 3, 'sous ensemble fixe', ''),
+(0, 4, 'sous ensemble mobile', ''),
+(14, 1, 'contient deux configuraions compl&eacute;mentaires', ''),
+(0, 0, 'site de l&apos;auteur', 'http://laparrej.free.fr/pro_sw.htm'),
+(1, 1, 'chaque axe fait l&apos;objet d&apos;une configuration dans le fichier But&eacute;e', ''),
+(1, 2, '&eacute;clat&eacute; sur un fichier séparé', ''),
+(1, 3, 'contient les dessins de d&eacute;finition', ''),
+(2, 1, 'pas de contrainte limite pour la tige de v&eacute;rin', ''),
+(2, 2, 'contient des configurations', ''),
+(2, 3, 'ne contient pas le dessin d&apos;ensemble', ''),
+(15, 1, 'maquette bloqu&eacute;e', ''),
+(15, 1, 'dessins de d&eacute;finition', ''),
+(3, 1, 'le fichier s&apos;apelle Assemblage2', ''),
+(3, 2, 'la maquette est mobile', ''),
+(3, 3, 'pas de simulation des clapets', ''),
+(5, 1, 'une des configurations est un &eacute;corch&eacute;', ''),
+(5, 2, 'maquette fixe', ''),
+(5, 3, 'source : J&eacute;r&ocirc;me Laparre', 'http://laparrej.free.fr/pro_sw.htm#e'),
+(6, 1, 'source J&eacute;r&ocirc;me Laparre', 'http://laparrej.free.fr/pro_sw.htm#e'),
+(6, 1, 'maquette construite &agrave; partir des classes d&apos;&eacute;quivalence', ''),
+(8, 0, 'contient d&apos;autres dessins que le dessin d&apos;ensemble', ''),
+(8, 0, 'dans le commerce', 'https://www.bricodepot.fr/beauvais/mini-coupe-tube/prod5924/'),
+(9, 0, 'les rouleaux ne roulent pas correctement sur la came', ''),
+(9, 1, 'dessin d''&apos;ensemble absent', ''),
+(10, 0, 'par défaut le corps est cach&eacute;', ''),
+(10, 1, 'rajout d&apos;une contrainte limite', ''),
+(11, 0, 'contient une configuration pour les &eacute;tapes de l&apos;assemblage', ''),
+(12, 2, 'plusieurs fichiers au lieus d&apos;utiliser des configurations', ''),
+(12, 1, 'le fichier pr&eacute;henseur pour &eacute;tude d''ouverture permet de voir le fonctionnement', ''),
+(18, 0, 'Ajout d&apos;une contrainte limite pour simuler les fins de course angulaire du levier.', '');
 
 -- --------------------------------------------------------
 
@@ -615,23 +649,23 @@ CREATE TABLE IF NOT EXISTS `Supports` (
 
 INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) VALUES
 (0, 'bouton poussoir', 'BP', 'BP', 1, 'BP'),
-(1, 'but&eacute;e 5 axes', 'butee', 'butee5axes', 2, 'butee5axes'),
-(2, 'cambreuse', 'cambreuse', 'cambreuse', 2, 'cambreuse'),
+(1, 'but&eacute;e 5 axes', 'butee', 'butee5axes', 2, 'Butee5axes'),
+(2, 'cambreuse', 'cambreuse', 'cambreuse', 2, 'Cambreuse'),
 (3, 'cric bouteille', 'cric', 'cric_bouteille', 1, 'cric_bouteille'),
 (4, 'cric hydraulique 2 tonnes', 'cric', 'cric_hydraulique', 1, 'cric_hydraulique'),
 (5, '&eacute;lectrovanne', 'electrovanne', 'electrovanne', 3, 'Electrovanne'),
-(6, '&eacute;tau de mod&eacute;lisme', 'etau', 'etau', 3, 'etau2modeliste'),
-(7, 'extracteur de roulement', 'extracteur', 'extracteur2roulement', 3, 'extracteur2roulement'),
-(8, 'mini coupe-tube', 'mini_coupe-tube', 'coupe-tube', 1, 'mini_coupe-tube'),
-(9, 'pince de marquage', 'pince', 'x2marquage', 2, 'pince2marquage'),
-(10, 'pince de robot', 'pince', 'pince2robot', 2, 'pince2robot'),
+(6, '&eacute;tau de mod&eacute;lisme', 'etau', 'etau', 3, 'Etau2modeliste'),
+(7, 'extracteur de roulement', 'extracteur', 'extracteur2roulement', 3, 'Extracteur2roulement'),
+(8, 'mini coupe-tube', 'mini_coupe-tube', 'coupe-tube', 1, 'Mini_coupe-tube'),
+(9, 'pince de marquage', 'pince', 'x2marquage', 2, 'Pince2marquage'),
+(10, 'pince de robot', 'pince', 'pince2robot', 2, 'Pince2robot'),
 (11, 'pompe &agrave; palettes', 'pompe', 'pompeApalettes', 2, 'pompeApalettes'),
 (12, 'pr&eacute;henseur de culasse', 'prehenseur', 'prehenseur', 1, 'prehenseur2culasse'),
 (14, 'alternateur', 'alternateur', 'alternateur', 3, 'alternateur'),
 (15, 'casse-noix', 'casseNoix', 'casse_noix', 1, 'CasseNoix'),
 (16, 'bride &agrave; nez', 'bride', 'brideAnez', 2, 'brideAnez'),
 (17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3, 'unite2marquage'),
-(18, 'vanne Legris', 'vanne', 'Legris', 2, 'vanne');
+(18, 'vanne Legris', 'vanne', 'Legris', 2, 'Vanne');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
