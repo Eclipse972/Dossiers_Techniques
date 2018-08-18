@@ -15,7 +15,7 @@
 
 <tbody>
 <?php
-	$nomenclature = $_BD->Nomenclature($_SESSION[ID]);
+	$nomenclature = $_BD->Nomenclature($_SESSION->ID());
 	if (isset($nomenclature)) {
 		foreach ($nomenclature as $piece) $piece->Afficher();
 	} else echo '<h1>Erreur Nomenclature</h1>';?>

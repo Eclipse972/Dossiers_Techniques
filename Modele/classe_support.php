@@ -20,20 +20,46 @@ public function __construct($id) { // Il faut vérifier avant que le support exi
 		$this->setArticles($ligne['article_ID']);
 		$this->setPti_nom($ligne['pti_nom']);
 		$this->setDossier($ligne['dossier']);
-		$this->setImage($ligne['image']);
+		$this->setImage($ligne['pti_nom']);
 		$this->setZip($ligne['zip']);
 	}
 }
 
 // Assesseurs -------------------------------------------------------------------------------------
+public function ID() {
+	return $this->id;
+}
+
+public function Item(){
+	return $this->item;
+}
+
+public function Sous_item(){
+	return $this->sous_item;
+}
+
+public function Nom() {
+	return $this->nom;
+}
+
+public function Pti_nom() {
+	return $this->pti_nom;
+}
+
+public function Dossier() {
+	return $this->dossier;
+}
+
 public function Le_support() {
 	return $this->le.$this->nom;
 }
+
 public function Du_support() {
 	return $this->du.$this->nom;
 }
+
 public function Image() { // retourne le code HTML pour l'image du support
-	return $sthis->image;
+	return $this->image;
 }
 
 // Mutateurs --------------------------------------------------------------------------------------
@@ -55,13 +81,15 @@ private function setArticles($i) {
 }
 
 private function setPti_nom($texte) {
-	if (preg_match('#^[a-zA-Z][a-zA-Z_0-9]+$#', $texte)) // commence par une lettre suivi d'autres lettres ou chiffre ou caratère _
+	// Le pti nom commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore
+	if (preg_match('#^[a-zA-Z][a-zA-Z_0-9_-]+$#', $texte))
 			$this->pti_nom = $texte;
 	else	trigger_error('Attention: '.$texte.' n&apos; pas un pti_nom valide pour '.$this->nom."\n", E_USER_WARNING);
 }
 
 private function setDossier($dossier) {
-	if (!preg_match('#^[a-zA-Z][a-zA-Z_0-9]+$#', $dossier)) // commence par une lettre suivi d'autres lettres ou chiffre ou caratère _
+	// le nom du dossier commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore _
+	if (!preg_match('#^[a-zA-Z][a-zA-Z_0-9_-]+$#', $dossier))
 		trigger_error('Attention: '.$dosier.' n&apos; pas un dossier valide pour '.$this->nom."\n", E_USER_WARNING);
 	else {
 		$dossier = 'Supports/'.$dossier.'/';
@@ -75,7 +103,7 @@ private function setImage($image) {
 	if ($image == 'Vue/images/pas2photo.png')
 		trigger_error('Attention: pas d&apos;image pour '.$this->nom."\n", E_USER_WARNING);
 	else {
-		$this->image = '<img src="'.$images.'" alt="'.$this->Le_support().'">';
+		$this->image = '<img src="'.$image.'" alt="'.$this->Le_support().'">';
 	}
 }
 
@@ -132,8 +160,7 @@ public function A_propos() { // le support crée le code mais ce n'est pas son r
 			$code .= '<li>'.$lien.'</li>'."\n";
 		$code .= '</ul>';
 	}
-	$code .= "\n".Lien('Retour au dossier technique '.$this>Du_support(), $this->id);
-	return $code;
+	return $code."\n";
 }
 
 public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
@@ -141,18 +168,15 @@ public function Generer_menu() { // le support crée le code mais ce n'est pas s
 	return $menu->Code();
 }
 
-public function Script(&$erreur) { // renvoi  le script à exécuter
+public function Script() { // renvoi le script à exécuter
 	global $_BD;
 	$script = $_BD->Script($this->id, $this->item, $this->sous_item);
-	$erreur = false;
 	// détermination du script à inclure
 	if (file_exists($this->dossier.$script)) // si le script dans le dossier du support existe
 		return $this->dossier.$script;
 	elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
 		return'Vue/'.$script;
-	else {
-		$erreur = true;
+	else
 		return 'Vue/oups.php'; // si le script n'existe nulle part ...
-	}
 }
 }

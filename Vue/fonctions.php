@@ -14,7 +14,7 @@ function Fichier_existe($fichier,$dossier,$substitution) {
 }
 function Ajouter_image($image, $alt, $supplement = null)	{
 	// ajoute l'image du support courant. Cette image se trouve dans le répertoire /images.
-	echo '<img src="', Image($image, $_SESSION[DOSSIER].'images/'),'"';
+	echo '<img src="', Image($image, $_SESSION->Dossier().'images/'),'"';
 	echo (isset($supplement)) ? ' '.$supplement : ''; // supplément : class=... et/ou style=...
 	echo ' alt="', $alt, '">',"\n";	// cette balise devient obligatoire
 }

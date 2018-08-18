@@ -35,20 +35,10 @@ public function ListeDvignettes() { // seule fonction à utiliser une requête s
 	**********************************************************************
 */
 public function Support($id) {
-	$T_du = array ('du ', 'de la ', 'de l&apos;');
-	$T_le = array ('le ', 'la ',	'l&apos;');
-	$ligne = null;
-	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip FROM Supports WHERE Supports.ID= ?', [$id]);
-	$ligne = $this->resultat->fetch();
-	if ($ligne != null) { // la ligne est non vide
-		$support[ID]		= $id;
-		$support[PTI_NOM]	= $ligne['pti_nom'];
-		$support[DOSSIER]	= 'Supports/'.$ligne['dossier'].'/';
-		$support[IMAGE]		= '<img src="'.$support[DOSSIER].'images/'.$support[PTI_NOM].'.png" alt="'.$T_le[$ligne['article_ID']-1].$ligne['nom'].'">';
-		$support[DU]		= $T_du[$ligne['article_ID']-1].$ligne['nom'];
-	} else $support = null;
+	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip FROM Supports WHERE ID= ?', [$id]);
+	$T_support = $this->resultat->fetch();
 	$this->Fermer();
-	return $support;
+	return $T_support;
 }
 
 public function Support_existe($id) {
@@ -56,13 +46,6 @@ public function Support_existe($id) {
 	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
 	$this->Fermer();
 	return ($T_reponse['nb_support'] == 1);
-}
-
-public function ZIP_Support($id) { // retourne le nom de l'archive contenant la maquette numérique
-	$this->Requete('SELECT zip FROM Supports WHERE Supports.ID= ?', [$id]);
-	$ligne = $this->resultat->fetch();
-	$this->Fermer();
-	return $ligne['zip'].'.zip';
 }
 
 public function Description_maquette($id) {
@@ -105,6 +88,7 @@ public function Page_existe($support, $item, $sous_item) {
 	$this->Fermer();
 	return ($reponse['nb_page'] == 1);
 }
+
 public function Script($support, $item, $sous_item) { // nom du script à exécuter
 	$this->Requete('SELECT script FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
@@ -112,6 +96,7 @@ public function Script($support, $item, $sous_item) { // nom du script à exécu
 	$this->Fermer();
 	return $reponse['script'].'.php';
 }
+
 public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
 	$this->Requete('SELECT param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
@@ -119,6 +104,7 @@ public function Parametres_script($support, $item, $sous_item) { // nom du scrip
 	$this->Fermer();
 	return $T_parametres;
 }
+
 public function Liste_item($support, $item) {	
 	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
@@ -130,6 +116,7 @@ public function Liste_item($support, $item) {
 	$this->Fermer();
 	return $tableau;
 }
+
 public function Liste_sous_item($support,$item,$sous_item) {
 	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
 	$i=1;
