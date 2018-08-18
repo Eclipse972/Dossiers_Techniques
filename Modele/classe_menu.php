@@ -19,7 +19,7 @@ public function Afficher_menu() {
 			// si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
 			$T_sous_items = $_BD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
 			if (($i == $this->item) && isset($T_sous_items)) {
-				echo "\n\t",'<ul>',"\n";
+				echo "\t",'<ul>',"\n";
 				foreach($T_sous_items as $sous_item)	echo "\t",'<li>',$sous_item,'</li>',"\n";
 				echo "\t",'</ul>',"\n";
 			}
