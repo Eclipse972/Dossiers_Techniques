@@ -136,23 +136,23 @@ public function A_propos() { // le support crée le code mais ce n'est pas son r
 	return $code;
 }
 
-public function Afficher_menu() {
+public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
 	$menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
-	$menu->Afficher_menu();
+	return $menu->Code();
 }
 
-public function Afficher_page() {
-	$T_instruction = $_BD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
-	$script = $T_instruction['script'].'.php';
+public function Script(&$erreur) { // renvoi  le script à exécuter
+	global $_BD;
+	$script = $_BD->Script($this->id, $this->item, $this->sous_item);
 	$erreur = false;
-	if (file_exists($_SESSION[DOSSIER].$script)) // si le script dans le dossier du support existe
-		include $_SESSION[DOSSIER].$script;
+	// détermination du script à inclure
+	if (file_exists($this->dossier.$script)) // si le script dans le dossier du support existe
+		return $this->dossier.$script;
 	elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
-		include('Vue/'.$script);
+		return'Vue/'.$script;
 	else {
-		include 'Vue/oups.php'; // si le script n'existe nulle part ...
 		$erreur = true;
+		return 'Vue/oups.php'; // si le script n'existe nulle part ...
 	}
-	return $erreur;
 }
 }

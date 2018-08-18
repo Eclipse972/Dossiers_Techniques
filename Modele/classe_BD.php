@@ -101,16 +101,23 @@ public function Nomenclature($support_ID) {
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
 	$this->Requete('SELECT COUNT(*) AS nb_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
-	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
+	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return ($T_reponse['nb_page'] == 1);
+	return ($reponse['nb_page'] == 1);
 }
 public function Script($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT script, param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	$this->Requete('SELECT script FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
-	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
+	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $T_reponse;
+	return $reponse['script'].'.php';
+}
+public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
+	$this->Requete('SELECT param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+					[$support, $item, $sous_item]);
+	$T_parametres = $this->resultat->fetch(); // la réponse est un tableau
+	$this->Fermer();
+	return $T_parametres;
 }
 public function Liste_item($support, $item) {	
 	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND sous_item=0', [$support]);
