@@ -38,7 +38,7 @@ public function Support($id) {
 	$T_du = array ('du ', 'de la ', 'de l&apos;');
 	$T_le = array ('le ', 'la ',	'l&apos;');
 	$ligne = null;
-	$this->Requete('SELECT nom, pti_nom, dossier, article_ID FROM Supports WHERE Supports.ID= ?', [$id]);
+	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip FROM Supports WHERE Supports.ID= ?', [$id]);
 	$ligne = $this->resultat->fetch();
 	if ($ligne != null) { // la ligne est non vide
 		$support[ID]		= $id;
@@ -49,6 +49,13 @@ public function Support($id) {
 	} else $support = null;
 	$this->Fermer();
 	return $support;
+}
+
+public function Support_existe($id) {
+	$this->Requete('SELECT COUNT(*) AS nb_support FROM Supports WHERE ID= ?', [$id]);
+	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
+	$this->Fermer();
+	return ($T_reponse['nb_support'] == 1);
 }
 
 public function ZIP_Support($id) { // retourne le nom de l'archive contenant la maquette numérique
@@ -93,7 +100,6 @@ public function Nomenclature($support_ID) {
 }
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
-	$this->resultat = null;
 	$this->Requete('SELECT COUNT(*) AS nb_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
 	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
 	$this->Fermer();

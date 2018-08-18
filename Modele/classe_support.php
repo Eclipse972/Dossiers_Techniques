@@ -1,6 +1,8 @@
 <?php
 class Support {
 private $id;
+private $item;		// item actuel
+private $sous_item;	// sous-item actuel
 private $nom;
 private $du;
 private $le;
@@ -9,24 +11,30 @@ private $dossier;
 private $image;
 private $zip;
 
-public function __construct($id) { // constructeur
+public function __construct($id) { // Il faut vérifier avant que le support existe
 	global $_BD;
 	$this->id = (int) $id;
 	$ligne = $_BD->Support($this->id); // demande les données brutes à la BD sous forme de tableau associatif
 	if ($ligne != null) { // la ligne est non vide
-		$this->nom = $ligne['nom']);
+		$this->nom = $ligne['nom'];
 		$this->setArticles($ligne['article_ID']);
 		$this->setPti_nom($ligne['pti_nom']);
 		$this->setDossier($ligne['dossier']);
 		$this->setImage($ligne['image']);
 		$this->setZip($ligne['zip']);
-	} else $this = null;
+	}
 }
 
 // Assesseurs -------------------------------------------------------------------------------------
-public function Le_support() { return $this->le.$this->nom; }
-public function Du_support() { return $this->du.$this->nom; }
-public function Image() { return $sthis->image; } // retourne le code HTML pour l'image du support
+public function Le_support() {
+	return $this->le.$this->nom;
+}
+public function Du_support() {
+	return $this->du.$this->nom;
+}
+public function Image() { // retourne le code HTML pour l'image du support
+	return $sthis->image;
+}
 
 // Mutateurs --------------------------------------------------------------------------------------
 private function setArticles($i) {
@@ -67,7 +75,7 @@ private function setImage($image) {
 	if ($image == 'Vue/images/pas2photo.png')
 		trigger_error('Attention: pas d&apos;image pour '.$this->nom."\n", E_USER_WARNING);
 	else {
-		$this->image = '<img src="'.$images.'" alt="'.$this->Le_support()'">';
+		$this->image = '<img src="'.$images.'" alt="'.$this->Le_support().'">';
 	}
 }
 
@@ -76,7 +84,75 @@ private function setZip($archive) {
 	$this->zip = ($archive == '#') ? null : $archive;
 }
 
+public function setPosition($item, $sous_item) {
+	global $_BD;
+	if ($_BD->Page_existe($this->id, $item, $sous_item)) {
+		$this->item	 = $item; // on stocke dans le support
+		$this->sous_item = $sous_item;
+	} else{ 
+		$this->item	 = 1; // on utilise la page mise en situation
+		$this->sous_item = 0;
+	}
+}
+
 // Autres méthodes --------------------------------------------------------------------------------
-public function A_propos() {
+public function A_propos() { // le support crée le code mais ce n'est pas son rôle de l'afficher
+	global $_BD;
+	if (isset($this->zip))
+		$code = '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
+	else {
+		$code = '<a href="'.$this->zip.'">Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette numérique</a>'."\n".
+				'<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
+		$Liste = $_BD->Description_maquette($this->id);
+		switch(count($Liste)) {
+		case 0:
+			$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
+			break;
+		case 1:
+			$code .= '<p>'.$Liste[0].'</p>';
+			break;
+		default:
+			$code .= '<ul>'."\n";
+			foreach ($Liste as $texte)	$code .= '<li>'.$texte.'</li>'."\n";
+			$code .= '</ul>';
+		}
+	}
+	$code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
+	$Liste = $_BD->Lien_support($this->id);
+	switch(count($Liste)) {
+	case 0:
+		$code .= '<p>Aucun pour le moment</p>';
+		break;
+	case 1:
+		$code .= '<p>'.$Liste[0].'</p>';
+		break;
+	default:
+		$code .= '<ul>'."\n";
+		foreach ($Liste as $lien)
+			$code .= '<li>'.$lien.'</li>'."\n";
+		$code .= '</ul>';
+	}
+	$code .= "\n".Lien('Retour au dossier technique '.$this>Du_support(), $this->id);
+	return $code;
+}
+
+public function Afficher_menu() {
+	$menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
+	$menu->Afficher_menu();
+}
+
+public function Afficher_page() {
+	$T_instruction = $_BD->Script($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]);
+	$script = $T_instruction['script'].'.php';
+	$erreur = false;
+	if (file_exists($_SESSION[DOSSIER].$script)) // si le script dans le dossier du support existe
+		include $_SESSION[DOSSIER].$script;
+	elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
+		include('Vue/'.$script);
+	else {
+		include 'Vue/oups.php'; // si le script n'existe nulle part ...
+		$erreur = true;
+	}
+	return $erreur;
 }
 }

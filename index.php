@@ -19,11 +19,10 @@ include 'Controleur/scripts.php';
 session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
+$_BD = new base2donnees();
 
 Extraire_parametre($_ID, $_ITEM, $_SOUS_ITEM);
-
-$_BD = new base2donnees();
-$_SESSION = $_BD->Support($_ID); // création du support s'il existe
+$_SESSION = ($_BD->Support_existe($_ID)) ? $_BD->Support($_ID) : null; // création du support s'il existe
 if (!isset($_SESSION)) { // page d'index
 	$CSS = 'style_page';
 	$LOGO = '<img src="Vue/images/logo.png" alt="logo">';	// mon logo
