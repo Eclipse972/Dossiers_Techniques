@@ -18,7 +18,7 @@ if(file_exists($cache) && time()-filemtime($cache) < $vie * 3600)
 else {
 	ob_start(); // ouverture du tampon
 	$menu = new Menu($_SESSION[ID], $_SESSION[ITEM], $_SESSION[SOUS_ITEM]); // création du menu
-	$menu->Afficher_menu();
+	echo $menu->Code();
 ?>
 </nav>
 

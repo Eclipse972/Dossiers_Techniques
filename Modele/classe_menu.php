@@ -9,23 +9,24 @@ public function __construct($support, $item, $sous_item) {	// constructeur
 	$this->item			= (int) $item;		// item sélectionné
 	$this->sous_item	= (int) $sous_item;	// sous_item sélectionné
 }
-public function Afficher_menu() {
+public function Code() { // le menu crée le code mais ce n'est pas son rôle de l'afficher
 	global $_BD;
-	$T_items = $_BD->Liste_item($this->ID_support,$this->item);
+	$T_items = $_BD->Liste_item($this->ID_support, $this->item);
 	if(isset($T_items)) {
-		echo '<ul>',"\n";
+		$code = '<ul>'."\n";
 		foreach($T_items as $i => $item) {	// affichage du menu
-			echo '<li>',$item,'</li>',"\n";	// lien
+			$code .= '<li>'.$item.'</li>'."\n";	// lien
 			// si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
-			$T_sous_items = $_BD->Liste_sous_item($this->ID_support,$this->item,$this->sous_item);
+			$T_sous_items = $_BD->Liste_sous_item($this->ID_support, $this->item, $this->sous_item);
 			if (($i == $this->item) && isset($T_sous_items)) {
-				echo "\t",'<ul>',"\n";
-				foreach($T_sous_items as $sous_item)	echo "\t",'<li>',$sous_item,'</li>',"\n";
-				echo "\t",'</ul>',"\n";
+				$code .= "\t".'<ul>'."\n";
+				foreach($T_sous_items as $sous_item)	$code .= "\t".'<li>'.$sous_item.'</li>'."\n";
+				$code .= "\t".'</ul>'."\n";
 			}
 		}
-		echo '</ul>',"\n";
-	} else trigger_error('Menu inexsistant: identifiant du support='.$this->ID_support."\n", E_USER_WARNING);
-	echo '<a href="index.php">SOMMAIRE</a>',"\n";
+		$code .= '</ul>'."\n";
+	} else trigger_error('Menu inexsistant: identifiant du support='.$this->ID_support."\n". E_USER_WARNING);
+	$code .= '<a href="index.php">SOMMAIRE</a>'."\n";
+	return $code;
 }
 }
