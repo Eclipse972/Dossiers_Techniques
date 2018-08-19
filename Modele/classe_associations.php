@@ -81,7 +81,7 @@ class Piece extends Association_image_fichier {
 		echo '</td>',"\n";	// on ferme la cellule
 
 		echo '<td>';	// matière
-		if($this->matiere!='')	echo '<a href=https://fr.wikipedia.org/wiki/',$this->URL_matiere,'" target="_blank">',$this->matiere,'</a>';
+		if($this->matiere!='')	echo '<a href="https://fr.wikipedia.org/wiki/',$this->URL_matiere,'" target="_blank">',$this->matiere,'</a>';
 		echo '</td>',"\n";
 
 		echo '<td>', $this->observation, '</td>',"\n";	// observation	
