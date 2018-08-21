@@ -6,7 +6,7 @@
 <li>l&apos;environnement ext&eacute;rieur</li>
 </ul>
 <p>Le diagramme pieuvre de l&apos;&eacute;lectrovanne est le suivant:</p>
-<?php Ajouter_image($T_instruction['param1'], 'diagramme pieuvre', 'class=image_centree'); ?>
+<?php $_SESSION->Image($T_instruction['param1'], 'diagramme pieuvre', 'class=image_centree'); ?>
 <p>Fonctions de l&apos;&eacute;lectro-vanne :</p>
 <ul>
 <li>Fp : commander l&apos;ouverture et la fermeture d&apos;un circuit hydraulique à l&apos;aide d&apos;un micro-ordinateur.</li>

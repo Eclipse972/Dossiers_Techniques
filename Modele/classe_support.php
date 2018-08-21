@@ -179,4 +179,9 @@ public function Script() { // renvoi le script à exécuter
 	else
 		return 'Vue/oups.php'; // si le script n'existe nulle part ...
 }
+
+public function Image($image, $alt, $supplement = '') { // affiche une image du support courant.
+	echo '<img src="', Image($image, $this->dossier.'images/'),'" '.$supplement.' alt="', $alt, '">',"\n";
+											// supplément : class et/ou style.	alt devient obligatoir
+}
 }
