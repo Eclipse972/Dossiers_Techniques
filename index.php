@@ -56,7 +56,7 @@ else { // à propos du support
 
 <?php
 $CACHE = 'Vue/cache/'.$CACHE.'.cache';
-if(file_exists($CACHE) && time() - filemtime($CACHE) > $VIE_DU_CACHE * 3600)
+if(file_exists($CACHE) && (time() - filemtime($CACHE) < $VIE_DU_CACHE * 3600))
 	readfile($CACHE);
 else {
 	ob_start();
