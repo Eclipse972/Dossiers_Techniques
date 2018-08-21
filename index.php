@@ -9,9 +9,10 @@ session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 $_BD = new base2donnees();
-$VIE_DU_CACHE = 2; // en heure
+$VIE_DU_CACHE = 2; // en heure. Mettre à zéro lorsque j'interviens sur le site
 Extraire_parametre($_ID, $_ITEM, $_SOUS_ITEM);
 $_SESSION = ($_BD->Support_existe($_ID)) ? new Support($_ID) : null; // création du support s'il existe
+// trois scénari possibles
 if (!isset($_SESSION)) { // page d'index
 	$CSS = 'style_page';
 	$LOGO = '<img src="Vue/images/logo.png" alt="logo">';	// mon logo
@@ -54,11 +55,23 @@ else { // à propos du support
 </header>
 
 <?php
-include 'Vue/'.$PAGE.'.php';
+$CACHE = 'Vue/cache/'.$CACHE.'.cache';
+if(file_exists($CACHE) && time() - filemtime($CACHE) > $VIE_DU_CACHE * 3600)
+	readfile($CACHE);
+else {
+	ob_start();
+	include 'Vue/'.$PAGE.'.php';
+	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
+	$page = ob_get_contents();
+	ob_end_clean();
+	file_put_contents($CACHE, $page);
+	echo $page;
+}
 ?>
-
 <footer>
-<?php include 'Vue/pied2page.php';?>
+<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
+ - <a href="#">Me contacter</a>
+ - derni&egrave;re mise à jour: 21 ao&ucirc;t 2018</p>
 </footer>
 
 </body>
