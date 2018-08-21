@@ -3,7 +3,7 @@
 	contrôleur principal
 ************************************************************************************************************************************/
 include 'Modele/mes_classes.php';
-include 'Controleur/scripts.php';
+include 'Controleur/liens.php';
 
 session_start(); // On démarre la session AVANT toute chose
 
@@ -62,10 +62,10 @@ else {
 	ob_start();
 	include 'Vue/'.$PAGE.'.php';
 	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
-	$page = ob_get_contents();
+	$code = ob_get_contents();
 	ob_end_clean();
-	file_put_contents($CACHE, $page);
-	echo $page;
+	file_put_contents($CACHE, $code);
+	echo $code;
 }
 ?>
 <footer>
