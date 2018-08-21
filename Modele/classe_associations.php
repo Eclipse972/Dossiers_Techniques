@@ -7,22 +7,23 @@ protected $titre;
 
 public function __construct($dossier, $image, $fichier, $titre = '') {
 // les noms de l'image et du fichier ne sont pas forcément identiques
-$image = Image($image, $dossier.'images/');
-$fichier = Fichier($fichier, $dossier.'fichiers/');
-if ($image == 'Vue/pas2photo.png')
-	trigger_error('L&apos;association image-fichier n&apos;a pas d&apos;image', E_USER_WARNING);
-if ($fichier == '#')
-	trigger_error('L&apos;association image-fichier n&apos;a pas de fichier', E_USER_WARNING);
-$this->image = $image;
-$this->fichier = $fichier;
-$this->titre = $titre; // le titre n'est pas obligatoite notament pour l'objet piece
+$image = new Image($image, $dossier.'images/');
+$fichier = new Fichier($fichier, $dossier.'fichiers/');
+if (!$image->Existe() && !$fichier->Existe())
+	trigger_error('L&apos;association image-fichier est vide', E_USER_WARNING);
+$this->image = $image->Chemin();
+$this->fichier = $fichier->Chemin();
+$this->titre = $titre; // le titre n'est pas obligatoire notamment pour l'objet piece
+}
+
+public function Associer($alt, $supplement = '') { // renvoi le code d'une image liée au fichier
+	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>';
 }
 
 public function Code($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
 $code = '<h1>'.$this->titre.'</h1>'."\n";
 $code .= '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
-$code .= '<a href="'.$this->fichier.'">';	// lien vers le fichier
-$code .= '<img src="'.$this->image.'" class="association" alt = "'.$this->titre.'"></a>'."\n";	// image avec texte alternatif
+$code .= $this->Associer($this->titre, 'class="association"');
 $code .= '<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
 return $code;
 }
@@ -79,9 +80,7 @@ parent::__construct($T_param['dossier'], $T_param['fichier'], $T_param['fichier'
 public function Code() {
 $code = '<tr>'."\n";
 $code .= '<td>'.$this->repere.'</td>'."\n";
-
-$code .= '<td><a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "'.$this->nom.'"></a></td>'."\n";	// lien image-fichier
-
+$code .= '<td>'.$this->Associer($this->nom).'</td>'."\n";	// lien image-fichier
 $code .= '<td>'.$this->nom;
 if($this->quantite > 1)					// si plusieurs exemplaires
 	$code .= ' (x'.$this->quantite.')';	// alors on rajoute la quantité

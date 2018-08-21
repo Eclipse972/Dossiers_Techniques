@@ -98,18 +98,17 @@ private function setDossier($dossier) {
 	}
 }
 
-private function setImage($image) {
-	$image = Image($image, $this->dossier.'images/'); // recherche l'image du support
-	if ($image == 'Vue/images/pas2photo.png')
+private function setImage($image) {	
+	$image = new Image($image, $this->dossier.'images/'); // recherche l'image du support
+	if ($image->Existe())
+		$this->image = $image->Balise($this->Le_support());
+	else
 		trigger_error('Attention: pas d&apos;image pour '.$this->Le_support()."\n", E_USER_WARNING);
-	else {
-		$this->image = '<img src="'.$image.'" alt="'.$this->Le_support().'">';
-	}
 }
 
 private function setZip($archive) {
-	$archive = Fichier($archive.'.zip', $this->dossier.'fichiers/'); // recherche l'archive
-	$this->zip = ($archive == '#') ? null : $archive;
+	$archive = new Zip($archive, $this->dossier); // recherche l'archive du support
+	$this->zip = ($archive->Existe()) ? $archive : null;
 }
 
 public function setPosition($item, $sous_item) {
@@ -126,11 +125,9 @@ public function setPosition($item, $sous_item) {
 // Autres méthodes --------------------------------------------------------------------------------
 public function A_propos() { // le support crée le code mais ce n'est pas son rôle de l'afficher
 	global $_BD;
-	if (isset($this->zip))
-		$code = '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
-	else {
-		$code = '<a href="'.$this->zip.'">Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette numérique</a>'."\n".
-				'<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
+	$code = '<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
+	if (isset($this->zip)) {
+		$code .= $this->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
 		$Liste = $_BD->Description_maquette($this->id);
 		switch(count($Liste)) {
 		case 0:
@@ -144,7 +141,7 @@ public function A_propos() { // le support crée le code mais ce n'est pas son r
 			foreach ($Liste as $texte)	$code .= '<li>'.$texte.'</li>'."\n";
 			$code .= '</ul>';
 		}
-	}
+	} else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
 	$code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
 	$Liste = $_BD->Lien_support($this->id);
 	switch(count($Liste)) {
@@ -180,8 +177,19 @@ public function Script() { // renvoi le script à exécuter
 		return 'Vue/oups.php'; // si le script n'existe nulle part ...
 }
 
-public function Image($image, $alt, $supplement = '') { // affiche une image du support courant.
+public function Insérer_image($image, $alt, $supplement = '') { // affiche une image du support courant.
 	echo '<img src="', Image($image, $this->dossier.'images/'),'" '.$supplement.' alt="', $alt, '">',"\n";
 											// supplément : class et/ou style.	alt devient obligatoir
+}
+
+public function Générer_page_image($T, $dessus = false) {
+	// T est un tableau contenant 4 paramètres: titre image texte et hauteur
+	$image = new Image($T['param2'], $this->dossier.'images/');
+	/* Remarques
+	par défaut le texte est un paragraphe
+	mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
+	mettre du code html: </p>code html<p>. les balises qui entourent le code vont créé 2 paragraphes vides
+									titre			texte*/
+	return $image->Page_image($T['param1'], '<p>'.$T['param3'].'</p>'."\n", $T['param1'], $dessus, $T['param4']);
 }
 }

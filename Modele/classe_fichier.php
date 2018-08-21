@@ -1,39 +1,54 @@
 <?php
 class Fichier {
-private $fichier;
+protected $fichier;
+protected $substitution;
 
-public __construct($fichier, $dossier, $substitution = '#') {
-	$this->fichier = (file_exists($dossier.$fichier)) ? $dossier.$fichier : $substitution;
+public function __construct($fichier, $dossier) {
+$this->substitution = '#';
+$this->fichier = (file_exists($dossier.$fichier)) ? $dossier.$fichier : $this->substitution;
 }
 
-public Lien($texte) {
+public function Chemin() { // renvoi le chemin d'accès complet
+	return $this->fichier;
+}
+
+public function Lien($texte) {
 	return '<a href="'.$this->fichier.'">'.$texte.'</a>';
+}
+
+public function Existe() {
+	return ($this->fichier != $this->substitution);
+}
+}
+
+class Zip extends Fichier {
+
+public function __construct($fichier, $dossier) {
+$fichier .= '.zip';
+$dossier .= 'fichiers/';
+parent::__construct($fichier, $dossier);
 }
 }
 
 class Image extends Fichier {
 
-public __construct($fichier, $dossier) {
+public function __construct($fichier, $dossier) {
+$this->substitution = 'Vue/pas2photo.png';
 if (!strpos($fichier, '.')) // le fichier n'a pas d'extension
 	$fichier .= '.png';	// alors c'est un png
-parent::__construct($fichier, $dossier, 'Vue/pas2photo.png');
+parent::__construct($fichier, $dossier);
 }
 
 public function Balise($alt, $supplement = '') {
-	return '<img src="'.$this->fichier.' '.$supplement.' alt="'.$alt.'">';
+	return '<img src="'.$this->fichier.'" '.$supplement.' alt="'.$alt.'">';
 }
 
-public Page_image($titre, $texte, $alt, $dessus, $hauteur) {
+public function Page_image($titre, $texte, $alt, $image_au_dessus, $hauteur) {
 $code = '<div id="page_image">'."\n".'<h1>'.$titre.'</h1>'."\n";
-$texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
-/* Remarques
-	mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
-	mettre du code html: </p>code html<p>. les balises qui entourent le code vont créé 2 paragraphes vides
-*/
-$code .= (!$dessus) ? $texte : '';
 $hauteur = ($hauteur == '') ? 400 : $hauteur;
+$code .= (!$image_au_dessus) ? $texte : '';
 $code .= $this->Balise($alt, 'class="association" style=height:'.$hauteur.'px;');
-$code .= ($dessus) ? $texte : '';
-return $code.'</div>',"\n";
+$code .= ($image_au_dessus) ? $texte : '';
+return $code.'</div>'."\n";
 }
 }

@@ -24,8 +24,8 @@ public function ListeDvignettes() { // seule fonction à utiliser une requête s
 	$tableau = null;
 	$this->resultat = $this->BD->query('SELECT ID, nom, pti_nom, dossier FROM Supports ORDER BY pti_nom ASC, nom ASC');
 	while ($ligne = $this->resultat->fetch()) {
-		$image  ='<img src="'.Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/').'" alt = "'.$ligne['nom'].'">';
-		$tableau[] = Lien($ligne['nom'].'<br>'.$image, $ligne['ID']);
+		$image = new Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/');
+		$tableau[] = Lien($ligne['nom'].'<br>'.$image->Balise($ligne['nom']), $ligne['ID']);
 	}
 	$this->Fermer();
 	return $tableau;
