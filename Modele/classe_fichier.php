@@ -3,7 +3,7 @@ class Fichier {
 private $fichier;
 
 public __construct($fichier, $dossier, $substitution = '#') {
-	$this->fichier = (file_exists($dossier.$fichier)) $dossier.$fichier : $substitution;
+	$this->fichier = (file_exists($dossier.$fichier)) ? $dossier.$fichier : $substitution;
 }
 
 public Lien($texte) {
@@ -19,7 +19,7 @@ if (!strpos($fichier, '.')) // le fichier n'a pas d'extension
 parent::__construct($fichier, $dossier, 'Vue/pas2photo.png');
 }
 
-public function Lien($alt, $supplement = '') {
+public function Balise($alt, $supplement = '') {
 	return '<img src="'.$this->fichier.' '.$supplement.' alt="'.$alt.'">';
 }
 
@@ -32,7 +32,7 @@ $texte = ($texte != '') ? '<p>'.$texte.'</p>'."\n" : '';
 */
 $code .= (!$dessus) ? $texte : '';
 $hauteur = ($hauteur == '') ? 400 : $hauteur;
-$code .= $this->Lien($alt, 'class="association" style=height:'.$hauteur.'px;');
+$code .= $this->Balise($alt, 'class="association" style=height:'.$hauteur.'px;');
 $code .= ($dessus) ? $texte : '';
 return $code.'</div>',"\n";
 }

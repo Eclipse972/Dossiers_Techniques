@@ -101,7 +101,7 @@ private function setDossier($dossier) {
 private function setImage($image) {
 	$image = Image($image, $this->dossier.'images/'); // recherche l'image du support
 	if ($image == 'Vue/images/pas2photo.png')
-		trigger_error('Attention: pas d&apos;image pour '.$this->nom."\n", E_USER_WARNING);
+		trigger_error('Attention: pas d&apos;image pour '.$this->Le_support()."\n", E_USER_WARNING);
 	else {
 		$this->image = '<img src="'.$image.'" alt="'.$this->Le_support().'">';
 	}

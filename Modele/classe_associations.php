@@ -7,12 +7,15 @@ protected $titre;
 
 public function __construct($dossier, $image, $fichier, $titre = '') {
 // les noms de l'image et du fichier ne sont pas forcément identiques
-if (($this->image = Image($image, $dossier.'images/')) == 'Vue/pas2photo.png')
+$image = Image($image, $dossier.'images/');
+$fichier = Fichier($fichier, $dossier.'fichiers/');
+if ($image == 'Vue/pas2photo.png')
 	trigger_error('L&apos;association image-fichier n&apos;a pas d&apos;image', E_USER_WARNING);
-elseif (($this->fichier = Fichier($fichier, $dossier.'fichiers/')) == '#')
+if ($fichier == '#')
 	trigger_error('L&apos;association image-fichier n&apos;a pas de fichier', E_USER_WARNING);
-else
-	$this->titre = $titre; // le titre n'est pas obligatoite notament pour l'objet piece
+$this->image = $image;
+$this->fichier = $fichier;
+$this->titre = $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 }
 
 public function Code($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
@@ -27,6 +30,8 @@ return $code;
 
 // classes filles simples ---------------------------------------------------------------------------------------------------------------
 // Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
+// si image n'a pas d'extension alor .png
+// fichier ne doitavoir d'extension
 class Dessin_densemble extends Association_image_fichier {
 public function __construct($dossier, $image, $fichier) { // constructeur
 	parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
