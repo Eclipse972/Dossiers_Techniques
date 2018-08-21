@@ -15,12 +15,13 @@ else
 	$this->titre = $titre; // le titre n'est pas obligatoite notament pour l'objet piece
 }
 
-public function Afficher($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
-echo '<h1>', $this->titre, '</h1>', "\n";
-echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>', "\n";	// message
-echo '<a href="', $this->fichier, '">';	// lien vers le fichier
-echo '<img src="', $this->image, '" class="association" alt = "', $this->titre, '"></a>', "\n";	// image avec texte alternatif
-echo '<p style="text-align:center">', $commentaire, '</p>', "\n";	// commentaire éventuel sous l'image
+public function Code($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
+$code = '<h1>'.$this->titre.'</h1>'."\n";
+$code .= '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
+$code .= '<a href="'.$this->fichier.'">';	// lien vers le fichier
+$code .= '<img src="'.$this->image.'" class="association" alt = "'.$this->titre.'"></a>'."\n";	// image avec texte alternatif
+$code .= '<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
+return $code;
 }
 }
 
@@ -43,8 +44,8 @@ public function __construct($dossier, $image, $fichier) {
 	parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
 }
 
-public function Afficher() {
-	parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+public function Code() {
+	return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 }
 }
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------
@@ -70,23 +71,24 @@ parent::__construct($T_param['dossier'], $T_param['fichier'], $T_param['fichier'
 // Rem: l'image et le fichier doivent porter le même nom. image_alt = nom de la pièce
 }
 
-public function Afficher() {
-echo '<tr>',"\n";
-echo '<td>', $this->repere, '</td>',"\n";
+public function Code() {
+$code = '<tr>'."\n";
+$code .= '<td>'.$this->repere.'</td>'."\n";
 
-echo '<td><a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "'.$this->nom.'"></a></td>',"\n";	// lien image-fichier
+$code .= '<td><a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "'.$this->nom.'"></a></td>'."\n";	// lien image-fichier
 
-echo '<td>', $this->nom;	// désignation
+$code .= '<td>'.$this->nom;
 if($this->quantite > 1)					// si plusieurs exemplaires
-	echo ' (x', $this->quantite, ')';	// alors on rajoute la quantité
-echo '</td>',"\n";	// on ferme la cellule
+	$code .= ' (x'.$this->quantite.')';	// alors on rajoute la quantité
+$code .= '</td>'."\n";	// on ferme la cellule
 
-echo '<td>';	// matière
-if($this->matiere!='')	echo '<a href="https://fr.wikipedia.org/wiki/',$this->URL_matiere,'" target="_blank">',$this->matiere,'</a>';
-echo '</td>',"\n";
+$code .= '<td>';	// matière
+if($this->matiere!='')	$code .= '<a href="https://fr.wikipedia.org/wiki/'.$this->URL_matiere.'" target="_blank">'.$this->matiere.'</a>';
+$code .= '</td>'."\n";
 
-echo '<td>', $this->observation, '</td>',"\n";	// observation	
-echo '</tr>',"\n\n";							// fin de la ligne
+$code .= '<td>'.$this->observation.'</td>'."\n";	
+$code .= '</tr>'; // fin de la ligne
+return $code."\n\n";
 }
 }
 ?>

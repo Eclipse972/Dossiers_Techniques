@@ -15,10 +15,11 @@
 
 <tbody>
 <?php
-	$nomenclature = $_BD->Nomenclature($_SESSION->ID());
-	if (isset($nomenclature)) {
-		foreach ($nomenclature as $piece) $piece->Afficher();
-	} else echo '<h1>Erreur Nomenclature</h1>';?>
+$nomenclature = $_BD->Nomenclature($_SESSION->ID());
+if (isset($nomenclature))
+	foreach ($nomenclature as $piece) echo $piece->Code();
+else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+?>
 </tbody>
 </table>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
