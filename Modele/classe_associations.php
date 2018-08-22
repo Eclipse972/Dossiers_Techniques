@@ -16,9 +16,8 @@ $this->fichier = $fichier->Chemin();
 $this->titre = $titre; // le titre n'est pas obligatoire notamment pour l'objet piece
 }
 
-public function Associer($alt, $supplement = '') { // renvoi le code d'une image liée au fichier
-	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>';
-}
+// renvoi le code d'une image liée au fichier
+public function Associer($alt, $supplement = '') { return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>'; }
 
 public function Code($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
 $code = '<h1>'.$this->titre.'</h1>'."\n";
@@ -34,25 +33,17 @@ return $code;
 // si image n'a pas d'extension alor .png
 // fichier ne doitavoir d'extension
 class Dessin_densemble extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) { // constructeur
-	parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble');
-}
+public function __construct($dossier, $image, $fichier) { parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble'); }
 }
 
 class Dessin_de_definition extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) { // constructeur
-	parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition');
-}
+public function __construct($dossier, $image, $fichier) { parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition'); }
 }
 
 class Eclate extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) {
-	parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;');
-}
+public function __construct($dossier, $image, $fichier) { parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;'); }
 
-public function Code() {
-	return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
-}
+public function Code() { return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique'); }
 }
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------
 // Les filles ont plus de propriétés que leur mère: plus de privateiable et/ou de fonction
