@@ -662,6 +662,23 @@
 </html>
 
 </richcontent>
+<node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      permet d'affichier n'importe association
+    </p>
+    <p>
+      Dans certains cas j'ai besoin d'un 5e param&#232;tre? dans ce cas je reste sur l'ancienne version qui fait appel &#224; l'asociation comme le script &quot;elements&quot; pour l'unit&#233; de marquage
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 <node TEXT="eclate" ID="ID_96" CREATED="1527579372186" MODIFIED="1530490296973" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -691,23 +708,6 @@
 </richcontent>
 </node>
 <node TEXT="dessin_definition" ID="ID_1838466230" CREATED="1530656463886" MODIFIED="1530656476164"/>
-<node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      permet d'affichier n'importe association
-    </p>
-    <p>
-      Dans certains cas j'ai besoin d'un 5e param&#232;tre? dans ce cas je reste sur l'ancienne version qui fait appel &#224; l'asociation comme le script &quot;elements&quot; pour l'unit&#233; de marquage
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 <node TEXT="classe_equivalence" ID="ID_1581179732" CREATED="1534956129210" MODIFIED="1534956144965"/>
 <node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
 
