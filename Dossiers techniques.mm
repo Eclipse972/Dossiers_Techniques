@@ -278,7 +278,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="images" ID="ID_15" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork"><richcontent TYPE="NOTE">
@@ -397,7 +396,7 @@
 </node>
 </node>
 </node>
-<node TEXT="utilisation de caches" ID="ID_956296161" CREATED="1527841303929" MODIFIED="1527841468583" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="utilisation de caches" ID="ID_956296161" CREATED="1527841303929" MODIFIED="1534956025424" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -408,10 +407,11 @@
       ID: &#233;viter l'ex&#233;cution des scripts et les appel &#224; la BD
     </p>
     <p>
-      Si plusieurs de mes &#233;l&#232;ves sont sur la m&#234;me page la pgae n'est g&#233;n&#233;r&#233;e qu'une seule fois.
+      Si plusieurs de mes &#233;l&#232;ves sont sur la m&#234;me page la page n'est g&#233;n&#233;r&#233;e qu'une seule fois.
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 <node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
@@ -642,17 +642,7 @@
 </node>
 </node>
 </node>
-<node TEXT="pied2page" ID="ID_79" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>ce fichier affiche le pied de page et est appel&#233; par toutes les pages</p>
-                            </body>
-                        </html>
-</richcontent>
-</node>
-<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1530656642939"><richcontent TYPE="NOTE">
+<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1534956119620"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -660,22 +650,17 @@
   </head>
   <body>
     <p>
-      Ce sont des script utilisables par tous le support qui en font la demande.
-    </p>
-    <p>
-      fonctionnement
-    </p>
-    <p>
-      si un script n'est pas dans le dossie du support c'est un mot cl&#233;. Si loe mot cl&#233; est inconnu on affiche &quot;En construction&quot;
+      Ce sont des scripts utilisables par tous les supports qui en font la demande.
     </p>
     <p>
       
     </p>
     <p>
-      Chaque script est associ&#233; &#224; 4 param&#232;tres stock&#233; dans la BD. Si l'appel utilise moins de 4 param&#232;tres les derniers sont vides et ignor&#233;s/
+      Chaque script est associ&#233; &#224; 4 param&#232;tres stock&#233; dans la BD. Si l'appel utilise moins de 4 param&#232;tres les derniers sont vides et ignor&#233;s.
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="eclate" ID="ID_96" CREATED="1527579372186" MODIFIED="1530490296973" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -723,6 +708,7 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="classe_equivalence" ID="ID_1581179732" CREATED="1534956129210" MODIFIED="1534956144965"/>
 <node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -1238,7 +1224,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>

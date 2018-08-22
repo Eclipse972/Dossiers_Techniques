@@ -98,7 +98,7 @@ global $_BD;
 if ($_BD->Page_existe($this->id, $item, $sous_item)) {
 	$this->item	 = $item; // on stocke dans le support
 	$this->sous_item = $sous_item;
-} else{ 
+} else { 
 	$this->item	 = 1; // on utilise la page mise en situation
 	$this->sous_item = 0;
 }
@@ -160,8 +160,9 @@ else
 }
 
 public function Insérer_image($image, $alt, $supplement = '') { // affiche une image du support courant.
-echo '<img src="', Image($image, $this->dossier.'images/'),'" '.$supplement.' alt="', $alt, '">',"\n";
-										// supplément : class et/ou style.	alt devient obligatoir
+$image = new Image($image, $this->dossier.'images/');
+echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
+									// class et/ou style
 }
 
 public function Générer_page_image($T, $dessus = false) {

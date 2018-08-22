@@ -45,6 +45,19 @@ public function __construct($dossier, $image, $fichier) { parent::__construct($d
 
 public function Code() { return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique'); }
 }
+
+class Classe_équivalence extends Association_image_fichier {
+public function __construct($dossier, $image, $fichier_avec_extension, $nom) {
+parent::__construct($dossier,$image, $fichier_avec_extension, 'Classe d&apos;&eacute;quivalence: '.$nom);
+}
+
+public function Code() {
+if (substr($this->fichier, -5) == '.EASM')
+	return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+else
+	return parent::Code('Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
+}
+}
 // classes filles complexes ---------------------------------------------------------------------------------------------------------------
 // Les filles ont plus de propriétés que leur mère: plus de privateiable et/ou de fonction
 class Piece extends Association_image_fichier {
