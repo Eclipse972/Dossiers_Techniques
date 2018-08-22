@@ -9,14 +9,13 @@ body {
 	
 	--largeur_1e_colonne:200px;
 	--largeur_2e_colonne:1200px;
-	--marge_section:3px;
 	/* fin de déclaraion de variables */
 	background-color:var(--couleur3);
 	font-family: 'Quicksand', sans-serif;
 }
 
 header, section, footer, #corps { 
-	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + var(--marge_section) * 2);
+	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 5px);
 	margin:auto;
 }
 /* l'en-tete ---------------------------------------------------------------------------------- */
@@ -27,7 +26,6 @@ header {
 
 /* zone centrale ------------------------------------------------------------------------------- */
 section {
-	padding: var(--marge_section);
 	font-size: 20px;
 	overflow: auto;
 	background-color:white;

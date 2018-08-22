@@ -1,5 +1,5 @@
 /* Mise en page des blocs ------------------------------------------------------------------------------- */
-section { width:calc(var(--largeur_2e_colonne) - var(--marge_section) * 2); } /*on remplace la valeur définie dans commun.css*/
+section { width:var(--largeur_2e_colonne); } /*on remplace la valeur définie dans commun.css*/
 
 nav, section {
 	display:inline-block;
@@ -21,6 +21,7 @@ section img {
 	-------------------------------------------------------------------------------------------- */
 nav {
 	width:var(--largeur_1e_colonne);
+	margin:0;
 	text-align:center;
 	font-size:20px;
 }
