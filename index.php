@@ -9,7 +9,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 $_BD = new base2donnees();
-$VIE_DU_CACHE = 2; // en heure. Mettre à zéro lorsque j'interviens sur le site
+$VIE_DU_CACHE = 0; // en heure. Mettre à zéro lorsque j'interviens sur le site
 Extraire_parametre($_ID, $_ITEM, $_SOUS_ITEM);
 $_SESSION = ($_BD->Support_existe($_ID)) ? new Support($_ID) : null; // création du support s'il existe
 // trois scénari possibles
@@ -69,9 +69,7 @@ else {
 }
 ?>
 <footer>
-<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
- - <a href="#">Me contacter</a>
- - derni&egrave;re mise à jour: 21 ao&ucirc;t 2018</p>
+<?php include 'Vue/pied2page.php'; ?>
 </footer>
 
 </body>

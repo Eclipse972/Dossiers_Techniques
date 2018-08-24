@@ -39,7 +39,8 @@ echo '<a href="index.php">Retour au sommaire</a> ou <a href="javascript:history.
 </section>
 
 <footer>
-<?php	include 'Vue/pied2page.php'; ?>
+<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
+ - derni&egrave;re mise à jour: 24 ao&ucirc;t 2018</p>
 </footer>
 
 </body>
