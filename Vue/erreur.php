@@ -20,27 +20,26 @@ default:
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
-	<link rel="stylesheet" href="Vue/commun.css" />
+	<link rel="stylesheet" href="commun.css" />
 	<title>Les Dossiers techniques de ChristopHe</title>
 </head>
 
 <body>
 
 <header>
-<div id="logo"><?php echo'<img src="Vue/images/logo.png" alt="logo">'; ?></div>
+<div id="logo"><?php echo'<img src="images/logo.png" alt="logo">'; ?></div>
 <div id="titre"><p class="font-effect-outline">ERREUR <?php echo $code; ?></p></div>
 </header>
 
 <section>
 <?php
 echo '<p>', $message, ' !</p>', "\n";
-echo '<a href="index.php">Retour au sommaire</a> ou <a href="javascript:history.back()">Page pr&eacute;c&eacute;dente</a>';
+echo '<a href="../index.php">Retour au sommaire</a> ou <a href="javascript:history.back()">Page pr&eacute;c&eacute;dente</a>';
 ?>
 </section>
 
 <footer>
-<p>Site optimis&eacute; pour <img src="Vue/images/chrome.png" alt="Chrome"> et <img src="Vue/images/firefox.png" alt="Firefox">
- - derni&egrave;re mise à jour: 24 ao&ucirc;t 2018</p>
+<?php include 'pied2page2.php'; ?>
 </footer>
 
 </body>

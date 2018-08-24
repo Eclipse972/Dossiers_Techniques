@@ -1,6 +1,6 @@
-ErrorDocument 403 http://dossiers.techniques.free.fr/erreur.php?code=403
-ErrorDocument 404 http://dossiers.techniques.free.fr/erreur.php?code=404
-ErrorDocument 500 http://dossiers.techniques.free.fr/erreur.php?code=500
+ErrorDocument 403 http://dossiers.techniques.free.fr/Vue/erreur.php?code=403
+ErrorDocument 404 http://dossiers.techniques.free.fr/Vue/erreur.php?code=404
+ErrorDocument 500 http://dossiers.techniques.free.fr/Vue/erreur.php?code=500
 
 <IfDefine Free>
 php56 1
