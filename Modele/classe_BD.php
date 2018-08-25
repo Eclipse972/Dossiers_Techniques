@@ -3,9 +3,9 @@ class base2donnees {
 private $resultat;
 private $BD; // PDO initialisé dans connexion.php
 
-public function __construct($dossier = '') { // constructeur
+public function __construct() { // constructeur
 	try	{// On se connecte à MySQL grâce au script non suivi par git
-		include (($dossier != '') ? $dossier.'/' : '').'connexion.php'; // la config free ne permet pas d'adressage absolu
+		include 'connexion.php'; // la config free ne permet pas d'adressage absolu
 	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe'); 
 	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
