@@ -208,20 +208,7 @@
 </html>
 </richcontent>
 <node TEXT="capacit&#xe9; 10Go" ID="ID_119" CREATED="1527579372171" MODIFIED="1527836245079" STYLE="fork"/>
-<node TEXT="php 4.4.3 obsol&#xe8;te" ID="ID_116" CREATED="1527579372171" MODIFIED="1527836514739" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      impossible de changer de version mlgr&#233; tous mes effortss.
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
+<node TEXT="php 5.6.8" ID="ID_116" CREATED="1527579372171" MODIFIED="1535364899849" STYLE="fork"/>
 <node TEXT="les sessions" ID="ID_162" CREATED="1527579372171" MODIFIED="1527837659866" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -411,7 +398,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
@@ -660,7 +646,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
 
@@ -765,26 +750,6 @@
                 </html>
 </richcontent>
 <edge WIDTH="2"/>
-<node TEXT="mes_classes.php" ID="ID_1299580492" CREATED="1527838445890" MODIFIED="1528718497715" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Ce sript sert &#224; t&#233;l&#233;charger tous les autres. Ce qui permet de mettre a jour sans rechercher alilleurs dans les dossiers.
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Tout ajout ou suppression de classes doit &#234;tre impl&#233;ment&#233; ici
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 <node TEXT="classe_association.php" ID="ID_32" CREATED="1527579372186" MODIFIED="1527838989409" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -1060,6 +1025,28 @@
 <node TEXT="variable" ID="ID_319425506" CREATED="1534294617858" MODIFIED="1534294623564"/>
 <node TEXT="m&#xe9;thode" ID="ID_522029242" CREATED="1534294627240" MODIFIED="1534294631923"/>
 </node>
+<node TEXT="classe_ficher.php" ID="ID_418513089" CREATED="1535364248823" MODIFIED="1535364266103">
+<node TEXT="classe fichier" ID="ID_569327922" CREATED="1535364269049" MODIFIED="1535364282844">
+<node TEXT="variables" ID="ID_1800612520" CREATED="1535364316283" MODIFIED="1535364326916"/>
+<node TEXT="m&#xe9;thode" ID="ID_1286502688" CREATED="1535364331702" MODIFIED="1535364336666"/>
+</node>
+<node TEXT="classe image" ID="ID_1381731387" CREATED="1535364288063" MODIFIED="1535364374654"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      h&#233;rite de fichier
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="classe ZIP" ID="ID_782689274" CREATED="1535365346938" MODIFIED="1535365355806"/>
+</node>
 </node>
 <node TEXT="Controleur" POSITION="right" ID="ID_4" CREATED="1527579372186" MODIFIED="1528741666143" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1080,7 +1067,6 @@
                         </body>
                     </html>
 </richcontent>
-<node TEXT="d&#xe9;finitions des constantes" ID="ID_163" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 <node TEXT="scripts &#xe0; t&#xe9;l&#xe9;charger" ID="ID_164" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 <node TEXT="param&#xe8;tres" ID="ID_42" CREATED="1527579372218" MODIFIED="1530491404905" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1160,21 +1146,89 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="fonctions.php" ID="ID_80" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="caches" ID="ID_1054811111" CREATED="1535364672647" MODIFIED="1535364747233"><richcontent TYPE="NOTE">
 
 <html>
-                        <head/>
-                        <body>
-                            <p>Ce script contient quelques fonctions utiles</p>
-                        </body>
-                    </html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      toute les page des dossier technique ont un cache.
+    </p>
+    <p>
+      Remarque: Les pages d'erreur et le formulaire n'ont pas de cache.
+    </p>
+  </body>
+</html>
+
 </richcontent>
-<node TEXT="lienHTML" ID="ID_146" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="Extraire_param&#xe8;tre" ID="ID_147" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="fichier_existe" ID="ID_148" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="Dossier_Image" ID="ID_149" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="Dossier_Piece" ID="ID_150" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="Chiffre_en_lettres" ID="ID_151" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
+</node>
+<node TEXT="Modes" ID="ID_81610333" CREATED="1535363771256" MODIFIED="1535365079646"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Le site peut se placer suivant trois &#233;tats
+    </p>
+    <p>
+      pour chaque modeil y a un script du m&#234;me nom dans les dossiers Controleure et Vue
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="DT" ID="ID_721442587" CREATED="1535363883774" MODIFIED="1535364208107"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      affiche la liste des supports et affiche les pages du support s&#233;lectionn&#233;.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="formulaire" ID="ID_47749969" CREATED="1535363900709" MODIFIED="1535364128241"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Les visiteur peuvent me laisser des message. L'objet du message est pr&#233;d&#233;fini suivant l'endroit duquel on appelle le formilaire.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="erreur" ID="ID_1079251848" CREATED="1535363914909" MODIFIED="1535364156581"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      c'est ici que sont redirig&#233;es les erreur serveur gr&#226;ce &#224; .htaccess
+    </p>
+    <p>
+      toute bidouille de l'URL doit renvoyer vers cette page
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 <node TEXT="page d&apos;administration &#xe0; venir" ID="ID_52" CREATED="1527579372218" MODIFIED="1527579372218" BACKGROUND_COLOR="#ea9999" STYLE="bubble">
 <node TEXT="contr&#xf4;le de l&apos;int&#xe9;grit&#xe9; d&apos;u support" ID="ID_1280660387" CREATED="1530657545035" MODIFIED="1530657571461"/>
