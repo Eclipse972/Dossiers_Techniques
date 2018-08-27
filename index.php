@@ -41,15 +41,15 @@ include 'Controleur/'.$MODE.'.php';
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
 	<link rel="stylesheet" href="Vue/commun.css" />
-	<link rel="stylesheet" href="Vue/<?php echo $CONFIG['css']; ?>.css" />
+	<link rel="stylesheet" href="Vue/<?=$CONFIG['css']?>.css" />
 	<title>Les Dossiers techniques de ChristopHe</title>
 </head>
 
 <body>
 
 <header>
-	<div id="logo"><?php echo $CONFIG['logo']; ?></div>
-	<div id="titre"><p class="font-effect-outline"><?php echo $CONFIG['titre']; ?></p></div>
+	<div id="logo"><?=$CONFIG['logo']; ?></div>
+	<div id="titre"><p class="font-effect-outline"><?=$CONFIG['titre']?></p></div>
 </header>
 
 <?php
