@@ -5,7 +5,7 @@
 
 <section>
 <?php
-	$T_instruction = $_BD->Parametres_script($_SESSION->ID(), $_SESSION->Item(), $_SESSION->Sous_item()); // tableau dans lequel est stocké le script avec ses paramètres
+	$T_instruction = $_SESSION->Parametres_script(); // tableau dans lequel spnt stocké les paramètres
 	include $_SESSION->Script();
 ?>
 </section>
