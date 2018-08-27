@@ -54,7 +54,7 @@ include 'Controleur/'.$MODE.'.php';
 
 <?php
 if (isset($CONFIG['cache']))
-	Gérer_cache($CONFIG['cache'], 2, $CONFIG['page']); // durée de vie en heure. Mettre à zéro lorsque j'interviens sur le site
+	Gérer_cache($CONFIG['cache'], 0, $CONFIG['page']); // durée de vie en heure. Mettre à zéro lorsque j'interviens sur le site
 else include 'Vue/'.$CONFIG['page'].'.php';
 ?>
 <footer>
