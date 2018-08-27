@@ -8,25 +8,31 @@ $LISTE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62
  */
 
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	return '<a href="index.php'.Creer_parametre($support, $item, $sous_item).'">'.$texte.'</a>';
+	return '<a href="?p='.Creer_parametre($support, $item, $sous_item).'">'.$texte.'</a>';
 }
 
 function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
 
-function Extraire_parametre(&$id, &$item, &$sous_item) { // passage d'argumentS par référence
-	global $LISTE;
-	$param = substr((string) $_GET["p"],0,3);	// le paramètre est converti en nombre chaîne de 3 caractères maxi
-	$id			= (isset($param[0])) ? strpos($LISTE, $param[0]) : -1; //  aucun support a comme identifiant -1 => liste des supports
-	$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : 1;
-	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : 0;
+function Lien_formulaire($support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
+	return '<a href="?f='.Creer_parametre($support, $item, $sous_item).'">Me contacter</a>';
 }
 
-function Creer_parametre($support, $item, $sous_item) {
+// Lecture des paramètres
+function Lire_parametre($nom, &$id, &$item, &$sous_item, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
 	global $LISTE;
-	$parametre = '?p='.$LISTE[(int)$support];
-	if (isset($item)) {
-		$parametre .= $LISTE[(int)$item];
-		if (isset($sous_item))	$parametre .= $LISTE[(int)$sous_item];
+	$param = substr((string) $_GET[$nom],0,3);	// le paramètre est converti en nombre chaîne de 3 caractères maxi
+	$id			= (isset($param[0])) ? strpos($LISTE, $param[0]) : $defaut_id; //  aucun support a comme identifiant -1 => liste des supports
+	$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : $defaut_item;
+	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : $defaut_sous_item;
+}
+
+// Ecriture des paramètres
+function Creer_parametre($param1, $param2, $param3) {
+	global $LISTE;
+	$parametre = $LISTE[(int)$param1];
+	if (isset($param2)) {
+		$parametre .= $LISTE[(int)$param2];
+		if (isset($param3))	$parametre .= $LISTE[(int)$param3];
 	}
 	return $parametre;
 }
