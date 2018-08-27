@@ -147,6 +147,9 @@ $menu = new Menu($this->id, $this->item, $this->sous_item, $this->BD); // créat
 return $menu->Code();
 }
 
+public function Nomenclature() {
+	return $this->BD->Nomenclature($this->id);
+}
 public function Script() { // renvoi le script à exécuter
 $script = $this->BD->Script($this->id, $this->item, $this->sous_item);
 // détermination du script à inclure
@@ -156,6 +159,10 @@ elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
 	return'Vue/'.$script;
 else
 	return 'Vue/oups.php'; // si le script n'existe nulle part ...
+}
+
+public function Parametres_script() { // renvoi la liste des paramètres du script à exécuter
+return $this->BD->Parametres_script($this->id, $this->item, $this->sous_item);
 }
 
 public function Insérer_image($image, $alt, $supplement = '') { // affiche une image du support courant.

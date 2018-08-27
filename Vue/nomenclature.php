@@ -15,7 +15,7 @@
 
 <tbody>
 <?php
-$nomenclature = $_BD->Nomenclature($_SESSION->ID());
+$nomenclature = $_SESSION->Nomenclature();
 if (isset($nomenclature))
 	foreach ($nomenclature as $piece) echo $piece->Code();
 else trigger_error('Nomenclature inexistante', E_USER_WARNING);
