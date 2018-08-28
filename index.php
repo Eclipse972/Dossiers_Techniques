@@ -33,7 +33,7 @@ include 'Controleur/'.$MODE.'.php';
  */
  $CONFIG = Configurer($_BD);
  if (($MODE == 'DT') || ($MODE == 'formulaire'))
-	$_SESSION = $CONFIG['support'];
+	$_SESSION['support'] = $CONFIG['support'];
 ?>
 <!doctype html>
 <html lang="fr">

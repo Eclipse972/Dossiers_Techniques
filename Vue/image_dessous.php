@@ -1,2 +1,2 @@
 <?php 
-echo $_SESSION->Générer_page_image($T_instruction);
+echo $_SESSION['support']->Générer_page_image($T_instruction);

@@ -2,8 +2,8 @@
 <?php // le pied de page utilise un lien paramétré
 if ($MODE == 'DT') {
 	echo ' - ';
-	if (isset($_SESSION))
-		echo Lien_formulaire($_SESSION->ID()+1, $_SESSION->Item(), $_SESSION->Sous_item());
+	if (isset($_SESSION['support']))
+		echo Lien_formulaire($_SESSION['support']->ID()+1, $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
 	else
 		echo Lien_formulaire(0);
 	}
