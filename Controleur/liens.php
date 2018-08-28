@@ -18,12 +18,13 @@ function Lien_formulaire($support, $item = null, $sous_item = null) { // l'exist
 }
 
 // Lecture des paramètres
-function Lire_parametre($nom, &$id, &$item, &$sous_item, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
+function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
 	global $LISTE;
 	$param = substr((string) $_GET[$nom],0,3);	// le paramètre est converti en nombre chaîne de 3 caractères maxi
 	$id			= (isset($param[0])) ? strpos($LISTE, $param[0]) : $defaut_id; //  aucun support a comme identifiant -1 => liste des supports
 	$item		= (isset($param[1])) ? strpos($LISTE, $param[1]) : $defaut_item;
 	$sous_item	= (isset($param[2])) ? strpos($LISTE, $param[2]) : $defaut_sous_item;
+	return [$id, $item, $sous_item];
 }
 
 // Ecriture des paramètres

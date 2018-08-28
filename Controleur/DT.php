@@ -1,6 +1,6 @@
 <?php // Controleur dossier technique
 function Configurer($bd) {
-Lire_parametre("p", $id, $item, $sous_item, -1, 1);
+list($id, $item, $sous_item) = Lire_parametre("p", -1, 1);
 $support = ($bd->Support_existe($id)) ? new Support($id, $bd) : null; // création du support s'il existe
 // les scénari possibles
 if (!isset($support)) { // page d'index

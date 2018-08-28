@@ -1,6 +1,6 @@
 <?php // controleur du formulaire
 function Configurer($bd) { // renvoie l'objet du message du formulaire
-Lire_parametre("f", $id, $item, $sous_item, 0, 1);
+list($id, $item, $sous_item) = Lire_parametre("f", 0, 1);
 if ($id == 0)
 	$objet = 'Exemple: &agrave; propos de la liste de supports';
 else {
