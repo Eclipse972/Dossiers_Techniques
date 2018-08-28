@@ -6,7 +6,7 @@ private $BD; // PDO initialisé dans connexion.php
 public function __construct() { // constructeur
 	try	{// On se connecte à MySQL grâce au script non suivi par git
 		include 'connexion.php'; // la config free ne permet pas d'adressage absolu
-	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe'); 
+	} // contient: $this->BD = new PDO('mysql:host=hote;dbname=base;charset=utf8', 'identifiant', 'mot2passe');
 	catch (Exception $e)	{ // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
 	}
@@ -105,7 +105,7 @@ public function Parametres_script($support, $item, $sous_item) { // nom du scrip
 	return $T_parametres;
 }
 
-public function Liste_item($support, $item) {	
+public function Liste_item($support, $item) {
 	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
 	$tableau = null;
@@ -129,4 +129,13 @@ public function Liste_sous_item($support,$item,$sous_item) {
 	$this->Fermer();
 	return $tableau;
 }
+
+public function Texte_item($support,$item,$sous_item) { // renvoie le texte de l'item/sous-item
+	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+					[$support, $item, $sous_item]);
+	$réponse = $this->resultat->fetch();
+	$this->Fermer();
+	return $réponse['texte'];
+}
+
 }
