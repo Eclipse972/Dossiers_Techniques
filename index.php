@@ -14,7 +14,6 @@ require 'Controleur/cache.php';
 session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
-$_BD = new base2donnees();
 // détermination du mode pour le traitement et l'affichage
 if ((empty($_GET)) || (isset($_GET["p"])))
 	$MODE = 'DT';
@@ -31,10 +30,8 @@ include 'Controleur/'.$MODE.'.php';
  * cache: si non défini => pas de cache
  * paramètre supplémentaire dans ertain cas
  */
- $CONFIG = Configurer($_BD);
- if (($MODE == 'DT') || ($MODE == 'formulaire'))
-	$_SESSION['support'] = $CONFIG['support'];
-?>
+ $CONFIG = Configurer();
+ ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -48,7 +45,7 @@ include 'Controleur/'.$MODE.'.php';
 <body>
 
 <header>
-	<div id="logo"><?=$CONFIG['logo']; ?></div>
+	<div id="logo"><?=$CONFIG['logo']?></div>
 	<div id="titre"><p class="font-effect-outline"><?=$CONFIG['titre']?></p></div>
 </header>
 

@@ -11,12 +11,11 @@ private $dossier;
 private $image;
 private $zip;
 // les classes BD, Menu et Fichier sont nécessaires
-private $BD;
 
-public function __construct($id, $BD, $prefixe_dossier = '') { // Il faut vérifier avant que le support existe
+public function __construct($id) { // Il faut vérifier avant que le support existe
 $this->id = (int) $id;
-$this->BD = $BD;
-$ligne = $this->BD->Support($this->id); // demande les données brutes à la BD sous forme de tableau associatif
+$BD = new base2donnees();
+$ligne = $BD->Support($this->id); // demande les données brutes à la BD sous forme de tableau associatif
 if ($ligne != null) { // la ligne est non vide
 	$this->nom = $ligne['nom'];
 	$this->setArticles($ligne['article_ID']);
@@ -96,7 +95,8 @@ $this->zip = ($archive->Existe()) ? $archive : null;
 }
 
 public function setPosition($item, $sous_item) {
-if ($this->BD->Page_existe($this->id, $item, $sous_item)) {
+$BD = new base2donnees();
+if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
 	$this->item	 = $item; // on stocke dans le support
 	$this->sous_item = $sous_item;
 } else { 
@@ -107,10 +107,11 @@ if ($this->BD->Page_existe($this->id, $item, $sous_item)) {
 
 // Autres méthodes --------------------------------------------------------------------------------
 public function A_propos() { // le support crée le code mais ce n'est pas son rôle de l'afficher
+$BD = new base2donnees();
 $code = '<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
 if (isset($this->zip)) {
 	$code .= $this->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
-	$Liste = $this->BD->Description_maquette($this->id);
+	$Liste = $BD->Description_maquette($this->id);
 	switch(count($Liste)) {
 	case 0:
 		$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
@@ -125,7 +126,7 @@ if (isset($this->zip)) {
 	}
 } else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
 $code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
-$Liste = $this->BD->Lien_support($this->id);
+$Liste = $BD->Lien_support($this->id);
 switch(count($Liste)) {
 case 0:
 	$code .= '<p>Aucun pour le moment</p>';
@@ -143,15 +144,18 @@ return $code."\n";
 }
 
 public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
-$menu = new Menu($this->id, $this->item, $this->sous_item, $this->BD); // création du menu
+$menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
 return $menu->Code();
 }
 
 public function Nomenclature() {
-	return $this->BD->Nomenclature($this->id);
+	$BD = new base2donnees();
+	return $BD->Nomenclature($this->id);
 }
+
 public function Script() { // renvoi le script à exécuter
-$script = $this->BD->Script($this->id, $this->item, $this->sous_item);
+$BD = new base2donnees();
+$script = $BD->Script($this->id, $this->item, $this->sous_item);
 // détermination du script à inclure
 if (file_exists($this->dossier.$script)) // si le script dans le dossier du support existe
 	return $this->dossier.$script;
@@ -162,7 +166,8 @@ else
 }
 
 public function Parametres_script() { // renvoi la liste des paramètres du script à exécuter
-return $this->BD->Parametres_script($this->id, $this->item, $this->sous_item);
+$BD = new base2donnees();
+return $BD->Parametres_script($this->id, $this->item, $this->sous_item);
 }
 
 public function Insérer_image($image, $alt, $supplement = '') { // affiche une image du support courant.

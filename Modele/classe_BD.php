@@ -1,5 +1,5 @@
 <?php
-class base2donnees {
+class base2donnees { // chaque requête doit commencer par une nouvelle connexion. =< utilisation de new à chaque appael
 private $resultat;
 private $BD; // PDO initialisé dans connexion.php
 
