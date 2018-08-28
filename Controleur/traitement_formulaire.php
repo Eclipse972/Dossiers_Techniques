@@ -24,6 +24,6 @@ if (!$erreur) {
 		if (!isset($T[$clé])) $message .= $clé.' est manquant'."\n";
 	
 }
-return $T_réponse;
+return $T_réponse; // en cas de manque, on récupère les réponses déjà fournies pour rempli les champ du formuaire. Dans la variable SESSION?
 }
 
