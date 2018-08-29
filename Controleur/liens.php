@@ -13,9 +13,7 @@ function Lien($texte, $support, $item = null, $sous_item = null) { // l'existenc
 
 function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
 
-function Lien_formulaire($support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	return '<a href="?f='.Creer_parametre($support, $item, $sous_item).'">Me contacter</a>';
-}
+function Lien_formulaire() { return '<a href="?f=1">Me contacter</a>'; }
 
 // Lecture des paramètres
 function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {

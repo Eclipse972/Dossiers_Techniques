@@ -9,6 +9,6 @@
 <!-- CAPTCHA à venir-->
 	<p><input type="submit" value="Envoyer" /></p>
 </form>
-<a href="javascript:history.back()">Page pr&eacute;c&eacute;dente</a>
+<a href="?p=<?=Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item())?>">Page pr&eacute;c&eacute;dente</a>
 </div>
 </section>
