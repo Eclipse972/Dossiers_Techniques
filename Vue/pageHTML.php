@@ -1,6 +1,6 @@
 <div id="corps">
 <nav>
-<?php	echo $_SESSION['support']->Generer_menu();	?>
+<?php	echo $_SESSION['support']->Generer_menu(); ?>
 </nav>
 
 <section>

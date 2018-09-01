@@ -30,8 +30,8 @@ include 'Controleur/'.$MODE.'.php';
  * cache: si non défini => pas de cache
  * paramètre supplémentaire dans ertain cas
  */
- $CONFIG = Configurer();
- ?>
+$CONFIG = Configurer();
+?>
 <!doctype html>
 <html lang="fr">
 <head>

@@ -1,14 +1,14 @@
 <section>
 <div style="width:600px; margin:auto;">
 <h1>En construction</h1>
-	<orm method="post" action="Controleur/traitement_formulaire.php">
-	<p>Nom		<input type="text" name="nom"		size="56" /></p>
-	<p>Courriel	<input type="text" name="courriel"	size="60" /></p>
-	<p>Objet	<input type="text" name="objet"		size="64" placeholder="<?=$CONFIG['objet']?>"/></p>
-	<p>Message :<br><textarea name="message" rows="8" cols="88"></textarea></p>
+	<form method="post" action="Controleur/traitement_formulaire.php">
+	<p>Nom		<br><input type="text" name="nom"		style="width: 100%;" value="<?=$_SESSION['nom']?>" /></p>
+	<p>Courriel	<br><input type="text" name="courriel"	style="width: 100%;" value="<?=$_SESSION['courriel']?>" /></p>
+	<p>Objet	<br><input type="text" name="objet"		style="width: 100%;" placeholder="<?=$CONFIG['objet']?>"/></p>
+	<p>Message :</p><textarea name="message" rows="8" style="width: 100%;"></textarea>
 <!-- CAPTCHA à venir-->
-	<p><input type="submit" value="Envoyer" /></p>
+	<p style="text-align: center;"><input type="submit" value="Envoyer" /></p>
 </form>
-<a href="?p=<?=Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item())?>">Page pr&eacute;c&eacute;dente</a>
+<a href="?p=<?=Creer_parametre($SUPPORT->ID(), $SUPPORT->Item(), $SUPPORT->Sous_item())?>">Page pr&eacute;c&eacute;dente</a>
 </div>
 </section>
