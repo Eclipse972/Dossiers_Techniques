@@ -11,6 +11,5 @@
 
 <h1>Si le cric ne se soul&egrave;ve pas totalement. </h1>
 <p>V&eacute;rifiez les &eacute;l&eacute;ments suivants : Le joint d’&eacute;tanch&eacute;it&eacute; du piston de pompage est peut-être us&eacute;.</p>
-La charge est trop lourde. La soupape de surcharge est r&eacute;gl&eacute;e en usine en fonction de la puissance nominale et ce r&eacute;glage ne devront pas être modifi&eacute;.
-
-- Veillez à ce que le cric ne grippe pas ce qui provoquerait une perte de charge.
+<p>La charge est trop lourde. La soupape de surcharge est r&eacute;gl&eacute;e en usine en fonction de la puissance nominale et ce r&eacute;glage ne devront pas être modifi&eacute;.</p>
+<p>- Veillez à ce que le cric ne grippe pas ce qui provoquerait une perte de charge.</p>
