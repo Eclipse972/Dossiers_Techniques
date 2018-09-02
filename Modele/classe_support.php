@@ -159,8 +159,8 @@ $script = $BD->Script($this->id, $this->item, $this->sous_item);
 // détermination du script à inclure
 if (file_exists($this->dossier.$script)) // si le script dans le dossier du support existe
 	return $this->dossier.$script;
-elseif (file_exists('Vue/'.$script)) // sinon c'est un mot clé
-	return'Vue/'.$script;
+elseif (file_exists('Vue/mots-cles/'.$script)) // sinon c'est un mot clé
+	return'Vue/mots-cles/'.$script;
 else
 	return 'Vue/oups.php'; // si le script n'existe nulle part ...
 }
