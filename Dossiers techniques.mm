@@ -628,7 +628,7 @@
 </node>
 </node>
 </node>
-<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1534956119620"><richcontent TYPE="NOTE">
+<node TEXT="les mots cl&#xe9;s" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1535925565023"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -639,13 +639,14 @@
       Ce sont des scripts utilisables par tous les supports qui en font la demande.
     </p>
     <p>
-      
+      Ces scrips sot sauvegard&#233; dans un r&#233;petoire d&#233;di&#233;
     </p>
     <p>
       Chaque script est associ&#233; &#224; 4 param&#232;tres stock&#233; dans la BD. Si l'appel utilise moins de 4 param&#232;tres les derniers sont vides et ignor&#233;s.
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
 
@@ -1042,7 +1043,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="classe ZIP" ID="ID_782689274" CREATED="1535365346938" MODIFIED="1535365355806"/>
@@ -1161,7 +1161,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Modes" ID="ID_81610333" CREATED="1535363771256" MODIFIED="1535365079646"><richcontent TYPE="NOTE">
@@ -1179,7 +1178,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="DT" ID="ID_721442587" CREATED="1535363883774" MODIFIED="1535364208107"><richcontent TYPE="NOTE">
 
@@ -1193,7 +1191,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="formulaire" ID="ID_47749969" CREATED="1535363900709" MODIFIED="1535364128241"><richcontent TYPE="NOTE">
@@ -1208,7 +1205,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="erreur" ID="ID_1079251848" CREATED="1535363914909" MODIFIED="1535364156581"><richcontent TYPE="NOTE">
@@ -1226,7 +1222,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>

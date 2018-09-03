@@ -4,7 +4,7 @@ $BD = new base2donnees();
 list($id, $item, $sous_item) = Lire_parametre("p", -1, 1);
 // les scénari possibles
 if ($BD->Support_existe($id)) { // le support demandé existe
-	if (!isset($support)) {// si le support en cours n'existe pas
+	if (!isset($_SESSION['support'])) {// si le support en cours n'existe pas
 		$_SESSION['support'] = new Support($id); // alors on le crée
 	}
 	$_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
