@@ -1,12 +1,14 @@
 <?php // controleur du formulaire
 function Configurer() { // renvoie l'objet du message du formulaire
 $BD = new base2donnees();
-if (isset($_SESSION['support']))
-	if ($_SESSION['support']->ID() > 0)
-		$objet = 'la page &laquo;'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
+if (isset($_SESSION['support'])) {
+	$oSupport = unserialize($_SESSION['support']);
+	if ($oSupport->ID() > 0)
+		$objet = 'la page &laquo;'.$BD->Texte_item($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'&raquo; '.$oSupport->Du_support();
 	else
 		$objet = 'l&apos;archive ZIP';
-else	$objet = 'la liste de supports';
+} else	$objet = 'la liste de supports';
+
 return ['css'	=> 'style_page',
 		'logo'	=> '<img src="Vue/images/logo.png" alt="logo">',
 		'titre'	=> 'Formulaire de contact',
