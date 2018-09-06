@@ -1,5 +1,5 @@
 <?php // controleur erreur
-function Configurer($bd) {
+function Configurer() {
 $code = (int) $_GET['erreur'];
 switch ($code) { // voir .htaccess
 case 403:
