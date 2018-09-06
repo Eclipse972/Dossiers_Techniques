@@ -35,3 +35,10 @@ function Creer_parametre($param1, $param2, $param3) {
 	}
 	return $parametre;
 }
+
+function Parametres_support_courant() {
+	if (isset($_SESSION['support'])) {
+		$oSupport = unserialize($_SESSION['support']);
+		return '?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
+	} else return 'index.php';
+}

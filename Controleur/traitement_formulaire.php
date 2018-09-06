@@ -18,33 +18,20 @@ if (!empty($_POST))
 			// dans le futur: stockage des infos sur le visiteur
 }
 
-$message_erreur = '';
 if (strlen($T_réponse['nom']) > 0)
 	$_SESSION['nom'] = $T_réponse['nom']; // mémorisation du nom
-else $message_erreur .= 'nom obligatoire'."\n";
 
 if (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $T_réponse['courriel']))
 	$_SESSION['courriel'] = $T_réponse['courriel']; // mémorisation du courriel
-else $message_erreur .= 'courriel incorrect'."/n";
-
-if (strlen($T_réponse['objet']) == 0)
-	$message_erreur .= 'objet non vide pour obtenir une réponse'."\n";
-
-if (strlen($T_réponse['message']) == 0)
-	$message_erreur .= 'message vide'."\n";
-
-$_SESSION['erreur formulaire'] = $message_erreur;
 
 return [$T_réponse['objet'], $T_réponse['message']]; // en cas de manque, on récupère les réponses déjà fournies pour rempli les champ du formuaire. Dans la variable SESSION?
 }
 
 list($objet, $message) = Récupérer_paramètres();
 
-if (isset($_SESSION['erreur formulaire']))
-	$parametre = "?f=1";
-elseif (isset($_SESSION['ID']))
-	$parametre = "?p=".Creer_parametre($_SESSION['ID'], $_SESSION['item'], $_SESSION['sous-item']);
-else $parametre = '';
+if ((!isset($_SESSION['nom'])) || (!isset($_SESSION['courriel'])) || (strlen($objet) == 0) || (strlen($message) == 0))
+	$parametre = "index.php?f=1";
+else $parametre = Parametres_support_courant();
 
-header("Location: http://dossiers.techniques.free.fr/index.php".$parametre);
+header("Location: http://dossiers.techniques.free.fr/".$parametre);
 exit;
