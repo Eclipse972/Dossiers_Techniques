@@ -11,7 +11,7 @@ if (isset($_SESSION['support'])) {
 
 return ['css'	=> 'style_page',
 		'logo'	=> '<img src="Vue/images/logo.png" alt="logo">',
-		'titre'	=> 'Formulaire de contact',
+		'titre'	=> 'Formulaire de contact (en construction)',
 		'page'	=> 'formulaire',
 		'objet' => 'Exemple: &agrave; propos de '.$objet];
 }

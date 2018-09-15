@@ -15,3 +15,25 @@ section img { /* formatage affichage */
 	padding: 2px;
 	margin: 2px;
 }
+
+/* formulaire de contact */
+#formulaire {
+	width:600px;
+	margin:auto;
+}
+
+#formulaire input, #formulaire textarea { width:100%; }
+
+#validation {
+	width:100%;
+	background-color:var(--couleur1);
+	padding:5px;
+	margin-bottom:5px
+}
+
+#validation li { font-size:14px; }
+
+form p, form ul {
+	margin-top:0;
+	margin-bottom:9px;
+}
