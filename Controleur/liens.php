@@ -13,8 +13,6 @@ function Lien($texte, $support, $item = null, $sous_item = null) { // l'existenc
 
 function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
 
-function Lien_formulaire() { return '<a href="?f=1">Me contacter</a>'; }
-
 // Lecture des paramètres
 function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
 	global $LISTE;
