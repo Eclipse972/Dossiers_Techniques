@@ -15,7 +15,7 @@ body {
 }
 
 header, section, footer, #corps { 
-	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 5px);
+	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 8px);
 	margin:auto;
 }
 /* l'en-tete ---------------------------------------------------------------------------------- */
