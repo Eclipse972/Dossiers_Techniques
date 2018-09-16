@@ -22,7 +22,7 @@ section img { /* formatage affichage */
 	margin:auto;
 }
 
-form p, form ol {
+form p, form ul {
 	margin-top:0;
 	margin-bottom:9px;
 }

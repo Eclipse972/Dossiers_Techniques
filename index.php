@@ -8,6 +8,7 @@ require 'Modele/classe_BD.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_support.php';
+require 'Modele/classe_valideur.php';
 require 'Controleur/liens.php';
 require 'Controleur/cache.php';
 

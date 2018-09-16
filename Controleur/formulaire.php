@@ -1,6 +1,9 @@
 <?php // controleur du formulaire
-function Configurer() { // renvoie l'objet du message du formulaire
+function Configurer() { // détermine l'objet par défaut du message du formulaire
 $BD = new base2donnees();
+$valideur = new Valideur();
+$_SESSION['validation'] = serialize($valideur);
+
 if (isset($_SESSION['support'])) {
 	$oSupport = unserialize($_SESSION['support']);
 	if ($oSupport->ID() > 0)

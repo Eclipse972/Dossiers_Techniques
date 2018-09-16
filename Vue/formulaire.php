@@ -6,13 +6,12 @@
 	<p>Message	<br><textarea name="message" rows="6"></textarea></p>
 	<div id=validation>
 		<p>Validation du formulaire</p>
-		<ol>
-			<li>premier caract&egrave;re du nom</li>
-			<li>deuxi&egrave;me caract&egrave;re: de votre courriel</li>
-			<li>avant dernier caract&egrave;re: de l&apos;objet</li>
-			<li>dernier caract&egrave;re: du message</li>
-			<li>troisi&egrave;me caract&egrave;re: du code de validation</li>
-		</ol>
+		<ul>
+<?php
+			$valideur = unserialize($_SESSION['validation']);
+			$valideur->Affiche();
+?>
+		</ul>
 		<p>Code	<input type="text" name="code" style="width:100px;" /></p>
 	</div>
 	<p style="text-align:center;">

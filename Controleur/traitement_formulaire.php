@@ -16,7 +16,7 @@ if (!empty($_POST))
 			$T_réponse[$clé] = strip_tags($valeur); // on nettoie la valeur
 		// else // paramètre non autorisé => tentative de détournement du formulaire
 			// dans le futur: stockage des infos sur le visiteur
-}
+	}
 
 if (strlen($T_réponse['nom']) > 0)
 	$_SESSION['nom'] = $T_réponse['nom']; // mémorisation du nom
