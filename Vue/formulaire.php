@@ -8,8 +8,8 @@
 		<p>Validation du formulaire</p>
 		<ul>
 <?php
-			$valideur = unserialize($_SESSION['validation']);
-			$valideur->Affiche();
+		$valideur = unserialize($_SESSION['validation']);
+		$valideur->Affiche();
 ?>
 		</ul>
 		<p>Code	<input type="text" name="code" style="width:100px;" /></p>
