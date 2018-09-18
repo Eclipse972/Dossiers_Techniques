@@ -1,9 +1,9 @@
 <section>
 <form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
-	<p>Nom		<br><input type="text" name="nom"		value="<?=$_SESSION['nom']?>" /></p>
-	<p>Courriel	<br><input type="text" name="courriel"	value="<?=$_SESSION['courriel']?>" /></p>
-	<p>Objet	<br><input type="text" name="objet"		placeholder="<?=$CONFIG['objet']?>" /></p>
-	<p>Message	<br><textarea name="message" rows="6"></textarea></p>
+	<p>Nom : <input type="text" name="nom"		value="<?=$_SESSION['nom']?>" /></p>
+	<p>Courriel : <input type="text" name="courriel"	value="<?=$_SESSION['courriel']?>" /></p>
+	<p>Objet : <input type="text" name="objet"		placeholder="<?=$CONFIG['objet']?>" /></p>
+	<p>Message : <textarea name="message" rows="6"></textarea></p>
 	<div id=validation>
 		<p>Validation du formulaire</p>
 		<ul>

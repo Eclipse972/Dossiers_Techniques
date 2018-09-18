@@ -15,11 +15,16 @@ public function __construct() {
 
 public function OK($objet, $message, $code_visiteur) { // vérifie si la réponse du visiteur est bonne
 	// nom et courriel stockés dans SESSION
+	
+	// génération du code issu des instructions. La structure est analogue à celle de la fonction affiche
+	
+	$code = 'merde'; // pour le site fonctionne malgré que le valideur soit en construction
+	return ($code == $code_visiteur);
 }
 
 public function Affiche() { // affiche les instructions du code de validation
 	$champs		= array('de votre nom', 'de votre courriel', 'de l&apos;objet', 'du message');
-	$position	= array('premier', 'deuxi&egrave;me', 'avant dernier', 'dernier');
+	$position	= array('premier', 'deuxi&egrave;me', 'avant dernier', 'dernier'); // => il faut au moins deux caratères pour le champ
 	for($i=0; $i<4; $i++) { // affichage i-ème instruction
 		echo "\t\t\t", '<li>', $position[$this->T_choix[$i]], ' caract&egrave;re ', $champs[$this->T_id_champ[$i]], '</li>', "\n";
 	}
