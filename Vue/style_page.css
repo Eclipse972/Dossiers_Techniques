@@ -29,9 +29,7 @@ form p, form ul {
 
 form p { text-align:right; }
 
-input, textarea {
-	width:490px;
-}
+input, textarea { width:490px; }
 
 textarea { vertical-align:top; }
 
