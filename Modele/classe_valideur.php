@@ -14,11 +14,21 @@ public function __construct() {
 }
 
 public function OK($objet, $message, $code_visiteur) { // vérifie si la réponse du visiteur est bonne
-	// nom et courriel stockés dans SESSION
+	$champs	= array('nom', 'courriel', 'objet', 'message');
+	$réponse = array(
+		'nom'		=> $_SESSION['nom'],
+		'courriel'	=> $_SESSION['courriel'],
+		'objet'		=> $objet,
+		'message'	=> $message);
+	$position = array(0, 1, -2, -1);
 	
-	// génération du code issu des instructions. La structure est analogue à celle de la fonction affiche
-	
-	$code = 'merde'; // pour le site fonctionne malgré que le valideur soit en construction
+	$code = ''; // construction du code à trouver issu des instructions.
+	for($i=0; $i<4; $i++) { // i-ème instruction
+		$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1);
+	}
+	$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
+
+	$code = 'merde'; // pour que le site fonctionne malgré que le valideur soit en construction
 	return ($code == $code_visiteur);
 }
 
