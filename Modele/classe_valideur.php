@@ -27,8 +27,6 @@ public function OK($objet, $message, $code_visiteur) { // vérifie si la répons
 		$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1);
 	}
 	$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
-
-	$code = 'merde'; // pour que le site fonctionne malgré que le valideur soit en construction
 	return ($code == $code_visiteur);
 }
 
