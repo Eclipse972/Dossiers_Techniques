@@ -16,7 +16,7 @@ if (!empty($_POST))
 		}
 	}
 
-if (strlen($T_réponse['nom']) > 1) // le nom doit comporter deux caractères à cause du code de validation
+if (strlen($T_réponse['nom']) > 1) // le nom doit comporter au moins deux caractères à cause du code de validation
 	$_SESSION['nom'] = $T_réponse['nom']; // mémorisation du nom
 
 if (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $T_réponse['courriel']))
