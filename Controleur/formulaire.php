@@ -3,6 +3,7 @@ function Configurer() { // détermine l'objet par défaut du message du formulai
 $BD = new base2donnees();
 $valideur = new Valideur();
 $_SESSION['validation'] = serialize($valideur);
+$_SESSION['temps'] = time();
 
 if (isset($_SESSION['support'])) {
 	$oSupport = unserialize($_SESSION['support']);
