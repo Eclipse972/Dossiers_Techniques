@@ -15,7 +15,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 // détermination du mode pour le traitement et l'affichage
-if ((empty($_GET)) || (isset($_GET["p"])))
+if ((empty($_GET)) || (preg_match("#^[a-zA-Z0-9]{1,3}$#", $_GET["p"])))//(isset($_GET["p"])))
 	$MODE = 'DT';
 elseif (isset($_GET["f"]))
 	$MODE = 'formulaire';
