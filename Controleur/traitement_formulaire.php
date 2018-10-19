@@ -3,35 +3,49 @@ session_start();
 // ce script est exécuté independament de index.php donc il faut inclure les classes utiles
 include "liens.php";
 include "../Modele/classe_support.php";
+include "../Modele/classe_valideur.php";
 
 function Récupérer_paramètres() { // reccueillir les données brutes et les filtrer
-$T_autorisé = [ 'nom' => 0,
-				'courriel' => 0,
-				'objet' => 0,
-				'message' => 0];
 $T_réponse = null;
+$spam_détecté = false;
 if (!empty($_POST))
-	foreach ($_POST as $clé => $valeur) { // on formate tous les données du tableau $_POST
-		if (isset($T_autorisé[$clé])) // clé autorisée ?
+	foreach ($_POST as $clé => $valeur) // examen du tableau $_POST
+		if (in_array($clé, array('nom', 'courriel', 'objet', 'message', 'code', 'age'))) // clé autorisée ?
 			$T_réponse[$clé] = strip_tags($valeur); // on nettoie la valeur
-		// else // paramètre non autorisé => tentative de détournement du formulaire
-			// dans le futur: stockage des infos sur le visiteur
+		else { // clé inconnue
+			$spam_détecté = true;
+			exit;
+		}
+
+// tentative de détournement du formulaire ou temps de remplissage trop court
+if (($spam_détecté) || (time() - $_SESSION['temps'] < 8)) {
+	// stockage des infos sur le visiteur
+	// envoi d'un email d'alerte
+	return; // sortie immédiate de la fonction sans renvoyer de résultat
+} else {	
+	if (strlen($T_réponse['nom']) > 1) // le nom doit comporter deux caractères à cause du code de validation
+		$_SESSION['nom'] = $T_réponse['nom']; // mémorisation du nom
+
+	if (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $T_réponse['courriel']))
+		$_SESSION['courriel'] = $T_réponse['courriel']; // mémorisation du courriel
+
+	return [$T_réponse['objet'], $T_réponse['message'], $T_réponse['code']]; 
+}
 }
 
-if (strlen($T_réponse['nom']) > 0)
-	$_SESSION['nom'] = $T_réponse['nom']; // mémorisation du nom
+list($objet, $message, $code) = Récupérer_paramètres();
 
-if (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $T_réponse['courriel']))
-	$_SESSION['courriel'] = $T_réponse['courriel']; // mémorisation du courriel
+$validation = unserialize($_SESSION['validation']);
 
-return [$T_réponse['objet'], $T_réponse['message']]; // en cas de manque, on récupère les réponses déjà fournies pour rempli les champ du formuaire. Dans la variable SESSION?
-}
-
-list($objet, $message) = Récupérer_paramètres();
-
-if ((!isset($_SESSION['nom'])) || (!isset($_SESSION['courriel'])) || (strlen($objet) == 0) || (strlen($message) == 0))
-	$parametre = "index.php?f=1";
-else $parametre = Parametres_support_courant();
+if ((isset($_SESSION['nom'])) && 
+	(isset($_SESSION['courriel'])) && 
+	(strlen($objet) > 1) && 
+	(strlen($message) > 1) && 
+	$validation->OK($objet, $message, $code))
+{	// enregistrement du message
+	
+	$parametre = Parametres_support_courant(); // retour sur la page précédant le formulaire
+} else $parametre = "index.php?f=1"; // retour au formulaire
 
 header("Location: http://dossiers.techniques.free.fr/".$parametre);
 exit;

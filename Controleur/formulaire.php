@@ -1,6 +1,10 @@
 <?php // controleur du formulaire
-function Configurer() { // renvoie l'objet du message du formulaire
+function Configurer() { // détermine l'objet par défaut du message du formulaire
 $BD = new base2donnees();
+$valideur = new Valideur();
+$_SESSION['validation'] = serialize($valideur);
+$_SESSION['temps'] = time();
+
 if (isset($_SESSION['support'])) {
 	$oSupport = unserialize($_SESSION['support']);
 	if ($oSupport->ID() > 0)
@@ -11,7 +15,7 @@ if (isset($_SESSION['support'])) {
 
 return ['css'	=> 'style_page',
 		'logo'	=> '<img src="Vue/images/logo.png" alt="logo">',
-		'titre'	=> 'Formulaire de contact',
+		'titre'	=> 'Formulaire de contact (en construction)',
 		'page'	=> 'formulaire',
 		'objet' => 'Exemple: &agrave; propos de '.$objet];
 }
