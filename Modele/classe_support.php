@@ -6,7 +6,12 @@ private $sous_item;	// sous-item actuel
 private $nom;
 private $du;
 private $le;
-private $pti_nom;
+private $pti_nom; /* C'est le nom par défaut de certains fichiers.
+le dessin d'ensemble.Ex dessin_cric
+la maquette numérique: cric.EASM
+l'image du support: cric.png
+l'archive zip de la maquette: cric.zip
+*/
 private $dossier;
 private $image;
 private $zip;
