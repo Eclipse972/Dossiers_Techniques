@@ -400,6 +400,210 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="formulaire de contact" ID="ID_1404661693" CREATED="1537648367925" MODIFIED="1537648388384">
+<node TEXT="les champs classique" ID="ID_1637791527" CREATED="1537648401712" MODIFIED="1537649184776"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      nom
+    </p>
+    <p>
+      courriel
+    </p>
+    <p>
+      titre
+    </p>
+    <p>
+      message
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="s&#xe9;curit&#xe9;" ID="ID_1703877930" CREATED="1537649188995" MODIFIED="1537649193961">
+<node TEXT="code de validation maison" ID="ID_96505665" CREATED="1537648429858" MODIFIED="1537649357586"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Je voulasi programmer quelque chose moi-m&#234;me. Sur le net j'ai vu qu'ion pouvait demander au visiteur de r&#233;soudre un probl&#232;me simple. Comme pourun captcha, il faut rentrer un code..
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Ce code est compos&#233; de 5 caract&#232;re issus des champs. Pour les quatre premers caracy&#232;re je demande une des lettres d'un champ.. Pour la lettre, 4 propositions sont propos&#233;es: premi&#232;re, deuxi&#232;me, avant derni&#232;re et derni&#232;re lettre du champ. Il est facile de rep&#233;rer ces quatre possiilit&#233;s dans un formulaire.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Remarque: la demande impose que chaque chmp soit compos&#233; de deux lettres minimum.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Le 5e caract&#232;re est une des lettre du code lui m&#234;me.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      exemple:
+    </p>
+    <p>
+      premier caract&#232;re du message
+    </p>
+    <p>
+      dernier caract&#232;re de l'objet
+    </p>
+    <p>
+      avant dernier caract&#232;re de votre nom
+    </p>
+    <p>
+      deuxi&#232;me caract&#232;re de votre courriel
+    </p>
+    <p>
+      troisi&#232;me caract&#232;re de ce code de validation
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Tant que les robots ne comprennent pas le Fran&#231;ais je suis &#224; l'abri
+    </p>
+    <p>
+      Si le code reboute le visiteur c'est qu'il n'avait pas vraiment envie de me contacter.
+    </p>
+    <p>
+      Du coup&#160;&#160;j'&#233;carte les robots non francophnes et les gens peu motiv&#233;s.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="temps de remplissage" ID="ID_253160943" CREATED="1537649198852" MODIFIED="1537649459867"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      L'id&#233;e est qu'un robot remplira un formulaire tr&#232;s rapidement. J'&#233;carte tous lesvisiteurs qui mettent moins de 8 secondes pour remplir le formulaire.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Les 8 secondes viennent de lla vieille pub ovomaltine.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="champ masqu&#xe9;" ID="ID_1901105970" CREATED="1537649467392" MODIFIED="1537649885775"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Si les deux premi&#232;re m&#233;thode ne suffisent pas j'impl&#233;menterai cette solution.
+    </p>
+    <p>
+      L'id&#233;e est que les robot remplissent tous les champ. Si le champ invisibles est rempli/modifi&#233;e c'et qu'un robot l'a fit.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="l&apos;existence de l&apos;email" ID="ID_1535150729" CREATED="1537649688972" MODIFIED="1537649859734"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Actuellement le site contr&#244;le que le format est correct. Par contre il ne v&#233;rifie pas si cette adresse existe r&#233;ellement.
+    </p>
+    <p>
+      Mes recherches sont en cours.
+    </p>
+    <p>
+      Une possibilt&#233; est d'nvoyer un couriel de confirmation de la boite mail avec un lien pour valider le messag. Du coup si pas de validation le message est d&#233;truit.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
+<node TEXT="o&#xf9; stocker les messsages ?" ID="ID_1791343103" CREATED="1537648442646" MODIFIED="1537649655087">
+<node TEXT="dans la base de donn&#xe9;es" ID="ID_1823079642" CREATED="1537649572024" MODIFIED="1537649680670"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cr&#233;atioj d'une table pour y socker les messsage
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="sous forme de couriel" ID="ID_92179716" CREATED="1537649586708" MODIFIED="1537649635243"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      free impose des condition pour utiliser la fonction mail de php
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
+</node>
+<node TEXT="Utilisation de la session" ID="ID_554361004" CREATED="1537650011860" MODIFIED="1537650021478">
+<node TEXT="stockage de l&apos;objet support par lin&#xe9;arisation" ID="ID_979403823" CREATED="1537650027497" MODIFIED="1537650046939"/>
+<node TEXT="sauvegarde du nom et du courriel du visiteur" ID="ID_1495644591" CREATED="1537650056770" MODIFIED="1537650166743"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      d&#232;s que le visiteur utilise le formulaire, ses nom et courriel sont sauvegard&#233;s. Il son automatiquement mis s'ilutilise une deuxi&#232;me fois le formuaire.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
 <node TEXT="Dans le futur" ID="ID_314" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
 <node TEXT="vid&#xe9;o dans un format libre" ID="ID_318" CREATED="1527579372171" MODIFIED="1532079038471" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -646,7 +850,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
 
