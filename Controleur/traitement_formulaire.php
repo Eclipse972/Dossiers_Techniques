@@ -33,6 +33,22 @@ if (($spam_détecté) || (time() - $_SESSION['temps'] < 8)) {
 }
 }
 
+function Envoyer_message($objet, $message) { // voir la fonction mailFree() dans test-mail.php situé à la racine
+	$destinataire = '<dossiers.techniques@free.fr>';
+	$additional_headers  = "From: formulaire$destinataire\r\n";
+	$additional_headers .= "MIME-Version: 1.0\r\n";
+	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+	$additional_headers .= "Reply-To: ".$_SESSION['courriel']."\r\n";
+	$additional_headers .= "Return-Path: $destinataire\r\n";
+	
+	$message .= "\n".'Message envoyé le '.date("l j F Y").' à '.date("H:i:s");
+	
+	$start_time = time();
+	$resultat=mail ( $destinataire , $objet, $message, $additional_headers);
+	$time= time()-$start_time;
+	return $resultat & ($time>1);
+}
+
 list($objet, $message, $code) = Récupérer_paramètres();
 
 $validation = unserialize($_SESSION['validation']);
@@ -43,9 +59,10 @@ if ((isset($_SESSION['nom'])) &&
 	(strlen($message) > 1) && 
 	$validation->OK($objet, $message, $code))
 {	// enregistrement du message
-	
-	$parametre = Parametres_support_courant(); // retour sur la page précédant le formulaire
-} else $parametre = "index.php?f=1"; // retour au formulaire
+	if (Envoyer_message($objet, $message))
+			$parametre = Parametres_support_courant();	// retour sur la page précédant le formulaire
+	else	$parametre = "?erreur=0";					// problème avec l'envoi du mail
+} else		$parametre = "index.php?f=1";				// retour au formulaire
 
 header("Location: http://dossiers.techniques.free.fr/".$parametre);
 exit;
