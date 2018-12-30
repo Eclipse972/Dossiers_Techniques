@@ -2,8 +2,10 @@
 session_start();
 // ce script est exécuté independament de index.php donc il faut inclure les classes utiles
 include "liens.php";
+include "contexte.php";
 include "../Modele/classe_support.php";
 include "../Modele/classe_valideur.php";
+include "../Modele/classe_BD.php";
 
 function Récupérer_paramètres() { // reccueillir les données brutes et les filtrer
 $T_réponse = null;
@@ -34,17 +36,16 @@ if (($spam_détecté) || (time() - $_SESSION['temps'] < 8)) {
 }
 
 function Envoyer_message($objet, $message) { // voir la fonction mailFree() dans test-mail.php situé à la racine
-	$destinataire = '<dossiers.techniques@free.fr>';
-	$additional_headers  = "From: formulaire$destinataire\r\n";
+	$additional_headers  = 'From: formulaire<dossiers.techniques@free.fr>'."\r\n";
 	$additional_headers .= "MIME-Version: 1.0\r\n";
 	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 	$additional_headers .= "Reply-To: ".$_SESSION['courriel']."\r\n";
-	$additional_headers .= "Return-Path: $destinataire\r\n";
-	
-	$message .= "\n".'Message envoyé le '.date("l j F Y").' à '.date("H:i:s");
-	
+
+	$message .= "\n".'------------------------------- contexte -----------------------------------'.
+				"\n".html_entity_decode(Contexte('../')); // rajout du contexte lors de l'appel du formulaire
+
 	$start_time = time();
-	$resultat=mail ( $destinataire , $objet, $message, $additional_headers);
+	$resultat=mail ('christophe.hervi@gmail.com' , $objet, $message, $additional_headers);
 	$time= time()-$start_time;
 	return $resultat & ($time>1);
 }
