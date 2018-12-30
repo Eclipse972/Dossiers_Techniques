@@ -1,6 +1,6 @@
 <?php
-function Contexte() { // donne la position actuelle en clair sur le site. 
-	$BD = new base2donnees();
+function Contexte($chemin_script_connexion) { // donne la position actuelle en clair sur le site. 
+	$BD = new base2donnees($chemin_script_connexion);
 	if (isset($_SESSION['support'])) {
 		$oSupport = unserialize($_SESSION['support']);
 		if ($oSupport->ID() > 0)
