@@ -14,7 +14,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
-header, section, footer, #corps { 
+header, section, footer, main { 
 	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 8px);
 	margin:auto;
 }

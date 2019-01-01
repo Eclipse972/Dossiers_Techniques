@@ -1,4 +1,4 @@
-<div id="corps">
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 <nav>
 <?php	
 	$SUPPORT = unserialize($_SESSION['support']);
@@ -12,4 +12,4 @@
 	include $SUPPORT->Script();
 ?>
 </section>
-</div>
+</main>
