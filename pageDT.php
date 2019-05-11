@@ -55,7 +55,7 @@ $_SESSION['support'] = serialize($oSupport);
 <body>
 
 <header>
-	<div id="logo"><?=$oSupport->Image()?></div>
+	<div id="logo"><a href="a_propos.php?p=<?=$oSupport->ID()?>"><?=$oSupport->Image()?></a></div>
 	<div id="titre"><p class="font-effect-outline"><?='Dossier technique '.$oSupport->Du_support()?></p></div>
 </header>
 
