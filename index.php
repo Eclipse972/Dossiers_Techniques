@@ -10,7 +10,7 @@ require 'Modele/classe_BD.php';
 require 'Modele/classe_support.php';
 require 'Controleur/liens.php';
 
-define(DUREE, 0);	// durée du cache en heure
+define(DUREE, 12);	// durée du cache en heure
 define(CACHE, 'Vue/cache/index.cache');	// nom du fichier cache
 
 $_SESSION['support'] = null;	// on détruit le support en cours
