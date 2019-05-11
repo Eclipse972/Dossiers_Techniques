@@ -35,11 +35,7 @@ if($No_colonne!=$NB_colonne-1) echo "\t".'</tr>'."\n"; // on termine la ligne
 <!doctype html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
-	<link rel="stylesheet" href="Vue/commun.css"/>
-	<title>Les Dossiers techniques de ChristopHe</title>
-
+	<?php include('Vue/head_commun.html'); ?>
 	<link rel="stylesheet" href="Vue/style_page.css"/>
 </head>
 

@@ -48,11 +48,7 @@ $_SESSION['support'] = serialize($oSupport);
 <!doctype html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline">
-	<link rel="stylesheet" href="Vue/commun.css"/>
-	<title>Les Dossiers techniques de ChristopHe</title>
-	
+	<?php include('Vue/head_commun.html'); ?>
 	<link rel="stylesheet" href="Vue/styleDT.css"/>
 </head>
 
