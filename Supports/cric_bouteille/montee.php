@@ -1,4 +1,4 @@
-<?php $SUPPORT->Insérer_image('action_manuelle', 'action manuelle', 'style="height:300px; float: right;"'); ?>
+<?= Image('action_manuelle', 'action manuelle', 'style="height:300px; float: right;"'); ?>
 <h1>Mont&eacute;e</h1>
 <p>L&apos;action manuelle de l&apos;utilisateur sur le levier provoque la mont&eacute;e de la tige de lev&eacute;e.</p>
 <h2>1&egrave;re PHASE ( le piston de la pompe monte c&apos;est l&apos;aspiration )</h2>

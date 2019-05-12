@@ -1,7 +1,7 @@
 <h1>Pour baisser un v&eacute;hicule</h1>
 <ol>
 <li>Placer le levier sur la vis de descente.
-<?php $SUPPORT->Insérer_image($T_instruction['param1'], 'vis de d&eacute;scente', 'style="height :150px; vertical-align: middle;"'); ?>
+<?= Image($T_instruction['param1'], 'vis de d&eacute;scente', 'style="height :150px; vertical-align: middle;"'); ?>
 </li>
 <li>A l&apos;aide du levier de manœuvre, ouvrez la vis de descente dans le sens inverse des aiguilles d&apos;une montre ce qui permet de lib&eacute;rer l&apos;huile contenue dans le v&eacute;rin.
 <?php  $SUPPORT->Insérer_image($T_instruction['param2'], 'Ouvrir vis de d&eacute;scente', 'style="height :150px; vertical-align: middle;"'); ?>
