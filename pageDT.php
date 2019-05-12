@@ -28,6 +28,7 @@ if (!$BD->Support_existe($id))			// si le support n'existe pas
 	exit;								// on n'exécute pas le reste du code
 }
 // si on arrive ici c'est que le support donné en paramètre existe
+
 require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_menu.php';
@@ -43,6 +44,13 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 } else $oSupport = new Support($id); // alors on le crée
 $oSupport->setPosition($item, $sous_item); // on met à jour a position
 $_SESSION['support'] = serialize($oSupport);
+
+function Image($image, $alt, $supplement = '') {	// pour afficher des images relatives au support actuel
+	global $oSupport;
+	$image = new Image($image, $oSupport->Dossier().'images/');
+	echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
+										// class et/ou style
+}
 ?>
 
 <!doctype html>

@@ -175,12 +175,6 @@ $BD = new base2donnees();
 return $BD->Parametres_script($this->id, $this->item, $this->sous_item);
 }
 
-public function Insérer_image($image, $alt, $supplement = '') { // affiche une image du support courant.
-$image = new Image($image, $this->dossier.'images/');
-echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
-									// class et/ou style
-}
-
 public function Générer_page_image($T, $dessus = false) {
 // T est un tableau contenant 4 paramètres: titre image texte et hauteur
 $image = new Image($T['param2'], $this->dossier.'images/');
