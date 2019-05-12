@@ -24,7 +24,7 @@ $oSupport = unserialize($_SESSION['support']);
 <body>
 
 <header>
-	<div id="logo"><img src="Vue/images/logo.png" alt="logo"></div>
+	<div id="logo"><?=$oSupport->Image()?></div>
 	<div id="titre"><p class="font-effect-outline">A propos <?=$oSupport->Du_support() ?></p></div>
 </header>
 
