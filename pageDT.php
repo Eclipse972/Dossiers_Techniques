@@ -63,7 +63,7 @@ function Image($image, $alt, $supplement = '') {	// pour afficher des images rel
 <body>
 
 <header>
-	<div id="logo"><a href="a_propos.php?p=<?=$oSupport->ID()?>"><?=$oSupport->Image()?></a></div>
+	<div id="logo"><a href="a_propos.php"><?=$oSupport->Image()?></a></div>
 	<div id="titre"><p class="font-effect-outline"><?='Dossier technique '.$oSupport->Du_support()?></p></div>
 </header>
 
