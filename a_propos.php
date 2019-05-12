@@ -4,6 +4,11 @@
 ************************************************************************************************************************************/
 session_start(); // On démarre la session AVANT toute chose
 
+if (!isset($_SESSION['support'])) {	// s'il ny a pas de support en cours
+	header("Location: http://dossiers.techniques.free.fr/erreur.php?code=404");	// page d'erreur
+	exit;
+}
+
 require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Controleur/liens.php';
@@ -11,7 +16,6 @@ require 'Modele/classe_BD.php';
 require 'Modele/classe_support.php';
 
 $oSupport = unserialize($_SESSION['support']);
-
 ?>
 
 <!doctype html>
@@ -29,10 +33,12 @@ $oSupport = unserialize($_SESSION['support']);
 </header>
 
 <section>
+<div style="width:600px; margin:auto;">
 <?php
 echo $oSupport->A_propos();
 echo Lien('Retour au dossier technique '.$oSupport->Du_support(),$oSupport->ID());
 ?>
+</div>
 </section>
 
 <footer>
