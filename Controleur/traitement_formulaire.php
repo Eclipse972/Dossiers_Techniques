@@ -2,7 +2,6 @@
 session_start();
 // ce script est exécuté independament de index.php donc il faut inclure les classes utiles
 include "liens.php";
-include "contexte.php";
 include "../Modele/classe_support.php";
 include "../Modele/classe_valideur.php";
 include "../Modele/classe_BD.php";
@@ -40,10 +39,6 @@ function Envoyer_message($objet, $message) { // voir la fonction mailFree() dans
 	$additional_headers .= "MIME-Version: 1.0\r\n";
 	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 	$additional_headers .= "Reply-To: ".$_SESSION['courriel']."\r\n";
-
-	$message .= "\n".'------------------------------- contexte -----------------------------------'.
-				"\n".html_entity_decode(Contexte('../')); // rajout du contexte lors de l'appel du formulaire
-
 	$start_time = time();
 	$resultat=mail ('christophe.hervi@gmail.com' , $objet, $message, $additional_headers);
 	$time= time()-$start_time;
@@ -62,8 +57,8 @@ if ((isset($_SESSION['nom'])) &&
 {	// enregistrement du message
 	if (Envoyer_message($objet, $message))
 			$parametre = Parametres_support_courant();	// retour sur la page précédant le formulaire
-	else	$parametre = "?erreur=0";					// problème avec l'envoi du mail
-} else		$parametre = "index.php?f=1";				// retour au formulaire
+	else	$parametre = "erreur.php?code=0";			// problème avec l'envoi du mail
+} else		$parametre = "formulaire.php";				// retour au formulaire
 
 header("Location: http://dossiers.techniques.free.fr/".$parametre);
 exit;

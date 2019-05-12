@@ -2,14 +2,14 @@
 /*********************************************************************************************************************************** 
 	formumaire de contact
 ************************************************************************************************************************************/
-require 'Modele/classe_associations.php';
+session_start(); // On démarre la session AVANT toute chose
+
+//require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_BD.php';
 require 'Modele/classe_support.php';
 require 'Modele/classe_valideur.php';
 require 'Controleur/liens.php';
-
-session_start(); // On démarre la session AVANT toute chose
 
 $BD = new base2donnees();
 $valideur = new Valideur();
@@ -55,7 +55,7 @@ if (isset($_SESSION['support'])) {
 	</div>
 	<p style="text-align:center;">
 		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-		<a href="<?=Parametres_support_courant()?>">Page pr&eacute;c&eacute;dente</a>
+		<a href="<?='pageDT.php'.Parametres_support_courant()?>">Page pr&eacute;c&eacute;dente</a>
 	</p>
 </form>
 </section>
