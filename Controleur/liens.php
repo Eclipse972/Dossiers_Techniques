@@ -3,8 +3,8 @@ $LISTE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62
 /*
  A propos des 3 paramètres. Ce sont des entiers
  * support: identifiant du support.-1 signifie aucun support
- * item: si non nul alors identifiant du menu sinon la page a propos u support
- * sous_item: identifiant du sous item. la valeur nulle signifie aucun item sétectionné
+ * item: si non nul alors identifiant du menu sinon la page a propos du support
+ * sous_item: identifiant du sous item. la valeur nulle signifie aucun sous-item sétectionné
  */
 
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
@@ -23,6 +23,7 @@ function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_ite
 
 // Ecriture des paramètres
 function Creer_parametre($param1, $param2, $param3) {
+	// ne peut pas être exporté vers la classe support car car cette fonction crée les menus
 	global $LISTE;
 	$parametre = $LISTE[(int)$param1];
 	if (isset($param2)) {
@@ -30,11 +31,4 @@ function Creer_parametre($param1, $param2, $param3) {
 		if (isset($param3))	$parametre .= $LISTE[(int)$param3];
 	}
 	return $parametre;
-}
-
-function Parametres_support_courant() {
-	if (isset($_SESSION['support'])) {
-		$oSupport = unserialize($_SESSION['support']);
-		return '?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
-	} else return 'index.php';
 }

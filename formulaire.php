@@ -19,11 +19,18 @@ $_SESSION['temps'] = time();
 // contexte
 if (isset($_SESSION['support'])) {
 	$oSupport = unserialize($_SESSION['support']);
-	if ($oSupport->ID() > 0)
+	if ($oSupport->ID() > 0) {
 		$objet = 'la page &laquo;'.$BD->Texte_item($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'&raquo; '.$oSupport->Du_support();
-	else
+		$page_retour = 'pageDT.php?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
+	}
+	else {
 		$objet = 'l&apos;archive ZIP';
-} else	$objet = 'la liste de supports';
+		$page_retour = 'a_propos.php';
+	}
+} else {
+	$objet = 'la liste de supports';
+	$page_retour = 'index.php';
+}
 ?>
 
 <!doctype html>
@@ -55,7 +62,7 @@ if (isset($_SESSION['support'])) {
 	</div>
 	<p style="text-align:center;">
 		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-		<a href="<?='pageDT.php'.Parametres_support_courant()?>">Page pr&eacute;c&eacute;dente</a>
+		<a href="<?=$page_retour?>">Page pr&eacute;c&eacute;dente</a>
 	</p>
 </form>
 </section>
