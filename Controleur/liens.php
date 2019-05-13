@@ -11,8 +11,6 @@ function Lien($texte, $support, $item = null, $sous_item = null) { // l'existenc
 	return '<a href="pageDT.php?p='.Creer_parametre($support, $item, $sous_item).'">'.$texte.'</a>';
 }
 
-function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
-
 // Lecture des paramètres
 function Lire_parametre($nom, $defaut_id = 0, $defaut_item = 0, $defaut_sous_item = 0) {
 	global $LISTE;
