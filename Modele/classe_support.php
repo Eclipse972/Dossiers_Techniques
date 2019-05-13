@@ -185,9 +185,4 @@ mettre du code html: </p>code html<p>. les balises qui entourent le code vont cr
 								titre			texte*/
 return $image->Page_image($T['param1'], '<p>'.$T['param3'].'</p>'."\n", $T['param1'], $dessus, $T['param4']);
 }
-
-public function Parametres_support() {	// construit le paramètre identifiant les pages du support
-	return '?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
-}
-
 }
