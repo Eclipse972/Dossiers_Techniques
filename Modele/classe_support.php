@@ -111,43 +111,6 @@ if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
 }
 
 // Autres méthodes --------------------------------------------------------------------------------
-public function A_propos() { // le support crée le code mais ce n'est pas son rôle de l'afficher
-$BD = new base2donnees();
-$code = '<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
-if (isset($this->zip)) {
-	$code .= $this->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
-	$Liste = $BD->Description_maquette($this->id);
-	switch(count($Liste)) {
-	case 0:
-		$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
-		break;
-	case 1:
-		$code .= '<p>'.$Liste[0].'</p>';
-		break;
-	default:
-		$code .= '<ul>'."\n";
-		foreach ($Liste as $texte)	$code .= '<li>'.$texte.'</li>'."\n";
-		$code .= '</ul>';
-	}
-} else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
-$code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
-$Liste = $BD->Lien_support($this->id);
-switch(count($Liste)) {
-case 0:
-	$code .= '<p>Aucun pour le moment</p>';
-	break;
-case 1:
-	$code .= '<p>'.$Liste[0].'</p>';
-	break;
-default:
-	$code .= '<ul>'."\n";
-	foreach ($Liste as $lien)
-		$code .= '<li>'.$lien.'</li>'."\n";
-	$code .= '</ul>';
-}
-return $code."\n";
-}
-
 public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
 $menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
 return $menu->Code();

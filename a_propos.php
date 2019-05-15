@@ -16,6 +16,41 @@ require 'Modele/classe_BD.php';
 require 'Modele/classe_support.php';
 
 $oSupport = unserialize($_SESSION['support']);
+
+$BD = new base2donnees();
+$code = '<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
+if (isset($oSupport->zip)) {
+	$code .= $oSupport->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
+	$Liste = $BD->Description_maquette($oSupport->id);
+	switch(count($Liste)) {
+	case 0:
+		$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
+		break;
+	case 1:
+		$code .= '<p>'.$Liste[0].'</p>';
+		break;
+	default:
+		$code .= '<ul>'."\n";
+		foreach ($Liste as $texte)	$code .= '<li>'.$texte.'</li>'."\n";
+		$code .= '</ul>';
+	}
+} else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
+$code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
+$Liste = $BD->Lien_support($oSupport->ID());
+switch(count($Liste)) {
+case 0:
+	$code .= '<p>Aucun pour le moment</p>';
+	break;
+case 1:
+	$code .= '<p>'.$Liste[0].'</p>';
+	break;
+default:
+	$code .= '<ul>'."\n";
+	foreach ($Liste as $lien)
+		$code .= '<li>'.$lien.'</li>'."\n";
+	$code .= '</ul>';
+}
+$code .= "\n".Lien('Retour au dossier technique '.$oSupport->Du_support(),$oSupport->ID());
 ?>
 
 <!doctype html>
@@ -34,10 +69,7 @@ $oSupport = unserialize($_SESSION['support']);
 
 <section>
 <div style="width:600px; margin:auto;">
-<?php
-echo $oSupport->A_propos();
-echo Lien('Retour au dossier technique '.$oSupport->Du_support(),$oSupport->ID());
-?>
+<?=$code?>
 </div>
 </section>
 
