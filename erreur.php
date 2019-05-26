@@ -5,20 +5,18 @@
 session_start(); // On démarre la session AVANT toute chose
 
 $code = (int) $_GET['code'];
-switch ($code) { // voir .htaccess
-case 0:
-	$message = 'Un probl&egrave;me est survenu lors de l&apos;envoi de votre message'."\n".'R&eacute;essayez plus tard!';
-	break;
-case 403:
-	$message = 'Acc&egrave;s interdit';
-	break;
-case 404:
-	$message = 'Cette page n&apos;existe pas';
-	break;
-case 500:
-	$message = 'Serveur satur&eacute;: essayez de recharger la page';
-	break;
-default:
+// dictionnaire
+$dico = array(
+	// erreurs de mon application
+	0	=> 'Un probl&egrave;me est survenu lors de l&apos;envoi de votre message'."\n".'R&eacute;essayez plus tard!',
+	// erreurs serveur
+	403	=> 'Acc&egrave;s interdit',
+	404	=> 'Cette page n&apos;existe pas',
+	500	=> 'Serveur satur&eacute;: essayez de recharger la page'
+);
+if (isset($dico[$code]))
+	$message = $dico[$code];
+else {
 	$message = 'Erreur inconnue';
 	$code = '';
 }
