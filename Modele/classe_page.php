@@ -7,6 +7,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 		$this->oSupport = $oSupport; // l'objet doit être valide
 	}
 	// Assesseurs ---------------------------------------------------------------------------------
+	public function Support() { return $this->oSupport; }
 	public function Titre() { return $this->titre; }
 
 	// Mutateurs ----------------------------------------------------------------------------------
@@ -25,7 +26,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 class Page_nomenclature extends Page_abstraite {
 	public function __construct($oSupport){
 		parent::__construct($oSupport);
-		$this->Dénommer("Nomenclature");
+		$this->Dénommer('Nomenclature '.$oSupport->Du_support());
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -46,7 +47,7 @@ class Page_nomenclature extends Page_abstraite {
 
 		<tbody>
 		<?php
-		$nomenclature = $oSupport->Nomenclature();
+		$nomenclature = $this->Support()->Nomenclature();
 		if (isset($nomenclature))
 			foreach ($nomenclature as $piece) echo $piece->Code();
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
