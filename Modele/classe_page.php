@@ -3,7 +3,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 	private $oSupport;	// objet support
 	private $titre;		// de la page
 
-	public __construct($oSupport) {	// transmettre l'objet
+	public function __construct($oSupport) {	// transmettre l'objet
 		$this->oSupport = $oSupport; // l'objet doit être valide
 	}
 	// Assesseurs ---------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
-	public __construct($oSupport){
+	public function __construct($oSupport){
 		parent::__construct($oSupport);
 		$this->Dénommer("Nomenclature");
 	}
@@ -60,7 +60,7 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite { // page chargeant une page de code
 	private $script;
 	
-	public __construct($oSupport, $script) {
+	public function __construct($oSupport, $script) {
 		parent::__construct($oSupport);
 		$this->script = (file_exists($oSupport->Dossier().$script)) ? $oSupport->Dossier().$script : 'Vue/oups.php';
 	}
@@ -72,7 +72,7 @@ class Page_association_image_fichier extends Page_abstraite {
 	private $image;
 	private $fichier;
 	
-	public __construct($oSupport, $image, $extension_image, $fichier, $extension_fichier) {
+	public function __construct($oSupport, $image, $extension_image, $fichier, $extension_fichier) {
 		parent::__construct($oSupport);
 		
 		$this->image = $oSupport->Dossier().'images/'.$image.$extension_image;
@@ -87,7 +87,7 @@ class Page_association_image_fichier extends Page_abstraite {
 	public function Afficher(){ // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
-		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" alt = "dessin d''ensemble"></a>';
+		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "dessin d&apos;ensemble"></a>';
 	}
 }
 
@@ -96,28 +96,28 @@ class Page_association_image_fichier extends Page_abstraite {
  * ************************************************************************************************
 */
 class Page_dessin_densemble extends Page_association_image_fichier {
-	public __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
+	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble '.$oSupport->Du_support());
 	}
 }
 
 class Page_dessin2définition extends Page_association_image_fichier {
-	public __construct($oSupport, $titre, $image, $fichier = null) { // image & fichier sans extension
+	public function __construct($oSupport, $titre, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$titre);
 	}
 }
 
 class Page_éclaté extends Page_association_image_fichier {
-	public __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
+	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EASM');
 		$this->Dénommer('&Egrave;clat&egrave; '.$oSupport->Du_support());
 	}
 }
 
 class Page_CE extends Page_association_image_fichier {
-	public __construct($oSupport, $titre, $image, $fichier = null, $extension = '.EASM') {
+	public function __construct($oSupport, $titre, $image, $fichier = null, $extension = '.EASM') {
 																// il existe des CE n'ayant qu'un pièce => extension = .EPRT
 		parent::__construct($oSupport, $image, '.png', $fichier, $extension);
 		$this->Dénommer($titre);
