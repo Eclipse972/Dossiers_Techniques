@@ -7,6 +7,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 		$this->oSupport = $oSupport; // l'objet doit être valide
 	}
 	// Assesseurs ---------------------------------------------------------------------------------
+	public function Titre() { return $this->titre; }
 
 	// Mutateurs ----------------------------------------------------------------------------------
 	public function Dénommer($titre) { $this->titre = $titre; }
@@ -87,7 +88,7 @@ class Page_association_image_fichier extends Page_abstraite {
 	public function Afficher(){ // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
-		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "dessin d&apos;ensemble"></a>';
+		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$this->Titre().'"></a>';
 	}
 }
 
