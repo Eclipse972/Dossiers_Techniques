@@ -1,4 +1,5 @@
-<h1>Nomenclature</h1>
+<?php
+/*<h1>Nomenclature</h1>
 <p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
 <p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
 
@@ -23,3 +24,6 @@ else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 </tbody>
 </table>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
+*/
+$page = new Page_nomenclature($oSupport);
+$page->Afficher();
