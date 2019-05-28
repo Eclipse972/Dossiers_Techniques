@@ -34,6 +34,7 @@ require 'Modele/classe_fichier.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_support.php';
+require 'Modele/classe_page.php';
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
