@@ -1,13 +1,10 @@
 <?php
 class Page_abstraite { // classe servant de modèle  toutes les autres
-	private $oSupport;	// objet support
 	private $titre;		// de la page
 
-	public function __construct($oSupport) {	// transmettre l'objet
-		$this->oSupport = $oSupport; // l'objet doit être valide
-	}
+	public function __construct() {}	// car rian à faire
+	
 	// Assesseurs ---------------------------------------------------------------------------------
-	public function Support() { return $this->oSupport; }
 	public function Titre() { return $this->titre; }
 
 	// Mutateurs ----------------------------------------------------------------------------------
@@ -24,8 +21,8 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
-	public function __construct($oSupport){
-		parent::__construct($oSupport);
+	public function __construct(){
+		$oSupport = unserialize($_SESSION['support']);
 		$this->Dénommer('Nomenclature '.$oSupport->Du_support());
 	}
 	public function Afficher() { // code pour afficher la page
@@ -47,7 +44,8 @@ class Page_nomenclature extends Page_abstraite {
 
 		<tbody>
 		<?php
-		$nomenclature = $this->Support()->Nomenclature();
+		$oSupport = unserialize($_SESSION['support']);
+		$nomenclature = $oSupport->Nomenclature();
 		if (isset($nomenclature))
 			foreach ($nomenclature as $piece) echo $piece->Code();
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
@@ -62,8 +60,8 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite { // page chargeant une page de code
 	private $script;
 	
-	public function __construct($oSupport, $script) {
-		parent::__construct($oSupport);
+	public function __construct($script) {
+		$oSupport = unserialize($_SESSION['support']);
 		$this->script = (file_exists($oSupport->Dossier().$script)) ? $oSupport->Dossier().$script : 'Vue/oups.php';
 	}
 	
@@ -74,8 +72,8 @@ class Page_association_image_fichier extends Page_abstraite {
 	private $image;
 	private $fichier;
 	
-	public function __construct($oSupport, $image, $extension_image, $fichier, $extension_fichier) {
-		parent::__construct($oSupport);
+	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
+		$oSupport = unserialize($_SESSION['support']);
 		
 		$this->image = $oSupport->Dossier().'images/'.$image.$extension_image;
 		if (!file_exists($this->image))			// si le fichier n'existe pas
@@ -98,30 +96,30 @@ class Page_association_image_fichier extends Page_abstraite {
  * ************************************************************************************************
 */
 class Page_dessin_densemble extends Page_association_image_fichier {
-	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($oSupport, $image, '.png', $fichier, '.EDRW');
+	public function __construct($image, $fichier = null) { // image & fichier sans extension
+		parent::__construct($image, '.png', $fichier, '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
 }
 
 class Page_dessin2définition extends Page_association_image_fichier {
-	public function __construct($oSupport, $titre, $image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($oSupport, $image, '.png', $fichier, '.EDRW');
+	public function __construct($titre, $image, $fichier = null) { // image & fichier sans extension
+		parent::__construct($image, '.png', $fichier, '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$titre);
 	}
 }
 
 class Page_éclaté extends Page_association_image_fichier {
-	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($oSupport, $image, '.png', $fichier, '.EASM');
+	public function __construct($image, $fichier = null) { // image & fichier sans extension
+		parent::__construct($image, '.png', $fichier, '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
 }
 
 class Page_CE extends Page_association_image_fichier {
-	public function __construct($oSupport, $titre, $image, $fichier = null, $extension = '.EASM') {
+	public function __construct($titre, $image, $fichier = null, $extension = '.EASM') {
 																// il existe des CE n'ayant qu'un pièce => extension = .EPRT
-		parent::__construct($oSupport, $image, '.png', $fichier, $extension);
+		parent::__construct($image, '.png', $fichier, $extension);
 		$this->Dénommer($titre);
 	}
 }
