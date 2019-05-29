@@ -25,5 +25,5 @@ else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 </table>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 */
-$page = new Page_nomenclature($oSupport);
+$page = new Page_nomenclature();
 $page->Afficher();
