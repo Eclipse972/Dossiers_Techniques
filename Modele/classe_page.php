@@ -114,7 +114,7 @@ class Page_dessin2définition extends Page_association_image_fichier {
 class Page_éclaté extends Page_association_image_fichier {
 	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EASM');
-		$this->Dénommer('&Egrave;clat&egrave; '.$oSupport->Du_support());
+		$this->Dénommer('&Eacute;clat&eacute; '.$oSupport->Du_support());
 	}
 }
 
