@@ -100,7 +100,7 @@ class Page_association_image_fichier extends Page_abstraite {
 class Page_dessin_densemble extends Page_association_image_fichier {
 	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EDRW');
-		$this->Dénommer('Dessin d&apos;ensemble '.$oSupport->Du_support());
+		$this->Dénommer('Dessin d&apos;ensemble');
 	}
 }
 
@@ -114,7 +114,7 @@ class Page_dessin2définition extends Page_association_image_fichier {
 class Page_éclaté extends Page_association_image_fichier {
 	public function __construct($oSupport, $image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($oSupport, $image, '.png', $fichier, '.EASM');
-		$this->Dénommer('&Eacute;clat&eacute; '.$oSupport->Du_support());
+		$this->Dénommer('&Eacute;clat&eacute;');
 	}
 }
 
