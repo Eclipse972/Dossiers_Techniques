@@ -1,13 +1,11 @@
 <?php
+
+// le fichier classe_association doit être chargé au préalable
+
 class Page_abstraite { // classe servant de modèle  toutes les autres
 	private $titre;		// de la page
 
-	public function __construct() {
-		$titre = '';
-	}	// car rian à faire
-	
 	// Assesseurs ---------------------------------------------------------------------------------
-	public function Titre() { return $this->titre; }
 
 	// Mutateurs ----------------------------------------------------------------------------------
 	public function Dénommer($titre) { $this->titre = $titre; }
@@ -24,8 +22,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 */
 class Page_nomenclature extends Page_abstraite {
 	public function __construct(){
-		$oSupport = unserialize($_SESSION['support']);
-		$this->Dénommer('Nomenclature '.$oSupport->Du_support());
+		$this->Dénommer('Nomenclature');
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -56,41 +53,32 @@ class Page_nomenclature extends Page_abstraite {
 		</table>
 		<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 		<?php
-	}	
+	}
 }
 
 class Page_script extends Page_abstraite { // page chargeant une page de code
 	private $script;
-	
+
 	public function __construct($script) {
 		$oSupport = unserialize($_SESSION['support']);
 		$this->script = (file_exists($oSupport->Dossier().$script)) ? $oSupport->Dossier().$script : 'Vue/oups.php';
 	}
-	
+
 	public function Afficher() { include $this->script; }	// code pour afficher la page
 }
 
 class Page_association_image_fichier extends Page_abstraite {
-	private $image;
-	private $fichier;
+	private $oAssociation;	// objet associatioj image-fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
 		$dossier = unserialize($_SESSION['support'])->Dossier();
-		
-		$this->image = $this->Fichier_existe($dossier.'images/', $image, $extension_image);
-		
+
 		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		$this->fichier = $this->Fichier_existe($dossier.'fichiers/', $fichier, $extension_fichier, '#');
+		$this->oAssociation = new Association_image_fichier($dossier, $image.$extension_image , $fichier.$extension_fichier);
 	}
-	private function Fichier_existe($dossier, $fichier, $extension, $substitution = 'Vue/pas2photo.png') {
-		$fichier = $dossier.$fichier.$extension;
-		return (file_exists($fichier)) ? $fichier : $substitution;
-	}
-	public function Afficher($commentaire = null, $alignement = 'center') { // code pour afficher la page
+	public function Afficher($commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
-		echo "\t".'<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
-		echo "\t".'<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$this->Titre().'"></a>'."\n";
-		if (isset($commentaire)) echo '<p style="text-align:'.$alignement.'">'.$commentaire.'</p>'."\n";
+		echo $this->oAssociation->Code($commentaire);
 	}
 }
 
