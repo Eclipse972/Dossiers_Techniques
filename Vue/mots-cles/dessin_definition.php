@@ -1,3 +1,3 @@
 <?php // association dessin d'ensemble
-$page = new Dessin_de_definition($oSupport->Dossier(), $T_instruction['param1'], $T_instruction['param2']);
-echo $page->Code();
+$page = new Page_dessin2définition('', $T_instruction['param1'], $T_instruction['param2']);
+echo $page->Afficher();
