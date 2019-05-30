@@ -111,10 +111,19 @@ class Page_éclaté extends Page_association_image_fichier {
 }
 
 class Page_CE extends Page_association_image_fichier {
-	public function __construct($titre, $image, $fichier = null, $extension = '.EASM') {
-																// il existe des CE n'ayant qu'un pièce => extension = .EPRT
-		parent::__construct($image, '.png', $fichier, $extension);
-		$this->Dénommer($titre);
+	private $EstAssemblage;
+	
+	public function __construct($nom_CE, $fichier, $extension) {
+												// extension obligatoire car il existe des CE n'ayant qu'un pièce => extension = .EPRT
+		parent::__construct($fichier, '.png', $fichier, $extension); // image et fichier doivent porter le même nom
+		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$nom_CE);
+		$this->EstAssemblage = ($extension == '.EASM');
+	}
+	public function Afficher() {
+		parent::Afficher(($this->EstAssemblage) ? 
+			'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique' :
+			'Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
+		
 	}
 }
 
