@@ -123,7 +123,6 @@ class Page_CE extends Page_association_image_fichier {
 		parent::Afficher(($this->EstAssemblage) ? 
 			'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique' :
 			'Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
-		
 	}
 }
 
