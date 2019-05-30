@@ -86,11 +86,11 @@ class Page_association_image_fichier extends Page_abstraite {
 		$fichier = $dossier.$fichier.$extension;
 		return (file_exists($fichier)) ? $fichier : $substitution;
 	}
-	public function Afficher($commentaire = null) { // code pour afficher la page
+	public function Afficher($commentaire = null, $alignement = 'center') { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		echo "\t".'<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
 		echo "\t".'<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$this->Titre().'"></a>'."\n";
-		if (isset($commentaire)) echo '<p>'.$commentaire.'</p>'."\n";
+		if (isset($commentaire)) echo '<p style="text-align:'.$alignement.'">'.$commentaire.'</p>'."\n";
 	}
 }
 
@@ -118,7 +118,7 @@ class Page_éclaté extends Page_association_image_fichier {
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
 	public function Afficher() {
-		parent::Afficher('</p><p style="text-align:center">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 	}
 }
 
