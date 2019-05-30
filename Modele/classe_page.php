@@ -2,7 +2,9 @@
 class Page_abstraite { // classe servant de modèle  toutes les autres
 	private $titre;		// de la page
 
-	public function __construct() {}	// car rian à faire
+	public function __construct() {
+		$titre = '';
+	}	// car rian à faire
 	
 	// Assesseurs ---------------------------------------------------------------------------------
 	public function Titre() { return $this->titre; }
@@ -13,7 +15,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 	// autres méthodes ----------------------------------------------------------------------------
 
 	public function Afficher() { // code pour afficher la page
-		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
+		echo "\t".'<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
 }
 /* ************************************************************************************************
@@ -71,23 +73,24 @@ class Page_script extends Page_abstraite { // page chargeant une page de code
 class Page_association_image_fichier extends Page_abstraite {
 	private $image;
 	private $fichier;
-	
+
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
-		$oSupport = unserialize($_SESSION['support']);
+		$dossier = unserialize($_SESSION['support'])->Dossier();
 		
-		$this->image = $oSupport->Dossier().'images/'.$image.$extension_image;
-		if (!file_exists($this->image))			// si le fichier n'existe pas
-			$this->image = 'Vue/pas2photo.png';	// on remplace par l'image pas de photo
+		$this->image = $this->Fichier_existe($dossier.'images/', $image, $extension_image);
 		
 		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		$this->fichier = $oSupport->Dossier().'fichiers/'.$fichier.$extension_fichier;
-		if (!file_exists($this->fichier))	// si le fichier n'existe pas
-			$this->fichier = '#';			// lien vide
+		$this->fichier = $this->Fichier_existe($dossier.'fichiers/', $fichier, $extension_fichier, '#');
 	}
-	public function Afficher(){ // code pour afficher la page
+	private function Fichier_existe($dossier, $fichier, $extension, $substitution = 'Vue/pas2photo.png') {
+		$fichier = $dossier.$fichier.$extension;
+		return (file_exists($fichier)) ? $fichier : $substitution;
+	}
+	public function Afficher($commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
-		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
-		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$this->Titre().'"></a>';
+		echo "\t".'<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";
+		echo "\t".'<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$this->Titre().'"></a>'."\n";
+		if (isset($commentaire)) echo '<p>'.$commentaire.'</p>'."\n";
 	}
 }
 
@@ -113,6 +116,9 @@ class Page_éclaté extends Page_association_image_fichier {
 	public function __construct($image, $fichier = null) { // image & fichier sans extension
 		parent::__construct($image, '.png', $fichier, '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
+	}
+	public function Afficher() {
+		parent::Afficher('</p><p style="text-align:center">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 	}
 }
 
