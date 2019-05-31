@@ -137,15 +137,4 @@ public function Parametres_script() { // renvoi la liste des paramètres du scri
 $BD = new base2donnees();
 return $BD->Parametres_script($this->id, $this->item, $this->sous_item);
 }
-
-public function Générer_page_image($T, $dessus = false) {
-// T est un tableau contenant 4 paramètres: titre image texte et hauteur
-$image = new Image($T['param2'], $this->dossier.'images/');
-/* Remarques
-par défaut le texte est un paragraphe
-mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
-mettre du code html: </p>code html<p>. les balises qui entourent le code vont créé 2 paragraphes vides
-								titre			texte*/
-return $image->Page_image($T['param1'], '<p>'.$T['param3'].'</p>'."\n", $T['param1'], $dessus, $T['param4']);
-}
 }

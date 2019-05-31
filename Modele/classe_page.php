@@ -67,8 +67,24 @@ class Page_script extends Page_abstraite { // page chargeant une page de code
 	public function Afficher() { include $this->script; }	// code pour afficher la page
 }
 
+class Page_image extends Page_abstraite {
+	private $image;
+	
+	public function __construct($image) { // affiche une image avec un commentaire au dessus ou au dessous
+		$dossier = $this->Dossier().'images/';
+		$this->image = new Image($image, $dossier);
+	}
+	public function Afficher($commentaire, $Audessus = true, $hauteur = 400) { // code pour afficher la page
+		parent::Afficher();	// affiche le titre
+		$commentaire = '<p>'.$commentaire.'</p>';
+		if (!$Audessus) echo $commentaire;
+		echo $this->image->Balise('', 'class="association" style=height:'.$hauteur.'px;');
+		if ($Audessus) echo $commentaire;
+	}
+}
+
 class Page_association_image_fichier extends Page_abstraite {
-	private $oAssociation;	// objet associatioj image-fichier
+	private $oAssociation;	// objet association image-fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
 		$dossier = $this->Dossier();
