@@ -11,10 +11,10 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 	public function Dénommer($titre) { $this->titre = $titre; }
 
 	// autres méthodes ----------------------------------------------------------------------------
-
 	public function Afficher() { // code pour afficher la page
 		echo "\t".'<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
+	public function Dossier() { return unserialize($_SESSION['support'])->Dossier(); }
 }
 /* ************************************************************************************************
  * 	classes filles
@@ -71,7 +71,7 @@ class Page_association_image_fichier extends Page_abstraite {
 	private $oAssociation;	// objet associatioj image-fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
-		$dossier = unserialize($_SESSION['support'])->Dossier();
+		$dossier = $this->Dossier();
 
 		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
 		$this->oAssociation = new Association_image_fichier($dossier, $image.$extension_image , $fichier.$extension_fichier);
