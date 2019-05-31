@@ -1,3 +1,6 @@
 <?php // association dessin d'ensemble
-$page = new Page_dessin2définition('', $T_instruction['param1'], $T_instruction['param2']);
-echo $page->Afficher();
+$image = $T_instruction['param1'];
+$fichier = $T_instruction['param2'];
+
+$page = new Page_dessin2définition('', $image, $fichier);
+$page->Afficher();

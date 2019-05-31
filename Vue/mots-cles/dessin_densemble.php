@@ -1,6 +1,6 @@
-<?php // association dessin d'ensemble
-// $page = new Dessin_densemble($oSupport->Dossier(), $T_instruction['param1'], $T_instruction['param2']);
-// echo $page->Code();
+<?php
+$image = $T_instruction['param1'];
+$fichier = $T_instruction['param2'];
 
-$page = new Page_dessin_densemble($T_instruction['param1'], $T_instruction['param2']);
+$page = new Page_dessin_densemble($image, $fichier);
 $page->Afficher();
