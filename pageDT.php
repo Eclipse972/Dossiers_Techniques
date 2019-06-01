@@ -77,7 +77,8 @@ if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 else {
 	ob_start();
 	echo '<nav>', "\n";
-	echo $oSupport->Generer_menu();
+	$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+	echo $menu->Code();
 	echo '</nav>', "\n";
 	echo '<section>', "\n";
 	$T_instruction = $oSupport->Parametres_script(); // tableau dans lequel sont stockés les paramètres

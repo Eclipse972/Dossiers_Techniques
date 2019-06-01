@@ -111,11 +111,6 @@ if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
 }
 
 // Autres méthodes --------------------------------------------------------------------------------
-public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
-$menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
-return $menu->Code();
-}
-
 public function Nomenclature() {
 	$BD = new base2donnees();
 	return $BD->Nomenclature($this->id);
