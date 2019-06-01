@@ -44,7 +44,8 @@ class Page_nomenclature extends Page_abstraite {
 		<tbody>
 		<?php
 		$oSupport = unserialize($_SESSION['support']);
-		$nomenclature = $oSupport->Nomenclature();
+		$BD = new base2donnees();
+		$nomenclature = $BD->Nomenclature($oSupport->Id());
 		if (isset($nomenclature))
 			foreach ($nomenclature as $piece) echo $piece->Code();
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);

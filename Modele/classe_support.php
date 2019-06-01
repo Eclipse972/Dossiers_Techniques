@@ -111,11 +111,6 @@ if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
 }
 
 // Autres méthodes --------------------------------------------------------------------------------
-public function Nomenclature() {
-	$BD = new base2donnees();
-	return $BD->Nomenclature($this->id);
-}
-
 public function Script() { // renvoi le script à exécuter
 $BD = new base2donnees();
 $script = $BD->Script($this->id, $this->item, $this->sous_item);
