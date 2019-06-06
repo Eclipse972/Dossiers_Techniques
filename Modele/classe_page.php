@@ -21,8 +21,13 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
+	private $nomenclature;
+	
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
+		$oSupport = unserialize($_SESSION['support']);
+		$BD = new base2donnees();
+		$this->nomenclature = $BD->Nomenclature($oSupport->Id());
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -43,11 +48,8 @@ class Page_nomenclature extends Page_abstraite {
 
 		<tbody>
 		<?php
-		$oSupport = unserialize($_SESSION['support']);
-		$BD = new base2donnees();
-		$nomenclature = $BD->Nomenclature($oSupport->Id());
-		if (isset($nomenclature))
-			foreach ($nomenclature as $piece) echo $piece->Code();
+		if (isset($this->nomenclature))
+			foreach ($this->nomenclature as $piece) echo $piece->Code();
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 		?>
 		</tbody>
