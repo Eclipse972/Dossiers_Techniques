@@ -1,6 +1,6 @@
 <?php
-$image = $T_instruction['param1'];
-$fichier = $T_instruction['param2'];
+$Tparam['image'] = $T_instruction['param1'];
+$Tparam['fichier'] = $T_instruction['param2'];
 
-$page = new Page_éclaté($image, $fichier);
+$page = new Page_éclaté($Tparam);
 $page->Afficher();

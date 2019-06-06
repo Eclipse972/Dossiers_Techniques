@@ -1,14 +1,11 @@
 <?php
-/*$association = new Association_image_fichier($oSupport->Dossier(), $T_instruction['param1'], $T_instruction['param2'], $T_instruction['param3']);
-echo $association->Code($T_instruction['param4']);*/
-$image = $T_instruction['param1'];
-$fichier = $T_instruction['param2'];
-$nom_fichier = substr($fichier, 0, strlen($fichier)-5);
-$extension = substr($fichier, -5);
+$Tparam['image'] = $T_instruction['param1'];
+$fichier_avec_extension = $T_instruction['param2'];
+$Tparam['fichier'] = substr($fichier_avec_extension, 0, strlen($fichier_avec_extension)-5);
+$Tparam['extension'] = substr($fichier_avec_extension, -5); // ne fonctionne pas avec une extension de logueur différente
 
-$titre = $T_instruction['param3'];
-$commentaire = $T_instruction['param4'];
+$Tparam['titre'] = $T_instruction['param3'];
+$Tparam['commentaire'] = $T_instruction['param4'];
 
-$page = new Page_association_image_fichier($image, '.png', $nom_fichier, $extension);
-$page->Dénommer($titre);
-$page->Afficher($commentaire);
+$page = new Page_association($Tparam);
+$page->Afficher();

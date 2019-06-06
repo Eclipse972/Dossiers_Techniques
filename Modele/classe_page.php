@@ -16,8 +16,56 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 	}
 	public function Dossier() { return unserialize($_SESSION['support'])->Dossier(); }
 }
+
+
 /* ************************************************************************************************
- * 	classes filles
+ * 	classes filles non utilisées directement. Elles servent de mère à d'autres classes.
+ * ************************************************************************************************
+*/
+class Page_image extends Page_abstraite {
+	private $image;
+	private $commentaire;
+	private $Audessus;
+	
+	public function __construct($titre, $image, $commentaire, $Audessus = true, $hauteur = 400) { // affiche une image avec un commentaire au dessus ou au dessous
+		$this->Dénommer($titre);
+		$dossier = $this->Dossier().'images/';
+		$this->image = new Image($image, $dossier);
+		$this->commentaire = $commentaire;
+		$this->Audessus = $Audessus;
+		$this->hauteur = $hauteur;
+	}
+	
+	public function Afficher() { // code pour afficher la page
+		parent::Afficher();	// affiche le titre
+		$commentaire = '<p>'.$this->commentaire.'</p>';
+		if (!$this->Audessus) echo $commentaire;
+		echo $this->image->Balise('', 'class="association" style=height:'.$this->hauteur.'px;');
+		if ($this->Audessus) echo $commentaire;
+	}
+}
+
+class Page_association_image_fichier extends Page_abstraite { // cette classe n'est pas utilisée directement
+	private $oAssociation;	// objet association image-fichier
+
+	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
+		$dossier = $this->Dossier();
+
+		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
+		$this->oAssociation = new Association_image_fichier($dossier, $image.$extension_image , $fichier.$extension_fichier);
+	}
+	public function Afficher($commentaire = null) { // code pour afficher la page
+		parent::Afficher();	// affiche le titre
+		echo $this->oAssociation->Code($commentaire);
+	}
+}
+/* ************************************************************************************************
+ * Classes de pages prédéfines, utilisées dans le site.
+ * Toutes ces classes sont hydratées à l'aide de la BD lors de la construction de l'objet
+ * 
+ * Utilisation: le même code quelque soit la page
+ * $page = new page(Tableau contenant les paramètres) pour la création et hydratation de la page.
+ * $page->Afficher() pour l'affichage sans paramètres 
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
@@ -59,69 +107,35 @@ class Page_nomenclature extends Page_abstraite {
 	}
 }
 
-class Page_script extends Page_abstraite { // page chargeant une page de code
+class Page_script extends Page_abstraite {
 	private $script;
 
 	public function __construct($script) {
 		$oSupport = unserialize($_SESSION['support']);
 		$this->script = (file_exists($oSupport->Dossier().$script)) ? $oSupport->Dossier().$script : 'Vue/oups.php';
 	}
-
+	
 	public function Afficher() { include $this->script; }	// code pour afficher la page
 }
 
-class Page_image extends Page_abstraite {
-	private $image;
-	
-	public function __construct($image) { // affiche une image avec un commentaire au dessus ou au dessous
-		$dossier = $this->Dossier().'images/';
-		$this->image = new Image($image, $dossier);
-	}
-	public function Afficher($commentaire, $Audessus = true, $hauteur = 400) { // code pour afficher la page
-		parent::Afficher();	// affiche le titre
-		$commentaire = '<p>'.$commentaire.'</p>';
-		if (!$Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'class="association" style=height:'.$hauteur.'px;');
-		if ($Audessus) echo $commentaire;
-	}
-}
-
-class Page_association_image_fichier extends Page_abstraite {
-	private $oAssociation;	// objet association image-fichier
-
-	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
-		$dossier = $this->Dossier();
-
-		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		$this->oAssociation = new Association_image_fichier($dossier, $image.$extension_image , $fichier.$extension_fichier);
-	}
-	public function Afficher($commentaire = null) { // code pour afficher la page
-		parent::Afficher();	// affiche le titre
-		echo $this->oAssociation->Code($commentaire);
-	}
-}
-
-/* ************************************************************************************************
- * 	classes petites-filles
- * ************************************************************************************************
-*/
 class Page_dessin_densemble extends Page_association_image_fichier {
-	public function __construct($image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($image, '.png', $fichier, '.EDRW');
+	public function __construct($Tparam) { // image & fichier sans extension
+		// paramètres: $image, $fichier
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
 }
 
 class Page_dessin2définition extends Page_association_image_fichier {
-	public function __construct($titre, $image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($image, '.png', $fichier, '.EDRW');
-		$this->Dénommer('Dessin de d&eacute;finition '.$titre);
+	public function __construct($Tparam) { // image & fichier sans extension
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
+		$this->Dénommer('Dessin de d&eacute;finition '.$Tparam['titre']);
 	}
 }
 
 class Page_éclaté extends Page_association_image_fichier {
-	public function __construct($image, $fichier = null) { // image & fichier sans extension
-		parent::__construct($image, '.png', $fichier, '.EASM');
+	public function __construct($Tparam) { // image & fichier sans extension
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
 	public function Afficher() {
@@ -132,11 +146,11 @@ class Page_éclaté extends Page_association_image_fichier {
 class Page_CE extends Page_association_image_fichier {
 	private $EstAssemblage;
 	
-	public function __construct($nom_CE, $fichier, $extension) {
+	public function __construct($Tparam) {
 												// extension obligatoire car il existe des CE n'ayant qu'un pièce => extension = .EPRT
-		parent::__construct($fichier, '.png', $fichier, $extension); // image et fichier doivent porter le même nom
-		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$nom_CE);
-		$this->EstAssemblage = ($extension == '.EASM');
+		parent::__construct($Tparam['fichier'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
+		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
+		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
 	}
 	public function Afficher() {
 		parent::Afficher(($this->EstAssemblage) ? 
@@ -145,19 +159,26 @@ class Page_CE extends Page_association_image_fichier {
 	}
 }
 
-class Page_image_dessus extends Page_image {
-	public function __construct($image)
-		{ parent::__construct($image); }
+class Page_association extends Page_association_image_fichier {
+	private $commentaire;
 	
-	public function Afficher($commentaire, $hauteur = 400)
-		{ parent::Afficher($commentaire, true, $hauteur); }
+	public function __construct($Tparam) { // image & fichier sans extension
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']);
+		$this->Dénommer($Tparam['titre']);
+		$this->commentaire = ($Tparam['commentaire']);
+	}
+	public function Afficher() {
+		parent::Afficher($this->commentaire);
+	}
+}
+
+class Page_image_dessus extends Page_image {
+	public function __construct($Tparam)
+		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']); }
 }
 
 class Page_image_dessous extends Page_image {
-	public function __construct($image)
-		{ parent::__construct($image); }
-	
-	public function Afficher($commentaire, $hauteur = 400)
-		{ parent::Afficher($commentaire, false, $hauteur); }
+	public function __construct($Tparam)
+		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
 }
 
