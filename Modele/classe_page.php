@@ -110,9 +110,11 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite {
 	private $script;
 
-	public function __construct($script) {
+	public function __construct($script) { // le script sans son extension
 		$oSupport = unserialize($_SESSION['support']);
-		$this->script = (file_exists($oSupport->Dossier().$script)) ? $oSupport->Dossier().$script : 'Vue/oups.php';
+		$this->script = $oSupport->Dossier().$script.'.php';		
+		if (!file_exists($this->script)) 
+		 $this->script = 'Vue/oups.php';
 	}
 	
 	public function Afficher() { include $this->script; }	// code pour afficher la page
