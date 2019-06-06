@@ -96,7 +96,7 @@ public function Script($support, $item, $sous_item) { // nom du script à exécu
 					[$support, $item, $sous_item]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['script'].'.php';
+	return $reponse['script']; // ne contient pas l'extension car c'est peut-être un mot clé
 }
 
 public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
