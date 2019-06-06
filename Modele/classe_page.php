@@ -145,6 +145,19 @@ class Page_CE extends Page_association_image_fichier {
 	}
 }
 
+class Page_image_dessus extends Page_image {
+	public function __construct($image)
+		{ parent::__construct($image); }
+	
+	public function Afficher($commentaire, $hauteur = 400)
+		{ parent::Afficher($commentaire, true, $hauteur); }
+}
 
-
+class Page_image_dessous extends Page_image {
+	public function __construct($image)
+		{ parent::__construct($image); }
+	
+	public function Afficher($commentaire, $hauteur = 400)
+		{ parent::Afficher($commentaire, false, $hauteur); }
+}
 

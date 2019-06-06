@@ -5,6 +5,6 @@ $image = $T_instruction['param2'];
 $commentaire = $T_instruction['param3'];
 $hauteur = $T_instruction['param4'];
 
-$page = new Page_image($image);
+$page = new Page_image_dessous($image);
 $page->Dénommer($titre);
-$page->Afficher($commentaire, false, $hauteur);
+$page->Afficher($commentaire, $hauteur);
