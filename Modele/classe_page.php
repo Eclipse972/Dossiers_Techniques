@@ -117,7 +117,10 @@ class Page_script extends Page_abstraite {
 		 $this->script = 'Vue/oups.php';
 	}
 	
-	public function Afficher() { include $this->script; }	// code pour afficher la page
+	public function Afficher() {
+		global $T_instruction;	// accès au tableau des paramètres utilisé par le script inclus
+		include $this->script;	// code pour afficher la page
+	}	
 }
 
 class Page_dessin_densemble extends Page_association_image_fichier {
