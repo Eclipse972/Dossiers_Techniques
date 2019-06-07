@@ -8,11 +8,16 @@ $this->substitution = '#';
 $this->fichier = (file_exists($dossier.$fichier)) ? $dossier.$fichier : $this->substitution;
 }
 
+// assesseurs
 public function Chemin() { return $this->fichier; } // renvoi le chemin d'accès complet
 
 public function Lien($texte) { return '<a href="'.$this->fichier.'">'.$texte.'</a>'; }
 
 public function Existe() { return ($this->fichier != $this->substitution); }
+
+public function Extension() { // retourne l'extension du fichier
+	// à définir
+}
 }
 
 class Zip extends Fichier {

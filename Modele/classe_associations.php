@@ -3,63 +3,29 @@ class Association_image_fichier {
 // contient le chemin complet pour accéder ...
 protected $image;	// à l'image
 protected $fichier;	// au fichier
-protected $titre;
 
-public function __construct($dossier, $image, $fichier, $titre = '') {
-// les noms de l'image et du fichier ne sont pas forcément identiques
+public function __construct($dossier, $image, $fichier) {
+// les noms de l'image et du fichier contiennent leur extension mais n'ont pas forcément des noms identiques
 $image = new Image($image, $dossier.'images/');
 $fichier = new Fichier($fichier, $dossier.'fichiers/');
 if (!$image->Existe() && !$fichier->Existe())
 	trigger_error('L&apos;association image-fichier est vide', E_USER_WARNING);
 $this->image = $image->Chemin();
 $this->fichier = $fichier->Chemin();
-$this->titre = $titre; // le titre n'est pas obligatoire notamment pour l'objet piece
 }
 
-// renvoi le code d'une image liée au fichier
-public function Associer($alt, $supplement = '') { return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>'; }
+public function Associer($alt, $supplement = '') {	// renvoi le code d'une image liée au fichier
+	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>';
+}
 
-public function Code($commentaire = '') { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
-$code = '<h1>'.$this->titre.'</h1>'."\n";
-$code .= '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
+public function Code($commentaire = null) { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
+$code = '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
 $code .= $this->Associer($this->titre, 'class="association"');
-$code .= '<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
+if (isset($commentaire)) $code .= '<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
 return $code;
 }
 }
 
-// classes filles simples ---------------------------------------------------------------------------------------------------------------
-// Les filles sont identiques à leur mère avec des valeurs particulières pour les variables membre
-// si image n'a pas d'extension alor .png
-// fichier ne doitavoir d'extension
-class Dessin_densemble extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) { parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin d&apos;ensemble'); }
-}
-
-class Dessin_de_definition extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) { parent::__construct($dossier, $image, $fichier.'.EDRW', 'Dessin de d&eacute;finition'); }
-}
-
-class Eclate extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier) { parent::__construct($dossier,$image, $fichier.'.EASM', '&Eacute;clat&eacute;'); }
-
-public function Code() { return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique'); }
-}
-
-class Classe_équivalence extends Association_image_fichier {
-public function __construct($dossier, $image, $fichier_avec_extension, $nom) {
-parent::__construct($dossier,$image, $fichier_avec_extension, 'Classe d&apos;&eacute;quivalence: '.$nom);
-}
-
-public function Code() {
-if (substr($this->fichier, -5) == '.EASM')
-	return parent::Code('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
-else
-	return parent::Code('Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
-}
-}
-// classes filles complexes ---------------------------------------------------------------------------------------------------------------
-// Les filles ont plus de propriétés que leur mère: plus de privateiable et/ou de fonction
 class Piece extends Association_image_fichier {
 private	$nom;
 private	$repere;

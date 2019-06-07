@@ -34,6 +34,7 @@ require 'Modele/classe_fichier.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_support.php';
+require 'Modele/classe_page.php';
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
@@ -45,11 +46,12 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 $oSupport->setPosition($item, $sous_item); // on met à jour a position
 $_SESSION['support'] = serialize($oSupport);
 
+// des fonctions utiles ---------------------------------------------------------------------------
 function Image($image, $alt, $supplement = '') {	// pour afficher des images relatives au support actuel
 	global $oSupport;
 	$image = new Image($image, $oSupport->Dossier().'images/');
 	echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
-										// class et/ou style
+									// class et/ou style
 }
 ?>
 
@@ -76,12 +78,14 @@ if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 else {
 	ob_start();
 	echo '<nav>', "\n";
-	echo $oSupport->Generer_menu();
+	$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+	echo $menu->Code();
 	echo '</nav>', "\n";
+	
 	echo '<section>', "\n";
-	$T_instruction = $oSupport->Parametres_script(); // tableau dans lequel sont stockés les paramètres
-	include $oSupport->Script();
+	include 'Controleur/code_section.php';
 	echo '</section>', "\n";
+	
 	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
 	$code = ob_get_contents();
 	ob_end_clean();

@@ -109,43 +109,4 @@ if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
 	$this->sous_item = 0;
 }
 }
-
-// Autres méthodes --------------------------------------------------------------------------------
-public function Generer_menu() { // le support crée le code mais ce n'est pas son rôle de l'afficher
-$menu = new Menu($this->id, $this->item, $this->sous_item); // création du menu
-return $menu->Code();
-}
-
-public function Nomenclature() {
-	$BD = new base2donnees();
-	return $BD->Nomenclature($this->id);
-}
-
-public function Script() { // renvoi le script à exécuter
-$BD = new base2donnees();
-$script = $BD->Script($this->id, $this->item, $this->sous_item);
-// détermination du script à inclure
-if (file_exists($this->dossier.$script)) // si le script dans le dossier du support existe
-	return $this->dossier.$script;
-elseif (file_exists('Vue/mots-cles/'.$script)) // sinon c'est un mot clé
-	return'Vue/mots-cles/'.$script;
-else
-	return 'Vue/oups.php'; // si le script n'existe nulle part ...
-}
-
-public function Parametres_script() { // renvoi la liste des paramètres du script à exécuter
-$BD = new base2donnees();
-return $BD->Parametres_script($this->id, $this->item, $this->sous_item);
-}
-
-public function Générer_page_image($T, $dessus = false) {
-// T est un tableau contenant 4 paramètres: titre image texte et hauteur
-$image = new Image($T['param2'], $this->dossier.'images/');
-/* Remarques
-par défaut le texte est un paragraphe
-mettre plusieurs paragraphes comme ceci: parag1</p><p>parag2</p><p>parag3
-mettre du code html: </p>code html<p>. les balises qui entourent le code vont créé 2 paragraphes vides
-								titre			texte*/
-return $image->Page_image($T['param1'], '<p>'.$T['param3'].'</p>'."\n", $T['param1'], $dessus, $T['param4']);
-}
 }
