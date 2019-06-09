@@ -186,7 +186,7 @@ class Page_image_dessous extends Page_image {
 		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
 }
 
-class Page_courbe extends Page_abstraite { // page contenant une courebe et un tableau de valeurs
+class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
 	private $courbe;
 	private $tableau;
 	private $alt_tableau;
@@ -197,13 +197,15 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe et un t
 		$dossier = $this->Dossier().'images/';
 		$this->courbe = new Image($Tparam['courbe'], $dossier);
 		$this->alt_courbe = $Tparam['alt_courbe'];
-		$this->tableau = new Image($Tparam['tableau'], $dossier);
-		$this->alt_tableau = $Tparam['alt_tableau'];
+		if (isset($Tparam['tableau'])) { //
+			$this->tableau = new Image($Tparam['tableau'], $dossier);
+			$this->alt_tableau = $Tparam['alt_tableau'];
+		} else $this->tableau = null;
 	}
 	public function Afficher() {
 		parent::Afficher();
 		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style=height:400px;'),"\n";
-		if (isset($this->tableau)) { // le tableau n'est pas obligatoire
+		if (isset($this->tableau)) { // le tableau est il défini?
 			echo '<p align=center><b>Tableau de valeurs</b></p>',"\n";
 			echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
 		}
