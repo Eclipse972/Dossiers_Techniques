@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 09 Juin 2019 à 13:52
+-- Généré le : Dim 09 Juin 2019 à 18:50
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `HydratePage` (
   `valeur` text collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `unicité_variable_pour_un_menu` (`menu_ID`,`variable`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=353 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=362 ;
 
 --
 -- Contenu de la table `HydratePage`
@@ -222,8 +222,8 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (130, 81, 'image', 'etape5.png'),
 (131, 82, 'image', 'etape6.png'),
 (132, 89, 'image', 'vue2dessus.png'),
-(133, 90, 'image', 'tige.png'),
-(134, 91, 'image', 'pince.png'),
+(133, 90, 'courbe', 'tige.png'),
+(134, 91, 'courbe', 'pince'),
 (135, 94, 'image', 'mes.png'),
 (136, 95, 'image', 'ensemble.png'),
 (137, 96, 'image', 'eclate.png'),
@@ -272,8 +272,8 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (180, 81, 'commentaire', 'Le portique se d&eacute;place vers le centre d&apos;usinage o&ugrave; une culasse attend d&apos;&ecirc;tre usin&eacute;e.'),
 (181, 82, 'commentaire', 'Le portique am&egrave;ne le pr&eacute;henseur vide dans le centre d&apos;usinage afin de chercher la culasse usin&eacute;e (avec son adaptateur).<br>Il place ensuite la culasse &agrave; usiner dans le centre d&apos;usinage et transfererera par la suite la culasse usin&eacute;e vers le prochain convoyeur.\r\n'),
 (182, 89, 'commentaire', 'Courbes des d&eacute;placements obtenues &agrave; l&apos;aide d&apos;un logiciel de calcul et de simulation pour une vitesse en sortie de tige du piston V = 60mm/s<br>Vue du dessus du pr&eacute;henseur en position ferm&eacute;e'),
-(183, 90, 'commentaire', ''),
-(184, 91, 'commentaire', ''),
+(183, 90, 'alt_courbe', 'Evolution'),
+(184, 91, 'alt_courbe', 'courbe d&eacute;placement de la pince'),
 (185, 94, 'commentaire', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.'),
 (186, 95, 'commentaire', ''),
 (187, 96, 'commentaire', 'vue &eacute;clat&eacute;e de l&apos;alternateur'),
@@ -334,6 +334,9 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (244, 137, 'image', 'nez2bride'),
 (245, 138, 'image', 'piston_complet'),
 (246, 139, 'image', 'plaquette_plastique'),
+(355, 92, 'tableau', 'tableau_effort_tige'),
+(354, 92, 'courbe', 'effort_tige'),
+(353, 92, 'titre', '&Eacute;volution de l&apos;effort d&eacute;velopp&eacute; de la tige de v&eacute;rin en fonction du temps.'),
 (256, 84, 'nom_CE', 'b&acirc;ti'),
 (257, 85, 'nom_CE', 'tige de v&eacute;rin'),
 (258, 86, 'nom_CE', 'biellette'),
@@ -400,7 +403,7 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (319, 80, 'script', 'transfert3et4'),
 (320, 83, 'script', 'eclate_CE'),
 (321, 92, 'script', 'effort_verin'),
-(322, 93, 'script', 'effort_articulation'),
+(322, 93, 'courbe', 'effort_articulation'),
 (323, 98, 'script', 'MES'),
 (324, 103, 'script', 'MES'),
 (325, 104, 'script', 'fonctionnement'),
@@ -424,7 +427,13 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (343, 156, 'extension', '.EPRT'),
 (350, 137, 'extension', '.EPRT'),
 (351, 138, 'extension', '.EASM'),
-(352, 139, 'extension', '.EPRT');
+(352, 139, 'extension', '.EPRT'),
+(358, 93, 'alt_courbe', 'Effort dans l&apos;articulation'),
+(356, 92, 'alt_courbe', 'Effort de la tige de v&eacute;rin'),
+(357, 92, 'alt_tableau', 'Table des efforts de la tige de v&eacute;rin'),
+(359, 93, 'tableau', 'tableau_effort_articulation'),
+(360, 93, 'alt_tableau', 'tableau de valeurs'),
+(361, 93, 'titre', '&Eacute;volution de l&apos;effort d&eacute;velopp&eacute; dans l&apos;articulation biellette-noix en fonction du temps.');
 
 -- --------------------------------------------------------
 
@@ -542,10 +551,10 @@ INSERT INTO `Items_menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `typ
 (87, 12, 5, 4, 'CE4: bras avec deux doigts', 'Page_CE', 'classe_equivalence', 'CE4', 'CE4.EASM', 'deux doigts', ''),
 (88, 12, 5, 5, 'CE5: bras avec un doigt', 'Page_CE', 'classe_equivalence', 'CE5', 'CE5.EASM', 'un doigt', ''),
 (89, 12, 6, 0, 'M&eacute;canique', 'Page_image_dessous', 'image_dessous', 'Simulations m&eacute;caniques', 'vue2dessus.png', 'Courbes des d&eacute;placements obtenues &agrave; l&apos;aide d&apos;un logiciel de calcul et de simulation pour une vitesse en sortie de tige du piston V = 60mm/s<br>Vue du dessus du pr&eacute;henseur en position ferm&eacute;e', ''),
-(90, 12, 6, 1, 'd&eacute;placement de la tige', 'Page_image_dessus', 'image_dessus', '&Eacute;volution du d&eacute;placement de la TIGE du v&eacute;rin par rapport au CHÂSSIS<br>en fonction du temps', 'tige.png', '', ''),
-(91, 12, 6, 2, 'd&eacute;placement de la pince', 'Page_image_dessus', 'image_dessus', '&Eacute;volution du d&eacute;placement de la PINCE par rapport au CH&Acirc;SSIS <br>en fonction du temps.', 'pince.png', '', ''),
-(92, 12, 6, 3, 'effort de la tige de v&eacute;rin', 'Page_script', 'effort_verin', 'effort_tige.png', 'tableau_effort_tige.png', '', ''),
-(93, 12, 6, 4, 'effort de l&apos;articulation', 'Page_script', 'effort_articulation', 'effort_articulation.png', 'tableau_effort_articulation.png', '', ''),
+(90, 12, 6, 1, 'd&eacute;placement de la tige', 'Page_courbe', 'image_dessus', '&Eacute;volution du d&eacute;placement de la TIGE du v&eacute;rin par rapport au CHÂSSIS<br>en fonction du temps', 'tige.png', '', ''),
+(91, 12, 6, 2, 'd&eacute;placement de la pince', 'Page_courbe', 'image_dessus', '&Eacute;volution du d&eacute;placement de la PINCE par rapport au CH&Acirc;SSIS <br>en fonction du temps.', 'pince.png', '', ''),
+(92, 12, 6, 3, 'effort de la tige de v&eacute;rin', 'Page_courbe', 'effort_verin', 'effort_tige.png', 'tableau_effort_tige.png', '', ''),
+(93, 12, 6, 4, 'effort de l&apos;articulation', 'Page_courbe', 'effort_articulation', 'effort_articulation.png', 'tableau_effort_articulation.png', '', ''),
 (94, 14, 1, 0, 'Mise en situation', 'Page_image_dessous', 'image_dessous', 'Mise en situation', 'mes.png', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.', ''),
 (95, 14, 2, 0, 'Dessin d&apos;ensemble', 'Page_image_dessous', 'image_dessous', 'Dessin d&apos;ensemble', 'ensemble.png', '', ''),
 (96, 14, 3, 0, '&Eacute;clat&eacute;', 'Page_image_dessous', 'image_dessous', '&Eacute;clat&eacute;', 'eclate.png', 'vue &eacute;clat&eacute;e de l&apos;alternateur', ''),
