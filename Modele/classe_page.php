@@ -4,9 +4,6 @@
 
 class Page_abstraite { // classe servant de modèle  toutes les autres
 	private $titre;		// de la page
-
-	// Assesseurs ---------------------------------------------------------------------------------
-
 	// Mutateurs ----------------------------------------------------------------------------------
 	public function Dénommer($titre) { $this->titre = $titre; }
 
@@ -14,7 +11,8 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 	public function Afficher() { // code pour afficher la page
 		echo "\t".'<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
-	public function Dossier() { return unserialize($_SESSION['support'])->Dossier(); }
+	public function Dossier() // dossier de travail de la page
+		{ return unserialize($_SESSION['support'])->Dossier(); }
 }
 
 
@@ -27,7 +25,7 @@ class Page_image extends Page_abstraite {
 	private $commentaire;
 	private $Audessus;
 	
-	public function __construct($titre, $image, $commentaire, $Audessus = true, $hauteur = 400) { // affiche une image avec un commentaire au dessus ou au dessous
+	public function __construct($titre, $image, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
 		$this->Dénommer($titre);
 		$dossier = $this->Dossier().'images/';
 		$this->image = new Image($image, $dossier);
@@ -111,17 +109,15 @@ class Page_script extends Page_abstraite {
 	private $script;
 
 	public function __construct($Tparam) { // le script sans son extension
-		$oSupport = unserialize($_SESSION['support']);
-		$this->script = $oSupport->Dossier().$Tparam['script'].'.php';		
+		$this->script = $this->Dossier().$Tparam['script'].'.php';		
 		if (!file_exists($this->script)) 
 		 $this->script = 'Vue/oups.php';
 	}
 	
 	public function Afficher() {
-		$BD = new base2donnees();
-		$oSupport = unserialize($_SESSION['support']);
-		$T_instruction = $BD->Parametres_script($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());	// accès au tableau des paramètres utilisé par le script inclus
-		
+		/* variable pour automatiser l'écriture du dossier d'images. 
+		 * Il suffit d'ajouter <?=$Dossier_images?> avant le nom de l'image */
+		$Dossier_images = $this->Dossier().'images/'; 
 		include $this->script;	// code pour afficher la page
 	}	
 }
