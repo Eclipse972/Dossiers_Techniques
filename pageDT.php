@@ -46,6 +46,16 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 $oSupport->setPosition($item, $sous_item); // on met à jour a position
 $_SESSION['support'] = serialize($oSupport);
 
+$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item()); // création menu
+
+// création de l'objet page
+$BD = new base2donnees();
+$type_page = $BD->Type_page($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+
+$BD = new base2donnees();
+$Thydrate = $BD->Hydratation($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+$page = new $type_page($Thydrate);
+
 // des fonctions utiles ---------------------------------------------------------------------------
 function Image($image, $alt, $supplement = '') {	// pour afficher des images relatives au support actuel
 	global $oSupport;
@@ -78,12 +88,11 @@ if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 else {
 	ob_start();
 	echo '<nav>', "\n";
-	$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
 	echo $menu->Code();
 	echo '</nav>', "\n";
 	
 	echo '<section>', "\n";
-	include 'Controleur/code_section.php';
+	$page->Afficher();
 	echo '</section>', "\n";
 	
 	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";

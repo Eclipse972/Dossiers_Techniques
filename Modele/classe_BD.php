@@ -91,14 +91,24 @@ public function Page_existe($support, $item, $sous_item) {
 	return ($reponse['nb_page'] == 1);
 }
 
-public function Script($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT script FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+public function Type_page($support, $item, $sous_item) { // nom du script à exécuter
+	$this->Requete('SELECT type_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['script']; // ne contient pas l'extension car c'est peut-être un mot clé
+	return $reponse['type_page']; // ne contient pas l'extension car c'est peut-être un mot clé
+}
+public function Hydratation($support, $item, $sous_item) {
+	$this->Requete('SELECT variable, valeur FROM HydratePage
+					WHERE menu_ID=(SELECT ID FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?)',
+					[$support, $item, $sous_item]);
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
+	$this->Fermer();
+	return $tableau;
 }
 
+// fonction en sursis
 public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
 	$this->Requete('SELECT param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);

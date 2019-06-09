@@ -110,15 +110,18 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite {
 	private $script;
 
-	public function __construct($script) { // le script sans son extension
+	public function __construct($Tparam) { // le script sans son extension
 		$oSupport = unserialize($_SESSION['support']);
-		$this->script = $oSupport->Dossier().$script.'.php';		
+		$this->script = $oSupport->Dossier().$Tparam['script'].'.php';		
 		if (!file_exists($this->script)) 
 		 $this->script = 'Vue/oups.php';
 	}
 	
 	public function Afficher() {
-		global $T_instruction;	// accès au tableau des paramètres utilisé par le script inclus
+		$BD = new base2donnees();
+		$oSupport = unserialize($_SESSION['support']);
+		$T_instruction = $BD->Parametres_script($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());	// accès au tableau des paramètres utilisé par le script inclus
+		
 		include $this->script;	// code pour afficher la page
 	}	
 }
@@ -153,7 +156,7 @@ class Page_CE extends Page_association_image_fichier {
 	
 	public function __construct($Tparam) {
 												// extension obligatoire car il existe des CE n'ayant qu'un pièce => extension = .EPRT
-		parent::__construct($Tparam['fichier'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
 		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
 	}
