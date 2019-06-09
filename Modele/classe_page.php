@@ -189,16 +189,21 @@ class Page_image_dessous extends Page_image {
 class Page_courbe extends Page_abstraite { // page contenant une courebe et un tableau de valeurs
 	private $courbe;
 	private $tableau;
+	private $alt_tableau;
+	private $alt_courbe;
 	
 	public function __construct($Tparam) {
 		$this->Dénommer($Tparam['titre']);
-		$this->courbe  = new Image($Tparam['courbe'],  $this->Dossier());
-		$this->tableau = new Image($Tparam['tableau'], $this->Dossier());
+		$dossier = $this->Dossier().'images/';
+		$this->courbe = new Image($Tparam['courbe'], $dossier);
+		$this->alt_courbe = $Tparam['alt_courbe'];
+		$this->tableau = new Image($Tparam['tableau'], $dossier);
+		$this->alt_tableau = $Tparam['alt_tableau'];
 	}
 	public function Afficher() {
 		parent::Afficher();
-		echo $this->courbe->Balise('', 'class="association" style=height:400px;');
-		echo '<p>Tableau de valeurs</p>';
-		echo $this->tableau->Balise('', 'class="association"');
+		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style=height:400px;'),"\n";
+		echo '<p align=center><b>Tableau de valeurs</b></p>',"\n";
+		echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
 	}
 }
