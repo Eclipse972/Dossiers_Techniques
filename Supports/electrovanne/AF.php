@@ -6,7 +6,8 @@
 <li>l&apos;environnement ext&eacute;rieur</li>
 </ul>
 <p>Le diagramme pieuvre de l&apos;&eacute;lectrovanne est le suivant:</p>
-<?= Image($T_instruction['param1'], 'diagramme pieuvre', 'class=image_centree'); ?>
+<img src="<?=$Dossier_images?>pieuvre.png" class=image_centree alt="diagramme pieuvre">
+
 <p>Fonctions de l&apos;&eacute;lectro-vanne :</p>
 <ul>
 <li>Fp : commander l&apos;ouverture et la fermeture d&apos;un circuit hydraulique à l&apos;aide d&apos;un micro-ordinateur.</li>
