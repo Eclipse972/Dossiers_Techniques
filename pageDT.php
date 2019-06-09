@@ -72,6 +72,7 @@ $page = new $type_page($Thydrate);
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
 <?php
 define(DUREE, 0);	// durée du cache en heure
 $cache = 'Vue/cache/'.$oSupport->Pti_nom().' '.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'.cache';
@@ -79,15 +80,16 @@ if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 	readfile($cache);
 else {
 	ob_start();
-	echo '<nav>', "\n";
-	echo $menu->Code();
-	echo '</nav>', "\n";
-	
-	echo '<section>', "\n";
-	$page->Afficher();
-	echo '</section>', "\n";
-	
-	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
+	?>
+<nav>
+<?=$menu->Afficher()?>
+</nav>
+
+<section>
+<?=$page->Afficher()?>
+</section>
+<!-- cache généré le <?=date("d/m/Y \à H:i")?>' -->
+	<?php
 	$code = ob_get_contents();
 	ob_end_clean();
 	file_put_contents($cache, $code);
