@@ -40,12 +40,4 @@ parent::__construct($fichier, $dossier);
 
 public function Balise($alt, $supplement = '') { return '<img src="'.$this->fichier.'" '.$supplement.' alt="'.$alt.'">'; }
 
-public function Page_image($titre, $texte, $alt, $image_au_dessus, $hauteur) {
-$code = '<div id="page_image">'."\n".'<h1>'.$titre.'</h1>'."\n";
-$hauteur = ($hauteur == '') ? 400 : $hauteur;
-$code .= (!$image_au_dessus) ? $texte : '';
-$code .= $this->Balise($alt, 'class="association" style=height:'.$hauteur.'px;');
-$code .= ($image_au_dessus) ? $texte : '';
-return $code."\n".'</div>'."\n";
-}
 }
