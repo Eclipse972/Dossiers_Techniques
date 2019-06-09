@@ -203,7 +203,9 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe et un t
 	public function Afficher() {
 		parent::Afficher();
 		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style=height:400px;'),"\n";
-		echo '<p align=center><b>Tableau de valeurs</b></p>',"\n";
-		echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
+		if (isset($this->tableau)) { // le tableau n'est pas obligatoire
+			echo '<p align=center><b>Tableau de valeurs</b></p>',"\n";
+			echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
+		}
 	}
 }
