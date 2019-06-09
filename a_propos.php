@@ -9,7 +9,6 @@ if (!isset($_SESSION['support'])) {	// s'il ny a pas de support en cours
 	exit;
 }
 
-require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Controleur/liens.php';
 require 'Modele/classe_BD.php';
