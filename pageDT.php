@@ -88,8 +88,9 @@ else {
 <section>
 <?=$page->Afficher()?>
 </section>
+
 <!-- cache généré le <?=date("d/m/Y \à H:i")?>' -->
-	<?php
+<?php
 	$code = ob_get_contents();
 	ob_end_clean();
 	file_put_contents($cache, $code);
