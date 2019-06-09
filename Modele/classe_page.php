@@ -9,7 +9,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 
 	// autres méthodes ----------------------------------------------------------------------------
 	public function Afficher() { // code pour afficher la page
-		echo "\t".'<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
+		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
 	public function Dossier() // dossier de travail de la page
 		{ return unserialize($_SESSION['support'])->Dossier(); }
@@ -38,7 +38,7 @@ class Page_image extends Page_abstraite {
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire.'</p>';
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'class="association" style=height:'.$this->hauteur.'px;');
+		echo $this->image->Balise('', 'style="height:'.$this->hauteur.'px; align=center"');
 		if ($this->Audessus) echo $commentaire;
 	}
 }
@@ -191,22 +191,26 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 	private $tableau;
 	private $alt_tableau;
 	private $alt_courbe;
+	private $hauteur;
 	
 	public function __construct($Tparam) {
 		$this->Dénommer($Tparam['titre']);
 		$dossier = $this->Dossier().'images/';
 		$this->courbe = new Image($Tparam['courbe'], $dossier);
 		$this->alt_courbe = $Tparam['alt_courbe'];
-		if (isset($Tparam['tableau'])) { //
+		$this->hauteur = (isset($Tparam['hauteur'])) ? $Tparam['hauteur'] : 600;
+		
+		// variable pour le tableau
+		if (isset($Tparam['tableau'])) {
 			$this->tableau = new Image($Tparam['tableau'], $dossier);
 			$this->alt_tableau = $Tparam['alt_tableau'];
 		} else $this->tableau = null;
 	}
 	public function Afficher() {
 		parent::Afficher();
-		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style=height:400px;'),"\n";
+		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style="height:'.$this->hauteur.'px"'),"\n";
 		if (isset($this->tableau)) { // le tableau est il défini?
-			echo '<p align=center><b>Tableau de valeurs</b></p>',"\n";
+			echo "<p align=center><b>Tableau de valeurs</b></p>\n";
 			echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
 		}
 	}
