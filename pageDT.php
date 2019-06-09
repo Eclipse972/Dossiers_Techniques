@@ -55,14 +55,6 @@ $type_page = $BD->Type_page($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_
 $BD = new base2donnees();
 $Thydrate = $BD->Hydratation($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
 $page = new $type_page($Thydrate);
-
-// des fonctions utiles ---------------------------------------------------------------------------
-function Image($image, $alt, $supplement = '') {	// pour afficher des images relatives au support actuel
-	global $oSupport;
-	$image = new Image($image, $oSupport->Dossier().'images/');
-	echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
-									// class et/ou style
-}
 ?>
 
 <!doctype html>
