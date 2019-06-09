@@ -186,3 +186,19 @@ class Page_image_dessous extends Page_image {
 		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
 }
 
+class Page_courbe extends Page_abstraite { // page contenant une courebe et un tableau de valeurs
+	private $courbe;
+	private $tableau;
+	
+	public function __construct($Tparam) {
+		$this->Dénommer($Tparam['titre']);
+		$this->courbe  = new Image($Tparam['courbe'],  $this->Dossier());
+		$this->tableau = new Image($Tparam['tableau'], $this->Dossier());
+	}
+	public function Afficher() {
+		parent::Afficher();
+		echo $this->courbe->Balise('', 'class="association" style=height:400px;');
+		echo '<p>Tableau de valeurs</p>';
+		echo $this->tableau->Balise('', 'class="association"');
+	}
+}
