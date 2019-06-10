@@ -38,8 +38,7 @@ if (!strpos($fichier, '.')) // le fichier n'a pas d'extension
 parent::__construct($fichier, $dossier);
 }
 
-public function Balise($alt, $supplement = '') { return '<img src="'.$this->fichier.'" '.$supplement.' alt="'.$alt.'">'; }
-
+public function Balise($alt, $supplement = '')	{ return '<img src="'.$this->fichier.'" '.$supplement.' alt="'.$alt.'">'; }
 }
 
 class Association_image_fichier {
@@ -58,7 +57,7 @@ $this->fichier = $fichier->Chemin();
 }
 
 public function Associer($alt, $supplement = '') {	// renvoi le code d'une image liée au fichier
-	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$altm.'"></a>';
+	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$alt.'"></a>';
 }
 
 public function Code($commentaire = null) { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
