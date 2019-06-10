@@ -56,15 +56,8 @@ $this->image = $image->Chemin();
 $this->fichier = $fichier->Chemin();
 }
 
-public function Associer($alt, $supplement = '') {	// renvoi le code d'une image liée au fichier
+public function Associer($alt, $supplement = '') {	// renvoi le code d'une image liée avec son fichier
 	return '<a href="'.$this->fichier.'"><img src="'.$this->image.'" '.$supplement.' alt = "'.$alt.'"></a>';
-}
-
-public function Code($commentaire = null) { // affiche une page avec un tite l'image cliquable avec en dessous un commentaire
-$code = '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
-$code .= $this->Associer($this->titre, 'class="association"');
-if (isset($commentaire)) $code .= '<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
-return $code;
 }
 }
 

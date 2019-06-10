@@ -54,7 +54,10 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
 	}
 	public function Afficher($commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
-		echo $this->oAssociation->Code($commentaire);
+		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
+		echo $this->oAssociation->Associer('cliquez pour télécharger', 'class="association"');
+		if (isset($commentaire)) 
+			echo'<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
 	}
 }
 /* ************************************************************************************************
