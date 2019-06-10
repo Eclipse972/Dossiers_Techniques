@@ -71,39 +71,52 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
 */
 class Page_nomenclature extends Page_abstraite {
 	private $nomenclature;
+	private $colonne_matière;
+	private $colonne_observation;
 	
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
 		$oSupport = unserialize($_SESSION['support']);
 		$BD = new base2donnees();
 		$this->nomenclature = $BD->Nomenclature($oSupport->Id());
+		
+		//affichage des deux dernières colonnes si non vides
+		$BD = new base2donnees();
+		$this->colonne_matière = !$BD->Colonne_matiere_vide($oSupport->Id());
+		
+		$BD = new base2donnees();
+		$this->colonne_observation = !$BD->Colonne_observation_vide($oSupport->Id());
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
+		// indentation à cause de l'affichage du code source de la page
 		?>
-		<p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
-		<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
+<p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
+<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
 
-		<table id="nomenclature">
-		<thead>
-		<tr>
-		<th>Rep</th>
-		<th>Image</th>
-		<th>D&eacute;signation (x quantit&eacute;)</th>
-		<th>Mati&egrave;re</th>
-		<th>Observations</th>
-		</tr>
-		</thead>
+<table id="nomenclature">
+<thead>
+<tr>
+<th>Rep</th>
+<th>Image</th>
+<th>D&eacute;signation (x quantit&eacute;)</th>
+<?php
+	if ($this->colonne_matière) echo "<th>Mati&egrave;re</th>\n";
+	if ($this->colonne_observation) echo "<th>Observations</th>\n";
+?>
+</tr>
+</thead>
 
-		<tbody>
-		<?php
-		if (isset($this->nomenclature))
-			foreach ($this->nomenclature as $piece) echo $piece->Code();
-		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
-		?>
-		</tbody>
-		</table>
-		<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
+<tbody>
+<?php
+if (isset($this->nomenclature))
+	foreach ($this->nomenclature as $piece)
+		echo $piece->Code($this->colonne_matière, $this->colonne_observation);
+else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+?>
+</tbody>
+</table>
+<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 		<?php
 	}
 }

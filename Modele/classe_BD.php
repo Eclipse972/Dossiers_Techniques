@@ -69,7 +69,7 @@ public function Lien_support($id) {
 	$this->Fermer();
 	return $tableau;
 }
-
+// Nomenclature
 public function Nomenclature($support_ID) {
 	$tableau = null;
 	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
@@ -82,6 +82,20 @@ public function Nomenclature($support_ID) {
 	}
 	$this->Fermer();
 	return $tableau;
+}
+
+public function Colonne_observation_vide($support_ID) {
+	$this->Requete("SELECT COUNT(*) AS nb_observation FROM Pieces WHERE observation <> '' AND support_ID= ?", [$support_ID]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return ($reponse['nb_observation'] == 0);
+}
+
+public function Colonne_matiere_vide($support_ID) {
+	$this->Requete('SELECT COUNT(*) AS nb_matiere FROM Pieces WHERE matiere > 0 AND support_ID= ?', [$support_ID]);
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return ($reponse['nb_matiere'] == 0);
 }
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {

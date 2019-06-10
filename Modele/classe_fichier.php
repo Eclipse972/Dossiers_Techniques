@@ -82,22 +82,26 @@ parent::__construct($T_param['dossier'], $T_param['fichier'], $T_param['fichier'
 // Rem: l'image et le fichier doivent porter le même nom. image_alt = nom de la pièce
 }
 
-public function Code() {
-$code = '<tr>'."\n";
-$code .= '<td>'.$this->repere.'</td>'."\n";
-$code .= '<td>'.$this->Associer($this->nom).'</td>'."\n";	// lien image-fichier
-$code .= '<td>'.$this->nom;
-if($this->quantite > 1)					// si plusieurs exemplaires
-	$code .= ' (x'.$this->quantite.')';	// alors on rajoute la quantité
-$code .= '</td>'."\n";	// on ferme la cellule
+public function Code($matière = true, $observation = true) {
+	$code = '<tr>'."\n";
+	$code .= '<td>'.$this->repere.'</td>'."\n";
+	$code .= '<td>'.$this->Associer($this->nom).'</td>'."\n";	// lien image-fichier
+	$code .= '<td>'.$this->nom;
+	if($this->quantite > 1)					// si plusieurs exemplaires
+		$code .= ' (x'.$this->quantite.')';	// alors on rajoute la quantité
+	$code .= '</td>'."\n";	// on ferme la cellule
 
-$code .= '<td>';	// matière
-if($this->matiere!='')	$code .= '<a href="https://fr.wikipedia.org/wiki/'.$this->URL_matiere.'" target="_blank">'.$this->matiere.'</a>';
-$code .= '</td>'."\n";
+	if ($matière) { // colonne matière renseignée
+		$code .= '<td>';
+		if($this->matiere!='')	
+			$code .= '<a href="https://fr.wikipedia.org/wiki/'.$this->URL_matiere.'" target="_blank">'.$this->matiere.'</a>';
+		$code .= '</td>'."\n";
+	}
 
-$code .= '<td>'.$this->observation.'</td>'."\n";	
-$code .= '</tr>'; // fin de la ligne
-return $code."\n\n";
+	if ($observation)	// colonne observation renseignée
+		$code .= '<td>'.$this->observation.'</td>'."\n";
+	$code .= '</tr>'; // fin de la ligne
+	return $code."\n\n";
 }
 }
-?>
+
