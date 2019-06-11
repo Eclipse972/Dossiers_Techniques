@@ -101,7 +101,7 @@ $this->zip = ($archive->Existe()) ? $archive : null;
 
 public function setPosition($item, $sous_item) {
 $BD = new base2donnees();
-if (($BD->Page_existe($this->id, $item, $sous_item)) || ($item == 0)) {
+if ($BD->Page_existe($this->id, $item, $sous_item)) {
 	$this->item	 = $item; // on stocke dans le support
 	$this->sous_item = $sous_item;
 } else { 
