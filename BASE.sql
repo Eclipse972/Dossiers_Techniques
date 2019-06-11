@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Lun 10 Juin 2019 à 00:08
+-- Généré le : Mar 11 Juin 2019 à 10:34
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -130,23 +130,23 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 (38, 73, 'fichier', 'pompe'),
 (39, 100, 'fichier', 'casseNoix'),
 (40, 108, 'fichier', 'bride'),
-(41, 116, 'fichier', 'def_axe_articulation'),
-(42, 117, 'fichier', 'def_biellette'),
-(43, 118, 'fichier', 'def_chandelle'),
-(44, 119, 'fichier', 'def_chape'),
-(45, 120, 'fichier', 'def_corps2pompe'),
-(46, 121, 'fichier', 'def_cylindre_principal'),
-(47, 122, 'fichier', 'def_embase'),
-(48, 123, 'fichier', 'def_levier'),
-(49, 124, 'fichier', 'def_piston2pompe'),
-(50, 125, 'fichier', 'def_piston_recepteur'),
-(51, 126, 'fichier', 'def_pointeau'),
-(52, 127, 'fichier', 'def_poussoir_tarage'),
-(53, 128, 'fichier', 'def_reservoir'),
-(54, 129, 'fichier', 'def_tirants_M4'),
+(41, 116, 'titre', 'de l&apos;axe d&apos;articulation'),
+(42, 117, 'titre', 'de la biellette'),
+(43, 118, 'titre', 'de la chandelle'),
+(44, 119, 'titre', 'de la chape'),
+(45, 120, 'titre', 'du corps de pompe'),
+(46, 121, 'titre', 'du cylindre principal'),
+(47, 122, 'titre', 'de l&apos;embase'),
+(48, 123, 'titre', 'du levier'),
+(49, 124, 'titre', 'du piston de pompe'),
+(50, 125, 'titre', 'du piston r&eacute;cepteur'),
+(51, 126, 'titre', 'du pointeau'),
+(52, 127, 'titre', 'du poussoir de tarage'),
+(53, 128, 'titre', 'du r&eacute;servoir'),
+(54, 129, 'titre', 'du tirant M4'),
 (55, 145, 'fichier', 'prehenseur'),
 (56, 154, 'fichier', 'unite2marquage'),
-(57, 157, 'fichier', 'flasque'),
+(57, 157, 'titre', 'du flasque droit'),
 (58, 168, 'fichier', 'vanne'),
 (59, 1, 'titre', 'Mise en situation'),
 (60, 2, 'titre', 'Diagramme pieuvre'),
