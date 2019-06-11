@@ -12,7 +12,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
 		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
 	public function Dossier() // dossier de travail de la page
-		{ return unserialize($_SESSION['support'])->Dossier(); }
+		{ return $_SESSION['support']->Dossier(); }
 }
 
 
@@ -76,16 +76,15 @@ class Page_nomenclature extends Page_abstraite {
 	
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
-		$oSupport = unserialize($_SESSION['support']);
 		$BD = new base2donnees();
-		$this->nomenclature = $BD->Nomenclature($oSupport->Id());
+		$this->nomenclature = $BD->Nomenclature($_SESSION['support']->Id());
 		
 		//affichage des deux dernières colonnes si non vides
 		$BD = new base2donnees();
-		$this->colonne_matière = !$BD->Colonne_matiere_vide($oSupport->Id());
+		$this->colonne_matière = !$BD->Colonne_matiere_vide($_SESSION['support']->Id());
 		
 		$BD = new base2donnees();
-		$this->colonne_observation = !$BD->Colonne_observation_vide($oSupport->Id());
+		$this->colonne_observation = !$BD->Colonne_observation_vide($_SESSION['support']->Id());
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -127,7 +126,7 @@ class Page_script extends Page_abstraite {
 	public function __construct($Tparam) { // le script sans son extension
 		$this->script = $this->Dossier().$Tparam['script'].'.php';		
 		if (!file_exists($this->script)) 
-		 $this->script = 'Vue/oups.php';
+			$this->script = 'Vue/oups.php';
 	}
 	
 	public function Afficher() {

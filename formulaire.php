@@ -2,12 +2,11 @@
 /*********************************************************************************************************************************** 
 	formumaire de contact
 ************************************************************************************************************************************/
+require 'Modele/classe_support.php';
 session_start(); // On démarre la session AVANT toute chose
 
-//require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_BD.php';
-require 'Modele/classe_support.php';
 require 'Modele/classe_valideur.php';
 require 'Controleur/liens.php';
 
@@ -18,10 +17,9 @@ $_SESSION['temps'] = time();
 
 // contexte
 if (isset($_SESSION['support'])) {
-	$oSupport = unserialize($_SESSION['support']);
-	if ($oSupport->ID() > 0) {
-		$objet = 'la page &laquo;'.$BD->Texte_item($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'&raquo; '.$oSupport->Du_support();
-		$page_retour = 'pageDT.php?p='.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item());
+	if ($_SESSION['support']->ID() > 0) {
+		$objet = 'la page &laquo;'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
+		$page_retour = 'pageDT.php?p='.Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
 	}
 	else {
 		$objet = 'l&apos;archive ZIP';

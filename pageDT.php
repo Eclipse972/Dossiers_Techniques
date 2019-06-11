@@ -2,7 +2,9 @@
 /*********************************************************************************************************************************** 
 	Affichage d'une page d'un support
 ************************************************************************************************************************************/
-session_start(); // On démarre la session AVANT toute chose
+//la session contient un objet support dons la classe doit être appelée en premier
+require 'Modele/classe_support.php';
+session_start(); // On démarre la session
 
 define(SITE, "Location: http://dossiers.techniques.free.fr/");
 if (empty($_GET))	// pas de paramètre
@@ -32,27 +34,24 @@ if (!$BD->Support_existe($id))			// si le support n'existe pas
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
-require 'Modele/classe_support.php';
 require 'Modele/classe_page.php';
 
 $TRACEUR = new Traceur; // voir avant dernière ligne pour affichage du rapport
 
 if (isset($_SESSION['support'])) { // si il y a un support en cours
-	$oSupport = unserialize($_SESSION['support']);
-	if ($oSupport->ID() != $id) // changement de support?
-		$oSupport = new Support($id); // alors on en crée un nouveau
-} else $oSupport = new Support($id); // alors on le crée
-$oSupport->setPosition($item, $sous_item); // on met à jour a position
-$_SESSION['support'] = serialize($oSupport);
+	if ($_SESSION['support']->ID() != $id) // changement de support?
+		$_SESSION['support'] = new Support($id); // alors on en crée un nouveau
+} else $_SESSION['support'] = new Support($id); // alors on le crée
+$_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
 
-$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item()); // création menu
+$menu = new Menu($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()); // création menu
 
 // création de l'objet page
 $BD = new base2donnees();
-$type_page = $BD->Type_page($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+$type_page = $BD->Type_page($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
 
 $BD = new base2donnees();
-$Thydrate = $BD->Hydratation($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+$Thydrate = $BD->Hydratation($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
 $page = new $type_page($Thydrate);
 ?>
 
@@ -66,15 +65,15 @@ $page = new $type_page($Thydrate);
 <body>
 
 <header>
-	<div id="logo"><a href="a_propos.php"><?=$oSupport->Image()?></a></div>
-	<div id="titre"><p class="font-effect-outline"><?='Dossier technique '.$oSupport->Du_support()?></p></div>
+	<div id="logo"><a href="a_propos.php"><?=$_SESSION['support']->Image()?></a></div>
+	<div id="titre"><p class="font-effect-outline"><?='Dossier technique '.$_SESSION['support']->Du_support()?></p></div>
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
 <?php
 define(DUREE, 0);	// durée du cache en heure
-$cache = 'Vue/cache/'.$oSupport->Pti_nom().' '.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'.cache';
+$cache = 'Vue/cache/'.$_SESSION['support']->Pti_nom().' '.Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'.cache';
 if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 	readfile($cache);
 else {

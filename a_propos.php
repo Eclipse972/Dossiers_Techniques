@@ -2,25 +2,22 @@
 /*********************************************************************************************************************************** 
 	page à propos d'un support
 ************************************************************************************************************************************/
-session_start(); // On démarre la session AVANT toute chose
+require 'Modele/classe_support.php';
+session_start();
 
 if (!isset($_SESSION['support'])) {	// s'il ny a pas de support en cours
 	header("Location: http://dossiers.techniques.free.fr/erreur.php?code=404");	// page d'erreur
 	exit;
 }
-
 require 'Modele/classe_fichier.php';
 require 'Controleur/liens.php';
 require 'Modele/classe_BD.php';
-require 'Modele/classe_support.php';
-
-$oSupport = unserialize($_SESSION['support']);
 
 $BD = new base2donnees();
 $code = '<p><u><b>Informations sur la maquette num&eacute;rique</b></u></p>'."\n";
-if (isset($oSupport->zip)) {
-	$code .= $oSupport->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
-	$Liste = $BD->Description_maquette($oSupport->id);
+if (isset($_SESSION['support']->zip)) {
+	$code .= $_SESSION['support']->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique')."\n";
+	$Liste = $BD->Description_maquette($_SESSION['support']->id);
 	switch(count($Liste)) {
 	case 0:
 		$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
@@ -35,7 +32,7 @@ if (isset($oSupport->zip)) {
 	}
 } else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
 $code .= "\n".'<p><u><b>Liens (dans un nouvel onglet)</b></u></p>';
-$Liste = $BD->Lien_support($oSupport->ID());
+$Liste = $BD->Lien_support($_SESSION['support']->ID());
 switch(count($Liste)) {
 case 0:
 	$code .= '<p>Aucun pour le moment</p>';
@@ -49,7 +46,7 @@ default:
 		$code .= '<li>'.$lien.'</li>'."\n";
 	$code .= '</ul>';
 }
-$code .= "\n".Lien('Retour au dossier technique '.$oSupport->Du_support(),$oSupport->ID());
+$code .= "\n".Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID());
 ?>
 
 <!doctype html>
@@ -62,8 +59,8 @@ $code .= "\n".Lien('Retour au dossier technique '.$oSupport->Du_support(),$oSupp
 <body>
 
 <header>
-	<div id="logo"><?=$oSupport->Image()?></div>
-	<div id="titre"><p class="font-effect-outline">A propos <?=$oSupport->Du_support() ?></p></div>
+	<div id="logo"><?=$_SESSION['support']->Image()?></div>
+	<div id="titre"><p class="font-effect-outline">A propos <?=$_SESSION['support']->Du_support() ?></p></div>
 </header>
 
 <section>
