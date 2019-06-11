@@ -77,14 +77,14 @@ class Page_nomenclature extends Page_abstraite {
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
 		$BD = new base2donnees();
-		$this->nomenclature = $BD->Nomenclature($_SESSION['support']->Id());
+		$this->nomenclature = $BD->Nomenclature();
 		
 		//affichage des deux dernières colonnes si non vides
 		$BD = new base2donnees();
-		$this->colonne_matière = !$BD->Colonne_matiere_vide($_SESSION['support']->Id());
+		$this->colonne_matière = !$BD->Colonne_matiere_vide();
 		
 		$BD = new base2donnees();
-		$this->colonne_observation = !$BD->Colonne_observation_vide($_SESSION['support']->Id());
+		$this->colonne_observation = !$BD->Colonne_observation_vide();
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
