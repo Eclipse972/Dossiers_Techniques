@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 11 Juin 2019 à 10:34
+-- Généré le : Mar 11 Juin 2019 à 11:11
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -438,10 +438,58 @@ INSERT INTO `HydratePage` (`ID`, `menu_ID`, `variable`, `valeur`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Items_menu`
+-- Structure de la table `Materiaux`
 --
 
-CREATE TABLE IF NOT EXISTS `Items_menu` (
+CREATE TABLE IF NOT EXISTS `Materiaux` (
+  `ID` int(11) unsigned NOT NULL auto_increment,
+  `formule` varchar(99) collate latin1_general_ci NOT NULL,
+  `URL_wiki` text collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `formule` (`formule`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
+
+--
+-- Contenu de la table `Materiaux`
+--
+
+INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
+(0, '', '#'),
+(1, '45 Si 8', 'Acier#Aciers_faiblement_alli.C3.A9s'),
+(2, 'AU4-G', 'Dural'),
+(3, 'C 40', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
+(4, 'C 60', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
+(5, 'Cu Zn 15', 'Alliage_de_cuivre'),
+(6, 'Cu Zn 39 Pb 2', 'Alliage_de_cuivre'),
+(7, 'CW 453K', 'Bronze'),
+(8, 'E 335', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
+(9, 'EN AW 2017', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
+(10, 'PF 21 (Bak&eacute;lite)', 'Bak%C3%A9lite'),
+(11, 'PMMA', 'Polym%C3%A9thacrylate_de_m%C3%A9thyle'),
+(12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
+(13, 't&eacute;flon', 'T%C3%A9flon'),
+(14, 'S 275', 'Acier#Aciers_non_alli.C3.A9s'),
+(15, 'stub', '#'),
+(16, 'h&ecirc;tre', ''),
+(17, 'EN-GJS-600-2', 'Fonte_(m%C3%A9tallurgie)#Fonte_GS_(graphite_sph%C3%A9ro%C3%AFdal,_aussi_appel%C3%A9e_fonte_ductile)'),
+(18, 'C 55', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
+(19, '55 Cr3', 'Acier#Aciers_faiblement_alli.C3.A9s'),
+(20, 'E 295', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
+(21, 'C35', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
+(22, 'S 185', 'Acier#Aciers_non_alli.C3.A9s'),
+(23, 'X 12 Cr 13', 'Désignation_des_métaux_et_alliages#Aciers'),
+(24, 'Cu Al10 Fe', 'Alliage_de_cuivre'),
+(25, 'EN AW 2018', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
+(26, 'PTFE', 'Polytétrafluoroéthylène'),
+(27, 'GE 295', 'Acier#Aciers_non_alli%C3%A9s_d''usage_g%C3%A9n%C3%A9ral');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Menu`
+--
+
+CREATE TABLE IF NOT EXISTS `Menu` (
   `ID` smallint(5) unsigned NOT NULL auto_increment,
   `support_ID` smallint(5) unsigned NOT NULL,
   `item` tinyint(1) unsigned NOT NULL,
@@ -453,10 +501,10 @@ CREATE TABLE IF NOT EXISTS `Items_menu` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=171 ;
 
 --
--- Contenu de la table `Items_menu`
+-- Contenu de la table `Menu`
 --
 
-INSERT INTO `Items_menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page`) VALUES
+INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page`) VALUES
 (1, 0, 1, 0, 'Mise en situation', 'Page_image_dessous'),
 (2, 0, 2, 0, 'Diagramme pieuvre', 'Page_image_dessus'),
 (3, 0, 3, 0, 'Dessin d&apos;ensemble', 'Page_dessin_densemble'),
@@ -627,54 +675,6 @@ INSERT INTO `Items_menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `typ
 (168, 18, 3, 0, 'Dessin d&apos;ensemble', 'Page_dessin_densemble'),
 (169, 18, 1, 0, 'Mise en situation', 'Page_image_dessous'),
 (170, 18, 5, 0, 'Nomenclature', 'Page_nomenclature');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `Materiaux`
---
-
-CREATE TABLE IF NOT EXISTS `Materiaux` (
-  `ID` int(11) unsigned NOT NULL auto_increment,
-  `formule` varchar(99) collate latin1_general_ci NOT NULL,
-  `URL_wiki` text collate latin1_general_ci NOT NULL,
-  PRIMARY KEY  (`ID`),
-  UNIQUE KEY `formule` (`formule`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
-
---
--- Contenu de la table `Materiaux`
---
-
-INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
-(0, '', '#'),
-(1, '45 Si 8', 'Acier#Aciers_faiblement_alli.C3.A9s'),
-(2, 'AU4-G', 'Dural'),
-(3, 'C 40', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
-(4, 'C 60', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
-(5, 'Cu Zn 15', 'Alliage_de_cuivre'),
-(6, 'Cu Zn 39 Pb 2', 'Alliage_de_cuivre'),
-(7, 'CW 453K', 'Bronze'),
-(8, 'E 335', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
-(9, 'EN AW 2017', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
-(10, 'PF 21 (Bak&eacute;lite)', 'Bak%C3%A9lite'),
-(11, 'PMMA', 'Polym%C3%A9thacrylate_de_m%C3%A9thyle'),
-(12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
-(13, 't&eacute;flon', 'T%C3%A9flon'),
-(14, 'S 275', 'Acier#Aciers_non_alli.C3.A9s'),
-(15, 'stub', '#'),
-(16, 'h&ecirc;tre', ''),
-(17, 'EN-GJS-600-2', 'Fonte_(m%C3%A9tallurgie)#Fonte_GS_(graphite_sph%C3%A9ro%C3%AFdal,_aussi_appel%C3%A9e_fonte_ductile)'),
-(18, 'C 55', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
-(19, '55 Cr3', 'Acier#Aciers_faiblement_alli.C3.A9s'),
-(20, 'E 295', 'Acier#Aciers_non_alli.C3.A9s_d.27usage_g.C3.A9n.C3.A9ral'),
-(21, 'C35', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
-(22, 'S 185', 'Acier#Aciers_non_alli.C3.A9s'),
-(23, 'X 12 Cr 13', 'Désignation_des_métaux_et_alliages#Aciers'),
-(24, 'Cu Al10 Fe', 'Alliage_de_cuivre'),
-(25, 'EN AW 2018', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
-(26, 'PTFE', 'Polytétrafluoroéthylène'),
-(27, 'GE 295', 'Acier#Aciers_non_alli%C3%A9s_d''usage_g%C3%A9n%C3%A9ral');
 
 -- --------------------------------------------------------
 
@@ -938,7 +938,7 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (16, 'Bague anti extrusion 34-40', 18, 3, 13, '', 'bague_anti_extrusion34-40', 0),
 (16, 'Joint torique 35,6x3,6', 19, 2, 0, 'Commerce', 'joint_torique35,6x3,6', 0),
 (16, 'Douille', 20, 1, 0, 'Commerce', 'douille', 0),
-(16, 'Joint torique 16,6x2,7', 21, 1, 0, 'Commerce', 'joint_torique16.9x2.7', 0),
+(16, 'Joint torique 16,6x2,7', 21, 1, 0, 'Commerce', 'joint_torique16,9x2,7', 0),
 (16, 'Bague anti-extrusion 18-21', 22, 1, 13, '', 'bague_anti-extrusion18-21', 0),
 (16, 'Goupille &eacute;lastique 4 x 35', 24, 1, 0, 'Commerce', 'goupille4x35', 0),
 (16, 'chape', 25, 1, 21, '', 'chape', 0),

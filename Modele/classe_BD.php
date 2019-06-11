@@ -99,14 +99,14 @@ public function Colonne_matiere_vide($support_ID) {
 }
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
-	$this->Requete('SELECT COUNT(*) AS nb_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
+	$this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return ($reponse['nb_page'] == 1);
 }
 
 public function Type_page($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT type_page FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	$this->Requete('SELECT type_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
@@ -114,7 +114,7 @@ public function Type_page($support, $item, $sous_item) { // nom du script à ex�
 }
 public function Hydratation($support, $item, $sous_item) {
 	$this->Requete('SELECT variable, valeur FROM HydratePage
-					WHERE menu_ID=(SELECT ID FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?)',
+					WHERE menu_ID=(SELECT ID FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?)',
 					[$support, $item, $sous_item]);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
@@ -124,7 +124,7 @@ public function Hydratation($support, $item, $sous_item) {
 
 // fonction en sursis
 public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT param1, param2, param3, param4 FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	$this->Requete('SELECT param1, param2, param3, param4 FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
 	$T_parametres = $this->resultat->fetch(); // la réponse est un tableau
 	$this->Fermer();
@@ -132,7 +132,7 @@ public function Parametres_script($support, $item, $sous_item) { // nom du scrip
 }
 
 public function Liste_item($support, $item) {
-	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND sous_item=0', [$support]);
+	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
@@ -144,7 +144,7 @@ public function Liste_item($support, $item) {
 }
 
 public function Liste_sous_item($support,$item,$sous_item) {
-	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
+	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
@@ -157,7 +157,7 @@ public function Liste_sous_item($support,$item,$sous_item) {
 }
 
 public function Texte_item($support,$item,$sous_item) { // renvoie le texte de l'item/sous-item
-	$this->Requete('SELECT texte FROM Items_menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$support, $item, $sous_item]);
 	$réponse = $this->resultat->fetch();
 	$this->Fermer();
