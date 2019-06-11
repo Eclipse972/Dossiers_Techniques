@@ -104,18 +104,18 @@ public function Page_existe($support, $item, $sous_item) {
 	$this->Fermer();
 	return ($reponse['nb_page'] == 1);
 }
-
-public function Type_page($support, $item, $sous_item) { // nom du script à exécuter
+// construction de la page pour le support courant
+public function Type_page() { // nom du script à exécuter
 	$this->Requete('SELECT type_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[$support, $item, $sous_item]);
+					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['type_page']; // ne contient pas l'extension car c'est peut-être un mot clé
 }
-public function Hydratation($support, $item, $sous_item) {
+public function Hydratation() {
 	$this->Requete('SELECT variable, valeur FROM HydratePage
 					WHERE menu_ID=(SELECT ID FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?)',
-					[$support, $item, $sous_item]);
+					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
 	$this->Fermer();

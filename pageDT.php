@@ -48,10 +48,10 @@ $menu = new Menu($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SES
 
 // création de l'objet page
 $BD = new base2donnees();
-$type_page = $BD->Type_page($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
+$type_page = $BD->Type_page();
 
 $BD = new base2donnees();
-$Thydrate = $BD->Hydratation($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
+$Thydrate = $BD->Hydratation();
 $page = new $type_page($Thydrate);
 ?>
 
