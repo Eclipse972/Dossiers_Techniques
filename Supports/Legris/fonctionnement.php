@@ -4,11 +4,12 @@
 <div class="colonne">
 <h2>Vanne ouverte</h2>
 <p>Lorsque la manette est orient&eacute;e parallèlement au tuyau le fluide peut passer.</p>
-<?= Image($T_instruction['param1'], 'vanne ouverte', 'style="width:300px" class="image_centree"'); ?>
+<img src="<?=$Dossier_images?>vanne_ouverte.png" style="width:300px" class="image_centree" alt="vanne ouverte">
 </div>
 
 <div class="colonne">
 <h2>Vanne ferm&eacute;e</h2>
 <p>Lorsque la manette est orient&eacute;e perpendiculairement au tuyau le fluide ne peut plus passer.</p>
-<?= Image($T_instruction['param2'], 'vanne ferm&eacute;e', 'style="width:300px" class="image_centree"'); ?>
+<img src="<?=$Dossier_images?>vanne_fermee.png" style="width:300px" class="image_centree" alt="vanne ferm&eacute;e">
 </div>
+

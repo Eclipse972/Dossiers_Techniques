@@ -29,7 +29,6 @@ if (!$BD->Support_existe($id))			// si le support n'existe pas
 }
 // si on arrive ici c'est que le support donné en paramètre existe
 
-require 'Modele/classe_associations.php';
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
@@ -46,13 +45,15 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 $oSupport->setPosition($item, $sous_item); // on met à jour a position
 $_SESSION['support'] = serialize($oSupport);
 
-// des fonctions utiles ---------------------------------------------------------------------------
-function Image($image, $alt, $supplement = '') {	// pour afficher des images relatives au support actuel
-	global $oSupport;
-	$image = new Image($image, $oSupport->Dossier().'images/');
-	echo '<img src="', $image->Chemin(),'" '.$supplement.' alt="', $alt, '">',"\n";
-									// class et/ou style
-}
+$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item()); // création menu
+
+// création de l'objet page
+$BD = new base2donnees();
+$type_page = $BD->Type_page($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+
+$BD = new base2donnees();
+$Thydrate = $BD->Hydratation($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
+$page = new $type_page($Thydrate);
 ?>
 
 <!doctype html>
@@ -70,6 +71,7 @@ function Image($image, $alt, $supplement = '') {	// pour afficher des images rel
 </header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
 <?php
 define(DUREE, 0);	// durée du cache en heure
 $cache = 'Vue/cache/'.$oSupport->Pti_nom().' '.Creer_parametre($oSupport->ID(), $oSupport->Item(), $oSupport->Sous_item()).'.cache';
@@ -77,16 +79,17 @@ if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 	readfile($cache);
 else {
 	ob_start();
-	echo '<nav>', "\n";
-	$menu = new Menu($oSupport->Id(), $oSupport->Item(), $oSupport->Sous_item());
-	echo $menu->Code();
-	echo '</nav>', "\n";
-	
-	echo '<section>', "\n";
-	include 'Controleur/code_section.php';
-	echo '</section>', "\n";
-	
-	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
+	?>
+<nav>
+<?=$menu->Afficher()?>
+</nav>
+
+<section>
+<?=$page->Afficher()?>
+</section>
+
+<!-- cache généré le <?=date("d/m/Y \à H:i")?>' -->
+<?php
 	$code = ob_get_contents();
 	ob_end_clean();
 	file_put_contents($cache, $code);

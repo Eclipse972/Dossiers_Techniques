@@ -2,13 +2,12 @@
 <ol>
 <li>Garer le v&eacute;hicule sur une surface plane et dure. Assurez-vous que le frein à main est bloqu&eacute; et que le v&eacute;hicule a une bonne stabilit&eacute;.</li>
 <li>A l&apos;aide du levier de manœuvre, fermez la vis de descente dans le sens des aiguilles d&apos;une montre.<br>
-<?php
-	Image($T_instruction['param1'], 'vis de d&eacute;scente', 'style=height:180px');
-	Image($T_instruction['param2'], 'Fermer vis de d&eacute;scente', 'style=height:180px');
-?>
+<img src="<?=$Dossier_images?>vis2descente.png" style=height:180px alt="vis de d&eacute;scente">
+<img src="<?=$Dossier_images?>fermer_vis2descente.png" style=height:180px alt="Fermer vis de d&eacute;scente">
+
 </li>
 <li>Positionner le cric sous le châssis du v&eacute;hicule en plaçant la sellette sous le bas de caisse.</li>
-<li><?= Image($T_instruction['param3'], 'pomper pour lever le v&eacute;hicule', 'style=height:180px;float:right;'); ?>
+<li><img src="<?=$Dossier_images?>pomper.png" style=height:180px;float:right; alt="pomper pour lever le v&eacute;hicule">
 	Placer le levier dans la gouge de commande de la pompe. Agir sur le levier par un mouvement alternatif "haut bas" pour actionner la pompe et soulever la sellette par l&apos;interm&eacute;diaire du bras et du v&eacute;rin.
 	<ul>
 	<li>Phase d&apos;approche : La sellette s&apos;&eacute;l&egrave;ve mais n&apos;est pas en appui sous le bas de caisse, le v&eacute;hicule n&apos;est pas soulev&eacute;.</li>

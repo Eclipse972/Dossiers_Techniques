@@ -4,17 +4,15 @@
 
 class Page_abstraite { // classe servant de modèle  toutes les autres
 	private $titre;		// de la page
-
-	// Assesseurs ---------------------------------------------------------------------------------
-
 	// Mutateurs ----------------------------------------------------------------------------------
 	public function Dénommer($titre) { $this->titre = $titre; }
 
 	// autres méthodes ----------------------------------------------------------------------------
 	public function Afficher() { // code pour afficher la page
-		echo "\t".'<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
+		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
-	public function Dossier() { return unserialize($_SESSION['support'])->Dossier(); }
+	public function Dossier() // dossier de travail de la page
+		{ return unserialize($_SESSION['support'])->Dossier(); }
 }
 
 
@@ -27,7 +25,7 @@ class Page_image extends Page_abstraite {
 	private $commentaire;
 	private $Audessus;
 	
-	public function __construct($titre, $image, $commentaire, $Audessus = true, $hauteur = 400) { // affiche une image avec un commentaire au dessus ou au dessous
+	public function __construct($titre, $image, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
 		$this->Dénommer($titre);
 		$dossier = $this->Dossier().'images/';
 		$this->image = new Image($image, $dossier);
@@ -40,7 +38,7 @@ class Page_image extends Page_abstraite {
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire.'</p>';
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'class="association" style=height:'.$this->hauteur.'px;');
+		echo $this->image->Balise('', 'style="height:'.$this->hauteur.'px; align=center"');
 		if ($this->Audessus) echo $commentaire;
 	}
 }
@@ -56,7 +54,10 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
 	}
 	public function Afficher($commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
-		echo $this->oAssociation->Code($commentaire);
+		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
+		echo $this->oAssociation->Associer('cliquez pour télécharger', 'class="association"');
+		if (isset($commentaire)) 
+			echo'<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
 	}
 }
 /* ************************************************************************************************
@@ -70,39 +71,52 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
 */
 class Page_nomenclature extends Page_abstraite {
 	private $nomenclature;
+	private $colonne_matière;
+	private $colonne_observation;
 	
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
 		$oSupport = unserialize($_SESSION['support']);
 		$BD = new base2donnees();
 		$this->nomenclature = $BD->Nomenclature($oSupport->Id());
+		
+		//affichage des deux dernières colonnes si non vides
+		$BD = new base2donnees();
+		$this->colonne_matière = !$BD->Colonne_matiere_vide($oSupport->Id());
+		
+		$BD = new base2donnees();
+		$this->colonne_observation = !$BD->Colonne_observation_vide($oSupport->Id());
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
+		// indentation à cause de l'affichage du code source de la page
 		?>
-		<p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
-		<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
+<p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
+<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
 
-		<table id="nomenclature">
-		<thead>
-		<tr>
-		<th>Rep</th>
-		<th>Image</th>
-		<th>D&eacute;signation (x quantit&eacute;)</th>
-		<th>Mati&egrave;re</th>
-		<th>Observations</th>
-		</tr>
-		</thead>
+<table id="nomenclature">
+<thead>
+<tr>
+<th>Rep</th>
+<th>Image</th>
+<th>D&eacute;signation (x quantit&eacute;)</th>
+<?php
+	if ($this->colonne_matière) echo "<th>Mati&egrave;re</th>\n";
+	if ($this->colonne_observation) echo "<th>Observations</th>\n";
+?>
+</tr>
+</thead>
 
-		<tbody>
-		<?php
-		if (isset($this->nomenclature))
-			foreach ($this->nomenclature as $piece) echo $piece->Code();
-		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
-		?>
-		</tbody>
-		</table>
-		<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
+<tbody>
+<?php
+if (isset($this->nomenclature))
+	foreach ($this->nomenclature as $piece)
+		echo $piece->Code($this->colonne_matière, $this->colonne_observation);
+else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+?>
+</tbody>
+</table>
+<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 		<?php
 	}
 }
@@ -110,15 +124,16 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite {
 	private $script;
 
-	public function __construct($script) { // le script sans son extension
-		$oSupport = unserialize($_SESSION['support']);
-		$this->script = $oSupport->Dossier().$script.'.php';		
+	public function __construct($Tparam) { // le script sans son extension
+		$this->script = $this->Dossier().$Tparam['script'].'.php';		
 		if (!file_exists($this->script)) 
 		 $this->script = 'Vue/oups.php';
 	}
 	
 	public function Afficher() {
-		global $T_instruction;	// accès au tableau des paramètres utilisé par le script inclus
+		/* variable pour automatiser l'écriture du dossier d'images. 
+		 * Il suffit d'ajouter <?=$Dossier_images?> avant le nom de l'image */
+		$Dossier_images = $this->Dossier().'images/'; 
 		include $this->script;	// code pour afficher la page
 	}	
 }
@@ -153,7 +168,7 @@ class Page_CE extends Page_association_image_fichier {
 	
 	public function __construct($Tparam) {
 												// extension obligatoire car il existe des CE n'ayant qu'un pièce => extension = .EPRT
-		parent::__construct($Tparam['fichier'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
+		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
 		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
 	}
@@ -187,3 +202,32 @@ class Page_image_dessous extends Page_image {
 		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
 }
 
+class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
+	private $courbe;
+	private $tableau;
+	private $alt_tableau;
+	private $alt_courbe;
+	private $hauteur;
+	
+	public function __construct($Tparam) {
+		$this->Dénommer($Tparam['titre']);
+		$dossier = $this->Dossier().'images/';
+		$this->courbe = new Image($Tparam['courbe'], $dossier);
+		$this->alt_courbe = $Tparam['alt_courbe'];
+		$this->hauteur = (isset($Tparam['hauteur'])) ? $Tparam['hauteur'] : 600;
+		
+		// variable pour le tableau
+		if (isset($Tparam['tableau'])) {
+			$this->tableau = new Image($Tparam['tableau'], $dossier);
+			$this->alt_tableau = $Tparam['alt_tableau'];
+		} else $this->tableau = null;
+	}
+	public function Afficher() {
+		parent::Afficher();
+		echo $this->courbe->Balise($this->alt_courbe, 'class="association" style="height:'.$this->hauteur.'px"'),"\n";
+		if (isset($this->tableau)) { // le tableau est il défini?
+			echo "<p align=center><b>Tableau de valeurs</b></p>\n";
+			echo $this->tableau->Balise($this->alt_tableau, 'class="association"'),"\n";
+		}
+	}
+}

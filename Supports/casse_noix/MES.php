@@ -3,10 +3,10 @@
 
 <div class="colonne">
 <h2>levier lev&eacute;</h2>
-<?= Image($T_instruction['param1'], 'levier lev&eacute;', 'style=width:300px'); ?>
+<img src="<?=$Dossier_images?>levier_leve.png" style=width:300px alt="levier lev&eacute;">
 </div>
 
 <div class="colonne">
 <h2>levier baiss&eacute;e</h2>
-<?= Image($T_instruction['param2'], 'levier baiss&eacute;e', 'style=width:300px'); ?>
+<img src="<?=$Dossier_images?>levier_baisse.png" style=width:300px alt="levier baiss&eacute;e">
 </div>
