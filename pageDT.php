@@ -44,7 +44,7 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 } else $_SESSION['support'] = new Support($id); // alors on le crée
 $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
 
-$menu = new Menu($_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()); // création menu
+$menu = new Menu(); // création menu
 
 // création de l'objet page
 $BD = new base2donnees();

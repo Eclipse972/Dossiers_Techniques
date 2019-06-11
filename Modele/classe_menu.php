@@ -5,10 +5,10 @@ class Menu {
 	private $sous_item;
 	/// la clase BD est nécessaire
 
-	public function __construct($support, $item, $sous_item) {	// constructeur
-		$this->ID_support	= (int) $support;	// le support doit être validé en amont
-		$this->item			= (int) $item;		// item sélectionné
-		$this->sous_item	= (int) $sous_item;	// sous_item sélectionné
+	public function __construct() {	// constructeur pour le support actuel
+		$this->ID_support	= $_SESSION['support']->Id();		// le support doit être validé en amont
+		$this->item			= $_SESSION['support']->Item();		// item sélectionné
+		$this->sous_item	= $_SESSION['support']->Sous_item();// sous_item sélectionné
 	}
 
 	public function Afficher() {
