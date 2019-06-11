@@ -121,16 +121,6 @@ public function Hydratation($support, $item, $sous_item) {
 	$this->Fermer();
 	return $tableau;
 }
-
-// fonction en sursis
-public function Parametres_script($support, $item, $sous_item) { // nom du script à exécuter
-	$this->Requete('SELECT param1, param2, param3, param4 FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[$support, $item, $sous_item]);
-	$T_parametres = $this->resultat->fetch(); // la réponse est un tableau
-	$this->Fermer();
-	return $T_parametres;
-}
-
 public function Liste_item($support, $item) {
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
