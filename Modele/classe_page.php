@@ -123,17 +123,23 @@ else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 class Page_script extends Page_abstraite {
 	private $script;
 
-	public function __construct($Tparam) { // le script sans son extension
-		$this->script = $this->Dossier().$Tparam['script'].'.php';		
-		if (!file_exists($this->script)) 
-			$this->script = 'Vue/oups.php';
-	}
+	public function __construct($Tparam) { $this->script = $this->Dossier().$Tparam['script'].'.php'; }
 	
 	public function Afficher() {
-		/* variable pour automatiser l'écriture du dossier d'images. 
-		 * Il suffit d'ajouter <?=$Dossier_images?> avant le nom de l'image */
-		$Dossier_images = $this->Dossier().'images/'; 
-		include $this->script;	// code pour afficher la page
+		if (file_exists($this->script)) {
+			/* variable pour automatiser l'écriture du dossier d'images. 
+			 * Il suffit d'ajouter <?=$Dossier_images?> avant le nom de l'image */
+			$Dossier_images = $this->Dossier().'images/'; 
+			include $this->script;	// code pour afficher la page
+		} else {	
+?>
+	<div id="page_image">
+	<h1>D&eacute;sol&eacute; !</h1>
+	<p align=center>Il semblerai que je n&apos;ai pas r&eacute;dig&eacute; cette page.</p>
+	<?=$_SESSION['support']->Image()?>
+	</div>
+<?php
+		}
 	}	
 }
 
