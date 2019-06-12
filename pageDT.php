@@ -80,7 +80,24 @@ else {
 	ob_start();
 	?>
 <nav>
-<?=$menu->Afficher()?>
+<?php
+$BD = new base2donnees();
+$T_items = $BD->Liste_item();
+if(isset($T_items)) {
+	echo "<ul>\n";
+	foreach($T_items as $i => $item) {	// affichage du menu
+		echo "<li>$item</li>\n";	// lien
+		// si item courant = item sélectionné et sous-menu existe alors affichage du sous-menu
+		$T_sous_items = $BD->Liste_sous_item();
+		if (($i == $_SESSION['support']->Item()) && isset($T_sous_items)) {
+			echo "\t<ul>\n";
+			foreach($T_sous_items as $sous_item)	echo "\t<li>$sous_item</li>\n";
+			echo "\t</ul>\n";
+		}
+	}
+	echo "</ul>\n<a href=index.php>SOMMAIRE</a>\n";
+} else trigger_error('Menu inexsistant: identifiant du support='.$this->ID_support."\n". E_USER_WARNING);
+?>
 </nav>
 
 <section>

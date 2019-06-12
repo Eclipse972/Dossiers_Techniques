@@ -121,7 +121,9 @@ public function Hydratation() {
 	$this->Fermer();
 	return $tableau;
 }
-public function Liste_item($support, $item) {
+public function Liste_item() { // liste des items du support courant
+	$support = $_SESSION['support']->Id();
+	$item = $_SESSION['support']->Item();
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
 	$tableau = null;
@@ -133,7 +135,10 @@ public function Liste_item($support, $item) {
 	return $tableau;
 }
 
-public function Liste_sous_item($support,$item,$sous_item) {
+public function Liste_sous_item() { // liste des sous-items du support courant
+	$support = $_SESSION['support']->Id();
+	$item = $_SESSION['support']->Item();
+	$sous_item = $_SESSION['support']->Sous_item();
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
 	$i=1;
 	$tableau = null;
