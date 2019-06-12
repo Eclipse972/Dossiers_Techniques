@@ -89,10 +89,9 @@ class Page_nomenclature extends Page_abstraite {
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
 		// indentation à cause de l'affichage du code source de la page
-		?>
+?>
 <p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
 <p>Cliquez sur le nom de la mati&egrave;re pour trouver sa défition sur wikip&eacute;dia dans un nouvel onglet.</p>
-
 <table id="nomenclature">
 <thead>
 <tr>
@@ -100,24 +99,24 @@ class Page_nomenclature extends Page_abstraite {
 <th>Image</th>
 <th>D&eacute;signation (x quantit&eacute;)</th>
 <?php
-	if ($this->colonne_matière) echo "<th>Mati&egrave;re</th>\n";
-	if ($this->colonne_observation) echo "<th>Observations</th>\n";
+		if ($this->colonne_matière) echo "<th>Mati&egrave;re</th>\n";
+		if ($this->colonne_observation) echo "<th>Observations</th>\n";
 ?>
 </tr>
 </thead>
 
 <tbody>
 <?php
-if (isset($this->nomenclature))
-	foreach ($this->nomenclature as $piece)
-		echo $piece->Code($this->colonne_matière, $this->colonne_observation);
-else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+		if (isset($this->nomenclature))
+			foreach ($this->nomenclature as $piece)
+				echo $piece->Code($this->colonne_matière, $this->colonne_observation);
+		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 ?>
 </tbody>
 </table>
 <p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
-		<?php
-	}
+<?php
+	} // fin de Afficher()
 }
 
 class Page_script extends Page_abstraite {
