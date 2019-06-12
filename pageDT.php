@@ -32,7 +32,6 @@ if (!$BD->Support_existe($id))			// si le support n'existe pas
 // si on arrive ici c'est que le support donné en paramètre existe
 
 require 'Modele/classe_fichier.php';
-require 'Modele/classe_menu.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_page.php';
 
