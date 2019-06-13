@@ -50,6 +50,10 @@ public function Du_support()	{ return $this->du.$this->nom; }
 
 public function Image()			{ return $this->image; } // retourne le code HTML pour l'image du support
 
+public function Zip_existe()	{ return isset($this->zip); }
+
+public function Zip()			{ return $this->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique'); }
+
 // Mutateurs --------------------------------------------------------------------------------------
 private function setArticles($i) {
 $i = (int) $i;

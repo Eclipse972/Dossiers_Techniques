@@ -50,9 +50,10 @@ public function Support_existe($id) {
 	return ($T_reponse['nb_support'] == 1);
 }
 
-public function Description_maquette($id) {
+public function Description_maquette() {
 	$tableau = null;
-	$this->Requete('SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC', [$id]);
+	$this->Requete('SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC',
+					[$_SESSION['support']->Id()]);
 	while ($ligne = $this->resultat->fetch()) {
 		$tableau[] = $ligne['texte'];
 	}
@@ -60,9 +61,10 @@ public function Description_maquette($id) {
 	return $tableau;
 }
 
-public function Lien_support($id) {
+public function Lien_support() {
 	$tableau = null;
-	$this->Requete('SELECT texte, lien FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC', [$id]);
+	$this->Requete('SELECT texte, lien FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC',
+					[$_SESSION['support']->ID()]);
 	while ($ligne = $this->resultat->fetch()) {
 		$tableau[] = '<a href="'.$ligne['lien'].'" target="_blank">'.$ligne['texte'].'</a>';
 	}
