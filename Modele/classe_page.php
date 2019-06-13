@@ -80,10 +80,7 @@ class Page_nomenclature extends Page_abstraite {
 		$this->nomenclature = $BD->Nomenclature();
 		
 		//affichage des deux dernières colonnes si non vides
-		$BD = new base2donnees();
 		$this->colonne_matière = !$BD->Colonne_matiere_vide();
-		
-		$BD = new base2donnees();
 		$this->colonne_observation = !$BD->Colonne_observation_vide();
 	}
 	public function Afficher() { // code pour afficher la page

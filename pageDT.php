@@ -44,10 +44,7 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
 
 // création de l'objet page
-$BD = new base2donnees();
 $type_page = $BD->Type_page();
-
-$BD = new base2donnees();
 $Thydrate = $BD->Hydratation();
 $page = new $type_page($Thydrate);
 ?>
@@ -78,7 +75,6 @@ else {
 	?>
 <nav>
 <?php
-$BD = new base2donnees();
 $T_items = $BD->Liste_item();
 if(isset($T_items)) {
 	echo "<ul>\n";
