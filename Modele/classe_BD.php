@@ -138,18 +138,19 @@ public function Liste_item() { // liste des items du support courant
 }
 
 public function Liste_sous_item() { // liste des sous-items du support courant
-	$support = $_SESSION['support']->Id();
+	$support = $_SESSION['support']->ID();
 	$item = $_SESSION['support']->Item();
-	$sous_item = $_SESSION['support']->Sous_item();
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = ($i != $sous_item) ? Lien($ligne['texte'], $support, $item, $i) : $ligne['texte'];
-		//	si sous_item est le sélectonné alors lien 									sinon texte seul
+		$tableau[$i] = Lien($ligne['texte'], $support, $item, $i);
 		$i++;
 	}
 	$this->Fermer();
+	// modification du sous-item sélectionné
+	$sous_item = $_SESSION['support']->Sous_item();
+	$tableau[$sous_item] = '<a id="sous_item_selectionne"'.substr($tableau[$sous_item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 

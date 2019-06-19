@@ -54,11 +54,9 @@ nav ul ul a {
 	color: black; 	/* tous les textes du sous-menu sont en noir */
 	background-color:white;	/* sur fond blanc */
 	border-radius:0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
-	
+	font-weight:normal;
 }
-nav ul ul a {font-weight:normal;}
-
-nav ul ul li {font-weight:bold;}
+#sous_item_selectionne {font-weight:bold;}
 
 nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
