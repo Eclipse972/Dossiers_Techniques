@@ -1,6 +1,4 @@
 <?php
-function Lien_item_selectionne($texte, $support, $item) { return '<a id="item_selectionne" '.substr(Lien($texte, $support, $item), 3); }
-
 class base2donnees { // chaque requête doit commencer par une nouvelle connexion. =< utilisation de new à chaque appael
 private $resultat;
 private $BD; // PDO initialisé dans connexion.php
@@ -124,16 +122,18 @@ public function Hydratation() {
 	return $tableau;
 }
 public function Liste_item() { // liste des items du support courant
-	$support = $_SESSION['support']->Id();
-	$item = $_SESSION['support']->Item();
+	$support = $_SESSION['support']->ID();
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND sous_item=0', [$support]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = ($i != $item) ? Lien($ligne['texte'], $support, $i) : Lien_item_selectionne($ligne['texte'], $support, $i);
+		$tableau[$i] = Lien($ligne['texte'], $support, $i);
 		$i++;
 	}
 	$this->Fermer();
+	// modification de l'item sélectionné
+	$item = $_SESSION['support']->Item();
+	$tableau[$item] = '<a id="item_selectionne"'.substr($tableau[$item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
