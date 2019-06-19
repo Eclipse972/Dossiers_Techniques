@@ -46,7 +46,7 @@ default:
 		$code .= '<li>'.$lien.'</li>'."\n";
 	$code .= '</ul>';
 }
-$code .= "\n".Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID());
+$code .= "\n".Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID(),$_SESSION['support']->Item(),$_SESSION['support']->Sous_item());
 ?>
 
 <!doctype html>
