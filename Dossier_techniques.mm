@@ -958,7 +958,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="classe Association_image_fichier" FOLDED="true" ID="ID_57" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1258,7 +1257,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="variables membres" ID="ID_1585787940" CREATED="1559050638483" MODIFIED="1559051875125">
 <node TEXT="objet support" ID="ID_848774498" CREATED="1559050700777" MODIFIED="1559050707764"/>
@@ -1277,7 +1275,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="D&#xe9;nommer" ID="ID_1870769814" CREATED="1559050745258" MODIFIED="1559050781266"><richcontent TYPE="NOTE">
@@ -1292,7 +1289,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Afficher" ID="ID_1106170285" CREATED="1559050893599" MODIFIED="1559050946920"><richcontent TYPE="NOTE">
@@ -1307,7 +1303,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1336,7 +1331,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="fonctions membres" ID="ID_1932951803" CREATED="1559050979908" MODIFIED="1559050987586">
@@ -1354,7 +1348,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1370,7 +1363,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1387,7 +1379,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="variables membres" ID="ID_1853967672" CREATED="1559050963770" MODIFIED="1559050973791">
 <node TEXT="image" ID="ID_1302016222" CREATED="1559051294710" MODIFIED="1559051298740"/>
@@ -1408,7 +1399,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="v&#xe9;rifie l&apos;existence du fichier &#xe0; t&#xe9;l&#xe9;charger" ID="ID_1734698418" CREATED="1559051413454" MODIFIED="1559051750905"><richcontent TYPE="NOTE">
@@ -1423,7 +1413,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1717,7 +1706,7 @@
                 </html>
 </richcontent>
 <edge WIDTH="2"/>
-<node TEXT="Comment ajouter un nouveau support" FOLDED="true" ID="ID_349" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="Comment ajouter un nouveau support" ID="ID_349" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                         <head/>
@@ -1726,7 +1715,7 @@
                         </body>
                     </html>
 </richcontent>
-<node TEXT="logiciels n&#xe9;cessaires" FOLDED="true" ID="ID_357" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
+<node TEXT="logiciels n&#xe9;cessaires" ID="ID_357" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
 <node TEXT="&#xe9;diteur de textes avanc&#xe9;" ID="ID_360" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -1787,8 +1776,8 @@
 </node>
 </node>
 <node TEXT="logo" ID="ID_350" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="les pages" FOLDED="true" ID="ID_355" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
-<node TEXT="Les pages automatiques" FOLDED="true" ID="ID_363" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="les pages" ID="ID_355" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
+<node TEXT="Les pages automatiques" ID="ID_363" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                                 <head/>
@@ -1817,7 +1806,7 @@
 </node>
 <node TEXT="nomenclature" ID="ID_351" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
-<node TEXT="les autres pages" FOLDED="true" ID="ID_362" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="les autres pages" ID="ID_362" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                                 <head/>
@@ -2009,7 +1998,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="cr&#xe9;er un support les mains dans le cambouis" FOLDED="true" POSITION="right" ID="ID_731065834" CREATED="1531545235468" MODIFIED="1531545655047"><richcontent TYPE="NOTE">
+<node TEXT="cr&#xe9;er un support les mains dans le cambouis" POSITION="right" ID="ID_731065834" CREATED="1531545235468" MODIFIED="1531545655047"><richcontent TYPE="NOTE">
 
 <html>
   <head>
