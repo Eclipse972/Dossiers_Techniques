@@ -27,7 +27,7 @@ while (isset($T_vignettes[$id])) {
 	$id++;
 }
 // si en sortie on s'arrete sur une colonne autre que la dernière
-if($No_colonne!=$NB_colonne-1) echo "\t".'</tr>'."\n"; // on termine la ligne
+if($No_colonne!=$NB_colonne-1) echo "\t".'</nomenclaturetr>'."\n"; // on termine la ligne
 }
 
 ?>
@@ -53,7 +53,7 @@ if(file_exists(CACHE) && (time() - filemtime(CACHE) < DUREE * 3600))
 	readfile(CACHE);
 else {
 	ob_start();
-	Gerer_index(6);		// affichage du tableau avec le nombre de colonnes en paramètre
+	Gerer_index(5);		// affichage du tableau avec le nombre de colonnes en paramètre
 	echo '<!-- cache généré le ', date("d/m/Y \à H:i"),' -->', "\n";
 	$code = ob_get_contents();
 	ob_end_clean();
