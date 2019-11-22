@@ -92,7 +92,7 @@ public function Colonne_observation_vide() {
 }
 
 public function Colonne_matiere_vide() {
-	$this->Requete('SELECT COUNT(*) AS nb_matiere FROM Pieces WHERE matiere > 0 AND support_ID= ?', [$_SESSION['support']->Id()]);
+	$this->Requete('SELECT COUNT(*) AS nb_matiere FROM Pieces WHERE matiere_ID > 0 AND support_ID= ?', [$_SESSION['support']->Id()]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return ($reponse['nb_matiere'] == 0);
