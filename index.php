@@ -27,7 +27,7 @@ while (isset($T_vignettes[$id])) {
 	$id++;
 }
 // si en sortie on s'arrete sur une colonne autre que la dernière
-if($No_colonne!=$NB_colonne-1) echo "\t".'</nomenclaturetr>'."\n"; // on termine la ligne
+if($No_colonne!=$NB_colonne-1) echo "\t".'</tr>'."\n"; // on termine la ligne
 }
 
 ?>
