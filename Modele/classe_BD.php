@@ -125,34 +125,38 @@ public function Hydratation() {
 }
 public function Liste_item() { // liste des items du support courant
 	$support = $_SESSION['support']->ID();
-	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND sous_item=0', [$support]);
+	$this->Requete('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code
+					FROM Menu WHERE support_ID= ? AND sous_item=0', [$support,$support]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = Lien($ligne['texte'], $support, $i);
+		$tableau[$i] = $ligne['code'];
 		$i++;
 	}
 	$this->Fermer();
 	// modification de l'item sélectionné
 	$item = $_SESSION['support']->Item();
-	$tableau[$item] = '<a id="item_selectionne"'.substr($tableau[$item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
+	if (isset($tableau[$item]))
+		$tableau[$item] = '<a id="item_selectionne"'.substr($tableau[$item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
 public function Liste_sous_item() { // liste des sous-items du support courant
 	$support = $_SESSION['support']->ID();
 	$item = $_SESSION['support']->Item();
-	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support, $item]);
+	$this->Requete('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code
+					FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support,$item,$support,$item]);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = Lien($ligne['texte'], $support, $item, $i);
+		$tableau[$i] = $ligne['code'];
 		$i++;
 	}
 	$this->Fermer();
-	// modification du sous-item sélectionné
+	// modification du sous-item sélectionné s'il existe
 	$sous_item = $_SESSION['support']->Sous_item();
-	$tableau[$sous_item] = '<a id="sous_item_selectionne"'.substr($tableau[$sous_item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
+	if (isset($tableau[$sous_item]))
+		$tableau[$sous_item] = '<a id="sous_item_selectionne"'.substr($tableau[$sous_item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
