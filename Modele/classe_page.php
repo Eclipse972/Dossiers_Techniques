@@ -88,7 +88,7 @@ class Page_nomenclature extends Page_abstraite {
 		// indentation à cause de l'affichage du code source de la page
 ?>
 <p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
-<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>
+<?php if ($this->colonne_matière) echo "<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>";?>
 <table id="nomenclature">
 <thead>
 <tr>
