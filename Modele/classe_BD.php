@@ -22,10 +22,12 @@ private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le tra
 
 public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
 	$tableau = null;
-	$this->resultat = $this->BD->query('SELECT ID, nom, pti_nom, dossier FROM Supports ORDER BY pti_nom ASC, nom ASC');
+	$this->resultat = $this->BD->query('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ID), \'">\', nom, 
+										\'<br><img src=\"Supports/\',dossier,\'/images/\',pti_nom,\'.png\" alt=\"\',nom,\'\"></a>\') 
+										AS code 
+										FROM Supports ORDER BY pti_nom ASC, nom ASC');
 	while ($ligne = $this->resultat->fetch()) {
-		$image = new Image($ligne['pti_nom'],'Supports/'.$ligne['dossier'].'/images/');
-		$tableau[] = Lien($ligne['nom'].'<br>'.$image->Balise($ligne['nom']), $ligne['ID']);
+		$tableau[] = $ligne['code'];
 	}
 	$this->Fermer();
 	return $tableau;
