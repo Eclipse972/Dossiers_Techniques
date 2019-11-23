@@ -106,7 +106,7 @@ public function Page_existe($support, $item, $sous_item) {
 	return ($reponse['nb_page'] == 1);
 }
 // construction de la page pour le support courant
-public function Type_page() { // nom du script à exécuter
+public function Type_page() { // type de page associé à l'item sélectioné dans le menu
 	$this->Requete('SELECT type_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
 	$reponse = $this->resultat->fetch();
