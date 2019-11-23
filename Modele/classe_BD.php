@@ -50,6 +50,7 @@ public function Support_existe($id) {
 	return ($T_reponse['nb_support'] == 1);
 }
 
+// fonction pour la page a propos
 public function Description_maquette() {
 	$tableau = null;
 	$this->Requete('SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC',
@@ -62,12 +63,11 @@ public function Description_maquette() {
 }
 
 public function Lien_support() {
-	$tableau = null;
-	$this->Requete('SELECT texte, lien FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC',
+	$this->Requete('SELECT CONCAT(\'<a href="\', lien, \'" target="_blank">\', texte, \'</a>\') AS code 
+					FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC',
 					[$_SESSION['support']->ID()]);
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[] = '<a href="'.$ligne['lien'].'" target="_blank">'.$ligne['texte'].'</a>';
-	}
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch())	$tableau[] = $ligne['code'];
 	$this->Fermer();
 	return $tableau;
 }
@@ -123,26 +123,11 @@ public function Hydratation() {
 	$this->Fermer();
 	return $tableau;
 }
+
 public function Liste_item() { return $this->Liste_pour_menu(true); } // liste des items du support courant
 
-public function Liste_sous_item() { // liste des sous-items du support courant
-	$support = $_SESSION['support']->ID();
-	$item = $_SESSION['support']->Item();
-	$this->Requete('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code
-					FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0', [$support,$item,$support,$item]);
-	$i=1;
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = $ligne['code'];
-		$i++;
-	}
-	$this->Fermer();
-	// modification du sous-item sélectionné s'il existe
-	$sous_item = $_SESSION['support']->Sous_item();
-	if (isset($tableau[$sous_item]))
-		$tableau[$sous_item] = '<a id="sous_item_selectionne"'.substr($tableau[$sous_item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
-	return $tableau;
-}
+public function Liste_sous_item() { return $this->Liste_pour_menu(false); } // liste des sous-items du support courant
+
 private function Liste_pour_menu($pour_item = true){ // factorisation des fonction Liste_item et Liste_sous_item
 	$support = $_SESSION['support']->ID();
 	if ($pour_item) {
