@@ -123,23 +123,7 @@ public function Hydratation() {
 	$this->Fermer();
 	return $tableau;
 }
-public function Liste_item() { // liste des items du support courant
-	$support = $_SESSION['support']->ID();
-	$this->Requete('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code
-					FROM Menu WHERE support_ID= ? AND sous_item=0', [$support,$support]);
-	$i=1;
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[$i] = $ligne['code'];
-		$i++;
-	}
-	$this->Fermer();
-	// modification de l'item sélectionné
-	$item = $_SESSION['support']->Item();
-	if (isset($tableau[$item]))
-		$tableau[$item] = '<a id="item_selectionne"'.substr($tableau[$item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
-	return $tableau;
-}
+public function Liste_item() { return $this->Liste_pour_menu(true); } // liste des items du support courant
 
 public function Liste_sous_item() { // liste des sous-items du support courant
 	$support = $_SESSION['support']->ID();
@@ -157,6 +141,33 @@ public function Liste_sous_item() { // liste des sous-items du support courant
 	$sous_item = $_SESSION['support']->Sous_item();
 	if (isset($tableau[$sous_item]))
 		$tableau[$sous_item] = '<a id="sous_item_selectionne"'.substr($tableau[$sous_item], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
+	return $tableau;
+}
+private function Liste_pour_menu($pour_item = true){ // factorisation des fonction Liste_item et Liste_sous_item
+	$support = $_SESSION['support']->ID();
+	if ($pour_item) {
+		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND sous_item=0';
+		$paramètres = [$support,$support];
+		$étiquette = 'item_selectionne';
+		$sélection = $_SESSION['support']->Item();
+	} else {
+		$item = $_SESSION['support']->Item();
+		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0';
+		$paramètres = [$support,$item,$support,$item];
+		$étiquette = 'sous_item_selectionne';
+		$sélection = $_SESSION['support']->Sous_item();
+	}
+	$this->Requete($requette, $paramètres);
+	$i=1;
+	$tableau = null;
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[$i] = $ligne['code'];
+		$i++;
+	}
+	$this->Fermer();
+	// modification de l'item/sous-item sélectionné s'il existe
+	if (isset($tableau[$sélection]))
+		$tableau[$sélection] = '<a id="'.$étiquette.'"'.substr($tableau[$sélection], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
