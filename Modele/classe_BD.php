@@ -51,23 +51,22 @@ public function Support_existe($id) {
 }
 
 // fonction pour la page a propos
-public function Description_maquette() {
-	$tableau = null;
-	$this->Requete('SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC',
-					[$_SESSION['support']->Id()]);
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[] = $ligne['texte'];
-	}
-	$this->Fermer();
-	return $tableau;
-}
+public function Description_maquette()	{ return $this->A_propos(true); }
 
-public function Lien_support() {
-	$this->Requete('SELECT CONCAT(\'<a href="\', lien, \'" target="_blank">\', texte, \'</a>\') AS code 
-					FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC',
-					[$_SESSION['support']->ID()]);
+public function Lien_support()			{ return $this->A_propos(false); }
+
+private function A_propos($en_texte = true) { // factorisation de Description_maquette et Lien_support
+	if ($en_texte) {
+		$requete = 'SELECT texte FROM Commentaires WHERE support_ID= ? AND lien = "" ORDER BY ordre ASC';
+		$index = 'texte';
+	} else {
+		$requete = 'SELECT CONCAT(\'<a href="\', lien, \'" target="_blank">\', texte, \'</a>\') AS code 
+					FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC';
+		$index = 'code';
+	}
+	$this->Requete($requete, [$_SESSION['support']->Id()]);
 	$tableau = null;
-	while ($ligne = $this->resultat->fetch())	$tableau[] = $ligne['code'];
+	while ($ligne = $this->resultat->fetch())	$tableau[] = $ligne[$index];
 	$this->Fermer();
 	return $tableau;
 }
