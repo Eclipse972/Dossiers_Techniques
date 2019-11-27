@@ -3,23 +3,23 @@
 <div class="colonne">
 <h2>Point mort bas (PMB)</h2>
 <p>le piston est en position basse</p>
-<img src="<?php echo $_SESSION['support']->Dossier().'images/';?>PMB.png" alt ="point mort bas">
+<img src="<?=$_SESSION['support']->Dossier().'images/'?>PMB.png" alt ="point mort bas">
 </div>
 
 <div class="colonne">
 <h2>Mont&eacute;e du piston</h2>
 <p>phase de compression</p>
-<img src="<?php echo $_SESSION['support']->Dossier().'images/';?>montee.png" alt ="mont&eacute;e du poston">
+<img src="<?=$_SESSION['support']->Dossier().'images/'?>montee.png" alt ="mont&eacute;e du poston">
 </div>
 
 <div class="colonne">
 <h2>Point mort haut (PMH)</h2>
 <p>explosion du m&eacute;lange air-essence</p>
-<img src="<?php echo $_SESSION['support']->Dossier().'images/';?>PMH.png" alt ="point mort haut">
+<img src="<?=$_SESSION['support']->Dossier().'images/'?>PMH.png" alt ="point mort haut">
 </div>
 
 <div class="colonne">
 <h2>Descente du piston</h2>
 <p>phase d&apos;&eacute;chappement</p>
-<img src="<?php echo $_SESSION['support']->Dossier().'images/';?>descente.png" alt ="descente du piston">
+<img src="<?=$_SESSION['support']->Dossier().'images/'?>descente.png" alt ="descente du piston">
 </div>
