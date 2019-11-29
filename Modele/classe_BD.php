@@ -22,10 +22,7 @@ private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le tra
 
 public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
 	$tableau = null;
-	$this->resultat = $this->BD->query('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ID), \'">\', nom, 
-										\'<br><img src=\"Supports/\',dossier,\'/images/\',pti_nom,\'.png\" alt=\"\',nom,\'\"></a>\') 
-										AS code 
-										FROM Supports ORDER BY pti_nom ASC, nom ASC');
+	$this->resultat = $this->BD->query('SELECT * FROM Vue_code_vignettes');
 	while ($ligne = $this->resultat->fetch()) {
 		$tableau[] = $ligne['code'];
 	}
