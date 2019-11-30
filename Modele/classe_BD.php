@@ -133,14 +133,16 @@ public function Liste_sous_item() { return $this->Liste_pour_menu(false); } // l
 private function Liste_pour_menu($pour_item = true){ // factorisation des fonction Liste_item et Liste_sous_item
 	$support = $_SESSION['support']->ID();
 	if ($pour_item) {
-		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND sous_item=0';
-		$paramètres = [$support,$support];
+		// $requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND sous_item=0';
+		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND sous_item=0';
+		$paramètres = [$support];
 		$étiquette = 'item_selectionne';
 		$sélection = $_SESSION['support']->Item();
 	} else {
 		$item = $_SESSION['support']->Item();
-		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0';
-		$paramètres = [$support,$item,$support,$item];
+		// $requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0';
+		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND item= ? AND sous_item>0';
+		$paramètres = [$support,$item];
 		$étiquette = 'sous_item_selectionne';
 		$sélection = $_SESSION['support']->Sous_item();
 	}

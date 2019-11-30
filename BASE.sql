@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 30 Novembre 2019 à 18:53
+-- Généré le : Sam 30 Novembre 2019 à 22:14
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -1054,11 +1054,31 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) 
 -- --------------------------------------------------------
 
 --
+-- Doublure de structure pour la vue `Vue_code_menu`
+--
+CREATE TABLE IF NOT EXISTS `Vue_code_menu` (
+`support_ID` smallint(5) unsigned
+,`item` tinyint(1) unsigned
+,`sous_item` tinyint(1) unsigned
+,`code` longtext
+);
+-- --------------------------------------------------------
+
+--
 -- Doublure de structure pour la vue `Vue_code_vignettes`
 --
 CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
 `code` varchar(213)
 );
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `Vue_code_menu`
+--
+DROP TABLE IF EXISTS `Vue_code_menu`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_menu` AS select `Menu`.`support_ID` AS `support_ID`,`Menu`.`item` AS `item`,`Menu`.`sous_item` AS `sous_item`,concat(_latin1'<a href="pageDT.php?p=',char((97 + `Menu`.`support_ID`)),char((97 + `Menu`.`item`)),if((`Menu`.`sous_item` > 0),char((97 + `Menu`.`sous_item`)),_utf8''),_latin1'">',`Menu`.`texte`,_latin1'</a>') AS `code` from `Menu` order by `Menu`.`support_ID`,`Menu`.`item`,`Menu`.`sous_item`;
+
 -- --------------------------------------------------------
 
 --
