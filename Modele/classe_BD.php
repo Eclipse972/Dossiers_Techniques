@@ -133,14 +133,12 @@ public function Liste_sous_item() { return $this->Liste_pour_menu(false); } // l
 private function Liste_pour_menu($pour_item = true){ // factorisation des fonction Liste_item et Liste_sous_item
 	$support = $_SESSION['support']->ID();
 	if ($pour_item) {
-		// $requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND sous_item=0';
 		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND sous_item=0';
 		$paramètres = [$support];
 		$étiquette = 'item_selectionne';
 		$sélection = $_SESSION['support']->Item();
 	} else {
 		$item = $_SESSION['support']->Item();
-		// $requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0';
 		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND item= ? AND sous_item>0';
 		$paramètres = [$support,$item];
 		$étiquette = 'sous_item_selectionne';
@@ -156,7 +154,7 @@ private function Liste_pour_menu($pour_item = true){ // factorisation des foncti
 	$this->Fermer();
 	// modification de l'item/sous-item sélectionné s'il existe
 	if (isset($tableau[$sélection]))
-		$tableau[$sélection] = '<a id="'.$étiquette.'"'.substr($tableau[$sélection], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
+		$tableau[$sélection] = '<li><a id="'.$étiquette.'"'.substr($tableau[$sélection], 6); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
