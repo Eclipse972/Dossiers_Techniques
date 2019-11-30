@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Ven 29 Novembre 2019 à 17:40
+-- Généré le : Sam 30 Novembre 2019 à 18:53
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -1057,7 +1057,7 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) 
 -- Doublure de structure pour la vue `Vue_code_vignettes`
 --
 CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
-`code` varchar(204)
+`code` varchar(213)
 );
 -- --------------------------------------------------------
 
@@ -1066,7 +1066,7 @@ CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
 --
 DROP TABLE IF EXISTS `Vue_code_vignettes`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_latin1'<a href="pageDT.php?p=',char((97 + `Supports`.`ID`)),_latin1'">',`Supports`.`nom`,_latin1'<br><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png" alt="',`Supports`.`nom`,_latin1'"></a>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_latin1'<td><a href="pageDT.php?p=',char((97 + `Supports`.`ID`)),_latin1'">',`Supports`.`nom`,_latin1'<br><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png" alt="',`Supports`.`nom`,_latin1'"></a></td>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -20,14 +20,20 @@ private function Requete($requete, array $T_parametre) {
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
-public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
-	$tableau = null;
+public function Gerer_index($NB_colonne) { 
+	$code = '';
 	$this->resultat = $this->BD->query('SELECT * FROM Vue_code_vignettes');
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[] = $ligne['code'];
+	$id = 0;
+	while ($ligne = $this->resultat->fetch()) {	// récupère et agrège le code
+		$No_colonne = $id % $NB_colonne;
+		if($No_colonne==0) $code .= "\t<tr>\n"; // nouvelle ligne
+		$code .= "\t\t".$ligne['code']."\n";
+		if($No_colonne==$NB_colonne-1) $code .= "\t</tr>\n";	// fin de ligne si dernière colonne atteinte
+		$id++;
 	}
-	$this->Fermer();
-	return $tableau;
+	// si en sortie on s'arrete sur une colonne autre que la dernière
+	if($No_colonne!=$NB_colonne-1) $code .= "\t</tr>\n"; // on termine la ligne
+	return $code;
 }
 /*	**********************************************************************
 	Toutes les fonctions qui suivent font appel à des requêtes paramétrées
