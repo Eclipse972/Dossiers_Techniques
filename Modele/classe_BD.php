@@ -76,17 +76,12 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 // Nomenclature du support courant
 public function Nomenclature() {
 	$tableau = null;
-	/*$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
-					FROM Supports, Pieces, Materiaux
-					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID= ?
-					ORDER BY repere ASC', [$_SESSION['support']->Id()]);
+	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]);
 	while ($ligne = $this->resultat->fetch()) {
-		$ligne['extension'] = ($ligne['assemblage']>0) ? '.EASM' : '.EPRT'; // la valeur numérique pour l'extension est remplacée par la version texte
-		$tableau[] = new Piece($ligne);
-	}*/
-	$this->Requete('SELECT * FROM Vue_nomenclature WHERE support_ID= ?', [$_SESSION['support']->Id()]);
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[] = $ligne['rep']. $ligne['lien_image']. $ligne['designation']. $ligne['matiere']. $ligne['observation'];
+		$code = "\t".$ligne['rep']."\t".$ligne['lien_image']."\t".$ligne['designation'];
+		if($ligne['matiere']<>'') $code.="\t".$ligne['matiere'];
+		if($ligne['observation']<>'') $code.="\t".$ligne['observation'];
+		$tableau[] = $code;
 	}
 	$this->Fermer();
 	return $tableau;

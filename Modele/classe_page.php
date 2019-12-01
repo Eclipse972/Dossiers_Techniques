@@ -104,9 +104,7 @@ class Page_nomenclature extends Page_abstraite {
 <tbody>
 <?php
 		if (isset($this->nomenclature))
-			/*foreach ($this->nomenclature as $piece)
-				echo $piece->Code($this->colonne_matière, $this->colonne_observation);*/
-			foreach ($this->nomenclature as $ligne)	echo $ligne;
+			foreach ($this->nomenclature as $ligne)	echo "<tr>\n$ligne</tr>\n";
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 ?>
 </tbody>
