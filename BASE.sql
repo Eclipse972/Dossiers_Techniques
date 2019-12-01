@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 01 Décembre 2019 à 08:43
+-- Généré le : Dim 01 Décembre 2019 à 10:01
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -1078,9 +1078,9 @@ CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
 --
 CREATE TABLE IF NOT EXISTS `Vue_nomenclature` (
 `ID` smallint(5) unsigned
-,`rep` varchar(12)
-,`lien_image` varchar(291)
-,`designation` varchar(80)
+,`rep` varchar(13)
+,`lien_image` varchar(292)
+,`designation` varchar(81)
 ,`matiere` longtext
 ,`observation` longtext
 );
@@ -1109,7 +1109,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY
 --
 DROP TABLE IF EXISTS `Vue_nomenclature`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_nomenclature` AS select `Supports`.`ID` AS `ID`,concat(_utf8'<td>',cast(`Pieces`.`repere` as char(2) charset utf8),_utf8'</td>\n') AS `rep`,concat(_latin1'<td><a href="Supports/',`Supports`.`dossier`,_latin1'/fichiers/',`Pieces`.`fichier`,convert(if((`Pieces`.`assemblage` = 0),_utf8'.EPRT',_utf8'.EASM') using latin1),_latin1'"><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Pieces`.`fichier`,_latin1'.png" alt="',`Pieces`.`nom`,_latin1'"></a>',_latin1'</td>\n') AS `lien_image`,concat(_utf8'<td>',convert(`Pieces`.`nom` using utf8),if((`Pieces`.`quantite` > 1),concat(_utf8' (x',cast(`Pieces`.`quantite` as char(2) charset utf8),_utf8')'),_utf8''),_utf8'</td>\n') AS `designation`,if((`Supports`.`type_nomenclature` < 2),_latin1'',concat(_latin1'<td>',if((`Materiaux`.`URL_wiki` = _latin1''),`Materiaux`.`formule`,concat(_latin1'<a href="https://fr.wikipedia.org/wiki/',`Materiaux`.`URL_wiki`,_latin1'" target="_blank">',`Materiaux`.`formule`,_latin1'</a>')),_latin1'</td>\n')) AS `matiere`,if(((`Supports`.`type_nomenclature` = 0) or (`Supports`.`type_nomenclature` = 2)),_latin1'',concat(_latin1'<td>',`Pieces`.`observation`,_latin1'</td>\n')) AS `observation` from ((`Supports` join `Pieces`) join `Materiaux`) where ((`Pieces`.`matiere_ID` = `Materiaux`.`ID`) and (`Supports`.`ID` = `Pieces`.`support_ID`)) order by `Supports`.`ID`,`Pieces`.`repere`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_nomenclature` AS select `Supports`.`ID` AS `ID`,concat(_utf8'	<td>',cast(`Pieces`.`repere` as char(2) charset utf8),_utf8'</td>\n') AS `rep`,concat(_latin1'	',_latin1'<td><a href="Supports/',`Supports`.`dossier`,_latin1'/fichiers/',`Pieces`.`fichier`,convert(if((`Pieces`.`assemblage` = 0),_utf8'.EPRT',_utf8'.EASM') using latin1),_latin1'"><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Pieces`.`fichier`,_latin1'.png" alt="',`Pieces`.`nom`,_latin1'"></a>',_latin1'</td>\n') AS `lien_image`,concat(_utf8'	<td>',convert(`Pieces`.`nom` using utf8),if((`Pieces`.`quantite` > 1),concat(_utf8' (x',cast(`Pieces`.`quantite` as char(2) charset utf8),_utf8')'),_utf8''),_utf8'</td>\n') AS `designation`,if((`Supports`.`type_nomenclature` < 2),_latin1'',concat(_latin1'	<td>',if((`Materiaux`.`URL_wiki` = _latin1''),`Materiaux`.`formule`,concat(_latin1'<a href="https://fr.wikipedia.org/wiki/',`Materiaux`.`URL_wiki`,_latin1'" target="_blank">',`Materiaux`.`formule`,_latin1'</a>')),_latin1'</td>\n')) AS `matiere`,if(((`Supports`.`type_nomenclature` = 0) or (`Supports`.`type_nomenclature` = 2)),_latin1'',concat(_latin1'	<td>',`Pieces`.`observation`,_latin1'</td>\n')) AS `observation` from ((`Supports` join `Pieces`) join `Materiaux`) where ((`Pieces`.`matiere_ID` = `Materiaux`.`ID`) and (`Supports`.`ID` = `Pieces`.`support_ID`)) order by `Supports`.`ID`,`Pieces`.`repere`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

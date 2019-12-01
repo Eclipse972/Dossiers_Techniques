@@ -77,13 +77,8 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 public function Nomenclature() {
 	$tableau = null;
 	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]);
-	while ($ligne = $this->resultat->fetch()) {
-		$code = "\t".$ligne['rep']."\t".$ligne['lien_image']."\t".$ligne['designation']; // colonnes obligatoires
-		// colonnes facultatives
-		if($ligne['matiere']<>'') $code.="\t".$ligne['matiere'];
-		if($ligne['observation']<>'') $code.="\t".$ligne['observation'];
-		$tableau[] = $code;
-	}
+	while ($ligne = $this->resultat->fetch())
+		$tableau[] = $ligne['rep'].$ligne['lien_image'].$ligne['designation'].$ligne['matiere'].$ligne['observation'];
 	$this->Fermer();
 	return $tableau;
 }
