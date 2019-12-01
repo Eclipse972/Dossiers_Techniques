@@ -78,7 +78,8 @@ public function Nomenclature() {
 	$tableau = null;
 	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]);
 	while ($ligne = $this->resultat->fetch()) {
-		$code = "\t".$ligne['rep']."\t".$ligne['lien_image']."\t".$ligne['designation'];
+		$code = "\t".$ligne['rep']."\t".$ligne['lien_image']."\t".$ligne['designation']; // colonnes obligatoires
+		// colonnes facultatives
 		if($ligne['matiere']<>'') $code.="\t".$ligne['matiere'];
 		if($ligne['observation']<>'') $code.="\t".$ligne['observation'];
 		$tableau[] = $code;
