@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 30 Novembre 2019 à 23:06
+-- Généré le : Dim 01 Décembre 2019 à 08:43
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -456,7 +456,7 @@ CREATE TABLE IF NOT EXISTS `Materiaux` (
 --
 
 INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
-(0, '', '#'),
+(0, '', ''),
 (1, '45 Si 8', 'Acier#Aciers_faiblement_alli.C3.A9s'),
 (2, 'AU4-G', 'Dural'),
 (3, 'C 40', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
@@ -471,7 +471,7 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
 (13, 't&eacute;flon', 'T%C3%A9flon'),
 (14, 'S 275', 'Acier#Aciers_non_alli.C3.A9s'),
-(15, 'stub', '#'),
+(15, 'stub', ''),
 (16, 'h&ecirc;tre', ''),
 (17, 'EN-GJS-600-2', 'Fonte_(m%C3%A9tallurgie)#Fonte_GS_(graphite_sph%C3%A9ro%C3%AFdal,_aussi_appel%C3%A9e_fonte_ductile)'),
 (18, 'C 55', 'Acier#Aciers_non_alli.C3.A9s_sp.C3.A9ciaux_.28type_C.29'),
@@ -1022,6 +1022,7 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   `dossier` varchar(32) collate latin1_general_ci NOT NULL,
   `article_ID` int(10) unsigned NOT NULL default '1',
   `zip` varchar(32) collate latin1_general_ci NOT NULL COMMENT 'archive',
+  `type_nomenclature` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `nom` (`nom`,`dossier`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=19 ;
@@ -1030,26 +1031,26 @@ CREATE TABLE IF NOT EXISTS `Supports` (
 -- Contenu de la table `Supports`
 --
 
-INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) VALUES
-(0, 'bouton poussoir', 'BP', 'BP', 1, 'BP'),
-(1, 'but&eacute;e 5 axes', 'butee', 'butee5axes', 2, 'Butee5axes'),
-(2, 'cambreuse', 'cambreuse', 'cambreuse', 2, 'Cambreuse'),
-(3, 'cric bouteille', 'cric', 'cric_bouteille', 1, 'cric_bouteille'),
-(4, 'cric hydraulique 2 tonnes', 'cric', 'cric_hydraulique', 1, 'cric_hydraulique'),
-(5, '&eacute;lectrovanne', 'electrovanne', 'electrovanne', 3, 'Electrovanne'),
-(6, '&eacute;tau de mod&eacute;lisme', 'etau', 'etau', 3, 'Etau2modeliste'),
-(7, 'extracteur de roulement', 'extracteur', 'extracteur2roulement', 3, 'Extracteur2roulement'),
-(8, 'mini coupe-tube', 'mini_coupe-tube', 'coupe-tube', 1, 'Mini_coupe-tube'),
-(9, 'pince de marquage', 'pince', 'x2marquage', 2, 'Pince2marquage'),
-(10, 'pince de robot', 'pince', 'pince2robot', 2, 'Pince2robot'),
-(11, 'pompe &agrave; palettes', 'pompe', 'pompeApalettes', 2, 'pompeApalettes'),
-(12, 'pr&eacute;henseur de culasse', 'prehenseur', 'prehenseur', 1, 'prehenseur2culasse'),
-(14, 'alternateur', 'alternateur', 'alternateur', 3, 'alternateur'),
-(15, 'casse-noix', 'casseNoix', 'casse_noix', 1, 'CasseNoix'),
-(16, 'bride &agrave; nez', 'bride', 'brideAnez', 2, 'brideAnez'),
-(17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3, 'unite2marquage'),
-(18, 'vanne Legris', 'vanne', 'Legris', 2, 'Vanne'),
-(13, 'moteur de mod&eacute;lisme', 'moteur', 'moteur2modelisme', 1, '');
+INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`, `type_nomenclature`) VALUES
+(0, 'bouton poussoir', 'BP', 'BP', 1, 'BP', 3),
+(1, 'but&eacute;e 5 axes', 'butee', 'butee5axes', 2, 'Butee5axes', 3),
+(2, 'cambreuse', 'cambreuse', 'cambreuse', 2, 'Cambreuse', 3),
+(3, 'cric bouteille', 'cric', 'cric_bouteille', 1, 'cric_bouteille', 3),
+(4, 'cric hydraulique 2 tonnes', 'cric', 'cric_hydraulique', 1, 'cric_hydraulique', 0),
+(5, '&eacute;lectrovanne', 'electrovanne', 'electrovanne', 3, 'Electrovanne', 0),
+(6, '&eacute;tau de mod&eacute;lisme', 'etau', 'etau', 3, 'Etau2modeliste', 0),
+(7, 'extracteur de roulement', 'extracteur', 'extracteur2roulement', 3, 'Extracteur2roulement', 0),
+(8, 'mini coupe-tube', 'mini_coupe-tube', 'coupe-tube', 1, 'Mini_coupe-tube', 0),
+(9, 'pince de marquage', 'pince', 'x2marquage', 2, 'Pince2marquage', 0),
+(10, 'pince de robot', 'pince', 'pince2robot', 2, 'Pince2robot', 0),
+(11, 'pompe &agrave; palettes', 'pompe', 'pompeApalettes', 2, 'pompeApalettes', 0),
+(12, 'pr&eacute;henseur de culasse', 'prehenseur', 'prehenseur', 1, 'prehenseur2culasse', 3),
+(14, 'alternateur', 'alternateur', 'alternateur', 3, 'alternateur', 2),
+(15, 'casse-noix', 'casseNoix', 'casse_noix', 1, 'CasseNoix', 3),
+(16, 'bride &agrave; nez', 'bride', 'brideAnez', 2, 'brideAnez', 3),
+(17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3, 'unite2marquage', 0),
+(18, 'vanne Legris', 'vanne', 'Legris', 2, 'Vanne', 0),
+(13, 'moteur de mod&eacute;lisme', 'moteur', 'moteur2modelisme', 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -1073,6 +1074,19 @@ CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
 -- --------------------------------------------------------
 
 --
+-- Doublure de structure pour la vue `Vue_nomenclature`
+--
+CREATE TABLE IF NOT EXISTS `Vue_nomenclature` (
+`ID` smallint(5) unsigned
+,`rep` varchar(12)
+,`lien_image` varchar(291)
+,`designation` varchar(80)
+,`matiere` longtext
+,`observation` longtext
+);
+-- --------------------------------------------------------
+
+--
 -- Structure de la vue `Vue_code_menu`
 --
 DROP TABLE IF EXISTS `Vue_code_menu`;
@@ -1087,6 +1101,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY
 DROP TABLE IF EXISTS `Vue_code_vignettes`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_latin1'<td><a href="pageDT.php?p=',char((97 + `Supports`.`ID`)),_latin1'">',`Supports`.`nom`,_latin1'<br><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png" alt="',`Supports`.`nom`,_latin1'"></a></td>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `Vue_nomenclature`
+--
+DROP TABLE IF EXISTS `Vue_nomenclature`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_nomenclature` AS select `Supports`.`ID` AS `ID`,concat(_utf8'<td>',cast(`Pieces`.`repere` as char(2) charset utf8),_utf8'</td>\n') AS `rep`,concat(_latin1'<td><a href="Supports/',`Supports`.`dossier`,_latin1'/fichiers/',`Pieces`.`fichier`,convert(if((`Pieces`.`assemblage` = 0),_utf8'.EPRT',_utf8'.EASM') using latin1),_latin1'"><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Pieces`.`fichier`,_latin1'.png" alt="',`Pieces`.`nom`,_latin1'"></a>',_latin1'</td>\n') AS `lien_image`,concat(_utf8'<td>',convert(`Pieces`.`nom` using utf8),if((`Pieces`.`quantite` > 1),concat(_utf8' (x',cast(`Pieces`.`quantite` as char(2) charset utf8),_utf8')'),_utf8''),_utf8'</td>\n') AS `designation`,if((`Supports`.`type_nomenclature` < 2),_latin1'',concat(_latin1'<td>',if((`Materiaux`.`URL_wiki` = _latin1''),`Materiaux`.`formule`,concat(_latin1'<a href="https://fr.wikipedia.org/wiki/',`Materiaux`.`URL_wiki`,_latin1'" target="_blank">',`Materiaux`.`formule`,_latin1'</a>')),_latin1'</td>\n')) AS `matiere`,if(((`Supports`.`type_nomenclature` = 0) or (`Supports`.`type_nomenclature` = 2)),_latin1'',concat(_latin1'<td>',`Pieces`.`observation`,_latin1'</td>\n')) AS `observation` from ((`Supports` join `Pieces`) join `Materiaux`) where ((`Pieces`.`matiere_ID` = `Materiaux`.`ID`) and (`Supports`.`ID` = `Pieces`.`support_ID`)) order by `Supports`.`ID`,`Pieces`.`repere`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

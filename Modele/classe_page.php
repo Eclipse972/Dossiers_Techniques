@@ -1,5 +1,4 @@
 <?php
-
 // le fichier classe_association doit être chargé au préalable
 
 class Page_abstraite { // classe servant de modèle  toutes les autres
@@ -71,8 +70,8 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
 */
 class Page_nomenclature extends Page_abstraite {
 	private $nomenclature;
-	private $colonne_matière;
-	private $colonne_observation;
+	private $colonne_matière;		// colone matière existe
+	private $colonne_observation;	// colone observation existe
 	
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
@@ -80,8 +79,8 @@ class Page_nomenclature extends Page_abstraite {
 		$this->nomenclature = $BD->Nomenclature();
 		
 		//affichage des deux dernières colonnes si non vides
-		$this->colonne_matière = !$BD->Colonne_matiere_vide();
-		$this->colonne_observation = !$BD->Colonne_observation_vide();
+		$this->colonne_matière = !$_SESSION['support']->Colonne_matiere_vide();
+		$this->colonne_observation = !$_SESSION['support']->Colonne_observation_vide();
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -105,8 +104,9 @@ class Page_nomenclature extends Page_abstraite {
 <tbody>
 <?php
 		if (isset($this->nomenclature))
-			foreach ($this->nomenclature as $piece)
-				echo $piece->Code($this->colonne_matière, $this->colonne_observation);
+			/*foreach ($this->nomenclature as $piece)
+				echo $piece->Code($this->colonne_matière, $this->colonne_observation);*/
+			foreach ($this->nomenclature as $ligne)	echo $ligne;
 		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 ?>
 </tbody>

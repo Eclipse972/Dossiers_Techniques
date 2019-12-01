@@ -40,7 +40,7 @@ public function Gerer_index($NB_colonne) {
 	**********************************************************************
 */
 public function Support($id) {
-	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip FROM Supports WHERE ID= ?', [$id]);
+	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip, type_nomenclature FROM Supports WHERE ID= ?', [$id]);
 	$T_support = $this->resultat->fetch();
 	$this->Fermer();
 	return $T_support;
@@ -76,31 +76,22 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 // Nomenclature du support courant
 public function Nomenclature() {
 	$tableau = null;
-	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
+	/*$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
 					FROM Supports, Pieces, Materiaux
 					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID= ?
 					ORDER BY repere ASC', [$_SESSION['support']->Id()]);
 	while ($ligne = $this->resultat->fetch()) {
 		$ligne['extension'] = ($ligne['assemblage']>0) ? '.EASM' : '.EPRT'; // la valeur numérique pour l'extension est remplacée par la version texte
 		$tableau[] = new Piece($ligne);
+	}*/
+	$this->Requete('SELECT * FROM Vue_nomenclature WHERE support_ID= ?', [$_SESSION['support']->Id()]);
+	while ($ligne = $this->resultat->fetch()) {
+		$tableau[] = $ligne['rep']. $ligne['lien_image']. $ligne['designation']. $ligne['matiere']. $ligne['observation'];
 	}
 	$this->Fermer();
 	return $tableau;
 }
 
-public function Colonne_observation_vide() {
-	$this->Requete("SELECT COUNT(*) AS nb_observation FROM Pieces WHERE observation <> '' AND support_ID= ?", [$_SESSION['support']->Id()]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_observation'] == 0);
-}
-
-public function Colonne_matiere_vide() {
-	$this->Requete('SELECT COUNT(*) AS nb_matiere FROM Pieces WHERE matiere_ID > 0 AND support_ID= ?', [$_SESSION['support']->Id()]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_matiere'] == 0);
-}
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
 	$this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);

@@ -47,7 +47,7 @@ class Association_image_fichier {
 	}
 }
 
-class Piece extends Association_image_fichier {
+/*class Piece extends Association_image_fichier {
 	private	$nom;
 	private	$repere;
 	private $quantite;
@@ -89,5 +89,5 @@ class Piece extends Association_image_fichier {
 		$code .= '</tr>'; // fin de la ligne
 		return $code."\n\n";
 	}
-}
+}*/
 
