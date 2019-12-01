@@ -20,24 +20,27 @@ private function Requete($requete, array $T_parametre) {
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
 
-public function ListeDvignettes() { // seule fonction à utiliser une requête sans paramètre
-	$tableau = null;
-	$this->resultat = $this->BD->query('SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ID), \'">\', nom, 
-										\'<br><img src=\"Supports/\',dossier,\'/images/\',pti_nom,\'.png\" alt=\"\',nom,\'\"></a>\') 
-										AS code 
-										FROM Supports ORDER BY pti_nom ASC, nom ASC');
-	while ($ligne = $this->resultat->fetch()) {
-		$tableau[] = $ligne['code'];
+public function Gerer_index($NB_colonne) { 
+	$code = '';
+	$this->resultat = $this->BD->query('SELECT * FROM Vue_code_vignettes');
+	$id = 0;
+	while ($ligne = $this->resultat->fetch()) {	// récupère et agrège le code
+		$No_colonne = $id % $NB_colonne;
+		if($No_colonne==0) $code .= "\t<tr>\n"; // nouvelle ligne
+		$code .= "\t\t".$ligne['code']."\n";
+		if($No_colonne==$NB_colonne-1) $code .= "\t</tr>\n";	// fin de ligne si dernière colonne atteinte
+		$id++;
 	}
-	$this->Fermer();
-	return $tableau;
+	// si en sortie on s'arrete sur une colonne autre que la dernière
+	if($No_colonne!=$NB_colonne-1) $code .= "\t</tr>\n"; // on termine la ligne
+	return $code;
 }
 /*	**********************************************************************
 	Toutes les fonctions qui suivent font appel à des requêtes paramétrées
 	**********************************************************************
 */
 public function Support($id) {
-	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip FROM Supports WHERE ID= ?', [$id]);
+	$this->Requete('SELECT nom, pti_nom, dossier, article_ID, zip, type_nomenclature FROM Supports WHERE ID= ?', [$id]);
 	$T_support = $this->resultat->fetch();
 	$this->Fermer();
 	return $T_support;
@@ -73,31 +76,13 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 // Nomenclature du support courant
 public function Nomenclature() {
 	$tableau = null;
-	$this->Requete('SELECT repere, quantite, Pieces.nom AS nom, formule AS matiere, URL_wiki, observation, fichier, assemblage, dossier
-					FROM Supports, Pieces, Materiaux
-					WHERE Pieces.matiere_ID=Materiaux.ID AND Supports.ID=Pieces.support_ID AND support_ID= ?
-					ORDER BY repere ASC', [$_SESSION['support']->Id()]);
-	while ($ligne = $this->resultat->fetch()) {
-		$ligne['extension'] = ($ligne['assemblage']>0) ? '.EASM' : '.EPRT'; // la valeur numérique pour l'extension est remplacée par la version texte
-		$tableau[] = new Piece($ligne);
-	}
+	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]);
+	while ($ligne = $this->resultat->fetch())
+		$tableau[] = $ligne['rep'].$ligne['lien_image'].$ligne['designation'].$ligne['matiere'].$ligne['observation'];
 	$this->Fermer();
 	return $tableau;
 }
 
-public function Colonne_observation_vide() {
-	$this->Requete("SELECT COUNT(*) AS nb_observation FROM Pieces WHERE observation <> '' AND support_ID= ?", [$_SESSION['support']->Id()]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_observation'] == 0);
-}
-
-public function Colonne_matiere_vide() {
-	$this->Requete('SELECT COUNT(*) AS nb_matiere FROM Pieces WHERE matiere_ID > 0 AND support_ID= ?', [$_SESSION['support']->Id()]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_matiere'] == 0);
-}
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
 	$this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
@@ -130,14 +115,14 @@ public function Liste_sous_item() { return $this->Liste_pour_menu(false); } // l
 private function Liste_pour_menu($pour_item = true){ // factorisation des fonction Liste_item et Liste_sous_item
 	$support = $_SESSION['support']->ID();
 	if ($pour_item) {
-		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND sous_item=0';
-		$paramètres = [$support,$support];
+		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND sous_item=0';
+		$paramètres = [$support];
 		$étiquette = 'item_selectionne';
 		$sélection = $_SESSION['support']->Item();
 	} else {
 		$item = $_SESSION['support']->Item();
-		$requette = 'SELECT CONCAT(\'<a href="pageDT.php?p=\',CHAR(97+ ?), CHAR(97+ ?), CHAR(97+ sous_item), \'">\', texte, \'</a>\') AS code FROM Menu WHERE support_ID= ? AND item= ? AND sous_item>0';
-		$paramètres = [$support,$item,$support,$item];
+		$requette = 'SELECT code FROM Vue_code_menu WHERE support_ID= ? AND item= ? AND sous_item>0';
+		$paramètres = [$support,$item];
 		$étiquette = 'sous_item_selectionne';
 		$sélection = $_SESSION['support']->Sous_item();
 	}
@@ -151,7 +136,7 @@ private function Liste_pour_menu($pour_item = true){ // factorisation des foncti
 	$this->Fermer();
 	// modification de l'item/sous-item sélectionné s'il existe
 	if (isset($tableau[$sélection]))
-		$tableau[$sélection] = '<a id="'.$étiquette.'"'.substr($tableau[$sélection], 2); // <a href= ... est remplacé par <a id="étiquette" href=...
+		$tableau[$sélection] = '<li><a id="'.$étiquette.'"'.substr($tableau[$sélection], 6); // <a href= ... est remplacé par <a id="étiquette" href=...
 	return $tableau;
 }
 
