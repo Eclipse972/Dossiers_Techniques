@@ -52,7 +52,7 @@ $page = new $type_page($Thydrate);
 <!doctype html>
 <html lang="fr">
 <head>
-	<?php include('Vue/head_commun.html'); ?>
+<?php include('Vue/head_commun.html'); ?>
 	<link rel="stylesheet" href="Vue/styleDT.css"/>
 </head>
 
