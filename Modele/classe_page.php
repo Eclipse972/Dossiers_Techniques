@@ -91,21 +91,21 @@ class Page_nomenclature extends Page_abstraite {
 <table id="nomenclature">
 <thead>
 <tr>
-<th>Rep</th>
-<th>Image</th>
-<th>D&eacute;signation (x quantit&eacute;)</th>
+	<th>Rep</th>
+	<th>Image</th>
+	<th>D&eacute;signation (x quantit&eacute;)</th>
 <?php
-		if ($this->colonne_matière) echo "<th>Mati&egrave;re</th>\n";
-		if ($this->colonne_observation) echo "<th>Observations</th>\n";
+	if ($this->colonne_matière) echo '<th>Mati&egrave;re</th>',"\n";
+	if ($this->colonne_observation) echo "\t",'<th>Observations</th>',"\n";
 ?>
 </tr>
 </thead>
 
 <tbody>
 <?php
-		if (isset($this->nomenclature))
-			foreach ($this->nomenclature as $ligne)	echo "<tr>\n$ligne</tr>\n";
-		else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+	if (isset($this->nomenclature))
+		foreach ($this->nomenclature as $ligne)	echo "<tr>\n$ligne</tr>\n";
+	else trigger_error('Nomenclature inexistante', E_USER_WARNING);
 ?>
 </tbody>
 </table>
