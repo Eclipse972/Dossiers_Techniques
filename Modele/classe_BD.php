@@ -64,8 +64,6 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 		$index = 'texte';
 	} else {
 		$requete = 'SELECT lien FROM Vue_lien_support WHERE support_ID= ?';
-		/*'SELECT CONCAT(\'<a href="\', lien, \'" target="_blank">\', texte, \'</a>\') AS code 
-					FROM Commentaires WHERE support_ID= ? AND lien <> "" ORDER BY ordre ASC';*/
 		$index = 'lien';
 	}
 	$this->Requete($requete, [$_SESSION['support']->Id()]);
