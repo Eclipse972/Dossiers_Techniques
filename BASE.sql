@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 01 Décembre 2019 à 10:01
+-- Généré le : Ven 06 Décembre 2019 à 23:19
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -1074,6 +1074,15 @@ CREATE TABLE IF NOT EXISTS `Vue_code_vignettes` (
 -- --------------------------------------------------------
 
 --
+-- Doublure de structure pour la vue `Vue_lien_support`
+--
+CREATE TABLE IF NOT EXISTS `Vue_lien_support` (
+`support_ID` smallint(5)
+,`lien` longtext
+);
+-- --------------------------------------------------------
+
+--
 -- Doublure de structure pour la vue `Vue_nomenclature`
 --
 CREATE TABLE IF NOT EXISTS `Vue_nomenclature` (
@@ -1101,6 +1110,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY
 DROP TABLE IF EXISTS `Vue_code_vignettes`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_latin1'<td><a href="pageDT.php?p=',char((97 + `Supports`.`ID`)),_latin1'">',`Supports`.`nom`,_latin1'<br><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png" alt="',`Supports`.`nom`,_latin1'"></a></td>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `Vue_lien_support`
+--
+DROP TABLE IF EXISTS `Vue_lien_support`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_lien_support` AS select `Commentaires`.`support_ID` AS `support_ID`,concat(_latin1'<a href="',`Commentaires`.`lien`,_latin1'" target="_blank">',`Commentaires`.`texte`,_latin1'</a>') AS `lien` from `Commentaires` where (`Commentaires`.`lien` <> _latin1'') order by `Commentaires`.`ordre`;
 
 -- --------------------------------------------------------
 
