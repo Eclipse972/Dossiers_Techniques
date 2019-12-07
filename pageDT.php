@@ -46,6 +46,7 @@ $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a positi
 // création de l'objet page
 $type_page = $BD->Type_page();
 $Thydrate = $BD->Hydratation();
+
 $page = new $type_page($Thydrate);
 ?>
 

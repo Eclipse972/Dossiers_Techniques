@@ -57,7 +57,7 @@ $BD = new base2donnees();
 <p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>
 <?=Code_Liste($BD->Lien_support(), false)?>
 
-<?=Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID(),$_SESSION['support']->Item(),$_SESSION['support']->Sous_item())."\n"?>
+<a href="<?=$_SERVER['HTTP_REFERER']?>">Retour au dossier technique <?=$_SESSION['support']->Du_support()?></a>
 </div>
 </section>
 

@@ -98,12 +98,11 @@ public function Type_page() { // type de page associé à l'item sélectioné da
 	return $reponse['type_page']; // ne contient pas l'extension car c'est peut-être un mot clé
 }
 public function Hydratation() {
-	$this->Requete('SELECT variable, valeur FROM HydratePage
-					WHERE menu_ID=(SELECT ID FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?)',
+	$this->Requete('SELECT variable, valeur FROM HydratePage WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
-	$this->Fermer();
+	$this->Fermer();	
 	return $tableau;
 }
 
