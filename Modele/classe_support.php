@@ -99,16 +99,10 @@ else { // suivant le script qui se sert de la classe il faut donner un préfix p
 private function setTypeNomenclature($type) {
 switch ($type) {
 case 0: // sans colone matière ni colonne observation ou pas de nomenclature
-	$this->type_nomenclature = 0;
-	break;
-case 1: //sans colone matière et avec colonne observation
-	$this->type_nomenclature = 1;
-	break;
+case 1: // sans colone matière et avec colonne observation
 case 2: // avec colone matière et sans colonne observation
-	$this->type_nomenclature = 2;
-	break;
-case 3: //avec colone matière et avec colonne observation
-	$this->type_nomenclature = 3;
+case 3: // avec colone matière et avec colonne observation
+	$this->type_nomenclature = $type;
 	break;
 default:
 	trigger_error('Type de nomenclature du support incorrect');
