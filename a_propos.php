@@ -13,46 +13,32 @@ if (!isset($_SESSION['support'])) {	// s'il ny a pas de support en cours
 require 'Controleur/liens.php';
 require 'Modele/classe_BD.php';
 
-$BD = new base2donnees();
-$code = '<p><u><b>La maquette num&eacute;rique</b></u></p>'."\n";
-if ($_SESSION['support']->Zip_existe()) {
-	$code .= $_SESSION['support']->Zip()."\n";
-	$Liste = $BD->Description_maquette();
+function Code_Liste($Liste, $description_maquette){
 	switch(count($Liste)) {
 	case 0:
-		$code .= '<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>';
+		if ($description_maquette)
+			$code = 'la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble';
+		else
+			$code = 'Aucun pour le moment';
+		$code = '<p>'.$code.'</p>';
 		break;
 	case 1:
-		$code .= '<p>'.$Liste[0].'</p>';
+		$code = '<p>'.$Liste[0].'</p>';
 		break;
 	default:
-		$code .= '<ul>'."\n";
-		foreach ($Liste as $texte)	$code .= '<li>'.$texte.'</li>'."\n";
+		$code = '<ul>'."\n";
+		foreach ($Liste as $ligne)	$code .= '<li>'.$ligne.'</li>'."\n";
 		$code .= '</ul>';
 	}
-} else $code .= '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>';
-$code .= "\n".'<p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>';
-$Liste = $BD->Lien_support();
-switch(count($Liste)) {
-case 0:
-	$code .= '<p>Aucun pour le moment</p>';
-	break;
-case 1:
-	$code .= '<p>'.$Liste[0].'</p>';
-	break;
-default:
-	$code .= '<ul>'."\n";
-	foreach ($Liste as $lien)
-		$code .= '<li>'.$lien.'</li>'."\n";
-	$code .= '</ul>';
+	return $code;
 }
-$code .= "\n".Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID(),$_SESSION['support']->Item(),$_SESSION['support']->Sous_item());
+$BD = new base2donnees();
 ?>
 
 <!doctype html>
 <html lang="fr">
 <head>
-	<?php include('Vue/head_commun.html'); ?>
+<?php include('Vue/head_commun.html'); ?>
 	<link rel="stylesheet" href="Vue/style_page.css" />
 </head>
 
@@ -65,7 +51,13 @@ $code .= "\n".Lien('Retour au dossier technique '.$_SESSION['support']->Du_suppo
 
 <section>
 <div style="width:700px; margin:auto;">
-<?=$code?>
+<p><u><b>La maquette num&eacute;rique</b></u></p>
+<?=($_SESSION['support']->Zip_existe())? $_SESSION['support']->Zip()."\n".Code_Liste($BD->Description_maquette(), true) : '<p>D&eacute;sol&eacute;! l&apos;archive n&apos;est pas encore disponible</p>'?>
+
+<p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>
+<?=Code_Liste($BD->Lien_support(), false)?>
+
+<?=Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$_SESSION['support']->ID(),$_SESSION['support']->Item(),$_SESSION['support']->Sous_item())."\n"?>
 </div>
 </section>
 
