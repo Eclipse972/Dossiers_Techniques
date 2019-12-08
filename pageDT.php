@@ -13,17 +13,23 @@ if (empty($_GET))	// pas de paramètre
 	exit;			// on n'exécute pas le reste du code
 } 
 
-if (!preg_match("#^[a-zA-Z0-9]{1,3}$#", $_GET["p"]))	// le paramètre n'a pas la forme désirée
-{	$_SESSION['support'] = null;						// Destruction du support en cours
-	header(SITE."erreur.php?code=404");					// page d'erreur
-	exit;												// on n'exécute pas le reste du code
+if (!preg_match("#^[0-9]{1,2}$#", $_GET["s"]))	// le paramètre support n'a pas la forme désirée
+{	$_SESSION['support'] = null;				// Destruction du support en cours
+	header(SITE."erreur.php?code=404");			// page d'erreur
+	exit;										// on n'exécute pas le reste du code
 }
-// si on arrive ici c'est que le paramètre a la bonne forme
+if (isset($_GET["m"]))
+	if (!preg_match("#^[a-z]{1,2}$#", $_GET["m"]))	// le paramètre menu n'a pas la forme désirée
+	{	$_SESSION['support'] = null;				// Destruction du support en cours
+		header(SITE."erreur.php?code=404");			// page d'erreur
+		exit;										// on n'exécute pas le reste du code
+	}
+// si on arrive ici c'est que les deux paramètre ont la bonne forme
 require 'Modele/classe_BD.php';
 require 'Controleur/liens.php';
 
 $BD = new base2donnees();
-list($id, $item, $sous_item) = Lire_parametre("p", -1, 1);
+list($id, $item, $sous_item) = Lire_parametre(-1, 1);
 if (!$BD->Support_existe($id))			// si le support n'existe pas
 {	$_SESSION['support'] = null;		// Destruction du support en cours
 	header(SITE."erreur.php?code=404");	// page d'erreur
