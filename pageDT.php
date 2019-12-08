@@ -30,11 +30,11 @@ require 'Modele/classe_BD.php';
 require 'Controleur/liens.php';
 
 $BD = new base2donnees();
-$id	= (int)$_GET["s"];					// lecture identifiant du support
-if (!$BD->Support_existe($id))			// si le support n'existe pas
-{	$_SESSION['support'] = null;		// Destruction du support en cours
-	header(SITE."erreur.php?code=404");	// page d'erreur
-	exit;								// on n'exécute pas le reste du code
+$id	= (int)$_GET["s"];				// lecture identifiant du support
+if (!$BD->Support_existe($id))		// si le support n'existe pas
+{	$_SESSION['support'] = null;	// Destruction du support en cours
+	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
+	exit;							// on n'exécute pas le reste du code
 }
 // a partir d'ici on sait que le support donné en paramètre existe
 
