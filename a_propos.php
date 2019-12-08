@@ -7,7 +7,8 @@ require 'Modele/classe_support.php';
 session_start();
 
 if (!isset($_SESSION['support'])) {	// s'il ny a pas de support en cours
-	header("Location: http://dossiers.techniques.free.fr/erreur.php?code=404");	// page d'erreur
+	$_SESSION['erreur'] = 404;
+	header("Location: http://dossiers.techniques.free.fr/erreur.php");	// page d'erreur
 	exit;
 }
 require 'Controleur/liens.php';

@@ -4,7 +4,7 @@
 ************************************************************************************************************************************/
 session_start(); // On démarre la session AVANT toute chose
 
-$code = (int) $_GET['code'];
+$code = $_SESSION['erreur'];
 // dictionnaire
 $dico = array(
 	// erreurs de mon application
