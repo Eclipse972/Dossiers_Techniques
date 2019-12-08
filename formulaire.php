@@ -17,18 +17,11 @@ $_SESSION['temps'] = time();
 
 // contexte
 if (isset($_SESSION['support'])) {
-	if ($_SESSION['support']->ID() > 0) {
+	if ($_SESSION['support']->ID() > 0)
 		$objet = 'la page &laquo;'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
-		$page_retour = 'pageDT.php?p='.Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item());
-	}
-	else {
+	else
 		$objet = 'l&apos;archive ZIP';
-		$page_retour = 'a_propos.php';
-	}
-} else {
-	$objet = 'la liste de supports';
-	$page_retour = 'index.php';
-}
+} else	$objet = 'la liste de supports';
 ?>
 
 <!doctype html>
@@ -60,7 +53,7 @@ if (isset($_SESSION['support'])) {
 	</div>
 	<p style="text-align:center;">
 		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-		<a href="<?=$page_retour?>">Page pr&eacute;c&eacute;dente</a>
+		<a href="<?=$_SERVER['HTTP_REFERER']?>">Page pr&eacute;c&eacute;dente</a>
 	</p>
 </form>
 </section>
