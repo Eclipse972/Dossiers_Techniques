@@ -29,13 +29,13 @@ require 'Modele/classe_BD.php';
 require 'Controleur/liens.php';
 
 $BD = new base2donnees();
-list($id, $item, $sous_item) = Lire_parametre(-1, 1);
+$id	= (int)$_GET["s"];					// lecture identifiant du support
 if (!$BD->Support_existe($id))			// si le support n'existe pas
 {	$_SESSION['support'] = null;		// Destruction du support en cours
 	header(SITE."erreur.php?code=404");	// page d'erreur
 	exit;								// on n'exécute pas le reste du code
 }
-// si on arrive ici c'est que le support donné en paramètre existe
+// a partir d'ici on sait que le support donné en paramètre existe
 
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_traceur.php';
@@ -47,6 +47,12 @@ if (isset($_SESSION['support'])) { // si il y a un support en cours
 	if ($_SESSION['support']->ID() != $id) // changement de support?
 		$_SESSION['support'] = new Support($id); // alors on en crée un nouveau
 } else $_SESSION['support'] = new Support($id); // alors on le crée
+
+// lecture des paramètres du menu
+$menu		= substr((string) $_GET["m"],0,2);	// le paramètre 'm' est converti en une chaîne de 2 caractères maxi
+$item		= (isset($menu[0])) ? ord($menu[0])-97: 1;
+$sous_item	= (isset($menu[1])) ? ord($menu[1])-97: 0;
+
 $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
 
 // création de l'objet page
@@ -74,7 +80,7 @@ $page = new $type_page($Thydrate);
 
 <?php
 define(DUREE, 8);	// durée du cache en heure
-$cache = 'Vue/cache/'.$_SESSION['support']->Pti_nom().' '.Creer_parametre($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'.cache';
+$cache = 'Vue/cache/'.$_SESSION['support']->Pti_nom().' '.(string)$_SESSION['support']->ID().'-'.(string)$_SESSION['support']->Item().'-'.(string)$_SESSION['support']->Sous_item().'.cache';
 if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 	readfile($cache);
 else {

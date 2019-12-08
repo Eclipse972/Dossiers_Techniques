@@ -1,33 +1,20 @@
 <?php
 /*
- A propos des 3 paramètres. Ce sont des entiers
- * support: identifiant du support.-1 signifie aucun support
- * item: si non nul alors identifiant du menu sinon la page a propos du support
- * sous_item: identifiant du sous item. la valeur nulle signifie aucun sous-item sétectionné
+ A propos des paramètres transmis par l'URL
+ * s : identifiant du support sous for d'un nombre avec 2 chiffres maximum.
+ * m : la position dans le menu transmis sous la forme d'un ou deux minuscules
+ * 		la premire pour l'item et la seconde pour le sous-item
+ * 		a -> 0, b->1, ...
+ * Remarque:
+ * - Le code ASCII de 'a' est 97
+ * - une minuscule offre 26 possibilités pour item et sous-item ce qui est largement suffisant
  */
 
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	return '<a href="pageDT.php?'.Creer_parametre($support, $item, $sous_item).'">'.$texte.'</a>';
-}
-
-// Lecture des paramètres
-function Lire_parametre($defaut_id, $defaut_item = 1, $defaut_sous_item = 0) {
-	$id	= (int)$_GET["s"];
-	
-	$menu		= substr((string) $_GET["m"],0,2);	// le paramètre est converti en nombre chaîne de 2 caractères maxi
-	$item		= (isset($menu[0])) ? ord($menu[0])-ord('a'): $defaut_item;
-	$sous_item	= (isset($menu[1])) ? ord($menu[1])-ord('a'): $defaut_sous_item;
-	return [$id, $item, $sous_item];
-}
-
-// Ecriture des paramètres
-function Creer_parametre($param1, $param2 = null, $param3 = null) {
-	// ne peut pas être exporté vers la classe support car car cette fonction crée les menus
-	// elle ne peut être intégrée dans Lien car elle est utilisée seule dans pageDT pour créer les caches
 	$parametre = 's='.(string)$param1;
 	if (isset($param2)) {
-		$parametre .= '&m='.chr($param2+ord('a'));
-		if (isset($param3))	$parametre .= chr($param3+ord('a'));
+		$parametre .= '&m='.chr($param2+97);
+		if (isset($param3))	$parametre .= chr($param3+97);
 	}
-	return $parametre;
+	return '<a href="pageDT.php?'.$parametre.'">'.$texte.'</a>';
 }
