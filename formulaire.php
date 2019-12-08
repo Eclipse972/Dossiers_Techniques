@@ -3,10 +3,10 @@
 	formumaire de contact
 ************************************************************************************************************************************/
 require 'Modele/classe_support.php';
+require 'Modele/classe_BD.php';
 session_start(); // On démarre la session AVANT toute chose
 
 require 'Modele/classe_fichier.php';
-require 'Modele/classe_BD.php';
 require 'Modele/classe_valideur.php';
 require 'Controleur/liens.php';
 
@@ -18,7 +18,7 @@ $_SESSION['temps'] = time();
 // contexte
 if (isset($_SESSION['support'])) {
 	if ($_SESSION['support']->ID() > 0)
-		$objet = 'la page &laquo;'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
+		$objet = 'exemple :'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
 	else
 		$objet = 'l&apos;archive ZIP';
 } else	$objet = 'la liste de supports';
@@ -27,7 +27,7 @@ if (isset($_SESSION['support'])) {
 <!doctype html>
 <html lang="fr">
 <head>
-	<?php include('Vue/head_commun.html'); ?>
+<?php include('Vue/head_commun.html'); ?>
 	<link rel="stylesheet" href="Vue/style_page.css" />
 </head>
 
