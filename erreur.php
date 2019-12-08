@@ -5,6 +5,7 @@
 session_start(); // On démarre la session AVANT toute chose
 
 $code = $_SESSION['erreur'];
+$_SESSION['erreur'] = null;	// on efface le code erreur
 // dictionnaire
 $dico = array(
 	// erreurs de mon application
