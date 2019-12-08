@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 08 Décembre 2019 à 12:15
+-- Généré le : Dim 08 Décembre 2019 à 12:43
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la vue `Vue_code_vignettes`
 --
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_latin1'<td><a href="pageDT.php?p=',char((97 + `Supports`.`ID`)),_latin1'">',`Supports`.`nom`,_latin1'<br><img src="Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png" alt="',`Supports`.`nom`,_latin1'"></a></td>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_code_vignettes` AS select concat(_utf8'<td><a href="pageDT.php?s=',cast(`Supports`.`ID` as char(2) charset utf8),_utf8'">',convert(`Supports`.`nom` using utf8),_utf8'<br><img src="Supports/',convert(`Supports`.`dossier` using utf8),_utf8'/images/',convert(`Supports`.`pti_nom` using utf8),_utf8'.png" alt="',convert(`Supports`.`nom` using utf8),_utf8'"></a></td>') AS `code` from `Supports` order by `Supports`.`pti_nom`,`Supports`.`nom`;
 
 --
 -- VIEW  `Vue_code_vignettes`
