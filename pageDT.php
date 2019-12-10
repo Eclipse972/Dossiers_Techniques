@@ -16,10 +16,10 @@ if (empty($_GET))	// pas de paramètre
 // le paramètre support ou menu n'a pas la forme désirée
 if ((!preg_match("#^[0-9]{1,2}$#", $_GET["s"]))
  || (isset($_GET["m"]) && (!preg_match("#^[a-z]{1,2}$#", $_GET["m"]))))
-{	$_SESSION['support'] = null;	// Destruction du support en cours
+{	$_SESSION['support'] = null; // Destruction du support en cours
 	$_SESSION['erreur'] = 404;
-	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
-	exit;							// on n'exécute pas le reste du code
+	header(SITE."erreur.php");
+	exit;	// on n'exécute pas le reste du code
 }
 // si on arrive ici c'est que les deux paramètres ont la bonne forme
 require 'Modele/classe_BD.php';
@@ -29,6 +29,7 @@ $BD = new base2donnees();
 $id	= (int)$_GET["s"];				// lecture identifiant du support
 if (!$BD->Support_existe($id))		// si le support n'existe pas
 {	$_SESSION['support'] = null;	// Destruction du support en cours
+	$_SESSION['erreur'] = 404;
 	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
 	exit;							// on n'exécute pas le reste du code
 }
