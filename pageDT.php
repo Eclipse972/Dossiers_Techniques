@@ -13,31 +13,28 @@ if (empty($_GET))	// pas de paramètre
 	exit;			// on n'exécute pas le reste du code
 } 
 
-$_SESSION['erreur'] = 404;
-if (!preg_match("#^[0-9]{1,2}$#", $_GET["s"]))	// le paramètre support n'a pas la forme désirée
-{	$_SESSION['support'] = null;	// Destruction du support en cours
-	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
-	exit;							// on n'exécute pas le reste du code
+// le paramètre support ou menu n'a pas la forme désirée
+if ((!preg_match("#^[0-9]{1,2}$#", $_GET["s"]))
+ || (isset($_GET["m"]) && (!preg_match("#^[a-z]{1,2}$#", $_GET["m"]))))
+{	$_SESSION['support'] = null; // Destruction du support en cours
+	$_SESSION['erreur'] = 404;
+	header(SITE."erreur.php");
+	exit;	// on n'exécute pas le reste du code
 }
-if (isset($_GET["m"]))
-	if (!preg_match("#^[a-z]{1,2}$#", $_GET["m"]))	// le paramètre menu n'a pas la forme désirée
-	{	$_SESSION['support'] = null;	// Destruction du support en cours
-		header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
-		exit;							// on n'exécute pas le reste du code
-	}
-// si on arrive ici c'est que les deux paramètre ont la bonne forme
+// si on arrive ici c'est que les deux paramètres ont la bonne forme
 require 'Modele/classe_BD.php';
 require 'Controleur/liens.php';
 
 $BD = new base2donnees();
-$id	= (int)$_GET["s"];					// lecture identifiant du support
-if (!$BD->Support_existe($id))			// si le support n'existe pas
-{	$_SESSION['support'] = null;		// Destruction du support en cours
-	header(SITE."erreur.php?code=404");	// page d'erreur
-	exit;								// on n'exécute pas le reste du code
+$id	= (int)$_GET["s"];				// lecture identifiant du support
+if (!$BD->Support_existe($id))		// si le support n'existe pas
+{	$_SESSION['support'] = null;	// Destruction du support en cours
+	$_SESSION['erreur'] = 404;
+	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
+	exit;							// on n'exécute pas le reste du code
 }
 // a partir d'ici on sait que le support donné en paramètre existe
-
+$_SESSION['erreur'] = null;	// donc supression du code d'erreur
 require 'Modele/classe_fichier.php';
 require 'Modele/classe_traceur.php';
 require 'Modele/classe_page.php';

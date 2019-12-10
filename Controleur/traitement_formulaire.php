@@ -56,9 +56,9 @@ if ((isset($_SESSION['nom'])) &&
 	$validation->OK($objet, $message, $code))
 {	// enregistrement du message
 	if (Envoyer_message($objet, $message))
-			$parametre = "index.php";			// retour sur la page index au leu de celle précédant le formulaire
-	else	$parametre = "erreur.php?code=0";	// problème avec l'envoi du mail
-} else		$parametre = "formulaire.php";		// retour au formulaire car non validé
+			$parametre = "index.php";		// retour sur la page index au leu de celle précédant le formulaire
+	else	$parametre = "erreur.php";		// problème avec l'envoi du mail
+} else		$parametre = "formulaire.php";	// retour au formulaire car non validé
 
 header("Location: http://dossiers.techniques.free.fr/".$parametre);
 exit;
