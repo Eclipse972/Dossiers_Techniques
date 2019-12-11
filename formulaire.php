@@ -11,7 +11,9 @@ session_start(); // On démarre la session AVANT toute chose
 //require 'Controleur/liens.php';
 
 // $BD = new base2donnees();
-//if (!isset($_SESSION['formulaire']))
+if (isset($_SESSION['formulaire']))
+	$_SESSION['formulaire']->MAJ();	// simple mise à jour
+else
 	$_SESSION['formulaire'] = new Formulaire;
 
 // contexte

@@ -49,7 +49,7 @@ private $top_départ; // moment où est affiché le formulaire
 public function __construct() {
 	// pour l'affichage du formuaire
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = null;
-	$this->lien	= 'http://dossiers.techniques.free.fr/index.php'; // $_SERVER['HTTP_REFERER'] ne fonctionne pas correctement;
+	$this->lien	= $_SERVER['HTTP_REFERER'];
 
 	// génaration du code de validaion
 	for($i=0; $i<4; $i++) { // numéro de l'instruction
@@ -83,6 +83,10 @@ public function SetMessage($valeur)	{
 }
 public function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
+}
+public function MAJ() { // le formulaire est appelé une nouvelle fois
+	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php')
+		$this->lien = $_SERVER['HTTP_REFERER'];
 }
 
 public function Afficher() {
