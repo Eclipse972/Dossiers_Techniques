@@ -12,7 +12,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 // $BD = new base2donnees();
 if (isset($_SESSION['formulaire']))
-	$_SESSION['formulaire']->MAJ();	// simple mise à jour
+	$_SESSION['formulaire']->RAZ();	// simple mise à jour
 else
 	$_SESSION['formulaire'] = new Formulaire;
 
