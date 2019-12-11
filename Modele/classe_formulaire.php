@@ -48,7 +48,7 @@ private $top_départ; // moment où est affiché le formulaire
 // Méthodes ---------------------------------------------------------------------------------------
 public function __construct() {
 	// pour l'affichage du formuaire
-	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = null;
+	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
 	$this->lien	= $_SERVER['HTTP_REFERER'];
 
 	// génaration du code de validaion
@@ -64,7 +64,7 @@ public function __construct() {
 public function SetNom($valeur) {
 	$valeur	= strip_tags($valeur);
 	$this->nom			= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_nom	= (strlen($valeur) > 1) ? null : 'Le nom doit comporter au moins deux lettres';
+	$this->Erreur_nom	= (strlen($valeur) < 2);
 }
 public function SetCourriel($valeur) {
 	$valeur = strip_tags($valeur);
@@ -79,22 +79,33 @@ public function SetObjet($valeur) {
 public function SetMessage($valeur)	{
 	$valeur = strip_tags($valeur);
 	$this->message			= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_message	= (strlen($this->message) > 1) ? null : 'Le message doit comporter au moins deux lettres';
+	$this->Erreur_message	= (strlen($this->message) > 1);
 }
 public function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
 }
-public function MAJ() { // le formulaire est appelé une nouvelle fois
-	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php')
+public function RAZ() { // le formulaire est appelé une nouvelle fois
+	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
 		$this->lien = $_SERVER['HTTP_REFERER'];
+	} else {
+		$this->objet = $this->message = ''; // nom et courriel sont conservés
+	}
 }
 
 public function Afficher() {
 ?>	<form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
-		<p>Nom : <input 	 type="text" name="nom"		 value="<?=$this->nom?>" /></p>
-		<p>Courriel : <input type="text" name="courriel" value="<?=$this->courriel?>" /></p>
-		<p>Objet : <input	 type="text" name="objet"	 placeholder="<?=$this->objet?>" /></p>
-		<p>Message : <textarea name="message" rows="6"></textarea></p>
+		<p><?php if ($this->Erreur_nom) echo 'Le nom doit comporter au moins deux lettres<br>';?>
+			Nom : <input 	 type="text" name="nom"	value="<?=$this->nom?>" /></p>
+
+		<p><?php if ($this->Erreur_courriel) echo 'adresse mail incorrecte<br>';?>
+			Courriel : <input type="text" name="courriel" value="<?=$this->courriel?>" /></p>
+		
+		<p><?php if ($this->Erreur_objet) echo 'L&apos;objet doit comporter au moins deux caract&egrave;res<br>';?>
+			Objet : <input	 type="text" name="objet"	placeholder="<?=$this->objet?>" /></p>
+		
+		<p><?php if ($this->Erreur_message) echo 'Le message doit comporter au moins deux caract&egrave;res<br>';?>
+			Message : <textarea name="message" rows="6"></textarea></p>
+
 		<div id=validation>
 			<p>Validation du formulaire</p>
 			<ul>
@@ -109,6 +120,7 @@ public function Afficher() {
 	</form>
 <?php
 	$this->top_départ = time();
+	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
 }
 
 private function Afficher_validation() { // affiche les instructions du code de validation
@@ -122,6 +134,9 @@ private function Afficher_validation() { // affiche les instructions du code de 
 }
 
 public function OK() { // code donné par le visiteur est bon?
+	if (($this->spam_détecté) || (time() - $this->top_départ < 8))
+		return false;
+
 	$champs	= array('nom', 'courriel', 'objet', 'message');
 	$réponse = array(
 		'nom'		=> $this->nom,
@@ -138,7 +153,7 @@ public function OK() { // code donné par le visiteur est bon?
 	return ($code == $this->code);
 }
 
-private function Récupérer_données() { // reccueillir les données brutes, les filtrer et les stocker
+public function Récupérer_données() { // reccueillir les données brutes, les filtrer et les stocker
 	$this->spam_détecté = false;
 	$Mutateur = array(
 		'nom'		=> 'SetNom',
