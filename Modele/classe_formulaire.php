@@ -49,7 +49,7 @@ private $top_départ; // moment où est affiché le formulaire
 public function __construct() {
 	// pour l'affichage du formuaire
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = null;
-	$this->lien	= $_SERVER['HTTP_REFERER'];
+	$this->lien	= 'http://dossiers.techniques.free.fr/index.php'; // $_SERVER['HTTP_REFERER'] ne fonctionne pas correctement;
 
 	// génaration du code de validaion
 	for($i=0; $i<4; $i++) { // numéro de l'instruction
@@ -100,7 +100,7 @@ public function Afficher() {
 		</div>
 		<p style="text-align:center;">
 			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-			<a href="<?$this->lien?>">Page pr&eacute;c&eacute;dente</a>
+			<a href="<?=$this->lien?>">Page pr&eacute;c&eacute;dente</a>
 		</p>
 	</form>
 <?php
@@ -134,13 +134,13 @@ public function OK() { // code donné par le visiteur est bon?
 	return ($code == $this->code);
 }
 
-private function Récupérer_paramètres() { // reccueillir les données brutes, les filtrer et les stocker
+private function Récupérer_données() { // reccueillir les données brutes, les filtrer et les stocker
 	$this->spam_détecté = false;
 	$Mutateur = array(
 		'nom'		=> 'SetNom',
 		'courriel'	=> 'SetCourriel',
 		'objet'		=> 'SetObjet',
-		'message'	=> 'SetMessage'
+		'message'	=> 'SetMessage',
 		'code'		=> 'SetCode');
 	if (!empty($_POST))
 		foreach ($_POST as $clé => $valeur) // examen du tableau $_POST

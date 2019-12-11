@@ -4,24 +4,23 @@
 ************************************************************************************************************************************/
 require 'Modele/classe_support.php';
 require 'Modele/classe_BD.php';
+require 'Modele/classe_formulaire.php';
 session_start(); // On démarre la session AVANT toute chose
 
-require 'Modele/classe_fichier.php';
-require 'Modele/classe_valideur.php';
-require 'Controleur/liens.php';
+//require 'Modele/classe_fichier.php';
+//require 'Controleur/liens.php';
 
-$BD = new base2donnees();
-$valideur = new Valideur();
-$_SESSION['validation'] = serialize($valideur);
-$_SESSION['temps'] = time();
+// $BD = new base2donnees();
+//if (!isset($_SESSION['formulaire']))
+	$_SESSION['formulaire'] = new Formulaire;
 
 // contexte
-if (isset($_SESSION['support'])) {
+/*if (isset($_SESSION['support'])) {
 	if ($_SESSION['support']->ID() > 0)
 		$objet = 'exemple :'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
 	else
 		$objet = 'l&apos;archive ZIP';
-} else	$objet = 'la liste de supports';
+} else	$objet = 'la liste de supports';*/
 ?>
 
 <!doctype html>
@@ -39,23 +38,7 @@ if (isset($_SESSION['support'])) {
 </header>
 
 <section>
-<form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
-	<p>Nom : <input 	 type="text" name="nom"		 value="<?=$_SESSION['nom']?>" /></p>
-	<p>Courriel : <input type="text" name="courriel" value="<?=$_SESSION['courriel']?>" /></p>
-	<p>Objet : <input	 type="text" name="objet"	 placeholder="<?=$objet?>" /></p>
-	<p>Message : <textarea name="message" rows="6"></textarea></p>
-	<div id=validation>
-		<p>Validation du formulaire</p>
-		<ul>
-		<?php $valideur->Affiche();?>
-		</ul>
-		<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-	</div>
-	<p style="text-align:center;">
-		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-		<a href="<?=$_SERVER['HTTP_REFERER']?>">Page pr&eacute;c&eacute;dente</a>
-	</p>
-</form>
+<?php $_SESSION['formulaire']->Afficher(); ?>
 </section>
 
 <footer>
