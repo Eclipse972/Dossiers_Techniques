@@ -2,8 +2,7 @@
 /*********************************************************************************************************************************** 
 	Affichage d'une page d'un support
 ************************************************************************************************************************************/
-//la session contient un objet support dons la classe doit être appelée en premier
-require 'Modele/classe_support.php'; // nécessaire car la session contient un objet
+require 'Modele/classe_support.php'; //la session contient un objet support donc sa définition doit être appelée en premier
 session_start(); // On démarre la session
 
 require 'Controleur/pageDT.php';
