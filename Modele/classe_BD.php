@@ -138,9 +138,9 @@ private function Liste_pour_menu($pour_item = true){ // factorisation des foncti
 	return $tableau;
 }
 
-public function Texte_item($support,$item,$sous_item) { // renvoie le texte de l'item/sous-item
+public function Texte_item() { // renvoie le texte de l'item/sous-item courant du support
 	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[$support, $item, $sous_item]);
+					[ $_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
 	$réponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $réponse['texte'];
