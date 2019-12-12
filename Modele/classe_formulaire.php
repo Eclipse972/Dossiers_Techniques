@@ -49,18 +49,18 @@ private $top_départ; // moment où est affiché le formulaire
 public function __construct() {
 	// pour l'affichage du formuaire
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
-	$this->lien	= $_SERVER['HTTP_REFERER'];
-
-	// génaration du code de validaion
-	for($i=0; $i<4; $i++) { // numéro de l'instruction
+	$this->SetLien($_SERVER['HTTP_REFERER']);
+	$this->Générer_code_validation();
+}
+private Générer_code_validation() {
+	for($i=0; $i<4; $i++) {				// numéro de l'instruction
 		$this->T_id_champ[$i] = $i;		// numéro du champ
 		$this->T_choix[$i] = rand(0,3);	// choix du caractère
 	}
 	shuffle($this->T_id_champ);			// on mélange l'ordre des champs
 	$this->dernier_choix = rand(0,3);	// choix du dernier caractère
 }
-
-// Stocke les réponses de formuaire après validation -----------------------------------------------
+// Mutateurs --------------------------------------------------------------------------------------
 public function SetNom($valeur) {
 	$valeur	= strip_tags($valeur);
 	$this->nom			= (strlen($valeur) > 1) ? $valeur : '';
@@ -84,9 +84,14 @@ public function SetMessage($valeur)	{
 public function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
 }
+public function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
+	$this->lien = substr($URL,34); // que le nom du script avec ses éventuels paramètres
+}
+
 public function RAZ() { // le formulaire est appelé une nouvelle fois
+	$this->Générer_code_validation(); // on génère un nouveau code
 	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
-		$this->lien = substr($_SERVER['HTTP_REFERER'],34); // que le nom du script
+		$this->SetLien($_SERVER['HTTP_REFERER']); // que le nom du script
 	} else {
 		$this->objet = $this->message = ''; // nom et courriel sont conservés
 	}
@@ -133,7 +138,7 @@ private function Afficher_validation() { // affiche les instructions du code de 
 	echo "\t\t\t", '<li>', $position[$this->dernier_choix], ' caract&egrave;re de ce code de validation</li>', "\n";
 }
 
-public function OK() { // code donné par le visiteur est bon?
+private function OK() { // code donné par le visiteur est bon?
 	if (($this->spam_détecté)				// spam détecté
 	|| (time() - $this->top_départ < 8))	// si le temps de remplissage < 8s => pas un humain 
 		return false;
@@ -172,7 +177,7 @@ public function Récupérer_données() { // reccueillir les données brutes, les
 			}
 }
 
-public function Envoyer_message() { // voir la fonction mailFree() dans test-mail.php situé à la racine
+private function Envoyer_message() { // voir la fonction mailFree() dans test-mail.php situé à la racine
 	$additional_headers  = 'From: Formulaire DT <dossiers.techniques@free.fr>'."\r\n";
 	$additional_headers .= "MIME-Version: 1.0\r\n";
 	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
@@ -181,5 +186,21 @@ public function Envoyer_message() { // voir la fonction mailFree() dans test-mai
 	$resultat=mail('christophe.hervi@gmail.com' , $this->objet, $this->message, $additional_headers);
 	$time= time()-$start_time;
 	return $resultat & ($time>1);
+}
+
+public function Traitement(){
+	$this->Récupérer_données();
+
+	if ($this->OK()) // remplissage du formulaire validé?
+		if ($this->Envoyer_message())	// on essaie d'envoyer le message
+			$suite = $this->lien;
+		else {
+			$_SESSION['erreur'] = 0;
+			$suite = "erreur.php";
+		}
+	else {
+		$suite = 'formulaire.php';
+	}
+	return $suite;
 }
 }
