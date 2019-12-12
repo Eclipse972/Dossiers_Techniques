@@ -86,7 +86,7 @@ public function SetCode($valeur) {
 }
 public function RAZ() { // le formulaire est appelé une nouvelle fois
 	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
-		$this->lien = $_SERVER['HTTP_REFERER'];
+		$this->lien = substr($_SERVER['HTTP_REFERER'],34); // que le nom du script
 	} else {
 		$this->objet = $this->message = ''; // nom et courriel sont conservés
 	}
@@ -134,7 +134,8 @@ private function Afficher_validation() { // affiche les instructions du code de 
 }
 
 public function OK() { // code donné par le visiteur est bon?
-	if (($this->spam_détecté) || (time() - $this->top_départ < 8))
+	if (($this->spam_détecté)				// spam détecté
+	|| (time() - $this->top_départ < 8))	// si le temps de remplissage < 8s => pas un humain 
 		return false;
 
 	$champs	= array('nom', 'courriel', 'objet', 'message');
@@ -172,10 +173,10 @@ public function Récupérer_données() { // reccueillir les données brutes, les
 }
 
 public function Envoyer_message() { // voir la fonction mailFree() dans test-mail.php situé à la racine
-	$additional_headers  = 'From: Formulaire DT<dossiers.techniques@free.fr>'."\r\n";
+	$additional_headers  = 'From: Formulaire DT <dossiers.techniques@free.fr>'."\r\n";
 	$additional_headers .= "MIME-Version: 1.0\r\n";
 	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-	$additional_headers .= "Reply-To: ".$this->courriel."\r\n";
+	$additional_headers .= "Reply-To: ".$this->nom." <".$this->courriel.">\r\n";
 	$start_time = time();
 	$resultat=mail('christophe.hervi@gmail.com' , $this->objet, $this->message, $additional_headers);
 	$time= time()-$start_time;
