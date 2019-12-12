@@ -69,18 +69,18 @@ public function SetNom($valeur) {
 }
 public function SetCourriel($valeur) {
 	$valeur = strip_tags($valeur);
-	$this->courriel			= (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur)) ? $valeur : '';
-	$this->Erreur_courriel	= (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur)) ? null : 'adresse mail incorrecte';
+	$this->courriel			= ( preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur)) ? $valeur : '';
+	$this->Erreur_courriel	= (!preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur));
 }
 public function SetObjet($valeur) {
 	$valeur = strip_tags($valeur);
 	$this->objet		= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_objet = (strlen($valeur) > 1) ? null : 'L&apos;objet doit comporter au moins deux lettres';
+	$this->Erreur_objet = (strlen($valeur) < 2);
 }
 public function SetMessage($valeur)	{
 	$valeur = strip_tags($valeur);
 	$this->message			= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_message	= (strlen($this->message) > 1);
+	$this->Erreur_message	= (strlen($valeur) < 2);
 }
 public function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
