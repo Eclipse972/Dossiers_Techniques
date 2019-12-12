@@ -51,7 +51,7 @@ public function __construct() {
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
 	$this->SetLien($_SERVER['HTTP_REFERER']);
 	$this->Générer_code_validation();
-	$this->SetObjet(); // défini la propositio d'objet en fonction du contexte
+	$this->Objet_prédéfini(); // défini la propositio d'objet en fonction du contexte
 }
 private function Générer_code_validation() {
 	for($i=0; $i<4; $i++) {				// numéro de l'instruction
@@ -88,7 +88,8 @@ public function SetCode($valeur) {
 public function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
 	$this->lien = substr($URL,34); // que le nom du script avec ses éventuels paramètres
 }
-public function SetObjet() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
+
+public function Objet_prédéfini() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
 	switch($this->lien) { // le lien daoit être initialisé avan de lancer cette fonction
 		case 'index.php':
 			$this->objet = '&agrave; propos de la page d&apos;index';
@@ -108,7 +109,8 @@ public function RAZ() { // le formulaire est appelé une nouvelle fois
 	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
 		$this->SetLien($_SERVER['HTTP_REFERER']); // que le nom du script
 	} else {
-		$this->objet = $this->message = ''; // nom et courriel sont conservés
+		$this->Objet_prédéfini(); 
+		$this->message = ''; // nom et courriel sont conservés
 	}
 }
 
