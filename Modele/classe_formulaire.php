@@ -51,8 +51,9 @@ public function __construct() {
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
 	$this->SetLien($_SERVER['HTTP_REFERER']);
 	$this->Générer_code_validation();
+	$this->SetObjet(); // défini la propositio d'objet en fonction du contexte
 }
-private Générer_code_validation() {
+private function Générer_code_validation() {
 	for($i=0; $i<4; $i++) {				// numéro de l'instruction
 		$this->T_id_champ[$i] = $i;		// numéro du champ
 		$this->T_choix[$i] = rand(0,3);	// choix du caractère
@@ -86,6 +87,20 @@ public function SetCode($valeur) {
 }
 public function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
 	$this->lien = substr($URL,34); // que le nom du script avec ses éventuels paramètres
+}
+public function SetObjet() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
+	switch($this->lien) { // le lien daoit être initialisé avan de lancer cette fonction
+		case 'index.php':
+			$this->objet = '&agrave; propos de la page d&apos;index';
+			break;
+		case 'a_propos.php':
+			$this->objet = '&agrave; propos de l&apos;rchive '.$_SESSION['SUPPORT']->Du_support();
+			break;
+		default:
+			if (substr($this->lien,0,10) == 'pageDT.php')
+				$this->objet = '&agrave; propos de la page "'.$_SESSION['SUPPORT']->Texte_item().'" '.$_SESSION['SUPPORT']->Du_support();
+			else $this->objet = '';
+	}
 }
 
 public function RAZ() { // le formulaire est appelé une nouvelle fois
@@ -198,9 +213,7 @@ public function Traitement(){
 			$_SESSION['erreur'] = 0;
 			$suite = "erreur.php";
 		}
-	else {
-		$suite = 'formulaire.php';
-	}
+	else	$suite = 'formulaire.php';
 	return $suite;
 }
 }
