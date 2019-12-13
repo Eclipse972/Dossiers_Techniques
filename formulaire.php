@@ -3,26 +3,13 @@
 	formumaire de contact
 ************************************************************************************************************************************/
 require 'Modele/classe_support.php';
-require 'Modele/classe_BD.php';
 require 'Modele/classe_formulaire.php';
-session_start(); // On démarre la session AVANT toute chose
+session_start();
 
-//require 'Modele/classe_fichier.php';
-//require 'Controleur/liens.php';
-
-// $BD = new base2donnees();
 if (isset($_SESSION['formulaire']))
-	$_SESSION['formulaire']->RAZ();	// simple mise à jour
+	$_SESSION['formulaire']->RAZ();
 else
 	$_SESSION['formulaire'] = new Formulaire;
-
-// contexte
-/*if (isset($_SESSION['support'])) {
-	if ($_SESSION['support']->ID() > 0)
-		$objet = 'exemple :'.$BD->Texte_item($_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()).'&raquo; '.$_SESSION['support']->Du_support();
-	else
-		$objet = 'l&apos;archive ZIP';
-} else	$objet = 'la liste de supports';*/
 ?>
 
 <!doctype html>
