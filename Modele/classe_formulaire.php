@@ -50,17 +50,17 @@ public function __construct() {
 	// pour l'affichage du formuaire
 	$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
 	$this->SetLien($_SERVER['HTTP_REFERER']);
-	$this->Générer_code_validation();
-	$this->Objet_prédéfini(); // défini la propositio d'objet en fonction du contexte
 }
-private function Générer_code_validation() {
-	for($i=0; $i<4; $i++) {				// numéro de l'instruction
-		$this->T_id_champ[$i] = $i;		// numéro du champ
-		$this->T_choix[$i] = rand(0,3);	// choix du caractère
+
+public function RAZ() { // le formulaire est appelé une nouvelle fois
+	//$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
+	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
+		$this->SetLien($_SERVER['HTTP_REFERER']); // que le nom du script
+	} else {
+		$this->message = ''; // nom et courriel sont conservés
 	}
-	shuffle($this->T_id_champ);			// on mélange l'ordre des champs
-	$this->dernier_choix = rand(0,3);	// choix du dernier caractère
 }
+
 // Mutateurs --------------------------------------------------------------------------------------
 public function SetNom($valeur) {
 	$valeur	= strip_tags($valeur);
@@ -86,35 +86,38 @@ public function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
 }
 public function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
-	$this->lien = substr($URL,34); // que le nom du script avec ses éventuels paramètres
+	$this->lien = substr($URL,35); // que le nom du script avec ses éventuels paramètres
 }
+// fin des mutateurs -----------------------------------------------------------------------------
 
 public function Objet_prédéfini() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
-	switch($this->lien) { // le lien daoit être initialisé avan de lancer cette fonction
+	switch($this->lien) { // le lien daoit être initialisé avant de lancer cette fonction
 		case 'index.php':
 			$this->objet = '&agrave; propos de la page d&apos;index';
 			break;
 		case 'a_propos.php':
-			$this->objet = '&agrave; propos de l&apos;rchive '.$_SESSION['SUPPORT']->Du_support();
+			$this->objet = '&agrave; propos de l&apos;archive '.$_SESSION['support']->Du_support();
 			break;
 		default:
-			if (substr($this->lien,0,10) == 'pageDT.php')
-				$this->objet = '&agrave; propos de la page "'.$_SESSION['SUPPORT']->Texte_item().'" '.$_SESSION['SUPPORT']->Du_support();
-			else $this->objet = '';
+			if (substr($this->lien,0,10) == 'pageDT.php') {
+				$BD = new base2donnees;
+				$this->objet = '&agrave; propos page &laquo;'.$BD->Texte_item().'&raquo; '.$_SESSION['support']->Du_support();
+			} else $this->objet = '';
 	}
 }
 
-public function RAZ() { // le formulaire est appelé une nouvelle fois
-	$this->Générer_code_validation(); // on génère un nouveau code
-	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
-		$this->SetLien($_SERVER['HTTP_REFERER']); // que le nom du script
-	} else {
-		$this->Objet_prédéfini(); 
-		$this->message = ''; // nom et courriel sont conservés
+private function Générer_code_validation() {
+	for($i=0; $i<4; $i++) {				// numéro de l'instruction
+		$this->T_id_champ[$i] = $i;		// numéro du champ
+		$this->T_choix[$i] = rand(0,3);	// choix du caractère
 	}
+	shuffle($this->T_id_champ);			// on mélange l'ordre des champs
+	$this->dernier_choix = rand(0,3);	// choix du dernier caractère
 }
 
 public function Afficher() {
+	$this->Générer_code_validation();	// on génère un nouveau code
+	$this->Objet_prédéfini();			// défini la proposition d'objet en fonction du contexte
 ?>	<form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
 		<p><?php if ($this->Erreur_nom) echo 'Le nom doit comporter au moins deux lettres<br>';?>
 			Nom : <input 	 type="text" name="nom"	value="<?=$this->nom?>" /></p>
@@ -173,7 +176,7 @@ private function OK() { // code donné par le visiteur est bon?
 		$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1);
 	}
 	$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
-	return ($code == $this->code);
+	return ($this->code == $code);
 }
 
 public function Récupérer_données() { // reccueillir les données brutes, les filtrer et les stocker
@@ -200,12 +203,12 @@ private function Envoyer_message() { // voir la fonction mailFree() dans test-ma
 	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 	$additional_headers .= "Reply-To: ".$this->nom." <".$this->courriel.">\r\n";
 	$start_time = time();
-	$resultat=mail('christophe.hervi@gmail.com' , $this->objet, $this->message, $additional_headers);
+	$resultat=mail('christophe.hervi@gmail.com', $this->objet, $this->message, $additional_headers);
 	$time= time()-$start_time;
 	return $resultat & ($time>1);
 }
 
-public function Traitement(){
+public function Traitement() {
 	$this->Récupérer_données();
 
 	if ($this->OK()) // remplissage du formulaire validé?
@@ -213,7 +216,7 @@ public function Traitement(){
 			$suite = $this->lien;
 		else {
 			$_SESSION['erreur'] = 0;
-			$suite = "erreur.php";
+			$suite = 'erreur.php';
 		}
 	else	$suite = 'formulaire.php';
 	return $suite;

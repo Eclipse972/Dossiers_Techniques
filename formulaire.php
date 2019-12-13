@@ -3,6 +3,7 @@
 	formumaire de contact
 ************************************************************************************************************************************/
 require 'Modele/classe_support.php';
+require 'Modele/classe_BD.php';
 require 'Modele/classe_formulaire.php';
 session_start();
 
