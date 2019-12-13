@@ -11,10 +11,10 @@
  */
 
 function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	$parametre = 's='.(string)$param1;
-	if (isset($param2)) {
-		$parametre .= '&m='.chr($param2+97);
-		if (isset($param3))	$parametre .= chr($param3+97);
+	$parametre = 's='.(string)$support;
+	if (isset($item)) {
+		$parametre .= '&m='.chr($item+97);
+		if (isset($sous_item))	$parametre .= chr($sous_item+97);
 	}
 	return '<a href="pageDT.php?'.$parametre.'">'.$texte.'</a>';
 }
