@@ -15,7 +15,6 @@ private $Erreur_nom;
 private $Erreur_courriel;
 private $Erreur_objet;
 private $Erreur_message;
-//private $Erreur_code;
 
 
 private $lien; // où aller après validation
@@ -39,11 +38,11 @@ private $spam_détecté; // tentative de spam détectée
  * Le code de validation sera uéh22
 */
  
- // variables nécessaire au code de validation
-private $T_id_champ; // numéro du champ
-private $T_choix; // position demandé
+// variables nécessaires à la création du code de validation
+private $T_id_champ;	// tableau contenant les numéros de champ
+private $T_choix;		// tableau contenant les positions demandées
 private $dernier_choix; // dernière instruction: position du caractère du code de validation
-private $top_départ; // moment où est affiché le formulaire
+private $top_départ;	// moment où est affiché le formulaire
 
 // Méthodes ---------------------------------------------------------------------------------------
 public function __construct() {
@@ -54,43 +53,35 @@ public function __construct() {
 
 public function RAZ() { // le formulaire est appelé une nouvelle fois
 	//$this->Erreur_nom = $this->Erreur_courriel = $this->Erreur_objet = $this->Erreur_message = false;
-	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') { // pageprécédente = formulaire suite à une erreur
-		$this->SetLien($_SERVER['HTTP_REFERER']); // que le nom du script
-	} else {
+	if ($_SERVER['HTTP_REFERER'] != 'http://dossiers.techniques.free.fr/formulaire.php') // pageprécédente = formulaire suite à une erreur
+		$this->SetLien($_SERVER['HTTP_REFERER']);
+	else
 		$this->message = ''; // nom et courriel sont conservés
-	}
 }
 
 // Mutateurs --------------------------------------------------------------------------------------
-public function SetNom($valeur) {
+private function SetCommun($variable, $valeur, $courriel = false) {
 	$valeur	= strip_tags($valeur);
-	$this->nom			= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_nom	= (strlen($valeur) < 2);
+	$test = (	!$courriel && (strlen($valeur) > 1)) // la variable doit avoir au moins deux caractères si ce n'est pas un courriel
+		||		($courriel && (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur)));
+	$this->$variable = ($test) ? $valeur : '';
+	$variable = 'Erreur_'.$variable;// nom de l'erreur associée
+	$this->$variable = (!$test);	// l'erreur est mémorisée
 }
-public function SetCourriel($valeur) {
-	$valeur = strip_tags($valeur);
-	$this->courriel			= ( preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur)) ? $valeur : '';
-	$this->Erreur_courriel	= (!preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $valeur));
-}
-public function SetObjet($valeur) {
-	$valeur = strip_tags($valeur);
-	$this->objet		= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_objet = (strlen($valeur) < 2);
-}
-public function SetMessage($valeur)	{
-	$valeur = strip_tags($valeur);
-	$this->message			= (strlen($valeur) > 1) ? $valeur : '';
-	$this->Erreur_message	= (strlen($valeur) < 2);
-}
-public function SetCode($valeur) {
+private function SetNom($valeur)		{ $this->SetCommun('nom', $valeur); }
+private function SetObjet($valeur)		{ $this->SetCommun('objet',$valeur); }
+private function SetMessage($valeur)	{ $this->SetCommun('message',$valeur); }
+private function SetCourriel($valeur)	{ $this->SetCommun('courriel',$valeur,true); }
+
+private function SetCode($valeur) {
 	$this->code	= strip_tags($valeur);
 }
-public function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
+private function SetLien($URL) { // il faut l'URL complète. Ex: http://dossiers.techniques.free.fr/script.php
 	$this->lien = substr($URL,35); // que le nom du script avec ses éventuels paramètres
 }
 // fin des mutateurs -----------------------------------------------------------------------------
 
-public function Objet_prédéfini() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
+private function Objet_prédéfini() { // génère un objet prédéfini en fonction de la page qui appelle le formulaire
 	switch($this->lien) { // le lien daoit être initialisé avant de lancer cette fonction
 		case 'index.php':
 			$this->objet = '&agrave; propos de la page d&apos;index';
