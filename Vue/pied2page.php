@@ -4,4 +4,4 @@
 		echo ' - <a href="formulaire.php">Me contacter</a>';
 ?>
  - <a target="_blank" href="http://faq.sw.free.fr">Ma FAQ SolidWorks</a>
- - derni&egrave;re mise à jour: 11 d&eacute;cembre 2019</p>
+ - derni&egrave;re mise à jour: 15 d&eacute;cembre 2019</p>
