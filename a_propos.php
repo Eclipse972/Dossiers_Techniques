@@ -43,7 +43,6 @@ $retour=Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$
 <html lang="fr">
 <head>
 <?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/style_page.css" />
 </head>
 
 <body>
