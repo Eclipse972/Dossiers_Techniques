@@ -16,7 +16,6 @@ if ((!preg_match("#^[0-9]{1,2}$#", $_GET["s"]))
 }
 // si on arrive ici c'est que les deux paramètres ont la bonne forme
 require 'Modele/classe_BD.php';
-require 'Controleur/liens.php';
 
 $BD = new base2donnees();
 $id	= (int)$_GET["s"];				// lecture identifiant du support
