@@ -14,7 +14,7 @@ $page = new $type_page($Thydrate); // création de l'objet page
 <html lang="fr">
 <head>
 <?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/styleDT.css"/>
+	<link rel="stylesheet" href="Vue/pageDT.css"/>
 </head>
 
 <body>
