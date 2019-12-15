@@ -23,7 +23,7 @@ $id	= (int)$_GET["s"];				// lecture identifiant du support
 if (!$BD->Support_existe($id))		// si le support n'existe pas
 {	$_SESSION['support'] = null;	// Destruction du support en cours
 	$_SESSION['erreur'] = 404;
-	header(SITE."erreur.php");		// page d'erreur. Le code est déjà défini
+	header(SITE."erreur.php");		// page d'erreur
 	exit;							// on n'exécute pas le reste du code
 }
 // a partir d'ici on sait que le support donné en paramètre existe
@@ -48,4 +48,3 @@ $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a positi
 
 $type_page = $BD->Type_page();	// détermine la nature de la page
 $Thydrate = $BD->Hydratation();	// tableau contenant les paramètres d'hydratation de la page
-
