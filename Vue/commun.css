@@ -37,6 +37,12 @@ section h1 {
 	font-size: 25px;
 	margin-top: 0;
 }
+section h2 {
+	text-decoration: underline;
+	text-align: left;
+	font-size: 20px;
+	margin-top: 0;
+}
 /* pied de page -------------------------------------------------------------------------------- */
 footer {
 	font-size:16px;
