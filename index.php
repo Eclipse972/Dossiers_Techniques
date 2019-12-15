@@ -17,8 +17,8 @@ $_SESSION['support'] = null;	// on détruit le support en cours
 <!doctype html>
 <html lang="fr">
 <head>
-	<?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/style_page.css"/>
+<?php include('Vue/head_commun.html'); ?>
+	<link rel="stylesheet" href="Vue/index.css"/>
 </head>
 
 <body>
