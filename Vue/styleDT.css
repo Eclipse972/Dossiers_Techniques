@@ -8,8 +8,6 @@ nav, section {
 /* zone centrale ------------------------------------------------------------------------------ */
 section ul { margin:0; }
 
-section a { text-decoration:none;}
-
 section a:hover { text-decoration: underline;}
 
 section img {
