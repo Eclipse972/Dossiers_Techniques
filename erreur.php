@@ -25,8 +25,7 @@ else {
 <!doctype html>
 <html lang="fr">
 <head>
-	<?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/style_page.css" />
+<?php include('Vue/head_commun.html'); ?>
 </head>
 
 <body>
