@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 08 Décembre 2019 à 12:13
+-- Généré le : Dim 15 Décembre 2019 à 06:37
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -233,9 +233,9 @@ INSERT INTO `HydratePage` (`support_ID`, `item`, `sous_item`, `variable`, `valeu
 (1, 2, 3, 'commentaire', 'Rotation de 90&deg; de la pi&egrave;ce (6) autour de la pi&egrave;ce (3).'),
 (1, 2, 4, 'commentaire', 'Rotation de 360&deg; de la pi&egrave;ce (7) autour de la pi&egrave;ce (6).'),
 (1, 2, 5, 'commentaire', 'Translation de la pi&egrave;ce (12) dans la pi&egrave;ce (7).'),
-(16, 2, 1, 'commentaire', 'La tige du v&eacute;rin et le nez sont totalement rentr&eacute;s. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.</p>\r\n<p>On alimente ensuite la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 1.'),
+(16, 2, 1, 'commentaire', 'La tige du v&eacute;rin et le nez sont totalement rentr&eacute;s. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; gauche du trou oblong qui se trouve sur le nez.</p>\r\n<p>On alimente ensuite la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 1.'),
 (16, 2, 2, 'commentaire', 'Le piston pousse le nez. Pour &eacute;viter qu&apos;il tourne il y a une lame de ressort (non visible sur l&apos;animation) sous le nez qui le maintient &agrave; l&apos;horizontale<br>La phase se termine lorsque l&apos;axe entre en contact avec le c&ocirc;t&eacute; droit du trou oblong.'),
-(16, 2, 3, 'commentaire', 'Le nez est totalement sorti mais la tige de v&eacute;rin n''est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; gauche du trou oblong qui se trouve sur le nez.<br>On continue d''alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.'),
+(16, 2, 3, 'commentaire', 'Le nez est totalement sorti mais la tige de v&eacute;rin n''est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.<br>On continue d''alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.'),
 (16, 2, 4, 'commentaire', 'Le piston pousse le nez mais celui-ci ne peut plus avancer &agrave; cause de l&apos;axe en contact avec le trou oblong. Le seul mouvement possible est une rotation autour de l&apos;axe.<br>La lame de ressort (non visible sur l&apos;animation) ne peut plus maintenir le nez &agrave; l&apos;horizontale et se d&eacute;forme.'),
 (12, 2, 0, 'commentaire', '&eacute;l&eacute;ments constitutifs du pr&eacute;henseur'),
 (12, 2, 2, 'commentaire', 'La tige de v&eacute;rin rentre. La noix monte et entra&icirc;ne les biellettes<br>Les biellettes rapprochent les deux bras. Les ressorts se rel&acirc;chent.'),
