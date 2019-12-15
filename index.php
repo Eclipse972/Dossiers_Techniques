@@ -3,11 +3,7 @@
 	Affiche la liste des supports
 ************************************************************************************************************************************/
 session_start(); // On démarre la session AVANT toute chose
-
-require 'Modele/classe_fichier.php';
 require 'Modele/classe_BD.php';
-require 'Modele/classe_support.php';
-require 'Controleur/liens.php';
 
 define(DUREE, 8);	// durée du cache en heure
 define(CACHE, 'Vue/cache/index.cache');	// nom du fichier cache
