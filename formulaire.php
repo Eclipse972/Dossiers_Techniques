@@ -17,7 +17,7 @@ else
 <html lang="fr">
 <head>
 <?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/style_page.css" />
+	<link rel="stylesheet" href="Vue/formulaire.css" />
 </head>
 
 <body>
