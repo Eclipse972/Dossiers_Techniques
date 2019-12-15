@@ -58,7 +58,7 @@ $retour=Lien('Retour au dossier technique '.$_SESSION['support']->Du_support(),$
 <?=$zip?>
 
 <p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>
-<?php echo $liens, $retour;?>
+<?php echo $liens, "\n", $retour;?>
 </div>
 </section>
 
