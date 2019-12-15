@@ -11,11 +11,10 @@
  * - dans le BD la vue nommée Vue_code_menu utilise la même structure
  */
 
-function Lien($texte, $support, $item = null, $sous_item = null) { // l'existence de la page correpondante doit être vérifiée en amont
-	$parametre = 's='.(string)$support;
+function Lien($texte, $support, $item = null, $sous_item = 0) { // l'existence de la page correpondante doit être vérifiée en amont
 	if (isset($item)) {
-		$parametre .= '&m='.chr($item+97);
-		if (isset($sous_item))	$parametre .= chr($sous_item+97);
-	}
-	return '<a href="pageDT.php?'.$parametre.'">'.$texte.'</a>';
+		$menu = '&m='.chr($item+97);
+		if ($sous_item > 0)	$menu .= chr($sous_item+97);
+	} else $menu = '';
+	return '<a href="pageDT.php?s='.(string)$support.$menu.'">'.$texte.'</a>';
 }
