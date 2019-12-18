@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 18 Décembre 2019 à 12:07
+-- Généré le : Mer 18 Décembre 2019 à 14:50
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la vue `Vue_hydrate_supports`
 --
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_hydrate_supports` AS select `Supports`.`ID` AS `ID`,`Supports`.`nom` AS `nom`,`Supports`.`pti_nom` AS `pti_nom`,`Supports`.`dossier` AS `dossier`,`Supports`.`zip` AS `zip`,`Supports`.`type_nomenclature` AS `type_nomenclature`,concat(convert(if((`Supports`.`article_ID` = 1),_utf8'du ',if((`Supports`.`article_ID` = 2),_utf8'de la ',_utf8'de l&apos;')) using latin1),`Supports`.`nom`) AS `du_support`,concat(convert(if((`Supports`.`article_ID` = 1),_utf8'le ',if((`Supports`.`article_ID` = 2),_utf8'la ',_utf8'l&apos;')) using latin1),`Supports`.`nom`) AS `le_support` from `Supports`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_hydrate_supports` AS select `Supports`.`ID` AS `ID`,`Supports`.`nom` AS `nom`,`Supports`.`pti_nom` AS `pti_nom`,`Supports`.`type_nomenclature` AS `type_nomenclature`,concat(convert(if((`Supports`.`article_ID` = 1),_utf8'du ',if((`Supports`.`article_ID` = 2),_utf8'de la ',_utf8'de l&apos;')) using latin1),`Supports`.`nom`) AS `du_support`,concat(convert(if((`Supports`.`article_ID` = 1),_utf8'le ',if((`Supports`.`article_ID` = 2),_utf8'la ',_utf8'l&apos;')) using latin1),`Supports`.`nom`) AS `le_support`,concat(_latin1'Supports/',`Supports`.`dossier`,_latin1'/') AS `dossier`,concat(_latin1'Supports/',`Supports`.`dossier`,_latin1'/fichiers/',`Supports`.`pti_nom`,_latin1'.zip') AS `zip`,concat(_latin1'Supports/',`Supports`.`dossier`,_latin1'/images/',`Supports`.`pti_nom`,_latin1'.png') AS `image` from `Supports`;
 
 --
 -- VIEW  `Vue_hydrate_supports`
