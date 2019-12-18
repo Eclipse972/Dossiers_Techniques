@@ -26,9 +26,9 @@ if ($ligne != null) { // la ligne est non vide
 	$this->nom = $ligne['nom'];
 	$this->le_support = $ligne['le_support'];
 	$this->du_support = $ligne['du_support'];
+	$this->setDossier($ligne['dossier']);
 	
 	$this->setPti_nom($ligne['pti_nom']);
-	$this->setDossier($ligne['dossier']);
 	$this->setImage($ligne['pti_nom']);
 	$this->setZip($ligne['zip']);
 	$this->setTypeNomenclature($ligne['type_nomenclature']);
@@ -72,13 +72,11 @@ else	trigger_error('Attention: '.$texte.' n&apos; pas un pti_nom valide pour '.$
 
 private function setDossier($dossier) {
 // le nom du dossier commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore _
-if (!preg_match('#^[a-zA-Z][a-zA-Z_0-9_-]+$#', $dossier))
-	trigger_error('Attention: '.$dossier.' n&apos; pas un dossier valide pour '.$this->nom."\n", E_USER_WARNING);
-else { // suivant le script qui se sert de la classe il faut donner un préfix pour accéder au bon dossier
-	$dossier = 'Supports/'.$dossier.'/';
+if (!preg_match('#^Supports/[a-zA-Z][a-zA-Z_0-9_-]+/$#', $dossier)) // de la forme Supports/dossier/
+	trigger_error('Attention: le nom de dossier '.$this->du_support.' n&apos; pas valide'."\n", E_USER_WARNING);
+else
 	if (file_exists($dossier))	$this->dossier = $dossier;
-	else trigger_error('Attention: '.$dossier.' n&apos;existe pas pour '.$this->Le_support()."\n", E_USER_WARNING);
-}
+	else trigger_error('Attention: le dossier'.$this->du_support.' n&apos;existe'."\n", E_USER_WARNING);
 }
 
 private function setTypeNomenclature($type) {
