@@ -4,8 +4,8 @@ private $id;
 private $item;		// item actuel
 private $sous_item;	// sous-item actuel
 private $nom;
-private $du;
-private $le;
+private $du_support;
+private $le_support;
 private $pti_nom; /* C'est le nom par défaut de certains fichiers.
 le dessin d'ensemble.Ex dessin_cric
 la maquette numérique: cric.EASM
@@ -24,7 +24,9 @@ $BD = new base2donnees();
 $ligne = $BD->Support($this->id); // demande les données brutes à la BD sous forme de tableau associatif
 if ($ligne != null) { // la ligne est non vide
 	$this->nom = $ligne['nom'];
-	$this->setArticles($ligne['article_ID']);
+	$this->le_support = $ligne['le_support'];
+	$this->du_support = $ligne['du_support'];
+	
 	$this->setPti_nom($ligne['pti_nom']);
 	$this->setDossier($ligne['dossier']);
 	$this->setImage($ligne['pti_nom']);
@@ -46,9 +48,9 @@ public function Pti_nom()		{ return $this->pti_nom; }
 
 public function Dossier()		{ return $this->dossier; }
 
-public function Le_support()	{ return $this->le.$this->nom; }
+public function Le_support()	{ return $this->le_support; }
 
-public function Du_support()	{ return $this->du.$this->nom; }
+public function Du_support()	{ return $this->du_support; }
 
 public function Image()			{ return $this->image; } // retourne le code HTML pour l'image du support
 
@@ -61,23 +63,6 @@ public function Colonne_matiere_vide() { return (($this->type_nomenclature==0) |
 public function Colonne_observation_vide() { return (($this->type_nomenclature==0) || ($this->type_nomenclature==2)); }
 
 // Mutateurs --------------------------------------------------------------------------------------
-private function setArticles($i) {
-$i = (int) $i;
-switch ($i) {
-case 2:
-	$this->du = 'de la ';
-	$this->le = 'la ';
-	break;
-case 3:
-	$this->du = 'de l&apos;';
-	$this->le = 'l&apos;';
-	break;
-default:
-	$this->du = 'du ';
-	$this->le = 'le ';
-}
-}
-
 private function setPti_nom($texte) {
 // Le pti nom commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore
 if (preg_match('#^[a-zA-Z][a-zA-Z_0-9_-]+$#', $texte))
