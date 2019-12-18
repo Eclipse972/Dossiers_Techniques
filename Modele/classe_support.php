@@ -6,7 +6,7 @@ private $sous_item;	// sous-item actuel
 private $nom;
 private $du_support;
 private $le_support;
-private $pti_nom; /* C'est le nom par défaut de certains fichiers.
+/*private $pti_nom; /* C'est le nom par défaut de certains fichiers.
 le dessin d'ensemble.Ex dessin_cric
 la maquette numérique: cric.EASM
 l'image du support: cric.png
@@ -28,9 +28,9 @@ if ($ligne != null) { // la ligne est non vide
 	$this->du_support = $ligne['du_support'];
 	$this->setDossier($ligne['dossier']);
 	$this->setZip($ligne['zip']);
+	$this->setImage($ligne['image']);
 
-	$this->setPti_nom($ligne['pti_nom']);
-	$this->setImage($ligne['pti_nom']);
+	//$this->setPti_nom($ligne['pti_nom']);
 	$this->setTypeNomenclature($ligne['type_nomenclature']);
 }
 }
@@ -92,15 +92,15 @@ default:
 }
 }
 private function setImage($image) {	
-$image = new Image($image, $this->dossier.'images/'); // recherche l'image du support
+$image = new Image($image); // recherche l'image du support
 if ($image->Existe())
 	$this->image = $image->Balise($this->Le_support());
 else
 	trigger_error('Attention: pas d&apos;image pour '.$this->Le_support()."\n", E_USER_WARNING);
 }
 
-private function setZip($archive) {
-$archive = new Zip($archive); // recherche l'archive du support
+private function setZip($zip) {
+$archive = new Zip($zip); // recherche l'archive du support
 $this->zip = ($archive->Existe()) ? $archive : null;
 }
 

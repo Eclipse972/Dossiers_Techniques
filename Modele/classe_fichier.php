@@ -17,7 +17,7 @@ class Zip extends Fichier {
 }
 
 class Image extends Fichier {
-	public function __construct($fichier, $dossier) {
+	public function __construct($fichier, $dossier = '') {
 		if (!strpos($fichier, '.')) // le fichier n'a pas d'extension
 			$fichier .= '.png';	// alors c'est un png
 		parent::__construct($fichier, $dossier, 'Vue/pas2photo.png');
