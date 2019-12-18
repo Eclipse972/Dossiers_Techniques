@@ -2,7 +2,7 @@
 class Fichier {
 	protected $fichier;
 
-	public function __construct($fichier, $dossier, $substitution = '#')
+	public function __construct($fichier, $dossier = '', $substitution = '#')
 		{ $this->fichier = (file_exists($dossier.$fichier)) ? $dossier.$fichier : $substitution; }
 	
 	public function Chemin() { return $this->fichier; } // renvoi le chemin d'accès complet
@@ -13,7 +13,7 @@ class Fichier {
 }
 
 class Zip extends Fichier {
-	public function __construct($fichier, $dossier) { parent::__construct($fichier.'.zip', $dossier.'fichiers/'); }
+	public function __construct($archive) { parent::__construct($archive); }
 }
 
 class Image extends Fichier {

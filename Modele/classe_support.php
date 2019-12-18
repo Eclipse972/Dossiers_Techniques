@@ -27,10 +27,10 @@ if ($ligne != null) { // la ligne est non vide
 	$this->le_support = $ligne['le_support'];
 	$this->du_support = $ligne['du_support'];
 	$this->setDossier($ligne['dossier']);
-	
+	$this->setZip($ligne['zip']);
+
 	$this->setPti_nom($ligne['pti_nom']);
 	$this->setImage($ligne['pti_nom']);
-	$this->setZip($ligne['zip']);
 	$this->setTypeNomenclature($ligne['type_nomenclature']);
 }
 }
@@ -100,7 +100,7 @@ else
 }
 
 private function setZip($archive) {
-$archive = new Zip($archive, $this->dossier); // recherche l'archive du support
+$archive = new Zip($archive); // recherche l'archive du support
 $this->zip = ($archive->Existe()) ? $archive : null;
 }
 
