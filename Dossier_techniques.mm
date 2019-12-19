@@ -1,6 +1,6 @@
 <map version="freeplane 1.6.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" FOLDED="false" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.464">
+<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" FOLDED="false" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.21">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -659,7 +659,7 @@
 </richcontent>
 <edge WIDTH="2"/>
 <node TEXT="les feuilles de style" ID="ID_14" CREATED="1527579372171" MODIFIED="1527579372171" STYLE="fork">
-<node TEXT="commun.css" ID="ID_1063769515" CREATED="1530656953763" MODIFIED="1530657018188"><richcontent TYPE="NOTE">
+<node TEXT="commun.css" ID="ID_1063769515" CREATED="1530656953763" MODIFIED="1576746639552"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -667,14 +667,16 @@
   </head>
   <body>
     <p>
-      Ciontient toutes les d&#233;claration communes &#224; toutes les pages. En particulier la palette de couleur stock&#233;e dans des variables.
+      Contient les d&#233;clarations communes &#224; toutes les pages. En particulier la palette de couleur stock&#233;e dans des variables.
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="style_liste" ID="ID_1755359752" CREATED="1530657021129" MODIFIED="1530657461003"/>
-<node TEXT="styleDT" ID="ID_997226206" CREATED="1530657036427" MODIFIED="1530657044694"/>
+<node TEXT="formulaire.css" ID="ID_38008210" CREATED="1576746538342" MODIFIED="1576746544342"/>
+<node TEXT="index.css" ID="ID_1665693669" CREATED="1576746555308" MODIFIED="1576746559557"/>
+<node TEXT="pageDT.css" ID="ID_317218554" CREATED="1576746569212" MODIFIED="1576746579019"/>
 </node>
 <node TEXT="les images" ID="ID_31" CREATED="1527579372186" MODIFIED="1530657142112" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -715,225 +717,6 @@
 </node>
 <node TEXT="autres" ID="ID_66" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
 </node>
-<node TEXT="les scripts" ID="ID_13" CREATED="1527579372186" MODIFIED="1530490157741" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                        <head/>
-                        <body>
-                            <p>Ce sont des pages HTML avec quelques lignes en PHP d'o&#249; l'extension php.</p>
-                        </body>
-                    </html>
-</richcontent>
-<node TEXT="listeDsupports" ID="ID_77" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="pageHTML" FOLDED="true" ID="ID_76" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>c'est la page &#224; 5 zones.</p>
-                                <p>Sa structure est tr&#232;s simple et le code fait moins de 40 lignes</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="&lt;head&gt;" FOLDED="true" ID="ID_274" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="feuilles de style charg&#xe9;es" FOLDED="true" ID="ID_267" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="base" ID="ID_270" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="navigation" ID="ID_269" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="feuille de style particuli&#xe8;re" ID="ID_271" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>son nom est d&#233;finie dans la variable STYLE d&#233;fine dans le script index</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="titre de la page" ID="ID_272" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>texte qui sera affich&#233; dans le navigateur</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="&lt;body&gt;" FOLDED="true" ID="ID_275" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="div page" ID="ID_273" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>zone qui contient tout le contenu de la page. voir la feuille de style. base</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="div logo" ID="ID_276" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>vignette montrant le support</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="&lt;header&gt;" ID="ID_277" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>en-t&#234;te de la page</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="&lt;nav&gt;" ID="ID_278" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>ici est affich&#233; le menu sous la forme de deux listes imbriqu&#233;es</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="&lt;section&gt;" ID="ID_279" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>on affiche ici le contenu de la page</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-<node TEXT="&lt;footer&gt;" ID="ID_280" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>affiche le pied de page</p>
-                                    </body>
-                                </html>
-</richcontent>
-</node>
-</node>
-</node>
-<node TEXT="les mots cl&#xe9;s" FOLDED="true" ID="ID_825868667" CREATED="1530490322214" MODIFIED="1535925565023"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Ce sont des scripts utilisables par tous les supports qui en font la demande.
-    </p>
-    <p>
-      Ces scrips sot sauvegard&#233; dans un r&#233;petoire d&#233;di&#233;
-    </p>
-    <p>
-      Chaque script est associ&#233; &#224; 4 param&#232;tres stock&#233; dans la BD. Si l'appel utilise moins de 4 param&#232;tres les derniers sont vides et ignor&#233;s.
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="association" ID="ID_1997380500" CREATED="1530656481831" MODIFIED="1530656762135"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      permet d'affichier n'importe association
-    </p>
-    <p>
-      Dans certains cas j'ai besoin d'un 5e param&#232;tre? dans ce cas je reste sur l'ancienne version qui fait appel &#224; l'asociation comme le script &quot;elements&quot; pour l'unit&#233; de marquage
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="eclate" ID="ID_96" CREATED="1527579372186" MODIFIED="1530490296973" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      cr&#233;e un objet eclate et l'affiche
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="dessin_densemble" ID="ID_95" CREATED="1527579372186" MODIFIED="1530490266316" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      cr&#233;e un objet dessin&#160;&#160;d'ensmble et l'affiche
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="dessin_definition" ID="ID_1838466230" CREATED="1530656463886" MODIFIED="1530656476164"/>
-<node TEXT="classe_equivalence" ID="ID_1581179732" CREATED="1534956129210" MODIFIED="1534956144965"/>
-<node TEXT="nomenclature" ID="ID_98" CREATED="1527579372186" MODIFIED="1527840448213" LINK="#ID_70" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      affiche la nomenclature en utilisant des objets Piece
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="image_dessus" ID="ID_206936328" CREATED="1531135319622" MODIFIED="1531135398377"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      certaines pages sont de simple image avec un titre et un commentaire en dessous de l'image.
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="image_dessous" ID="ID_1477834829" CREATED="1531135370561" MODIFIED="1531135428281"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      certaines pages sont de simple image avec un titre et un commentaire au dessus de l'image.
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-</node>
-</node>
 </node>
 <node TEXT="Mod&#xe8;le" POSITION="left" ID="ID_2" CREATED="1527579372186" MODIFIED="1528741647765" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -946,256 +729,7 @@
                 </html>
 </richcontent>
 <edge WIDTH="2"/>
-<node TEXT="classe_association.php" FOLDED="true" ID="ID_32" CREATED="1527579372186" MODIFIED="1559052632415" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Ce script va &#234;tre remplac&#233; par le script classe_page
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="classe Association_image_fichier" FOLDED="true" ID="ID_57" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                            <head/>
-                            <body>
-                                <p>Dans la grande majorit&#233; des cas, chaque page du dossier pr&#233;sente une image qui permet de t&#233;l&#233;charger un fichier e-drawing</p>
-                            </body>
-                        </html>
-</richcontent>
-<node TEXT="variables" FOLDED="true" ID="ID_58" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="image" ID="ID_321" CREATED="1527579372186" MODIFIED="1527839193833" STYLE="fork"/>
-<node TEXT="fichier" ID="ID_176626424" CREATED="1527839196457" MODIFIED="1527839200377" STYLE="fork"/>
-<node TEXT="titre" ID="ID_322" CREATED="1527579372186" MODIFIED="1527839219668" STYLE="fork"/>
-</node>
-<node TEXT="fonctions membres" FOLDED="true" ID="ID_332" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="constructeur" FOLDED="true" ID="ID_59" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                    <head/>
-                                    <body>
-                                        <p>Seule m&#233;thode de la classe. Son r&#244;le principale est de cr&#233;er le code html et le mettre dans la variable lien &#224; partir de 3 param&#232;tres.</p>
-                                    </body>
-                                </html>
-</richcontent>
-<node TEXT="dossier" ID="ID_329" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                        <head/>
-                                        <body>
-                                            <p>Chemin d'acc&#232;s au dossier du support.</p>
-                                        </body>
-                                    </html>
-</richcontent>
-</node>
-<node TEXT="fichier" ID="ID_330" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                        <head/>
-                                        <body>
-                                            <p>nom du fichier avec son extension</p>
-                                        </body>
-                                    </html>
-</richcontent>
-</node>
-<node TEXT="image" ID="ID_331" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                        <head/>
-                                        <body>
-                                            <p>Fichier image sans extension PNG qui est le format impos&#233;.</p>
-                                        </body>
-                                    </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="Afficher" ID="ID_333" CREATED="1527579372186" MODIFIED="1527839308568" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      affiche une page avec un titre l'image cliquable avec en dessous un commentaire
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-</node>
-</node>
-<node TEXT="Dessin_densemble" ID="ID_702839876" CREATED="1527839462029" MODIFIED="1527839602296" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Seul le titre change
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="Dessin_de_d&#xe9;finition" ID="ID_1912254474" CREATED="1527839618406" MODIFIED="1527839631194" STYLE="fork"/>
-<node TEXT="Eclate" ID="ID_115181920" CREATED="1527839703357" MODIFIED="1527839708994" STYLE="fork"/>
-<node TEXT="classe Piece" FOLDED="true" ID="ID_70" CREATED="1527579372186" MODIFIED="1527840332490" LINK="#ID_98" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      fille de Association_image_fichier. Cette classe est utilis&#233;e dans le scripst nomenclature
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="variables suppl&#xe9;mentaires" FOLDED="true" ID="ID_72" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>Pour &#234;tre conforme &#224; une ligne de nomenclature.</p>
-                                </body>
-                            </html>
-</richcontent>
-<node TEXT="nom" ID="ID_345" CREATED="1527579372186" MODIFIED="1527839809911" STYLE="fork"/>
-<node TEXT="repere" ID="ID_1705499975" CREATED="1527839816523" MODIFIED="1527839820046" STYLE="fork"/>
-<node TEXT="quantit&#xe9;" ID="ID_346" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="mati&#xe8;re" ID="ID_347" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-<node TEXT="URL_mati&#xe8;re" ID="ID_1826735297" CREATED="1527839751580" MODIFIED="1527839785134" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      lien vers wikip&#233;dia
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="observation" ID="ID_348" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"/>
-</node>
-<node TEXT="constructeur" ID="ID_73" CREATED="1527579372186" MODIFIED="1527840166273" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font size="5">Les param&#232;tres sont issues d'une requ&#234;te</font>
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="Afficher" ID="ID_438351254" CREATED="1527840090634" MODIFIED="1527840146596" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <font size="5">une pi&#232;ce est destin&#233;e &#224; &#234;tre affich&#233;e dans un tableau</font>
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-</node>
-</node>
-<node TEXT="classe_menu.php" FOLDED="true" ID="ID_370" CREATED="1527579372186" MODIFIED="1528718901686" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Le menu est sur deux niveaux
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="variables" FOLDED="true" ID="ID_371" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="ID_support" ID="ID_374" CREATED="1527579372186" MODIFIED="1527840879075" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>du support</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="item" ID="ID_375" CREATED="1527579372186" MODIFIED="1527841290262" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      item s&#233;lectionn&#233;
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="sous_item" ID="ID_376" CREATED="1527579372186" MODIFIED="1527840928548" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>tableau associatif de la forme fichier =&gt; texte pour le 2e niveau</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="m&#xe9;todes" FOLDED="true" ID="ID_372" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork">
-<node TEXT="constructeur" ID="ID_379" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>3 param&#232;tres</p>
-                                    <p>dossier: celui du support o&#249; se trouve le fichier de config</p>
-                                    <p>menu_selectionne : peut &#234;tre  vide si aucun menu s&#233;lectionn&#233;</p>
-                                    <p>ss_menu_selectionne : idem pr&#233;c&#233;dent</p>
-                                    <p>Initialise toutes les variables membre de la classe. Le premier item du menu et toujours la mise en situation.</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="Affichage" ID="ID_383" CREATED="1527579372186" MODIFIED="1527579372186" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>G&#233;n&#232;re le code html pour afficher le menu</p>
-                                    <p>Le menu est constitu&#233; de deux listes &lt;ul&gt; imbriqu&#233;es</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-</node>
-</node>
-<node TEXT="classe_BD" FOLDED="true" ID="ID_988705127" CREATED="1527580141263" MODIFIED="1528719153104" STYLE="fork">
+<node TEXT="classe_BD" ID="ID_988705127" CREATED="1527580141263" MODIFIED="1528719153104" STYLE="fork">
 <node TEXT="variables" ID="ID_1785825609" CREATED="1528719140906" MODIFIED="1528719157283"/>
 <node TEXT="m&#xe9;thodes" ID="ID_1906912109" CREATED="1528719157949" MODIFIED="1528719168185"/>
 <node TEXT="connexion.php" ID="ID_1001218008" CREATED="1528719254169" MODIFIED="1529625593422"><richcontent TYPE="NOTE">
@@ -1213,15 +747,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="classe_traceur.php" FOLDED="true" ID="ID_5092582" CREATED="1528719118133" MODIFIED="1528719126303">
-<node TEXT="variables" ID="ID_448932453" CREATED="1528719227900" MODIFIED="1528719231437"/>
-<node TEXT="m&#xe9;thodes" ID="ID_1381446743" CREATED="1528719235949" MODIFIED="1528719239787"/>
-</node>
-<node TEXT="classe_support.php" FOLDED="true" ID="ID_1778972174" CREATED="1534294594116" MODIFIED="1534294640775">
-<node TEXT="variable" ID="ID_319425506" CREATED="1534294617858" MODIFIED="1534294623564"/>
-<node TEXT="m&#xe9;thode" ID="ID_522029242" CREATED="1534294627240" MODIFIED="1534294631923"/>
-</node>
-<node TEXT="classe_fichier.php" FOLDED="true" ID="ID_418513089" CREATED="1535364248823" MODIFIED="1559050395191">
+<node TEXT="classe_fichier.php" ID="ID_418513089" CREATED="1535364248823" MODIFIED="1559050395191">
 <node TEXT="classe fichier" FOLDED="true" ID="ID_569327922" CREATED="1535364269049" MODIFIED="1535364282844">
 <node TEXT="variables" ID="ID_1800612520" CREATED="1535364316283" MODIFIED="1535364326916"/>
 <node TEXT="m&#xe9;thode" ID="ID_1286502688" CREATED="1535364331702" MODIFIED="1535364336666"/>
@@ -1242,7 +768,8 @@
 </node>
 <node TEXT="classe ZIP" ID="ID_782689274" CREATED="1535365346938" MODIFIED="1535365355806"/>
 </node>
-<node TEXT="classe_page.php" FOLDED="true" ID="ID_1833697899" CREATED="1559050477840" MODIFIED="1559052591120"><richcontent TYPE="NOTE">
+<node TEXT="classe_formulaire" ID="ID_1048038715" CREATED="1576745717847" MODIFIED="1576745725784"/>
+<node TEXT="classe_page.php" ID="ID_1833697899" CREATED="1559050477840" MODIFIED="1559052591120"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -1307,7 +834,7 @@
 </node>
 </node>
 <node TEXT="classes filles" ID="ID_815435651" CREATED="1559050607905" MODIFIED="1559050866532" HGAP_QUANTITY="14.749999977648258 pt" VSHIFT_QUANTITY="1.4999999552965178 pt">
-<node TEXT="page_nomenclature" FOLDED="true" ID="ID_1056885150" CREATED="1559050514605" MODIFIED="1559050530017">
+<node TEXT="page_nomenclature" ID="ID_1056885150" CREATED="1559050514605" MODIFIED="1559050530017">
 <node TEXT="pas de variable membre" ID="ID_1850842397" CREATED="1559050963770" MODIFIED="1559051956204"/>
 <node TEXT="fonctions membres" ID="ID_645167022" CREATED="1559050979908" MODIFIED="1559050987586">
 <node TEXT="constructeur" ID="ID_1047628743" CREATED="1559051984230" MODIFIED="1559051990689"/>
@@ -1443,6 +970,14 @@
 </node>
 </node>
 </node>
+<node TEXT="classe_support.php" ID="ID_1778972174" CREATED="1534294594116" MODIFIED="1534294640775">
+<node TEXT="variable" ID="ID_319425506" CREATED="1534294617858" MODIFIED="1534294623564"/>
+<node TEXT="m&#xe9;thode" ID="ID_522029242" CREATED="1534294627240" MODIFIED="1534294631923"/>
+</node>
+<node TEXT="classe_traceur.php" FOLDED="true" ID="ID_5092582" CREATED="1528719118133" MODIFIED="1528719126303">
+<node TEXT="variables" ID="ID_448932453" CREATED="1528719227900" MODIFIED="1528719231437"/>
+<node TEXT="m&#xe9;thodes" ID="ID_1381446743" CREATED="1528719235949" MODIFIED="1528719239787"/>
+</node>
 </node>
 <node TEXT="Controleur" POSITION="right" ID="ID_4" CREATED="1527579372186" MODIFIED="1528741666143" STYLE="fork"><richcontent TYPE="NOTE">
 
@@ -1463,84 +998,6 @@
                         </body>
                     </html>
 </richcontent>
-<node TEXT="scripts &#xe0; t&#xe9;l&#xe9;charger" ID="ID_164" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="param&#xe8;tres" FOLDED="true" ID="ID_42" CREATED="1527579372218" MODIFIED="1530491404905" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Ce script accepte trois param&#232;tres. ces param&#232;tres sont impl&#233;ment&#233;s dans un mot de 3 lettres.
-    </p>
-    <p>
-      chaque lettre appartion &#224; l'ensemble A.., 0,..9 Ce qui donne 36 possibilit&#233;.
-    </p>
-    <p>
-      C'est largement uffisant pour le menu mais risque de poser probl&#232;me pour les support
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="1e lettre: identifiant du support" ID="ID_44" CREATED="1527579372218" MODIFIED="1530491269686" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>c'est l'identifiant du support sous la forme d'un nombre entier. Voir la liste dans le fichier?</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="menu" ID="ID_45" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>nom du menu s&#233;lectionn&#233; du support courant.</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-<node TEXT="ss_menu" ID="ID_51" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-                                <head/>
-                                <body>
-                                    <p>nom du</p>
-                                    <p>sous-menu s&#233;lectionn&#233; du support courant</p>
-                                </body>
-                            </html>
-</richcontent>
-</node>
-</node>
-<node TEXT="session" ID="ID_194" CREATED="1527579372218" MODIFIED="1530491165178" STYLE="fork"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      La variable de session permet de stock&#233; entre autres
-    </p>
-    <p>
-      l'identifiant et le nom du support courant
-    </p>
-    <p>
-      son r&#233;oertion
-    </p>
-    <p>
-      et l'&#233;tat du menu
-    </p>
-    <p>
-      ainsi que d'autres chose &#224; voir dans le code de index.php
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 </node>
 <node TEXT="caches" ID="ID_1054811111" CREATED="1535364672647" MODIFIED="1535364747233"><richcontent TYPE="NOTE">
 
@@ -1558,68 +1015,6 @@
   </body>
 </html>
 </richcontent>
-</node>
-<node TEXT="Modes" ID="ID_81610333" CREATED="1535363771256" MODIFIED="1535365079646"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Le site peut se placer suivant trois &#233;tats
-    </p>
-    <p>
-      pour chaque modeil y a un script du m&#234;me nom dans les dossiers Controleure et Vue
-    </p>
-  </body>
-</html>
-</richcontent>
-<node TEXT="DT" ID="ID_721442587" CREATED="1535363883774" MODIFIED="1535364208107"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      affiche la liste des supports et affiche les pages du support s&#233;lectionn&#233;.
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="formulaire" ID="ID_47749969" CREATED="1535363900709" MODIFIED="1535364128241"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Les visiteur peuvent me laisser des message. L'objet du message est pr&#233;d&#233;fini suivant l'endroit duquel on appelle le formilaire.
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node TEXT="erreur" ID="ID_1079251848" CREATED="1535363914909" MODIFIED="1535364156581"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      c'est ici que sont redirig&#233;es les erreur serveur gr&#226;ce &#224; .htaccess
-    </p>
-    <p>
-      toute bidouille de l'URL doit renvoyer vers cette page
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 </node>
 <node TEXT="page d&apos;administration &#xe0; venir" ID="ID_52" CREATED="1527579372218" MODIFIED="1527579372218" BACKGROUND_COLOR="#ea9999" STYLE="bubble">
 <node TEXT="contr&#xf4;le de l&apos;int&#xe9;grit&#xe9; d&apos;un support" ID="ID_1280660387" CREATED="1530657545035" MODIFIED="1556450497416"/>
@@ -1644,7 +1039,6 @@
 </richcontent>
 </node>
 <node TEXT="Tables" ID="ID_1455796385" CREATED="1527579973656" MODIFIED="1527579979532">
-<node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
 <node TEXT="Commentaires" ID="ID_1569054552" CREATED="1534294666277" MODIFIED="1534294734874"><richcontent TYPE="NOTE">
 
 <html>
@@ -1671,9 +1065,22 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="item_menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1527579837410"/>
-<node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1527579841180"/>
-<node TEXT="mati&#xe8;re" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1532079772676"><richcontent TYPE="NOTE">
+<node TEXT="hydrate_page" ID="ID_1530367179" CREATED="1576745894597" MODIFIED="1576745939033"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient les donn&#233;es pour hydrater l'objet page
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="mati&#xe8;riaux" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1576745952516"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -1691,6 +1098,114 @@
     </p>
   </body>
 </html>
+</richcontent>
+</node>
+<node TEXT="Menu" ID="ID_1228970179" CREATED="1527579831740" MODIFIED="1576745998145"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient les items et sous-items des menu de chaque support
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1576746029946"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient les pi&#232;ces de chaque support
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
+</node>
+<node TEXT="Vues" ID="ID_1425341961" CREATED="1576746044263" MODIFIED="1576746047724">
+<node TEXT="Vue_code_menu" ID="ID_1909188940" CREATED="1576746059765" MODIFIED="1576746204845"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient le code html de chaque item
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Vue_code_vignettes" ID="ID_1289129037" CREATED="1576746076470" MODIFIED="1576746252752"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient le code HTML pour les vinettes de la page index
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Vue_hydrate_supports" ID="ID_1010609444" CREATED="1576746090518" MODIFIED="1576746273342"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient les donn&#233;es pour hydrater les supports
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Vue_lien_support" ID="ID_483771615" CREATED="1576746108600" MODIFIED="1576746319183"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient les liens de chaque support
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Vue_nomenclature" ID="ID_456203909" CREATED="1576746124107" MODIFIED="1576746375162"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      contient le code HTMLdes liens de nomenclature de tous les supports
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 </node>
@@ -1726,7 +1241,7 @@
                             </html>
 </richcontent>
 </node>
-<node TEXT="SolidWorks" FOLDED="true" ID="ID_358" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="SolidWorks" ID="ID_358" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                                 <head/>
@@ -1839,7 +1354,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="dossier images" FOLDED="true" ID="ID_26" CREATED="1527579372218" MODIFIED="1530490634524" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="dossier images" ID="ID_26" CREATED="1527579372218" MODIFIED="1530490634524" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -1876,7 +1391,7 @@
 </richcontent>
 </node>
 <node TEXT="eclate_nom" ID="ID_108" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
-<node TEXT="les classes d&apos;&#xe9;quivalence" FOLDED="true" ID="ID_115" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
+<node TEXT="les classes d&apos;&#xe9;quivalence" ID="ID_115" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork">
 <node TEXT="CE_entree_nom" ID="ID_110" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
@@ -1920,7 +1435,7 @@
 <node TEXT="&#xe0; r&#xe9;fl&#xe9;chir : pi&#xe8;ces d&#xe9;formables" ID="ID_122" CREATED="1527579372218" MODIFIED="1527579372218" STYLE="fork"/>
 </node>
 </node>
-<node TEXT="dossier fichier" FOLDED="true" ID="ID_27" CREATED="1527579372218" MODIFIED="1530490571366" STYLE="fork"><richcontent TYPE="NOTE">
+<node TEXT="dossier fichier" ID="ID_27" CREATED="1527579372218" MODIFIED="1530490571366" STYLE="fork"><richcontent TYPE="NOTE">
 
 <html>
                         <head/>
@@ -1984,6 +1499,21 @@
     </p>
   </body>
 </html>
+</richcontent>
+</node>
+<node TEXT=".ZIP" ID="ID_1414040499" CREATED="1576747160207" MODIFIED="1576747277100"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      L'archive contient la maquette. La maquette doit contenir au moins un &#233;clat&#233; et le dessin d'ensemble.
+    </p>
+  </body>
+</html>
+
 </richcontent>
 </node>
 </node>
