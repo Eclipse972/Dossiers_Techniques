@@ -671,7 +671,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="formulaire.css" ID="ID_38008210" CREATED="1576746538342" MODIFIED="1576746544342"/>
@@ -878,7 +877,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="Afficher" ID="ID_587040916" CREATED="1559052348372" MODIFIED="1559052391454"><richcontent TYPE="NOTE">
+<node TEXT="Afficher" ID="ID_587040916" CREATED="1559052348372" MODIFIED="1576992772709"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -886,10 +885,11 @@
   </head>
   <body>
     <p>
-      inclus le script &#224; afficher
+      inclus le script &#224; afficher. Affiche un message d'ereur lorsque le script n'existe pas. remplace le script oups.php.
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
@@ -1077,7 +1077,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="mati&#xe8;riaux" ID="ID_745370982" CREATED="1527579842328" MODIFIED="1576745952516"><richcontent TYPE="NOTE">
@@ -1112,7 +1111,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="pi&#xe8;ces" ID="ID_174477773" CREATED="1527579838087" MODIFIED="1576746029946"><richcontent TYPE="NOTE">
@@ -1127,7 +1125,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="supports" ID="ID_336941664" CREATED="1527579814174" MODIFIED="1527579925734"/>
@@ -1145,7 +1142,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Vue_code_vignettes" ID="ID_1289129037" CREATED="1576746076470" MODIFIED="1576746252752"><richcontent TYPE="NOTE">
@@ -1160,7 +1156,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Vue_hydrate_supports" ID="ID_1010609444" CREATED="1576746090518" MODIFIED="1576746273342"><richcontent TYPE="NOTE">
@@ -1175,7 +1170,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Vue_lien_support" ID="ID_483771615" CREATED="1576746108600" MODIFIED="1576746319183"><richcontent TYPE="NOTE">
@@ -1190,7 +1184,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Vue_nomenclature" ID="ID_456203909" CREATED="1576746124107" MODIFIED="1576746375162"><richcontent TYPE="NOTE">
@@ -1205,7 +1198,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1513,7 +1505,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
