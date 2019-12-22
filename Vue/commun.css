@@ -51,6 +51,14 @@ footer {
 	text-align: center;
 }
 
+footer a { 
+	text-decoration:none;
+	color:var(--couleur5);
+	padding:3px;
+}
+
+footer a:hover { background-color:var(--couleur2); }
+
 footer img {
 	height:32px;
 	vertical-align:middle;
