@@ -26,7 +26,10 @@ nav {
 nav a {
 	text-decoration:none;	/* aucun lien n'est souligné */
 	color:var(--couleur4);	/* couleur par défaut */
+	padding:5px;
 }
+
+nav a:hover { background-color:var(--couleur1); }
 
 nav ul {
 	list-style-type:none;
