@@ -16,6 +16,7 @@ private function Requete($requete, array $T_parametre) {
 	$this->resultat = $this->BD->prepare($requete);
 	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
 	$this->resultat->execute($T_parametre);
+	return ($this->resultat->errorCode() != '00000'); // renvoi true en cas d'erreur
 }
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
@@ -40,14 +41,16 @@ public function Gerer_index($NB_colonne) {
 	**********************************************************************
 */
 public function Support($id) {
-	$this->Requete('SELECT nom, pti_nom, dossier, zip, type_nomenclature, du_support, le_support, image FROM Vue_hydrate_supports WHERE ID= ?', [$id]);
+	if ($this->Requete('SELECT nom, pti_nom, dossier, zip, type_nomenclature, du_support, le_support, image FROM Vue_hydrate_supports WHERE ID= ?', [$id]))
+		 trigger_error('Erreur de la fonction Support', E_USER_WARNING);
 	$T_support = $this->resultat->fetch();
 	$this->Fermer();
 	return $T_support;
 }
 
 public function Support_existe($id) {
-	$this->Requete('SELECT COUNT(*) AS nb_support FROM Supports WHERE ID= ?', [$id]);
+	if ($this->Requete('SELECT COUNT(*) AS nb_support FROM Supports WHERE ID= ?', [$id]))
+		trigger_error('Erreur de la fonction Support_existe', E_USER_WARNING);
 	$T_reponse = $this->resultat->fetch(); // la réponse est un tableau
 	$this->Fermer();
 	return ($T_reponse['nb_support'] == 1);
@@ -66,7 +69,8 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 		$requete = 'SELECT lien FROM Vue_lien_support WHERE support_ID= ?';
 		$index = 'lien';
 	}
-	$this->Requete($requete, [$_SESSION['support']->Id()]);
+	if ($this->Requete($requete, [$_SESSION['support']->Id()]))
+		trigger_error('Erreur de la fonction A_propos', E_USER_WARNING);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch())	$tableau[] = $ligne[$index];
 	$this->Fermer();
@@ -75,7 +79,8 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 // Nomenclature du support courant
 public function Nomenclature() {
 	$tableau = null;
-	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]);
+	if ($this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()]))
+		trigger_error('Erreur de la fonction Nomenclature', E_USER_WARNING);
 	while ($ligne = $this->resultat->fetch())
 		$tableau[] = $ligne['rep'].$ligne['lien_image'].$ligne['designation'].$ligne['matiere'].$ligne['observation'];
 	$this->Fermer();
@@ -84,22 +89,25 @@ public function Nomenclature() {
 
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
-	$this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]);
+	if ($this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?', [$support, $item, $sous_item]))
+		trigger_error('Erreur de la fonction Page_existe', E_USER_WARNING);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return ($reponse['nb_page'] == 1);
 }
 // construction de la page pour le support courant
 public function Type_page() { // type de page associé à l'item sélectioné dans le menu
-	$this->Requete('SELECT type_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
+	if ($this->Requete('SELECT type_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]))
+		trigger_error('Erreur de la fonction Type_page', E_USER_WARNING);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse['type_page']; // ne contient pas l'extension car c'est peut-être un mot clé
 }
 public function Hydratation() {
-	$this->Requete('SELECT variable, valeur FROM HydratePage WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
+	if ($this->Requete('SELECT variable, valeur FROM HydratePage WHERE support_ID= ? AND item= ? AND sous_item= ?',
+					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]))
+		trigger_error('Erreur de la fonction Hydratation', E_USER_WARNING);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
 	$this->Fermer();	
@@ -124,7 +132,8 @@ private function Liste_pour_menu($pour_item = true){ // factorisation des foncti
 		$étiquette = 'sous_item_selectionne';
 		$sélection = $_SESSION['support']->Sous_item();
 	}
-	$this->Requete($requette, $paramètres);
+	if ($this->Requete($requette, $paramètres))
+		trigger_error('Erreur de la fonction Liste_pour_menu', E_USER_WARNING);
 	$i=1;
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
@@ -139,8 +148,9 @@ private function Liste_pour_menu($pour_item = true){ // factorisation des foncti
 }
 
 public function Texte_item() { // renvoie le texte de l'item/sous-item courant du support
-	$this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
-					[ $_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]);
+	if ($this->Requete('SELECT texte FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',
+			[$_SESSION['support']->ID(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]))
+		trigger_error('Erreur de la fonction Texte_item', E_USER_WARNING);
 	$réponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $réponse['texte'];
