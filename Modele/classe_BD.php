@@ -42,8 +42,7 @@ public function Gerer_index($NB_colonne) {
 	**********************************************************************
 */
 public function Support($id) {
-	$this->Requete('SELECT nom, pti_nom, dossier, zip, type_nomenclature, du_support, le_support, image 
-					FROM Vue_hydrate_supports WHERE ID= ?', [$id], 'Support');
+	$this->Requete('SELECT * FROM Vue_hydrate_supports WHERE ID= ?', [$id], 'Support');
 	$T_support = $this->resultat->fetch();
 	$this->Fermer();
 	return $T_support;
