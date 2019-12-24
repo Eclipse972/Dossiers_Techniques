@@ -67,16 +67,16 @@ private function setPti_nom($texte) {
 // Le pti nom commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore
 if (preg_match('#^[a-zA-Z][a-zA-Z_0-9_-]+$#', $texte))
 		$this->pti_nom = $texte;
-else	trigger_error('Attention: '.$texte.' n&apos; pas un pti_nom valide pour '.$this->nom."\n", E_USER_WARNING);
+else	trigger_error('Attention: '.$texte.' n&apos; pas un pti_nom valide pour '.$this->nom."\n", E_USER_ERROR);
 }
 
 private function setDossier($dossier) {
 // le nom du dossier commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore _
 if (!preg_match('#^Supports/[a-zA-Z][a-zA-Z_0-9_-]+/$#', $dossier)) // de la forme Supports/dossier/
-	trigger_error('Attention: le nom de dossier '.$this->du_support.' n&apos; pas valide'."\n", E_USER_WARNING);
+	trigger_error('Attention: le nom de dossier '.$this->du_support.' n&apos; pas valide'."\n", E_USER_ERROR);
 else
 	if (file_exists($dossier))	$this->dossier = $dossier;
-	else trigger_error('Attention: le dossier'.$this->du_support.' n&apos;existe'."\n", E_USER_WARNING);
+	else trigger_error('Attention: le dossier'.$this->du_support.' n&apos;existe'."\n", E_USER_ERROR);
 }
 
 private function setTypeNomenclature($type) {
@@ -88,7 +88,7 @@ case 3: // avec colone matière et avec colonne observation
 	$this->type_nomenclature = $type;
 	break;
 default:
-	trigger_error('Type de nomenclature du support incorrect');
+	trigger_error('Type de nomenclature du support incorrect', E_USER_ERROR);
 }
 }
 private function setImage($image) {	
@@ -96,7 +96,7 @@ $image = new Image($image); // recherche l'image du support
 if ($image->Existe())
 	$this->image = $image->Balise($this->Le_support());
 else
-	trigger_error('Attention: pas d&apos;image pour '.$this->Le_support()."\n", E_USER_WARNING);
+	trigger_error('Attention: pas d&apos;image pour '.$this->Le_support()."\n", E_USER_ERROR);
 }
 
 private function setZip($zip) {
