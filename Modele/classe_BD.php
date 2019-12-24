@@ -102,10 +102,10 @@ public function Type_page() { // type de page associé à l'item sélectioné da
 		trigger_error('Erreur de la fonction Type_page', E_USER_WARNING);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
-	return $reponse['type_page']; // ne contient pas l'extension car c'est peut-être un mot clé
+	return $reponse['type_page'];
 }
 public function Hydratation() {
-	if ($this->Requete('SELECT variable, valeur FROM HydratePage WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	if ($this->Requete('SELECT variable, valeur FROM Vue_Hydrate_Page WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]))
 		trigger_error('Erreur de la fonction Hydratation', E_USER_WARNING);
 	$tableau = null;
