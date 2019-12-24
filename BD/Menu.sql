@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 08 Décembre 2019 à 12:13
+-- Généré le : Mar 24 Décembre 2019 à 06:07
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Menu` (
   `type_page` varchar(30) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=174 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=180 ;
 
 --
 -- Contenu de la table `Menu`
@@ -213,7 +213,13 @@ INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page
 (170, 18, 5, 0, 'Nomenclature', 'Page_nomenclature'),
 (171, 13, 1, 0, 'Mise en situation', 'Page_script'),
 (172, 13, 2, 0, 'Fonctionnement', 'Page_script'),
-(173, 13, 3, 0, 'Nomenclature', 'Page_nomenclature');
+(173, 13, 4, 0, 'Nomenclature', 'Page_nomenclature'),
+(174, 2, 6, 0, 'Nomenclature', 'Page_nomenclature'),
+(175, 13, 3, 0, 'Les classes d&apos;&eacute;quivalence', 'Page_script'),
+(176, 13, 3, 1, 'CE1: le b&acirc;ti', 'Page_script'),
+(177, 13, 3, 2, 'CE2: le vilebrequin', 'Page_script'),
+(178, 13, 3, 3, 'CE3: la bielle', 'Page_script'),
+(179, 13, 3, 4, 'CE4: le piston', 'Page_script');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
