@@ -37,7 +37,7 @@ class Association_image_fichier {
 		$image = new Image($image, $dossier.'images/');
 		$fichier = new Fichier($fichier, $dossier.'fichiers/');
 		if (!$image->Existe() && !$fichier->Existe())
-			trigger_error('L&apos;association image-fichier est vide', E_USER_WARNING);
+			trigger_error('L&apos;association image-fichier est vide', E_USER_ERROR);
 		$this->image = $image->Chemin();
 		$this->fichier = $fichier->Chemin();
 	}

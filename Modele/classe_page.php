@@ -105,7 +105,7 @@ class Page_nomenclature extends Page_abstraite {
 <?php
 	if (isset($this->nomenclature))
 		foreach ($this->nomenclature as $ligne)	echo "<tr>\n$ligne</tr>\n";
-	else trigger_error('Nomenclature inexistante', E_USER_WARNING);
+	else trigger_error('Nomenclature inexistante', E_USER_ERROR);
 ?>
 </tbody>
 </table>
