@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 24 Décembre 2019 à 02:45
+-- Généré le : Mar 24 Décembre 2019 à 04:36
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la vue `Vue_Hydrate_Page`
 --
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_Hydrate_Page` AS select `Menu`.`support_ID` AS `support_ID`,`Menu`.`item` AS `item`,`Menu`.`sous_item` AS `sous_item`,`HydratePage`.`variable` AS `variable`,`HydratePage`.`valeur` AS `valeur` from (`HydratePage` join `Menu`) where (`Menu`.`ID` = `HydratePage`.`menu_ID`) order by `Menu`.`support_ID`,`Menu`.`item`,`Menu`.`sous_item`,`HydratePage`.`variable`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dossiers.techniques`@`172.20.%` SQL SECURITY DEFINER VIEW `Vue_Hydrate_Page` AS select `Menu`.`support_ID` AS `support_ID`,`Menu`.`item` AS `item`,`Menu`.`sous_item` AS `sous_item`,concat(_latin1'array(\'',`HydratePage`.`variable`,_latin1'\' => \'',`HydratePage`.`valeur`,_latin1'\');') AS `association` from (`HydratePage` join `Menu`) where (`Menu`.`ID` = `HydratePage`.`menu_ID`);
 
 --
 -- VIEW  `Vue_Hydrate_Page`

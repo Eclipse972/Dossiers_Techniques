@@ -105,11 +105,12 @@ public function Type_page() { // type de page associé à l'item sélectioné da
 	return $reponse['type_page'];
 }
 public function Hydratation() {
-	if ($this->Requete('SELECT variable, valeur FROM Vue_Hydrate_Page WHERE support_ID= ? AND item= ? AND sous_item= ?',
+	if ($this->Requete('SELECT association FROM Vue_Hydrate_Page WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()]))
 		trigger_error('Erreur de la fonction Hydratation', E_USER_WARNING);
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch())	$tableau[$ligne['variable']] = $ligne['valeur'];
+	$tableau = array();
+	while ($ligne = $this->resultat->fetch())
+		eval('$tableau +='.$ligne['association']); // $ligne['association'] = array ('clé' => 'valeur');
 	$this->Fermer();	
 	return $tableau;
 }
