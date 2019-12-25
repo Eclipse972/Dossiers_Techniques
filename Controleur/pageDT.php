@@ -45,5 +45,10 @@ $sous_item	= (isset($menu[1])) ? ord($menu[1])-97: 0;
 
 $_SESSION['support']->setPosition($item, $sous_item); // on met à jour a position
 
-$type_page = $BD->Type_page();	// détermine la nature de la page
-$Thydrate = $BD->Hydratation();	// tableau contenant les paramètres d'hydratation de la page
+$type_page = $BD->Type_page();	// détermine le type de page
+if (in_array($type_page, $T_pages_autorisées))
+	$Thydrate = $BD->Hydratation();	// tableau contenant les paramètres d'hydratation de la page
+else { // le type est inconnu ou non renseigné
+	$type_page = 'Page_script';
+	$Thydrate = array('fichier' => ''); // entraine l'affichage Désolé, il semblerai...
+}

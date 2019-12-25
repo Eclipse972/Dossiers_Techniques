@@ -87,6 +87,7 @@ class Page_nomenclature extends Page_abstraite {
 		// indentation à cause de l'affichage du code source de la page
 ?>
 <p>Cliquez sur l&apos;image de la pi&egrave;ce pour la t&eacute;l&eacute;charger au format eDrawing.</p>
+<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 <?php if ($this->colonne_matière) echo "<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>";?>
 <table id="nomenclature">
 <thead>
@@ -109,7 +110,6 @@ class Page_nomenclature extends Page_abstraite {
 ?>
 </tbody>
 </table>
-<p>Attention: les images ne sont pas &agrave; l&apos;&eacute;chelle.</p>
 <?php
 	} // fin de Afficher()
 }
@@ -231,3 +231,5 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 		}
 	}
 }
+$T_pages_autorisées = array('Page_nomenclature', 'Page_script', 'Page_dessin_densemble', 'Page_dessin2définition', 
+			'Page_éclaté', 'Page_CE', 'Page_association', 'Page_image_dessus', 'Page_image_dessous', 'Page_courbe');
