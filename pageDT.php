@@ -27,7 +27,7 @@ $page = new $type_page($Thydrate); // création de l'objet page
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
 <?php
-define(DUREE, 8);	// durée du cache en heure
+define(DUREE, 0);	// durée du cache en heure
 $cache = 'Vue/cache/'.$_SESSION['support']->Pti_nom().' '.(string)$_SESSION['support']->ID().'-'.(string)$_SESSION['support']->Item().'-'.(string)$_SESSION['support']->Sous_item().'.cache';
 if(file_exists($cache) && (time() - filemtime($cache) < DUREE * 3600))
 	readfile($cache);
