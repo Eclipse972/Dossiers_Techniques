@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 24 Décembre 2019 à 06:07
+-- Généré le : Mer 25 Décembre 2019 à 04:27
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Menu` (
   `type_page` varchar(30) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=180 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=181 ;
 
 --
 -- Contenu de la table `Menu`
@@ -217,9 +217,10 @@ INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page
 (174, 2, 6, 0, 'Nomenclature', 'Page_nomenclature'),
 (175, 13, 3, 0, 'Les classes d&apos;&eacute;quivalence', 'Page_script'),
 (176, 13, 3, 1, 'CE1: le b&acirc;ti', 'Page_script'),
-(177, 13, 3, 2, 'CE2: le vilebrequin', 'Page_script'),
-(178, 13, 3, 3, 'CE3: la bielle', 'Page_script'),
-(179, 13, 3, 4, 'CE4: le piston', 'Page_script');
+(177, 13, 3, 2, 'CE2 : le vilebrequin', 'Page_CE'),
+(178, 13, 3, 3, 'CE3 : la bielle', 'Page_CE'),
+(179, 13, 3, 4, 'CE4: le piston', 'Page_CE'),
+(180, 13, 5, 0, '&Eacute;clat&eacute;', 'Page_éclaté');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

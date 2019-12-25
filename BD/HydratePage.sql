@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 24 Décembre 2019 à 02:45
+-- Généré le : Mer 25 Décembre 2019 à 03:18
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -381,7 +381,26 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (169, 'image', 'mes'),
 (169, 'titre', 'Mise en situation'),
 (171, 'script', 'MES'),
-(172, 'script', 'fonctionnement');
+(172, 'script', 'fonctionnement'),
+(175, 'script', 'lesCE'),
+(178, 'image', 'CE3-bielle'),
+(178, 'fichier', 'CE3-bielle'),
+(178, 'extension', '.EASM'),
+(178, 'nom_CE', 'bielle &eacute;quip&eacute;e'),
+(177, 'image', 'CE2-vilebrequin'),
+(177, 'fichier', 'CE2-vilebrequin'),
+(177, 'nom_CE', 'vilebrequin'),
+(177, 'extension', '.EASM'),
+(179, 'image', 'CE4-piston'),
+(179, 'fichier', 'CE4-piston'),
+(179, 'extension', '.EASM'),
+(179, 'nom_CE', 'piston'),
+(176, 'image', 'CE1-bati'),
+(176, 'fichier', 'CE1-bati'),
+(176, 'extension', '.EASM'),
+(176, 'nom_CE', 'b&acirc;ti'),
+(180, 'image', 'eclate_moteur'),
+(180, 'fichier', 'eclate_moteur');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
