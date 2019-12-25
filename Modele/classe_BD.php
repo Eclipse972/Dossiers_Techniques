@@ -79,7 +79,7 @@ public function Nomenclature($matière, $observation) {
 	$tableau = null;
 	$this->Requete('SELECT * FROM Vue_nomenclature WHERE support_ID= ?', [$_SESSION['support']->Id()], 'Nomenclature');
 	while ($ligne = $this->resultat->fetch()) {
-		$ligne_nomenclature = "\t".$ligne['rep']."\n\t".$ligne['lien_image']."\n\t".$ligne['designation']."\n";
+		$ligne_nomenclature = "\t".$ligne['repere']."\n\t".$ligne['lien_image']."\n\t".$ligne['designation']."\n";
 		if ($matière)		$ligne_nomenclature .= "\t".$ligne['matiere']."\n";
 		if ($observation) 	$ligne_nomenclature .= "\t".$ligne['observation']."\n";
 		$tableau[] = $ligne_nomenclature;
