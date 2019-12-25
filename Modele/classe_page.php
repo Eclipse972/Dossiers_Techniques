@@ -76,11 +76,11 @@ class Page_nomenclature extends Page_abstraite {
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
 		$BD = new base2donnees();
-		$this->nomenclature = $BD->Nomenclature();
-		
 		//affichage des deux dernières colonnes si non vides
-		$this->colonne_matière = !$_SESSION['support']->Colonne_matiere_vide();
-		$this->colonne_observation = !$_SESSION['support']->Colonne_observation_vide();
+		$this->colonne_matière = !$BD->Colonne_matiere_vide();
+		$this->colonne_observation = !$BD->Colonne_observation_vide();
+
+		$this->nomenclature = $BD->Nomenclature($this->colonne_matière, $this->colonne_observation);		
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();

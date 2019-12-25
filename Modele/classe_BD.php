@@ -17,7 +17,7 @@ private function Requete($requete, array $T_parametre, $fonction) {
 	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
 	$this->resultat->execute($T_parametre);
 	if ($this->resultat->errorCode() != '00000')
-		trigger_error('Erreur de la fonction '.$fonction, E_USER_ERROR);
+		trigger_error('Erreur de requête dans la fonction '.$fonction, E_USER_ERROR);
 }
 
 private function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
@@ -75,15 +75,34 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 	return $tableau;
 }
 // Nomenclature du support courant
-public function Nomenclature() {
+public function Nomenclature($matière, $observation) {
 	$tableau = null;
-	$this->Requete('SELECT * FROM Vue_nomenclature WHERE ID= ?', [$_SESSION['support']->Id()], 'Nomenclature');
-	while ($ligne = $this->resultat->fetch())
-		$tableau[] = $ligne['rep'].$ligne['lien_image'].$ligne['designation'].$ligne['matiere'].$ligne['observation'];
+	$this->Requete('SELECT * FROM Vue_nomenclature WHERE support_ID= ?', [$_SESSION['support']->Id()], 'Nomenclature');
+	while ($ligne = $this->resultat->fetch()) {
+		$ligne_nomenclature = "\t".$ligne['rep']."\n\t".$ligne['lien_image']."\n\t".$ligne['designation']."\n";
+		if ($matière)		$ligne_nomenclature .= "\t".$ligne['matiere']."\n";
+		if ($observation) 	$ligne_nomenclature .= "\t".$ligne['observation']."\n";
+		$tableau[] = $ligne_nomenclature;
+	}
 	$this->Fermer();
 	return $tableau;
 }
 
+public function Colonne_matiere_vide() {
+	$this->Requete('SELECT COUNT(*) AS nb_matiere_non_vide FROM Pieces WHERE matiere_ID > 0 AND support_ID = ?',
+					[$_SESSION['support']->Id()], 'Colonne_matiere_vide');
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return ($reponse['nb_matiere_non_vide'] == 0);
+}
+
+public function Colonne_observation_vide() {
+	$this->Requete('SELECT COUNT(*) AS nb_observation_non_vide FROM Pieces WHERE observation <> \'\' AND support_ID = ?',
+					[$_SESSION['support']->Id()], 'Colonne_observation_vide');
+	$reponse = $this->resultat->fetch();
+	$this->Fermer();
+	return ($reponse['nb_observation_non_vide'] == 0);
+}
 // Gestion du menu
 public function Page_existe($support, $item, $sous_item) {
 	$this->Requete('SELECT COUNT(*) AS nb_page FROM Menu WHERE support_ID= ? AND item= ? AND sous_item= ?',

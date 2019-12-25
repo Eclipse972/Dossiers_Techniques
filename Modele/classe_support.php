@@ -15,7 +15,6 @@ l'archive zip de la maquette: cric.zip
 private $dossier;
 private $image;
 private $zip;
-private $type_nomenclature;
 // les classes BD, Menu et Fichier sont nécessaires
 
 public function __construct($id) { // Il faut vérifier avant que le support existe
@@ -30,8 +29,6 @@ if ($ligne != null) { // la ligne est non vide
 	$this->setZip($ligne['zip']);
 	$this->setImage($ligne['image']);
 	$this->setPti_nom($ligne['pti_nom']);
-	
-	$this->setTypeNomenclature($ligne['type_nomenclature']);
 }
 }
 
@@ -58,10 +55,6 @@ public function Zip_existe()	{ return isset($this->zip); }
 
 public function Zip()			{ return $this->zip->Lien('Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique'); }
 
-public function Colonne_matiere_vide() { return (($this->type_nomenclature==0) || ($this->type_nomenclature==1)); }
-
-public function Colonne_observation_vide() { return (($this->type_nomenclature==0) || ($this->type_nomenclature==2)); }
-
 // Mutateurs --------------------------------------------------------------------------------------
 private function setPti_nom($texte) {
 // Le pti nom commence par une lettre suivi d'autres lettres ou chiffre ou tiret ou underscore
@@ -79,18 +72,6 @@ else
 	else trigger_error('Attention: le dossier'.$this->du_support.' n&apos;existe'."\n", E_USER_ERROR);
 }
 
-private function setTypeNomenclature($type) {
-switch ($type) {
-case 0: // sans colone matière ni colonne observation ou pas de nomenclature
-case 1: // sans colone matière et avec colonne observation
-case 2: // avec colone matière et sans colonne observation
-case 3: // avec colone matière et avec colonne observation
-	$this->type_nomenclature = $type;
-	break;
-default:
-	trigger_error('Type de nomenclature du support incorrect', E_USER_ERROR);
-}
-}
 private function setImage($image) {	
 $image = new Image($image); // recherche l'image du support
 if ($image->Existe())
