@@ -50,7 +50,7 @@ if(isset($T_items)) {
 		}
 	}
 	echo "</ul>\n<a href=index.php>Page d&apos;accueil</a>\n";
-} else trigger_error('Menu inexsistant: identifiant du support='.$this->ID_support."\n". E_USER_WARNING);
+} else trigger_error('Menu inexsistant: identifiant du support='.$this->ID_support."\n". E_USER_ERROR);
 ?>
 </nav>
 
