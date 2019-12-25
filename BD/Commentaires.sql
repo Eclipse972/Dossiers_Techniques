@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 08 Décembre 2019 à 12:12
+-- Généré le : Mer 25 Décembre 2019 à 08:50
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,27 +16,27 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dossiers_techniques`
+-- Base de données: 'dossiers_techniques'
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Commentaires`
+-- Structure de la table 'Commentaires'
 --
 
-CREATE TABLE IF NOT EXISTS `Commentaires` (
-  `support_ID` smallint(5) NOT NULL,
-  `ordre` tinyint(1) NOT NULL default '0' COMMENT 'présentation',
-  `texte` text collate latin1_general_ci NOT NULL,
-  `lien` varchar(64) collate latin1_general_ci NOT NULL
+CREATE TABLE Commentaires (
+  support_ID smallint(5) NOT NULL,
+  ordre tinyint(1) NOT NULL default '0' COMMENT 'présentation',
+  texte text collate latin1_general_ci NOT NULL,
+  lien varchar(64) collate latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='à propos de chaque support';
 
 --
--- Contenu de la table `Commentaires`
+-- Contenu de la table 'Commentaires'
 --
 
-INSERT INTO `Commentaires` (`support_ID`, `ordre`, `texte`, `lien`) VALUES
+INSERT INTO Commentaires (support_ID, ordre, texte, lien) VALUES
 (14, 2, 'dessin de l&apos;&eacute;clat&eacute;', ''),
 (0, 1, 'configuration contenant &eacute;corch&eacute; disponible', ''),
 (0, 3, 'sous ensemble fixe', ''),

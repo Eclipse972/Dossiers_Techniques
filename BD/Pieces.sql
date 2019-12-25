@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 08 Décembre 2019 à 12:14
+-- Généré le : Mer 25 Décembre 2019 à 08:52
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,32 +16,32 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dossiers_techniques`
+-- Base de données: 'dossiers_techniques'
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Pieces`
+-- Structure de la table 'Pieces'
 --
 
-CREATE TABLE IF NOT EXISTS `Pieces` (
-  `support_ID` smallint(5) unsigned NOT NULL,
-  `nom` varchar(64) collate latin1_general_ci NOT NULL,
-  `repere` int(10) unsigned NOT NULL,
-  `quantite` int(10) unsigned NOT NULL default '1',
-  `matiere_ID` int(10) NOT NULL default '0',
-  `observation` text collate latin1_general_ci NOT NULL,
-  `fichier` varchar(32) collate latin1_general_ci NOT NULL,
-  `assemblage` tinyint(3) unsigned NOT NULL default '0',
-  KEY `support-repère` (`support_ID`,`repere`)
+CREATE TABLE Pieces (
+  support_ID smallint(5) unsigned NOT NULL,
+  nom varchar(64) collate latin1_general_ci NOT NULL,
+  repere int(10) unsigned NOT NULL,
+  quantite int(10) unsigned NOT NULL default '1',
+  matiere_ID int(10) NOT NULL default '0',
+  observation text collate latin1_general_ci NOT NULL,
+  fichier varchar(32) collate latin1_general_ci NOT NULL,
+  assemblage tinyint(3) unsigned NOT NULL default '0',
+  KEY `support-repère` (support_ID,repere)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
 --
--- Contenu de la table `Pieces`
+-- Contenu de la table 'Pieces'
 --
 
-INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
+INSERT INTO Pieces (support_ID, nom, repere, quantite, matiere_ID, observation, fichier, assemblage) VALUES
 (14, 'carter gauche', 1, 1, 0, '', 'carter_gauche', 0),
 (14, 'carter droit', 3, 1, 2, '', 'carter_droit', 0),
 (14, 'rotor &agrave; griffes', 4, 1, 0, '', 'rotorAgriffes', 1),

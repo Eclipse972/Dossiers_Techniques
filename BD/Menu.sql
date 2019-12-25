@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 25 Décembre 2019 à 04:27
+-- Généré le : Mer 25 Décembre 2019 à 08:51
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,31 +16,31 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dossiers_techniques`
+-- Base de données: 'dossiers_techniques'
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Menu`
+-- Structure de la table 'Menu'
 --
 
-CREATE TABLE IF NOT EXISTS `Menu` (
-  `ID` smallint(5) unsigned NOT NULL auto_increment,
-  `support_ID` smallint(5) unsigned NOT NULL,
-  `item` tinyint(1) unsigned NOT NULL,
-  `sous_item` tinyint(1) unsigned NOT NULL default '0',
-  `texte` text collate latin1_general_ci NOT NULL,
-  `type_page` varchar(30) collate latin1_general_ci NOT NULL,
-  PRIMARY KEY  (`ID`),
-  UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
+CREATE TABLE Menu (
+  ID smallint(5) unsigned NOT NULL auto_increment,
+  support_ID smallint(5) unsigned NOT NULL,
+  item tinyint(1) unsigned NOT NULL,
+  sous_item tinyint(1) unsigned NOT NULL default '0',
+  texte text collate latin1_general_ci NOT NULL,
+  type_page varchar(30) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (ID),
+  UNIQUE KEY `support-page unique` (support_ID,item,sous_item)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=181 ;
 
 --
--- Contenu de la table `Menu`
+-- Contenu de la table 'Menu'
 --
 
-INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page`) VALUES
+INSERT INTO Menu (ID, support_ID, item, sous_item, texte, type_page) VALUES
 (1, 0, 1, 0, 'Mise en situation', 'Page_image_dessous'),
 (2, 0, 2, 0, 'Diagramme pieuvre', 'Page_image_dessus'),
 (3, 0, 3, 0, 'Dessin d&apos;ensemble', 'Page_dessin_densemble'),
