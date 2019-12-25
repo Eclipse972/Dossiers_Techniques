@@ -1,16 +1,17 @@
 <?php
 // le fichier classe_association doit être chargé au préalable
 
-class Page_abstraite { // classe servant de modèle  toutes les autres
-	private $titre;		// de la page
+class Page_abstraite {
+	// classe servant de modèle toutes les autres
+	private $titre;	// de la page
 	// Mutateurs ----------------------------------------------------------------------------------
-	public function Dénommer($titre) { $this->titre = $titre; }
+	protected function Dénommer($titre) { $this->titre = $titre; }
 
 	// autres méthodes ----------------------------------------------------------------------------
-	public function Afficher() { // code pour afficher la page
+	protected function Afficher() { // code pour afficher la page
 		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
-	public function Dossier() // dossier de travail de la page
+	protected function Dossier() // dossier de travail de la page
 		{ return $_SESSION['support']->Dossier(); }
 }
 
@@ -20,6 +21,7 @@ class Page_abstraite { // classe servant de modèle  toutes les autres
  * ************************************************************************************************
 */
 class Page_image extends Page_abstraite {
+	// cette classe n'est utilisée dans la BD
 	private $image;
 	private $commentaire;
 	private $Audessus;
@@ -42,7 +44,8 @@ class Page_image extends Page_abstraite {
 	}
 }
 
-class Page_association_image_fichier extends Page_abstraite { // cette classe n'est pas utilisée directement
+class Page_association_image_fichier extends Page_abstraite {
+	// cette classe n'est pas utilisée dans la BD
 	private $oAssociation;	// objet association image-fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
@@ -69,6 +72,7 @@ class Page_association_image_fichier extends Page_abstraite { // cette classe n'
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
+	// Pas de paramètre d'hydratation
 	private $nomenclature;
 	private $colonne_matière;		// colone matière existe
 	private $colonne_observation;	// colone observation existe
@@ -114,7 +118,7 @@ class Page_nomenclature extends Page_abstraite {
 	} // fin de Afficher()
 }
 
-class Page_script extends Page_abstraite {
+class Page_script extends Page_abstraite { // paramètre d'hydration: script
 	private $script;
 
 	public function __construct($Tparam) { $this->script = $this->Dossier().$Tparam['script'].'.php'; }
@@ -139,14 +143,15 @@ class Page_script extends Page_abstraite {
 }
 
 class Page_dessin_densemble extends Page_association_image_fichier {
-	public function __construct($Tparam) { // image & fichier sans extension
-		// paramètres: $image, $fichier
+	// hydratation: image & fichier sans extension
+	public function __construct($Tparam) {
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
 }
 
 class Page_dessin2définition extends Page_association_image_fichier {
+	// hydratation: titre, image et fichier sans extension
 	public function __construct($Tparam) { // image & fichier sans extension
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$Tparam['titre']);
@@ -154,7 +159,8 @@ class Page_dessin2définition extends Page_association_image_fichier {
 }
 
 class Page_éclaté extends Page_association_image_fichier {
-	public function __construct($Tparam) { // image & fichier sans extension
+	// hydratation: image & fichier sans extension
+	public function __construct($Tparam) {
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
@@ -164,10 +170,12 @@ class Page_éclaté extends Page_association_image_fichier {
 }
 
 class Page_CE extends Page_association_image_fichier {
+	/* hydratation: image, fichier et extension
+	 * Remarque: l'extension est obligatoire car il existe des CE réduites à une pièce => extension = .EPRT
+	 * */
 	private $EstAssemblage;
 	
 	public function __construct($Tparam) {
-												// extension obligatoire car il existe des CE n'ayant qu'un pièce => extension = .EPRT
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
 		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
@@ -180,6 +188,7 @@ class Page_CE extends Page_association_image_fichier {
 }
 
 class Page_association extends Page_association_image_fichier {
+	// hydrataion: image, fichier, extension (du fichier), commentaire
 	private $commentaire;
 	
 	public function __construct($Tparam) { // image & fichier sans extension
@@ -193,16 +202,26 @@ class Page_association extends Page_association_image_fichier {
 }
 
 class Page_image_dessus extends Page_image {
+	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam)
 		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']); }
 }
 
 class Page_image_dessous extends Page_image {
+	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam)
 		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
 }
 
 class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
+	/* hydrataion: 
+	 * titre
+	 * courbe: image de la courbe
+	 * alt_courbe: texte alternatif
+	 * hauteur:de l'image de la courbe
+	 * tableau: image du tableau de valeurs
+	 * et alt_tableau: texte alternatif au tableau de valeur
+	*/
 	private $courbe;
 	private $tableau;
 	private $alt_tableau;
