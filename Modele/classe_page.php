@@ -58,7 +58,7 @@ class Page_image extends Page_abstraite {
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire.'</p>';
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'height='.$this->hauteur.'px');
+		echo $this->image->Balise('', 'height='.$this->hauteur.'px class=association');
 		if ($this->Audessus) echo $commentaire;
 	}
 }
