@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 25 Décembre 2019 à 08:51
+-- Généré le : Jeu 26 Décembre 2019 à 04:52
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -216,7 +216,7 @@ INSERT INTO Menu (ID, support_ID, item, sous_item, texte, type_page) VALUES
 (173, 13, 4, 0, 'Nomenclature', 'Page_nomenclature'),
 (174, 2, 6, 0, 'Nomenclature', 'Page_nomenclature'),
 (175, 13, 3, 0, 'Les classes d&apos;&eacute;quivalence', 'Page_script'),
-(176, 13, 3, 1, 'CE1: le b&acirc;ti', 'Page_script'),
+(176, 13, 3, 1, 'CE1: le b&acirc;ti', '_Page_CE'),
 (177, 13, 3, 2, 'CE2 : le vilebrequin', 'Page_CE'),
 (178, 13, 3, 3, 'CE3 : la bielle', 'Page_CE'),
 (179, 13, 3, 4, 'CE4: le piston', 'Page_CE'),

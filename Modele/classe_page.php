@@ -11,8 +11,27 @@ class Page_abstraite {
 	protected function Afficher() { // code pour afficher la page
 		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
 	}
+	
 	protected function Dossier() // dossier de travail de la page
 		{ return $_SESSION['support']->Dossier(); }
+	
+	protected function Vérifier_hydratation($nom_classe, array $Tparam, array $Tvérification, array $Tfacultatif = []) {
+	/* nom_classe:nom de la classe qui appelle la fonction
+	 * Tparam: tableau contenat les données d'hydratation
+	 * Tvérification:liste des paramètres obligatoires
+	 * Tfacultatif: liste des paramètre facultatifs
+	 * */
+		$message = 'Erreur d\'hydratation dans '.$nom_classe.': '; // début du message d'erreur
+		foreach ($Tparam as $clé => $valeur) {	// parcours de $Tparam
+			if ((!in_array($clé, $Tvérification))	// clé pas dans les paramètres obligatoires
+			 && (!in_array($clé, $Tfacultatif)))	// ni dans les paramètres facultatifs
+				trigger_error($message.'la clé '.$clé.' n&apos;est pas autoris&eacute;e', E_USER_WARNING);
+			if (!isset($valeur) || $valeur == '')	// valeur incorrecte?
+				trigger_error($message.'la valeur pour '.$clé.' est vide ou n&pos;existe pas', E_USER_WARNING);
+		}
+		foreach($Tvérification as $clé) if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
+				trigger_error($message.'la clé '.$clé.' est manquante', E_USER_WARNING);
+	}
 }
 
 
@@ -39,7 +58,7 @@ class Page_image extends Page_abstraite {
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire.'</p>';
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'style="height:'.$this->hauteur.'px; align=center"');
+		echo $this->image->Balise('', 'height='.$this->hauteur.'px');
 		if ($this->Audessus) echo $commentaire;
 	}
 }
@@ -121,7 +140,10 @@ class Page_nomenclature extends Page_abstraite {
 class Page_script extends Page_abstraite { // paramètre d'hydration: script
 	private $script;
 
-	public function __construct($Tparam) { $this->script = $this->Dossier().$Tparam['script'].'.php'; }
+	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_script', $Tparam, ['script']);
+		$this->script = $this->Dossier().$Tparam['script'].'.php';
+	}
 	
 	public function Afficher() {
 		if (file_exists($this->script)) {
@@ -145,6 +167,7 @@ class Page_script extends Page_abstraite { // paramètre d'hydration: script
 class Page_dessin_densemble extends Page_association_image_fichier {
 	// hydratation: image & fichier sans extension
 	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_dessin_densemble', $Tparam, ['image'], ['fichier']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
@@ -152,7 +175,8 @@ class Page_dessin_densemble extends Page_association_image_fichier {
 
 class Page_dessin2définition extends Page_association_image_fichier {
 	// hydratation: titre, image et fichier sans extension
-	public function __construct($Tparam) { // image & fichier sans extension
+	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_dessin2définition', $Tparam, ['titre', 'image'], ['fichier']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$Tparam['titre']);
 	}
@@ -161,6 +185,7 @@ class Page_dessin2définition extends Page_association_image_fichier {
 class Page_éclaté extends Page_association_image_fichier {
 	// hydratation: image & fichier sans extension
 	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_éclaté', $Tparam, ['image'], ['fichier']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
@@ -171,11 +196,12 @@ class Page_éclaté extends Page_association_image_fichier {
 
 class Page_CE extends Page_association_image_fichier {
 	/* hydratation: image, fichier et extension
-	 * Remarque: l'extension est obligatoire car il existe des CE réduites à une pièce => extension = .EPRT
+	 * Remarque: l'extension du fichier est obligatoire car il existe des CE réduites à une pièce => extension = .EPRT
 	 * */
 	private $EstAssemblage;
 	
 	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_CE', $Tparam, ['nom_CE', 'image', 'extension'], ['fichier']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
 		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
@@ -188,10 +214,11 @@ class Page_CE extends Page_association_image_fichier {
 }
 
 class Page_association extends Page_association_image_fichier {
-	// hydrataion: image, fichier, extension (du fichier), commentaire
+	// hydrataion: titre, image, fichier, extension (du fichier), commentaire
 	private $commentaire;
 	
 	public function __construct($Tparam) { // image & fichier sans extension
+		$this->Vérifier_hydratation('Page_association', $Tparam, ['titre', 'image', 'extension'], ['fichier', 'commentaire']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']);
 		$this->Dénommer($Tparam['titre']);
 		$this->commentaire = ($Tparam['commentaire']);
@@ -203,14 +230,18 @@ class Page_association extends Page_association_image_fichier {
 
 class Page_image_dessus extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
-	public function __construct($Tparam)
-		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']); }
+	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre', 'image', 'commentaire'], ['hauteur']);
+		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']);
+	}
 }
 
 class Page_image_dessous extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
-	public function __construct($Tparam)
-		{ parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']); }
+	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre', 'image', 'commentaire'], ['hauteur']);
+		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']);
+	}
 }
 
 class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
@@ -229,6 +260,7 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 	private $hauteur;
 	
 	public function __construct($Tparam) {
+		$this->Vérifier_hydratation('Page_courbe', $Tparam, ['titre', 'courbe', 'alt_courbe'], ['hauteur', 'tableau', 'alt_tableau']);
 		$this->Dénommer($Tparam['titre']);
 		$dossier = $this->Dossier().'images/';
 		$this->courbe = new Image($Tparam['courbe'], $dossier);

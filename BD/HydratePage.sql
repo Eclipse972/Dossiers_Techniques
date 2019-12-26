@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 25 Décembre 2019 à 08:50
+-- Généré le : Jeu 26 Décembre 2019 à 04:52
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -200,7 +200,6 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (92, 'alt_courbe', 'Effort de la tige de v&eacute;rin'),
 (92, 'alt_tableau', 'Table des efforts de la tige de v&eacute;rin'),
 (92, 'courbe', 'effort_tige'),
-(92, 'script', 'effort_verin'),
 (92, 'tableau', 'tableau_effort_tige'),
 (92, 'titre', '&Eacute;volution de l&apos;effort d&eacute;velopp&eacute; de la tige de v&eacute;rin en fonction du temps.'),
 (93, 'alt_courbe', 'Effort dans l&apos;articulation'),
@@ -211,14 +210,14 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (94, 'commentaire', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.'),
 (94, 'image', 'mes'),
 (94, 'titre', 'Mise en situation'),
-(95, 'commentaire', ''),
+(95, 'commentaire', ' '),
 (95, 'image', 'ensemble'),
 (95, 'titre', 'Dessin d&apos;ensemble'),
-(96, 'commentaire', 'vue &eacute;clat&eacute;e de l&apos;alternateur'),
+(96, 'commentaire', 'Avec le nom des pi&egrave;ces'),
 (96, 'image', 'eclate'),
 (96, 'titre', '&Eacute;clat&eacute;'),
 (98, 'script', 'MES'),
-(99, 'commentaire', ''),
+(99, 'commentaire', '*'),
 (99, 'image', 'diagrammeA0'),
 (99, 'titre', 'Diagramme A-0'),
 (100, 'fichier', 'casseNoix'),
@@ -287,7 +286,7 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (132, 'commentaire', 'Le piston pousse le nez. Pour &eacute;viter qu&apos;il tourne il y a une lame de ressort (non visible sur l&apos;animation) sous le nez qui le maintient &agrave; l&apos;horizontale<br>La phase se termine lorsque l&apos;axe entre en contact avec le c&ocirc;t&eacute; droit du trou oblong.'),
 (132, 'image', 'sortie_nez.gif'),
 (132, 'titre', 'La phase 1'),
-(133, 'commentaire', 'Le nez est totalement sorti mais la tige de v&eacute;rin n''est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.<br>On continue d''alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.'),
+(133, 'commentaire', 'Le nez est totalement sorti mais la tige de v&eacute;rin n&apos;est pas en bout de course. L&apos;axe est en contact avec l&apos;extr&eacute;mit&eacute; droite du trou oblong qui se trouve sur le nez.<br>On continue d&apos;alimenter la chambre avec de l&apos;huile sous pression. C&apos;est le d&eacute;but de la phase 2.'),
 (133, 'image', 'debut_rotation'),
 (133, 'titre', 'D&eacute;but de la phase 2'),
 (134, 'commentaire', 'Le piston pousse le nez mais celui-ci ne peut plus avancer &agrave; cause de l&apos;axe en contact avec le trou oblong. Le seul mouvement possible est une rotation autour de l&apos;axe.<br>La lame de ressort (non visible sur l&apos;animation) ne peut plus maintenir le nez &agrave; l&apos;horizontale et se d&eacute;forme.'),
@@ -306,7 +305,7 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (139, 'extension', '.EPRT'),
 (139, 'image', 'plaquette_plastique'),
 (139, 'nom_CE', 'plaquette de la bride'),
-(140, 'commentaire', 'Remarque: cette pi&egrave;ce est d&eacute;formable donc ne constitue pas une classe d''&eacute;quivalence.'),
+(140, 'commentaire', 'Remarque: cette pi&egrave;ce est d&eacute;formable donc ne constitue pas une classe d&apos;&eacute;quivalence.'),
 (140, 'extension', '.EPRT'),
 (140, 'image', 'ressort'),
 (140, 'titre', 'Le ressort de compression de la bride'),
@@ -400,7 +399,22 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (176, 'extension', '.EASM'),
 (176, 'nom_CE', 'b&acirc;ti'),
 (180, 'image', 'eclate_moteur'),
-(180, 'fichier', 'eclate_moteur');
+(180, 'fichier', 'eclate_moteur'),
+(35, 'hauteur', '400'),
+(94, 'hauteur', '400'),
+(95, 'hauteur', '500'),
+(96, 'hauteur', '600'),
+(1, 'hauteur', '350'),
+(2, 'hauteur', '300'),
+(131, 'hauteur', '400'),
+(132, 'hauteur', '400'),
+(133, 'hauteur', '400'),
+(133, 'commentaire', '+'),
+(134, 'hauteur', '400'),
+(106, 'hauteur', '500'),
+(107, 'fichier', 'vue_eclatee'),
+(107, 'commentaire', '*'),
+(136, 'fichier', 'corps2bride');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
