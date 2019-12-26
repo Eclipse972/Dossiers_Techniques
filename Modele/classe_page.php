@@ -21,11 +21,11 @@ class Page_abstraite {
 	 * Tvérification:liste des paramètres obligatoires
 	 * Tfacultatif: liste des paramètre facultatifs
 	 * */
-		$message = 'Erreur d\'hydratation dans '.$nom_classe.': '; // début du message d'erreur
+		$message = 'Erreur d&apos;hydratation dans '.$nom_classe.': '; // début du message d'erreur
 		foreach ($Tparam as $clé => $valeur) {	// parcours de $Tparam
 			if ((!in_array($clé, $Tvérification))	// clé pas dans les paramètres obligatoires
 			 && (!in_array($clé, $Tfacultatif)))	// ni dans les paramètres facultatifs
-				trigger_error($message.'la clé '.$clé.' n&apos;est pas autoris&eacute;e', E_USER_WARNING);
+				trigger_error($message.'la cl&eacute; '.$clé.' n&apos;est pas autoris&eacute;e', E_USER_WARNING);
 			if (!isset($valeur) || $valeur == '')	// valeur incorrecte?
 				trigger_error($message.'la valeur pour '.$clé.' est vide ou n&pos;existe pas', E_USER_WARNING);
 		}
