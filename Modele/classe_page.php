@@ -30,7 +30,7 @@ class Page_abstraite {
 				trigger_error($message.'la valeur pour '.$clé.' est vide ou n&pos;existe pas', E_USER_WARNING);
 		}
 		foreach($Tvérification as $clé) if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
-				trigger_error($message.'la clé '.$clé.' est manquante', E_USER_WARNING);
+				trigger_error($message.'la cl&eacute; '.$clé.' est manquante', E_USER_WARNING);
 	}
 }
 
@@ -65,18 +65,27 @@ class Page_image extends Page_abstraite {
 
 class Page_association_image_fichier extends Page_abstraite {
 	// cette classe n'est pas utilisée dans la BD
-	private $oAssociation;	// objet association image-fichier
+
+	// contient le chemin complet pour accéder ...
+	protected $image;	// à l'image
+	protected $fichier;	// au fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
 		$dossier = $this->Dossier();
 
 		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		$this->oAssociation = new Association_image_fichier($dossier, $image.$extension_image , $fichier.$extension_fichier);
+		// les noms de l'image et du fichier contiennent leur extension mais n'ont pas forcément des noms identiques
+		$image = new Image($image, $dossier.'images/');
+		$fichier = new Fichier($fichier, $dossier.'fichiers/');
+		if (!$image->Existe() && !$fichier->Existe())
+			trigger_error('L&apos;association image-fichier est vide', E_USER_ERROR);
+		$this->image = $image->Chemin();
+		$this->fichier = $fichier->Chemin();
 	}
-	public function Afficher($commentaire = null) { // code pour afficher la page
+	public function Afficher($alt, $commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
-		echo $this->oAssociation->Associer('cliquez pour télécharger', 'class="association"');
+		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$alt.'"></a>';
 		if (isset($commentaire)) 
 			echo'<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
 	}
@@ -171,6 +180,10 @@ class Page_dessin_densemble extends Page_association_image_fichier {
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
+
+	public function Afficher() {
+		parent::Afficher('Dessin d&apos;ensemble '.$_SESSION['support']->Du_support(), 'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+	}
 }
 
 class Page_dessin2définition extends Page_association_image_fichier {
@@ -179,6 +192,10 @@ class Page_dessin2définition extends Page_association_image_fichier {
 		$this->Vérifier_hydratation('Page_dessin2définition', $Tparam, ['titre', 'image'], ['fichier']);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$Tparam['titre']);
+	}
+
+	public function Afficher() {
+		parent::Afficher('Dessin de d&eacute;finition');
 	}
 }
 
@@ -189,8 +206,9 @@ class Page_éclaté extends Page_association_image_fichier {
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
+
 	public function Afficher() {
-		parent::Afficher('Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+		parent::Afficher('&Eacute;clat&eacute;'.$_SESSION['support']->Du_support(), 'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
 	}
 }
 
@@ -207,7 +225,7 @@ class Page_CE extends Page_association_image_fichier {
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
 	}
 	public function Afficher() {
-		parent::Afficher(($this->EstAssemblage) ? 
+		parent::Afficher('classe d&apos;&eacute;quivalence', ($this->EstAssemblage) ? 
 			'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique' :
 			'Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
 	}
@@ -224,7 +242,7 @@ class Page_association extends Page_association_image_fichier {
 		$this->commentaire = ($Tparam['commentaire']);
 	}
 	public function Afficher() {
-		parent::Afficher($this->commentaire);
+		parent::Afficher('association', $this->commentaire);
 	}
 }
 
