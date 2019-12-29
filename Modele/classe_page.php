@@ -1,5 +1,8 @@
 <?php
-// le fichier classe_association doit être chargé au préalable
+// le fichier classe_fichierdoit être chargé au préalable
+define("TEXTE",		"[^'^\"]");					// ' et " sont interdits car provoque un erreur d'évaluation de code php
+define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
+define("FICHIER",	"^[a-zA-Z][a-zA-Z0-9_-]+\.?[a-zA-Z]{3,4}$");// nom de fichier avec éventuellement une extension
 
 class Page_abstraite {
 	// classe servant de modèle toutes les autres
@@ -17,20 +20,23 @@ class Page_abstraite {
 	
 	protected function Vérifier_hydratation($nom_classe, array $Tparam, array $Tvérification, array $Tfacultatif = []) {
 	/* nom_classe:nom de la classe qui appelle la fonction
-	 * Tparam: tableau contenat les données d'hydratation
+	 * Tparam: tableau contenant les données d'hydratation
 	 * Tvérification:liste des paramètres obligatoires
-	 * Tfacultatif: liste des paramètre facultatifs
+	 * Tfacultatif: liste des paramètres facultatifs
 	 * */
-		$message = 'Erreur d&apos;hydratation dans '.$nom_classe.': '; // début du message d'erreur
+		$message = 'Erreur d&apos;hydratation dans '.$nom_classe.':'; // début du message d'erreur
 		foreach ($Tparam as $clé => $valeur) {	// parcours de $Tparam
-			if ((!in_array($clé, $Tvérification))	// clé pas dans les paramètres obligatoires
-			 && (!in_array($clé, $Tfacultatif)))	// ni dans les paramètres facultatifs
-				trigger_error($message.'la cl&eacute; '.$clé.' n&apos;est pas autoris&eacute;e', E_USER_WARNING);
-			if (!isset($valeur) || $valeur == '')	// valeur incorrecte?
-				trigger_error($message.'la valeur pour '.$clé.' est vide ou n&pos;existe pas', E_USER_WARNING);
+			if (isset($Tvérification[$clé]))	// clé dans la liste obligatoire
+				$pattern = $Tvérification[$clé];
+			else if (isset($Tfacultatif[$clé]))	// clé dans la liste facultative
+				$pattern = $Tfacultatif[$clé];
+			else trigger_error("$message $clé est manquante", E_USER_WARNING);
+			if (!preg_match("#$pattern#", $Tparam[$clé]))	// valeur incorrecte?
+				trigger_error("$message [$valeur] pour $clé est incorrect", E_USER_WARNING);
 		}
-		foreach($Tvérification as $clé) if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
-				trigger_error($message.'la cl&eacute; '.$clé.' est manquante', E_USER_WARNING);
+		foreach($Tvérification as $clé => $valeur)
+			if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
+				trigger_error("$message la cl&eacute; $clé est manquante", E_USER_WARNING);
 	}
 }
 
@@ -150,7 +156,7 @@ class Page_script extends Page_abstraite { // paramètre d'hydration: script
 	private $script;
 
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_script', $Tparam, ['script']);
+		$this->Vérifier_hydratation('Page_script', $Tparam, ['script' => FICHIER]);
 		$this->script = $this->Dossier().$Tparam['script'].'.php';
 	}
 	
@@ -176,7 +182,7 @@ class Page_script extends Page_abstraite { // paramètre d'hydration: script
 class Page_dessin_densemble extends Page_association_image_fichier {
 	// hydratation: image & fichier sans extension
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_dessin_densemble', $Tparam, ['image'], ['fichier']);
+		$this->Vérifier_hydratation('Page_dessin_densemble', $Tparam, ['image' => FICHIER], ['fichier' => FICHIER]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin d&apos;ensemble');
 	}
@@ -189,7 +195,7 @@ class Page_dessin_densemble extends Page_association_image_fichier {
 class Page_dessin2définition extends Page_association_image_fichier {
 	// hydratation: titre, image et fichier sans extension
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_dessin2définition', $Tparam, ['titre', 'image'], ['fichier']);
+		$this->Vérifier_hydratation('Page_dessin2définition', $Tparam, ['titre' => TEXTE, 'image' => FICHIER], ['fichier' => FICHIER]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EDRW');
 		$this->Dénommer('Dessin de d&eacute;finition '.$Tparam['titre']);
 	}
@@ -202,7 +208,7 @@ class Page_dessin2définition extends Page_association_image_fichier {
 class Page_éclaté extends Page_association_image_fichier {
 	// hydratation: image & fichier sans extension
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_éclaté', $Tparam, ['image'], ['fichier']);
+		$this->Vérifier_hydratation('Page_éclaté', $Tparam, ['image' => FICHIER], ['fichier' => FICHIER]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], '.EASM');
 		$this->Dénommer('&Eacute;clat&eacute;');
 	}
@@ -219,7 +225,7 @@ class Page_CE extends Page_association_image_fichier {
 	private $EstAssemblage;
 	
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_CE', $Tparam, ['nom_CE', 'image', 'extension'], ['fichier']);
+		$this->Vérifier_hydratation('Page_CE', $Tparam, ['nom_CE' => TEXTE, 'image' => FICHIER, 'extension' => TEXTE], ['fichier' => FICHIER]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
 		$this->Dénommer('Classe d&apos;&eacute;quivalence: '.$Tparam['nom_CE']);
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
@@ -236,7 +242,7 @@ class Page_association extends Page_association_image_fichier {
 	private $commentaire;
 	
 	public function __construct($Tparam) { // image & fichier sans extension
-		$this->Vérifier_hydratation('Page_association', $Tparam, ['titre', 'image', 'extension'], ['fichier', 'commentaire']);
+		$this->Vérifier_hydratation('Page_association', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'extension' => TEXTE], ['fichier' => FICHIER, 'commentaire' => TEXTE]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']);
 		$this->Dénommer($Tparam['titre']);
 		$this->commentaire = ($Tparam['commentaire']);
@@ -249,7 +255,7 @@ class Page_association extends Page_association_image_fichier {
 class Page_image_dessus extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre', 'image', 'commentaire'], ['hauteur']);
+		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
 		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']);
 	}
 }
@@ -257,7 +263,7 @@ class Page_image_dessus extends Page_image {
 class Page_image_dessous extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre', 'image', 'commentaire'], ['hauteur']);
+		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
 		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']);
 	}
 }
@@ -278,7 +284,7 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 	private $hauteur;
 	
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_courbe', $Tparam, ['titre', 'courbe', 'alt_courbe'], ['hauteur', 'tableau', 'alt_tableau']);
+		$this->Vérifier_hydratation('Page_courbe', $Tparam, ['titre' => TEXTE, 'courbe' => TEXTE, 'alt_courbe' => TEXTE], ['hauteur' => ENTIER, 'tableau' => TEXTE, 'alt_tableau' => TEXTE]);
 		$this->Dénommer($Tparam['titre']);
 		$dossier = $this->Dossier().'images/';
 		$this->courbe = new Image($Tparam['courbe'], $dossier);
