@@ -188,7 +188,7 @@ class Page_dessin_densemble extends Page_association_image_fichier {
 	}
 
 	public function Afficher() {
-		parent::Afficher('Dessin d&apos;ensemble '.$_SESSION['support']->Du_support(), 'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique');
+		parent::Afficher('Dessin d&apos;ensemble '.$_SESSION['support']->Du_support());
 	}
 }
 
