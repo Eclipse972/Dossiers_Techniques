@@ -50,5 +50,5 @@ if (in_array($type_page, $T_pages_autorisées))
 	$Thydrate = $BD->Hydratation();	// tableau contenant les paramètres d'hydratation de la page
 else { // le type est inconnu ou non renseigné
 	$type_page = 'Page_script';
-	$Thydrate = array('script' => ''); // entraine l'affichage Désolé, il semblerai...
+	$Thydrate = array('script' => 'XX'); // cette valeur doit être un nom de fichier qui n'existe pas et composé de deux lettres pour provoquer l'affichage Désolé, il semblerai...
 }
