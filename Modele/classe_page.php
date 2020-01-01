@@ -2,7 +2,7 @@
 // le fichier classe_fichierdoit être chargé au préalable
 define("TEXTE",		"[^'^\"]");					// ' et " sont interdits car provoque un erreur d'évaluation de code php
 define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
-define("FICHIER",	"^[a-zA-Z][a-zA-Z0-9_-]+\.?[a-zA-Z]{3,4}$");// nom de fichier avec éventuellement une extension
+define("FICHIER",	"^[a-zA-Z][\w-]+\.?\w*$");// nom de fichier commençant obligatoirement par une lettre avec éventuellement une extension
 
 class Page_abstraite {
 	// classe servant de modèle toutes les autres
@@ -32,7 +32,7 @@ class Page_abstraite {
 				$pattern = $Tfacultatif[$clé];
 			else trigger_error("$message $clé est manquante", E_USER_WARNING);
 			if (!preg_match("#$pattern#", $Tparam[$clé]))	// valeur incorrecte?
-				trigger_error("$message [$valeur] pour $clé est incorrect", E_USER_WARNING);
+				trigger_error("$message $clé = [$valeur] est incorrect", E_USER_WARNING);
 		}
 		foreach($Tvérification as $clé => $valeur)
 			if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
