@@ -122,7 +122,7 @@ public function Type_page() { // type de page associé à l'item sélectioné da
 public function Hydratation() {
 	$this->Requete('SELECT variable, valeur FROM Vue_Hydrate_Page WHERE support_ID= ? AND item= ? AND sous_item= ?',
 					[$_SESSION['support']->Id(), $_SESSION['support']->Item(), $_SESSION['support']->Sous_item()], 'Hydratation');
-	$tableau = array();
+	$tableau = [];
 	while ($ligne = $this->resultat->fetch())
 		$tableau += [$ligne['variable'] => $ligne['valeur']];
 	$this->Fermer();	

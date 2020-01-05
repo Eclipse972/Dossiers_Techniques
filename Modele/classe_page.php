@@ -1,6 +1,6 @@
 <?php
 // le fichier classe_fichierdoit être chargé au préalable
-define("TEXTE",		"[^'^\"]");					// ' et " sont interdits car provoque un erreur d'évaluation de code php
+define("TEXTE",		"[^'\"]");					// ' et " sont interdits car provoque un erreur d'évaluation de code php
 define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
 define("FICHIER",	"^[a-zA-Z][\w-]+\.?\w*$");// nom de fichier commençant obligatoirement par une lettre avec éventuellement une extension
 
@@ -62,9 +62,9 @@ class Page_image extends Page_abstraite {
 	
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
-		$commentaire = '<p>'.$this->commentaire.'</p>';
+		$commentaire = '<p>'.$this->commentaire."</p>\n";
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'height='.$this->hauteur.'px class=association');
+		echo $this->image->Balise('', 'height='.$this->hauteur.'px class=association'),"\n";
 		if ($this->Audessus) echo $commentaire;
 	}
 }
