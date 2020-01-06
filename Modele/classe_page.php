@@ -50,21 +50,23 @@ class Page_image extends Page_abstraite {
 	private $image;
 	private $commentaire;
 	private $Audessus;
+	private $alt;
 	
-	public function __construct($titre, $image, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
+	public function __construct($titre, $image, $alt, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
 		$this->Dénommer($titre);
 		$dossier = $this->Dossier().'images/';
 		$this->image = new Image($image, $dossier);
 		$this->commentaire = $commentaire;
 		$this->Audessus = $Audessus;
 		$this->hauteur = $hauteur;
+		$this->alt = $alt;
 	}
 	
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire."</p>\n";
 		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise('', 'height='.$this->hauteur.'px class=association'),"\n";
+		echo $this->image->Balise($this->alt, 'height='.$this->hauteur.'px class=association'),"\n";
 		if ($this->Audessus) echo $commentaire;
 	}
 }
@@ -255,16 +257,16 @@ class Page_association extends Page_association_image_fichier {
 class Page_image_dessus extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
-		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], true, $Tparam['hauteur']);
+		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'alt' => TEXTE, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
+		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['alt'], $Tparam['commentaire'], true, $Tparam['hauteur']);
 	}
 }
 
 class Page_image_dessous extends Page_image {
 	// hydrataion: titre, image, commentaire, hauteur
 	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
-		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['commentaire'], false, $Tparam['hauteur']);
+		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'alt' => TEXTE, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
+		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['alt'], $Tparam['commentaire'], false, $Tparam['hauteur']);
 	}
 }
 

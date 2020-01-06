@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Jeu 26 Décembre 2019 à 04:52
+-- Généré le : Lun 06 Janvier 2020 à 01:46
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,27 +16,27 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: 'dossiers_techniques'
+-- Base de données: `dossiers_techniques`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'HydratePage'
+-- Structure de la table `HydratePage`
 --
 
-CREATE TABLE HydratePage (
-  menu_ID smallint(5) unsigned NOT NULL default '0',
-  variable varchar(20) collate latin1_general_ci NOT NULL,
-  valeur text collate latin1_general_ci NOT NULL
+CREATE TABLE IF NOT EXISTS `HydratePage` (
+  `menu_ID` smallint(5) unsigned NOT NULL default '0',
+  `variable` varchar(20) collate latin1_general_ci NOT NULL,
+  `valeur` text collate latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Contenu de la table 'HydratePage'
+-- Contenu de la table `HydratePage`
 --
 
-INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
-(1, 'commentaire', 'Ce bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.'),
+INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
+(1, 'commentaire', 'C"e bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.'),
 (1, 'image', 'mes'),
 (1, 'titre', 'Mise en situation'),
 (2, 'commentaire', 'Fonctions du bouton-poussoir:</p>\r\n<ul>\r\n<li>Fp : fermer un circuit &eacute;lectrique lorsque l&apos;utilisateur appuie sur le bouton.</li>\r\n<li>F1 : isoler &eacute;lectriquement l&apos;utilisateur du circuit &eacute;lectrique.</li>\r\n<li>F2 : se fixer sur le pupitre de mani&egrave;re rapide et d&eacute;montable</li>\r\n<li>F3 : assurer une liaison compl&egrave;te et d&eacute;montable des fils du circuit &eacute;lectrique</li>\r\n<li>F4 : avoir un bel aspect</li>\r\n</ul>'),
@@ -210,10 +210,10 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (94, 'commentaire', 'Les nombreux &eacute;l&eacute;ments &eacute;lectriques et &eacute;lectroniques mont&eacute;s sur la Citro&euml;n C4 HDI n&eacute;cessitent une source d&apos;&eacute;nergie &eacute;lectrique fiable et embarqu&eacute;e. L&apos;alternateur participe &agrave; cette op&eacute;ration, tout comme la batterie.'),
 (94, 'image', 'mes'),
 (94, 'titre', 'Mise en situation'),
-(95, 'commentaire', ' '),
+(95, 'commentaire', ' Pas de fichier disponible.'),
 (95, 'image', 'ensemble'),
 (95, 'titre', 'Dessin d&apos;ensemble'),
-(96, 'commentaire', 'Avec le nom des pi&egrave;ces'),
+(96, 'commentaire', 'Pas de fichier disponible.'),
 (96, 'image', 'eclate'),
 (96, 'titre', '&Eacute;clat&eacute;'),
 (98, 'script', 'MES'),
@@ -414,7 +414,26 @@ INSERT INTO HydratePage (menu_ID, variable, valeur) VALUES
 (106, 'hauteur', '500'),
 (107, 'fichier', 'vue_eclatee'),
 (107, 'commentaire', '*'),
-(136, 'fichier', 'corps2bride');
+(136, 'fichier', 'corps2bride'),
+(1, 'alt', 'Mise en situation'),
+(6, 'alt', 'Mise en situation'),
+(25, 'alt', 'Mise en situation'),
+(47, 'alt', 'Mise en situation'),
+(58, 'alt', 'Mise en situation'),
+(68, 'alt', 'Mise en situation'),
+(94, 'alt', 'Mise en situation'),
+(169, 'alt', 'Mise en situation'),
+(11, 'alt', '&racute;tape 1'),
+(12, 'alt', '&racute;tape 2'),
+(13, 'alt', '&racute;tape 3'),
+(37, 'alt', '&racute;clat&racute;'),
+(78, 'alt', '&racute;tape 1'),
+(79, 'alt', '&racute;tape 2'),
+(81, 'alt', '&racute;tape 5'),
+(82, 'alt', '&racute;tape 6'),
+(96, 'alt', '&racute;clat&racute;'),
+(2, 'alt', 'Diagramme pieuvre'),
+(95, 'alt', 'Dessin d&apos;ensemble');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
