@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Lun 06 Janvier 2020 à 01:46
+-- Généré le : Mar 07 Janvier 2020 à 23:04
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -28,7 +28,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `HydratePage` (
   `menu_ID` smallint(5) unsigned NOT NULL default '0',
   `variable` varchar(20) collate latin1_general_ci NOT NULL,
-  `valeur` text collate latin1_general_ci NOT NULL
+  `valeur` text collate latin1_general_ci NOT NULL,
+  UNIQUE KEY `unicité` (`menu_ID`,`variable`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
@@ -409,7 +410,6 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (131, 'hauteur', '400'),
 (132, 'hauteur', '400'),
 (133, 'hauteur', '400'),
-(133, 'commentaire', '+'),
 (134, 'hauteur', '400'),
 (106, 'hauteur', '500'),
 (107, 'fichier', 'vue_eclatee'),
@@ -433,7 +433,39 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (82, 'alt', '&racute;tape 6'),
 (96, 'alt', '&racute;clat&racute;'),
 (2, 'alt', 'Diagramme pieuvre'),
-(95, 'alt', 'Dessin d&apos;ensemble');
+(95, 'alt', 'Dessin d&apos;ensemble'),
+(131, 'alt', 'd&eacute;but de la phase 1'),
+(132, 'alt', 'phase 1'),
+(133, 'alt', 'd&eacute;but de la phase 2'),
+(134, 'alt', 'phase 2'),
+(110, 'alt', 'axe 1'),
+(111, 'alt', 'axe 2'),
+(112, 'alt', 'axe 3'),
+(113, 'alt', 'axe 4'),
+(114, 'alt', 'axe 5'),
+(99, 'alt', 'Diagramme A-0'),
+(99, 'hauteur', '400'),
+(21, 'alt', 'Analyse fonctionelle'),
+(34, 'alt', 'diagramme pieuvre'),
+(35, 'alt', 'FAST levage du v&eacute;hicule'),
+(36, 'alt', 'FAST d&eacute;pose du v&eacute;hicule'),
+(43, 'alt', 'Fonctionnement'),
+(48, 'alt', 'Fonctionnement'),
+(48, 'hauteur', '300'),
+(59, 'alt', 'Diagramme A-0'),
+(59, 'hauteur', '350'),
+(77, 'alt', 'Dispositif de transfert'),
+(77, 'hauteur', '500'),
+(78, 'hauteur', '400'),
+(79, 'hauteur', '500'),
+(82, 'hauteur', '500'),
+(81, 'hauteur', '500'),
+(142, 'alt', 'Fonctionnement'),
+(144, 'alt', 'ouverture'),
+(143, 'alt', 'Fermeture'),
+(89, 'alt', 'M&eacute;canique'),
+(155, 'alt', 'Flasque droit'),
+(158, 'alt', 'M&eacute;canique');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
