@@ -30,7 +30,7 @@ class Page_abstraite {
 				$pattern = $Tvérification[$clé];
 			else if (isset($Tfacultatif[$clé]))	// clé dans la liste facultative
 				$pattern = $Tfacultatif[$clé];
-			else trigger_error("$message $clé est manquante", E_USER_WARNING);
+			else trigger_error("$message $clé est n&apos;est pas une cl&eacute, valide", E_USER_WARNING);
 			if (!preg_match("#$pattern#", $Tparam[$clé]))	// valeur incorrecte?
 				trigger_error("$message $clé = [$valeur] est incorrect", E_USER_WARNING);
 		}
