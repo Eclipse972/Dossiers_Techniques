@@ -93,9 +93,8 @@ class Page_association_image_fichier extends Page_abstraite {
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
 		echo $this->fichier->Lien($this->image->Balise($alt, 'class="association"')),"\n";
-		// echo '<a href="',$this->fichier,'">',$this->image->Balise($alt, 'class="association"'),'</a>',"\n";
 		if (isset($commentaire)) 
-			echo'<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
+			echo '<p style="text-align:center">',$commentaire,'</p>',"\n";	// commentaire éventuel sous l'image
 	}
 }
 /* ************************************************************************************************
