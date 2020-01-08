@@ -85,8 +85,8 @@ class Page_association_image_fichier extends Page_abstraite {
 		// les noms de l'image et du fichier contiennent leur extension mais n'ont pas forcément des noms identiques
 		$image = new Image($image, $dossier.'images/');
 		$fichier = new Fichier($fichier, $dossier.'fichiers/');
-		if (!$image->Existe() && !$fichier->Existe())
-			trigger_error('L&apos;association image-fichier est vide', E_USER_ERROR);
+		if (!$fichier->Existe())
+			trigger_error('Le fichier de l&apos;association image-fichier n&apos;existe pas', E_USER_WARNING);
 		$this->image = $image->Chemin();
 		$this->fichier = $fichier->Chemin();
 	}
