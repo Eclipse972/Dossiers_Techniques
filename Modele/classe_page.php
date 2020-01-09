@@ -71,31 +71,23 @@ class Page_image extends Page_abstraite {
 	}
 }
 
-class Page_association_image_fichier extends Page_abstraite {
-	// cette classe n'est pas utilisée dans la BD
-
-	// contient le chemin complet pour accéder ...
-	protected $image;	// à l'image
-	protected $fichier;	// au fichier
+class Page_association_image_fichier extends Page_abstraite {// cette classe n'est pas utilisée dans la BD
+	protected $image;	// objet image
+	protected $fichier;	// objet fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
-		$dossier = $this->Dossier();
-
-		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		// les noms de l'image et du fichier contiennent leur extension mais n'ont pas forcément des noms identiques
-		$image = new Image($image, $dossier.'images/');
-		$fichier = new Fichier($fichier, $dossier.'fichiers/');
-		if (!$image->Existe() && !$fichier->Existe())
-			trigger_error('L&apos;association image-fichier est vide', E_USER_ERROR);
-		$this->image = $image->Chemin();
-		$this->fichier = $fichier->Chemin();
+		$this->image = new Image($image.$extension_image, $this->Dossier().'images/');
+		$fichier = new Fichier($fichier.$extension_fichier, $this->Dossier().'fichiers/');
+		if (!$fichier->Existe())
+			trigger_error('Le fichier de l&apos;association image-fichier n&apos;existe pas', E_USER_WARNING);
+		$this->fichier = $fichier;
 	}
 	public function Afficher($alt, $commentaire = null) { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
-		echo '<a href="'.$this->fichier.'"><img src="'.$this->image.'" class="association" alt = "'.$alt.'"></a>';
+		echo $this->fichier->Lien($this->image->Balise($alt, 'class="association"')),"\n";
 		if (isset($commentaire)) 
-			echo'<p style="text-align:center">'.$commentaire.'</p>'."\n";	// commentaire éventuel sous l'image
+			echo '<p style="text-align:center">',$commentaire,'</p>',"\n";	// commentaire éventuel sous l'image
 	}
 }
 /* ************************************************************************************************
