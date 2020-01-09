@@ -76,11 +76,8 @@ class Page_association_image_fichier extends Page_abstraite {// cette classe n'e
 	protected $fichier;	// objet fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
-		$dossier = $this->Dossier();
-
-		// les noms de l'image et du fichier ne contiennent pas leur extension
-		$this->image = new Image($image.$extension_image, $dossier.'images/');
-		$fichier = new Fichier($fichier.$extension_fichier, $dossier.'fichiers/');
+		$this->image = new Image($image.$extension_image, $this->Dossier().'images/');
+		$fichier = new Fichier($fichier.$extension_fichier, $this->Dossier().'fichiers/');
 		if (!$fichier->Existe())
 			trigger_error('Le fichier de l&apos;association image-fichier n&apos;existe pas', E_USER_WARNING);
 		$this->fichier = $fichier;
