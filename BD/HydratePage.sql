@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 07 Janvier 2020 à 23:04
+-- Généré le : Ven 10 Janvier 2020 à 00:31
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `HydratePage` (
 --
 
 INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
-(1, 'commentaire', 'C"e bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.'),
+(1, 'commentaire', 'Ce bouton permet d&apos;alimenter &eacute;lectriquement un appareil, tant qu&apos;une action est exerc&eacute;e sur le bouton.'),
 (1, 'image', 'mes'),
 (1, 'titre', 'Mise en situation'),
 (2, 'commentaire', 'Fonctions du bouton-poussoir:</p>\r\n<ul>\r\n<li>Fp : fermer un circuit &eacute;lectrique lorsque l&apos;utilisateur appuie sur le bouton.</li>\r\n<li>F1 : isoler &eacute;lectriquement l&apos;utilisateur du circuit &eacute;lectrique.</li>\r\n<li>F2 : se fixer sur le pupitre de mani&egrave;re rapide et d&eacute;montable</li>\r\n<li>F3 : assurer une liaison compl&egrave;te et d&eacute;montable des fils du circuit &eacute;lectrique</li>\r\n<li>F4 : avoir un bel aspect</li>\r\n</ul>'),
@@ -151,7 +151,7 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (69, 'script', 'fonctionnement'),
 (71, 'fichier', 'pince'),
 (71, 'image', 'eclate_pince'),
-(72, 'script', 'MES'),
+(72, 'script', 'mes'),
 (73, 'fichier', 'pompe'),
 (73, 'image', 'dessin_pompe'),
 (75, 'fichier', 'pompe'),
