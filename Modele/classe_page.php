@@ -78,8 +78,7 @@ class Page_association_image_fichier extends Page_abstraite {// cette classe n'e
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
 		$dossier = $this->Dossier();
 
-		if (!isset($fichier)) $fichier = $image; // par défaut les deux fichiers portent le même nom
-		// les noms de l'image et du fichier contiennent leur extension mais n'ont pas forcément des noms identiques
+		// les noms de l'image et du fichier ne contiennent pas leur extension
 		$this->image = new Image($image.$extension_image, $dossier.'images/');
 		$fichier = new Fichier($fichier.$extension_fichier, $dossier.'fichiers/');
 		if (!$fichier->Existe())
