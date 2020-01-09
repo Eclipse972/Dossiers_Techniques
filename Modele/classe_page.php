@@ -71,12 +71,9 @@ class Page_image extends Page_abstraite {
 	}
 }
 
-class Page_association_image_fichier extends Page_abstraite {
-	// cette classe n'est pas utilisée dans la BD
-
-	// contient le chemin complet pour accéder ...
-	protected $image;	// à l'image
-	protected $fichier;	// au fichier
+class Page_association_image_fichier extends Page_abstraite {// cette classe n'est pas utilisée dans la BD
+	protected $image;	// objet image
+	protected $fichier;	// objet fichier
 
 	public function __construct($image, $extension_image, $fichier, $extension_fichier) {
 		$dossier = $this->Dossier();
