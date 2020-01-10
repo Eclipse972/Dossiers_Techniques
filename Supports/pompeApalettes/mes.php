@@ -5,6 +5,6 @@ Pour cela, deux palettes sont entraîn&eacute;es par un arbre (rep&egrave;re 3) 
 -1i&egrave;re &eacute;tape : aspiration<br>
 -2i&egrave;me &eacute;tape : refoulement</p>
 <p>La cavit&eacute; du corps est usin&eacute;e suivant une forme de r&eacute;volution dont la section est une 
-<a href="https://fr.wikipedia.org/wiki/Concho%C3%AFde"  target="_blank">concoïde de cercle</a>. Les palettes traversent compl&egrave;tement l&apos;arbre et sont toujours rigoureusement en contact avec la paroi interne de cette conco&iuml;de.</p>
-<img src="Supports/pompeApalettes/images/mes.png"  alt="mise n situation de la pompe &agrave; palettes">
+<a href="https://fr.wikipedia.org/wiki/Concho%C3%AFde" target="_blank">concoïde de cercle</a>. Les palettes traversent compl&egrave;tement l&apos;arbre et sont toujours rigoureusement en contact avec la paroi interne de cette conco&iuml;de.</p>
+<img src="Supports/pompeApalettes/images/mes.png" alt="mise en situation de la pompe &agrave; palettes">
 	
