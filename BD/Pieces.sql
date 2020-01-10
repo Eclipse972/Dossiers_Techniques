@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 25 Décembre 2019 à 08:52
+-- Généré le : Ven 10 Janvier 2020 à 14:57
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,32 +16,32 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: 'dossiers_techniques'
+-- Base de données: `dossiers_techniques`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'Pieces'
+-- Structure de la table `Pieces`
 --
 
-CREATE TABLE Pieces (
-  support_ID smallint(5) unsigned NOT NULL,
-  nom varchar(64) collate latin1_general_ci NOT NULL,
-  repere int(10) unsigned NOT NULL,
-  quantite int(10) unsigned NOT NULL default '1',
-  matiere_ID int(10) NOT NULL default '0',
-  observation text collate latin1_general_ci NOT NULL,
-  fichier varchar(32) collate latin1_general_ci NOT NULL,
-  assemblage tinyint(3) unsigned NOT NULL default '0',
-  KEY `support-repère` (support_ID,repere)
+CREATE TABLE IF NOT EXISTS `Pieces` (
+  `support_ID` smallint(5) unsigned NOT NULL,
+  `nom` varchar(64) collate latin1_general_ci NOT NULL,
+  `repere` int(10) unsigned NOT NULL,
+  `quantite` int(10) unsigned NOT NULL default '1',
+  `matiere_ID` int(10) NOT NULL default '0',
+  `observation` text collate latin1_general_ci NOT NULL,
+  `fichier` varchar(32) collate latin1_general_ci NOT NULL,
+  `assemblage` tinyint(3) unsigned NOT NULL default '0',
+  KEY `support-repère` (`support_ID`,`repere`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='Listes des pièces de chaque support';
 
 --
--- Contenu de la table 'Pieces'
+-- Contenu de la table `Pieces`
 --
 
-INSERT INTO Pieces (support_ID, nom, repere, quantite, matiere_ID, observation, fichier, assemblage) VALUES
+INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `observation`, `fichier`, `assemblage`) VALUES
 (14, 'carter gauche', 1, 1, 0, '', 'carter_gauche', 0),
 (14, 'carter droit', 3, 1, 2, '', 'carter_droit', 0),
 (14, 'rotor &agrave; griffes', 4, 1, 0, '', 'rotorAgriffes', 1),
@@ -331,21 +331,21 @@ INSERT INTO Pieces (support_ID, nom, repere, quantite, matiere_ID, observation, 
 (18, 'but&eacute;e mobile', 9, 1, 0, '', 'butee_mobile', 0),
 (18, 'levier de man&oelig;uvre', 10, 1, 0, '', 'levier', 0),
 (18, 'vis', 11, 1, 0, '', 'vis', 0),
-(13, 'carter moteur', 1, 1, 0, '', 'carter_moteur', 0),
-(13, 'cylindre', 2, 1, 0, '', 'cylindre', 0),
-(13, 'culasse', 3, 1, 0, '', 'culasse', 0),
+(13, 'carter moteur', 1, 1, 28, '', 'carter_moteur', 0),
+(13, 'cylindre', 2, 1, 21, '', 'cylindre', 0),
+(13, 'culasse', 3, 1, 28, '', 'culasse', 0),
 (13, 'vis CHc M3-15', 4, 1, 0, '', 'CHcM3-15', 0),
-(13, 'joint capot', 5, 1, 0, '', 'joint_capot', 0),
-(13, 'capot', 6, 1, 0, '', 'capot', 0),
+(13, 'joint capot', 5, 1, 29, '', 'joint_capot', 0),
+(13, 'capot', 6, 1, 28, '', 'capot', 0),
 (13, 'grand roulement', 7, 1, 0, '', 'grand_roulement', 1),
-(13, 'axe piston', 8, 1, 0, '', 'axe_piston', 0),
+(13, 'axe piston', 8, 1, 3, '', 'axe_piston', 0),
 (13, 'jonc', 9, 1, 0, '', 'jonc', 0),
 (13, 'petit roulement', 10, 1, 0, '', 'petit_roulement', 1),
-(13, 'coussinet d5', 11, 1, 0, '', 'coussinet_d5', 0),
-(13, 'bielle', 12, 1, 0, '', 'bielle', 0),
-(13, 'vilebrequin', 13, 1, 0, '', 'vilebrequin', 0),
-(13, 'piston', 14, 1, 0, '', 'piston', 0),
-(13, 'coussinet d6', 15, 1, 0, '', 'coussinet_d6', 0);
+(13, 'coussinet &oslash;5', 11, 1, 30, '', 'coussinet_d5', 0),
+(13, 'bielle', 12, 1, 31, '', 'bielle', 0),
+(13, 'vilebrequin', 13, 1, 3, '', 'vilebrequin', 0),
+(13, 'piston', 14, 1, 21, '', 'piston', 0),
+(13, 'coussinet &oslash;6', 15, 1, 30, '', 'coussinet_d6', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
