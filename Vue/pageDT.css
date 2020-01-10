@@ -88,7 +88,7 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol√
 #nomenclature thead tr th:nth-child(1), #nomenclature tbody tr td:nth-child(1) { width:40px; text-align: center; }
 #nomenclature thead tr th:nth-child(2), #nomenclature tbody tr td:nth-child(2) { width:200px; text-align: center; }
 #nomenclature thead tr th:nth-child(3), #nomenclature tbody tr td:nth-child(3) { width:350px; }
-#nomenclature thead tr th:nth-child(4), #nomenclature tbody tr td:nth-child(4) { width:150px; }
+#nomenclature thead tr th:nth-child(4), #nomenclature tbody tr td:nth-child(4) { width:200px; }
 #nomenclature thead tr th:nth-child(5), #nomenclature tbody tr td:nth-child(5) { width:200px; }
 
 #nomenclature td img { height: 90px; }
