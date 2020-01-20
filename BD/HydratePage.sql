@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Ven 10 Janvier 2020 à 00:31
+-- Généré le : Mar 21 Janvier 2020 à 00:07
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -414,7 +414,6 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (106, 'hauteur', '500'),
 (107, 'fichier', 'vue_eclatee'),
 (107, 'commentaire', '*'),
-(136, 'fichier', 'corps2bride'),
 (1, 'alt', 'Mise en situation'),
 (6, 'alt', 'Mise en situation'),
 (25, 'alt', 'Mise en situation'),
@@ -465,7 +464,8 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (143, 'alt', 'Fermeture'),
 (89, 'alt', 'M&eacute;canique'),
 (155, 'alt', 'Flasque droit'),
-(158, 'alt', 'M&eacute;canique');
+(158, 'alt', 'M&eacute;canique'),
+(106, 'alt', 'Montage de bridage');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
