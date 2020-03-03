@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 21 Janvier 2020 à 00:21
+-- Généré le : Mar 03 Mars 2020 à 23:47
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Menu` (
   `type_page` varchar(30) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `support-page unique` (`support_ID`,`item`,`sous_item`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=181 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=185 ;
 
 --
 -- Contenu de la table `Menu`
@@ -47,8 +47,8 @@ INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page
 (4, 0, 4, 0, '&Eacute;clat&eacute;', 'Page_éclaté'),
 (5, 0, 5, 0, 'Nomenclature', 'Page_nomenclature'),
 (6, 1, 1, 0, 'Mise en situation', 'Page_image_dessous'),
-(7, 1, 4, 0, 'Nomenclature', 'Page_nomenclature'),
-(8, 1, 3, 0, '&Eacute;clat&eacute;', 'Page_éclaté'),
+(7, 1, 5, 0, 'Nomenclature', 'Page_nomenclature'),
+(8, 1, 4, 0, '&Eacute;clat&eacute;', 'Page_éclaté'),
 (9, 2, 1, 0, 'Mise en situation', 'Page_script'),
 (10, 2, 2, 0, 'Fonctionnement', 'Page_script'),
 (11, 2, 2, 1, '&Eacute;tape 1', 'Page_image_dessous'),
@@ -220,7 +220,11 @@ INSERT INTO `Menu` (`ID`, `support_ID`, `item`, `sous_item`, `texte`, `type_page
 (177, 13, 3, 2, 'CE2 : le vilebrequin', 'Page_CE'),
 (178, 13, 3, 3, 'CE3 : la bielle', 'Page_CE'),
 (179, 13, 3, 4, 'CE4: le piston', 'Page_CE'),
-(180, 13, 5, 0, '&Eacute;clat&eacute;', 'Page_éclaté');
+(180, 13, 5, 0, '&Eacute;clat&eacute;', 'Page_éclaté'),
+(181, 1, 6, 0, 'Dessins de d&eacute;finition', 'Page_script'),
+(182, 1, 6, 1, 'socle', 'Page_dessin2définition'),
+(183, 1, 6, 2, 'contre-embase', 'Page_dessin2définition'),
+(184, 1, 3, 0, 'Dessin d&apos;ensemble', 'Page_dessin_densemble');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

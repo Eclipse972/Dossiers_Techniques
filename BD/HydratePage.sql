@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 21 Janvier 2020 à 00:07
+-- Généré le : Mar 03 Mars 2020 à 23:46
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -414,6 +414,7 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (106, 'hauteur', '500'),
 (107, 'fichier', 'vue_eclatee'),
 (107, 'commentaire', '*'),
+(181, 'script', 'dessins2definition'),
 (1, 'alt', 'Mise en situation'),
 (6, 'alt', 'Mise en situation'),
 (25, 'alt', 'Mise en situation'),
@@ -465,7 +466,13 @@ INSERT INTO `HydratePage` (`menu_ID`, `variable`, `valeur`) VALUES
 (89, 'alt', 'M&eacute;canique'),
 (155, 'alt', 'Flasque droit'),
 (158, 'alt', 'M&eacute;canique'),
-(106, 'alt', 'Montage de bridage');
+(106, 'alt', 'Montage de bridage'),
+(182, 'titre', 'd&eacute;finition du socle'),
+(182, 'image', 'def_socle'),
+(183, 'titre', 'd&eacute;finition de la contre embase'),
+(183, 'image', 'def_contre_embase'),
+(184, 'fichier', 'butee'),
+(184, 'image', 'dessin_butee');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
