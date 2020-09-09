@@ -5,10 +5,10 @@ private $BD; // PDO initialisé dans connexion.php
 
 public function __construct() {
 	try	{
-		include 'connexion.php'; // les variable de conection sont définie dans ce script non suivi par git
+		include 'connexion.php'; // les variable de conexion sont définies dans ce script non suivi par git
 		$this->BD = new PDO($dsn, $utilisateur, $mdp); // On se connecte au serveur MySQL
 	}
-	catch (Exception $e) { // En cas d'erreur, on affiche un message et on arrête tout
+	catch (PDOException $e) { // En cas d'erreur, on affiche un message et on arrête tout
 		die('Erreur : '.$e->getMessage());
 	}
 }
