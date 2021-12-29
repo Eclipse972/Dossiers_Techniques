@@ -1,0 +1,18 @@
+<section>
+	<h1>Formulaire de contact</h1>
+	<form method="post" action="#" id=formulaire>
+		<p>Nom		<input type="text"	name="nom"		/></p>
+		<p>Courriel	<input type="email" name="courriel" /></p>
+		<p>Objet	<input type="text"	name="objet"	/></p>
+		<p>Message	<textarea name="message" rows="6"></textarea></p>
+		<div id=validation>
+			<p>Validation du formulaire</p>
+			<ol><?=$PAGE->Afficher_validation()?>
+			</ol>
+			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
+		</div>
+		<p style="text-align:center;">
+			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		</p>
+	</form>
+</section>
