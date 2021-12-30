@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/head.html";?>
+</head>
+
+<body>
+<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/header.html";?>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav>
+<?=$PAGE->AfficherMenu()?>
+</nav>
+
+<section>
+<?=$PAGE->getSection()?>
+</section>
+
+<aside>
+<?=$PAGE->PagesConnexes()?>
+</aside>
+
+</main>
+
+<footer>
+<?php
+	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>
