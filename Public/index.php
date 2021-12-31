@@ -17,8 +17,7 @@ require 'PEUNC/classes/Page.php';
 require 'PEUNC/classes/BDD.php';
 
 // classes utilisateur
-//require 'Modele/classe_Page.php';
-//require 'Modele/classe_BDD.php';
+require 'Modele/classe_BD.php';
 
 try
 {

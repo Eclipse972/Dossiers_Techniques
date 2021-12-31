@@ -1,3 +1,3 @@
 <?php
-
-$this->setSection($this->Gerer_index(5));
+$BD = new base2donnees;
+$this->setSection($BD->Gerer_index(5));
