@@ -32,6 +32,17 @@ public function Fermer() {
 	$this->resultat->closeCursor();
 }
 
+public function ResultatSQL($requete, array $T_parametre) {
+/* Renvoie le réultat d'une requête SQL. Cette méthode permet d'exécuter une requête crée en dehors de la classe BDD
+ * le résultat est un tableau
+ * */
+ 	$this->Requete($requete, $T_parametre);
+	$reponse = $this->resultat->fetchAll();
+	$this->Fermer();
+	return $reponse;
+// réécrire la fonction PagesConnexes
+}
+
 public function ClassePage($alpha, $beta, $gamma) {
 /* Recherche le nom de ma classe de page à charger suivant la position $alpha, $beta, $gamma
  * */
