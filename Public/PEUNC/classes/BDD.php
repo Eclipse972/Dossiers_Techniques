@@ -3,7 +3,7 @@
 namespace PEUNC\classes;
 
 class BDD {
-public $resultat;
+protected $resultat;
 protected $BD; // PDO initialisé dans connexion.php
 
 public function __construct() {
