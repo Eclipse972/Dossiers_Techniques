@@ -12,15 +12,29 @@ public function __construct() {
 	// éventuelle erreur gérée par index.php
 }
 
-protected function Requete($requete, array $T_parametre) {
+public function Requete($requete, array $T_parametre) {
+/* permet d'exécuter une requête paramétrée
+ * Ex: $this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+ * la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
+ * si la requêtte n'a pas de paramètre mettre [] commparamètre
+ * */
 	$this->resultat = $this->BD->prepare($requete);
-	// la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
 	$this->resultat->execute($T_parametre);
 }
 
-protected function Fermer() { $this->resultat->closeCursor(); }	 // Termine le traitement de la requête
+public function Fermer() {
+/* Termine le traitement de la requête
+ * Utilisation:
+ * $this->Requete('SELECT ...', [tableau des paramètres]);
+ * traitement du résultat de requête
+ * $this->Fermer(); pour la fermeture de la BD
+ * */
+	$this->resultat->closeCursor();
+}
 
 public function ClassePage($alpha, $beta, $gamma) {
+/* Recherche le nom de ma classe de page à charger suivant la position $alpha, $beta, $gamma
+ * */
 	$this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
