@@ -8,6 +8,6 @@ class Page extends PEUNC\classes\Page {
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe</p>");
 		$this->setLogo("logo.png");
 		$this->setFooter("");
-		$this->setSection("<p>Hello world!</p>");
+		$this->setView("doctype.html");
 	}
 }
