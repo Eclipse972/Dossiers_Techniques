@@ -1,3 +1,3 @@
-<?php // controleur de la page d'accueil
+<?php
 
-$this->setSection("<p>Hello world!</p>");
+$this->setSection($this->Gerer_index(5));
