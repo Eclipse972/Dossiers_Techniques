@@ -1,21 +1,6 @@
 <?php
 class base2donnees extends PEUNC\classes\BDD { // chaque requête doit commencer par une nouvelle connexion. =< utilisation de new à chaque appael
 
-public function Gerer_index($NB_colonne) {
-	$code = '';
-	$this->resultat = $this->BD->query('SELECT * FROM Vue_code_vignettes');
-	$id = 0;
-	while ($ligne = $this->resultat->fetch()) {	// récupère et agrège le code
-		$No_colonne = $id % $NB_colonne;
-		if($No_colonne==0) $code .=  '<tr>'."\n"; // nouvelle ligne
-		$code .= "\t".$ligne['code']."\n";
-		if($No_colonne==$NB_colonne-1) $code .= '</tr>'."\n";	// fin de ligne si dernière colonne atteinte
-		$id++;
-	}
-	// si en sortie on s'arrete sur une colonne autre que la dernière
-	if($No_colonne!=$NB_colonne-1) $code .= "\t</tr>\n"; // on termine la ligne
-	return $code;
-}
 /*	**********************************************************************
 	Toutes les fonctions qui suivent font appel à des requêtes paramétrées
 	**********************************************************************
