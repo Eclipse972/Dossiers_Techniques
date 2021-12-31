@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/head.html";?>
+</head>
+
+<body>
+<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/header.html";?>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<section>
+	<h1>Erreur<?=$PAGE->getCodeErreur()?>: <?=$PAGE->getTitreErreur()?></h1>
+	<?=$PAGE->getCorpsErreur()?>
+	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="dossiers.techniques@free.fr">cliquant ici</a>.</p>
+</section>
+
+</main>
+
+<footer>
+<?php
+	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>
