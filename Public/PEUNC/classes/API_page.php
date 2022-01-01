@@ -15,6 +15,7 @@ interface iPage	{
 	public function getFooter();	// pied de page
 	public function getView();		// chemin de la vue associée à la page
 	public function getParamURL($i);// retourne le i-ème paramètre passé par l'URL
+	public function getDossier();	// retourne le dossier associé à la page
 
 // Assesseurs (setters)
 	public function setCSS(array $tableau);		// affiche le code pour utiliser toutes les feuilles CSS associée à la page
@@ -23,6 +24,7 @@ interface iPage	{
 	public function setSection($code);			// affiche le code du corps de la page
 	public function setFooter($code);			// pied de page
 	public function setView($fichier);			// définit le chemin de la vue
+	public function setDossier($dossier);		// défini le dossier associé à la page
 
 // Autre
 	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
