@@ -1,6 +1,6 @@
 -- ptinom doit respecter le motif d'une URL
-DROP VIEW IF EXISTS Vue_ptiNomInvalidess;
-CREATE VIEW Vue_ptiNomInvalidess AS
+DROP VIEW IF EXISTS Vue_ptiNomInvalides;
+CREATE VIEW Vue_ptiNomInvalides AS
 SELECT ID, ptiNom
 FROM Squelette
 WHERE NOT(ptiNom REGEXP("^[a-zA-Z0-9][a-zA-Z_0-9_-]+$"))
