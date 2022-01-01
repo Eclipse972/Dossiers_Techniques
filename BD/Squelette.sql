@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Sam 01 Janvier 2022 à 13:58
+-- Généré le : Sam 01 Janvier 2022 à 16:24
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -49,7 +49,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PageErreur', 'erreur_serveur.php'),
 (4, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PageErreur', 'erreur_serveur.php'),
 (5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'Index', 'home.php'),
-(6, 1, 0, 0, 'Formulaire de contact', '', 'Contact', 'PageContact', 'contact.php'),
+(6, 1, 0, 0, 'Formulaire de contact', '', 'contact', 'PageContact', 'contact.php'),
 (7, 2, 1, 0, 'Mise en situation', 'Vue/images/nom_du_fichier.png', 'MEP', 'Page_image_dessous', ''),
 (8, 2, 2, 0, 'Diagramme pieuvre', 'Vue/images/nom_du_fichier.png', 'pieuvre', 'Page_image_dessus', ''),
 (9, 2, 3, 0, 'Dessin d&apos;ensemble', 'Vue/images/nom_du_fichier.png', 'dessin_densemble', 'Page_dessin_densemble', ''),
@@ -164,7 +164,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (118, 3, 2, 3, 'axe 3', 'Vue/images/nom_du_fichier.png', 'axe3', 'Page_image_dessous', ''),
 (119, 3, 2, 4, 'axe 4', 'Vue/images/nom_du_fichier.png', 'axe4', 'Page_image_dessous', ''),
 (120, 3, 2, 5, 'axe 5', 'Vue/images/nom_du_fichier.png', 'axe5', 'Page_image_dessous', ''),
-(121, 5, 7, 0, 'Dessins de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2définition', 'Page_script', ''),
+(121, 5, 7, 0, 'Dessins de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2definition', 'Page_script', ''),
 (122, 5, 7, 1, 'axe d&apos;articulation', 'Vue/images/nom_du_fichier.png', 'axeArticulation', 'Page_dessin2définition', ''),
 (123, 5, 7, 2, 'biellette', 'Vue/images/nom_du_fichier.png', 'axeBielette', 'Page_dessin2définition', ''),
 (124, 5, 7, 3, 'chandelle', 'Vue/images/nom_du_fichier.png', 'chandelle', 'Page_dessin2définition', ''),
@@ -206,7 +206,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (160, 19, 4, 0, 'Dessin d&apos;ensemble', 'Vue/images/nom_du_fichier.png', 'dessin_densemble', 'Page_dessin_densemble', ''),
 (161, 19, 7, 0, 'Flasque droit', 'Vue/images/nom_du_fichier.png', 'flasqueDroit', 'Page_image_dessus', ''),
 (162, 19, 7, 1, 'flasque', 'Vue/images/nom_du_fichier.png', 'flasque', 'Page_association', ''),
-(163, 19, 7, 2, 'Dessin de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2définition', 'Page_dessin2définition', ''),
+(163, 19, 7, 2, 'Dessin de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2definition', 'Page_dessin2définition', ''),
 (164, 19, 8, 0, 'M&eacute;canique', 'Vue/images/nom_du_fichier.png', 'mecanique', 'Page_image_dessous', ''),
 (165, 19, 8, 1, 'efforts embiellage/Levier', 'Vue/images/nom_du_fichier.png', 'efforts_embiellage-levier', 'Page_courbe', ''),
 (166, 19, 8, 2, 'effort de marquage', 'Vue/images/nom_du_fichier.png', 'effort2marquage', 'Page_courbe', ''),
@@ -230,7 +230,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (184, 15, 3, 3, 'CE3 : la bielle', 'Vue/images/nom_du_fichier.png', 'CE3', 'Page_CE', ''),
 (185, 15, 3, 4, 'CE4: le piston', 'Vue/images/nom_du_fichier.png', 'CE4', 'Page_CE', ''),
 (186, 15, 5, 0, '&Eacute;clat&eacute;', 'Vue/images/nom_du_fichier.png', 'eclate', 'Page_éclaté', ''),
-(187, 3, 6, 0, 'Dessins de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2définition', 'Page_script', ''),
+(187, 3, 6, 0, 'Dessins de d&eacute;finition', 'Vue/images/nom_du_fichier.png', 'dessin2definition', 'Page_script', ''),
 (188, 3, 6, 1, 'socle', 'Vue/images/nom_du_fichier.png', 'socle', 'Page_dessin2définition', ''),
 (189, 3, 6, 2, 'contre-embase', 'Vue/images/nom_du_fichier.png', 'contre-embase', 'Page_dessin2définition', ''),
 (190, 3, 3, 0, 'Dessin d&apos;ensemble', 'Vue/images/nom_du_fichier.png', 'dessin_densemble', 'Page_dessin_densemble', ''),
