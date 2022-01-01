@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Mer 29 Décembre 2021 à 19:23
+-- Généré le : Sam 01 Janvier 2022 à 11:59
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -48,7 +48,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', 'PageErreur', 'erreur_serveur.php'),
 (3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PageErreur', 'erreur_serveur.php'),
 (4, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PageErreur', 'erreur_serveur.php'),
-(5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'PageDaccueil', 'home.php'),
+(5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'Index', 'home.php'),
 (6, 1, 0, 0, 'Formulaire de contact', '', 'Contact', 'PageContact', 'contact.php');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
