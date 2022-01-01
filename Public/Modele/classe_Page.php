@@ -1,4 +1,4 @@
-<?php
+<?php // classe mère de toutes les pages du dossier techniques sauf la page index
 class Page extends PEUNC\classes\Page {
 
 	public function __construct(array $TparamURL = []) {
