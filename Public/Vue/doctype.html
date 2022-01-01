@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+<!-- page par défaut de mes dossiers techniques -->
 <head>
 <?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/head.html";?>
 </head>
@@ -8,6 +9,10 @@
 <?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/header.html";?>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav>
+<?=$PAGE->AfficherMenu()?>
+</nav>
 
 <section>
 <?=$PAGE->getSection()?>
