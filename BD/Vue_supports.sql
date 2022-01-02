@@ -12,9 +12,9 @@ SELECT
 			END, nom
 		) AS du_support,
 	CONCAT(	CASE article_ID
-				WHEN 1 THEN 'du '
-				WHEN 2 THEN 'de la '
-				ELSE 'de l&apos;'
+				WHEN 1 THEN 'le '
+				WHEN 2 THEN 'la '
+				ELSE 'l&apos;'
 			END, nom
 		) AS le_support,
 	CONCAT('Supports/',dossier,'/') AS dossier,
