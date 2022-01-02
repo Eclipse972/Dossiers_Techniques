@@ -5,19 +5,9 @@ define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
 define("FICHIER",	"^[a-zA-Z][\w-]+\.?\w*$");// nom de fichier commençant obligatoirement par une lettre avec éventuellement une extension
 
 class Page_abstraite {
-	// classe servant de modèle toutes les autres
-	private $titre;	// de la page
-	// Mutateurs ----------------------------------------------------------------------------------
-	protected function Dénommer($titre) { $this->titre = $titre; }
-
-	// autres méthodes ----------------------------------------------------------------------------
-	protected function Afficher() { // code pour afficher la page
-		echo '<h1>'.$this->titre.'</h1>'."\n"; // première instruction commune à toutes les pages
-	}
-	
 	protected function Dossier() // dossier de travail de la page
 		{ return $_SESSION['support']->Dossier(); }
-	
+
 	protected function Vérifier_hydratation($nom_classe, array $Tparam, array $Tvérification, array $Tfacultatif = []) {
 	/* nom_classe:nom de la classe qui appelle la fonction
 	 * Tparam: tableau contenant les données d'hydratation
@@ -51,7 +41,7 @@ class Page_image extends Page_abstraite {
 	private $commentaire;
 	private $Audessus;
 	private $alt;
-	
+
 	public function __construct($titre, $image, $alt, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
 		$this->Dénommer($titre);
 		$dossier = $this->Dossier().'images/';
@@ -61,7 +51,7 @@ class Page_image extends Page_abstraite {
 		$this->hauteur = $hauteur;
 		$this->alt = $alt;
 	}
-	
+
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();	// affiche le titre
 		$commentaire = '<p>'.$this->commentaire."</p>\n";
@@ -87,17 +77,17 @@ class Page_association_image_fichier extends Page_abstraite {// cette classe n'e
 		parent::Afficher();	// affiche le titre
 		echo '<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>'."\n";	// message
 		echo $this->fichier->Lien($this->image->Balise($alt, 'class="association"')),"\n";
-		if (isset($commentaire)) 
+		if (isset($commentaire))
 			echo '<p style="text-align:center">',$commentaire,'</p>',"\n";	// commentaire éventuel sous l'image
 	}
 }
 /* ************************************************************************************************
  * Classes de pages prédéfines, utilisées dans le site.
  * Toutes ces classes sont hydratées à l'aide de la BD lors de la construction de l'objet
- * 
+ *
  * Utilisation: le même code quelque soit la page
  * $page = new page(Tableau contenant les paramètres) pour la création et hydratation de la page.
- * $page->Afficher() pour l'affichage sans paramètres 
+ * $page->Afficher() pour l'affichage sans paramètres
  * ************************************************************************************************
 */
 class Page_nomenclature extends Page_abstraite {
@@ -105,7 +95,7 @@ class Page_nomenclature extends Page_abstraite {
 	private $nomenclature;
 	private $colonne_matière;		// colone matière existe
 	private $colonne_observation;	// colone observation existe
-	
+
 	public function __construct(){
 		$this->Dénommer('Nomenclature');
 		$BD = new base2donnees();
@@ -113,7 +103,7 @@ class Page_nomenclature extends Page_abstraite {
 		$this->colonne_matière = !$BD->Colonne_matiere_vide();
 		$this->colonne_observation = !$BD->Colonne_observation_vide();
 
-		$this->nomenclature = $BD->Nomenclature($this->colonne_matière, $this->colonne_observation);		
+		$this->nomenclature = $BD->Nomenclature($this->colonne_matière, $this->colonne_observation);
 	}
 	public function Afficher() { // code pour afficher la page
 		parent::Afficher();
@@ -154,14 +144,14 @@ class Page_script extends Page_abstraite { // paramètre d'hydration: script
 		$this->Vérifier_hydratation('Page_script', $Tparam, ['script' => FICHIER]);
 		$this->script = $this->Dossier().$Tparam['script'].'.php';
 	}
-	
+
 	public function Afficher() {
 		if (file_exists($this->script)) {
-			/* variable pour automatiser l'écriture du dossier d'images. 
+			/* variable pour automatiser l'écriture du dossier d'images.
 			 * Il suffit d'ajouter <?=$Dossier_images?> avant le nom de l'image */
-			$Dossier_images = $this->Dossier().'images/'; 
+			$Dossier_images = $this->Dossier().'images/';
 			include $this->script;	// code pour afficher la page
-		} else {	
+		} else {
 ?>
 	<div id="page_image">
 	<h1>D&eacute;sol&eacute; !</h1>
@@ -171,7 +161,7 @@ class Page_script extends Page_abstraite { // paramètre d'hydration: script
 	</div>
 <?php
 		}
-	}	
+	}
 }
 
 class Page_dessin_densemble extends Page_association_image_fichier {
@@ -218,7 +208,7 @@ class Page_CE extends Page_association_image_fichier {
 	 * Remarque: l'extension du fichier est obligatoire car il existe des CE réduites à une pièce => extension = .EPRT
 	 * */
 	private $EstAssemblage;
-	
+
 	public function __construct($Tparam) {
 		$this->Vérifier_hydratation('Page_CE', $Tparam, ['nom_CE' => TEXTE, 'image' => FICHIER, 'extension' => TEXTE], ['fichier' => FICHIER]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']); // image et fichier doivent porter le même nom
@@ -226,7 +216,7 @@ class Page_CE extends Page_association_image_fichier {
 		$this->EstAssemblage = ($Tparam['extension'] == '.EASM');
 	}
 	public function Afficher() {
-		parent::Afficher('classe d&apos;&eacute;quivalence', ($this->EstAssemblage) ? 
+		parent::Afficher('classe d&apos;&eacute;quivalence', ($this->EstAssemblage) ?
 			'Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src="Vue/images/icone_eclater_rassembler.png" alt = "icone"> pour &eacute;clater/rassembler la maquette num&eacute;rique' :
 			'Cette classe d&apos;&eacute;quivalence est compos&eacute;e d&apos;une seule pi&egrave;ce');
 	}
@@ -235,7 +225,7 @@ class Page_CE extends Page_association_image_fichier {
 class Page_association extends Page_association_image_fichier {
 	// hydrataion: titre, image, fichier, extension (du fichier), commentaire
 	private $commentaire;
-	
+
 	public function __construct($Tparam) { // image & fichier sans extension
 		$this->Vérifier_hydratation('Page_association', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'extension' => TEXTE], ['fichier' => FICHIER, 'commentaire' => TEXTE]);
 		parent::__construct($Tparam['image'], '.png', $Tparam['fichier'], $Tparam['extension']);
@@ -264,7 +254,7 @@ class Page_image_dessous extends Page_image {
 }
 
 class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
-	/* hydrataion: 
+	/* hydrataion:
 	 * titre
 	 * courbe: image de la courbe
 	 * alt_courbe: texte alternatif
@@ -277,7 +267,7 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 	private $alt_tableau;
 	private $alt_courbe;
 	private $hauteur;
-	
+
 	public function __construct($Tparam) {
 		$this->Vérifier_hydratation('Page_courbe', $Tparam, ['titre' => TEXTE, 'courbe' => TEXTE, 'alt_courbe' => TEXTE], ['hauteur' => ENTIER, 'tableau' => TEXTE, 'alt_tableau' => TEXTE]);
 		$this->Dénommer($Tparam['titre']);
@@ -285,7 +275,7 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 		$this->courbe = new Image($Tparam['courbe'], $dossier);
 		$this->alt_courbe = $Tparam['alt_courbe'];
 		$this->hauteur = (isset($Tparam['hauteur'])) ? $Tparam['hauteur'] : 600;
-		
+
 		// variable pour le tableau
 		if (isset($Tparam['tableau'])) {
 			$this->tableau = new Image($Tparam['tableau'], $dossier);
@@ -301,5 +291,5 @@ class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sa
 		}
 	}
 }
-$T_pages_autorisées = array('Page_nomenclature', 'Page_script', 'Page_dessin_densemble', 'Page_dessin2définition', 
+$T_pages_autorisées = array('Page_nomenclature', 'Page_script', 'Page_dessin_densemble', 'Page_dessin2définition',
 			'Page_éclaté', 'Page_CE', 'Page_association', 'Page_image_dessus', 'Page_image_dessous', 'Page_courbe');
