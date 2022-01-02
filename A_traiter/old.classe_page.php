@@ -5,26 +5,6 @@ define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
 define("FICHIER",	"^[a-zA-Z][\w-]+\.?\w*$");// nom de fichier commençant obligatoirement par une lettre avec éventuellement une extension
 
 class Page_abstraite {
-	protected function Vérifier_hydratation($nom_classe, array $Tparam, array $Tvérification, array $Tfacultatif = []) {
-	/* nom_classe:nom de la classe qui appelle la fonction
-	 * Tparam: tableau contenant les données d'hydratation
-	 * Tvérification:liste des paramètres obligatoires
-	 * Tfacultatif: liste des paramètres facultatifs
-	 * */
-		$message = 'Erreur d&apos;hydratation dans '.$nom_classe.':'; // début du message d'erreur
-		foreach ($Tparam as $clé => $valeur) {	// parcours de $Tparam
-			if (isset($Tvérification[$clé]))	// clé dans la liste obligatoire
-				$pattern = $Tvérification[$clé];
-			else if (isset($Tfacultatif[$clé]))	// clé dans la liste facultative
-				$pattern = $Tfacultatif[$clé];
-			else trigger_error("$message $clé est n&apos;est pas une cl&eacute, valide", E_USER_WARNING);
-			if (!preg_match("#$pattern#", $Tparam[$clé]))	// valeur incorrecte?
-				trigger_error("$message $clé = [$valeur] est incorrect", E_USER_WARNING);
-		}
-		foreach($Tvérification as $clé => $valeur)
-			if (!isset($Tparam[$clé])) // tous les paramètres obligatoires doivent êtres présents
-				trigger_error("$message la cl&eacute; $clé est manquante", E_USER_WARNING);
-	}
 }
 
 
