@@ -22,7 +22,7 @@ class Page extends PEUNC\classes\Page {
  * ASSESSURS (GETTER)
  * ***************************/
 
-	public function getTitrePage($titre)	{ return $codeTitre; }
+	public function getTitrePage()	{ return $codeTitre; }
 
 /* ***************************
  * AUTRE
