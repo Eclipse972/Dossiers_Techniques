@@ -5,9 +5,6 @@ define("ENTIER",	"^[1-9][0-9]{0,2}$");		// un entier compris en 1 et 999
 define("FICHIER",	"^[a-zA-Z][\w-]+\.?\w*$");// nom de fichier commençant obligatoirement par une lettre avec éventuellement une extension
 
 class Page_abstraite {
-	protected function Dossier() // dossier de travail de la page
-		{ return $_SESSION['support']->Dossier(); }
-
 	protected function Vérifier_hydratation($nom_classe, array $Tparam, array $Tvérification, array $Tfacultatif = []) {
 	/* nom_classe:nom de la classe qui appelle la fonction
 	 * Tparam: tableau contenant les données d'hydratation
