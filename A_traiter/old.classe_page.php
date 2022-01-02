@@ -188,22 +188,6 @@ class Page_association extends Page_association_image_fichier {
 	}
 }
 
-class Page_image_dessus extends Page_image {
-	// hydrataion: titre, image, commentaire, hauteur
-	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessus', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'alt' => TEXTE, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
-		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['alt'], $Tparam['commentaire'], true, $Tparam['hauteur']);
-	}
-}
-
-class Page_image_dessous extends Page_image {
-	// hydrataion: titre, image, commentaire, hauteur
-	public function __construct($Tparam) {
-		$this->Vérifier_hydratation('Page_image_dessous', $Tparam, ['titre' => TEXTE, 'image' => FICHIER, 'alt' => TEXTE, 'commentaire' => TEXTE,], ['hauteur' => ENTIER]);
-		parent::__construct($Tparam['titre'], $Tparam['image'], $Tparam['alt'], $Tparam['commentaire'], false, $Tparam['hauteur']);
-	}
-}
-
 class Page_courbe extends Page_abstraite { // page contenant une courebe avec/sans tableau de valeurs
 	/* hydrataion:
 	 * titre
