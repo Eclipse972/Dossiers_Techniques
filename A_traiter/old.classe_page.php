@@ -12,32 +12,6 @@ class Page_abstraite {
  * 	classes filles non utilisées directement. Elles servent de mère à d'autres classes.
  * ************************************************************************************************
 */
-class Page_image extends Page_abstraite {
-	// cette classe n'est utilisée dans la BD
-	private $image;
-	private $commentaire;
-	private $Audessus;
-	private $alt;
-
-	public function __construct($titre, $image, $alt, $commentaire, $Audessus, $hauteur = 400) { // page composée d'une image avec un commentaire au dessus ou au dessous
-		$this->Dénommer($titre);
-		$dossier = $this->Dossier().'images/';
-		$this->image = new Image($image, $dossier);
-		$this->commentaire = $commentaire;
-		$this->Audessus = $Audessus;
-		$this->hauteur = $hauteur;
-		$this->alt = $alt;
-	}
-
-	public function Afficher() { // code pour afficher la page
-		parent::Afficher();	// affiche le titre
-		$commentaire = '<p>'.$this->commentaire."</p>\n";
-		if (!$this->Audessus) echo $commentaire;
-		echo $this->image->Balise($this->alt, 'height='.$this->hauteur.'px class=association'),"\n";
-		if ($this->Audessus) echo $commentaire;
-	}
-}
-
 class Page_association_image_fichier extends Page_abstraite {// cette classe n'est pas utilisée dans la BD
 	protected $image;	// objet image
 	protected $fichier;	// objet fichier
