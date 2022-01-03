@@ -1,6 +1,13 @@
 <?php // classe mère de toutes les pages du dossier techniques sauf la page index
 class Page extends PEUNC\classes\Page {
 	private $codeTitre;
+	// infos du support
+	private $nomSupport;
+	private $ptiNomSupport;
+	private $le_support;
+	// dossier déja défini dans la classe mère
+	private $zip;
+	private $imageSupport;
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
