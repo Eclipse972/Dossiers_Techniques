@@ -1,10 +1,13 @@
-
-DROP VIEW IF EXISTS Vue_supports;
-CREATE VIEW Vue_supports AS
+-- vue donne toutes les informations nécessaires à l'hydration de chaque objet page
+DROP VIEW IF EXISTS Vue_HydratePage;
+CREATE VIEW Vue_HydratePage AS
 SELECT
-	ID,
-	nom,
-	pti_nom AS ptiNomSupport,
+	alpha,
+	beta,
+	gamma,
+	Supports.nom,
+	Squelette.texteMenu,
+	Supports.pti_nom AS ptiNomSupport,
 	CONCAT(	CASE article_ID
 				WHEN 1 THEN 'du '
 				WHEN 2 THEN 'de la '
@@ -17,7 +20,9 @@ SELECT
 				ELSE 'l&apos;'
 			END, nom
 		) AS le_support,
-	CONCAT('Supports/',dossier,'/') AS dossier,
+	CONCAT(dossier,'/') AS dossier,
 	CONCAT('Supports/',dossier,'/fichiers/',pti_nom,'.zip') AS zip,
 	CONCAT('Supports/',dossier,'/images/',pti_nom,'.png') AS image
-FROM Supports;
+FROM Supports
+INNER JOIN Squelette ON Supports.ID = Squelette.alpha-2
+WHERE  Squelette.alpha > 1 -- alpha = 0 -> page d'accueil et alpha = 1 page de contact
