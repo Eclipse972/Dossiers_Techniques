@@ -23,7 +23,7 @@ class Page_image extends Page {
 		$this->Audessus = false;	// l'image est au dessus?
 		$this->hauteur = 400;
 		$this->alt = "image";
-		$this->setCSS(array("https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline", "commun"));
+		// pas de feuille CSS supplémentaire à déclarer
 	}
 /* ***************************
  * MUTATEURS (SETTER)

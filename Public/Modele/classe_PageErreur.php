@@ -11,6 +11,6 @@ class PageErreur extends PEUNC\classes\Erreur {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 		$this->setView("erreur.html");
-		$this->setCSS(array("https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline", "commun", "erreur"));
+		$this->setCSS(array("erreur"));
 	}
 }

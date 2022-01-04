@@ -17,7 +17,7 @@ class Page extends PEUNC\classes\Page {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 		$this->setView("doctype.html");
-		//$this->setCSS(array("https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline", "commun", "index"));
+		// pas de feuille CSS supplémentaire à déclarer
 	}
 /* ***************************
  * MUTATEURS (SETTER)

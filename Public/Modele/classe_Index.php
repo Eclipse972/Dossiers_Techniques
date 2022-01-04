@@ -9,7 +9,7 @@ class Index extends PEUNC\classes\Page {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 		$this->setView("index.html");
-		$this->setCSS(array("https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline", "commun", "index"));
+		$this->setCSS(array("index"));
 	}
 
 	public function Gerer_index($NB_colonne) {
