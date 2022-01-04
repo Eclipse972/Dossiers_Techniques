@@ -4,8 +4,9 @@ class Page extends PEUNC\classes\Page {
 	// infos du support
 	private $nomSupport;
 	private $ptiNomSupport;
+	private $du_support;
 	private $le_support;
-	// dossier déja défini dans la classe mère
+	// variable-membre dossier déja défini dans la classe mère
 	private $zip;
 	private $imageSupport;
 
