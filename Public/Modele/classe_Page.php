@@ -38,10 +38,8 @@ class Page extends PEUNC\classes\Page {
 			// sur php 5 list ne fonctionne qu'avec des indices numériques
 		}
 		else $this->nom = $this->codeTitre = $this->tiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->zip = $this->image = null;
-//
-var_dump($Thydrate[0]["image"]);var_dump($this->image);
-//
 	}
+
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
