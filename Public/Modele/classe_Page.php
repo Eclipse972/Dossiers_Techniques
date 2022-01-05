@@ -8,7 +8,6 @@ class Page extends PEUNC\classes\Page {
 	private $le_support;
 	// variable-membre dossier déja défini dans la classe mère
 	private $zip;
-	private $imageSupport;
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
@@ -34,7 +33,7 @@ class Page extends PEUNC\classes\Page {
 			$this->le_support	= $Thydrate["le_support"];
 			$this->dossier		= $Thydrate["dossier"];
 			$this->zip			= $Thydrate["zip"];
-			$this->image		= $Thydrate["image"];
+			$this->logo			= $Thydrate["logo"]; // défini dans la clsse Page de PEUNC
 			// sur php 5 list ne fonctionne qu'avec des indices numériques
 		}
 		else $this->nom = $this->codeTitre = $this->tiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->zip = $this->image = null;
