@@ -19,4 +19,4 @@ $ImageAuDessus = false;
 require"Supports/{$this->dossier}MES.php";
 
 $this->setCommentaire($texte);
-$this->setImage("/Supports/{$this->dossier}images/mes.png");
+$this->setImage("/Supports/{$this->dossier}images/{$image}");
