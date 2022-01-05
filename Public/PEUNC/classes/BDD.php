@@ -37,7 +37,7 @@ public function ResultatSQL($requete, array $T_parametre) {
  * le résultat est un tableau
  * */
  	$this->Requete($requete, $T_parametre);
-	$reponse = $this->resultat->fetchAll(PDO::FETCH_ASSOC);
+	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC);
 	$this->Fermer();
 	return $reponse;
 // réécrire la fonction PagesConnexes
