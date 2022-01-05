@@ -10,7 +10,7 @@ class Page_image extends Page {
 */
 	private $commentaire;	// texte aui accompagne l'image'
 	private $Audessus;		// booléen indiquant si le commentaire est affiché au dessus de l'image
- 	// $image déjà définie dans la classe mère
+ 	private $image;			// chemin d'accès à l'image''
  	private $hauteur;		// hauteur de l'imahe
 	private $alt;			// texte alternatif pour l'image
 
@@ -32,6 +32,8 @@ class Page_image extends Page {
 	public function setAlt($alt)				{ $this->alt = $alt; }
 
 	public function setAudessus($bool = true)	{ $this->Audessus = $bool; }
+
+	public function setImage($image)			{ $this->image = $image; }
 
 	public function setHauteur($hauteur)		{ $this->hauteur = $hauteur; }
 
