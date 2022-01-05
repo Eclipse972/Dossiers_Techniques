@@ -32,13 +32,13 @@ class Page extends PEUNC\classes\Page {
  * MUTATEURS (SETTER)
  * ***************************/
 
-	public function setTitrePage($titre = "Titre non défini")	{ $codeTitre = "<h1>{$titre}</h1>"; }
+	public function setTitrePage($titre = "Titre non défini")	{ $codeTitre = $titre; }
 
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
 
-	public function getTitrePage()	{ return $codeTitre; }
+	public function getTitrePage()	{ return "<h1>{$codeTitre}</h1>\n"; }
 
 /* ***************************
  * AUTRE
