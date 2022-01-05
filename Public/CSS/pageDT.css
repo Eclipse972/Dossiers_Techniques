@@ -49,7 +49,7 @@ nav li a {
 	border-radius:9px;
 }
 
-nav li a:hover, #item_selectionne { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
 nav ul ul {	margin: 5px; }
@@ -60,7 +60,7 @@ nav ul ul a {
 	border-radius:0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
 	font-weight:normal;
 }
-#sous_item_selectionne {font-weight:bold;}
+#gamma_actif {font-weight:bold;}
 
 nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
@@ -104,7 +104,7 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 .image_centree {
 	display: block;
 	max-width: 100%;
-	margin: 0 auto; 
+	margin: 0 auto;
 }
 .colonne { /* colonne moitié de page */
 	display: inline-block;
@@ -115,7 +115,7 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 }
 .association {
 	display: block;
-	margin: auto; 
+	margin: auto;
 }
 #page_image {
 	width:80%;
@@ -124,5 +124,5 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 #page_image img {
 	max-height: 450px;
 	display: block;
-	margin: auto; 
+	margin: auto;
 }
