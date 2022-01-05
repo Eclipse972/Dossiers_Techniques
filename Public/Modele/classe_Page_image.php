@@ -1,5 +1,5 @@
 <?php
-require"Modele/Classe_Page.php";
+require"Modele/classe_Page.php";
 
 class Page_image extends Page {
 /* Certaine pages sont composées de trois éléments:
@@ -22,8 +22,8 @@ class Page_image extends Page {
 		$this->commentaire = "image";
 		$this->Audessus = false;	// l'image est au dessus?
 		$this->hauteur = 400;
-		$this->alt = "image";
-		// pas de feuille CSS supplémentaire à déclarer
+		$this->alt = $this->codeTitre;	// défini dans le constructeur de la classe-mère
+		$this->setCSS(array("pageDT"));
 	}
 /* ***************************
  * MUTATEURS (SETTER)
@@ -34,10 +34,12 @@ class Page_image extends Page {
 	public function setAudessus($bool = true)	{ $this->Audessus = $bool; }
 
 	public function setHauteur($hauteur)		{ $this->hauteur = $hauteur; }
+
+	public function setCommentaire($code = "")	{ $this->commentaire = $code; }
  /* Le controleur a la structure suivante :
  * <?php
- * $this->setTitrePage(texte)
- * $this->setDossier(dossier associé à la page)
+ * $this->setTitrePage(texte); // si on souhaite changer la valeur par défaut créée lors de l'hydratation de la page
+ * $this->setDossier(dossier associé à la page) // idem
  * // image créée lors de la construction
  * $this->setAudessus(booléen pour indiquer où se trouve l'image. Par défaut la valeur est vraie);
  * $this->setHauteur(hauteur de l'image en px)

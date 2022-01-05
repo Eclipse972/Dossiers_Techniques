@@ -18,7 +18,7 @@ class Page extends PEUNC\classes\Page {
 		$this->setLogo("logo.png");
 		$this->setFooter("");
 		$this->setView("doctype.html");
-		// pas de feuille CSS supplémentaire à déclarer
+		$this->setCSS(array("pageDT"));
 
 		// hydratation à partir de la BD
 		$this->BD = new PEUNC\classes\BDD;
