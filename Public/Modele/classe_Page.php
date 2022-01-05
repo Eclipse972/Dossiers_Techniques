@@ -57,6 +57,8 @@ class Page extends PEUNC\classes\Page {
 
 	public function getTitrePage()	{ return "<h1>{$this->codeTitre}</h1>\n"; }
 
+	public function getDu_support()	{ return $this->du_support; }
+
 /* ***************************
  * AUTRE
  * ***************************/

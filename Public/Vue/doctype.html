@@ -6,7 +6,12 @@
 </head>
 
 <body>
-<?php	include \PEUNC\classes\Page::DOSSIER_VUE . "commun/header.html";?>
+<header>
+<div id="logo"><?=$PAGE->getLogo()?></div>
+<div id="titre">
+	<p class="font-effect-outline">Dossier technique <?=$PAGE->getDu_support()?> version test</p>
+</div>
+</header>
 
 <main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
 
