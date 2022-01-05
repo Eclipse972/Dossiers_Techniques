@@ -34,6 +34,13 @@ class Page extends PEUNC\classes\Page {
 
 	public function setTitrePage($titre = "Titre non défini")	{ $codeTitre = $titre; }
 
+/*	exemple de contrôleur:
+ *	<?php
+ *
+ *
+ */
+
+
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
