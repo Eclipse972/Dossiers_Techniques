@@ -14,14 +14,13 @@ class Page extends PEUNC\classes\Page {
 		// valeurs par défaut
 		$this->setTitle("Les dossiers techniques de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
-		$this->setLogo("logo.png");
 		$this->setFooter("");
 		$this->setView("doctype.html");
 		$this->setCSS(array("pageDT"));
 
 		// hydratation à partir de la BD
 		$this->BD = new PEUNC\classes\BDD;
-		$Thydrate = $this->BD->ResultatSQL("SELECT nom, texteMenu, ptiNomSupport, du_support, le_support, dossier, zip, image FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
+		$Thydrate = $this->BD->ResultatSQL("SELECT nom, texteMenu, ptiNomSupport, du_support, le_support, dossier, zip, logo FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
 
 		if (isset($Thydrate))
 		{
@@ -36,7 +35,7 @@ class Page extends PEUNC\classes\Page {
 			$this->logo			= $Thydrate["logo"]; // défini dans la clsse Page de PEUNC
 			// sur php 5 list ne fonctionne qu'avec des indices numériques
 		}
-		else $this->nom = $this->codeTitre = $this->tiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->zip = $this->image = null;
+		else $this->nom = $this->codeTitre = $this->tiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->zip = $this->logo = null;
 	}
 
 /* ***************************
