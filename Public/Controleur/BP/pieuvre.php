@@ -8,5 +8,5 @@ $this->setCommentaire("Fonctions du bouton-poussoir:</p>
 <li>F3 : assurer une liaison compl&egrave;te et d&eacute;montable des fils du circuit &eacute;lectrique</li>
 <li>F4 : avoir un bel aspect</li>
 </ul>");
-$this->setImage("pieuvre.png");
-$this->setImageAuDessus(true);
+$this->setImage("/Supports/BP/images/pieuvre.png");
+$this->setAuDessus(true);
