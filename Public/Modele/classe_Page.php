@@ -42,7 +42,7 @@ class Page extends PEUNC\classes\Page {
  * MUTATEURS (SETTER)
  * ***************************/
 
-	public function setTitrePage($titre = "Titre non défini")	{ $codeTitre = $titre; }
+	public function setTitrePage($titre = "Titre non défini")	{ $this->codeTitre = $titre; }
 
 /*	exemple de contrôleur:
  *	<?php
