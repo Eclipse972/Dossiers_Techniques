@@ -17,7 +17,6 @@ class Page_association extends Page {
 
 		// valeurs par défaut
 		$this->codeTitre = "Association image-fichier"; // créée dans la classe-mère
-		$this->setCSS(array("pageDT"));
 	}
 /* Le controleur a la structure suivante :
  * <?php

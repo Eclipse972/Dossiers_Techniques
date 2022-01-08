@@ -16,7 +16,6 @@ class Page extends PEUNC\classes\Page {
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
 		$this->setFooter("");
 		$this->setView("doctype.html");
-		$this->setCSS(array("pageDT"));
 
 		// hydratation à partir de la BD
 		$this->BD = new PEUNC\classes\BDD;

@@ -23,7 +23,6 @@ class Page_image extends Page {
 		$this->Audessus = false;	// l'image est au dessus?
 		$this->hauteur = 400;
 		$this->alt = $this->codeTitre;	// défini dans le constructeur de la classe-mère
-		$this->setCSS(array("pageDT"));
 	}
 /* ***************************
  * MUTATEURS (SETTER)
