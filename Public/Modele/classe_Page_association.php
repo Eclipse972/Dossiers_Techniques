@@ -9,7 +9,6 @@ class Page_association extends Page {
 
 	private $image;			// nom de l'image à afficher avec son extension
 	private $fichier;		// nom du fichier associé à l'image avec son extension
-	private $hauteur = 400;	// hauteur de l'image
 
  	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
@@ -29,8 +28,6 @@ class Page_association extends Page {
 	public function setEclate()				{ $this->codeTitre = "&Eacute;clat&eacute;"; }
 	// fin de la liste
 
-	public function setHauteur($hauteur)	{ $this->hauteur = $hauteur; }
-
 	public function SetImage($image) {	// défini l'image à afficher
 		$this->image = PEUNC\classes\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
 	}
@@ -42,11 +39,10 @@ class Page_association extends Page {
 /* Le controleur a la structure suivante :
  * <?php
  * $this->setDessinDensemble() ou $this->setEclate() ou ...
- * Remarque: cette manière de faire permet de faire planetr php en cas d'erreur de nom
+ * Remarque: cette manière de faire permet de faire planter php en cas d'erreur de nom
  *
  * this->SetImage(...)
  * this->setFichier(...)
- * facultatif: this->setHauteur(hauteur en px)
  * */
 
 /* ***************************
