@@ -19,10 +19,6 @@ class Page_association extends Page {
 		$this->codeTitre = "Association image-fichier"; // créée dans la classe-mère
 		// pas de feuille de style supplémentaire à déclarer
 	}
-/* Le controleur a la structure suivante :
- * <?php
- * $this->set
- * */
 
 /* ***************************
  * MUTATEURS (SETTER)
@@ -40,6 +36,15 @@ class Page_association extends Page {
 
 	public function setFichier($fichier) {	// défini le fichier à télécharger avec recherche d'existence du fichier
 	}
+/* Le controleur a la structure suivante :
+ * <?php
+ * $this->setDessinDensemble() ou $this->setEclate() ou ...
+ * Remarque: cette manière de faire permet de faire planetr php en cas d'erreur de nom
+ *
+ * this->SetImage(...)
+ * this->setFichier(...)
+ * facultatif: this->setHauteur(hauteur en px)
+ * */
 
 /* ***************************
  * ASSESSURS (GETTER)
