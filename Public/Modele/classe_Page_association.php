@@ -49,9 +49,9 @@ class Page_association extends Page {
  * ASSESSURS (GETTER)
  * ***************************/
 	public function getSection() { // redéfinition du code pour afficher la page
-		$code = $this->getTitrePage();
+		$code = $this->getTitrePage() . "<p style=\"text-align:center\">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>";
 		// création du lien iamge-fichier
-		$code .= "<a href={$this->fichier}>{$this->image}</a>\n<p style=\"text-align:center\">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>";
+		$code .= "<a href={$this->fichier}>{$this->image}</a>\n";
 		return $code;
 	}
 }
