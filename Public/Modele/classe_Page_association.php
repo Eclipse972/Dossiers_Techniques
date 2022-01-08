@@ -7,8 +7,8 @@ class Page_association extends Page {
  * Les fichiers sont au format edrawing de SolidWorks de préférence
  * */
 
-	private $image;			// image à afficher
-	private $fichier;		// fichier associé à l'image'
+	private $image;			// nom de l'image à afficher avec son extension
+	private $fichier;		// nom du fichier associé à l'image avec son extension
 	private $hauteur = 400;	// hauteur de l'image
 
  	public function __construct(array $TparamURL = []) {
@@ -32,9 +32,12 @@ class Page_association extends Page {
 	public function setHauteur($hauteur)	{ $this->hauteur = $hauteur; }
 
 	public function SetImage($image) {	// défini l'image à afficher
+		$this->image = PEUNC\classes\Page::BaliseImage("Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}");
 	}
 
 	public function setFichier($fichier) {	// défini le fichier à télécharger avec recherche d'existence du fichier
+		$fichier = "Supports/{$this->dossier}fichiers/{$fichier}";
+		$this->fichier = (file_exists($fichier)) ? "/" . $fichier : "#";
 	}
 /* Le controleur a la structure suivante :
  * <?php
