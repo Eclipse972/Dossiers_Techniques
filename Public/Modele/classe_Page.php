@@ -62,5 +62,8 @@ class Page extends PEUNC\classes\Page {
 /* ***************************
  * AUTRE
  * ***************************/
-
+	public function AfficherMenu() {
+		parent::AfficherMenu();
+		echo"\n<a href=/>Page d&apos;accueil</a>\n";
+	}
 }
