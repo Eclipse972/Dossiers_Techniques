@@ -32,7 +32,7 @@ class Page_association extends Page {
 	public function setHauteur($hauteur)	{ $this->hauteur = $hauteur; }
 
 	public function SetImage($image) {	// défini l'image à afficher
-		$this->image = PEUNC\classes\Page::BaliseImage("Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}");
+		$this->image = PEUNC\classes\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
 	}
 
 	public function setFichier($fichier) {	// défini le fichier à télécharger avec recherche d'existence du fichier
@@ -55,7 +55,7 @@ class Page_association extends Page {
 	public function getSection() { // redéfinition du code pour afficher la page
 		$code = $this->getTitrePage();
 		// création du lien iamge-fichier
-		$code = "<a scr={$this->fichier}>{$this->image}</a>\n<p>cliquez surl&apos;image pour t&eacute;l&eacute;charger le fichier</p>";
+		$code .= "<a href={$this->fichier}>{$this->image}</a>\n<p style=\"text-align:center\">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>";
 		return $code;
 	}
 }
