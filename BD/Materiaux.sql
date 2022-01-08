@@ -2,8 +2,8 @@
 -- version 3.1.5
 -- http://www.phpmyadmin.net
 --
--- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mer 25 Décembre 2019 à 08:51
+-- Serveur: dossier.te.ch.nique.sql.free.fr
+-- Généré le : Sam 08 Janvier 2022 à 06:25
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,28 +16,28 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: 'dossiers_techniques'
+-- Base de données: `dossier_te_ch_nique`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table 'Materiaux'
+-- Structure de la table `Materiaux`
 --
 
-CREATE TABLE Materiaux (
-  ID int(11) unsigned NOT NULL auto_increment,
-  formule varchar(99) collate latin1_general_ci NOT NULL,
-  URL_wiki text collate latin1_general_ci NOT NULL,
-  PRIMARY KEY  (ID),
-  UNIQUE KEY formule (formule)
+CREATE TABLE IF NOT EXISTS `Materiaux` (
+  `ID` int(11) unsigned NOT NULL auto_increment,
+  `formule` varchar(99) collate latin1_general_ci NOT NULL,
+  `URL_wiki` text collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `formule` (`formule`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
 
 --
--- Contenu de la table 'Materiaux'
+-- Contenu de la table `Materiaux`
 --
 
-INSERT INTO Materiaux (ID, formule, URL_wiki) VALUES
+INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (0, '', ''),
 (1, '45 Si 8', 'Acier#Aciers_faiblement_alli.C3.A9s'),
 (2, 'AU4-G', 'Dural'),
