@@ -82,7 +82,7 @@ class Page implements iPage	{
 	public function setView($fichier)	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
 			$this->vue = self::DOSSIER_VUE . $fichier;
-		else throw new Exception("Vue inexistante");
+		else throw new \Exception("Vue inexistante");
 	}
 
 /* ***************************
@@ -140,11 +140,11 @@ class Page implements iPage	{
 	public function ExecuteControleur($alpha, $beta, $gamma)	{
 		$script = $this->BD->Controleur($alpha, $beta, $gamma);
 		if($script == '')
-			throw new Exception("Controleur non d&eacute;fini");
+			throw new \Exception("Controleur non d&eacute;fini");
 		else {
 			if (file_exists(self::DOSSIER_CONTROLEUR. $script))
 				require(self::DOSSIER_CONTROLEUR . $script);
-			else throw new Exception("Controleur inexistant");
+			else throw new \Exception("Controleur inexistant");
 		}
 	}
 
