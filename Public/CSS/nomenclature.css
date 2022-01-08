@@ -1,0 +1,25 @@
+#nomenclature {
+	margin: auto;
+	border: 1px solid black;
+}
+#nomenclature thead {
+	display:block;
+	background-color: var(--couleur2);
+	height:40px;
+}
+#nomenclature tbody {
+	display:block;
+}
+#nomenclature tbody tr:nth-child(even) { background-color: var(--couleur3); }
+#nomenclature tbody tr:hover, #nomenclature tbody tr:nth-child(even):hover { background-color: var(--couleur1); } /* toutes les lignes sauf l'en tete change de couleur au passage de la souris*/
+
+#nomenclature td, #nomenclature th { padding: 3px; }
+
+/* lagreur des colonnes */
+#nomenclature thead tr th:nth-child(1), #nomenclature tbody tr td:nth-child(1) { width:40px; text-align: center; }
+#nomenclature thead tr th:nth-child(2), #nomenclature tbody tr td:nth-child(2) { width:200px; text-align: center; }
+#nomenclature thead tr th:nth-child(3), #nomenclature tbody tr td:nth-child(3) { width:350px; }
+#nomenclature thead tr th:nth-child(4), #nomenclature tbody tr td:nth-child(4) { width:200px; }
+#nomenclature thead tr th:nth-child(5), #nomenclature tbody tr td:nth-child(5) { width:200px; }
+
+#nomenclature td img { height: 90px; }
