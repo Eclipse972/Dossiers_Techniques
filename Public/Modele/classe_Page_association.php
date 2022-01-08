@@ -24,9 +24,20 @@ class Page_association extends Page {
  * ***************************/
 
 	// les différents types d'association
-	public function setDessinDensemble()	{ $this->codeTitre = "Dessin d&apos;ensemble"; }
-	public function setEclate()				{ $this->codeTitre = "&Eacute;clat&eacute;"; }
+	public function setDessinDensemble($titre = null)	{
+		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensemble";
+		$this->setTitreAssociation($valeur);
+	}
+
+	public function setEclate($titre = null)			{
+		$valeur = isset($titre) ? $titre : "&Eacute;clat&eacute;";
+		$this->setTitreAssociation($valeur);
+	}
 	// fin de la liste
+
+	public function setTitreAssociation($titre = null) {
+		$this->codeTitre = isset($titre) ? $titre : "";
+	}
 
 	public function SetImage($image) {	// défini l'image à afficher
 		$this->image = PEUNC\classes\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
