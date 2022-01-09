@@ -8,11 +8,11 @@ class Page_image extends Page {
  * un commentaire qui peut être au dessus ou en dessous de l'image.
  *
 */
-	private $commentaire;	// texte aui accompagne l'image'
-	private $Audessus;		// booléen indiquant si le commentaire est affiché au dessus de l'image
- 	private $image;			// chemin d'accès à l'image''
- 	private $hauteur;		// hauteur de l'imahe
-	private $alt;			// texte alternatif pour l'image
+	protected $commentaire;	// texte aui accompagne l'image'
+	protected $Audessus;		// booléen indiquant si le commentaire est affiché au dessus de l'image
+ 	protected $image;			// chemin d'accès à l'image''
+ 	protected $hauteur;		// hauteur de l'imahe
+	protected $alt;			// texte alternatif pour l'image
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);

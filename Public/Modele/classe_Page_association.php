@@ -7,9 +7,9 @@ class Page_association extends Page {
  * Les fichiers sont au format edrawing de SolidWorks de préférence
  * */
 
-	private $image;				// nom de l'image à afficher avec son extension
-	private $fichier;			// nom du fichier associé à l'image avec son extension
-	private $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image'
+	protected $image;				// nom de l'image à afficher avec son extension
+	protected $fichier;			// nom du fichier associé à l'image avec son extension
+	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image'
 
  	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
@@ -27,12 +27,12 @@ class Page_association extends Page {
 
 	// les différents types d'association
 	public function setDessinDensemble($titre = null)	{
-		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensemble";
+		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensembleTEST";
 		$this->setTitreAssociation($valeur);
 	}
 
-	public function setDessin2definition($titre)	{ // un titre est obligatoire
-		$this->setTitreAssociation($titre);
+	public function setDessin2definition($deLaPiece)	{ // nom de la pièce obligatoire
+		$this->setTitreAssociation("Dessin de d&eacute;finition " . $deLaPiece);
 	}
 
 	public function setEclate($titre = null)			{
