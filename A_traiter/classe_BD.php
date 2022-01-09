@@ -38,34 +38,5 @@ private function A_propos($en_texte = true) { // factorisation de Description_ma
 	$this->Fermer();
 	return $tableau;
 }
-// Nomenclature du support courant
-public function Nomenclature($matière, $observation) {
-	$tableau = null;
-	$this->Requete('SELECT * FROM Vue_nomenclature WHERE support_ID= ?', [$_SESSION['support']->Id()], 'Nomenclature');
-	while ($ligne = $this->resultat->fetch()) {
-		$ligne_nomenclature = "\t".$ligne['repere']."\n\t".$ligne['lien_image']."\n\t".$ligne['designation']."\n";
-		if ($matière)		$ligne_nomenclature .= "\t".$ligne['matiere']."\n";
-		if ($observation) 	$ligne_nomenclature .= "\t".$ligne['observation']."\n";
-		$tableau[] = $ligne_nomenclature;
-	}
-	$this->Fermer();
-	return $tableau;
-}
-
-public function Colonne_matiere_vide() {
-	$this->Requete('SELECT COUNT(*) AS nb_matiere_non_vide FROM Pieces WHERE matiere_ID > 0 AND support_ID = ?',
-					[$_SESSION['support']->Id()], 'Colonne_matiere_vide');
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_matiere_non_vide'] == 0);
-}
-
-public function Colonne_observation_vide() {
-	$this->Requete('SELECT COUNT(*) AS nb_observation_non_vide FROM Pieces WHERE observation <> \'\' AND support_ID = ?',
-					[$_SESSION['support']->Id()], 'Colonne_observation_vide');
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return ($reponse['nb_observation_non_vide'] == 0);
-}
 
 }
