@@ -31,6 +31,10 @@ class Page_association extends Page {
 		$this->setTitreAssociation($valeur);
 	}
 
+	public function setDessin2definition($titre)	{ // un titre est obligatoire
+		$this->setTitreAssociation($titre);
+	}
+
 	public function setEclate($titre = null)			{
 		$valeur = isset($titre) ? $titre : "&Eacute;clat&eacute;";
 		$this->setTitreAssociation($valeur);
