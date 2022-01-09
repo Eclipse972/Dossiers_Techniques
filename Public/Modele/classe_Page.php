@@ -10,6 +10,7 @@ class Page extends PEUNC\classes\Page {
 	protected $zip;
 
 	public function __construct(array $TparamURL = []) {
+		global $BD;
 		parent::__construct($TparamURL);
 		// valeurs par défaut
 		$this->setTitle("Les dossiers techniques de ChristopHe");
@@ -19,8 +20,8 @@ class Page extends PEUNC\classes\Page {
 		// pas de feuille de style supplémentaire à déclarer
 
 		// hydratation à partir de la BD
-		$this->BD = new PEUNC\classes\BDD;
-		$Thydrate = $this->BD->ResultatSQL("SELECT nom, texteMenu, ptiNomSupport, du_support, le_support, dossier, zip, logo FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
+		$BD = new PEUNC\classes\BDD;
+		$Thydrate = $BD->ResultatSQL("SELECT nom, texteMenu, ptiNomSupport, du_support, le_support, dossier, zip, logo FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
 
 		if (isset($Thydrate))
 		{
