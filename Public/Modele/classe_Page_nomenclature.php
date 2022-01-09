@@ -7,7 +7,7 @@ class Page_nomenclature extends Page {
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
-		//$this->setCSS(["nomenclature.css"]);
+		$this->setCSS(["nomenclature"]);
 		$this->setView("nomenclature.html");
 	}
 
