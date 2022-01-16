@@ -27,7 +27,7 @@ class Page_association extends Page {
 
 	// les différents types d'association
 	public function setDessinDensemble($titre = null)	{
-		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensembleTEST";
+		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensemble";
 		$this->setTitreAssociation($valeur);
 	}
 
