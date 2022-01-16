@@ -67,4 +67,8 @@ class Page extends PEUNC\classes\Page {
 		parent::AfficherMenu();
 		echo"\t<a href=/>Page d&apos;accueil</a>\n";
 	}
+
+	public function Apropos() {	// revoie l'URL de la page à propos de la page
+		return "#";
+	}
 }
