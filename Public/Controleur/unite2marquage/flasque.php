@@ -1,4 +1,4 @@
-<?php // MES de l'unité de marquage
+<?php // flasque de l'unité de marquage
 ob_start();	// début du code <section>
 ?>
 	<h1>Flasque</h1>
