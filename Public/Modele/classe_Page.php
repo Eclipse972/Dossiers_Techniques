@@ -15,7 +15,7 @@ class Page extends PEUNC\classes\Page {
 		// valeurs par défaut
 		$this->setTitle("Les dossiers techniques de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
-		$this->setFooter(" - <a href=\"/Contact\">Contact</a>");
+		$this->setFooter(" - <a href=/Contact>Contact</a>");
 		$this->setView("doctype.html");
 		// pas de feuille de style supplémentaire à déclarer
 

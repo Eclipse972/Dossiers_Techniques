@@ -7,7 +7,7 @@ class Index extends PEUNC\classes\Page {
 		$this->setTitle("Les dossiers techniques de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
 		$this->setLogo("logo.png");
-		$this->setFooter("");
+		$this->setFooter(" - <a href=/Contact>Contact</a>");
 		$this->setView("index.html");
 		$this->setCSS(array("index"));
 	}
