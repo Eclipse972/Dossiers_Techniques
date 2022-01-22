@@ -8,17 +8,19 @@
 <body>
 
 <header>
-	<div id="logo"><img src="/images/logo.png" alt="logo"></div>
-	<div id="titre"><p class="font-effect-outline">Formulaire de contact en construction</p></div>
+	<div id="logo"><?=$PAGE->getLogo()?></div>
+	<div id="titre"><p class="font-effect-outline">&Agrave; propos <?=$PAGE->getDu_support()?> version test</p></div>
 </header>
 
 <section>
 	<div style="width:700px; margin:auto;">
 	<p><u><b>La maquette num&eacute;rique</b></u></p>
-	<!--lien vers l'archive si elle est disponible ainsi que des info sur celle-ci-->
+	<?=$PAGE->LienZip()?>
 
 	<p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>
 	<!--liens utiles à propos du support-->
+
+	<a href=<?=$PAGE->LienRetour()?>>Retourner sur le dossier technique  <?=$PAGE->getDu_support()?></a>
 	</div>
 </section>
 
