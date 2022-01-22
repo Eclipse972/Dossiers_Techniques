@@ -14,11 +14,11 @@ class PageApropos extends Page {
 	public function LienZip() {
 		global $BD;
 		if (file_exists($this->zip)) {
-			$code = "<a href=/{$this->zip}>Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique</a>\n";
+			$code = "<a href=/{$this->zip}>Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique</a>";
 			// infos sur l'archive
 			$code .= "\t<p>pas d&apos;infos particuli&egrave;re</p>";
-		} else $code = "<p>Archive zip non disponible</p>\n";
-		return $code;
+		} else $code = "<p>Archive zip non disponible</p>";
+		return $code . "\n";
 	}
 
 	public function LienRetour() { return "/" . $this->dossier . "MES"; }
