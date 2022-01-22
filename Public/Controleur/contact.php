@@ -1,0 +1,1 @@
+<?php	// préparaton du formulaire
