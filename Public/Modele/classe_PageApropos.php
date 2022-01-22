@@ -3,20 +3,37 @@ require"Modele/classe_Page.php";
 
 class PageApropos extends Page {
 	private $zip;
+	private $descriptionZipHTML;
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
 		$this->setView("Apropos.html");
 		// pas de feuille de style supplémentaire autre que commun.css chargé par la vue
 		$this->zip = "Supports/" . $this->dossier . "fichiers/" . $this->ptiNomSupport . ".zip";
+		$this->descriptionZipHTML = null;
 	}
+/* ***************************
+ * MUTATEURS (SETTER)
+ * ***************************/
+	public function setDescriptionZip($codeHTML) { $this->descriptionZipHTML = $codeHTML; }
+
+/* ***************************
+ * ASSESSURS (GETTER)
+ * ***************************/
+	public function getDescriptionZip() {
+		if (file_exists($this->zip))
+			$code = isset($this->descriptionZipHTML) ? $this->descriptionZipHTML : "\t<p>la maquette comporte une configuration &eacute;clat&eacute; et le dessin d&apos;ensemble</p>";
+		else $code = "";
+		return $code . "\n";
+	}
+/* ***************************
+ * AUTRE
+ * ***************************/
 
 	public function LienZip() {
 		global $BD;
 		if (file_exists($this->zip)) {
 			$code = "<a href=/{$this->zip}>Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique</a>";
-			// infos sur l'archive
-			$code .= "\t<p>pas d&apos;infos particuli&egrave;re</p>";
 		} else $code = "<p>Archive zip non disponible</p>";
 		return $code . "\n";
 	}
