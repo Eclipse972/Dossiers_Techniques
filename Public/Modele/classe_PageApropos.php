@@ -18,7 +18,7 @@ class PageApropos extends Page {
 	public function setDescriptionZip($codeHTML) { $this->descriptionZipHTML = $codeHTML; }
 	public function setZip($fichierZip) {
 		$fichier = "Supports/" . $this->dossier . "fichiers/" . $fichierZip . ".zip";
-		$this->zip = file_exists($fichier) ? $fichier : null:
+		$this->zip = file_exists($fichier) ? $fichier : null;
 	}
 
 /* ***************************
