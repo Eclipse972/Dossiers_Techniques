@@ -7,7 +7,6 @@ class Page extends PEUNC\classes\Page {
 	protected $du_support;
 	protected $le_support;
 	// variable-membre dossier déja défini dans la classe mère
-	protected $zip;
 
 	public function __construct(array $TparamURL = []) {
 		global $BD;
@@ -32,7 +31,6 @@ class Page extends PEUNC\classes\Page {
 			$this->du_support	= $Thydrate["du_support"];
 			$this->le_support	= $Thydrate["le_support"];
 			$this->dossier		= $Thydrate["dossier"];
-			$this->zip			= $Thydrate["zip"];
 			$this->logo			= $Thydrate["logo"]; // défini dans la clsse Page de PEUNC
 			// sur php 5 list ne fonctionne qu'avec des indices numériques
 		}

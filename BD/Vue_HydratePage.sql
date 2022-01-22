@@ -21,7 +21,6 @@ SELECT
 			END, nom
 		) AS le_support,
 	CONCAT(dossier,'/') AS dossier,
-	CONCAT('/Supports/',dossier,'/fichiers/',pti_nom,'.zip') AS zip,
 	CONCAT('/Supports/',dossier,'/images/',pti_nom,'.png') AS logo
 FROM Supports
 INNER JOIN Squelette ON Supports.ID = Squelette.alpha-2
