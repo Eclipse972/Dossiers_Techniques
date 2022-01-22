@@ -9,13 +9,17 @@ class PageApropos extends Page {
 		parent::__construct($TparamURL);
 		$this->setView("Apropos.html");
 		// pas de feuille de style supplémentaire autre que commun.css chargé par la vue
-		$this->zip = "Supports/" . $this->dossier . "fichiers/" . $this->ptiNomSupport . ".zip";
+		$this->zip = "Supports/" . $this->dossier . "fichiers/" . $this->ptiNomSupport . ".zip"; // nom par défaut
 		$this->descriptionZipHTML = null;
 	}
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
 	public function setDescriptionZip($codeHTML) { $this->descriptionZipHTML = $codeHTML; }
+	public function setZip($fichierZip) {
+		$fichier = "Supports/" . $this->dossier . "fichiers/" . $fichierZip . ".zip";
+		$this->zip = file_exists($fichier) ? $fichier : null:
+	}
 
 /* ***************************
  * ASSESSURS (GETTER)
@@ -31,7 +35,6 @@ class PageApropos extends Page {
  * ***************************/
 
 	public function LienZip() {
-		global $BD;
 		if (file_exists($this->zip)) {
 			$code = "<a href=/{$this->zip}>Cliquez ici pour t&eacute;l&eacute;charger l&apos;archive ZIP de la maquette num&eacute;rique</a>";
 		} else $code = "<p>Archive zip non disponible</p>";
