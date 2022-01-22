@@ -20,7 +20,7 @@ class Page extends PEUNC\classes\Page {
 
 		// hydratation à partir de la BD
 		$BD = new PEUNC\classes\BDD;
-		$Thydrate = $BD->ResultatSQL("SELECT nom, texteMenu, ptiNomSupport, du_support, le_support, dossier, logo FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
+		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
 
 		if (isset($Thydrate))
 		{
