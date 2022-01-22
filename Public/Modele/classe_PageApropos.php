@@ -8,5 +8,6 @@ class PageApropos extends Page {
 		global $BD;
 		parent::__construct($TparamURL);
 		$this->setView("Apropos.html");
+		// pas de feuille de style supplémentaire autre que commun.css chargé par la vue
 	}
 }
