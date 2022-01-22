@@ -15,7 +15,10 @@
 <section>
 	<div style="width:700px; margin:auto;">
 	<p><u><b>La maquette num&eacute;rique</b></u></p>
-	<?=$PAGE->LienZip()?>
+	<?php
+		echo $PAGE->LienZip();
+		echo $PAGE->getDescriptionZip();
+	?>
 
 	<p><u><b>Liens (ouverture dans un nouvel onglet)</b></u></p>
 	<!--liens utiles à propos du support-->
