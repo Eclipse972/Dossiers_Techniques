@@ -1,1 +1,1 @@
-<?php	// préparaton du formulaire
+<?php	// préparation du formulaire
