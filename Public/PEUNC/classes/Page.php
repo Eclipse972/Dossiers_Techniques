@@ -124,10 +124,10 @@ class Page implements iPage	{
 	public function getParamURL($i = 0)	{
 		return (isset($this->T_paramURL[$i])) ? $this->T_paramURL[$i] : null;
 	}
-
 /* ***************************
- * AUTRE
+ * méthodes statiques
  * ***************************/
+
 	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
 		if(substr($src,0,4) != 'http')	{	// fichier interne?
 			//		chemin absolu?				suppression de / au début		ajout dossier image
@@ -136,6 +136,22 @@ class Page implements iPage	{
 		}
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
+
+	public static function SauvegardeEtat() {
+		if (isset($_SESSION['alpha']))		// défini => une page a été consultée
+		{
+			if ($_SESSION['alpha'] >= 0)	// cette page est une des pages du site
+					$T_etatPrecedent = [$_SESSION['alpha'],			$_SESSION['beta'],			$_SESSION['gamma']];			// sauvegarde état actuel
+			else	$T_etatPrecedent = [$_SESSION['alphaPrecedent'],$_SESSION['betaPrecedent'],	$_SESSION['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
+		}
+		else		$T_etatPrecedent = [	0,							0,							0];							// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
+
+		list($_SESSION['alphaPrecedent'], $_SESSION['betaPrecedent'], $_SESSION['gammaPrecedent']) = $T_etatPrecedent;
+	}
+
+/* ***************************
+ * AUTRE
+ * ***************************/
 
 	public function ExecuteControleur($alpha, $beta, $gamma)	{
 		$script = $this->BD->Controleur($alpha, $beta, $gamma);
