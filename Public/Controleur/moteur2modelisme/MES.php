@@ -12,7 +12,7 @@ ob_start();	// début du code <section>
 	<li>Poids :	256 grammes</li>
 	<li>H&eacute;lice recommand&eacute;e : 10 x 5 ou 10 x 5,5</li>
 	<li>Prix : 80 €uros TTC</li>
-	<li>Carburant : M&eacute;lange de m&eacute;thanol, nytrom&eacute;thane et de synth&egrave;se ou de ricin</li>
+	<li>Carburant : M&eacute;lange de m&eacute;thanol, nytrom&eacute;thane et d&apos;huile synth&egrave;se ou de ricin</li>
 	<li>Allumage : Bougie Glow-Plug port&eacute;e au rouge par une tension de 1,5V lors du d&eacute;marrage</li>
 	</ul>
 </div>
