@@ -18,6 +18,17 @@ require 'PEUNC/classes/BDD.php';
 
 // classes utilisateur
 
+// dernière page consultée
+if (isset($_SESSION['alpha']))									// défini => une page a été consultée
+{
+	if (($_SESSION['alpha'] > 1) || ($_SESSION['alpha'] == 0))	// cette page est celle d'un support ou la page d'accueil
+			$T_etatPrecedent = [$_SESSION['alpha'],			$_SESSION['beta'],			$_SESSION['gamma']];			// sauvegarde état actuel
+	else	$T_etatPrecedent = [$_SESSION['alphaPrecedent'],$_SESSION['betaPrecedent'],	$_SESSION['gammaPrecedent']];	// l'état précédent reste le même pour toutes les autres pages (contact, erreur, ...)
+}
+else		$T_etatPrecedent = [	0,							0,							0];							// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
+
+list($_SESSION['alphaPrecedent'], $_SESSION['betaPrecedent'], $_SESSION['gammaPrecedent']) = $T_etatPrecedent;
+
 try
 {
 	$BD = new PEUNC\classes\BDD;
