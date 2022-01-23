@@ -7,4 +7,7 @@ class PageContact extends PEUNC\classes\Contact {
 		$this->setView("formulaire.html");
 	}
 
+	public function LienRetour() {
+		return "/";
+	}
 }
