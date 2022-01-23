@@ -54,7 +54,7 @@ class Page_image extends Page {
 	public function getSection() { // redéfinition du code pour afficher la page
 		$code = $this->getTitrePage();
 		$commentaire = "<p>{$this->commentaire}</p>\n";
-		$image = \PEUNC\classes\Page::BaliseImage($this->image, $this->alt, "height={$this->hauteur}px class=association");
+		$image = \PEUNC\Page::BaliseImage($this->image, $this->alt, "height={$this->hauteur}px class=association");
 		$code .= ($this->Audessus) ? $image . $commentaire : $commentaire . $image;
 		return $code;
 	}

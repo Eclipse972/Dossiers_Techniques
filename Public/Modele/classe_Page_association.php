@@ -47,7 +47,7 @@ class Page_association extends Page {
 	}
 
 	public function SetImage($image) {	// défini l'image à afficher
-		$this->image = PEUNC\classes\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
+		$this->image = PEUNC\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
 	}
 
 	public function setFichier($fichier) {	// défini le fichier à télécharger avec recherche d'existence du fichier

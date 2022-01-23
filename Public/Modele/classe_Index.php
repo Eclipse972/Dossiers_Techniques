@@ -1,5 +1,5 @@
 <?php
-class Index extends PEUNC\classes\Page {
+class Index extends PEUNC\Page {
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);

@@ -1,6 +1,6 @@
 <?php
 // BDD de PEUNC
-namespace PEUNC\classes;
+namespace PEUNC;
 
 class BDD {
 protected $resultat;
@@ -37,7 +37,7 @@ public function ResultatSQL($requete, array $T_parametre) {
  * le résultat est un tableau
  * */
  	$this->Requete($requete, $T_parametre);
-	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC); // \PDO pour sortir du namespace PEUNC\classes
+	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC); // \PDO pour sortir du namespace PEUNC
 	$this->Fermer();
 	return $reponse;
 // réécrire la fonction PagesConnexes
@@ -93,7 +93,7 @@ public function Liste_niveau($alpha = null, $beta = null) {
 	while ($ligne = $this->resultat->fetch()) {
 		$i = $ligne['i'];
 		$tableau[$i] = '<a href="' . $ligne['URL'] . '">';
-		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\classes\Page::BaliseImage($ligne['image'], $ligne['texte']);
+		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\Page::BaliseImage($ligne['image'], $ligne['texte']);
 		$tableau[$i] .= $ligne['texte'] . '</a>';
 	}
 	$this->Fermer();

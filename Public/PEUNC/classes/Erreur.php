@@ -6,7 +6,7 @@
  * Il y a de fortes chances que votre classe pour vos pages d'erreur hérite d'une de vos classes. Du coup l'héritage multiple serait le bienvenu.
  * Il est posible de profiter des méthodes de la classe Erreur de PEUNC avec la méthode magique __call.
  * 1- dans votre classe ajouter: protected $OErreur;
- * 2- dans votre constructeur ajouter: $this->OErreur = new \PEUNC\classes\Erreur;
+ * 2- dans votre constructeur ajouter: $this->OErreur = new \PEUNC\Erreur;
  * 3- création de la méthode magique
  * public function __call($methode,$argument)	{
  *		return $this->OErreur->$methode($argument);
@@ -14,7 +14,7 @@
  * Une condition à respecter impérativement: aucune de vos méthode s ne doit porter le même nom que celle de la classe Erreur de PEUNC
  * */
 
-namespace PEUNC\classes;
+namespace PEUNC;
 
 class Erreur extends Page {
 	protected $code;

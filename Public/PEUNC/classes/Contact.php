@@ -1,6 +1,6 @@
 <?php
 // classes page de contact de PEUNC
-namespace PEUNC\classes;
+namespace PEUNC;
 
 class Contact extends Page {
 	public function __construct() {

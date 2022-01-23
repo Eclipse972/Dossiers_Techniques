@@ -1,5 +1,5 @@
 <?php // classe mère de toutes les pages du dossier techniques sauf la page index
-class Page extends PEUNC\classes\Page {
+class Page extends PEUNC\Page {
 	protected $codeTitre;
 	// infos du support
 	protected $nomSupport;
@@ -19,7 +19,7 @@ class Page extends PEUNC\classes\Page {
 		// pas de feuille de style supplémentaire à déclarer
 
 		// hydratation à partir de la BD
-		$BD = new PEUNC\classes\BDD;
+		$BD = new PEUNC\BDD;
 		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
 
 		if (isset($Thydrate))

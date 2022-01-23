@@ -1,7 +1,7 @@
 <?php
 require"PEUNC/classes/Erreur.php";
 
-class PageErreur extends PEUNC\classes\Erreur {
+class PageErreur extends PEUNC\Erreur {
 
 	public function __construct(array $TparamURL = []) {
 		parent::__construct($TparamURL);
