@@ -18,9 +18,6 @@ require 'PEUNC/classes/BDD.php';
 
 // classes utilisateur
 
-// sauvegarde de l'état courant
-PEUNC\classes\SauvegardeEtat();
-
 try
 {
 	$BD = new PEUNC\classes\BDD;
@@ -28,25 +25,29 @@ try
 	switch($codeRedirecion) {	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
 		case 403:	// accès interdit
 		case 500:	// erreur serveur
-			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, $codeRedirecion, 0];	break;
+			list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = [-1, $codeRedirecion, 0];	break;
 		case 200:	// le script est lancé sans redirection => page d'accueil
-			$_SESSION['alpha'] = $_SESSION['beta'] = $_SESSION['gamma']	= 0;
+			$ALPHA_PEUNC = $BETA_PEUNC = $GAMMA_PEUNC	= 0;
 			break;
 		case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 			list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
 			if(isset($problem))	throw new Exception("format URL incorrect");
-			list($alpha, $beta, $gamma) = $BD->CherchePosition($URL);	// compare avec toutes les URL valides du site
-			if (isset($alpha))	{	// adresse valide, on ne touche à rien
+			list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = $BD->CherchePosition($URL);	// compare avec toutes les URL valides du site
+			if (isset($ALPHA_PEUNC))	{	// adresse valide, on ne touche à rien
 				header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
-				list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$alpha, $beta, $gamma];	// $_SESSION = array('alpha' => $alpha, 'beta' = $beta, 'gamma' => $gamma) détruirait les autres éventuels paramètres
-			} else	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 404, 0];	// l'adresse invalide reste affichée dans la barre d'adresse'
+			} else	list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = [-1, 404, 0];	// l'adresse invalide reste affichée dans la barre d'adresse'
 			break;
 		default:
-			list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [-1, 0, 0];	// erreur inconnue
+			list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = [-1, 0, 0];	// erreur inconnue
 	}
 
-	$classePage = $BD->ClassePage($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
-	if (!isset($classePage))	throw new Exception("La classe {$classePage} n&apos;est pas d&eacute;finie dans le squelette.");
+	$classePage = $BD->ClassePage($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC);
+	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+
+	if ($classePage != "PageContact")	PEUNC\classes\Page::SauvegardeEtat();			// sauvegarde conditionnelle de l'état courant
+	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC];// MAJ de l'état'
+	// $_SESSION = array('alpha' => $ALPHA_PEUNC, 'beta' = $BETA_PEUNC, 'gamma' => $GAMMA_PEUNC) détruirait les autres éventuels paramètres stockés dans la sesion
+
 	require"Modele/classe_{$classePage}.php";
 	$PAGE = new $classePage(explode("/", $paramPage));
 	$PAGE->ExecuteControleur($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']);
@@ -57,7 +58,7 @@ catch(Exception $e)
 	$PAGE = new PageErreur;
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
-	$PAGE->setCorpsErreur("<p>Noeud {$_SESSION['alpha']} - {$_SESSION['beta']} - {$_SESSION['gamma']}</p>");
+	$PAGE->setCorpsErreur("<p>Noeud {$ALPHA_PEUNC} - {$BETA_PEUNC} - {$GAMMA_PEUNC}</p>");
 }
 
 include $PAGE->getView(); // insertion de la vue
