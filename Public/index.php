@@ -44,7 +44,7 @@ try
 	$classePage = $BD->ClassePage($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC);
 	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
-	if ($classePage != "PageContact")	PEUNC\Page::SauvegardeEtat();			// sauvegarde conditionnelle de l'état courant
+	PEUNC\Page::SauvegardeEtat();	// sauvegarde de l'état courant
 	list($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']) = [$ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC];// MAJ de l'état'
 	// $_SESSION = array('alpha' => $ALPHA_PEUNC, 'beta' = $BETA_PEUNC, 'gamma' => $GAMMA_PEUNC) détruirait les autres éventuels paramètres stockés dans la sesion
 
