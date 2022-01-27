@@ -23,7 +23,7 @@ class Index extends PEUNC\Page {
 			if($No_colonne==$NB_colonne-1) $code .= '</tr>'."\n";	// fin de ligne si dernière colonne atteinte
 		}
 		// si en sortie on s'arrete sur une colonne autre que la dernière
-		if($No_colonne!=$NB_colonne-1) $code .= "\t</tr>\n"; // on termine la ligne
+		if($No_colonne!=$NB_colonne-1) $code .= "</tr>\n"; // on termine la ligne
 		return $code;
 	}
 }
