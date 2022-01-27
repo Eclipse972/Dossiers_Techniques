@@ -17,7 +17,7 @@ SELECT
 		'<td>',
 		if((Materiaux.URL_wiki = ''),
 			Materiaux.formule,
-			CONCAT('<a href="https://fr.wikipedia.org/wiki/',Materiaux.URL_wiki,'" target="_blank">',Materiaux.formule,'</a>')),
+			CONCAT('<a href="https://fr.wikipedia.org/wiki/',Materiaux.URL_wiki,'" target="_blank" title="Que dit Wikip&eacute;dia?">',Materiaux.formule,'</a>')),
 		'</td>') AS matiere,
 	CONCAT('<td>',Pieces.observation,'</td>') AS observation
 FROM Supports
