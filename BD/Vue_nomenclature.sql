@@ -5,7 +5,7 @@ SELECT
 	CONCAT('<td>',Pieces.repere,'</td>') AS repere,
 	CONCAT(
 		'<td><a href="/Supports/',Supports.dossier,'/fichiers/',Pieces.fichier,if((Pieces.assemblage = 0),'.EPRT','.EASM'),
-		'"><img src="/Supports/',Supports.dossier,'/images/',Pieces.fichier,'.png" alt="',Pieces.nom,'"></a>','</td>') AS lien_image,
+		'" title="T&eacute;l&eacute;charger le fichier eDrawing"><img src="/Supports/',Supports.dossier,'/images/',Pieces.fichier,'.png" alt="',Pieces.nom,'"></a>','</td>') AS lien_image,
 	CONCAT(
 		'<td>',
 		Pieces.nom,

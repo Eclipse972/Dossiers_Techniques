@@ -72,7 +72,7 @@ class Page_association extends Page {
 	public function getSection() { // redéfinition du code pour afficher la page
 		return	$this->getTitrePage()	// titre de la page
 			.	"<p style=\"text-align:center\">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>\n"	// insctruction
-			.	"<a href=\"{$this->fichier}\">{$this->image}</a>\n"					// image est un lien
+			.	"<a href=\"{$this->fichier}\" title=\"T&eacute;l&eacute;charger le fichier\">{$this->image}</a>\n"	// image est un lien avec un commentaire
 			.	(isset($this->commentaireHTML) ? $this->commentaireHTML : "");	// éventuel commentaire sous l'image
 	}
 }
