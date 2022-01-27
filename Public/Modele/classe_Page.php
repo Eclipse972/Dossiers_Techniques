@@ -24,7 +24,6 @@ class Page extends PEUNC\Page {
 
 		if (isset($Thydrate))
 		{
-			$Thydrate = $Thydrate[0]; // car le tableau ne contient qu'une seule ligne
 			$this->nom			= $Thydrate["nom"];
 			$this->codeTitre	= $Thydrate["texteMenu"];
 			$this->ptiNomSupport= $Thydrate["ptiNomSupport"];
@@ -69,6 +68,6 @@ class Page extends PEUNC\Page {
 	public function Apropos() {	// renvoie l'URL de la page à propos de la page
 		global $BD;
 		$Treponse = $BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($_SESSION['alpha']));
-		return $Treponse[0]["URL"];
+		return $Treponse["URL"];
 	}
 }
