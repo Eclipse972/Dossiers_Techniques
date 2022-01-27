@@ -26,9 +26,12 @@ interface iPage	{
 	public function setView($fichier);			// définit le chemin de la vue
 	public function setDossier($dossier);		// défini le dossier associé à la page
 
-// Autre
+// méthodes statiques
 	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
 	public static function SauvegardeEtat();					// sauvegarde l'état courant dans la session
+
+// Autre
 	public function ExecuteControleur($alpha, $beta, $gamma);	// execute le controleur à partir de la position
 	public function AfficherOnglets();							// affiche les onglets sur un intervalle alpha. Permet par exemple d'ignorer la page de contact
+	public function AfficherMenu();								// affiche le menu les niveaux beta et gamma pour un alpha donné
 }
