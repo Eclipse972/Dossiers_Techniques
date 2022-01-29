@@ -6,9 +6,11 @@ require "PEUNC/classes/CodeValidation.php";
 
 class Contact extends Page {
 	protected $ObjValidation;
+	protected $top_départ;	// moment où est affiché le formulaire
 
 	public function __construct() {
 		parent::__construct();
+		$this->top_départ = time();
 		$this->ObjValidation = new CodeValidation;
 	}
 /*
