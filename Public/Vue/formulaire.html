@@ -13,28 +13,17 @@
 </header>
 
 <section>
-	<form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
-		<p><?=$PAGE->ErreurNom()?>		Nom :		<input type="text" name="nom"		value="<?=$PAGE->NomParDefaut()?>" /></p>
-		<p><?=$PAGE->ErreurCourrie()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
-		<p><?=$PAGE->ErreurObjet()?>	Objet :		<input type="text" name="objet"		placeholder="<?=$PAGE->ObjetParDefaut()?>" /></p>
-		<p><?=$PAGE->ErreurMessage()?>	Message :	<textarea name="message" rows="6"></textarea></p>
+<form method="post" action="Controleur/traitement_formulaire.php" id=formulaire>
+	<p><?=$PAGE->ErreurNom()?>		Nom :		<input type="text" name="nom"		value="<?=$PAGE->NomParDefaut()?>" /></p>
+	<p><?=$PAGE->ErreurCourrie()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
+	<p><?=$PAGE->ErreurObjet()?>	Objet :		<input type="text" name="objet"		placeholder="<?=$PAGE->ObjetParDefaut()?>" /></p>
+	<p><?=$PAGE->ErreurMessage()?>	Message :	<textarea name="message" rows="6"></textarea></p>
 
-		<div id=validation>
-			<p>Validation du formulaire</p>
-			<ul>
-				<li>premier caractère</li>
-				<li>deuxième caractère</li>
-				<li>troisième caractère</li>
-				<li>quatrième caractère</li>
-				<li>dernier caractère</li>
-			</ul>
-			<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-		</div>
-		<p style="text-align:center;">
-			<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
-			<a href=<?=$PAGE->URLprecedente()?>>Page pr&eacute;c&eacute;dente</a>
-		</p>
-	</form>
+	<p style="text-align:center;">
+		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
+		<a href=<?=$PAGE->URLprecedente()?>>Page pr&eacute;c&eacute;dente</a>
+	</p>
+</form>
 </section>
 
 <footer>
