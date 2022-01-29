@@ -26,19 +26,9 @@ class CodeValidation {
 	}
 
 	public function Afficher() {
-?>
-	<div id=validation>
-		<p>Validation du formulaire</p>
-		<ul>
-			<li>premier caractère</li>
-			<li>deuxième caractère</li>
-			<li>troisième caractère</li>
-			<li>quatrième caractère</li>
-			<li>dernier caractère</li>
-		</ul>
-		<p>Code	<input type="text" name="code" style="width:100px;" /></p>
-	</div>
-<?php
+		$code = "<div id=validation>\n\t\t<p>Validation du formulaire</p>\n\t\t<ul>\n";
+		for($i=0; $i<5; $i++)	$code .= "\t\t\t<li>caractère</li>\n";
+		return $code . "\t\t</ul>\n\t\t<p>Code <input type=\"text\" name=\"code\" style=\"width:100px;\" /></p>\n\t</div>\n";
 	}
 
 	public function CodeOK($nom, $courriel, $objet, $message) {
