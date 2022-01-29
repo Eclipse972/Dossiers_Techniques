@@ -2,58 +2,31 @@
 // classes page de contact de PEUNC
 namespace PEUNC;
 
-// les réponses du formulaire
-protected $nom;
-protected $courriel;
-protected $objet;
-protected $message;
-protected $code;
-// erreurs sur les champs
-protected $Erreur_nom;
-protected $Erreur_courriel;
-protected $Erreur_objet;
-protected $Erreur_message;
-
-protected $spam_détecté; // tentative de spam détectée
-
-/*
- * Le code de validation est un mot de 5 caractères composé d'une lettre de chaque champ (soit 4 lettres).
- * Pour le choix du caractère il y a quatre possibilités: premier, deuxième, avant dernier et dernier
- * la dernière lettre est une des 4 premières du code.
- *
- * Exemple de validation:
- * 	deuxième caractère de l'objet
- * 	avant dernier caractère du message
- *  deuxième caractère de votre courriel
- *  dernier caractère de votre nom
- *  quatrième caractère de ce code de validation
- * Si les champs sont :
- * 		nom =  Eclipse972
- * 		courriel = christophe.hervi@free.fr
- * 		objet = Question
- * 		message = Pourquoi un code si compliqué?
- * Le code de validation sera uéh22
-*/
-
-// variables nécessaires à la création du code de validation
-protected $T_id_champ;	// tableau contenant les numéros de champ
-protected $T_choix;		// tableau contenant les positions demandées
-protected $dernier_choix; // dernière instruction: position du caractère du code de validation
-protected $top_départ;	// moment où est affiché le formulaire
-
 class Contact extends Page {
+	protected $ObjValidation;
+
 	public function __construct() {
 		parent::__construct();
 	}
-
-	public function PrepareFormulaireContact() {
-	}
+/*
+ * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["formulaire"]["données"]
+ * données =...
+ * nom: sauvegardé s'il a été défini auparant. Remplissaged'un formulaire dans la même session
+ * courriel: idem
+ * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
+ * */
 
 	public function TraiteFormulaireContact()	{
 	}
 
-	public function Afficher_validation()	{
-		for($i=0;$i<5;$i++)	echo "\n\t\t\t<li>critère</li>";
-		echo "\n";
-	}
+	// Erreurs sur les clamps =========================================================
+	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
+	public function ErreurCourrie() { return $_SESSION["formulaire"]["ErreurCourrie"]	? "Courriel invalide<br>" : ""; }
+	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
+	public function ErreurMessage() { return $_SESSION["formulaire"]["ErreurObjet"]		? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
+
+	// valeur par défaut des champs ===================================================
+	public function NomParDefaut()		{ return $_SESSION["formulaire"]["nom"]; }
+	public function CourrielParDefaut()	{ return $_SESSION["formulaire"]["courriel"]; }
+	public function ObjetParDefaut()	{ return $_SESSION["formulaire"]["objet"]; }
 }
