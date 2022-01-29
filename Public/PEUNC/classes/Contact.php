@@ -10,7 +10,7 @@ class Contact extends Page {
 
 	public function __construct() {
 		parent::__construct();
-		$this->top_départ = time();
+
 		$this->ObjValidation = new CodeValidation;
 	}
 /*
@@ -21,6 +21,12 @@ class Contact extends Page {
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
  * */
 
+// SETTERS ==============================================================================
+	public function setTopDepart() { $this->top_départ = time(); }
+// GETTERS ==============================================================================
+	public function getTopDepart() { return $this->top_départ; }
+
+// AUTRES ==============================================================================
 	public function AfficherCodeValidation() { return $this->ObjValidation->Afficher(); }
 
 	public function TraiteFormulaireContact()	{
