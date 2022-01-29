@@ -34,4 +34,5 @@ class Contact extends Page {
 	public function NomParDefaut()		{ return $_SESSION["formulaire"]["nom"]; }
 	public function CourrielParDefaut()	{ return $_SESSION["formulaire"]["courriel"]; }
 	public function ObjetParDefaut()	{ return $_SESSION["formulaire"]["objet"]; }
+	public function MessageParDefaut()	{ return $_SESSION["formulaire"]["message"]; }
 }
