@@ -2,11 +2,14 @@
 // classes page de contact de PEUNC
 namespace PEUNC;
 
+require "PEUNC/clases.CodeValidation.php";
+
 class Contact extends Page {
 	protected $ObjValidation;
 
 	public function __construct() {
 		parent::__construct();
+		$this->ObjValidation = new CodeValidation;
 	}
 /*
  * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["formulaire"]["données"]
