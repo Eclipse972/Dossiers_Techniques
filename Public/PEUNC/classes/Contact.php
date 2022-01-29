@@ -2,7 +2,7 @@
 // classes page de contact de PEUNC
 namespace PEUNC;
 
-require "PEUNC/clases.CodeValidation.php";
+require "PEUNC/classes/CodeValidation.php";
 
 class Contact extends Page {
 	protected $ObjValidation;
@@ -18,6 +18,8 @@ class Contact extends Page {
  * courriel: idem
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
  * */
+
+	public function AfficherCodeValidation() { return $this->ObjValidation->Afficher(); }
 
 	public function TraiteFormulaireContact()	{
 	}
