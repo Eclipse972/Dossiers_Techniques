@@ -27,7 +27,12 @@ try
 		case 500:	// erreur serveur
 			list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = [-1, $codeRedirecion, 0];	break;
 		case 200:	// le script est lancé sans redirection => page d'accueil
-			$ALPHA_PEUNC = $BETA_PEUNC = $GAMMA_PEUNC	= 0;
+			if empty($_POST) {
+				$ALPHA_PEUNC = 0;
+			} else {
+				$ALPHA_PEUNC = -2;
+			}
+			$BETA_PEUNC = $GAMMA_PEUNC	= 0;
 			break;
 		case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 			list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
