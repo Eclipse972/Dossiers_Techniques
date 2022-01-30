@@ -3,6 +3,10 @@
  * Il est apparement obligatoire de passez par un script réel
  * */
 session_start();
+if (time() - $_SESSION["formulaire"]["TopDépart"] < 8 ) { // trop rapide pour être humain
+	header("Location:/"); // Redirection
+	exit;
+}
 // lecture du tableau $_POST
 foreach ($_POST as $clé => $valeur)
 	if (in_array($clé, array("nom", "courriel", "objet", "message", "code"))) // clé autorisée ?

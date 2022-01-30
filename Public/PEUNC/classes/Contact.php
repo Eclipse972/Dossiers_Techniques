@@ -5,7 +5,6 @@ namespace PEUNC;
 require "PEUNC/classes/CodeValidation.php";
 
 class Contact extends Page {
-	protected $top_départ;	// moment où est affiché le formulaire
 
 	public function __construct() {
 		parent::__construct();
@@ -21,10 +20,8 @@ class Contact extends Page {
  * */
 
 // SETTERS ==============================================================================
-	public function setTopDepart() { $this->top_départ = time(); }
 
 // GETTERS ==============================================================================
-	public function getTopDepart() { return $this->top_départ; }
 
 // AUTRES ==============================================================================
 	public function AfficherCodeValidation() {
