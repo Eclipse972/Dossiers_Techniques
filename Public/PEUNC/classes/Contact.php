@@ -5,13 +5,10 @@ namespace PEUNC;
 require "PEUNC/classes/CodeValidation.php";
 
 class Contact extends Page {
-	protected $ObjValidation;
 	protected $top_départ;	// moment où est affiché le formulaire
 
 	public function __construct() {
 		parent::__construct();
-
-		$this->ObjValidation = new CodeValidation;
 	}
 /*
  * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["formulaire"]["données"]
@@ -23,9 +20,11 @@ class Contact extends Page {
 
 // SETTERS ==============================================================================
 	public function setTopDepart() { $this->top_départ = time(); }
+	public function setValidation() { $_SESSION["formulaire"]["ObjValidation"] = serialize(new CodeValidation); } // sauvegarde dans la session
+
 // GETTERS ==============================================================================
 	public function getTopDepart() { return $this->top_départ; }
-
+	public function getValidation() { return unserialize($_SESSION["formulaire"]["ObjValidation"]); }
 // AUTRES ==============================================================================
 	public function AfficherCodeValidation() { return $this->ObjValidation->Afficher(); }
 
@@ -34,7 +33,7 @@ class Contact extends Page {
 
 	// Erreurs sur les clamps =========================================================
 	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCourrie() { return $_SESSION["formulaire"]["ErreurCourrie"]	? "Courriel invalide<br>" : ""; }
+	public function ErreurCourrie() { return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
 	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurMessage() { return $_SESSION["formulaire"]["ErreurObjet"]		? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
 
