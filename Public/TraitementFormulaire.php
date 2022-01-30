@@ -23,7 +23,7 @@ if (	$_SESSION["formulaire"]["ErreurNom"]
 	||	$_SESSION["formulaire"]["ErreurObjet"]
 	||	$_SESSION["formulaire"]["ErreurMessage"])
 {
-	header("Location:/Contact"); // Redirection vers le formulaire de contact acr il y a erreur
+	header("Location:/Contact"); // Redirection vers le formulaire de contact car il y a erreur
 	exit;
 }
 
