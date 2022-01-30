@@ -13,11 +13,11 @@
 </header>
 
 <section>
-<form method=post action=/Contact id=formulaire>
+<form method=post action=TraitementFormulaire.php id=formulaire>
 	<p><?=$PAGE->ErreurNom()?>		Nom :		<input type="text" name="nom"		value="<?=$PAGE->NomParDefaut()?>" /></p>
-	<p><?=$PAGE->ErreurCourrie()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
+	<p><?=$PAGE->ErreurCourriel()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
 	<p><?=$PAGE->ErreurObjet()?>	Objet :		<input type="text" name="objet"		value="<?=$PAGE->ObjetParDefaut()?>" /></p>
-	<p><?=$PAGE->ErreurMessage()?>	Message :	<textarea name="message" rows="6"	value="<?=$PAGE->MessageParDefaut()?>"></textarea></p>
+	<p><?=$PAGE->ErreurMessage()?>	Message :	<textarea name="message" rows="6"><?=$PAGE->MessageParDefaut()?></textarea></p>
 	<?=$PAGE->AfficherCodeValidation()?>
 	<p style="text-align:center;">
 		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
