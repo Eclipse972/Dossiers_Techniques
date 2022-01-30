@@ -35,5 +35,7 @@ if (	$_SESSION["formulaire"]["ErreurNom"]
 
 // une fois le message envoyé
 $_SESSION["formulaire"]["objet"] = $_SESSION["formulaire"]["message"] = ""; // tandis que le nom et le courriel sont conservés
+$_SESSION["formulaire"]["ErreurNom"] = $_SESSION["formulaire"]["ErreurCourriel"] = $_SESSION["formulaire"]["ErreurObjet"] = $_SESSION["formulaire"]["ErreurMessage"] = false;
+
 // redirection vers page précédente
-header("Location:/"); // comment récupére l'URL?
+header("Location:" . $_SESSION["formulaire"]["URLretour"]);
