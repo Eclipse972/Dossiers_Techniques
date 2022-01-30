@@ -17,6 +17,8 @@ class Contact extends Page {
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
  * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage leurs test respectifs de validité
  * ObjValidation objet validation
+ * TopDépart: moment de création du formulaire pour détecter les remplissages trop rapides
+ * URLretour: où allez une fois le formulaire rempli
  * */
 
 // SETTERS ==============================================================================
