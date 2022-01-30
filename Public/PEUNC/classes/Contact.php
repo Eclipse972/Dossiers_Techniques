@@ -16,6 +16,7 @@ class Contact extends Page {
  * nom: sauvegardé s'il a été défini auparant. Remplissaged'un formulaire dans la même session
  * courriel: idem
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
+ * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage leurs test respectifs de validité
  * */
 
 // SETTERS ==============================================================================
