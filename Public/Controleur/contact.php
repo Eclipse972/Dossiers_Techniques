@@ -1,3 +1,3 @@
 <?php	// controleur du formulaire
 $this->setTopDepart();
-$this->setValidation();
+$_SESSION["formulaire"]["ObjValidation"] = serialize(new CodeValidation);

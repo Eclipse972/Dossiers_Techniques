@@ -17,15 +17,15 @@ class Contact extends Page {
  * courriel: idem
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
  * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage leurs test respectifs de validité
+ * ObjValidation objet validation
  * */
 
 // SETTERS ==============================================================================
 	public function setTopDepart() { $this->top_départ = time(); }
-	public function setValidation() { $_SESSION["formulaire"]["ObjValidation"] = serialize(new CodeValidation); } // sauvegarde dans la session
 
 // GETTERS ==============================================================================
 	public function getTopDepart() { return $this->top_départ; }
-	public function getValidation() { return unserialize($_SESSION["formulaire"]["ObjValidation"]); }
+
 // AUTRES ==============================================================================
 	public function AfficherCodeValidation() {
 		$ObjValidation = $this->getValidation();
