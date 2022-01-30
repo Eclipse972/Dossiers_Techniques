@@ -26,12 +26,11 @@ try
 		case 403:	// accès interdit
 		case 500:	// erreur serveur
 			list($ALPHA_PEUNC, $BETA_PEUNC, $GAMMA_PEUNC) = [-1, $codeRedirecion, 0];	break;
-		case 200:	// le script est lancé sans redirection => page d'accueil
+		case 200:	// le script est lancé sans redirection
 			if(empty($_POST)) { // c'est la page d'accueil
 				$ALPHA_PEUNC = 0;
 			} else {	// traitement de formulaire de contact
 				$ALPHA_PEUNC = -2;
-				exit("traitement formulaire");
 			}
 			$BETA_PEUNC = $GAMMA_PEUNC	= 0;
 			break;
