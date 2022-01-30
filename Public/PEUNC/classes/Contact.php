@@ -77,6 +77,19 @@ class Contact extends Page
 		return $ObjValidation->Afficher();
 	}
 
+	public function FormulaireOK()
+	{	// vérifie que le code de validation correspond à la valeur attendue
+		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
+		return
+			$ObjValidation->CodeOK
+				(	$_SESSION["formulaire"]["nom"],
+					$_SESSION["formulaire"]["courriel"],
+					$_SESSION["formulaire"]["objet"];
+					$_SESSION["formulaire"]["message"],
+					$_SESSION["formulaire"]["code"]
+				);
+	}
+
 	// Erreurs sur les champs =========================================================
 	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
