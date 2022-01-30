@@ -28,7 +28,7 @@ class Contact extends Page {
 
 // AUTRES ==============================================================================
 	public function AfficherCodeValidation() {
-		$ObjValidation = $this->getValidation();
+		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
 		return $ObjValidation->Afficher();
 	}
 
