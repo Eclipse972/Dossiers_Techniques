@@ -1,5 +1,4 @@
-<?php
-// classes page de contact de PEUNC
+<?php	// classes page de contact de PEUNC
 namespace PEUNC;
 
 require "PEUNC/classes/CodeValidation.php";
@@ -10,22 +9,19 @@ class Contact extends Page
 /*
  * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["formulaire"]["données"]
  * données =...
- * nom: sauvegardé s'il a été défini auparant. Remplissaged'un formulaire dans la même session
+ * nom: sauvegardé s'il a été défini aupararant. Remplissage d'un formulaire dans la même session
  * courriel: idem
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
- * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage leurs test respectifs de validité
+ * code: code de validation
+ * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage et ErreurCode leurs test respectifs de validité
  * ObjValidation objet validation
  * TopDépart: moment de création du formulaire pour détecter les remplissages trop rapides
  * URLretour: où allez une fois le formulaire rempli
  * */
 
-// SETTERS ==============================================================================
-
-// GETTERS ==============================================================================
-
 // AUTRES ==============================================================================
 	public function SpamDétecté()
-	{
+	{	// plusieurs tests successifs
 		$spam = (time() - $_SESSION["formulaire"]["TopDépart"] < 5); // trop rapide pour être humain
 		if (!$spam) // le premier test est passé?
 		{	// 2e test: pas de champ inconnue
@@ -60,14 +56,12 @@ class Contact extends Page
 	}
 
 	public function ChampsFormulaireValides()
-	{
-		//test de validité des champs;
+	{	// chaque champ respecte son format
 		$_SESSION["formulaire"]["ErreurNom"] = (strlen($_SESSION["formulaire"]["nom"]) < 2);
 		$_SESSION["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["formulaire"]["courriel"]) != 1);
 		$_SESSION["formulaire"]["ErreurObjet"] = (strlen($_SESSION["formulaire"]["objet"]) < 2);
 		$_SESSION["formulaire"]["ErreurMessage"] = (strlen($_SESSION["formulaire"]["message"]) < 2);
 		$_SESSION["formulaire"]["ErreurCode"] = (strlen($_SESSION["formulaire"]["code"]) <> 5);
-
 		return
 		(		$_SESSION["formulaire"]["ErreurNom"]
 			||	$_SESSION["formulaire"]["ErreurCourriel"]
@@ -83,7 +77,7 @@ class Contact extends Page
 		return $ObjValidation->Afficher();
 	}
 
-	// Erreurs sur les clamps =========================================================
+	// Erreurs sur les champs =========================================================
 	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
 	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
