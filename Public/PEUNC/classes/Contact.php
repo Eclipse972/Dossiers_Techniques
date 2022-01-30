@@ -31,9 +31,6 @@ class Contact extends Page {
 		return $ObjValidation->Afficher();
 	}
 
-	public function TraiteFormulaireContact()	{
-	}
-
 	// Erreurs sur les clamps =========================================================
 	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
