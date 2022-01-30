@@ -26,14 +26,17 @@ class Contact extends Page {
 	public function getTopDepart() { return $this->top_départ; }
 	public function getValidation() { return unserialize($_SESSION["formulaire"]["ObjValidation"]); }
 // AUTRES ==============================================================================
-	public function AfficherCodeValidation() { return $this->ObjValidation->Afficher(); }
+	public function AfficherCodeValidation() {
+		$ObjValidation = $this->getValidation();
+		return $ObjValidation->Afficher();
+	}
 
 	public function TraiteFormulaireContact()	{
 	}
 
 	// Erreurs sur les clamps =========================================================
 	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCourrie() { return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
+	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
 	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurMessage() { return $_SESSION["formulaire"]["ErreurMessage"]	? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
 
