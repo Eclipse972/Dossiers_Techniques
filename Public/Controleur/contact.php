@@ -8,7 +8,7 @@ if(empty($_POST))
 else
 {	// traitement du formulaire
 	if($this->SpamDétecté())
-	{	// tentattive de spam
+	{	// tentative de spam
 		header("Location:/"); // Redirection
 		exit;
 	}
