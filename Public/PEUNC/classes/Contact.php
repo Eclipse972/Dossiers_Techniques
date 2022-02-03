@@ -55,22 +55,6 @@ class Contact extends Page
 			$_SESSION["formulaire"][$clé] = strip_tags($valeur); // on stocke la valeur dans la session après l'avoir nettoyée un peu
 	}
 
-	public function ChampsFormulaireValides()
-	{	// chaque champ respecte son format
-		$_SESSION["formulaire"]["ErreurNom"] = (strlen($_SESSION["formulaire"]["nom"]) < 2);
-		$_SESSION["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["formulaire"]["courriel"]) != 1);
-		$_SESSION["formulaire"]["ErreurObjet"] = (strlen($_SESSION["formulaire"]["objet"]) < 2);
-		$_SESSION["formulaire"]["ErreurMessage"] = (strlen($_SESSION["formulaire"]["message"]) < 2);
-		$_SESSION["formulaire"]["ErreurCode"] = (strlen($_SESSION["formulaire"]["code"]) <> 5);
-		return
-		(		$_SESSION["formulaire"]["ErreurNom"]
-			||	$_SESSION["formulaire"]["ErreurCourriel"]
-			||	$_SESSION["formulaire"]["ErreurObjet"]
-			||	$_SESSION["formulaire"]["ErreurMessage"]
-			||	$_SESSION["formulaire"]["ErreurCode"]
-		);
-	}
-
 	public function AfficherCodeValidation()
 	{
 		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
@@ -78,16 +62,30 @@ class Contact extends Page
 	}
 
 	public function FormulaireOK()
-	{	// vérifie que le code de validation correspond à la valeur attendue
+	{	// chaque champ respecte son format
+		$_SESSION["formulaire"]["ErreurNom"] = (strlen($_SESSION["formulaire"]["nom"]) < 2);
+		$_SESSION["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["formulaire"]["courriel"]) != 1);
+		$_SESSION["formulaire"]["ErreurObjet"] = (strlen($_SESSION["formulaire"]["objet"]) < 2);
+		$_SESSION["formulaire"]["ErreurMessage"] = (strlen($_SESSION["formulaire"]["message"]) < 2);
+
+		// vérifie que le code de validation correspond à la valeur attendue
 		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
+		$_SESSION["formulaire"]["ErreurCode"] = !$ObjValidation->CodeOK
+												(	$_SESSION["formulaire"]["nom"],
+													$_SESSION["formulaire"]["courriel"],
+													$_SESSION["formulaire"]["objet"],
+													$_SESSION["formulaire"]["message"],
+													$_SESSION["formulaire"]["code"]
+												);
+
 		return
-			$ObjValidation->CodeOK
-				(	$_SESSION["formulaire"]["nom"],
-					$_SESSION["formulaire"]["courriel"],
-					$_SESSION["formulaire"]["objet"],
-					$_SESSION["formulaire"]["message"],
-					$_SESSION["formulaire"]["code"]
-				);
+		(		$_SESSION["formulaire"]["ErreurNom"]
+			||	$_SESSION["formulaire"]["ErreurCourriel"]
+			||	$_SESSION["formulaire"]["ErreurObjet"]
+			||	$_SESSION["formulaire"]["ErreurMessage"]
+			||	$_SESSION["formulaire"]["ErreurCode"]
+		);
+
 	}
 
 	// Erreurs sur les champs =========================================================

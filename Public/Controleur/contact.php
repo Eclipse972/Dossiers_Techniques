@@ -15,7 +15,7 @@ else
 
 	$this->SauvegardeChampsFormulaire();	// lecture du tableau $_POST
 
-	if (!$this->ChampsFormulaireValides() || !$this->FormulaireOK())
+	if (!$this->FormulaireOK())
 	{
 		header("Location:/Contact"); // Redirection vers le formulaire de contact car il y a erreur
 		exit;
