@@ -24,8 +24,10 @@ class CodeValidation {
 	 * Le code de validation sera uéh22
 	*/
 
-	public function __construct() {
-		for($i=0; $i<4; $i++) {				// numéro de l'instruction
+	public function __construct()
+	{
+		for($i=0; $i<4; $i++)
+		{	// i-ème instruction
 			$this->T_id_champ[$i] = $i;		// numéro du champ
 			$this->T_choix[$i] = rand(0,3);	// choix du caractère
 		}
@@ -33,7 +35,8 @@ class CodeValidation {
 		$this->dernier_choix = rand(0,3);	// choix du dernier caractère
 	}
 
-	public function Afficher() {
+	public function Afficher()
+	{
 		$code = "<ul>\n";
 		$champs		= array('de votre nom', 'de votre courriel', 'de l&apos;objet', 'du message');
 		$position	= array('premier', 'deuxi&egrave;me', 'avant dernier', 'dernier'); // => il faut au moins deux caratères pour le champ
@@ -46,18 +49,14 @@ class CodeValidation {
 		return $code . "\t\t</ul>\n\t\t<p>Code <input type=\"text\" name=\"code\" style=\"width:100px;\" /></p>\n";
 	}
 
-	public function CodeOK($nom, $courriel, $objet, $message, $codeFourni) {
-		$champs	= array('nom', 'courriel', 'objet', 'message');
-		$réponse = array(
-			'nom'		=> $nom,
-			'courriel'	=> $courriel,
-			'objet'		=> $objet,
-			'message'	=> $message);
+	public function CodeOK($nom, $courriel, $objet, $message, $codeFourni)
+	{
+		$réponse = array($nom, $courriel, $objet, $message);
 		$position = array(0, 1, -2, -1);	// position : premier, deuxième, avant dernier et dernier
 
 		// construction du code à trouver issu des instructions.
 		$code = '';
-		for($i=0; $i<4; $i++)	$code .= substr($réponse[$champs[$this->T_id_champ[$i]]] ,$position[$this->T_choix[$i]], 1); // i-ème instruction
+		for($i=0; $i<4; $i++)	$code .= substr($réponse[$this->T_id_champ[$i]] ,$position[$this->T_choix[$i]], 1); // i-ème instruction
 		$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
 
 		return ($code == $codeFourni);
