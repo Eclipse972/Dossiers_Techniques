@@ -49,7 +49,7 @@ class Contact extends Page
 		return $spam;
 	}
 
-	private function Envoyer_message()
+	private function EnvoyerMessage()
 	{	// voir la fonction mailFree() dans test-mail.php situé à la racine
 		$start_time = time(;
 		$additional_headers  = "From: Formulaire DT <dossiers.techniques@free.fr>\r\n";
