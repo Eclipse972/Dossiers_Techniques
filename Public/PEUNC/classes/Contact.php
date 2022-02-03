@@ -95,7 +95,7 @@ class Contact extends Page
 	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
 	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurMessage() { return $_SESSION["formulaire"]["ErreurMessage"]	? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCode()	{ return $_SESSION["formulaire"]["ErreurCode"]		? "Code incorrect<br>" : ""; }
+	public function ErreurCode()	{ return $_SESSION["formulaire"]["ErreurCode"]		? "<p>Code incorrect</p>" : ""; }
 
 	// valeur par défaut des champs ===================================================
 	public function NomParDefaut()		{ return $_SESSION["formulaire"]["nom"]; }

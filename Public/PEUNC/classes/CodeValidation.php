@@ -34,7 +34,7 @@ class CodeValidation {
 	}
 
 	public function Afficher() {
-		$code = "<div id=validation>\n\t\t<p>Validation du formulaire</p>\n\t\t<ul>\n";
+		$code = "<ul>\n";
 		$champs		= array('de votre nom', 'de votre courriel', 'de l&apos;objet', 'du message');
 		$position	= array('premier', 'deuxi&egrave;me', 'avant dernier', 'dernier'); // => il faut au moins deux caratères pour le champ
 
@@ -43,7 +43,7 @@ class CodeValidation {
 		$position = array('premier', 'deuxi&egrave;me', 'troisi&egrave;me', 'quatri&egrave;me');
 		$code .= "\t\t\t<li>{$position[$this->dernier_choix]} caract&egrave;re de ce code de validation</li>\n";
 
-		return $code . "\t\t</ul>\n\t\t<p>Code <input type=\"text\" name=\"code\" style=\"width:100px;\" /></p>\n\t</div>\n";
+		return $code . "\t\t</ul>\n\t\t<p>Code <input type=\"text\" name=\"code\" style=\"width:100px;\" /></p>\n";
 	}
 
 	public function CodeOK($nom, $courriel, $objet, $message, $codeFourni) {

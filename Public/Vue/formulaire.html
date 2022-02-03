@@ -18,7 +18,11 @@
 	<p><?=$PAGE->ErreurCourriel()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
 	<p><?=$PAGE->ErreurObjet()?>	Objet :		<input type="text" name="objet"		value="<?=$PAGE->ObjetParDefaut()?>" /></p>
 	<p><?=$PAGE->ErreurMessage()?>	Message :	<textarea name="message" rows="6"><?=$PAGE->MessageParDefaut()?></textarea></p>
-	<?=$PAGE->AfficherCodeValidation()?>
+	<div id=validation>
+		<p>Validation du formulaire</p>
+		<?=$PAGE->ErreurCode()?>
+		<?=$PAGE->AfficherCodeValidation()?>
+	</div>
 	<p style="text-align:center;">
 		<input type="submit" value="Envoyer" style="width:100px; margin-right:200px" />
 		<a href=<?=$PAGE->URLprecedente()?>>Page pr&eacute;c&eacute;dente</a>
