@@ -49,6 +49,24 @@ class Contact extends Page
 		return $spam;
 	}
 
+	private function Envoyer_message()
+	{	// voir la fonction mailFree() dans test-mail.php situé à la racine
+		$start_time = time(;
+		$additional_headers  = "From: Formulaire DT <dossiers.techniques@free.fr>\r\n";
+		$additional_headers .= "MIME-Version: 1.0\r\n";
+		$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+		$additional_headers .= "Reply-To: " . $_SESSION["formulaire"]["nom"] . " <" . $_SESSION["formulaire"]["courriel"] . ">\r\n";
+		$start_time = time();
+		$resultat = mail(
+			"christophe.hervi@gmail.com",
+			$_SESSION["formulaire"]["objet"],
+			$_SESSION["formulaire"]["message"],
+			$additional_headers
+		);
+		$time = time()-$start_time;
+		return $resultat & ($time > 1);
+	}
+
 	public function SauvegardeChampsFormulaire()
 	{	// après avoir exécuté la méthode SpamDétecté, il ne reste que les champs nécessaires
 		foreach ($_POST as $clé => $valeur)
@@ -77,9 +95,8 @@ class Contact extends Page
 													$_SESSION["formulaire"]["message"],
 													$_SESSION["formulaire"]["code"]
 												);
-
 		return
-		(		$_SESSION["formulaire"]["ErreurNom"]
+		!(		$_SESSION["formulaire"]["ErreurNom"]
 			||	$_SESSION["formulaire"]["ErreurCourriel"]
 			||	$_SESSION["formulaire"]["ErreurObjet"]
 			||	$_SESSION["formulaire"]["ErreurMessage"]
