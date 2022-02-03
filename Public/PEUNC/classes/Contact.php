@@ -51,7 +51,7 @@ class Contact extends Page
 
 	private function EnvoyerMessage()
 	{	// voir la fonction mailFree() dans test-mail.php situé à la racine
-		$start_time = time(;
+		$start_time = time();
 		$additional_headers  = "From: Formulaire DT <dossiers.techniques@free.fr>\r\n";
 		$additional_headers .= "MIME-Version: 1.0\r\n";
 		$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
