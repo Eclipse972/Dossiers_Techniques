@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Ven 04 Février 2022 à 21:05
+-- Généré le : Ven 04 Février 2022 à 21:25
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `methode` varchar(99) collate latin1_general_ci NOT NULL default 'GET',
   `paramAautorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
-  UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=214 ;
+  UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=215 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -258,7 +258,8 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (212, 8, 6, 3, 'vis de manoeuvre', '', 'vis', 'Page_association', 'etau/vis.php', 'GET', '[]'),
 (210, 8, 6, 1, 'mors fixe', '', 'mors_fixe', 'Page_association', 'etau/CE_mors_fixe.php', 'GET', '[]'),
 (211, 8, 6, 2, 'mors mobile', '', 'mors_mobile', 'Page_association', 'etau/CE_mors_mobile.php', 'GET', '[]'),
-(213, 8, 6, 4, 'tige', '', 'tige', 'Page_association', 'etau/tige.php', 'GET', '[]');
+(213, 8, 6, 4, 'tige', '', 'tige', 'Page_association', 'etau/tige.php', 'GET', '[]'),
+(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PageContact', 'traitementContact.php', 'POST', '["nom", "courriel", "objet", "message", "code'']');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
