@@ -2,8 +2,8 @@
 /*	Cette classe décode la requête http
 	elle renvoie :
 		* la position dans l'arborescence
-		* la méthode utilisée (GET et POST pour le moment)
-		* un tableu contenant la liste des paramètres sous la forme d'un tableau asociatif
+		* la méthode utilisée (GET ou POST pour le moment)
+		* un tableu contenant la liste des paramètres sous la forme d'un tableau associatif
 
 	La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
 	Si alpha >=0 => pages du site
