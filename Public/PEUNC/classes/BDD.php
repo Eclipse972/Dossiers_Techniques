@@ -39,13 +39,13 @@ public function ResultatSQL($requete, array $T_parametre) {
  	$this->Requete($requete, $T_parametre);
 	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC); // \PDO pour sortir du namespace PEUNC
 	$this->Fermer();
-	switch(count($reponse)) {
+	switch(count($reponse))
+	{
 		case 0:	// aucun résultat
 			$résultat = null;
 			break;
-		case 1:	// une seule ligne
-			$résultat = $reponse[0];
-			// dans le futur: traiter le cas où il n'y aura qu'une seule colonne
+		case 1:	// une seule ligne						une seule colonne					plusieurs colonnes
+			$résultat = (count($reponse[0]) == 1) ? $résultat = array_shift($reponse[0]) : $reponse[0];
 			break;
 		default: // plusieurs lignes
 			$résultat = $reponse;

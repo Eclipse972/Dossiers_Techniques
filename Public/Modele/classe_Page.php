@@ -68,6 +68,6 @@ class Page extends PEUNC\Page {
 	public function Apropos() {	// renvoie l'URL de la page à propos de la page
 		global $BD;
 		$Treponse = $BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($_SESSION['alpha']));
-		return $Treponse["URL"];
+		return $Treponse;
 	}
 }
