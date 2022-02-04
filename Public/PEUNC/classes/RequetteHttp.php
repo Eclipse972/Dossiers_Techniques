@@ -1,6 +1,19 @@
 <?php	// requête http
 namespace PEUNC;
 
+/* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
+	Si alpha >=0 => pages du site
+	(X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
+
+	(X;Y;0) avec Y>0 => page de 2e niveau
+
+	(X;Y;Z) avec Z>0 => page de 3e niveau
+
+	si alpha<0 => page spéciales PEUNC ou autre
+	(-1;code;0) -> page d'erreur avec son code
+	(-2;0;0) -> formulaire de contact
+*/
+
 require_once 'PEUNC/classes/BDD.php';
 
 class HttpRequest {
