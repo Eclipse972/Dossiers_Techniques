@@ -1,7 +1,11 @@
-<?php	// requête http
-namespace PEUNC;
+<?php
+/*	Cette classe décode la requête http
+	elle renvoie :
+		* la position dans l'arborescence
+		* la méthode utilisée (GET et POST pour le moment)
+		* un tableu contenant la liste des paramètres sous la forme d'un tableau asociatif
 
-/* contexte sauvegardé dans la session (alpha, beta, gamma) par importance décroissante
+	La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
 	Si alpha >=0 => pages du site
 	(X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
 
@@ -13,6 +17,7 @@ namespace PEUNC;
 	(-1;code;0) -> page d'erreur avec son code
 	(-2;0;0) -> formulaire de contact
 */
+namespace PEUNC;
 
 require_once 'PEUNC/classes/BDD.php';
 
@@ -35,7 +40,7 @@ class HttpRequest {
 		$BD = new BDD;
 		$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
 		switch($codeRedirecion)
-		{	// Toutes les erreurs serveur renvoient ici. Cf .htaccess
+		{	// Toutes les erreurs serveur sont traitées ici via le script index.php. Cf .htaccess
 			case 403:	// accès interdit
 			case 500:	// erreur serveur
 				list($alpha, $beta, $gamma) = [-1, $codeRedirecion, 0];	break;
@@ -48,8 +53,7 @@ class HttpRequest {
 				$beta = $gamma	= 0;
 				break;
 			case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
-				list($URL, $paramPage, $problem) = explode("?", $_SERVER['REQUEST_URI'], 3);
-				if(isset($problem))	throw new \Exception("format URL incorrect");
+				list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
 
 				// interrogation de la BD pour retrouver la position dans l'arborescence
 				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?", [$URL]);
@@ -57,9 +61,9 @@ class HttpRequest {
 				$beta	= $Treponse["niveau2"];
 				$gamma	= $Treponse["niveau3"];
 
-				if (isset($alpha))	{	// adresse valide, on ne touche à rien
-					header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
-				} else	list($alpha, $beta, $gamma) = [-1, 404, 0];	// l'adresse invalide reste affichée dans la barre d'adresse'
+				if (isset($alpha))	// l'URL existe?
+					header("Status: 200 OK", false, 200);		// modification pour dire au navigateur que tout va bien finalement
+				else list($alpha, $beta, $gamma) = [-1, 404, 0];// erreur 404!
 				break;
 			default:
 				list($alpha, $beta, $gamma) = [-1, 0, 0];	// erreur inconnue
