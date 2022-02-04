@@ -9,8 +9,10 @@ class HttpRequest {
 	private $beta;
 	private $gamma;
 
+	// pour le futur
 	private $methode;
-	private $Tparametres;
+	private $Tparam;
+	private $IP;
 
 	public function __construct()
 	{
