@@ -16,6 +16,9 @@ class HttpRequest {
 
 	public function __construct()
 	{
+		$this->methode = $_SERVER['REQUEST_METHOD'];
+
+		// recherche de la position dans l'application
 		$BD = new PEUNC\BDD;
 		$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
 		switch($codeRedirecion)
@@ -48,4 +51,5 @@ class HttpRequest {
 	public function getAlpha()	{ return $this->alpha; }
 	public function getBeta()	{ return $this->beta; }
 	public function getGamma()	{ return $this->gamma; }
+	public function getMethode(){ return $this->methode; }
 }
