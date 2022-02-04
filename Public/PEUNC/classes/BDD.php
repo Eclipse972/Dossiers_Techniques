@@ -70,13 +70,6 @@ public function Controleur($alpha, $beta, $gamma) {
 	return $reponse[0];
 }
 
-public function CherchePosition($URL) {
-	$this->Requete('SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?', [$URL]);
-	$reponse = $this->resultat->fetch();
-	$this->Fermer();
-	return array($reponse['niveau1'], $reponse['niveau2'], $reponse['niveau3']);
-}
-
 public function TexteErreur($code) {
 	$this->Requete('SELECT texteMenu FROM Squelette WHERE alpha=-1 AND beta= ?', [$code]);
 	$reponse = $this->resultat->fetch();
