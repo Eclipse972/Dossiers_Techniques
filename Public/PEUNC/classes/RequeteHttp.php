@@ -55,7 +55,7 @@ class HttpRequest {
 				list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
 
 				// interrogation de la BD pour retrouver la position dans l'arborescence
-				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ? and methodeHttp = ?", [$URL, $this->methode]);
+				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $this->methode]);
 				$alpha	= $Treponse["niveau1"];
 				$beta	= $Treponse["niveau2"];
 				$gamma	= $Treponse["niveau3"];

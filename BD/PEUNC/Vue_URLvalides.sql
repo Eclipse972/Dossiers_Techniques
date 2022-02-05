@@ -1,6 +1,6 @@
-# génère la totalité des URL valides du site avec la méthode de la requête et la liste des paramètres autorisés au format JSON
-DROP VIEW IF EXISTS Vue_URLvalides;
-CREATE VIEW Vue_URLvalides AS
+# génère la totalité des routes valides du site avec la méthode de la requête et la liste des paramètres autorisés au format JSON
+DROP VIEW IF EXISTS Vue_Routes;
+CREATE VIEW Vue_Routes AS
 SELECT
 	alpha AS niveau1,
 	beta AS niveau2,
