@@ -1,9 +1,9 @@
 <?php
-/*	Cette classe décode la requête http
-	elle renvoie :
-		* la position dans l'arborescence
+/*
+	Cette classe décode une requête http et renvoie :
+		* la position dans l'arborescence même s'il s'agit d'une erreur serveur
 		* la méthode utilisée (GET ou POST pour le moment)
-		* un tableu contenant la liste des paramètres sous la forme d'un tableau associatif
+		* un tableu contenant la liste des paramètres pré-traités sous la forme d'un tableau associatif
 
 	La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
 	Si alpha >=0 => pages du site
@@ -16,6 +16,10 @@
 	si alpha<0 => page spéciales PEUNC ou autre
 	(-1;code;0) -> page d'erreur avec son code
 	(-2;0;0) -> formulaire de contact
+
+	Les pages d'erreur serveur gérées sont: 404,403 et 500 mais on peut en rajouter d'autres
+
+	tableau asoiatif des paramètres. Les paramètres en dehors de la liste autorisé sont ignorés. Enseuite chaque paramètres est nettoyé.
 */
 namespace PEUNC;
 
@@ -55,8 +59,6 @@ class HttpRequest {
 				$alpha	= $Treponse["niveau1"];
 				$beta	= $Treponse["niveau2"];
 				$gamma	= $Treponse["niveau3"];
-//print_r($Treponse);
-//exit("alpha=". $alpha . " URL=" . $URL);
 
 				if (isset($alpha))	// l'URL existe?
 					header("Status: 200 OK", false, 200);		// modification pour dire au navigateur que tout va bien finalement
