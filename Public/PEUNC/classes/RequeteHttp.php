@@ -25,7 +25,7 @@ namespace PEUNC;
 
 require_once 'PEUNC/classes/BDD.php';
 
-class HttpRequest {
+class HttpRouter {
 	// position
 	private $alpha;
 	private $beta;

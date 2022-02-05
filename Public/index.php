@@ -10,7 +10,7 @@ spl_autoload_register(function($classe)	{ require_once"Modele/classe_{$classe}.p
 
 try
 {
-	$requete = new PEUNC\HttpRequest;
+	$requete = new PEUNC\HttpRouter;
 
 	$BD = new PEUNC\BDD;
 
