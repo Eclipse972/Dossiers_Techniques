@@ -3,7 +3,7 @@ session_start();
 
 require 'PEUNC/classes/Page.php';
 require 'PEUNC/classes/BDD.php';
-require 'PEUNC/classes/RequeteHttp.php';
+require 'PEUNC/classes/RouteurHttp.php';
 
 // autoloader pour les classes utilisateur
 spl_autoload_register(function($classe)	{ require_once"Modele/classe_{$classe}.php"; });
