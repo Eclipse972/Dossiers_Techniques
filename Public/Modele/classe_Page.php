@@ -1,5 +1,6 @@
 <?php // classe mère de toutes les pages du dossier techniques sauf la page index
-class Page extends PEUNC\Page {
+class Page extends PEUNC\Page
+{
 	protected $codeTitre;
 	// infos du support
 	protected $nomSupport;
@@ -8,7 +9,8 @@ class Page extends PEUNC\Page {
 	protected $le_support;
 	// variable-membre dossier déja défini dans la classe mère
 
-	public function __construct(array $TparamURL = []) {
+	public function __construct(array $TparamURL = [])
+	{
 		global $BD;
 		parent::__construct($TparamURL);
 		// valeurs par défaut
@@ -20,7 +22,7 @@ class Page extends PEUNC\Page {
 
 		// hydratation à partir de la BD
 		$BD = new PEUNC\BDD;
-		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION['alpha'], $_SESSION['beta'], $_SESSION['gamma']));
+		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']));
 
 		if (isset($Thydrate))
 		{
@@ -60,14 +62,15 @@ class Page extends PEUNC\Page {
 /* ***************************
  * AUTRE
  * ***************************/
-	public function AfficherMenu() {
+	public function AfficherMenu()
+	{
 		parent::AfficherMenu();
 		echo"\t<a href=/>Page d&apos;accueil</a>\n";
 	}
 
-	public function Apropos() {	// renvoie l'URL de la page à propos de la page
+	public function Apropos()	// renvoie l'URL de la page à propos de la page
+	{
 		global $BD;
-		$Treponse = $BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($_SESSION['alpha']));
-		return $Treponse;
+		return $BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($_SESSION["PEUNC"]['alpha']));
 	}
 }

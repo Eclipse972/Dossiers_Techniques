@@ -1,5 +1,5 @@
 <?php	// controleur préparation du formulaire
-$_SESSION["formulaire"]["ObjValidation"] = serialize(new PEUNC\CodeValidation);
-$_SESSION["formulaire"]["TopDépart"] = time();
-$_SESSION["formulaire"]["URLretour"] = $this->URLprecedente();
+$_SESSION["PEUNC"]["formulaire"]["ObjValidation"] = serialize(new PEUNC\CodeValidation);
+$_SESSION["PEUNC"]["formulaire"]["TopDépart"] = time();
+$_SESSION["PEUNC"]["formulaire"]["URLretour"] = $this->URLprecedente();
 $this->setTitle("Formulaire de contact");

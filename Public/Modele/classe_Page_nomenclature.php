@@ -1,11 +1,13 @@
 <?php
 require"Modele/classe_Page.php";
 
-class Page_nomenclature extends Page {
+class Page_nomenclature extends Page
+{
 	private $colonne_matière_vide;		// colone matière existe
 	private $colonne_observation_vide;	// colone observation existe
 
-	public function __construct(array $TparamURL = []) {
+	public function __construct(array $TparamURL = [])
+	{
 		parent::__construct($TparamURL);
 		$this->setCSS(["nomenclature"]);
 		$this->setView("nomenclature.html");
@@ -27,23 +29,27 @@ class Page_nomenclature extends Page {
 /* ***************************
  * AUTRE
  * ***************************/
-	public function InfoMatiere() {
+	public function InfoMatiere()
+	{
 		$code = ($this->colonne_matière_vide) ? "" : "\t<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>\n";
 		return $code;
 	}
 
-	public function ColonnesSupplementaires() {
+	public function ColonnesSupplementaires()
+	{
 		$code =		($this->colonne_matière_vide)	 	? "" : "<th>Mati&egrave;re</th>" ;
 		$code .=	($this->colonne_observation_vide)	? "" : "<th>Observations</th>";
 		return $code . "\n";
 	}
 
-	public function CorpsNomenclature() {
+	public function CorpsNomenclature()
+	{
 		global $BD;
-		$Tnomenclature = $BD->ResultatSQL('SELECT * FROM Vue_nomenclature WHERE support_ID = ? - 2', [$_SESSION['alpha']]);	// -2 car accueil (alpha =0) et contact (alpha=1)
+		$Tnomenclature = $BD->ResultatSQL('SELECT * FROM Vue_nomenclature WHERE support_ID = ? - 2', [$_SESSION["PEUNC"]['alpha']]);	// -2 car accueil (alpha =0) et contact (alpha=1)
 		$code = "";
 		if (isset($Tnomenclature))
-			foreach ($Tnomenclature as $ligne)	{
+			foreach ($Tnomenclature as $ligne)
+			{
 				$code .= "\t<tr>\n\t\t{$ligne['repere']}\n\t\t{$ligne['lien_image']}\n\t\t{$ligne['designation']}\n";
 				$code .= ($this->colonne_matière_vide)	 	? "" : "\t\t{$ligne['matiere']}\n" ;
 				$code .= ($this->colonne_observation_vide)	? "" : "\t\t{$ligne['observation']}\n" ;

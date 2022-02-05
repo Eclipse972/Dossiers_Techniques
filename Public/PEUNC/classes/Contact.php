@@ -7,7 +7,7 @@ class Contact extends Page
 {
 	public function __construct() { parent::__construct(); }
 /*
- * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["formulaire"]["données"]
+ * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["PEUNC"]["formulaire"]["données"]
  * données =...
  * nom: sauvegardé s'il a été défini aupararant. Remplissage d'un formulaire dans la même session
  * courriel: idem
@@ -22,7 +22,7 @@ class Contact extends Page
 // AUTRES ==============================================================================
 	public function SpamDétecté()
 	{	// plusieurs tests successifs
-		$spam = (time() - $_SESSION["formulaire"]["TopDépart"] < 5); // trop rapide pour être humain
+		$spam = (time() - $_SESSION["PEUNC"]["formulaire"]["TopDépart"] < 5); // trop rapide pour être humain
 		if (!$spam) // le premier test est passé?
 		{	// 2e test: pas de champ inconnue
 			foreach ($_POST as $clé => $valeur)
@@ -55,12 +55,12 @@ class Contact extends Page
 		$additional_headers  = "From: Formulaire DT <dossiers.techniques@free.fr>\r\n";
 		$additional_headers .= "MIME-Version: 1.0\r\n";
 		$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-		$additional_headers .= "Reply-To: " . $_SESSION["formulaire"]["nom"] . " <" . $_SESSION["formulaire"]["courriel"] . ">\r\n";
+		$additional_headers .= "Reply-To: " . $_SESSION["PEUNC"]["formulaire"]["nom"] . " <" . $_SESSION["PEUNC"]["formulaire"]["courriel"] . ">\r\n";
 		$start_time = time();
 		$resultat = mail(
 			"christophe.hervi@gmail.com",
-			$_SESSION["formulaire"]["objet"],
-			$_SESSION["formulaire"]["message"],
+			$_SESSION["PEUNC"]["formulaire"]["objet"],
+			$_SESSION["PEUNC"]["formulaire"]["message"],
 			$additional_headers
 		);
 		$time = time()-$start_time;
@@ -70,51 +70,51 @@ class Contact extends Page
 	public function SauvegardeChampsFormulaire()
 	{	// après avoir exécuté la méthode SpamDétecté, il ne reste que les champs nécessaires
 		foreach ($_POST as $clé => $valeur)
-			$_SESSION["formulaire"][$clé] = strip_tags($valeur); // on stocke la valeur dans la session après l'avoir nettoyée un peu
+			$_SESSION["PEUNC"]["formulaire"][$clé] = strip_tags($valeur); // on stocke la valeur dans la session après l'avoir nettoyée un peu
 	}
 
 	public function AfficherCodeValidation()
 	{
-		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
+		$ObjValidation = unserialize($_SESSION["PEUNC"]["formulaire"]["ObjValidation"]);
 		return $ObjValidation->Afficher();
 	}
 
 	public function FormulaireOK()
 	{	// chaque champ respecte son format
-		$_SESSION["formulaire"]["ErreurNom"] = (strlen($_SESSION["formulaire"]["nom"]) < 2);
-		$_SESSION["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["formulaire"]["courriel"]) != 1);
-		$_SESSION["formulaire"]["ErreurObjet"] = (strlen($_SESSION["formulaire"]["objet"]) < 2);
-		$_SESSION["formulaire"]["ErreurMessage"] = (strlen($_SESSION["formulaire"]["message"]) < 2);
+		$_SESSION["PEUNC"]["formulaire"]["ErreurNom"] = (strlen($_SESSION["PEUNC"]["formulaire"]["nom"]) < 2);
+		$_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["PEUNC"]["formulaire"]["courriel"]) != 1);
+		$_SESSION["PEUNC"]["formulaire"]["ErreurObjet"] = (strlen($_SESSION["PEUNC"]["formulaire"]["objet"]) < 2);
+		$_SESSION["PEUNC"]["formulaire"]["ErreurMessage"] = (strlen($_SESSION["PEUNC"]["formulaire"]["message"]) < 2);
 
 		// vérifie que le code de validation correspond à la valeur attendue
-		$ObjValidation = unserialize($_SESSION["formulaire"]["ObjValidation"]);
-		$_SESSION["formulaire"]["ErreurCode"] = !$ObjValidation->CodeOK
-												(	$_SESSION["formulaire"]["nom"],
-													$_SESSION["formulaire"]["courriel"],
-													$_SESSION["formulaire"]["objet"],
-													$_SESSION["formulaire"]["message"],
-													$_SESSION["formulaire"]["code"]
+		$ObjValidation = unserialize($_SESSION["PEUNC"]["formulaire"]["ObjValidation"]);
+		$_SESSION["PEUNC"]["formulaire"]["ErreurCode"] = !$ObjValidation->CodeOK
+												(	$_SESSION["PEUNC"]["formulaire"]["nom"],
+													$_SESSION["PEUNC"]["formulaire"]["courriel"],
+													$_SESSION["PEUNC"]["formulaire"]["objet"],
+													$_SESSION["PEUNC"]["formulaire"]["message"],
+													$_SESSION["PEUNC"]["formulaire"]["code"]
 												);
 		return
-		!(		$_SESSION["formulaire"]["ErreurNom"]
-			||	$_SESSION["formulaire"]["ErreurCourriel"]
-			||	$_SESSION["formulaire"]["ErreurObjet"]
-			||	$_SESSION["formulaire"]["ErreurMessage"]
-			||	$_SESSION["formulaire"]["ErreurCode"]
+		!(		$_SESSION["PEUNC"]["formulaire"]["ErreurNom"]
+			||	$_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"]
+			||	$_SESSION["PEUNC"]["formulaire"]["ErreurObjet"]
+			||	$_SESSION["PEUNC"]["formulaire"]["ErreurMessage"]
+			||	$_SESSION["PEUNC"]["formulaire"]["ErreurCode"]
 		);
 
 	}
 
 	// Erreurs sur les champs =========================================================
-	public function ErreurNom()		{ return $_SESSION["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCourriel(){ return $_SESSION["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
-	public function ErreurObjet()	{ return $_SESSION["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurMessage() { return $_SESSION["formulaire"]["ErreurMessage"]	? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCode()	{ return $_SESSION["formulaire"]["ErreurCode"]		? "<p>Code incorrect</p>" : ""; }
+	public function ErreurNom()		{ return $_SESSION["PEUNC"]["formulaire"]["ErreurNom"]		? "le nom doit comporter au moins deux caract&egrave;res<br>" : ""; }
+	public function ErreurCourriel(){ return $_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
+	public function ErreurObjet()	{ return $_SESSION["PEUNC"]["formulaire"]["ErreurObjet"]		? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
+	public function ErreurMessage() { return $_SESSION["PEUNC"]["formulaire"]["ErreurMessage"]	? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
+	public function ErreurCode()	{ return $_SESSION["PEUNC"]["formulaire"]["ErreurCode"]		? "<p>Code incorrect</p>" : ""; }
 
 	// valeur par défaut des champs ===================================================
-	public function NomParDefaut()		{ return $_SESSION["formulaire"]["nom"]; }
-	public function CourrielParDefaut()	{ return $_SESSION["formulaire"]["courriel"]; }
-	public function ObjetParDefaut()	{ return $_SESSION["formulaire"]["objet"]; }
-	public function MessageParDefaut()	{ return $_SESSION["formulaire"]["message"]; }
+	public function NomParDefaut()		{ return $_SESSION["PEUNC"]["formulaire"]["nom"]; }
+	public function CourrielParDefaut()	{ return $_SESSION["PEUNC"]["formulaire"]["courriel"]; }
+	public function ObjetParDefaut()	{ return $_SESSION["PEUNC"]["formulaire"]["objet"]; }
+	public function MessageParDefaut()	{ return $_SESSION["PEUNC"]["formulaire"]["message"]; }
 }

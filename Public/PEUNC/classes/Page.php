@@ -33,7 +33,8 @@ class Page implements iPage	{
 	protected $BD;
 	protected $T_paramURL	= [];
 
-	public function __construct(array $TparamURL = [])	{
+	public function __construct(array $TparamURL = [])
+	{
 		$this->BD = new BDD;
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
@@ -41,12 +42,34 @@ class Page implements iPage	{
 /* ***************************
  * MUTATEURS (SETTER)
  * ***************************/
-	public function setCSS(array $Tableau)	{
+	public function setTitle($titre)		{ $this->titrePage = $titre; }
+
+	public function setHeaderText($texte)	{ $this->entetePage = $texte; }
+
+	public function setLogo($logo)			{ $this->logo = $logo; }			// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
+
+	public function setDossier($dossier)	{ $this->dossier = $dossier . "/"; }
+
+	public function setSection($code)		{ $this->scriptSection = $code;	}
+
+	public function setFooter($code)		{ $this->PiedDePage = $code; }
+
+	public function setView($fichier)
+	{
+		if (file_exists(self::DOSSIER_VUE . $fichier))
+			$this->vue = self::DOSSIER_VUE . $fichier;
+		else throw new \Exception("Vue inexistante");
+	}
+
+	public function setCSS(array $Tableau)
+	{
 		$this->T_CSS = [];	// les classes filles devront redéfinir pour elles-mêmes la listes des CSS
-		foreach($Tableau as $feuilleCSS)	{
+		foreach($Tableau as $feuilleCSS)
+		{
 			if(substr($feuilleCSS,0,4) == 'http')
 				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
-			else {
+			else
+			{
 				$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
 				if(file_exists($feuilleCSS))
 					$this->T_CSS[] = '/' . $feuilleCSS;
@@ -55,81 +78,35 @@ class Page implements iPage	{
 		}
 	}
 
-	public function setTitle($titre)	{
-		$this->titrePage = $titre;
-	}
-
-	public function setHeaderText($texte)	{
-		$this->entetePage = $texte;
-	}
-
-	public function setLogo($logo) {	// nom de la forme /sous/dossier/fichier.extension à partir du dossier image du site
-		$this->logo = $logo;
-	}
-
-	public function setDossier($dossier) {
-		$this->dossier = $dossier . "/";
-	}
-
-	public function setSection($code)	{
-		$this->scriptSection = $code;
-	}
-
-	public function setFooter($code)	{
-		$this->PiedDePage = $code;
-	}
-
-	public function setView($fichier)	{
-		if (file_exists(self::DOSSIER_VUE . $fichier))
-			$this->vue = self::DOSSIER_VUE . $fichier;
-		else throw new \Exception("Vue inexistante");
-	}
-
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
-	public function getTitle()	{
-		echo $this->titrePage;
-	}
+	public function getTitle()			{ echo $this->titrePage; }
 
-	public function getCSS()	{
-		foreach($this->T_CSS as $feuilleCSS)
-			echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";
-	}
+	public function getHeaderText() 	{ echo $this->entetePage,"\n"; }
 
-	public function getHeaderText() {
-		echo $this->entetePage,"\n";
-	}
+	public function getLogo()			{ echo Page::BaliseImage($this->logo,'Logo'); }
 
-	public function getLogo() {
-		echo Page::BaliseImage($this->logo,'Logo');
-	}
+	public function getDossier()		{ return $this->dossier; }
 
-	public function getDossier()	{
-		return $this->dossier;
-	}
+	public function getSection()		{ echo $this->scriptSection; }
 
-	public function getSection()	{
-		echo $this->scriptSection;
-	}
+	public function getFooter()			{ echo $this->PiedDePage; }
 
-	public function getFooter()	{
-		echo $this->PiedDePage;
-	}
+	public function getView()			{ return $this->vue; }
 
-	public function getView()	{
-		return $this->vue;
-	}
+	public function getParamURL($i = 0)	{ return (isset($this->T_paramURL[$i])) ? $this->T_paramURL[$i] : null; }
 
-	public function getParamURL($i = 0)	{
-		return (isset($this->T_paramURL[$i])) ? $this->T_paramURL[$i] : null;
-	}
+	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
+
 /* ***************************
  * méthodes statiques
  * ***************************/
 
-	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')	{
-		if(substr($src,0,4) != 'http')	{	// fichier interne?
+	public static function BaliseImage($src, $alt = '<b>Image ici</b>', $code = '')
+	{
+		if(substr($src,0,4) != 'http')	// fichier interne?
+		{
 			//		chemin absolu?				suppression de / au début		ajout dossier image
 			$src = (substr($src,0,1) == '/') ? substr($src,1,strlen($src)) : self::DOSSIER_IMAGE . $src;
 			$src = (file_exists($src)) ? '/' . $src : "/PEUNC/images/image_absente.png";
@@ -137,54 +114,60 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public static function SauvegardeEtat() {
-		if (isset($_SESSION['alpha']))		// défini => une page a été consultée
+	public static function SauvegardeEtat()
+	{
+		if (isset($_SESSION["PEUNC"]['alpha']))		// défini => une page a été consultée
 		{
-			if ($_SESSION['alpha'] >= 0)	// cette page est une des pages du site
-					$T_etatPrecedent = [$_SESSION['alpha'],			$_SESSION['beta'],			$_SESSION['gamma']];			// sauvegarde état actuel
-			else	$T_etatPrecedent = [$_SESSION['alphaPrecedent'],$_SESSION['betaPrecedent'],	$_SESSION['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
+			if ($_SESSION["PEUNC"]['alpha'] >= 0)	// cette page est une des pages du site
+					$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
+			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
 		}
-		else		$T_etatPrecedent = [	0,							0,							0];							// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
+		else		$T_etatPrecedent = [0, 0, 0];	// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
 
-		list($_SESSION['alphaPrecedent'], $_SESSION['betaPrecedent'], $_SESSION['gammaPrecedent']) = $T_etatPrecedent;
+		list($_SESSION["PEUNC"]['alphaPrecedent'], $_SESSION["PEUNC"]['betaPrecedent'], $_SESSION["PEUNC"]['gammaPrecedent']) = $T_etatPrecedent;
 	}
 
 /* ***************************
  * AUTRE
  * ***************************/
 
-	public function ExecuteControleur($alpha, $beta, $gamma)	{
+	public function ExecuteControleur($alpha, $beta, $gamma)
+	{
 		$script = $this->BD->Controleur($alpha, $beta, $gamma);
 		if($script == '')
 			throw new \Exception("Controleur non d&eacute;fini");
-		else {
-			if (file_exists(self::DOSSIER_CONTROLEUR. $script))
-				require(self::DOSSIER_CONTROLEUR . $script);
-			else throw new \Exception("Controleur inexistant");
-		}
+		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))
+			require(self::DOSSIER_CONTROLEUR . $script);
+		else throw new \Exception("Controleur inexistant");
 	}
 
- 	public function AfficherOnglets()	{
+ 	public function AfficherOnglets()
+ 	{
 		$T_Onglets = $this->BD->Liste_niveau();
 		echo "<ul>\n";
-		foreach($T_Onglets as $alpha => $code)	{
+		foreach($T_Onglets as $alpha => $code)
+		{
 			if (($alpha >= Page::ALPHA_MINI) && ($alpha <= Page::ALPHA_MAXI))
-				echo "\t<li>" . (($alpha == $_SESSION['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+				echo "\t<li>" . (($alpha == $_SESSION["PEUNC"]['alpha']) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
 		echo "\t</ul>\n";
 	}
 
-	public function AfficherMenu()	{
-		$T_item = $this->BD->Liste_niveau($_SESSION['alpha']);
+	public function AfficherMenu()
+	{
+		$T_item = $this->BD->Liste_niveau($_SESSION["PEUNC"]['alpha']);
 		echo "\t<ul>\n";
-		foreach($T_item as $beta => $code) {
-			echo "\t<li>", (($beta == $_SESSION['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
-			if ($beta == $_SESSION['beta']) {	// sous-menu?
-				$T_sous_item = $this->BD->Liste_niveau($_SESSION['alpha'], $_SESSION['beta']);
-				if (isset($T_sous_item)) {	// génération sous-menu s'il existe
+		foreach($T_item as $beta => $code)
+		{
+			echo "\t<li>", (($beta == $_SESSION["PEUNC"]['beta']) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
+			if ($beta == $_SESSION["PEUNC"]['beta'])	// sous-menu?
+			{
+				$T_sous_item = $this->BD->Liste_niveau($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta']);
+				if (isset($T_sous_item))	// génération sous-menu s'il existe
+				{
 					echo "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $_SESSION['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
+						echo "\t\t<li>", ($gamma == $_SESSION["PEUNC"]['gamma']) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
 					echo "\t</ul>\n";
 				}
 			}
@@ -192,9 +175,8 @@ class Page implements iPage	{
 		echo "\t</ul>\n";
 	}
 
-	public function URLprecedente() {
-		$Treponse = $this->BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?", array($_SESSION['alphaPrecedent'],$_SESSION['betaPrecedent'],$_SESSION['gammaPrecedent']));
-		return $Treponse;
+	public function URLprecedente()
+	{
+		return $this->BD->ResultatSQL("SELECT URL FROM Vue_URLvalides WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?", array($_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],$_SESSION["PEUNC"]['gammaPrecedent']));
 	}
-
 }

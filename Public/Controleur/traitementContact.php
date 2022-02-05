@@ -8,12 +8,12 @@ else
 	if ($this->FormulaireOK())
 	{
 		// les drapeaux des erreurs sont baissés
-		$_SESSION["formulaire"]["ErreurNom"] = $_SESSION["formulaire"]["ErreurCourriel"] = $_SESSION["formulaire"]["ErreurObjet"] = $_SESSION["formulaire"]["ErreurMessage"] = false;
+		$_SESSION["PEUNC"]["formulaire"]["ErreurNom"] = $_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"] = $_SESSION["PEUNC"]["formulaire"]["ErreurObjet"] = $_SESSION["PEUNC"]["formulaire"]["ErreurMessage"] = false;
 
 		if ($this->EnvoyerMessage())	// l'envoi du courriel s'est bien déroulée?
 		{
-			$_SESSION["formulaire"]["objet"] = $_SESSION["formulaire"]["message"] = ""; // le nom et le courriel sont conservés
-			$URL = $_SESSION["formulaire"]["URLretour"]; // redirection vers page précédente
+			$_SESSION["PEUNC"]["formulaire"]["objet"] = $_SESSION["PEUNC"]["formulaire"]["message"] = ""; // le nom et le courriel sont conservés
+			$URL = $_SESSION["PEUNC"]["formulaire"]["URLretour"]; // redirection vers page précédente
 		} else $URL = "/Contact"; // Redirection vers le formulaire de contact car il y a eut un pb avec 'envoi du courriel
 	}
 	else $URL = "/Contact"; // Redirection vers le formulaire de contact car il y a erreur
