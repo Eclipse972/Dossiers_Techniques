@@ -20,7 +20,7 @@ try
 	PEUNC\Page::SauvegardeEtat();	// sauvegarde de l'état courant
 	// MAJ de l'état
 	$_SESSION["PEUNC"]['alpha']	= $requete->getAlpha();
-	$_SESSION["PEUNC"]['beta']	= $requete->getBeta()
+	$_SESSION["PEUNC"]['beta']	= $requete->getBeta();
 	$_SESSION["PEUNC"]['gamma']	= $requete->getGamma();
 
 	$PAGE = new $classePage(explode("/", $paramPage));
