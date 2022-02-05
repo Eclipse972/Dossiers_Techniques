@@ -44,22 +44,19 @@ class HttpRequest {
 			case 403:	// accès interdit
 			case 500:	// erreur serveur
 				list($alpha, $beta, $gamma) = [-1, $codeRedirecion, 0];	break;
-			case 200:	// le script est lancé sans redirection
-				if(empty($_POST)) { // c'est la page d'accueil
-					$alpha = 0;
-				} else {	// traitement de formulaire de contact
-					$alpha = -2;
-				}
-				$beta = $gamma	= 0;
+			case 200:	// le script est lancé sans redirection => page d'accueil
+				$alpha = $beta = $gamma	= 0;
 				break;
 			case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 				list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
 
 				// interrogation de la BD pour retrouver la position dans l'arborescence
-				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ?", [$URL]);
+				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_URLvalides WHERE URL = ? and methodeHttp = ?", [$URL, $this->methode]);
 				$alpha	= $Treponse["niveau1"];
 				$beta	= $Treponse["niveau2"];
 				$gamma	= $Treponse["niveau3"];
+//print_r($Treponse);
+//exit("alpha=". $alpha . " URL=" . $URL);
 
 				if (isset($alpha))	// l'URL existe?
 					header("Status: 200 OK", false, 200);		// modification pour dire au navigateur que tout va bien finalement
