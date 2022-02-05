@@ -18,7 +18,11 @@ try
 	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 	PEUNC\Page::SauvegardeEtat();	// sauvegarde de l'état courant
-	list($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']) = [$requete->getAlpha(), $requete->getBeta(), $requete->getGamma()];// MAJ de l'état'
+	// MAJ de l'état
+	$_SESSION["PEUNC"]['alpha']	= $requete->getAlpha();
+	$_SESSION["PEUNC"]['beta']	= $requete->getBeta()
+	$_SESSION["PEUNC"]['gamma']	= $requete->getGamma();
+
 	$PAGE = new $classePage(explode("/", $paramPage));
 	$PAGE->ExecuteControleur($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']);
 }
