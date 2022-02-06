@@ -131,9 +131,9 @@ class Page implements iPage	{
  * AUTRE
  * ***************************/
 
-	public function ExecuteControleur($alpha, $beta, $gamma)
+	public function ExecuteControleur($alpha, $beta, $gamma, $méthode = "GET")
 	{
-		$script = $this->BD->Controleur($alpha, $beta, $gamma);
+		$script = $this->BD->Controleur($alpha, $beta, $gamma, $méthode);
 		if($script == '')
 			throw new \Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))

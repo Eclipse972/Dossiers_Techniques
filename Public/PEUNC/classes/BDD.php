@@ -63,8 +63,8 @@ public function ClassePage($alpha, $beta, $gamma) {
 	return $reponse[0];
 }
 
-public function Controleur($alpha, $beta, $gamma) {
-	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+public function Controleur($alpha, $beta, $gamma, $methode) {
+	$this->Requete('SELECT controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?', [$alpha, $beta, $gamma, $methode]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse[0];
