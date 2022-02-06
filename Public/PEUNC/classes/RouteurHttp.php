@@ -1,53 +1,52 @@
 <?php
-/*
-	Cette classe décode une requête http et renvoie :
-		* la position dans l'arborescence même s'il s'agit d'une erreur serveur
-		* la méthode utilisée (GET ou POST pour le moment)
-		* un tableu contenant la liste des paramètres pré-traités sous la forme d'un tableau associatif
-
-	La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
-	Si alpha >=0 => pages du site
-	(X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
-
-	(X;Y;0) avec Y>0 => page de 2e niveau
-
-	(X;Y;Z) avec Z>0 => page de 3e niveau
-
-	si alpha<0 => page spéciales PEUNC ou autre
-	(-1;code;0) -> page d'erreur avec son code
-	(-2;0;0) -> formulaire de contact
-
-	Les pages d'erreur serveur gérées sont: 404,403 et 500 mais on peut en rajouter d'autres
-
-	tableau asoiatif des paramètres. Les paramètres en dehors de la liste autorisé sont ignorés. Enseuite chaque paramètres est nettoyé.
-*/
 namespace PEUNC;
 
-require_once 'PEUNC/classes/BDD.php';
+require_once"PEUNC/classes/BDD.php";
 
-class HttpRouter {
-	// position
+class HttpRouter
+/*
+ * Cette classe décode une requête http et renvoie :
+ * 		- la position dans l'arborescence même s'il s'agit d'une erreur serveur
+ *		- la méthode Http utilisée
+ *
+ * La position dans l'arborescence. Elle est représentée par un triplet (alpha, beta, gamma) par importance décroissante
+ * Si alpha >= 0 => pages du site
+ * (X;0;0) => page de 1er niveau. 	(0;0;0) -> page d'accueil.
+ * (X;Y;0) avec Y>0 => page de 2e niveau
+ * (X;Y;Z) avec Z>0 => page de 3e niveau
+ *
+ * si alpha < 0 => page spéciales PEUNC ou autre
+ * (-1;code;0) -> page d'erreur avec son code
+ * (-2;0;0) -> formulaire de contact
+ *
+ * Les pages d'erreur serveur gérées sont: 404,403 et 500 mais on peut en rajouter facilement d'autres
+ * Si la page n'est pas trouvée quelqu'en soit la raison la réponse sera la page 404.
+*/
+{
+	// position dans l'arborescence
 	private $alpha;
 	private $beta;
 	private $gamma;
+	private $ID = null;	// ID du noeud
+
+	private $methode;	// méthode Http
 
 	// pour le futur
-	private $methode;
-	private $Tparam;
 	private $IP;
 
 	public function __construct()
 	{
 		$this->methode = $_SERVER['REQUEST_METHOD'];
 
-		// recherche de la position dans l'application
+		// recherche de la position dans l'arborescence stockée en BD
 		$BD = new BDD;
 		$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
 		switch($codeRedirecion)
 		{	// Toutes les erreurs serveur sont traitées ici via le script index.php. Cf .htaccess
 			case 403:	// accès interdit
 			case 500:	// erreur serveur
-				list($alpha, $beta, $gamma) = [-1, $codeRedirecion, 0];	break;
+				list($alpha, $beta, $gamma) = [-1, $codeRedirecion, 0];
+				break;
 			case 200:	// le script est lancé sans redirection => page d'accueil
 				$alpha = $beta = $gamma	= 0;
 				break;
@@ -56,21 +55,27 @@ class HttpRouter {
 
 				// interrogation de la BD pour retrouver la position dans l'arborescence
 				$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $this->methode]);
-				$alpha	= $Treponse["niveau1"];
-				$beta	= $Treponse["niveau2"];
-				$gamma	= $Treponse["niveau3"];
-
-				if (isset($alpha))	// l'URL existe?
+				if (isset($Treponse["niveau1"]))	// l'URL existe?
+				{	// la page existe
 					header("Status: 200 OK", false, 200);		// modification pour dire au navigateur que tout va bien finalement
-				else list($alpha, $beta, $gamma) = [-1, 404, 0];// erreur 404!
+					$alpha	= $Treponse["niveau1"];
+					$beta	= $Treponse["niveau2"];
+					$gamma	= $Treponse["niveau3"];
+				}
+				else	// erreur 404!
+					list($alpha, $beta, $gamma) = [-1, 404, 0];
 				break;
 			default:
 				list($alpha, $beta, $gamma) = [-1, 0, 0];	// erreur inconnue
 		}
 		list($this->alpha, $this->beta, $this->gamma) = [$alpha, $beta, $gamma];
+
+		// recherche de l'ID du noeud
+		$this->ID = $BD->ResultatSQL("SELECT ID FROM Vue_Routes WHERE alpha = ? AND beta = ? AND gamma = ? AND methodeHttp = ?", [$alpha, $beta, $gamma, $this->methode]);;
 	}
 
 //	Accesseurs ================================================================================================================================
+	public function getID()		{ return $this->ID; }
 	public function getAlpha()	{ return $this->alpha; }
 	public function getBeta()	{ return $this->beta; }
 	public function getGamma()	{ return $this->gamma; }
