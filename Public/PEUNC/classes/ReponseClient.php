@@ -5,7 +5,7 @@ class ReponseClient
 // Réponse à servir au client en fonction de la route trouvée suite à la requête http.
 // Classe nécesaire: HttpRouter chargée par l'autoloader'
 {
-	private $T_param = [];	// tableau des paramètres
+	private $T_param;	// tableau des paramètres
 	private $route;
 
 	public function __construct(HttpRouter $route)
@@ -25,26 +25,34 @@ class ReponseClient
 		}
 	}
 
-	private function PrepareParametres()
+	private function PrepareParametres($Tableau)
 	{
+		global $BD;	// définie dans index.php
+		// récupère la liste des paramètres autorisés
+		$reponseBD = $BD->ResultatSQL("SELECT paramAutorise FROM Vue_Routes WHERE ID = ?", [$this->route->getID()]);
+		$TparamAutorises = json_decode($reponseBD, true);
+
+		$this->T_param = [];
+		foreach ($TparamAutorises as $clé)
+			 $this->T_param[$clé] = htmlspecialchars($Tableau[$clé]);	// seules les clés autorisées sont prises en compte
 	}
 
 // Réponses aux diférentes méthodes Http prises en compte =========================================================
 	private function ReponseGET()
 	{
-		global $BD;	// défini dans index.php
+		global $BD;	// définie dans index.php
 		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+
+		$PAGE = new $classePage(explode("/", $paramPage));
+		$PAGE->ExecuteControleur($this->route->getAlpha(),$this->route->getBeta(), $this->route->getGamma());
+		include $PAGE->getView(); // insertion de la vue
 
 		Page::SauvegardeEtat();	// sauvegarde de l'état courant
 		// MAJ de l'état
 		$_SESSION["PEUNC"]['alpha']	= $this->route->getAlpha();
 		$_SESSION["PEUNC"]['beta']	= $this->route->getBeta();
 		$_SESSION["PEUNC"]['gamma']	= $this->route->getGamma();
-
-		$PAGE = new $classePage(explode("/", $paramPage));
-		$PAGE->ExecuteControleur($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']);
-		include $PAGE->getView(); // insertion de la vue
 	}
 
 	private function ReponsePOST()
