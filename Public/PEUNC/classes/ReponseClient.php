@@ -41,18 +41,19 @@ class ReponseClient
 	private function ReponseGET()
 	{
 		global $BD;	// définie dans index.php
-		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
-		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
-
-		$PAGE = new $classePage(explode("/", $paramPage));
-		$PAGE->ExecuteControleur($this->route->getAlpha(),$this->route->getBeta(), $this->route->getGamma());
-		include $PAGE->getView(); // insertion de la vue
 
 		Page::SauvegardeEtat();	// sauvegarde de l'état courant
 		// MAJ de l'état
 		$_SESSION["PEUNC"]['alpha']	= $this->route->getAlpha();
 		$_SESSION["PEUNC"]['beta']	= $this->route->getBeta();
 		$_SESSION["PEUNC"]['gamma']	= $this->route->getGamma();
+
+		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
+		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+
+		$PAGE = new $classePage(explode("/", $paramPage));
+		$PAGE->ExecuteControleur($this->route->getAlpha(),$this->route->getBeta(), $this->route->getGamma());
+		include $PAGE->getView(); // insertion de la vue
 	}
 
 	private function ReponsePOST()
