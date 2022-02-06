@@ -12,9 +12,8 @@ try
 {
 	$route = new PEUNC\HttpRouter;	// à partir d'une requête Http on trouve la route
 
-	$BD = new PEUNC\BDD;			// ouvrir une BD qui sera disponible pour la suite deu code
-
 	// construire la réponse
+	$BD = new PEUNC\BDD;			// ouvrir une BD qui sera disponible pour la suite du code
 	$classePage = $BD->ClassePage($route->getAlpha(), $route->getBeta(), $route->getGamma());
 	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
