@@ -1,30 +1,24 @@
 <?php	// routeur de PEUNC
 session_start();
 
-require 'PEUNC/classes/Page.php';
-require 'PEUNC/classes/BDD.php';
-require 'PEUNC/classes/RouteurHttp.php';
+require_once"PEUNC/classes/Page.php";
+require_once"PEUNC/classes/RouteurHttp.php";
+require_once"PEUNC/classes/ReponseClient.php";
+require_once"PEUNC/classes/BDD.php";
 
 // autoloader pour les classes utilisateur
 spl_autoload_register(function($classe)	{ require_once"Modele/classe_{$classe}.php"; });
 
 try
 {
-	$route = new PEUNC\HttpRouter;	// à partir d'une requête Http on trouve la route
+	// BD disponible comme variable globale
+	$BD = new PEUNC\BDD;
 
-	// construire la réponse
-	$BD = new PEUNC\BDD;			// ouvrir une BD qui sera disponible pour la suite du code
-	$classePage = $BD->ClassePage($route->getAlpha(), $route->getBeta(), $route->getGamma());
-	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
+	// à partir d'une requête Http on trouve la route
+	$route = new PEUNC\HttpRouter;
 
-	PEUNC\Page::SauvegardeEtat();	// sauvegarde de l'état courant
-	// MAJ de l'état
-	$_SESSION["PEUNC"]['alpha']	= $route->getAlpha();
-	$_SESSION["PEUNC"]['beta']	= $route->getBeta();
-	$_SESSION["PEUNC"]['gamma']	= $route->getGamma();
-
-	$PAGE = new $classePage(explode("/", $paramPage));
-	$PAGE->ExecuteControleur($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']);
+	// construction de la réponse en fonction de la route trouvée
+	$reponse = new PEUNC\ReponseClient($route);
 }
 catch(Exception $e)
 {
@@ -32,6 +26,5 @@ catch(Exception $e)
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
 	$PAGE->setCorpsErreur("<p>Noeud {$route->getAlpha()} - {$route->getBeta()} - {$route->getGamma()}</p>");
+	include $PAGE->getView(); // insertion de la vue
 }
-
-include $PAGE->getView(); // insertion de la vue
