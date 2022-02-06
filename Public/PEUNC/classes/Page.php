@@ -114,8 +114,9 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public static function SauvegardeEtat()
+	public static function SauvegardeEtat($alpha, $beta, $gamma)
 	{
+		// sauvegarde de l'acien état
 		if (isset($_SESSION["PEUNC"]['alpha']))		// défini => une page a été consultée
 		{
 			if ($_SESSION["PEUNC"]['alpha'] >= 0)	// cette page est une des pages du site
@@ -125,6 +126,11 @@ class Page implements iPage	{
 		else		$T_etatPrecedent = [0, 0, 0];	// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
 
 		list($_SESSION["PEUNC"]['alphaPrecedent'], $_SESSION["PEUNC"]['betaPrecedent'], $_SESSION["PEUNC"]['gammaPrecedent']) = $T_etatPrecedent;
+
+		// MAJ de l'état
+		$_SESSION["PEUNC"]['alpha']	= $alpha;
+		$_SESSION["PEUNC"]['beta']	= $beta;
+		$_SESSION["PEUNC"]['gamma']	= $gamma;
 	}
 
 /* ***************************

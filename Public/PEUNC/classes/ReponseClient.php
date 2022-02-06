@@ -42,11 +42,7 @@ class ReponseClient
 	{
 		global $BD;	// définie dans index.php
 
-		Page::SauvegardeEtat();	// sauvegarde de l'état courant
-		// MAJ de l'état
-		$_SESSION["PEUNC"]['alpha']	= $this->route->getAlpha();
-		$_SESSION["PEUNC"]['beta']	= $this->route->getBeta();
-		$_SESSION["PEUNC"]['gamma']	= $this->route->getGamma();
+		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
 
 		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
