@@ -2,6 +2,7 @@
 DROP VIEW IF EXISTS Vue_Routes;
 CREATE VIEW Vue_Routes AS
 SELECT
+	ID,
 	alpha AS niveau1,
 	beta AS niveau2,
 	gamma AS niveau3,

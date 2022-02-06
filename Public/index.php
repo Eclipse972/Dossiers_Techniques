@@ -10,18 +10,19 @@ spl_autoload_register(function($classe)	{ require_once"Modele/classe_{$classe}.p
 
 try
 {
-	$requete = new PEUNC\HttpRouter;
+	$route = new PEUNC\HttpRouter;	// à partir d'une requête Http on trouve la route
 
-	$BD = new PEUNC\BDD;
+	$BD = new PEUNC\BDD;			// ouvrir une BD qui sera disponible pour la suite deu code
 
-	$classePage = $BD->ClassePage($requete->getAlpha(), $requete->getBeta(), $requete->getGamma());
+	// construire la réponse
+	$classePage = $BD->ClassePage($route->getAlpha(), $route->getBeta(), $route->getGamma());
 	if (!isset($classePage))	throw new Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 	PEUNC\Page::SauvegardeEtat();	// sauvegarde de l'état courant
 	// MAJ de l'état
-	$_SESSION["PEUNC"]['alpha']	= $requete->getAlpha();
-	$_SESSION["PEUNC"]['beta']	= $requete->getBeta();
-	$_SESSION["PEUNC"]['gamma']	= $requete->getGamma();
+	$_SESSION["PEUNC"]['alpha']	= $route->getAlpha();
+	$_SESSION["PEUNC"]['beta']	= $route->getBeta();
+	$_SESSION["PEUNC"]['gamma']	= $route->getGamma();
 
 	$PAGE = new $classePage(explode("/", $paramPage));
 	$PAGE->ExecuteControleur($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']);
@@ -31,7 +32,7 @@ catch(Exception $e)
 	$PAGE = new PageErreur;
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
-	$PAGE->setCorpsErreur("<p>Noeud {$requete->getAlpha()} - {$requete->getBeta()} - {$requete->getGamma()}</p>");
+	$PAGE->setCorpsErreur("<p>Noeud {$route->getAlpha()} - {$route->getBeta()} - {$route->getGamma()}</p>");
 }
 
 include $PAGE->getView(); // insertion de la vue
