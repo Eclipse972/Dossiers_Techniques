@@ -1,13 +1,9 @@
 <?php
 namespace PEUNC;
 
-require_once"PEUNC/classes/BDD.php";
-require_once"PEUNC/classes/RouteurHttp.php";
-
 class ReponseClient
-/*
- * Réponse à servir au client en fonction de la route trouvée suite à la requête http.
-*/
+// Réponse à servir au client en fonction de la route trouvée suite à la requête http.
+// Classe nécesaire: HttpRouter chargée par l'autoloader'
 {
 	private $T_param = [];	// tableau des paramètres
 	private $route;
@@ -36,7 +32,7 @@ class ReponseClient
 // Réponses aux diférentes méthodes Http prises en compte =========================================================
 	private function ReponseGET()
 	{
-		$BD = new BDD;			// ouvrir une BD qui sera disponible pour la suite du code
+		global $BD;	// défini dans index.php
 		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 

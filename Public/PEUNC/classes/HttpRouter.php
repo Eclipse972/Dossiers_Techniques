@@ -1,8 +1,6 @@
 <?php
 namespace PEUNC;
 
-require_once"PEUNC/classes/BDD.php";
-
 class HttpRouter
 /*
  * Cette classe décode une requête http et renvoie :
@@ -36,10 +34,10 @@ class HttpRouter
 
 	public function __construct()
 	{
+		global $BD;	// défini dans index.php
 		$this->methode = $_SERVER['REQUEST_METHOD'];
 
 		// recherche de la position dans l'arborescence stockée en BD
-		$BD = new BDD;
 		$codeRedirecion = $_SERVER['REDIRECT_STATUS'];
 		switch($codeRedirecion)
 		{	// Toutes les erreurs serveur sont traitées ici via le script index.php. Cf .htaccess

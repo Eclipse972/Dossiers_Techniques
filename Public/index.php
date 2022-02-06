@@ -1,13 +1,18 @@
 <?php	// routeur de PEUNC
 session_start();
 
-require_once"PEUNC/classes/Page.php";
-require_once"PEUNC/classes/RouteurHttp.php";
-require_once"PEUNC/classes/ReponseClient.php";
-require_once"PEUNC/classes/BDD.php";
+spl_autoload_register(function($classe)
+	{
+		if (substr($classe, 0, 5) == "PEUNC")
+		{	// PEUNC
+			$classe = substr($classe, 6, 99);
+			$prefixe = "PEUNC/classes/";
+		}
+		else $prefixe =  "Modele/classe_"; // utilisateur
 
-// autoloader pour les classes utilisateur
-spl_autoload_register(function($classe)	{ require_once"Modele/classe_{$classe}.php"; });
+		require_once $prefixe . $classe . ".php";
+	}
+);
 
 try
 {
