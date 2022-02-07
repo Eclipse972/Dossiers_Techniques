@@ -30,24 +30,29 @@ class ReponseClient
 		global $BD;	// définie dans index.php
 		// récupère la liste des paramètres autorisés
 		$reponseBD = $BD->ResultatSQL("SELECT paramAutorise FROM Vue_Routes WHERE ID = ?", [$this->route->getID()]);
+
 		$TparamAutorises = json_decode($reponseBD, true);
 
 		$this->T_param = [];
 		foreach ($TparamAutorises as $clé)
-			 $this->T_param[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
+			if (isset($Tableau[$clé]))
+				$this->T_param[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
 	}
 
-// Réponses aux diférentes méthodes Http prises en compte =========================================================
+// Réponses aux diférentes méthodes Http =========================================================
+
 	private function ReponseGET()
 	{
 		global $BD;	// définie dans index.php
 
 		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
 
+		$this->PrepareParametres($_GET);
+
 		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
-		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode(), explode("/", $paramPage));
+		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode(), $this->T_param);
 		$PAGE->ExecuteControleur();
 		include $PAGE->getView(); // insertion de la vue
 	}
