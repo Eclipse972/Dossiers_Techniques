@@ -31,6 +31,13 @@ class Page implements iPage	{
 // FIN DE LA CONFIGURATION
 
 	protected $BD;
+
+	// position
+	protected $alpha;
+	protected $beta;
+	protected $gamma
+	protected $ID;
+
 	protected $T_paramURL	= [];
 
 	public function __construct(array $TparamURL = [])
