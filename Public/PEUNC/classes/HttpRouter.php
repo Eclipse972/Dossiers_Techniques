@@ -73,8 +73,8 @@ class HttpRouter
 		list($this->alpha, $this->beta, $this->gamma) = [$alpha, $beta, $gamma];
 
 		// recherche de l'ID du noeud
-		$this->ID = $BD->ResultatSQL("SELECT ID FROM Vue_Routes WHERE alpha = ? AND beta = ? AND gamma = ? AND methodeHttp = ?", [$alpha, $beta, $gamma, $this->methode]);;
 
+		$this->ID = $BD->ResultatSQL("SELECT ID FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$alpha, $beta, $gamma, $this->methode]);
 		// Remarque: la méthode est déjà identifiée au début de la fonction
 	}
 
