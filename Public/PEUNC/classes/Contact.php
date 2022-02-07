@@ -1,7 +1,8 @@
-<?php	// classes page de contact de PEUNC
-namespace PEUNC;
+<?php
+// classes formulaire de contact de PEUNC
+// classe requise: CodeValidation
 
-require "PEUNC/classes/CodeValidation.php";
+namespace PEUNC;
 
 class Contact extends Page
 {
