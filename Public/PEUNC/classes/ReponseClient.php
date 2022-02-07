@@ -34,7 +34,7 @@ class ReponseClient
 
 		$this->T_param = [];
 		foreach ($TparamAutorises as $clé)
-			 $this->T_param[$clé] = htmlspecialchars($Tableau[$clé]);	// seules les clés autorisées sont prises en compte
+			 $this->T_param[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
 	}
 
 // Réponses aux diférentes méthodes Http prises en compte =========================================================
