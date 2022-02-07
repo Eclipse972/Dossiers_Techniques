@@ -45,8 +45,11 @@ class HttpRouter
 			case 500:	// erreur serveur
 				list($alpha, $beta, $gamma) = [-1, $codeRedirecion, 0];
 				break;
-			case 200:	// le script est lancé sans redirection => page d'accueil
-				$alpha = $beta = $gamma	= 0;
+			case 200:	// le script est lancé sans redirection
+				if (empty($_POST))
+					$alpha = $beta = $gamma	= 0;	// un appel ordinaire vers la page d'accueil
+				else	// récupération l'emplacement de ce formumaire dans l'arborescence sauvegardé préalablement dans la session
+					list($alpha, $beta, $gamma) = Formulaire::DonnerPosition();
 				break;
 			case 404:	// Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur
 				list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
@@ -66,10 +69,13 @@ class HttpRouter
 			default:
 				list($alpha, $beta, $gamma) = [-1, 0, 0];	// erreur inconnue
 		}
+		// la position dans l'arborescence
 		list($this->alpha, $this->beta, $this->gamma) = [$alpha, $beta, $gamma];
 
 		// recherche de l'ID du noeud
 		$this->ID = $BD->ResultatSQL("SELECT ID FROM Vue_Routes WHERE alpha = ? AND beta = ? AND gamma = ? AND methodeHttp = ?", [$alpha, $beta, $gamma, $this->methode]);;
+
+		// Remarque: la méthode est déjà identifiée au début de la fonction
 	}
 
 //	Accesseurs ================================================================================================================================
