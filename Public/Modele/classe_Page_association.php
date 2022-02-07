@@ -11,8 +11,8 @@ class Page_association extends Page {
 	protected $fichier;			// nom du fichier associé à l'image avec son extension
 	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image'
 
- 	public function __construct(array $TparamURL = []) {
-		parent::__construct($TparamURL);
+ 	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = []) {
+		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		// image et dossier instanciées dans le constructeur de la classe mère
 
 		// valeurs par défaut

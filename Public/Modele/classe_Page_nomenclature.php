@@ -6,9 +6,9 @@ class Page_nomenclature extends Page
 	private $colonne_matière_vide;		// colone matière existe
 	private $colonne_observation_vide;	// colone observation existe
 
-	public function __construct(array $TparamURL = [])
+	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
 	{
-		parent::__construct($TparamURL);
+		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		$this->setCSS(["nomenclature"]);
 		$this->setView("nomenclature.html");
 	}

@@ -5,7 +5,7 @@ require "PEUNC/classes/CodeValidation.php";
 
 class Contact extends Page
 {
-	public function __construct() { parent::__construct(); }
+	public function __construct($alpha, $beta, $gamma, $methode) { parent::__construct($alpha, $beta, $gamma, $methode); }
 /*
  * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["PEUNC"]["formulaire"]["données"]
  * données =...

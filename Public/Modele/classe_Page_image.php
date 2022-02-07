@@ -14,8 +14,8 @@ class Page_image extends Page {
  	protected $hauteur;		// hauteur de l'imahe
 	protected $alt;			// texte alternatif pour l'image
 
-	public function __construct(array $TparamURL = []) {
-		parent::__construct($TparamURL);
+	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = []) {
+		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		// image et dossier instanciées dans le constructeur de la clase mère
 
 		// valeurs par défaut

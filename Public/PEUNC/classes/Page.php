@@ -36,12 +36,17 @@ class Page implements iPage	{
 	protected $alpha;
 	protected $beta;
 	protected $gamma;
-	protected $ID;
+	protected $methode;
+	//protected $ID; inutile pour le moment
 
 	protected $T_paramURL	= [];
 
-	public function __construct(array $TparamURL = [])
+	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
 	{
+		$this->alpha = $alpha;
+		$this->beta = $beta;
+		$this->gamma = $gamma;
+		$this->methode = $methode;
 		$this->BD = new BDD;
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
@@ -106,13 +111,15 @@ class Page implements iPage	{
 
 	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
 
-	public function getID()				{ return $this->ID; }
+	//public function getID()				{ return $this->ID; }
 
 	public function getAlpha()			{ return $this->alpha; }
 
 	public function getBeta()			{ return $this->beta; }
 
 	public function getGamma()			{ return $this->gamma; }
+
+	public function getMethode()		{ return $this->methode; }
 
 /* ***************************
  * méthodes statiques
@@ -152,9 +159,9 @@ class Page implements iPage	{
  * AUTRE
  * ***************************/
 
-	public function ExecuteControleur($alpha, $beta, $gamma, $méthode = "GET")
+	public function ExecuteControleur()
 	{
-		$script = $this->BD->Controleur($alpha, $beta, $gamma, $méthode);
+		$script = $this->BD->Controleur($this->alpha, $this->beta, $this->gamma, $this->methode);
 		if($script == '')
 			throw new \Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))

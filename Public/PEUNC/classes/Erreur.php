@@ -21,8 +21,8 @@ class Erreur extends Page {
 	protected $tire;
 	protected $corps;
 
-	public function __construct() {
-		parent::__construct();
+	public function __construct($alpha, $beta, $gamma, $methode) {
+		parent::__construct($alpha, $beta, $gamma, $methode);
 		$this->code = null;
 		$this->titre = "";
 		$this->corps = "";

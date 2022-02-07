@@ -7,8 +7,8 @@ class PageApropos extends Page {
 	private $T_lientexte;
 	private $T_lienURL;
 
-	public function __construct(array $TparamURL = []) {
-		parent::__construct($TparamURL);
+	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = []) {
+		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		$this->setView("Apropos.html");
 		// pas de feuille de style supplémentaire autre que commun.css chargé par la vue
 		$this->zip = "Supports/" . $this->dossier . "fichiers/" . $this->ptiNomSupport . ".zip"; // nom par défaut
