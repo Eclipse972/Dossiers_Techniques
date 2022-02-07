@@ -139,10 +139,10 @@ class Page implements iPage	{
 	public static function SauvegardeEtat($alpha, $beta, $gamma)
 	{
 		// sauvegarde de l'acien état
-		if (isset($this->alpha))		// défini => une page a été consultée
+		if (isset($_SESSION["PEUNC"]['alpha']))		// défini => une page a été consultée
 		{
 			if ($this->alpha >= 0)	// cette page est une des pages du site
-					$T_etatPrecedent = [$this->alpha,		 $this->beta,			$this->gamma];			// sauvegarde état actuel
+					$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
 			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
 		}
 		else		$T_etatPrecedent = [0, 0, 0];	// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
@@ -150,9 +150,9 @@ class Page implements iPage	{
 		list($_SESSION["PEUNC"]['alphaPrecedent'], $_SESSION["PEUNC"]['betaPrecedent'], $_SESSION["PEUNC"]['gammaPrecedent']) = $T_etatPrecedent;
 
 		// MAJ de l'état
-		$this->alpha	= $alpha;
-		$this->beta	= $beta;
-		$this->gamma	= $gamma;
+		$_SESSION["PEUNC"]['alpha']	= $alpha;
+		$_SESSION["PEUNC"]['beta']	= $beta;
+		$_SESSION["PEUNC"]['gamma']	= $gamma;
 	}
 
 /* ***************************
