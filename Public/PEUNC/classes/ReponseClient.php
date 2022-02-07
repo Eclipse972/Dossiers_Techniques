@@ -17,7 +17,7 @@ class ReponseClient
 			case "GET":
 				$this->ReponseGET();
 				break;
-			case "PUT":
+			case "POST":
 				$this->ReponsePOST();
 				break;
 			default:
