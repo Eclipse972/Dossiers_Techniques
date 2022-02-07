@@ -35,7 +35,7 @@ class Page implements iPage	{
 	// position
 	protected $alpha;
 	protected $beta;
-	protected $gamma
+	protected $gamma;
 	protected $ID;
 
 	protected $T_paramURL	= [];
