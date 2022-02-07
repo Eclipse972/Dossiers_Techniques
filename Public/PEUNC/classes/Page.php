@@ -141,7 +141,7 @@ class Page implements iPage	{
 		// sauvegarde de l'acien état
 		if (isset($_SESSION["PEUNC"]['alpha']))		// défini => une page a été consultée
 		{
-			if ($this->alpha >= 0)	// cette page est une des pages du site
+			if ($_SESSION["PEUNC"]['alpha'] >= 0)	// cette page est une des pages du site
 					$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
 			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
 		}
