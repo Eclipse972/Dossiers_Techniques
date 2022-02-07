@@ -106,6 +106,14 @@ class Page implements iPage	{
 
 	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
 
+	public function getID()				{ return $this->ID; }
+
+	public function getAlpha()			{ return $this->alpha; }
+
+	public function getBeta()			{ return $this->beta; }
+
+	public function getGamma()			{ return $this->gamma; }
+
 /* ***************************
  * méthodes statiques
  * ***************************/
