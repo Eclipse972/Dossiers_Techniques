@@ -22,7 +22,7 @@ class Page extends PEUNC\Page
 
 		// hydratation à partir de la BD
 		$BD = new PEUNC\BDD;
-		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($_SESSION["PEUNC"]['alpha'], $_SESSION["PEUNC"]['beta'], $_SESSION["PEUNC"]['gamma']));
+		$Thydrate = $BD->ResultatSQL("SELECT * FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($this->alpha, $this->beta, $this->gamma));
 
 		if (isset($Thydrate))
 		{
@@ -71,6 +71,6 @@ class Page extends PEUNC\Page
 	public function Apropos()	// renvoie l'URL de la page à propos de la page
 	{
 		global $BD;
-		return $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($_SESSION["PEUNC"]['alpha']));
+		return $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($this->alpha));
 	}
 }
