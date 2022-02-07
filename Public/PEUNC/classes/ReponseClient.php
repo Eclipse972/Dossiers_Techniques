@@ -10,7 +10,10 @@ class ReponseClient
 
 	public function __construct(HttpRouter $route)
 	{
+		global $BD;	// définie dans index.php
 		$this->route = $route;
+		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
+		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 		switch($route->getMethode())	// ne peut répondre qu'aux méthode GET et POST pour le moment
 		{
@@ -43,22 +46,21 @@ class ReponseClient
 
 	private function ReponseGET()
 	{
-		global $BD;	// définie dans index.php
-
 		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
-
 		$this->PrepareParametres($_GET);
-
-		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
-		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
-
-		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode(), $this->T_param);
+		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "GET", $this->T_param);
 		$PAGE->ExecuteControleur();
 		include $PAGE->getView(); // insertion de la vue
 	}
 
 	private function ReponsePOST()
-	{
+	{	// pas de sauvegarde de la position car on ne doit rien afficher
+
+		$this->PrepareParametres($_POST);
+		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "POST", $this->T_param);
+		$PAGE->ExecuteControleur();
+
+		// redirection vers la page précédente
 	}
 
 	private function ReponseInconnue()
