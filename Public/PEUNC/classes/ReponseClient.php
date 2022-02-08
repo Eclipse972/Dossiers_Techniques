@@ -29,6 +29,11 @@ class ReponseClient
 	}
 
 	private function PrepareParametres($Tableau)
+	/* Dans la table Squelette on récupère la liste des paramètres autorisés.
+	 * On construit un nouveau tableau qui ne contient que les clés autorisées et chaque valeur subit un nettoyage.
+	 *
+	 * Retour: un tableau débarasssé des clés non autorisées avec ses valeurs nettoyées.
+	 * */
 	{
 		global $BD;	// définie dans index.php
 		// récupère la liste des paramètres autorisés
@@ -46,7 +51,7 @@ class ReponseClient
 // Réponses aux diférentes méthodes Http =========================================================
 
 	private function ReponseGET($classePage)
-	{
+	{	// génère le code html à renvyer au client
 		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
 		$this->T_param = $this->PrepareParametres($_GET);
 		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "GET", $this->T_param);
@@ -55,22 +60,34 @@ class ReponseClient
 	}
 
 	private function ReponsePOST($classePage)
-	{
+	{	// traite le formulaire
 		global $BD;	// définie dans index.php
 		$this->T_param = $this->PrepareParametres($_POST);
 		$formulaire = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "POST", $this->T_param);
-		if ($formulaire->SpamDétecté())	// tentative de spam?
+		if ($formulaire->SpamDétecté())
+		{
+			$formulaire->TraiterSpam();
 			$URL = "/";
+		}
 		elseif ($formulaire->FormulaireOK())
 		{
 			$formulaire->Traitement();
 			$URL = $formulaire->URLprecedente();
 		}
-		else $URL = $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
+		else
+		{
+			$formulaire->TraitementAvantRepresentation();
+			$URL = $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
+		}
 		header("Location:" . $URL); // redirection
 	}
 
 	private function ReponseInconnue()
 	{	// ne sait pas répondre à la méthode demandée (PUT et DELETE par exemple)
+		$PAGE = new PageErreur;
+		$PAGE->setCodeErreur("application");
+		$PAGE->setTitreErreur("M&eacute;thode Http inconnue : " . $this->route->getMethode());
+		$PAGE->setCorpsErreur("<p>PEUNC ne sais r&eacute;pondre qu&apos;aux méthodes PUT et GET pour le moment.</p>");
+		include $PAGE->getView(); // insertion de la vue
 	}
 }
