@@ -54,10 +54,10 @@ public function ResultatSQL($requete, array $T_parametre) {
 // réécrire la fonction PagesConnexes
 }
 
-public function ClassePage($alpha, $beta, $gamma) {
+public function ClassePage($alpha, $beta, $gamma, $méthode = "GET") {
 /* Recherche le nom de ma classe de page à charger suivant la position $alpha, $beta, $gamma
  * */
-	$this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
+	$this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?', [$alpha, $beta, $gamma, $méthode]);
 	$reponse = $this->resultat->fetch();
 	$this->Fermer();
 	return $reponse[0];
