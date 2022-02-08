@@ -13,7 +13,7 @@
 </header>
 
 <section>
-<form method=post action=/Contact id=formulaire>
+<form method=post action=/ id=formulaire>
 	<p><?=$PAGE->ErreurNom()?>		Nom :		<input type="text" name="nom"		value="<?=$PAGE->NomParDefaut()?>" /></p>
 	<p><?=$PAGE->ErreurCourriel()?>	Courriel :	<input type="text" name="courriel"	value="<?=$PAGE->CourrielParDefaut()?>" /></p>
 	<p><?=$PAGE->ErreurObjet()?>	Objet :		<input type="text" name="objet"		value="<?=$PAGE->ObjetParDefaut()?>" /></p>
