@@ -9,6 +9,7 @@ class Contact extends Formulaire
 	public function __construct($alpha, $beta, $gamma, $methode)
 	{
 		parent::__construct($alpha, $beta, $gamma, $methode);
+		$this->setView("formulaire.html");
 	}
 /*
  * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["PEUNC"]["formulaire"]["données"]
