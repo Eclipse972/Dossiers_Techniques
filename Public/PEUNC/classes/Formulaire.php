@@ -18,7 +18,9 @@ class Formulaire extends Page
 		// l'objet ReponseClient fait un petit nettoyage puis dépose le résultat dans cet objet
 	}
 
-	public function FormulaireOK() {}
+	public function SpamDétecté() { return false; }
+
+	public function FormulaireOK() { return false; }
 
 	public function Traitement() {}
 
