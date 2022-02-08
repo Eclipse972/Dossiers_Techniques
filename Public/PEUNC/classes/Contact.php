@@ -86,7 +86,7 @@ class Contact extends Formulaire
 
 	}
 
-	public Traitement()
+	public function Traitement()
 	{
 
 	}
