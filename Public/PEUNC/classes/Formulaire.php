@@ -2,7 +2,7 @@
 
 namespace PEUNC;
 
-class Formulaire extends Page
+abstract class Formulaire extends Page
 {
 	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
 	{
@@ -11,18 +11,17 @@ class Formulaire extends Page
 			Formulaire::SauvegarderPosition($alpha, $beta, $gamma);
 	}
 
-// traitement du formuaire (POST) =============================================================
+// Fonctions abstraites =======================================================================
 
-	public function TraiterParametres()
-	{
-		// l'objet ReponseClient fait un petit nettoyage puis dépose le résultat dans cet objet
-	}
+	abstract public function SpamDétecté();	// recherche de spam
 
-	public function SpamDétecté() { return false; }
+	abstract public function TraiterSpam();	// traiter le sppam. exemple ajouter une entrée dans un journal
 
-	public function FormulaireOK() { return false; }
+	abstract public function FormulaireOK();// les champs ont la forme attendue et le code de validatio est bon
 
-	public function Traitement() {}
+	abstract public function Traitement();	// traitement si tout est OK. Par exemple envoyer un courriel, modifier une BD
+
+	abstract public function TraitementAvantRepresentation();	// prépare le formulaire pour un réaffichage en  générant des messages d'erreur par exemple'
 
 // fonctions statiques ========================================================================
 
