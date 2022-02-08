@@ -12,16 +12,16 @@ class ReponseClient
 	{
 		global $BD;	// définie dans index.php
 		$this->route = $route;
-		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());
+		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode());
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 		switch($route->getMethode())	// ne peut répondre qu'aux méthode GET et POST pour le moment
 		{
 			case "GET":
-				$this->ReponseGET();
+				$this->ReponseGET($classePage);
 				break;
 			case "POST":
-				$this->ReponsePOST();
+				$this->ReponsePOST($classePage);
 				break;
 			default:
 				$this->ReponseInconnue();
@@ -36,31 +36,38 @@ class ReponseClient
 
 		$TparamAutorises = json_decode($reponseBD, true);
 
-		$this->T_param = [];
+		$Treponse = [];
 		foreach ($TparamAutorises as $clé)
 			if (isset($Tableau[$clé]))
-				$this->T_param[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
+				$Treponse[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
+		return $Treponse;
 	}
 
 // Réponses aux diférentes méthodes Http =========================================================
 
-	private function ReponseGET()
+	private function ReponseGET($classePage)
 	{
 		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
-		$this->PrepareParametres($_GET);
+		$this->T_param = $this->PrepareParametres($_GET);
 		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "GET", $this->T_param);
 		$PAGE->ExecuteControleur();
 		include $PAGE->getView(); // insertion de la vue
 	}
 
-	private function ReponsePOST()
-	{	// pas de sauvegarde de la position car on ne doit rien afficher
-
-		$this->PrepareParametres($_POST);
-		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "POST", $this->T_param);
-		$PAGE->ExecuteControleur();
-
-		// redirection vers la page précédente
+	private function ReponsePOST($classePage)
+	{
+		global $BD;	// définie dans index.php
+		$this->T_param = $this->PrepareParametres($_POST);
+		$formulaire = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "POST", $this->T_param);
+		if ($formulaire->SpamDétecté())	// tentative de spam?
+			$URL = "/";
+		elseif ($formulaire->FormulaireOK())
+		{
+			$formulaire->Traitement();
+			$URL = $formulaire->URLprecedente();
+		}
+		else $URL = $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
+		header("Location:" . $URL); // redirection
 	}
 
 	private function ReponseInconnue()
