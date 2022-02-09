@@ -27,9 +27,9 @@ try
 }
 catch(Exception $e)
 {
-	$PAGE = new PageErreur;
+	$PAGE = new PageErreur($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET");
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
-	$PAGE->setCorpsErreur("<p>Noeud {$route->getAlpha()} - {$route->getBeta()} - {$route->getGamma()}</p>");
+	$PAGE->setCorpsErreur("");
 	include $PAGE->getView(); // insertion de la vue
 }
