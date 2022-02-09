@@ -12,7 +12,11 @@ class ReponseClient
 	{
 		global $BD;	// définie dans index.php
 		$this->route = $route;
-		$classePage = $BD->ClassePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode());
+		$classePage = $BD->ResultatSQL(
+							"SELECT classePage FROM Squelette
+							WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+							[$this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode()]
+						);
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 		switch($route->getMethode())	// ne peut répondre qu'aux méthode GET et POST pour le moment
