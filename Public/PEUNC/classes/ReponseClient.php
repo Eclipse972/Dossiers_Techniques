@@ -5,7 +5,6 @@ class ReponseClient
 // Réponse à servir au client en fonction de la route trouvée suite à la requête http.
 // Classe nécesaire: HttpRouter chargée par l'autoloader'
 {
-	private $T_param;	// tableau des paramètres
 	private $route;
 
 	public function __construct(HttpRouter $route)
@@ -57,8 +56,13 @@ class ReponseClient
 	private function ReponseGET($classePage)
 	{	// génère le code html à renvoyer au client
 		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
-		$this->T_param = $this->PrepareParametres($_GET);
-		$PAGE = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "GET", $this->T_param);
+		$PAGE = new $classePage(
+							$this->route->getAlpha(),
+							$this->route->getBeta(),
+							$this->route->getGamma(),
+							"GET",
+							$this->PrepareParametres($_GET)
+						);
 		$PAGE->ExecuteControleur();
 		include $PAGE->getView(); // insertion de la vue
 	}
@@ -66,8 +70,13 @@ class ReponseClient
 	private function ReponsePOST($classePage)
 	{	// traite le formulaire
 		global $BD;	// définie dans index.php
-		$this->T_param = $this->PrepareParametres($_POST);
-		$formulaire = new $classePage($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), "POST", $this->T_param);
+		$formulaire = new $classePage(
+								$this->route->getAlpha(),
+								$this->route->getBeta(),
+								$this->route->getGamma(),
+								"POST",
+								$this->PrepareParametres($_POST)
+							);
 		if ($formulaire->SpamDétecté())
 		{
 			$formulaire->TraiterSpam();
