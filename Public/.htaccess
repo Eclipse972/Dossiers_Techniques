@@ -1,6 +1,7 @@
 # redirection des erreurs vers le routeur de PEUNC
 ErrorDocument 403 /index.php
 ErrorDocument 404 /index.php
+ErrorDocument 405 /index.php
 ErrorDocument 500 /index.php
 
 <IfDefine Free>
