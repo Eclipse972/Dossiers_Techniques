@@ -161,8 +161,12 @@ class Page implements iPage	{
 
 	public function ExecuteControleur()
 	{
-		$script = $this->BD->Controleur($this->alpha, $this->beta, $this->gamma, $this->methode);
-		if($script == '')
+		$script = $this->BD->ResultatSQL(
+								"SELECT controleur FROM Squelette
+								WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+								[$this->alpha, $this->beta, $this->gamma, $this->methode]
+							);
+		if($script == "")
 			throw new \Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))
 			require(self::DOSSIER_CONTROLEUR . $script);
