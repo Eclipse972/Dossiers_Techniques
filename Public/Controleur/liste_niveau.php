@@ -32,10 +32,8 @@ function Liste_niveau_v2($alpha = null, $beta = null)
 						);
 	$Tableau = [];
 	foreach($Treponse as $ligne)
-	{
-		$i = (int)$ligne["i"];
-		$Tableau[$i] = $ligne["code"];
-	}
+		$Tableau[(int)$ligne["i"]] = $ligne["code"];
+
 	return $Tableau;
 }
 
@@ -52,7 +50,7 @@ ob_start();
 <ul>
 <?php
 
-foreach(Liste_niveau_v2(3) as $i => $ligne)
+foreach(Liste_niveau_v2(3,2) as $i => $ligne)
 {
 	echo "\t<li>{$i} - {$ligne}</li>\n";
 }
