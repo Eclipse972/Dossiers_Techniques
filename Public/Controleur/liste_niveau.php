@@ -4,25 +4,25 @@ function Liste_niveau_v2($alpha = null, $beta = null)
 	global $BD;
 	if(!isset($alpha))
 	{	// pour les onglets
-		$eqAlpha= ">= 0";
-		$eqBeta	= "= 0";
-		$eqGamma= "= 0";
+		$eqAlpha= ">=0";
+		$eqBeta	= "=0";
+		$eqGamma= "=0";
 		$indice	= "alpha";
 		$param	= [];
 	}
 	elseif(!isset($beta))
 	{	// pour le menu
-		$eqAlpha= "= ?";
-		$eqBeta = "> 0";
-		$eqGamma= "= 0";
+		$eqAlpha= "=?";
+		$eqBeta = ">0";
+		$eqGamma= "=0";
 		$indice = "beta";
 		$param	= [$alpha];
 	}
 	else
 	{	// pour le sous-menu
-		$eqAlpha= "= ?";
-		$eqBeta = "= ?";
-		$eqGamma= "> 0";
+		$eqAlpha= "=?";
+		$eqBeta = "=?";
+		$eqGamma= ">0";
 		$indice = "gamma";
 		$param	= [$alpha, $beta];
 	}
