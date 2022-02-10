@@ -33,8 +33,8 @@ function Liste_niveau_v2($alpha = null, $beta = null)
 	$Tableau = [];
 	foreach($Treponse as $ligne)
 	{
-		$i = $ligne["i"];
-		$Tableau[$ligne["i"]] = $ligne["code"];
+		$i = (int)$ligne["i"];
+		$Tableau[$i] = $ligne["code"];
 	}
 	return $Tableau;
 }
