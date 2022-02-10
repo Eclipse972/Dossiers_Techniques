@@ -35,32 +35,43 @@ public function ResultatSQL($requete, array $T_parametre)
 	return $résultat;
 }
 
-public function Liste_niveau($alpha = null, $beta = null) {
-	if(!isset($alpha))	{	// pour les onglets
-		$table = "Vue_liste_niveau1";
-		$where = "1";
-		$param = [];
-	} elseif(!isset($beta))	{	// pour le menu
-		$table = "Vue_liste_niveau2";
-		$where = "alpha = ?";
-		$param = [$alpha];
-	} else {	// pour le sous-menu
-		$table = "Vue_liste_niveau3";
-		$where = "alpha = ? AND beta = ?";
-		$param = [$alpha, $beta];
+public function Liste_niveau($alpha = null, $beta = null)
+{
+	if(!isset($alpha))
+	{	// pour les onglets
+		$eqAlpha= ">=0";
+		$eqBeta	= "=0";
+		$eqGamma= "=0";
+		$indice	= "alpha";
+		$param	= [];
 	}
-	$sql = "SELECT i, URL, image, texte FROM {$table} WHERE {$where}";
-	$this->resultat = $this->BD->prepare($sql);
-	$this->resultat->execute($param);
-	$tableau = null;
-	while ($ligne = $this->resultat->fetch()) {
-		$i = $ligne['i'];
-		$tableau[$i] = '<a href="' . $ligne['URL'] . '">';
-		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\Page::BaliseImage($ligne['image'], $ligne['texte']);
-		$tableau[$i] .= $ligne['texte'] . '</a>';
+	elseif(!isset($beta))
+	{	// pour le menu
+		$eqAlpha= "=?";
+		$eqBeta = ">0";
+		$eqGamma= "=0";
+		$indice = "beta";
+		$param	= [$alpha];
 	}
-	$this->resultat->closeCursor();
-	return $tableau;
+	else
+	{	// pour le sous-menu
+		$eqAlpha= "=?";
+		$eqBeta = "=?";
+		$eqGamma= ">0";
+		$indice = "gamma";
+		$param	= [$alpha, $beta];
+	}
+	$Treponse = $this->ResultatSQL("SELECT {$indice} AS i, code FROM Vue_code_item
+									WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}",
+									$param
+							);
+	$Tableau = null;
+	if (isset($Treponse))
+	{
+		foreach($Treponse as $ligne)
+			$Tableau[(int)$ligne["i"]] = $ligne["code"];
+	}
+	return $Tableau;
 }
 
 public function PagesConnexes($alpha, $beta, $gamma)
