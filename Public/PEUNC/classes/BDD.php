@@ -12,21 +12,13 @@ public function __construct() {
 	// éventuelle erreur gérée par index.php
 }
 
-public function Requete($requete, array $T_parametre) {
-/* permet d'exécuter une requête paramétrée
- * Ex: $this->Requete('SELECT classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
- * la liste de paramètres sous forme d'un tableau dans le même ordre que les ? dans la requête
- * si la requêtte n'a pas de paramètre mettre [] commparamètre
- * */
-	$this->resultat = $this->BD->prepare($requete);
-	$this->resultat->execute($T_parametre);
-}
-
-public function ResultatSQL($requete, array $T_parametre) {
+public function ResultatSQL($requete, array $T_parametre)
 /* Renvoie le réultat d'une requête SQL. Cette méthode permet d'exécuter une requête crée en dehors de la classe BDD
  * le résultat est un tableau
  * */
- 	$this->Requete($requete, $T_parametre);
+{
+	$this->resultat = $this->BD->prepare($requete);
+	$this->resultat->execute($T_parametre);
 	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC); // \PDO pour sortir du namespace PEUNC
 	$this->resultat->closeCursor();
 	switch(count($reponse))
@@ -41,7 +33,6 @@ public function ResultatSQL($requete, array $T_parametre) {
 			$résultat = $reponse;
 	}
 	return $résultat;
-// réécrire la fonction PagesConnexes
 }
 
 public function Liste_niveau($alpha = null, $beta = null) {
@@ -59,7 +50,8 @@ public function Liste_niveau($alpha = null, $beta = null) {
 		$param = [$alpha, $beta];
 	}
 	$sql = "SELECT i, URL, image, texte FROM {$table} WHERE {$where}";
-	$this->Requete($sql, $param);
+	$this->resultat = $this->BD->prepare($sql);
+	$this->resultat->execute($param);
 	$tableau = null;
 	while ($ligne = $this->resultat->fetch()) {
 		$i = $ligne['i'];
@@ -71,11 +63,9 @@ public function Liste_niveau($alpha = null, $beta = null) {
 	return $tableau;
 }
 
-public function PagesConnexes($alpha, $beta, $gamma) {
-	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
-	$reponse = $this->resultat->fetchAll();
-	$this->resultat->closeCursor();
-	return $reponse;
+public function PagesConnexes($alpha, $beta, $gamma)
+{
+	return $this->ResultatSQL('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);;
 }
 
 }
