@@ -22,23 +22,13 @@ public function Requete($requete, array $T_parametre) {
 	$this->resultat->execute($T_parametre);
 }
 
-public function Fermer() {
-/* Termine le traitement de la requête
- * Utilisation:
- * $this->Requete('SELECT ...', [tableau des paramètres]);
- * traitement du résultat de requête
- * $this->Fermer(); pour la fermeture de la BD
- * */
-	$this->resultat->closeCursor();
-}
-
 public function ResultatSQL($requete, array $T_parametre) {
 /* Renvoie le réultat d'une requête SQL. Cette méthode permet d'exécuter une requête crée en dehors de la classe BDD
  * le résultat est un tableau
  * */
  	$this->Requete($requete, $T_parametre);
 	$reponse = $this->resultat->fetchAll(\PDO::FETCH_ASSOC); // \PDO pour sortir du namespace PEUNC
-	$this->Fermer();
+	$this->resultat->closeCursor();
 	switch(count($reponse))
 	{
 		case 0:	// aucun résultat
@@ -77,14 +67,14 @@ public function Liste_niveau($alpha = null, $beta = null) {
 		$tableau[$i] .= ($ligne['image'] == '') ? '' : \PEUNC\Page::BaliseImage($ligne['image'], $ligne['texte']);
 		$tableau[$i] .= $ligne['texte'] . '</a>';
 	}
-	$this->Fermer();
+	$this->resultat->closeCursor();
 	return $tableau;
 }
 
 public function PagesConnexes($alpha, $beta, $gamma) {
 	$this->Requete('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);
 	$reponse = $this->resultat->fetchAll();
-	$this->Fermer();
+	$this->resultat->closeCursor();
 	return $reponse;
 }
 
