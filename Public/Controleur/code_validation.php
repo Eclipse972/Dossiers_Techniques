@@ -27,17 +27,17 @@ function Decodage($nombre)
 	$dernier_choix2 = $nombre % $base;
 
 	$chiffre = $dernier_choix2;
-	for($i=0; $i<4; $i++)
+	for($i=3; $i>=0; $i--)
 	{
 		$nombre = ($nombre - $chiffre) / $base;
 		$chiffre = $nombre % $base;
-		$T_choix2[3 - $i] = $chiffre;
+		$T_choix2[$i] = $chiffre;
 	}
-	for($i=0; $i<4; $i++)
+	for($i=3; $i>=0; $i--)
 	{
 		$nombre = ($nombre - $chiffre) / $base;
 		$chiffre = $nombre % $base;
-		$T_id_champ2[3 - $i] = $chiffre;
+		$T_id_champ2[$i] = $chiffre;
 	}
 	return array($T_id_champ2,$T_choix2, $dernier_choix2);
 }
@@ -68,7 +68,10 @@ list($T_id_champ2, $T_choix2, $dernier_choix2) = Decodage($nombre);
 for($i=0; $i<4; $i++)	$code .= $T_id_champ2[$i] . " ";
 for($i=0; $i<4; $i++)	$code .= $T_choix2[$i] . " ";
 $code .= $dernier_choix2 . "): ";
-if((count(array_diff($T_id_champ, $T_id_champ2)) == 0) && (count(array_diff($T_choix, $T_choix2)) == 0) && ($dernier_choix == $dernier_choix2))
+if(		(count(array_diff($T_id_champ, $T_id_champ2)) == 0)
+	&&	(count(array_diff($T_choix, $T_choix2)) == 0)
+	&&	($dernier_choix == $dernier_choix2)
+)
 {
 	$code .= "OK";
 }
