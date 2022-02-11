@@ -8,9 +8,20 @@ $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("bacAsable.html");
 $this->setCSS([]);
 
-$code = "\t<h1>Le bac &agrave; sable</h1>\n\t<p>Liste des tests en cours:</p>\n\t<ul></ul>\n";
-$Liste = $BD->Liste_niveau($this->alpha);
-/*foreach ($Liste as $valeur)
-	$code .= "\t\t<li>{$valeur}</li>\n";
-*/
-$this->setSection($code . "</ul>\n");
+$code = "\t<h1>Le bac &agrave; sable</h1>\n";
+$Liste = $BD->ResultatSQL("SELECT code FROM Vue_code_item
+							WHERE alpha = -3 AND beta > 0 AND gamma =0",
+							[]
+						);
+if ($Liste == null)
+	$code .= "<p>Rien pour le moment !</p>";
+elseif (is_array($Liste))
+{
+	$code .= "\t<p>Liste des tests en cours:</p>\n\t<ul>\n";
+	foreach ($Liste as $valeur)
+		$code .= "\t\t<li>{$valeur["code"]}</li>\n";
+	$code .= "\t</ul>\n";
+}
+else $code $Liste;
+
+$this->setSection($code);
