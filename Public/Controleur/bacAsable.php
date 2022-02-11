@@ -8,4 +8,9 @@ $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("bacAsable.html");
 $this->setCSS([]);
 
-$this->setSection("<p>Encore rien pour le moment !</p>");
+$code = "\t<h1>Le bac &agrave; sable</h1>\n\t<p>Liste des tests en cours:</p>\n\t<ul></ul>\n";
+$Liste = $BD->Liste_niveau($this->alpha);
+/*foreach ($Liste as $valeur)
+	$code .= "\t\t<li>{$valeur}</li>\n";
+*/
+$this->setSection($code . "</ul>\n");
