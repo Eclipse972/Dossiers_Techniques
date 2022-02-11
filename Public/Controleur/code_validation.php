@@ -8,6 +8,39 @@ $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("bacAsable.html");
 $this->setCSS([]);
 
+// Fonctions ===============================================================================
+function Encodage(array $T1, array $T2, $dernier_choix)
+{
+	$base = 4;
+	$nombre = 0;
+
+	for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $T1[$i];// 1er tableau
+	for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $T2[$i];// 2e tableau
+	$nombre = $nombre * $base + $dernier_choix;					// dernier choix
+	return $nombre;
+}
+
+function Decodage($nombre)
+{
+	// l'ordre est inversé
+	$base = 4;
+	$dernier_choix2 = $nombre % $base;
+
+	$chiffre = $dernier_choix2;
+	for($i=0; $i<4; $i++)
+	{
+		$nombre = ($nombre - $chiffre) / $base;
+		$chiffre = $nombre % $base;
+		$T_choix2[3 - $i] = $chiffre;
+	}
+	for($i=0; $i<4; $i++)
+	{
+		$nombre = ($nombre - $chiffre) / $base;
+		$chiffre = $nombre % $base;
+		$T_id_champ2[3 - $i] = $chiffre;
+	}
+	return array($T_id_champ2,$T_choix2, $dernier_choix2);
+}
 // Génération des tableaux =================================================================
 
 for($i=0; $i<4; $i++)
@@ -21,20 +54,27 @@ $dernier_choix = rand(0,3);	// choix du dernier caractère
 
 // Affichage des valeurs ===================================================================
 
-$code = "";
+$code = "<p>(";
+for($i=0; $i<4; $i++)	$code .= $T_id_champ[$i] . " ";
+for($i=0; $i<4; $i++)	$code .= $T_choix[$i] . " ";
+$code .= $dernier_choix . ") -> ";
 
-for($i=0; $i<4; $i++)	$code .= $T_id_champ[$i] . " - ";
-for($i=0; $i<4; $i++)	$code .= $T_choix[$i] . " - ";
-$code .= $dernier_choix . "\n";
+// Affichage du nombre ======================================================================
+$nombre = Encodage($T_id_champ, $T_choix, $dernier_choix);
+$code .= "nombre = {$nombre} -> (";
 
-// Encodage ================================================================================
-$base = 10;
-$nombre = 0;
+// Décodage ================================================================================
+list($T_id_champ2, $T_choix2, $dernier_choix2) = Decodage($nombre);
+for($i=0; $i<4; $i++)	$code .= $T_id_champ2[$i] . " ";
+for($i=0; $i<4; $i++)	$code .= $T_choix2[$i] . " ";
+$code .= $dernier_choix2 . "): ";
+if((count(array_diff($T_id_champ, $T_id_champ2)) == 0) && (count(array_diff($T_choix, $T_choix2)) == 0) && ($dernier_choix == $dernier_choix2))
+{
+	$code .= "OK";
+}
+else $code .= "Erreur";
+$code .= "</p>\n";
 
-for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $T_id_champ[$i];	// 1er tableau
-for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $T_choix[$i];		// 2e tableau
-$nombre = $nombre * $base + $dernier_choix;								// dernier choix
-
-// Affichage du nombre
-$code .= "<p>nombre = {$nombre}</p>";
 $this->setSection("\t<h1>Linéarisation du code de validation</h1>\n\t" . $code . "\n");
+
+
