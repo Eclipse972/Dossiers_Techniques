@@ -27,9 +27,13 @@ try
 }
 catch(Exception $e)
 {
-	$PAGE = new PageErreur($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET");
+	$PAGE = new PEUNC\Erreur($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET");
+	$PAGE->setTitle("Les dossiers techniques de ChristopHe");
+	$PAGE->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
 	$PAGE->setCodeErreur("application");
 	$PAGE->setTitreErreur($e->getMessage());
 	$PAGE->setCorpsErreur("");
+	$PAGE->setCSS(array("erreur"));
+	$PAGE->setView("erreur.html");
 	include $PAGE->getView(); // insertion de la vue
 }
