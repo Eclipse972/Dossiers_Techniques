@@ -8,20 +8,19 @@ $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("bacAsable.html");
 $this->setCSS([]);
 
-$code = "\t<h1>Le bac &agrave; sable</h1>\n";
 $Liste = $BD->ResultatSQL("SELECT code FROM Vue_code_item
 							WHERE alpha = -3 AND beta > 0 AND gamma =0",
 							[]
 						);
 if ($Liste == null)
-	$code .= "<p>Rien pour le moment !</p>";
+	$code = "<p>Rien pour le moment !</p>";
 elseif (is_array($Liste))
 {
-	$code .= "\t<p>Liste des tests en cours:</p>\n\t<ul>\n";
+	$code = "<p>Liste des tests en cours:</p>\n\t<ul>\n";
 	foreach ($Liste as $valeur)
 		$code .= "\t\t<li>{$valeur["code"]}</li>\n";
-	$code .= "\t</ul>\n";
+	$code .= "\t</ul>";
 }
-else $code $Liste;
+else $code = "<p>un seul test: {$Liste}</p>";
 
-$this->setSection($code);
+$this->setSection("\t<h1>Le bac &agrave; sable</h1>\n\t" . $code . "\n");
