@@ -1,7 +1,8 @@
 <?php
 namespace PEUNC;
 
-class CodeValidation {
+class CodeValidation
+{
 	private $T_id_champ;	// tableau contenant les numéros de champ
 	private $T_choix;		// tableau contenant les positions demandées
 	private $dernier_choix; // dernière instruction: position du caractère du code de validation
@@ -24,15 +25,52 @@ class CodeValidation {
 	 * Le code de validation sera uéh22
 	*/
 
-	public function __construct()
+	public function __construct($nombre = null)
 	{
-		for($i=0; $i<4; $i++)
-		{	// i-ème instruction
-			$this->T_id_champ[$i] = $i;		// numéro du champ
-			$this->T_choix[$i] = rand(0,3);	// choix du caractère
+		if (isset($nombre))
+			$this->Decoder($nombre);
+		else
+		{
+			for($i=0; $i<4; $i++)				// i-ème instruction
+			{
+				$this->T_id_champ[$i] = $i;		// numéro du champ
+				$this->T_choix[$i] = rand(0,3);	// choix du caractère
+			}
+			shuffle($this->T_id_champ);			// on mélange l'ordre des champs
+			$this->dernier_choix = rand(0,3);	// choix du dernier caractère
 		}
-		shuffle($this->T_id_champ);			// on mélange l'ordre des champs
-		$this->dernier_choix = rand(0,3);	// choix du dernier caractère
+	}
+
+	public function Encoder()
+	{
+		$base = 4;
+		$nombre = 0;
+
+		for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $this->T_id_champ[$i];
+		for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $this->T_choix[$i];
+		$nombre = $nombre * $base + $this->dernier_choix;
+		return $nombre;
+	}
+
+	public function Decoder($nombre)
+	{
+		// l'ordre est inversé
+		$base = 4;
+		$this->dernier_choix = $nombre % $base;
+
+		$chiffre = $this->dernier_choix;
+		for($i=3; $i>=0; $i--)
+		{
+			$nombre = ($nombre - $chiffre) / $base;
+			$chiffre = $nombre % $base;
+			$this->T_choix[$i] = $chiffre;
+		}
+		for($i=3; $i>=0; $i--)
+		{
+			$nombre = ($nombre - $chiffre) / $base;
+			$chiffre = $nombre % $base;
+			$this->T_id_champ[$i] = $chiffre;
+		}
 	}
 
 	public function Afficher()
@@ -60,5 +98,16 @@ class CodeValidation {
 		$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
 
 		return ($code == $codeFourni);
+	}
+
+//	Fonctions pour les tests ======================================================================================
+
+	public function AfficherTableau()
+	{
+		$code ="(";
+		for($i=0; $i<4; $i++)	$code .= $this->T_id_champ[$i] . " ";
+		for($i=0; $i<4; $i++)	$code .= $this->T_choix[$i] . " ";
+		$code .= $dernier_choix . ")";
+		return $code;
 	}
 }
