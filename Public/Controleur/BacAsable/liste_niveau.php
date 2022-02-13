@@ -1,4 +1,6 @@
 <?php
+require"Controleur/BacAsable/commun.php";
+
 function Liste_niveau_v2($alpha = null, $beta = null)
 {
 	global $BD;
@@ -37,15 +39,28 @@ function Liste_niveau_v2($alpha = null, $beta = null)
 	return $Tableau;
 }
 
-$this->setTitle("Les dossiers techniques de ChristopHe");
-$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
-$this->setLogo("logo.png");
-$this->setFooter(" - <a href=/Contact>Me contacter</a>");
-$this->setView("bacAsable.html");
-$this->setCSS([]);
-
 ob_start();
 ?>
+<p>Pour le niveau 1</p>
+<ul>
+<?php
+
+foreach(Liste_niveau_v2() as $i => $ligne)
+{
+	echo "\t<li>{$i} - {$ligne}</li>\n";
+}
+?>
+</ul>
+<p>Pour le niveau 2 avec alpha=3</p>
+<ul>
+<?php
+
+foreach(Liste_niveau_v2(3) as $i => $ligne)
+{
+	echo "\t<li>{$i} - {$ligne}</li>\n";
+}
+?>
+</ul>
 <p>Pour le niveau 3 avec alpha=3 et beta=2</p>
 <ul>
 <?php

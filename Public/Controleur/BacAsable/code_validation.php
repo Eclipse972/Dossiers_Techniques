@@ -1,12 +1,6 @@
 <?php	// Test linéarisation du code de validation
 global $BD;
-
-$this->setTitle("Les dossiers techniques de ChristopHe");
-$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
-$this->setLogo("logo.png");
-$this->setFooter(" - <a href=/Contact>Me contacter</a>");
-$this->setView("bacAsable.html");
-$this->setCSS([]);
+require"Controleur/BacAsable/commun.php";
 
 $validateur1 = new PEUNC\CodeValidation();
 $tableau1 =  $validateur1->AfficherTableau();
