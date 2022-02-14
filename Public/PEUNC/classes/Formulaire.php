@@ -46,7 +46,11 @@ abstract class Formulaire extends Page
 
 	public function SpamDétecté()	// recherche de spam
 	{
-
+		// vérifie la présnece du jeton dans les paramètre transmis
+		// lecture du jeton
+		// si échec alors renvoyer vrai
+		// sinon récupérer objet jeton
+		// si réponse trop rapide alors renvoyer vrai sinon faux
 	}
 
 // Fonctions abstraites =======================================================================
