@@ -62,7 +62,8 @@ public function Liste_niveau($alpha = null, $beta = null)
 		$param	= [$alpha, $beta];
 	}
 	$Treponse = $this->ResultatSQL("SELECT {$indice} AS i, code FROM Vue_code_item
-									WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}",
+									WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}
+									ORDER BY alpha, beta, gamma",
 									$param
 							);
 	$Tableau = null;

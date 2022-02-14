@@ -29,7 +29,8 @@ function Liste_niveau_v2($alpha = null, $beta = null)
 		$param	= [$alpha, $beta];
 	}
 	$Treponse = $BD->ResultatSQL("SELECT {$indice} AS i, code FROM Vue_code_item
-							WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}",
+							WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}
+							ORDER BY alpha, beta, gamma",
 							$param
 						);
 	$Tableau = [];
