@@ -24,8 +24,9 @@ abstract class Formulaire extends Page
 
 // Fonctions pour le jeton ====================================================================
 
-	public function InsérerJeton()
-	{	// insère le champ caché jeton dans le formulaire
+	public function InsérerJeton()	// insère le champ caché jeton dans le formulaire
+	{
+		// chargement des paramètre de chiffrement
 		// chiffrement du jeton
 		// code html du champ caché jeton XRSF
 	}
@@ -38,13 +39,17 @@ abstract class Formulaire extends Page
 
 	public function LireJeton($jeton)
 	{
+		// chargement des paramètre de chiffrement
 		// dechiffrement jeton
 		// si erreur renvoyer null sinon renvoyer l'objet
 	}
 
-// Fonctions abstraites =======================================================================
+	public function SpamDétecté()	// recherche de spam
+	{
 
-	abstract public function SpamDétecté();	// recherche de spam
+	}
+
+// Fonctions abstraites =======================================================================
 
 	abstract public function TraiterSpam();	// traiter le sppam. exemple ajouter une entrée dans un journal
 
