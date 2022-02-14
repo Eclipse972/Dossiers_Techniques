@@ -168,8 +168,10 @@ class Page implements iPage	{
 							);
 		if($script == "")
 			throw new \Exception("Controleur non d&eacute;fini");
-		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))
+		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs
 			require(self::DOSSIER_CONTROLEUR . $script);
+		elseif (file_exists($script))							//	script défini de manière absolue
+			require($script);
 		else throw new \Exception("Controleur inexistant");
 	}
 
