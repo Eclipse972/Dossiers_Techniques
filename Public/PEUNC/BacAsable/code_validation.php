@@ -12,5 +12,3 @@ $tableau2 =  $validateur2->AfficherTableau();
 
 $this->setSection("\t<h1>Linéarisation du code de validation</h1>\n\t<p>" . $tableau1 . " -> " . $nombre . " -> " . $tableau2
 					. " : " .	($tableau1 == $tableau2 ? "OK" : "Erreur") . "</p>\n");
-
-
