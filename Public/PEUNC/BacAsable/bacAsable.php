@@ -1,6 +1,6 @@
 <?php	// page daccueil
 global $BD;
-require"Controleur/BacAsable/commun.php";
+require"PEUNC/BacAsable/commun.php";
 
 $Liste = $BD->ResultatSQL("SELECT code FROM Vue_code_item
 							WHERE alpha = -3 AND beta > 0 AND gamma =0",

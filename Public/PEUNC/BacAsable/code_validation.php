@@ -1,6 +1,6 @@
 <?php	// Test linéarisation du code de validation
 global $BD;
-require"Controleur/BacAsable/commun.php";
+require"PEUNC/BacAsable/commun.php";
 
 $validateur1 = new PEUNC\CodeValidation();
 $tableau1 =  $validateur1->AfficherTableau();
