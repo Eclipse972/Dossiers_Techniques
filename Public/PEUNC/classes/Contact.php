@@ -41,7 +41,7 @@ class Contact extends Formulaire
 		$spam = false;
 		foreach($tableau as $clé => $valeur)
 		{
-			if (!isset($_POST[$valeur]))
+			if (!isset($this->Tparam[$valeur]))	// Tparam = $_POST néttoyé
 			{
 				$spam = true;
 				break;
