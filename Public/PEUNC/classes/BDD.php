@@ -1,13 +1,9 @@
-<?php
-/* BDD de PEUNC
- *
- * Cette classe est statique. Elle permet d'avoir partout la même instance de la BDD sans passer par une variable globale
- * ma source d'inspiration: https://www.training-dev.fr/Cours/Creer-un-framework-MVC-en-Php/Acceder-a-une-base-de-donnees
- * */
+<?php	// Base de données de PEUNC
+namespace PEUNC;
 
- namespace PEUNC;
+include"API_BDD.php";
 
-class BDD
+class BDD implements iBDD
 {
 	private $BD;
 	private static $instance;
@@ -27,15 +23,9 @@ class BDD
 		return self::$instance->BD;
 	}
 
-	public static function SELECT($requete, array $T_parametre)
-	/* Renvoie le réultat d'une requête SQL SELECT.
-	 * la requete est un chaine de caractère sans le mot SELECT de début
-	 *
-	 * le résultat peut être
-	 * un tableau en 2 dimensions
-	 * un tableau en ligne
-	 * une seule valeur
-	 * */
+//	Implémentation de l'interface
+
+	public static function SELECT($requete, array $T_parametre)		// Renvoie le réultat d'une requête SQL SELECT.
 	{
 		$pdo = self::getInstance();
 
@@ -96,10 +86,4 @@ class BDD
 		}
 		return $Tableau;
 	}
-
-	public static function PagesConnexes($alpha, $beta, $gamma)
-	{
-		return self::SELECT("URL FROM Vue_pagesConnexes WHERE alpha=? AND beta=? AND gamma=?", [$alpha, $beta, $gamma]);
-	}
-
 }
