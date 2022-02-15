@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Sam 08 Janvier 2022 à 06:25
+-- Généré le : Mar 15 Février 2022 à 06:04
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `Materiaux`
 --
 
+DROP TABLE IF EXISTS `Materiaux`;
 CREATE TABLE IF NOT EXISTS `Materiaux` (
   `ID` int(11) unsigned NOT NULL auto_increment,
   `formule` varchar(99) collate latin1_general_ci NOT NULL,

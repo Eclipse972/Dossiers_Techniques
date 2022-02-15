@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Ven 04 Février 2022 à 21:25
+-- Généré le : Mar 15 Février 2022 à 06:06
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `Squelette`
 --
 
+DROP TABLE IF EXISTS `Squelette`;
 CREATE TABLE IF NOT EXISTS `Squelette` (
   `ID` int(11) NOT NULL auto_increment,
   `alpha` int(11) NOT NULL,
@@ -36,22 +37,22 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `classePage` varchar(99) collate latin1_general_ci NOT NULL default 'Page',
   `controleur` varchar(99) collate latin1_general_ci NOT NULL,
   `methode` varchar(99) collate latin1_general_ci NOT NULL default 'GET',
-  `paramAautorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
+  `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=215 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=222 ;
 
 --
 -- Contenu de la table `Squelette`
 --
 
-INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAautorise`) VALUES
-(1, -1, 500, 0, 'Serveur satur&eacute;', '', 'Serveur_sature', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(4, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PageErreur', 'erreur_serveur.php', 'GET', '[]'),
-(5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'Index', 'home.php', 'GET', '[]'),
-(6, -2, 0, 0, 'Formulaire de contact', '', 'contact', 'PageContact', 'contact.php', 'GET', '[]'),
+INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAutorise`) VALUES
+(1, -1, 500, 0, 'Serveur satur&eacute;', '', 'Serveur_sature', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(4, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'PEUNC\\Page', 'home.php', 'GET', '["parametre", "param"]'),
+(6, -2, 0, 0, 'Formulaire de contact', '', 'Contact', 'PEUNC\\Contact', 'contact.php', 'GET', '[]'),
 (7, 2, 1, 0, 'Mise en situation', '', 'MES', 'Page_image', 'BP/MES.php', 'GET', '[]'),
 (8, 2, 2, 0, 'Diagramme pieuvre', '', 'pieuvre', 'Page_image', 'BP/pieuvre.php', 'GET', '[]'),
 (9, 2, 3, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'BP/dessin_densemble.php', 'GET', '[]'),
@@ -259,7 +260,11 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (210, 8, 6, 1, 'mors fixe', '', 'mors_fixe', 'Page_association', 'etau/CE_mors_fixe.php', 'GET', '[]'),
 (211, 8, 6, 2, 'mors mobile', '', 'mors_mobile', 'Page_association', 'etau/CE_mors_mobile.php', 'GET', '[]'),
 (213, 8, 6, 4, 'tige', '', 'tige', 'Page_association', 'etau/tige.php', 'GET', '[]'),
-(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PageContact', 'traitementContact.php', 'POST', '["nom", "courriel", "objet", "message", "code'']');
+(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PEUNC\\Contact', '', 'POST', '["nom", "courriel", "objet", "message", "code"]'),
+(215, -1, 405, 0, 'M&eacute;thode non permise', '', 'Methode_non_permise', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(216, -3, 0, 0, 'Bac &agrave; sable', '', 'bacAsable', 'PEUNC\\Page', 'PEUNC/BacAsable/bacAsable.php', 'GET', '[]'),
+(219, -3, 3, 0, 'Chiffrement', '', 'chiffrement', 'PEUNC\\Page', 'PEUNC/BacAsable/chiffrement.php', 'GET', '[]'),
+(220, -3, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
