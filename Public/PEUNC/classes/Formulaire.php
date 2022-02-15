@@ -11,8 +11,7 @@ abstract class Formulaire extends Page
 		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		if ($methode == "GET")
 		{
-			// recherche du noeud qui traite le formulaire
-			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);
+			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);// recherche du noeud qui traite le formulaire
 			$this->jetonJSON = '{"ID":' . $ID .', "depart":' . time() . '}';
 		}
 		else
@@ -27,12 +26,12 @@ abstract class Formulaire extends Page
 	{
 		// chargement des paramètre de chiffrement
 		// chiffrement du jeton
-		// code html du champ caché jeton XRSF
+		// code html du champ caché jeton XSRF
 	}
 
-	public function AjouterOjetAuJeton($nom, $valeurJSON)
+	public function AjouterObjetAuJeton($nom, $valeurJSON)
 	{
-		$this->jetonJSON .= '{"' . $nom . '":' . $valeurJSON . '}';	// les 2 objets ont mis cote à cote
+		$this->jetonJSON .= '{"' . $nom . '":' . $valeurJSON . '}';		// les 2 objets ont mis cote à cote
 		$this->jetonJSON = str_replace("}{", ", ", $this->jetonJSON);	// fusionne les deux objets
 	}
 
