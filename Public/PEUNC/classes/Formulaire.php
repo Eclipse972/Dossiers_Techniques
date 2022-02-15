@@ -4,7 +4,7 @@ namespace PEUNC;
 
 abstract class Formulaire extends Page
 {
-	protected $jeton;	// contient la configuration en clair sous la forme d'un objet JSON
+	protected $jetonJSON;	// contient la configuration en clair sous la forme d'un objet JSON
 
 	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
 	{
@@ -13,7 +13,7 @@ abstract class Formulaire extends Page
 		{
 			// recherche du noeud qui traite le formulaire
 			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);
-			$this->jeton = '{"ID":' . $ID .', "depart":' . time() . '}';
+			$this->jetonJSON = '{"ID":' . $ID .', "depart":' . time() . '}';
 		}
 		else
 		{
@@ -32,8 +32,8 @@ abstract class Formulaire extends Page
 
 	public function AjouterOjetAuJeton($nom, $valeurJSON)
 	{
-		$this->jeton .= '{"' . $nom . '":' . $valeurJSON . '}';	// les 2 objets ont mis cote à cote
-		$this->jeton = str_replace("}{", ", ", $this->jeton);	// fusionne les deux objets
+		$this->jetonJSON .= '{"' . $nom . '":' . $valeurJSON . '}';	// les 2 objets ont mis cote à cote
+		$this->jetonJSON = str_replace("}{", ", ", $this->jetonJSON);	// fusionne les deux objets
 	}
 
 	public function LireJeton($jeton)
