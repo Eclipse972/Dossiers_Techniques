@@ -2,7 +2,7 @@
 require"PEUNC/BacAsable/commun.php";
 
 class BDD
-/* Cette classe est statique. Elle permet d'avoir avoir partout la même instance de la BDD sans passer par une variable globale
+/* Cette classe est statique. Elle permet d'avoir partout la même instance de la BDD sans passer par une variable globale
  * ma source d'inspiration: https://www.training-dev.fr/Cours/Creer-un-framework-MVC-en-Php/Acceder-a-une-base-de-donnees
  * */
 {
