@@ -63,13 +63,28 @@ class ReponseClient
 	}
 
 	private function ReponsePOST($classePage)
-	{	// traite le formulaire
+	{	// pré-traitement commun à tous les formulaires
+		$ListeParametres = $this->PrepareParametres($_POST);
+		if (!isset($ListeParametres["XSRF"]))
+			throw new \Exception("Jeton XSRF absent");
+		else
+		{
+			$jetonChiffré = $ListeParametres["XSRF"];
+			require"config_chiffrement.php";	// défini $cipher, $key et $iv
+			$jetonJSON = openssl_decrypt($jetonChiffré, $cipher, $key, $options=0, $iv);
+			$O_jeton = json_decode($fichier);
+			if (!isset($O_jeton))
+				throw new \Exception("Jeton XSRF corrompu");
+			elseif (time() - $O_jeton->depart < 5)
+				throw new \Exception("temps de r&eacute;ponse inhumain");
+		}
+
 		$formulaire = new $classePage(
 								$this->route->getAlpha(),
 								$this->route->getBeta(),
 								$this->route->getGamma(),
 								"POST",
-								$this->PrepareParametres($_POST)
+								$ListeParametres
 							);
 		if ($formulaire->SpamDétecté())
 		{
