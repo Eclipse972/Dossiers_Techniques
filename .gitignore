@@ -3,5 +3,8 @@
 # identifiants quelque soit l'emplacement
 *connexion.php
 
+# confiuration du chiffrement
+config_chiffrement.php
+
 # les archives zip dont certaines dépassent les 100Mo. Limite de github
 *.zip
