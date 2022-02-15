@@ -6,9 +6,9 @@ abstract class Formulaire extends Page
 {
 	protected $jetonJSON;	// contient la configuration en clair sous la forme d'un objet JSON
 
-	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
+	public function __construct($alpha, $beta, $gamma, $methode, array $Tparam = [])
 	{
-		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
+		parent::__construct($alpha, $beta, $gamma, $methode, $Tparam);
 		if ($methode == "GET")
 		{
 			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);// recherche du noeud qui traite le formulaire
