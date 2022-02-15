@@ -1,11 +1,7 @@
 <?php	// page daccueil
-global $BD;
 require"PEUNC/BacAsable/commun.php";
 
-$Liste = $BD->ResultatSQL("SELECT code FROM Vue_code_item
-							WHERE alpha = -3 AND beta > 0 AND gamma =0",
-							[]
-						);
+$Liste = PEUNC\BDD::SELECT("code FROM Vue_code_item WHERE alpha = -3 AND beta > 0 AND gamma =0", []);
 if ($Liste == null)
 	$code = "<p>Rien pour le moment !</p>";
 elseif (is_array($Liste))

@@ -33,8 +33,6 @@ class HttpRouter
 
 	public function __construct()
 	{
-		global $BD;	// défini dans index.php
-
 		// recherche de la position dans l'arborescence stockée en BD
 		switch($_SERVER['REDIRECT_STATUS'])
 		{	// Toutes les erreurs serveur sont traitées ici via le script index.php. Cf .htaccess
@@ -54,11 +52,8 @@ class HttpRouter
 		}
 
 		// recherche de l'ID du noeud
-		$this->ID = $BD->ResultatSQL(
-				"SELECT ID FROM Vue_Routes
-				WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?",
-					[$this->alpha, $this->beta, $this->gamma, $_SERVER['REQUEST_METHOD']]
-			);
+		$this->ID = BDD::SELECT("ID FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?",
+														[$this->alpha, $this->beta, $this->gamma, $_SERVER['REQUEST_METHOD']]);
 		$this->methode = $_SERVER['REQUEST_METHOD'];
 	}
 
@@ -73,17 +68,16 @@ class HttpRouter
 	 * Résultat: le triplet (alpha, beta, gamma) sous la forme d'un tableau
 	 * */
 	{
-		global $BD;
 		list($URL, $reste) = explode("?", $_SERVER['REQUEST_URI'], 2);
 
 		// interrogation de la BD pour retrouver la position dans l'arborescence
-		$Treponse = $BD->ResultatSQL("SELECT niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $_SERVER['REQUEST_METHOD']]);
+		$Treponse = BDD::SELECT("niveau1, niveau2, niveau3 FROM Vue_Routes WHERE URL = ? and methodeHttp = ?", [$URL, $_SERVER['REQUEST_METHOD']]);
 		if (isset($Treponse["niveau1"]))	// l'URL existe?
 		{	// la page existe
 			header("Status: 200 OK", false, 200);	// modification pour dire au navigateur que tout va bien finalement
 			return array($Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]);
 		}
-		elseif ($BD->ResultatSQL("SELECT count(*) FROM Vue_Routes WHERE URL = ?", [$URL]) > 0)	// au moins un noeud pour cet URL
+		elseif (BDD::SELECT("count(*) FROM Vue_Routes WHERE URL = ?", [$URL]) > 0)	// au moins un noeud pour cet URL
 			return [-1, 405, 0];	// erreur 405!
 		else
 			return [-1, 404, 0];	// erreur 404!

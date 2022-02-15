@@ -11,9 +11,8 @@ abstract class Formulaire extends Page
 		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
 		if ($methode == "GET")
 		{
-			global $BD;
 			// recherche du noeud qui traite le formulaire
-			$ID = ResultatSQL("SELEC ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);
+			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);
 			$this->jeton = '{"ID":' . $ID .', "depart":' . time() . '}';
 		}
 		else

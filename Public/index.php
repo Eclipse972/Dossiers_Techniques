@@ -16,9 +16,6 @@ spl_autoload_register(function($classe)
 
 try
 {
-	// BD disponible comme variable globale
-	$BD = new PEUNC\BDD;
-
 	// à partir d'une requête Http on trouve la route
 	$route = new PEUNC\HttpRouter;
 

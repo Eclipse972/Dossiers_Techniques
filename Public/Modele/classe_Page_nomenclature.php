@@ -44,8 +44,7 @@ class Page_nomenclature extends Page
 
 	public function CorpsNomenclature()
 	{
-		global $BD;
-		$Tnomenclature = $BD->ResultatSQL('SELECT * FROM Vue_nomenclature WHERE support_ID = ? - 2', [$this->alpha]);	// -2 car accueil (alpha =0) et contact (alpha=1)
+		$Tnomenclature = PEUNC\BDD::SELECT("* FROM Vue_nomenclature WHERE support_ID = ? - 2", [$this->alpha]);	// -2 car accueil (alpha =0) et contact (alpha=1)
 		$code = "";
 		if (isset($Tnomenclature))
 			foreach ($Tnomenclature as $ligne)

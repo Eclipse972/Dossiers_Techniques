@@ -9,13 +9,9 @@ class ReponseClient
 
 	public function __construct(HttpRouter $route)
 	{
-		global $BD;	// définie dans index.php
 		$this->route = $route;
-		$classePage = $BD->ResultatSQL(
-							"SELECT classePage FROM Squelette
-							WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-							[$this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode()]
-						);
+		$classePage = BDD::SELECT("classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+								[$this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode()]);
 		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 
 		switch($route->getMethode())	// ne peut répondre qu'aux méthode GET et POST pour le moment
@@ -38,9 +34,8 @@ class ReponseClient
 	 * Retour: un tableau débarasssé des clés non autorisées avec ses valeurs nettoyées.
 	 * */
 	{
-		global $BD;	// définie dans index.php
 		// récupère la liste des paramètres autorisés
-		$reponseBD = $BD->ResultatSQL("SELECT paramAutorise FROM Vue_Routes WHERE ID = ?", [$this->route->getID()]);
+		$reponseBD = BDD::SELECT("paramAutorise FROM Vue_Routes WHERE ID = ?", [$this->route->getID()]);
 
 		$TparamAutorises = json_decode($reponseBD, true);
 
@@ -69,7 +64,6 @@ class ReponseClient
 
 	private function ReponsePOST($classePage)
 	{	// traite le formulaire
-		global $BD;	// définie dans index.php
 		$formulaire = new $classePage(
 								$this->route->getAlpha(),
 								$this->route->getBeta(),
@@ -90,7 +84,7 @@ class ReponseClient
 		else
 		{
 			$formulaire->TraitementAvantRepresentation();
-			$URL = $BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
+			$URL = BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
 		}
 		header("Location:" . $URL); // redirection
 	}

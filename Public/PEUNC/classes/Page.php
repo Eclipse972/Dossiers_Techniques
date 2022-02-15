@@ -30,8 +30,6 @@ class Page implements iPage	{
 	protected $vue			= "doctype.html";
 // FIN DE LA CONFIGURATION
 
-	protected $BD;
-
 	// position
 	protected $alpha;
 	protected $beta;
@@ -47,7 +45,6 @@ class Page implements iPage	{
 		$this->beta = $beta;
 		$this->gamma = $gamma;
 		$this->methode = $methode;
-		$this->BD = new BDD;
 		foreach($TparamURL as $valeur)
 			$this->T_paramURL[] = htmlspecialchars($valeur);
 	}
@@ -161,11 +158,8 @@ class Page implements iPage	{
 
 	public function ExecuteControleur()
 	{
-		$script = $this->BD->ResultatSQL(
-								"SELECT controleur FROM Squelette
-								WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-								[$this->alpha, $this->beta, $this->gamma, $this->methode]
-							);
+		$script = BDD::SELECT("controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+							[$this->alpha, $this->beta, $this->gamma, $this->methode]);
 		if($script == "")
 			throw new \Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs
@@ -177,7 +171,7 @@ class Page implements iPage	{
 
  	public function AfficherOnglets()
  	{
-		$T_Onglets = $this->BD->Liste_niveau();
+		$T_Onglets = BDD::Liste_niveau();
 		echo "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
 		{
@@ -189,14 +183,14 @@ class Page implements iPage	{
 
 	public function AfficherMenu()
 	{
-		$T_item = $this->BD->Liste_niveau($this->alpha);
+		$T_item = BDD::Liste_niveau($this->alpha);
 		echo "\t<ul>\n";
 		foreach($T_item as $beta => $code)
 		{
 			echo "\t<li>", (($beta == $this->beta) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
 			if ($beta == $this->beta)	// sous-menu?
 			{
-				$T_sous_item = $this->BD->Liste_niveau($this->alpha, $this->beta);
+				$T_sous_item = BDD::Liste_niveau($this->alpha, $this->beta);
 				if (isset($T_sous_item))	// génération sous-menu s'il existe
 				{
 					echo "\t<ul>\n";
@@ -211,6 +205,6 @@ class Page implements iPage	{
 
 	public function URLprecedente()
 	{
-		return $this->BD->ResultatSQL("SELECT URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?", array($_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],$_SESSION["PEUNC"]['gammaPrecedent']));
+		return BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?", array($_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],$_SESSION["PEUNC"]['gammaPrecedent']));
 	}
 }

@@ -1,6 +1,4 @@
 <?php	// page daccueil
-global $BD;
-
 $this->setTitle("Les dossiers techniques de ChristopHe");
 $this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
 $this->setLogo("logo.png");
@@ -10,7 +8,7 @@ $this->setCSS(array("index"));
 
 $NB_colonne = 5;
 $code = '';
-$Tréponse = $BD->ResultatSQL('SELECT * FROM Vue_code_vignettes', []);
+$Tréponse = PEUNC\BDD::SELECT("* FROM Vue_code_vignettes", []);
 foreach($Tréponse as $id => $ligne)
 {	// récupère et agrège le code
 	$No_colonne = $id % $NB_colonne;
