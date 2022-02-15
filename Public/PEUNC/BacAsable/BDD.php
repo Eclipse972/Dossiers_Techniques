@@ -94,6 +94,11 @@ class BDD
 		return $Tableau;
 	}
 
+	public static function PagesConnexes($alpha, $beta, $gamma)
+	{
+		return self::SELECT("URL FROM Vue_pagesConnexes WHERE alpha=? AND beta=? AND gamma=?", [$alpha, $beta, $gamma]);
+	}
+
 }
 
 $Tessai = BDD::Liste_niveau(3,2);

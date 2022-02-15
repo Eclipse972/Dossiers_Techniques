@@ -75,9 +75,4 @@ public function Liste_niveau($alpha = null, $beta = null)
 	return $Tableau;
 }
 
-public function PagesConnexes($alpha, $beta, $gamma)
-{
-	return $this->ResultatSQL('SELECT URL FROM Vue_pagesConnexes WHERE alpha= ? AND beta= ? AND gamma= ?', [$alpha, $beta, $gamma]);;
-}
-
 }
