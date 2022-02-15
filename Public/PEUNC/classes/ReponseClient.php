@@ -87,12 +87,7 @@ class ReponseClient
 								"POST",
 								$ListeParametres
 							);
-		if ($formulaire->SpamDétecté())
-		{
-			$formulaire->TraiterSpam();
-			$URL = "/";
-		}
-		elseif ($formulaire->FormulaireOK())
+		if ($formulaire->FormulaireOK())
 		{
 			$formulaire->Traitement();
 			$URL = $formulaire->URLprecedente();

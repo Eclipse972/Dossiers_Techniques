@@ -6,54 +6,28 @@ namespace PEUNC;
 
 class Contact extends Formulaire
 {
-	public function __construct($alpha, $beta, $gamma, $methode)
+	public function __construct($alpha, $beta, $gamma, $methode, array $Tparam= [])
 	{
-		parent::__construct($alpha, $beta, $gamma, $methode);
+		parent::__construct($alpha, $beta, $gamma, $methode, $Tparam);
 		$this->setView("formulaire.html");
 	}
 /*
- * des informations sur le formulaire sont sauvegardées dans une tableau associatif de la forme $_SESSION["PEUNC"]["formulaire"]["données"]
- * données =...
+ * des informations sur le formulaire sont sauvegardées dans le tableau associatif $Tparam
+ * données du formulaire
  * nom: sauvegardé s'il a été défini aupararant. Remplissage d'un formulaire dans la même session
  * courriel: idem
  * objet: si la validation n'a été faite corectement il est utile de proposer l'objet
  * code: code de validation
+ *
  * ErreurNom, ErreurCourriel, ErreurObjet, ErreurMessage et ErreurCode leurs test respectifs de validité
- * ObjValidation objet validation
+ *
+ * Le jeton XSRF transmet en plus la configuration de l'objet CodeValidation
  * TopDépart: moment de création du formulaire pour détecter les remplissages trop rapides
- * URLretour: où allez une fois le formulaire rempli
+ *
+ * URLretour: où allez une fois le formulaire rempli est fourni par la classe parente Page
  * */
 
-// Redéfinition des fonction abstraites ==================================================
-
-	public function SpamDétecté()
-	{	// plusieurs tests successifs
-		$spam = (time() - $_SESSION["PEUNC"]["formulaire"]["TopDépart"] < 5); // trop rapide pour être humain
-		if (!$spam) // le premier test est passé?
-		{	// 2e test: pas de champ inconnue
-			foreach ($_POST as $clé => $valeur)
-			{
-				if (!in_array($clé, array("nom", "courriel", "objet", "message", "code")))
-				{	// clé non autorisée
-					$spam = true;
-					break;
-				}
-			}
-		}
-		if (!$spam) // les 2 premiers sont passés?
-		{	// 3e test: tous les champs sont-il là?
-			$tableau = array("nom", "courriel", "objet", "message", "code");
-			foreach($tableau as $clé => $valeur)
-			{
-				if (!isset($_POST[$valeur]))
-				{
-					$spam = true;
-					break;
-				}
-			}
-		}
-		return $spam;
-	}
+// Redéfinition des fonctions abstraites ==================================================
 
 	public function TraiterSpam()
 	{
@@ -61,7 +35,21 @@ class Contact extends Formulaire
 	}
 
 	public function FormulaireOK()
-	{	// chaque champ respecte son format
+	{
+		// tous les champs sont-il là?
+		$tableau = array("nom", "courriel", "objet", "message", "code");
+		$spam = false;
+		foreach($tableau as $clé => $valeur)
+		{
+			if (!isset($_POST[$valeur]))
+			{
+				$spam = true;
+				break;
+			}
+		}
+		if ($spam)	throw new \Exception("Liste de param&egrave;tres du formulare incorrecte")
+
+		// chaque champ respecte son format
 		$_SESSION["PEUNC"]["formulaire"]["ErreurNom"] = (strlen($_SESSION["PEUNC"]["formulaire"]["nom"]) < 2);
 		$_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"] = (preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $_SESSION["PEUNC"]["formulaire"]["courriel"]) != 1);
 		$_SESSION["PEUNC"]["formulaire"]["ErreurObjet"] = (strlen($_SESSION["PEUNC"]["formulaire"]["objet"]) < 2);

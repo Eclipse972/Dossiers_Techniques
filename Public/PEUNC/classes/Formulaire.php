@@ -42,20 +42,11 @@ abstract class Formulaire extends Page
 		// si erreur renvoyer null sinon renvoyer l'objet
 	}
 
-	public function SpamDétecté()	// recherche de spam
-	{
-		// vérifie la présnece du jeton dans les paramètre transmis
-		// lecture du jeton
-		// si échec alors renvoyer vrai
-		// sinon récupérer objet jeton
-		// si réponse trop rapide alors renvoyer vrai sinon faux
-	}
-
 // Fonctions abstraites =======================================================================
 
-	abstract public function TraiterSpam();	// traiter le sppam. exemple ajouter une entrée dans un journal
+	abstract public function TraiterSpam();	// par exemple ajouter une entrée dans un journal
 
-	abstract public function FormulaireOK();// les champs ont la forme attendue et le code de validatio est bon
+	abstract public function FormulaireOK();// la liste des champs est correcte et ils ont la forme attendue
 
 	abstract public function Traitement();	// traitement si tout est OK. Par exemple envoyer un courriel, modifier une BD
 
