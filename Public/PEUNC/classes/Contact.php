@@ -47,7 +47,7 @@ class Contact extends Formulaire
 				break;
 			}
 		}
-		if ($spam)	throw new \Exception("Liste de param&egrave;tres du formulare incorrecte")
+		if ($spam)	throw new \Exception("Liste de param&egrave;tres du formulare incorrecte");
 
 		// chaque champ respecte son format
 		$_SESSION["PEUNC"]["formulaire"]["ErreurNom"] = (strlen($_SESSION["PEUNC"]["formulaire"]["nom"]) < 2);
