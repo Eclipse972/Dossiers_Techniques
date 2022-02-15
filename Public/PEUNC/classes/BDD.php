@@ -18,7 +18,7 @@ class BDD
 		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
 	}
 
-	public static function getInstance()
+	private static function getInstance()
 	{
 		if(empty(self::$instance))
 		{
