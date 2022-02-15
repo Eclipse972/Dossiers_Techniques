@@ -41,12 +41,12 @@ class ReponseClient
 
 		$Treponse = [];
 		foreach ($TparamAutorises as $clé)
-			if (isset($Tableau[$clé]))
-				$Treponse[$clé] = strip_tags($Tableau[$clé]);	// seules les clés autorisées sont prises en compte puis nettoyées
+			if (isset($Tableau[$clé]))							// seules les clés autorisées sont prises en compte
+				$Treponse[$clé] = strip_tags($Tableau[$clé]);	// puis ces valeurs sont nettoyées
 		return $Treponse;
 	}
 
-// Réponses aux diférentes méthodes Http =========================================================
+// Réponses aux différentes méthodes Http =========================================================
 
 	private function ReponseGET($classePage)
 	{	// génère le code html à renvoyer au client
@@ -79,6 +79,7 @@ class ReponseClient
 				throw new \Exception("temps de r&eacute;ponse inhumain");
 		}
 
+		// traitement du formulaire
 		$formulaire = new $classePage(
 								$this->route->getAlpha(),
 								$this->route->getBeta(),
