@@ -1,4 +1,4 @@
-<?php		// API de PEUNC
+<?php		// API de la classe Page de PEUNC
 namespace PEUNC;
 
 interface iPage	{
