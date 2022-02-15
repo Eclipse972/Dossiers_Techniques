@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<!-- page par défaut de mes dossiers techniques -->
+<head>
+<?php	include \PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
+	<link rel="stylesheet" href="/CSS/pageDT.css" />
+</head>
+
+<body>
+<header>
+<div id="logo"><a href="<?=$PAGE->Apropos()?>" title="&Agrave; propos <?=$PAGE->getDu_support()?>"><?=$PAGE->getLogo()?></a></div>
+<div id="titre">
+	<p class="font-effect-outline">Dossier technique <?=$PAGE->getDu_support()?> version test</p>
+</div>
+</header>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<nav>
+<?=$PAGE->AfficherMenu()?>
+</nav>
+
+<section>
+<?=$PAGE->getSection()?>
+</section>
+
+</main>
+
+<footer>
+<?php
+	include \PEUNC\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include \PEUNC\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>

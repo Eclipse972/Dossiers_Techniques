@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<?php	include \PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
+</head>
+
+<body>
+<?php	include \PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
+
+<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+
+<section>
+<?=$PAGE->getSection()?>
+<br>
+<p><a href=/bacAsable>Accueil bac &agrave; sable</a></p>
+</section>
+
+</main>
+
+<footer>
+<?php
+	include \PEUNC\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include \PEUNC\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>

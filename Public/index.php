@@ -1,48 +1,36 @@
-<?php
-/*********************************************************************************************************************************** 
-	Affiche la liste des supports
-************************************************************************************************************************************/
-session_start(); // On démarre la session AVANT toute chose
-require 'Modele/classe_BD.php';
+<?php	// routeur de PEUNC
+session_start();
 
-define(DUREE, 8);	// durée du cache en heure
-define(CACHE, 'Vue/cache/index.cache');	// nom du fichier cache
+spl_autoload_register(function($classe)
+	{
+		if (substr($classe, 0, 5) == "PEUNC")
+		{	// PEUNC
+			$classe = substr($classe, 6, 99);
+			$prefixe = "PEUNC/classes/";
+		}
+		else $prefixe =  "Modele/classe_"; // utilisateur
 
-$_SESSION['support'] = null;	// on détruit le support en cours
-?>
-<!doctype html>
-<html lang="fr">
-<head>
-<?php include('Vue/head_commun.html'); ?>
-	<link rel="stylesheet" href="Vue/index.css"/>
-</head>
+		require_once $prefixe . $classe . ".php";
+	}
+);
 
-<body>
+try
+{
+	// à partir d'une requête Http on trouve la route
+	$route = new PEUNC\HttpRouter;
 
-<header>
-	<div id="logo"><img src="Vue/images/logo.png" alt="logo"></div>
-	<div id="titre"><p class="font-effect-outline">Liste des dossiers techniques</p></div>
-</header>
-
-<section>
-<h1>Cliquez sur l&apos;image ou le nom du support pour acc&eacute;der &agrave; son dossier technique</h1>
-<table>
-<?php
-if(file_exists(CACHE) && (time() - filemtime(CACHE) < DUREE * 3600))
-	readfile(CACHE);
-else {	// création du code sans utiliser le tampon de PHP
-	$BD = new base2donnees();	// accès à la base de données
-	$code = $BD->Gerer_index(5);// récupère et agrège le code
-	$code .=  '<!-- cache généré le '.date("d/m/Y \à H:i").' -->'."\n";
-	file_put_contents(CACHE, $code);
-	echo $code;
+	// construction de la réponse en fonction de la route trouvée
+	$reponse = new PEUNC\ReponseClient($route);
 }
-?>
-</table>
-</section>
-<footer>
-<?php include 'Vue/pied2page.php'; ?>
-</footer>
-
-</body>
-</html>
+catch(Exception $e)
+{
+	$PAGE = new PEUNC\Erreur($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET");
+	$PAGE->setTitle("Les dossiers techniques de ChristopHe");
+	$PAGE->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe version test</p>");
+	$PAGE->setCodeErreur("application");
+	$PAGE->setTitreErreur($e->getMessage());
+	$PAGE->setCorpsErreur("");
+	$PAGE->setCSS(array("erreur"));
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView(); // insertion de la vue
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<?php	include \PEUNC\Page::DOSSIER_VUE . "commun/head.html";?>
+	<link rel="stylesheet" href="/CSS/formulaire.css" />
+</head>
+
+<body>
+
+<header>
+	<div id="logo"><?=$PAGE->getLogo()?></div>
+	<div id="titre"><p class="font-effect-outline">&Agrave; propos <?=$PAGE->getDu_support()?> version test</p></div>
+</header>
+
+<section>
+	<div style="width:700px; margin:auto;">
+	<p><u><b>La maquette num&eacute;rique</b></u></p>
+	<?php
+		echo $PAGE->LienZip();
+		echo $PAGE->getDescriptionZip();
+		echo $PAGE->getLien();
+	?>
+	<a href=<?=$PAGE->URLprecedente()?>>Retourner sur le dossier technique  <?=$PAGE->getDu_support()?></a>
+	</div>
+</section>
+
+<footer>
+<?php
+	include \PEUNC\Page::DOSSIER_VUE . "commun/debut_pied2page.html";
+	echo $PAGE->getFooter();
+	include \PEUNC\Page::DOSSIER_VUE . "commun/fin_pied2page.html";
+?>
+</footer>
+
+</body>
+</html>
