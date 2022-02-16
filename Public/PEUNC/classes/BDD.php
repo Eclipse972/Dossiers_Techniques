@@ -12,7 +12,7 @@ class BDD implements iBDD
 	{
 		require"connexion.php";
 		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
-		$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);	// le résultat donne un tableau associatif
+		$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
 	}
 
 	private static function getInstance()
@@ -26,7 +26,7 @@ class BDD implements iBDD
 
 //	Implémentation de l'interface
 
-	public static function SELECT($requete, array $T_parametre)		// Renvoie le réultat d'une requête SQL SELECT.
+	public static function SELECT($requete, array $T_parametre)
 	{
 		$pdo = self::getInstance();
 		$requete = $pdo->prepare("SELECT " . $requete);
