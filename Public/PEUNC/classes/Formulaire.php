@@ -5,6 +5,7 @@ namespace PEUNC;
 abstract class Formulaire extends Page
 {
 	protected $jetonJSON;	// contient la configuration en clair sous la forme d'un objet JSON
+	protected $O_jetonXSRF;	// objet transmis par le jeton XSRF
 
 	public function __construct($alpha, $beta, $gamma, $methode, array $Tparam = [])
 	{
@@ -14,9 +15,13 @@ abstract class Formulaire extends Page
 			$ID = BDD::SELECT("ID WHERE alpha=? ANS beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);// recherche du noeud qui traite le formulaire
 			$this->jetonJSON = '{"ID":' . $ID .', "depart":' . time() . ', "URLretour":' .  $this->URLprecedente() . '}';
 		}
-		else
+		elseif ($methode == "POST")
 		{
 
+		}
+		else
+		{
+			throw new \Exception("Méthode inatendue pour un formulaire");
 		}
 	}
 
