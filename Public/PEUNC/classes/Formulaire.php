@@ -54,9 +54,10 @@ abstract class Formulaire extends Page
 
 	public function LireJeton($jetonChiffré)
 	{
-		// chargement des paramètre de chiffrement
-		// dechiffrement jeton
-		// si erreur renvoyer null sinon renvoyer l'objet
+		require"config_chiffrement.php";	// défini $cipher, $key et $iv
+		$jeton = openssl_decrypt($jetonChiffré, $cipher, $key, $options=0, $iv);// dechiffrement jeton
+		//$O_jeton = json_decode($jeton);		// si erreur renvoyer null sinon renvoyer l'objet
+		return $jeton;//$O_jeton;
 	}
 
 }
