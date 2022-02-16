@@ -34,7 +34,7 @@ abstract class Formulaire extends Page
 		return $jetonchiffré;
 	}
 
-	public function AjouterObjetAuJeton($nom, $valeurJSON)
+	public function AjouterVariableAuJeton($nom, $valeurJSON)
 	{
 		$this->jetonJSON .= '{"' . $nom . '":' . $valeurJSON . '}';		// les 2 objets ont mis cote à cote
 		$this->jetonJSON = str_replace("}{", ", ", $this->jetonJSON);	// fusionne les deux objets
