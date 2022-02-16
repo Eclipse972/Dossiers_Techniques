@@ -27,24 +27,29 @@ class CodeValidation
 
 	public function __construct($T_id_champ = null, $T_choix = null, $dernier_choix = null)
 	{
-		if ((isset($T_id_champ)) && (isset($T_choix)) && (isset($dernier_choix)))
+		$scenario = (isset($T_id_champ) ? 1 : 0) + (isset($T_choix) ? 2 : 0) + (isset($dernier_choix) ? 4 : 0);
+		switch($scenarion)
 		{
-			for($i=0; $i<4; $i++)	// i-ème instruction
-			{
-				$this->T_id_champ[$i] = $T_id_champ[$i];// numéro du champ
-				$this->T_choix[$i] = $T_choix[$i];		// choix du caractère
-			}
-			$this->dernier_choix = $dernier_choix;		// choix du dernier caractère
-		}
-		else
-		{
-			for($i=0; $i<4; $i++)	// i-ème instruction
-			{
-				$this->T_id_champ[$i] = $i;		// numéro du champ
-				$this->T_choix[$i] = rand(0,3);	// choix du caractère
-			}
-			shuffle($this->T_id_champ);			// on mélange l'ordre des champs
-			$this->dernier_choix = rand(0,3);	// choix du dernier caractère
+			case 0:	// aucune variable n'est définie
+				for($i=0; $i<4; $i++)	// i-ème instruction
+				{
+					$this->T_id_champ[$i] = $i;		// numéro du champ
+					$this->T_choix[$i] = rand(0,3);	// choix du caractère
+				}
+				shuffle($this->T_id_champ);			// on mélange l'ordre des champs
+				$this->dernier_choix = rand(0,3);	// choix du dernier caractère
+				break;
+
+			case 7:	// les 3 variables sont définies
+				for($i=0; $i<4; $i++)	// i-ème instruction
+				{
+					$this->T_id_champ[$i] = $T_id_champ[$i];// numéro du champ
+					$this->T_choix[$i] = $T_choix[$i];		// choix du caractère
+				}
+				$this->dernier_choix = $dernier_choix;		// choix du dernier caractère
+				break;
+
+			default: throw new \Exception("Certaines variables du code de validation ne sont pas définies. Scénario: " . $scenario);
 		}
 	}
 
