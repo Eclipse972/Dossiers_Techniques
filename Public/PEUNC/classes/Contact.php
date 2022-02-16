@@ -121,7 +121,7 @@ class Contact extends Formulaire
 	public function ErreurCourriel(){ return $_SESSION["PEUNC"]["formulaire"]["ErreurCourriel"]	? "Courriel invalide<br>" : ""; }
 	public function ErreurObjet()	{ return $_SESSION["PEUNC"]["formulaire"]["ErreurObjet"]	? "L&apos;objet doit comporter au moins deux caract&egrave;res<br>" : ""; }
 	public function ErreurMessage() { return $_SESSION["PEUNC"]["formulaire"]["ErreurMessage"]	? "Le message doit comporter au moins deux caract&egrave;res<br>" : ""; }
-	public function ErreurCode()	{ return $_SESSION["PEUNC"]["formulaire"]["ErreurCode"]		? "<p>Code incorrect</p>" : ""; }
+	public function ErreurCode()	{ return $_SESSION["PEUNC"]["formulaire"]["ErreurCode"]		? "<p>Code incorrect</p>\n" : "\n"; }
 
 	// valeur par défaut des champs ===================================================
 	public function NomParDefaut()		{ return $_SESSION["PEUNC"]["formulaire"]["nom"]; }

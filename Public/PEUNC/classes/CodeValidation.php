@@ -1,29 +1,29 @@
 <?php
 namespace PEUNC;
 
+/* Le code de validation est un mot de 5 caractères composé d'une lettre de chaque champ (soit 4 lettres).
+ * Pour le choix du caractère il y a quatre possibilités: premier, deuxième, avant dernier et dernier
+ * la dernière lettre est une des 4 premières du code.
+ *
+ * Exemple de validation:
+ * 	deuxième caractère de l'objet
+ * 	avant dernier caractère du message
+ *  deuxième caractère de votre courriel
+ *  dernier caractère de votre nom
+ *  quatrième caractère de ce code de validation
+ * Si les champs sont :
+ * 		nom =  Eclipse972
+ * 		courriel = christophe.hervi@free.fr
+ * 		objet = Question
+ * 		message = Pourquoi un code si compliqué?
+ * Le code de validation sera uéh22
+ * */
+
 class CodeValidation
 {
 	private $T_id_champ;	// tableau contenant les numéros de champ
 	private $T_choix;		// tableau contenant les positions demandées
 	private $dernier_choix; // dernière instruction: position du caractère du code de validation
-	/*
-	 * Le code de validation est un mot de 5 caractères composé d'une lettre de chaque champ (soit 4 lettres).
-	 * Pour le choix du caractère il y a quatre possibilités: premier, deuxième, avant dernier et dernier
-	 * la dernière lettre est une des 4 premières du code.
-	 *
-	 * Exemple de validation:
-	 * 	deuxième caractère de l'objet
-	 * 	avant dernier caractère du message
-	 *  deuxième caractère de votre courriel
-	 *  dernier caractère de votre nom
-	 *  quatrième caractère de ce code de validation
-	 * Si les champs sont :
-	 * 		nom =  Eclipse972
-	 * 		courriel = christophe.hervi@free.fr
-	 * 		objet = Question
-	 * 		message = Pourquoi un code si compliqué?
-	 * Le code de validation sera uéh22
-	*/
 
 	public function __construct($nombre = null)
 	{
