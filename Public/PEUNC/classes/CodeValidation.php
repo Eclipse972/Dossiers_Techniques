@@ -79,4 +79,17 @@ class CodeValidation
 
 		return ($code == $codeFourni);
 	}
+
+//	fonctions pour le test ===========================================================================================
+
+	public function AfficherConfiguration()
+	{
+		// tableau T_id_champ
+		$json = '{ "T_id_champ":[' . $this->T_id_champ[0] . ', ' . $this->T_id_champ[1] . ', ' . $this->T_id_champ[2] . ', ' . $this->T_id_champ[3] . '], ';
+		// tableau T_choix
+		$json .= '"T_choix":[' . $this->T_choix[0] . ', ' . $this->T_choix[1] . ', ' . $this->T_choix[2] . ', ' . $this->T_choix[3] . '], ';
+		// dernier_choix
+		$json .= '"dernier_choix":' . $this->dernier_choix . '}';
+		return $json;
+	}
 }
