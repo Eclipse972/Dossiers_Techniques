@@ -8,7 +8,6 @@ $code = "<p>Jeton XSRF= {$jetonXSRF}</p>\n";
 
 $O_jeton = $formulaire->LireJeton($jetonXSRF);
 
-$code .="<p>Jeton JSON= {$O_jeton}</p>";
-//$code .= empty($O_jeton) ? "<p>Échec lecture</p>" : "<p>Jeton= {$O_jeton->ID} - {$O_jeton->depart}</p>";
+$code .= empty($O_jeton) ? "<p>Échec lecture</p>" : "<p>Jeton= {$O_jeton->ID} - {$O_jeton->depart} - {$O_jeton->URLretour}</p>";
 
 $this->setSection("\t<h1>Lecture du jeton XSRF</h1>" . $code . "\n");
