@@ -75,7 +75,7 @@ class BDD implements iBDD
 		}
 		$Treponse = self::SELECT("{$indice} AS i, code FROM Vue_code_item
 							WHERE alpha{$eqAlpha} AND beta{$eqBeta} AND gamma{$eqGamma}
-							ORDER BY alpha, beta, gamma",
+							ORDER BY i",
 							$param
 						);
 		$Tableau = null;
