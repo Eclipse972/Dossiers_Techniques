@@ -80,9 +80,7 @@ class CodeValidation
 		return ($code == $codeFourni);
 	}
 
-//	fonctions pour le test ===========================================================================================
-
-	public function AfficherConfiguration()
+	public function getConfiguration()
 	{
 		// tableau T_id_champ
 		$json = '{ "T_id_champ":[' . $this->T_id_champ[0] . ', ' . $this->T_id_champ[1] . ', ' . $this->T_id_champ[2] . ', ' . $this->T_id_champ[3] . '], ';
@@ -92,4 +90,7 @@ class CodeValidation
 		$json .= '"dernier_choix":' . $this->dernier_choix . '}';
 		return $json;
 	}
+
+//	fonctions pour le test ===========================================================================================
+
 }

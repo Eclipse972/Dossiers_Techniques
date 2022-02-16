@@ -2,7 +2,7 @@
 require"PEUNC/BacAsable/commun.php";
 $CodeValidation = new PEUNC\CodeValidation;
 
-$contenuJSON =  $CodeValidation->AfficherConfiguration();
+$contenuJSON =  $CodeValidation->getConfiguration();
 $code = "<p>JSON = " . $contenuJSON . "</p>\n";
 
 $objetJSON = json_decode($contenuJSON);
