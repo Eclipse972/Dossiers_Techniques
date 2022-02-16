@@ -72,7 +72,7 @@ class CodeValidation
 		$réponse = array($nom, $courriel, $objet, $message);
 		$position = array(0, 1, -2, -1);	// position : premier, deuxième, avant dernier et dernier
 
-		// construction du code à trouver issu des instructions.
+		// construction de la solution issue des instructions.
 		$code = '';
 		for($i=0; $i<4; $i++)	$code .= substr($réponse[$this->T_id_champ[$i]] ,$position[$this->T_choix[$i]], 1); // i-ème instruction
 		$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
@@ -93,4 +93,16 @@ class CodeValidation
 
 //	fonctions pour le test ===========================================================================================
 
+	public function Solution($nom, $courriel, $objet, $message)
+	{	// reprise du code de codeOK()
+		$réponse = array($nom, $courriel, $objet, $message);
+		$position = array(0, 1, -2, -1);	// position : premier, deuxième, avant dernier et dernier
+
+		// construction du code à trouver issu des instructions.
+		$code = '';
+		for($i=0; $i<4; $i++)	$code .= substr($réponse[$this->T_id_champ[$i]] ,$position[$this->T_choix[$i]], 1); // i-ème instruction
+		$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
+
+		return $code;	// retourene la solution au lieu de la comparaison
+	}
 }
