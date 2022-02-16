@@ -25,13 +25,20 @@ class CodeValidation
 	private $T_choix;		// tableau contenant les positions demandées
 	private $dernier_choix; // dernière instruction: position du caractère du code de validation
 
-	public function __construct($nombre = null)
+	public function __construct($T_id_champ = null, $T_choix = null, $dernier_choix = null)
 	{
-		if (isset($nombre))
-			$this->Decoder($nombre);
+		if ((isset($T_id_champ)) && (isset($T_choix)) && (isset($dernier_choix)))
+		{
+			for($i=0; $i<4; $i++)	// i-ème instruction
+			{
+				$this->T_id_champ[$i] = $T_id_champ[$i];// numéro du champ
+				$this->T_choix[$i] = $T_choix[$i];		// choix du caractère
+			}
+			$this->dernier_choix = $dernier_choix;		// choix du dernier caractère
+		}
 		else
 		{
-			for($i=0; $i<4; $i++)				// i-ème instruction
+			for($i=0; $i<4; $i++)	// i-ème instruction
 			{
 				$this->T_id_champ[$i] = $i;		// numéro du champ
 				$this->T_choix[$i] = rand(0,3);	// choix du caractère
@@ -41,44 +48,12 @@ class CodeValidation
 		}
 	}
 
-	public function Encoder()
-	{
-		$base = 4;
-		$nombre = 0;
-
-		for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $this->T_id_champ[$i];
-		for($i=0; $i<4; $i++)	$nombre = $nombre * $base + $this->T_choix[$i];
-		$nombre = $nombre * $base + $this->dernier_choix;
-		return $nombre;
-	}
-
-	public function Decoder($nombre)
-	{
-		// l'ordre est inversé
-		$base = 4;
-		$this->dernier_choix = $nombre % $base;
-
-		$chiffre = $this->dernier_choix;
-		for($i=3; $i>=0; $i--)
-		{
-			$nombre = ($nombre - $chiffre) / $base;
-			$chiffre = $nombre % $base;
-			$this->T_choix[$i] = $chiffre;
-		}
-		for($i=3; $i>=0; $i--)
-		{
-			$nombre = ($nombre - $chiffre) / $base;
-			$chiffre = $nombre % $base;
-			$this->T_id_champ[$i] = $chiffre;
-		}
-	}
-
 	public function Afficher()
 	{
-		$code = "<ul>\n";
 		$champs		= array('de votre nom', 'de votre courriel', 'de l&apos;objet', 'du message');
 		$position	= array('premier', 'deuxi&egrave;me', 'avant dernier', 'dernier'); // => il faut au moins deux caratères pour le champ
 
+		$code = "<ul>\n";
 		for($i=0; $i<4; $i++)	$code .= "\t\t\t<li>{$position[$this->T_choix[$i]]} caract&egrave;re {$champs[$this->T_id_champ[$i]]}</li>\n";
 		// dernier caractère
 		$position = array('premier', 'deuxi&egrave;me', 'troisi&egrave;me', 'quatri&egrave;me');
@@ -98,16 +73,5 @@ class CodeValidation
 		$code .= substr($code, $this->dernier_choix, 1); // dernier caractère
 
 		return ($code == $codeFourni);
-	}
-
-//	Fonctions pour les tests ======================================================================================
-
-	public function AfficherTableau()
-	{
-		$code ="(";
-		for($i=0; $i<4; $i++)	$code .= $this->T_id_champ[$i] . " ";
-		for($i=0; $i<4; $i++)	$code .= $this->T_choix[$i] . " ";
-		$code .= $dernier_choix . ")";
-		return $code;
 	}
 }
