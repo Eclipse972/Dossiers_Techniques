@@ -12,7 +12,7 @@ abstract class Formulaire extends Page
 		parent::__construct($alpha, $beta, $gamma, $methode, $Tparam);
 		if ($methode == "GET")
 		{
-			$ID = BDD::SELECT("ID WHERE alpha=? AND beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);// recherche du noeud qui traite le formulaire
+			$ID = BDD::SELECT("ID FROM Squelette WHERE alpha=? AND beta=? gamma=? AND methode = 'POST'",[$alpha, $beta, $gamma]);// recherche du noeud qui traite le formulaire
 			$this->jetonJSON = '{"ID":' . $ID .', "depart":' . time() . ', "URLretour":' .  $this->URLprecedente() . '}';
 		}
 		elseif ($methode == "POST")
