@@ -28,7 +28,7 @@ class CodeValidation
 	public function __construct($T_id_champ = null, $T_choix = null, $dernier_choix = null)
 	{
 		$scenario = (isset($T_id_champ) ? 1 : 0) + (isset($T_choix) ? 2 : 0) + (isset($dernier_choix) ? 4 : 0);
-		switch($scenarion)
+		switch($scenario)
 		{
 			case 0:	// aucune variable n'est définie
 				for($i=0; $i<4; $i++)	// i-ème instruction
