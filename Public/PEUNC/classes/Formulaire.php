@@ -40,6 +40,14 @@ abstract class Formulaire extends Page
 		$this->jetonJSON = str_replace("}{", ", ", $this->jetonJSON);	// fusionne les deux objets
 	}
 
+	public function LireJeton($jetonChiffré)
+	{
+		require"config_chiffrement.php";	// défini $cipher, $key et $iv
+		$jeton = openssl_decrypt($jetonChiffré, $cipher, $key, $options=0, $iv);// dechiffrement jeton
+		$O_jeton = json_decode($jeton);		// si erreur renvoyer null sinon renvoyer l'objet
+		return $O_jeton;
+	}
+
 // Fonctions abstraites =======================================================================
 
 	abstract public function TraiterSpam();	// par exemple ajouter une entrée dans un journal
@@ -51,13 +59,5 @@ abstract class Formulaire extends Page
 	abstract public function TraitementAvantRepresentation();	// prépare le formulaire pour un réaffichage en  générant des messages d'erreur par exemple'
 
 //	zone de test ==============================================================================
-
-	public function LireJeton($jetonChiffré)
-	{
-		require"config_chiffrement.php";	// défini $cipher, $key et $iv
-		$jeton = openssl_decrypt($jetonChiffré, $cipher, $key, $options=0, $iv);// dechiffrement jeton
-		$O_jeton = json_decode($jeton);		// si erreur renvoyer null sinon renvoyer l'objet
-		return $O_jeton;
-	}
 
 }
