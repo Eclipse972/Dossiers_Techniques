@@ -11,13 +11,7 @@ class ReponsePOST extends ReponseClient
 		$this->Pretraitement();
 
 		// traitement du formulaire
-		$formulaire = new $classePage(
-								$route->getAlpha(),
-								$route->getBeta(),
-								$route->getGamma(),
-								"POST",
-								$this->TlisteReponses
-							);
+		$formulaire = new $classePage($route->getAlpha(), $route->getBeta(), $route->getGamma(), "POST", $this->TlisteReponses);
 		if ($formulaire->FormulaireOK())
 		{
 			$formulaire->Traitement();

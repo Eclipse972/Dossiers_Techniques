@@ -7,13 +7,7 @@ class ReponseGET extends ReponseClient
 	{	// génère le code html à renvoyer au client
 		parent::__construct($route);
 		Page::SauvegardeEtat($route->getAlpha(), $route->getBeta(), $route->getGamma());	// sauvegarde de l'état courant
-		$PAGE = new $this->classePage(
-							$route->getAlpha(),
-							$route->getBeta(),
-							$route->getGamma(),
-							"GET",
-							$this->PrepareParametres($_GET)
-						);
+		$PAGE = new $this->classePage($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET", $this->PrepareParametres($_GET));
 		$PAGE->ExecuteControleur();
 		include $PAGE->getView(); // insertion de la vue
 	}
