@@ -27,7 +27,7 @@ abstract class Formulaire extends Page
 
 // Fonctions pour le jeton ====================================================================
 
-	public function InsérerJeton()	// insère le champ caché jeton dans le formulaire
+	public function InsérerJeton()	// la valeur du champ caché jeton XSRF à insérer dans la vue du formulaire
 	{
 		require"config_chiffrement.php";	// défini $cipher, $key et $iv
 		$jetonchiffré = openssl_encrypt($this->jetonJSON, $cipher, $key, $options=0, $iv);
