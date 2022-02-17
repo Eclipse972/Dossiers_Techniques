@@ -5,29 +5,20 @@ class ReponseClient
 // Réponse à servir au client en fonction de la route trouvée suite à la requête http.
 // Classe nécesaire: HttpRouter chargée par l'autoloader'
 {
-	private $route;
+	protected $route;
+	protected $classePage;
 
 	public function __construct(HttpRouter $route)
 	{
 		$this->route = $route;
 		$classePage = BDD::SELECT("classePage FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-								[$this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma(), $this->route->getMethode()]);
-		if (!isset($classePage))	throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
-
-		switch($route->getMethode())	// ne peut répondre qu'aux méthode GET et POST pour le moment
-		{
-			case "GET":
-				$this->ReponseGET($classePage);
-				break;
-			case "POST":
-				$this->ReponsePOST($classePage);
-				break;
-			default:
-				throw new \Exception("M&eacute;thode Http inconnue : " . $this->route->getMethode());
-		}
+								[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
+		if (isset($classePage))
+			$this->classePage = $classePage;
+		else throw new \Exception("La classe de page n&apos;est pas d&eacute;finie dans le squelette.");
 	}
 
-	private function PrepareParametres($Tableau)
+	public function PrepareParametres($Tableau)
 	/* Dans la table Squelette on récupère la liste des paramètres autorisés.
 	 * On construit un nouveau tableau qui ne contient que les clés autorisées et chaque valeur subit un nettoyage.
 	 *
@@ -44,58 +35,5 @@ class ReponseClient
 			if (isset($Tableau[$clé]))							// seules les clés autorisées sont prises en compte
 				$Treponse[$clé] = strip_tags($Tableau[$clé]);	// puis ces valeurs sont nettoyées
 		return $Treponse;
-	}
-
-// Réponses aux différentes méthodes Http =========================================================
-
-	private function ReponseGET($classePage)
-	{	// génère le code html à renvoyer au client
-		Page::SauvegardeEtat($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma());	// sauvegarde de l'état courant
-		$PAGE = new $classePage(
-							$this->route->getAlpha(),
-							$this->route->getBeta(),
-							$this->route->getGamma(),
-							"GET",
-							$this->PrepareParametres($_GET)
-						);
-		$PAGE->ExecuteControleur();
-		include $PAGE->getView(); // insertion de la vue
-	}
-
-	private function ReponsePOST($classePage)
-	{	// pré-traitement commun à tous les formulaires
-		$ListeParametres = $this->PrepareParametres($_POST);
-		if (isset($ListeParametres["XSRF"]))
-		{
-			$jetonChiffré = $ListeParametres["XSRF"];
-			require"config_chiffrement.php";	// défini $cipher, $key et $iv
-			$jetonJSON = openssl_decrypt($jetonChiffré, $cipher, $key, $options=0, $iv);
-			$O_jeton = json_decode($fichier);
-			if (!isset($O_jeton))
-				throw new \Exception("Jeton XSRF corrompu");
-			elseif (time() - $O_jeton->depart < 5)
-				throw new \Exception("temps de r&eacute;ponse inhumain");
-		}
-		else throw new \Exception("Jeton XSRF absent");
-
-		// traitement du formulaire
-		$formulaire = new $classePage(
-								$this->route->getAlpha(),
-								$this->route->getBeta(),
-								$this->route->getGamma(),
-								"POST",
-								$ListeParametres
-							);
-		if ($formulaire->FormulaireOK())
-		{
-			$formulaire->Traitement();
-			$URL = $formulaire->URLprecedente();
-		}
-		else
-		{
-			$formulaire->TraitementAvantRepresentation();
-			$URL = BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?", [$formulaire->getAlpha(), $formulaire->getBeta(), $formulaire->getGamma(), "GET"]);
-		}
-		header("Location:" . $URL); // redirection
 	}
 }
