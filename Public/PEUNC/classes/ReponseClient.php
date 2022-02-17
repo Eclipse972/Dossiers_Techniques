@@ -65,9 +65,7 @@ class ReponseClient
 	private function ReponsePOST($classePage)
 	{	// pré-traitement commun à tous les formulaires
 		$ListeParametres = $this->PrepareParametres($_POST);
-		if (!isset($ListeParametres["XSRF"]))
-			throw new \Exception("Jeton XSRF absent");
-		else
+		if (isset($ListeParametres["XSRF"]))
 		{
 			$jetonChiffré = $ListeParametres["XSRF"];
 			require"config_chiffrement.php";	// défini $cipher, $key et $iv
@@ -78,6 +76,7 @@ class ReponseClient
 			elseif (time() - $O_jeton->depart < 5)
 				throw new \Exception("temps de r&eacute;ponse inhumain");
 		}
+		else throw new \Exception("Jeton XSRF absent");
 
 		// traitement du formulaire
 		$formulaire = new $classePage(
