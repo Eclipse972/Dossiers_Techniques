@@ -27,8 +27,8 @@ interface iPage
 	public function setDossier($dossier);		// défini le dossier associé à la page
 
 // méthodes statiques
-	public static function BaliseImage($src, $alt, $code);			// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
-	public static function SauvegardeEtat($alpha, $beta, $gamma);	// sauvegarde l'état courant dans la session
+	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
+	public static function SauvegardeEtat(HttpRouter $route);	// sauvegarde l'état courant dans la session
 
 // Autre
 	public function ExecuteControleur();// execute le controleur à partir de la position enregistrée dans l'objet
