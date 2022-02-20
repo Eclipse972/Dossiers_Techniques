@@ -2,8 +2,8 @@
 -- version 3.1.5
 -- http://www.phpmyadmin.net
 --
--- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Mar 15 Février 2022 à 06:06
+-- Serveur: dossiers.techniques.sql.free.fr
+-- Généré le : Dim 20 Février 2022 à 05:46
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dossier_te_ch_nique`
+-- Base de données: `dossiers_techniques`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=222 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=225 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -260,11 +260,13 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (210, 8, 6, 1, 'mors fixe', '', 'mors_fixe', 'Page_association', 'etau/CE_mors_fixe.php', 'GET', '[]'),
 (211, 8, 6, 2, 'mors mobile', '', 'mors_mobile', 'Page_association', 'etau/CE_mors_mobile.php', 'GET', '[]'),
 (213, 8, 6, 4, 'tige', '', 'tige', 'Page_association', 'etau/tige.php', 'GET', '[]'),
-(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PEUNC\\Contact', '', 'POST', '["nom", "courriel", "objet", "message", "code"]'),
+(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PEUNC\\Contact', '', 'POST', '["XSRF", "nom", "courriel", "objet", "message", "code"]'),
 (215, -1, 405, 0, 'M&eacute;thode non permise', '', 'Methode_non_permise', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
 (216, -3, 0, 0, 'Bac &agrave; sable', '', 'bacAsable', 'PEUNC\\Page', 'PEUNC/BacAsable/bacAsable.php', 'GET', '[]'),
 (219, -3, 3, 0, 'Chiffrement', '', 'chiffrement', 'PEUNC\\Page', 'PEUNC/BacAsable/chiffrement.php', 'GET', '[]'),
-(220, -3, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]');
+(220, -3, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]'),
+(222, -3, 1, 0, 'Code de validation', '', 'code_validation', 'PEUNC\\Page', 'PEUNC/BacAsable/validation.php', 'GET', '[]'),
+(224, -3, 2, 0, 'Lecture jeton XSRF', '', 'lectureJetonXSRF', 'PEUNC\\Page', 'PEUNC/BacAsable/lectureJeton.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

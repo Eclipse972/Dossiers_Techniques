@@ -2,8 +2,8 @@
 -- version 3.1.5
 -- http://www.phpmyadmin.net
 --
--- Serveur: dossier.te.ch.nique.sql.free.fr
--- Généré le : Mar 15 Février 2022 à 06:07
+-- Serveur: dossiers.techniques.sql.free.fr
+-- Généré le : Dim 20 Février 2022 à 05:47
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `dossier_te_ch_nique`
+-- Base de données: `dossiers_techniques`
 --
 
 -- --------------------------------------------------------
