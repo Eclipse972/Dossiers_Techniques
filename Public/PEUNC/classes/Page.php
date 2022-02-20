@@ -138,7 +138,7 @@ class Page implements iPage	{
 		// sauvegarde de l'état précédent
 		if (isset($_SESSION["PEUNC"]['alpha'])) // défini => une page a été mémorisée
 		{
-			if(($_SESSION["PEUNC"]['alpha'] < 0) || ($route->getMethode = "POST"))	// page spéciale OU traitement de formulaire
+			if(($_SESSION["PEUNC"]['alpha'] < 0) || ($route->getMethode == "POST"))	// page spéciale OU traitement de formulaire
 					$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
 			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
 		}
