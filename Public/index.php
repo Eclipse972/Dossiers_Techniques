@@ -19,6 +19,8 @@ try
 	// à partir d'une requête Http on trouve la route
 	$route = new PEUNC\HttpRouter;
 
+	PEUNC\Page::SauvegardeEtat($route);	// sauvegarde de l'état courant
+
 	$MethodesSupportées = array(
 		"GET"	=> "PEUNC\ReponseGET",
 		"POST"	=> "PEUNC\ReponsePOST"	// pour le moment

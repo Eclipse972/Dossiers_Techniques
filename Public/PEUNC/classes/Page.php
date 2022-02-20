@@ -133,23 +133,23 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public static function SauvegardeEtat($alpha, $beta, $gamma)
+	public static function SauvegardeEtat(HttpRouter $route)
 	{
-		// sauvegarde de l'acien état
-		if (isset($_SESSION["PEUNC"]['alpha']))		// défini => une page a été consultée
+		// sauvegarde de l'état précédent
+		if (isset($_SESSION["PEUNC"]['alpha'])) // défini => une page a été mémorisée
 		{
-			if ($_SESSION["PEUNC"]['alpha'] >= 0)	// cette page est une des pages du site
-					$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
-			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
+			if(($_SESSION["PEUNC"]['alpha'] < 0) || ($route->getMethode = "POST"))	// page spéciale OU traitement de formulaire
+					$T_etatPrecedent = [$_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],	$_SESSION["PEUNC"]['gammaPrecedent']];	// l'état précédent reste le même pour les pages spéciales (erreur, pages admin, ...)
+			else	$T_etatPrecedent = [$_SESSION["PEUNC"]['alpha'],		 $_SESSION["PEUNC"]['beta'],			$_SESSION["PEUNC"]['gamma']];			// sauvegarde état actuel
 		}
 		else		$T_etatPrecedent = [0, 0, 0];	// alpha non défini => on vient de l'ailleurs. On mémorise la page d'accueil
 
 		list($_SESSION["PEUNC"]['alphaPrecedent'], $_SESSION["PEUNC"]['betaPrecedent'], $_SESSION["PEUNC"]['gammaPrecedent']) = $T_etatPrecedent;
 
 		// MAJ de l'état
-		$_SESSION["PEUNC"]['alpha']	= $alpha;
-		$_SESSION["PEUNC"]['beta']	= $beta;
-		$_SESSION["PEUNC"]['gamma']	= $gamma;
+		$_SESSION["PEUNC"]['alpha']	= $route->getAlpha();
+		$_SESSION["PEUNC"]['beta']	= $route->getBeta();
+		$_SESSION["PEUNC"]['gamma']	= $route->getGamma();
 	}
 
 /* ***************************
