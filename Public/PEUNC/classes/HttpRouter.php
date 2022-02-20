@@ -42,10 +42,10 @@ class HttpRouter
 				list($this->alpha, $this->beta, $this->gamma) = [-1, $_SERVER['REDIRECT_STATUS'], 0];
 				break;
 			case 200:	// le script est lancé sans redirection
-				list($this->alpha, $this->beta, $this->gamma) = $this->SansRedirection();
+				list($this->alpha, $this->beta, $this->gamma) = HttpRouter::SansRedirection();
 				break;
 			case 404:
-				list($this->alpha, $this->beta, $this->gamma) = $this->Redirection404();
+				list($this->alpha, $this->beta, $this->gamma) = HttpRouter::Redirection404();
 				break;
 			default:
 				list($this->alpha, $this->beta, $this->gamma) = [-1, 0, 0];	// erreur inconnue
@@ -59,7 +59,7 @@ class HttpRouter
 
 //	Gestion des redirections ==================================================================================================================
 
-	private function Redirection404()
+	private static function Redirection404()
 	/* Ce script est appelé suite à une erreur 404. C'est cette redirection que j'exploite pour gérer ma pseudo-réécriture d'URL.
 	 * Ma source d'inspiration: http://urlrewriting.fr/tutoriel-urlrewriting-sans-moteur-rewrite.htm Merci à son auteur.
 	 *
@@ -83,7 +83,7 @@ class HttpRouter
 			return [-1, 404, 0];	// erreur 404!
 	}
 
-	private function SansRedirection()
+	private static function SansRedirection()
 	/* Un appel direct de index.php.
 	 * La pseudo réécriture d'URL ne fonctionne pas avec le script action du formulaire. J'ai le parti de repasser par index.php pour traiter
 	 * tous les formulaires. Chaque formulaire doit sauvegarder sa position dans la session pour être retrouvé.
