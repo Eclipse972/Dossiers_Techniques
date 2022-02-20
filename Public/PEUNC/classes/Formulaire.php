@@ -17,6 +17,10 @@ abstract class Formulaire extends Page
 		}
 		elseif ($methode == "POST")
 		{
+			// récupère la liste des paramètres autorisés
+			$reponseBD = BDD::SELECT("paramAutorise FROM Vue_Routes WHERE alpha=? AND beta=? AND gamma=? AND methode='POST'", [$alpha, $beta, $gamma]);
+
+			$TparamAutorises = json_decode($reponseBD, true);
 
 		}
 		else
