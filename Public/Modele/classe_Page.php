@@ -33,7 +33,7 @@ class Page extends PEUNC\Page
 			$this->logo			= $Thydrate["logo"]; // défini dans la classe Page de PEUNC
 			// sur php 5 list ne fonctionne qu'avec des indices numériques
 		}
-		else $this->nom = $this->codeTitre = $this->tiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->logo = null;
+		else $this->nom = $this->codeTitre = $this->ptiNomSupport = $this->du_support = $this->le_support = $this->dossier = $this->logo = null;
 	}
 
 /* ***************************
