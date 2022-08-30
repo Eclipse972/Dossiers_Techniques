@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <bookmarks list=""/>
+  <node name="Ajouter un nouveau dossier technique" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860033" ts_lastsave="1661860488">
+    <node name="L'arborescence du dossier technique" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860054" ts_lastsave="1661861379">
+      <rich_text>L'arborescence peut être sur deux niveaux
+</rich_text>
+      <node name="Le menu principal" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861346" ts_lastsave="1661861381">
+        <rich_text>Le premier élément du menu doit être obligatoirement la Mise en situation. C'est la page qui est appelée par défaut lors de l'ouverture d'un dosssier technique. Le script controleur qui construit la page doit s'appeler MES.php.</rich_text>
+      </node>
+      <node name="Les menus secondaires" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861363" ts_lastsave="1661861363"/>
+    </node>
+    <node name="Les types de pages disponibles" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860086" ts_lastsave="1661861260">
+      <rich_text>Il existe un certain nombre de type de pages disponibles</rich_text>
+    </node>
+    <node name="Le dossier support" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860119" ts_lastsave="1661860883">
+      <rich_text>il ne contient que deux dossiers et se trouve à la racine du site
+Chaque fichier d'un dossier doit être associé un fichier de l'autre. Il est préférable de leur donner des noms identiques (sauf pour l'extension)
+Exemple corps.EPRT et corps.png</rich_text>
+      <node name="dossiers images" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860131" ts_lastsave="1661860707">
+        <rich_text>image avec des fonds transparents</rich_text>
+      </node>
+      <node name="dossiers fichiers" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860144" ts_lastsave="1661860723">
+        <rich_text>Ce sont pricipalement des fichiers eDrawing avec l'extension en majuscules
+- EPRT: pièce
+- EASM: assemblage
+- EDRW: mise en plan</rich_text>
+      </node>
+    </node>
+    <node name="Les controleurs" unique_id="7" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860200" ts_lastsave="1661861055"/>
+    <node name="Les tables en BDD" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861055" ts_lastsave="1661861073">
+      <node name="table Squelette" unique_id="9" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861073" ts_lastsave="1661861139"/>
+      <node name="table Support" unique_id="10" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861139" ts_lastsave="1661861161"/>
+      <node name="table Pieces" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861161" ts_lastsave="1661861161"/>
+    </node>
+  </node>
+</cherrytree>
