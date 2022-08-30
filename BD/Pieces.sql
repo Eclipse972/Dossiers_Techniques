@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 20 Février 2022 à 05:46
+-- Généré le : Mar 30 Août 2022 à 21:42
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `Pieces`
 --
 
-DROP TABLE IF EXISTS `Pieces`;
 CREATE TABLE IF NOT EXISTS `Pieces` (
   `support_ID` smallint(5) unsigned NOT NULL,
   `nom` varchar(64) collate latin1_general_ci NOT NULL,
@@ -271,7 +270,7 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (16, 'Rondelle Grower W6', 7, 4, 0, 'Commerce', 'rondelle_growerW6', 0),
 (16, 'Vis sans t&ecirc;te &agrave; six pans creux', 8, 1, 0, 'Commerce', 'visAHcM10-10', 0),
 (16, 'Plaquette avant', 9, 1, 9, '', 'plaquette_avant', 0),
-(16, 'Vis &agrave; t&ecurc;te frais&eacute;e fendue M3-8', 10, 4, 0, 'Commerce', 'visFSM3-8', 0),
+(16, 'Vis &agrave; t&ecirc;te frais&eacute;e fendue M3-8', 10, 4, 0, 'Commerce', 'visFSM3-8', 0),
 (16, 'Axe', 11, 1, 18, '', 'axe', 0),
 (16, 'Anneau &eacute;lastique pour al&eacute;sage 40x1,75', 12, 1, 0, 'Commerce', 'anneau_elastique40x1,75', 0),
 (16, 'Vis sans t&ecirc;te &agrave; six pans creux M6-10', 13, 1, 0, 'Commerce', 'visAHcM6-10', 0),
@@ -346,7 +345,17 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (13, 'bielle', 12, 1, 31, '', 'bielle', 0),
 (13, 'vilebrequin', 13, 1, 3, '', 'vilebrequin', 0),
 (13, 'piston', 14, 1, 21, '', 'piston', 0),
-(13, 'coussinet &oslash;6', 15, 1, 30, '', 'coussinet_d6', 0);
+(13, 'coussinet &oslash;6', 15, 1, 30, '', 'coussinet_d6', 0),
+(19, 'corps', 1, 1, 12, '', 'corps', 0),
+(19, '&eacute;crou H M10', 2, 1, 0, 'standard', 'ecrou_H_M10', 0),
+(19, 'vis sans t&ecirc;te fendue &agrave; bout t&eacute;ton M10', 3, 1, 0, 'standard', 'vis_sans_teteM10', 0),
+(19, 'levier', 4, 1, 12, '', 'levier', 0),
+(19, 'axe de levier', 5, 1, 12, '', 'axe2levier', 0),
+(19, 'chape', 6, 1, 0, '', 'chape', 0),
+(19, 'vis de la chape', 7, 1, 0, '', 'vis-chape', 0),
+(19, 'couvercle', 8, 1, 12, '', 'couvercle', 0),
+(19, 'piston', 10, 1, 12, '', 'piston', 0),
+(19, 'joint torique', 11, 1, 0, 'standard', 'joint', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

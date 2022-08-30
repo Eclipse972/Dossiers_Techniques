@@ -34,7 +34,12 @@ Exemple corps.EPRT et corps.png</rich_text>
       <node name="table Pieces" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861161" ts_lastsave="1661861161"/>
     </node>
   </node>
-  <node name="création étape par étape" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661863377" ts_lastsave="1661863396">
+  <node name="création étape par étape" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661863377" ts_lastsave="1661884032">
+    <rich_text>Il faut créer 3 noeuds dans l'arborecence
+(alpha,0,0) page “à propos” ce noeud est la racine du dossier technique. Il n'est pas nécesaire de créer le controleur pour le moment.
+(alpha,1,0) page Mise en situaton
+avec un seul item l'affichage du menu plante.
+(alpha,2,0) au choix fonctionnemet, dessin d'ensemble, ... il faut impérativement cette seconde page</rich_text>
     <node name="Ajout dans la table Supports" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661863396" ts_lastsave="1661866768">
       <rich_text>ID: dot rester vide. il sera calculé automatiquement
 nom: nom du support. remplacer les caratères accentués par leur code html
@@ -68,8 +73,10 @@ ptiNom: petit nom du support
 classePage: PageApropos
 controleur: {dossier du support}/Apropos.php</rich_text>
     </node>
-    <node name="création de la page de base dans l'arborescence" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661864347" ts_lastsave="1661866109">
-      <rich_text>ID: calculé automatiquement
+    <node name="création de la page mise en situation" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661864347" ts_lastsave="1661884992">
+      <rich_text>C'est la page par défaut affichée pour un support donnée.
+
+ID: calculé automatiquement
 alpha:il faut trouver une valeur libre; solution trier avec l'index navigation et aller à la dernière page pour trouver alpha.
 Si la vaeur est déjà prise phpMyAdmin refusera.
 beta: 1 et pas 0 qui est réserver pour la page “a propos” du support
@@ -80,7 +87,32 @@ ptiNom: MES
 classePage: classe qui servira à créer la page Cf les type de pages disponile (lien à venir)
 controleur: {dossier du support}/MES.php</rich_text>
     </node>
-    <node name="dessin d'ensemble" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865399" ts_lastsave="1661865414"/>
-    <node name="nomenclature" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865414" ts_lastsave="1661865414"/>
+    <node name="dessin d'ensemble" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865399" ts_lastsave="1661885244">
+      <rich_text>Le contrôleur nommé dessin_densemble
+Il ne fait que 5 lignes
+&lt;?php // dessin d'ensemble de {nom du support}
+$this-&gt;setDessinDensemble(); permet de dire que l'association est un dessin d'ensemble
+$this-&gt;setImage("dessin_{ptiNom du support}.png");
+$this-&gt;setFichier("{ptiNom du support}.EDRW");
+</rich_text>
+    </node>
+    <node name="nomenclature" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865414" ts_lastsave="1661885232">
+      <rich_text>Chaque ligne de nimenclature est sauvegardé en BDD
+support_ID: identifiant du support auquel appartien la pièce
+nom:
+repere:
+quantite: 1 par défaut
+matière_ID: c'est souvent les mêmes matières qui reviennent donc beaucoup d'entre sont sauvegardées dans la table Materiaux. la valeur par défaut est 0 et donne une case vide.
+observation: texte pouvant être vide
+fichier: nom du fichier pour l pièce et le fichier edrawing. Ils doivent porter le même nom
+assemblage: o-&gt; extension .EPRT  et 1-&gt; .EASM
+
+Le contrôleur nommé nomenclature
+3 lignes
+&lt;?php // nomenclature bride hydaulique
+$this-&gt;SetColonneMatiereVide(true);
+$this-&gt;SetColonneObservationVide(true);
+</rich_text>
+    </node>
   </node>
 </cherrytree>
