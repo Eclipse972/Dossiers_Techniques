@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Ajouter un nouveau dossier technique" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860033" ts_lastsave="1661860488">
+  <node name="Ajouter un nouveau dossier technique" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860033" ts_lastsave="1661863377">
     <node name="L'arborescence du dossier technique" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661860054" ts_lastsave="1661861379">
       <rich_text>L'arborescence peut être sur deux niveaux
 </rich_text>
@@ -33,5 +33,54 @@ Exemple corps.EPRT et corps.png</rich_text>
       <node name="table Support" unique_id="10" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861139" ts_lastsave="1661861161"/>
       <node name="table Pieces" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661861161" ts_lastsave="1661861161"/>
     </node>
+  </node>
+  <node name="création étape par étape" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661863377" ts_lastsave="1661863396">
+    <node name="Ajout dans la table Supports" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661863396" ts_lastsave="1661866768">
+      <rich_text>ID: dot rester vide. il sera calculé automatiquement
+nom: nom du support. remplacer les caratères accentués par leur code html
+ptinom: nom raccourci du support compatible avec un nom de fichier UNIX. Ce nom est utilisé dans le dossier support pour accéder à certaine image particulières. Exemple: Bride à nez -&gt; bride. Ce nom raccourci servira de base pour définir le nom ar défaut de certain fichiers. Plusieurs support peuvent avoir le même nom raccourci. Pour bride à nez et bride hydraulique le ptiNom est bride.
+
+dossier: dossier associé au support. Le même nom sera utilisé comme sous dossier de Supports et Controleur
+article_ID: identifiant pour les article le et du
+1 le du
+2 la de la
+3 l' de l'
+zip: nom de l'archive zip si elle existe.</rich_text>
+    </node>
+    <node name="image pour l'index" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661866235" ts_lastsave="1661866469">
+      <rich_text>c'est l'iamge qui sera affichée avec le nom sur la page d'accueil/index
+Elle se trouve dans SUpports/{dossier du support}/images et doit s'appeler {pti nom du support}</rich_text>
+    </node>
+    <node name="page &quot;À propos&quot;" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865231" ts_lastsave="1661868208">
+      <rich_text>Se trouve ici des infos sur la maquette nulérique
+- du texte; Exemple la présence de configuration
+- des liens URL. Vers le site de l'auteur par exemple
+- un archive zip à télécharger s'il elle existe
+
+Cette page doit obligatoirement être crée dans la table Squelette même si elle est vide.
+sinon la route pour la page d'accueil n'existera pas.
+ID: calculé automatique
+alpha: valeur trouvée lors de la créaton de la page MES
+beta=gamma=0
+texteMenu = &amp;Agrave propos
+imageMenu: vide
+ptiNom: petit nom du support
+classePage: PageApropos
+controleur: {dossier du support}/Apropos.php</rich_text>
+    </node>
+    <node name="création de la page de base dans l'arborescence" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661864347" ts_lastsave="1661866109">
+      <rich_text>ID: calculé automatiquement
+alpha:il faut trouver une valeur libre; solution trier avec l'index navigation et aller à la dernière page pour trouver alpha.
+Si la vaeur est déjà prise phpMyAdmin refusera.
+beta: 1 et pas 0 qui est réserver pour la page “a propos” du support
+gamma: laisser à 0
+texteMenu: Mise en situation
+imageMenu: permet d'ajouter automatique une image avant l'item du menu sauf si vide
+ptiNom: MES
+classePage: classe qui servira à créer la page Cf les type de pages disponile (lien à venir)
+controleur: {dossier du support}/MES.php</rich_text>
+    </node>
+    <node name="dessin d'ensemble" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865399" ts_lastsave="1661865414"/>
+    <node name="nomenclature" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865414" ts_lastsave="1661865414"/>
   </node>
 </cherrytree>
