@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 20 Février 2022 à 05:45
+-- Généré le : Mar 30 Août 2022 à 21:45
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `Materiaux`
 --
 
-DROP TABLE IF EXISTS `Materiaux`;
 CREATE TABLE IF NOT EXISTS `Materiaux` (
   `ID` int(11) unsigned NOT NULL auto_increment,
   `formule` varchar(99) collate latin1_general_ci NOT NULL,
@@ -51,7 +50,7 @@ INSERT INTO `Materiaux` (`ID`, `formule`, `URL_wiki`) VALUES
 (9, 'EN AW 2017', 'D%C3%A9signation_des_m%C3%A9taux_et_alliages#Alliage_d.27aluminium_destin.C3.A9s_au_corroyage'),
 (10, 'PF 21 (Bak&eacute;lite)', 'Bak%C3%A9lite'),
 (11, 'PMMA', 'Polym%C3%A9thacrylate_de_m%C3%A9thyle'),
-(12, 'S 235', 'Acier#Aciers_non_alli.C3.A9s'),
+(12, 'S 235 (E24)', 'Acier#Aciers_non_alli.C3.A9s'),
 (13, 't&eacute;flon', 'T%C3%A9flon'),
 (14, 'S 275', 'Acier#Aciers_non_alli.C3.A9s'),
 (15, 'stub', ''),
