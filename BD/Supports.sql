@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Dim 20 Février 2022 à 05:47
+-- Généré le : Mar 30 Août 2022 à 21:49
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -25,7 +25,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `Supports`
 --
 
-DROP TABLE IF EXISTS `Supports`;
 CREATE TABLE IF NOT EXISTS `Supports` (
   `ID` smallint(5) unsigned NOT NULL auto_increment,
   `nom` varchar(32) collate latin1_general_ci NOT NULL,
@@ -35,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Supports` (
   `zip` varchar(32) collate latin1_general_ci NOT NULL COMMENT 'archive',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `nom` (`nom`,`dossier`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `Supports`
@@ -60,7 +59,8 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) 
 (16, 'bride &agrave; nez', 'bride', 'brideAnez', 2, 'brideAnez'),
 (17, 'unit&eacute; de marquage', 'unite2marquage', 'unite2marquage', 3, 'unite2marquage'),
 (18, 'vanne Legris', 'vanne', 'vanne', 2, 'Vanne'),
-(13, 'moteur de mod&eacute;lisme', 'moteur', 'moteur2modelisme', 1, '');
+(13, 'moteur de mod&eacute;lisme', 'moteur', 'moteur2modelisme', 1, ''),
+(19, 'bride hydraulique', 'bride', 'bride_hydraulique', 2, '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
