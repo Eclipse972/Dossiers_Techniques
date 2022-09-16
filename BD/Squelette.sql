@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 30 Août 2022 à 21:47
+-- Généré le : Ven 16 Septembre 2022 à 18:19
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -186,13 +186,12 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (138, 17, 2, 2, 'phase 1', '', 'phase1', 'Page_image', 'brideAnez/phase1.php', 'GET', '[]'),
 (139, 17, 2, 3, 'd&eacute;but de la phase 2', '', 'debutPhase2', 'Page_image', 'brideAnez/debutPhase2.php', 'GET', '[]'),
 (140, 17, 2, 4, 'phase 2', '', 'phase2', 'Page_image', 'brideAnez/phase2.php', 'GET', '[]'),
-(141, 17, 7, 0, 'Sous-ensembles', '', 'SE', 'Page', 'brideAnez/SE.php', 'GET', '[]'),
+(141, 17, 7, 0, 'Sous-ensembles', '', 'SE', 'Page_association', 'brideAnez/SE.php', 'GET', '[]'),
 (142, 17, 7, 1, 'corps de la bride', '', 'corpsBride', 'Page_association', 'brideAnez/corpsBride.php', 'GET', '[]'),
 (143, 17, 7, 2, 'nez de la bride', '', 'nez2bride', 'Page_association', 'brideAnez/nez2bride.php', 'GET', '[]'),
 (144, 17, 7, 3, 'ensemble piston', '', 'ensemblePiston', 'Page_association', 'brideAnez/ensemblePiston.php', 'GET', '[]'),
 (145, 17, 7, 4, 'plaquette', '', 'plaquette', 'Page_association', 'brideAnez/plaquette.php', 'GET', '[]'),
 (146, 17, 7, 5, 'ressort', '', 'ressort', 'Page_association', 'brideAnez/ressort.php', 'GET', '[]'),
-(147, 17, 8, 0, '&Eacute;clat&eacute; de la bride', '', 'eclateBride', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
 (148, 13, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page_image', 'prehenseur/fonctionnement.php', 'GET', '[]'),
 (149, 13, 2, 2, 'Fermeture', '', 'fermeture', 'Page_image', 'prehenseur/fermeture.php', 'GET', '[]'),
 (150, 13, 2, 1, 'ouverture', '', 'ouverture', 'Page_image', 'prehenseur/ouverture.php', 'GET', '[]'),
