@@ -4,7 +4,7 @@ $this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques d
 $this->setLogo("logo.png");
 $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("index.html");
-$this->setCSS(array("index"));
+$this->setCSS("index");
 
 $NB_colonne = 5;
 $code = '';

@@ -16,31 +16,50 @@ spl_autoload_register(function($classe)
 
 try
 {
-	// à partir d'une requête Http on trouve la route
-	$route = new PEUNC\HttpRouter;
+	$route = new PEUNC\HttpRoute;				// à partir d'une requête Http on trouve la route
 
-	PEUNC\Page::SauvegardeEtat($route);	// sauvegarde de l'état courant
+	PEUNC\Page::SauvegardeEtat($route);			// sauvegarde de l'état courant
 
-	$MethodesSupportées = array(
-		"GET"	=> "PEUNC\ReponseGET",
-		"POST"	=> "PEUNC\ReponsePOST"	// pour le moment
-	);
-	if (isset($MethodesSupportées[$route->getMethode()]))
-		$ReponseClient = $MethodesSupportées[$route->getMethode()];
-	else throw new \Exception("M&eacute;thode Http inconnue : " . $route->getMethode());
-
-	// construction de la réponse en fonction de la route trouvée
-	$reponse = new $ReponseClient($route);
+	$reponse = new PEUNC\ReponseClient($route);	// construction de la réponse en fonction de la route trouvée
+}
+catch(PEUNC\ServeurException $e)
+{
+	$PAGE = new PEUNC\Page();	// il n'y a pas de route
+	$PAGE->setTitle("Erreur serveur");
+	$PAGE->setHeaderText("<p>Erreur serveur</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . " - code: " . $e->getCode() . "</h1>\n");
+	$PAGE->setFooter(" - <a href=/Contact>Me contacter</a>");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
+}
+catch(PDOException $e)
+{
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur de base de donn&eacute;es");
+	$PAGE->setHeaderText("<p>Erreur de base de donn&eacute;es</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
+}
+catch(PEUNC\Exception $e)
+{
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur de base de l&apos;application");
+	$PAGE->setHeaderText("<p>Erreur de l&paos;application</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
+					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getAlpha() . " - " . $route->getGamma()
+					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
+	$PAGE->setView("erreur.html");
+	include $PAGE->getView();
 }
 catch(Exception $e)
 {
-	$PAGE = new PEUNC\Erreur($route->getAlpha(), $route->getBeta(), $route->getGamma(), "GET");
-	$PAGE->setTitle("Les dossiers techniques de ChristopHe");
-	$PAGE->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe</p>");
-	$PAGE->setCodeErreur("application");
-	$PAGE->setTitreErreur($e->getMessage());
-	$PAGE->setCorpsErreur("");
-	$PAGE->setCSS(array("erreur"));
+	$PAGE = new PEUNC\Page($route);
+	$PAGE->setTitle("Erreur inconnue");
+	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
+	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
+					. "<p>Noeud : " . $PAGE->getAlpha() . " - " . $PAGE->getAlpha() . " - " . $PAGE->getGamma()
+					. " M&eacute;thode:" . $PAGE->getMethode() . "</p>\n");
 	$PAGE->setView("erreur.html");
-	include $PAGE->getView(); // insertion de la vue
+	include $PAGE->getView();
 }

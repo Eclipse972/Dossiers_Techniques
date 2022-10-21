@@ -12,7 +12,13 @@ class BDD implements iBDD
 	{
 		require"connexion.php";
 		$this->BD = new \PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $user , $pwd);
-		$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+		if (isset($this->BD))
+		{
+			$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE,	\PDO::FETCH_ASSOC);
+			$this->BD->setAttribute(\PDO::ATTR_ERRMODE,				\PDO::ERRMODE_EXCEPTION);
+		}
+		else
+			exit("Erreur fatale: connexion &agrave; la base de données impossible!");
 	}
 
 	private static function getInstance()

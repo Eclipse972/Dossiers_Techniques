@@ -5,16 +5,14 @@
 </head>
 
 <body>
+
 <?php	include \PEUNC\Page::DOSSIER_VUE . "commun/header.html";?>
 
-<main role="main"> <!--remarque: <main> suffit à Chrome pour tenir compte de la feuille de style.-->
+<main role="main">
 
 <section>
-	<h1>Erreur<?=$PAGE->getCodeErreur()?>: <?=$PAGE->getTitreErreur()?></h1>
-	<?=$PAGE->getCorpsErreur()?>
-	<?=($PAGE->getAlpha() >= 0) ? "<p>Noeud : {$PAGE->getAlpha()} - {$PAGE->getBeta()} - {$PAGE->getGamma()}</p>\n" : ""?>
-	<p>Si le probl&egrave;me persiste envoyez-moi un courriel en <a href="mailto:dossiers.techniques@free.fr">cliquant ici</a>.</p>
-	<a href=/>Retour page d&apos;accueil</a>
+<?=$PAGE->getSection()?>
+<p>Si le probl&egrave;me persiste, envoyez moi un message. Lien en bas de cette page.</p>
 </section>
 
 </main>

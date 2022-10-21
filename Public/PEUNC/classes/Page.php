@@ -22,31 +22,29 @@ class Page implements iPage	{
 
 	protected $titrePage	= "Titre de la page affiché dans la barre du haut du navigateur";
 	protected $T_CSS		= [];
-	protected $entetePage	= "En-tête de la page affichée";
+	protected $entetePage;	// la valeur par défaut est donnée par le champ texteMenu dans le squelette
 	protected $logo			= "logo.png";
 	protected $dossier		= "/";
 	protected $scriptSection= "<h1>Page en construction</h1>\n<p>Contactez l&apos;adminitrateur si le probl&egrave;me persiste </p>\n";
+	protected $scriptNav	= "";
 	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir</p>";
 	protected $vue			= "doctype.html";
 // FIN DE LA CONFIGURATION
 
-	// position
-	protected $alpha;
-	protected $beta;
-	protected $gamma;
-	protected $methode;
-	//protected $ID; inutile pour le moment
 
 	protected $T_paramURL	= [];
 
-	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
+	public function __construct(HttpRoute $route = null, array $TparamURL = [])
 	{
-		$this->alpha = $alpha;
-		$this->beta = $beta;
-		$this->gamma = $gamma;
-		$this->methode = $methode;
-		foreach($TparamURL as $valeur)
-			$this->T_paramURL[] = htmlspecialchars($valeur);
+		if (isset($route))
+		{
+			// valeur par défaut de l'en-tête
+			$this->entetePage = BDD::SELECT("texteMenu FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+									[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
+			foreach($TparamURL as $valeur)
+				$this->T_paramURL[] = htmlspecialchars($valeur);
+		}
+		else $this->entetePage = "Erreur serveur";
 	}
 /* ***************************
  * MUTATEURS (SETTER)
@@ -61,62 +59,52 @@ class Page implements iPage	{
 
 	public function setSection($code)		{ $this->scriptSection = $code;	}
 
+	public function setNav($code)			{ $this->scriptNav = $code;	}
+
 	public function setFooter($code)		{ $this->PiedDePage = $code; }
 
 	public function setView($fichier)
 	{
 		if (file_exists(self::DOSSIER_VUE . $fichier))
 			$this->vue = self::DOSSIER_VUE . $fichier;
-		else throw new \Exception("Vue inexistante");
+		else throw new Exception("Vue inexistante");
 	}
 
-	public function setCSS(array $Tableau)
+	public function setCSS($feuilleCSS)
 	{
-		$this->T_CSS = [];	// les classes filles devront redéfinir pour elles-mêmes la listes des CSS
-		foreach($Tableau as $feuilleCSS)
+		if(substr($feuilleCSS,0,4) == 'http')
+			$this->T_CSS[] = $feuilleCSS;	// pas de vérification sur feuille externe
+		else
 		{
-			if(substr($feuilleCSS,0,4) == 'http')
-				$this->T_CSS[] = $feuilleCSS;	// pas de vérification
-			else
-			{
-				$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
-				if(file_exists($feuilleCSS))
-					$this->T_CSS[] = '/' . $feuilleCSS;
-				else { /* À faire: traitement en cas d'inexistence */ }
-			}
+			$feuilleCSS = self::DOSSIER_CSS . $feuilleCSS . ".css";
+			if(file_exists($feuilleCSS))
+				$this->T_CSS[] = '/' . $feuilleCSS;
+			else throw new Exception($feuilleCSS . " n&apos;existe pas");
 		}
 	}
 
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
-	public function getTitle()			{ echo $this->titrePage; }
+	public function getTitle()			{ return $this->titrePage; }
 
-	public function getHeaderText() 	{ echo $this->entetePage,"\n"; }
+	public function getHeaderText() 	{ return $this->entetePage . "\n"; }
 
-	public function getLogo()			{ echo Page::BaliseImage($this->logo,'Logo'); }
+	public function getLogo()			{ return Page::BaliseImage($this->logo,'Logo'); }
 
 	public function getDossier()		{ return $this->dossier; }
 
-	public function getSection()		{ echo $this->scriptSection; }
+	public function getSection()		{ return $this->scriptSection; }
 
-	public function getFooter()			{ echo $this->PiedDePage; }
+	public function getNav()			{ return ($this->scriptNav == "" ? "" : "<nav>\n" . $this->scriptNav . "</nav>\n"); }
+	
+	public function getFooter()			{ return $this->PiedDePage; }
 
 	public function getView()			{ return $this->vue; }
 
 	public function getParamURL($i = 0)	{ return (isset($this->T_paramURL[$i])) ? $this->T_paramURL[$i] : null; }
 
 	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
-
-	//public function getID()				{ return $this->ID; }
-
-	public function getAlpha()			{ return $this->alpha; }
-
-	public function getBeta()			{ return $this->beta; }
-
-	public function getGamma()			{ return $this->gamma; }
-
-	public function getMethode()		{ return $this->methode; }
 
 /* ***************************
  * méthodes statiques
@@ -133,7 +121,7 @@ class Page implements iPage	{
 		return '<img src="' . $src . '" alt="' . $alt . '" ' . $code . '>';
 	}
 
-	public static function SauvegardeEtat(HttpRouter $route)
+	public static function SauvegardeEtat(HttpRoute $route)
 	{
 		// sauvegarde de l'état précédent
 		if (isset($_SESSION["PEUNC"]['alpha'])) // défini => une page a été mémorisée
@@ -156,17 +144,17 @@ class Page implements iPage	{
  * AUTRE
  * ***************************/
 
-	public function ExecuteControleur()
+	public function ExecuteControleur(HttpRoute $route)
 	{
 		$script = BDD::SELECT("controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-							[$this->alpha, $this->beta, $this->gamma, $this->methode]);
+							[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
 		if($script == "")
-			throw new \Exception("Controleur non d&eacute;fini");
+			throw new Exception("Controleur non d&eacute;fini");
 		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs
 			require(self::DOSSIER_CONTROLEUR . $script);
 		elseif (file_exists($script))							//	script défini de manière absolue
 			require($script);
-		else throw new \Exception("Controleur inexistant");
+		else throw new Exception("Controleur inexistant");
 	}
 
  	public function AfficherOnglets()

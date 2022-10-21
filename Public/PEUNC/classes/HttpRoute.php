@@ -1,7 +1,7 @@
 <?php
 namespace PEUNC;
 
-class HttpRouter
+class HttpRoute
 /*
  * Cette classe décode une requête http et renvoie :
  * 		- la position dans l'arborescence même s'il s'agit d'une erreur serveur
@@ -14,7 +14,6 @@ class HttpRouter
  * (X;Y;Z) avec Z>0 => page de 3e niveau
  *
  * si alpha < 0 => page spéciales PEUNC ou autre
- * (-1;code;0) -> page d'erreur avec son code que ce soit un erreur serveur ou une erreur interne à l'application
  * (-2;0;0) -> formulaire de contact. Mais ce n'est pas une obligation
  *
  * Les pages d'erreur serveur gérées sont: 404, 403, 405 et 500 mais on peut en rajouter facilement d'autres.
@@ -25,7 +24,6 @@ class HttpRouter
 	private $alpha;
 	private $beta;
 	private $gamma;
-	private $ID;		// ID du noeud
 	private $methode;	// méthode Http
 
 	// pour le futur
@@ -39,21 +37,18 @@ class HttpRouter
 			case 403:	// accès interdit
 			case 405:	// méthode http non permise
 			case 500:	// erreur serveur
-				list($this->alpha, $this->beta, $this->gamma) = [-1, $_SERVER['REDIRECT_STATUS'], 0];
+				throw new ServeurException($_SERVER['REDIRECT_STATUS']);
 				break;
 			case 200:	// le script est lancé sans redirection
-				list($this->alpha, $this->beta, $this->gamma) = HttpRouter::SansRedirection();
+				list($this->alpha, $this->beta, $this->gamma) = HttpRoute::SansRedirection();
 				break;
 			case 404:
-				list($this->alpha, $this->beta, $this->gamma) = HttpRouter::Redirection404();
+				list($this->alpha, $this->beta, $this->gamma) = HttpRoute::Redirection404();
 				break;
 			default:
-				list($this->alpha, $this->beta, $this->gamma) = [-1, 0, 0];	// erreur inconnue
+				throw new Exception("erreur inconnue");
 		}
 
-		// recherche de l'ID du noeud
-		$this->ID = BDD::SELECT("ID FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ? AND methodeHttp = ?",
-														[$this->alpha, $this->beta, $this->gamma, $_SERVER['REQUEST_METHOD']]);
 		$this->methode = $_SERVER['REQUEST_METHOD'];
 	}
 
@@ -78,15 +73,15 @@ class HttpRouter
 			return array($Treponse["niveau1"], $Treponse["niveau2"], $Treponse["niveau3"]);
 		}
 		elseif (BDD::SELECT("count(*) FROM Vue_Routes WHERE URL = ?", [$URL]) > 0)	// au moins un noeud pour cet URL
-			return [-1, 405, 0];	// erreur 405!
+			throw new ServeurException(405);
 		else
-			return [-1, 404, 0];	// erreur 404!
+			throw new ServeurException(404);
 	}
 
 	private static function SansRedirection()
 	/* Un appel direct de index.php.
-	 * La pseudo réécriture d'URL ne fonctionne pas avec le script action du formulaire. J'ai le parti de repasser par index.php pour traiter
-	 * tous les formulaires. Chaque formulaire doit sauvegarder sa position dans la session pour être retrouvé.
+	 * La pseudo réécriture d'URL ne fonctionne pas avec le script action de formulaire.
+	 * J'ai choisi de repasser par index.php pour traiter tous les formulaires.
 	 * */
 	{
 		switch($_SERVER['REQUEST_METHOD'])
@@ -94,17 +89,24 @@ class HttpRouter
 			case"GET":
 				return [0, 0, 0];	// un appel ordinaire vers la page d'accueil
 				break;
-			case"POST":
-				return Formulaire::DonnerPosition();
+			case"POST":	// le jeton CSRF contient des infos sur le formuaire notemment sa position dans l'arborescence
+				if (!isset($_POST["CSRF"]))	// si le fomulaire ne contient pas de jeton CSRF
+					throw new Exception("Jeton CSRF inexistant");
+
+				$jeton = Formulaire::DecoderJeton($_POST["CSRF"]);
+
+				if (!isset($jeton->noeud))	// si le jeton est invalide
+					throw new ApplicationExceotion("Jeton CSRF invalide");
+				
+				return $jeton->noeud;	// renvoie la position du formulaire
 				break;
 			default:
-				return [-1, 405, 0];	// erreur 405!
+				throw new ServeurException(405);// erreur 405!
 		}
 	}
 
 //	Accesseurs ================================================================================================================================
 
-	public function getID()		{ return $this->ID; }
 	public function getAlpha()	{ return $this->alpha; }
 	public function getBeta()	{ return $this->beta; }
 	public function getGamma()	{ return $this->gamma; }

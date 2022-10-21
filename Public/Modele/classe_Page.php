@@ -9,9 +9,9 @@ class Page extends PEUNC\Page
 	protected $le_support;
 	// variable-membre dossier déja défini dans la classe mère
 
-	public function __construct($alpha, $beta, $gamma, $methode, array $TparamURL = [])
+	public function __construct(PEUNC\HttpRoute $route, array $TparamURL = [])
 	{
-		parent::__construct($alpha, $beta, $gamma, $methode, $TparamURL);
+		parent::__construct($route, $TparamURL);
 		// valeurs par défaut
 		$this->setTitle("Les dossiers techniques de ChristopHe");
 		$this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques de ChristopHe</p>");
