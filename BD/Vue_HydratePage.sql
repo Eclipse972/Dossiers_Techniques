@@ -23,5 +23,5 @@ SELECT
 	CONCAT(dossier,'/') AS dossier,
 	CONCAT('/Supports/',dossier,'/images/',pti_nom,'.png') AS logo
 FROM Supports
-INNER JOIN Squelette ON Supports.ID = Squelette.alpha-1
+INNER JOIN Squelette ON Supports.ID = Squelette.alpha
 WHERE  Squelette.alpha > 0 -- alpha = 0 -> page d'accueil
