@@ -33,8 +33,8 @@ interface iPage
 	public static function SauvegardeEtat(HttpRoute $route);// sauvegarde l'état courant dans la session
 	public static function CodeOnglets(HttpRoute $route);	//renvoie le code html des onglets sur un intervalle alpha. Permet par exemple d'ignorer la page de contact
 	public static function CodeMenu(HttpRoute $route);		// renvoie le code html du menu pour une route donnée
+	public static function URLprecedente();					// URL de la page précédete sauf si cette page est spéciale (alpha < 0)
 
 // Autre
 	public function ExecuteControleur(HttpRoute $route);// execute le controleur à partir de la position enregistrée dans l'objet
-	public function URLprecedente();					// URL de la page précédete sauf si cette page est spéciale (alpha < 0)
 }
