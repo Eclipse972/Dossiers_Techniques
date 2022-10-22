@@ -29,6 +29,7 @@ class Page implements iPage	{
 	protected $scriptNav	= "";
 	protected $PiedDePage	= "<p>Pied de page &agrave; d&eacute;finir</p>";
 	protected $vue			= "doctype.html";
+	protected $route;
 // FIN DE LA CONFIGURATION
 
 
@@ -36,6 +37,7 @@ class Page implements iPage	{
 
 	public function __construct(HttpRoute $route = null, array $TparamURL = [])
 	{
+		$this->route = $route;
 		if (isset($route))
 		{
 			// valeur par défaut de l'en-tête
@@ -157,7 +159,7 @@ class Page implements iPage	{
 		else throw new Exception("Controleur inexistant");
 	}
 
- 	public function AfficherOnglets()
+ 	public  function AfficherOnglets()
  	{
 		$T_Onglets = BDD::Liste_niveau();
 		echo "<ul>\n";
@@ -169,26 +171,26 @@ class Page implements iPage	{
 		echo "\t</ul>\n";
 	}
 
-	public function AfficherMenu()
+	public static function CodeMenu(HttpRoute $route)
 	{
-		$T_item = BDD::Liste_niveau($this->alpha);
-		echo "\t<ul>\n";
+		$T_item = BDD::Liste_niveau($route->getAlpha());
+		$codeMenu = "\t<ul>\n";
 		foreach($T_item as $beta => $code)
 		{
-			echo "\t<li>", (($beta == $this->beta) ? str_replace('href', 'id="beta_actif" href', $code) : $code), "</li>\n";
-			if ($beta == $this->beta)	// sous-menu?
+			$codeMenu .= "\t<li>" . (($beta == $route->getBeta()) ? str_replace('href', 'id="beta_actif" href', $code) : $code) . "</li>\n";
+			if ($beta == $route->getBeta())	// sous-menu?
 			{
-				$T_sous_item = BDD::Liste_niveau($this->alpha, $this->beta);
+				$T_sous_item = BDD::Liste_niveau($route->getAlpha(), $route->getBeta());
 				if (isset($T_sous_item))	// génération sous-menu s'il existe
 				{
-					echo "\t<ul>\n";
+					$codeMenu .= "\t<ul>\n";
 					foreach($T_sous_item as $gamma => $sous_code)
-						echo "\t\t<li>", ($gamma == $this->gamma) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code, "</li>\n";
-					echo "\t</ul>\n";
+						$codeMenu .= "\t\t<li>" . (($gamma == $route->getGamma()) ? str_replace('href', 'id="gamma_actif" href', $sous_code) : $sous_code) . "</li>\n";
+					$codeMenu .= "\t</ul>\n";
 				}
 			}
 		}
-		echo "\t</ul>\n";
+		return $codeMenu . "\t</ul>\n";
 	}
 
 	public function URLprecedente()

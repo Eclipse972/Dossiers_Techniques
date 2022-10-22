@@ -31,10 +31,10 @@ interface iPage
 // méthodes statiques
 	public static function BaliseImage($src, $alt, $code);		// insère une image en tenant compte du répertoire image. Seul le premier paramètre est obligatoire
 	public static function SauvegardeEtat(HttpRoute $route);	// sauvegarde l'état courant dans la session
+	public static function CodeMenu(HttpRoute $route);		// renvoie le code html du menu pour une route donnée
 
 // Autre
 	public function ExecuteControleur(HttpRoute $route);// execute le controleur à partir de la position enregistrée dans l'objet
 	public function AfficherOnglets();					// affiche les onglets sur un intervalle alpha. Permet par exemple d'ignorer la page de contact
-	public function AfficherMenu();						// affiche le menu les niveaux beta et gamma pour un alpha donné
 	public function URLprecedente();					// URL de la page précédete sauf si cette page est spéciale (alpha < 0)
 }
