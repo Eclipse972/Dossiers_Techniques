@@ -9,7 +9,7 @@ class Page_nomenclature extends Page
 	public function __construct(PEUNC\HttpRoute $route, array $TparamURL = [])
 	{
 		parent::__construct($route, $TparamURL);
-		$this->setCSS(["nomenclature"]);
+		$this->setCSS("nomenclature");
 		$this->setView("nomenclature.html");
 	}
 
@@ -44,7 +44,7 @@ class Page_nomenclature extends Page
 
 	public function CorpsNomenclature()
 	{
-		$Tnomenclature = PEUNC\BDD::SELECT("* FROM Vue_nomenclature WHERE support_ID = ? - 1", [$this->alpha]);	// -1 car accueil (alpha =0)
+		$Tnomenclature = PEUNC\BDD::SELECT("* FROM Vue_nomenclature WHERE support_ID = ? - 1", [$this->route->getAlpha()]);	// -1 car accueil (alpha =0)
 		$code = "";
 		if (isset($Tnomenclature))
 			foreach ($Tnomenclature as $ligne)
