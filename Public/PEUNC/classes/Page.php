@@ -109,6 +109,23 @@ class Page implements iPage	{
 	public function getCSS()			{ foreach($this->T_CSS as $feuilleCSS) echo"\t<link rel=\"stylesheet\" href=\"", $feuilleCSS,"\" />\n";	}
 
 /* ***************************
+ * AUTRE
+ * ***************************/
+
+	public function ExecuteControleur(HttpRoute $route)
+	{
+		$script = BDD::SELECT("controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
+							[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
+		if($script == "")
+			throw new Exception("Controleur non d&eacute;fini");
+		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs
+			require(self::DOSSIER_CONTROLEUR . $script);
+		elseif (file_exists($script))							//	script défini de manière absolue
+			require($script);
+		else throw new Exception("Controleur inexistant");
+	}
+
+/* ***************************
  * méthodes statiques
  * ***************************/
 
@@ -140,23 +157,6 @@ class Page implements iPage	{
 		$_SESSION["PEUNC"]['alpha']	= $route->getAlpha();
 		$_SESSION["PEUNC"]['beta']	= $route->getBeta();
 		$_SESSION["PEUNC"]['gamma']	= $route->getGamma();
-	}
-
-/* ***************************
- * AUTRE
- * ***************************/
-
-	public function ExecuteControleur(HttpRoute $route)
-	{
-		$script = BDD::SELECT("controleur FROM Squelette WHERE alpha= ? AND beta= ? AND gamma= ? AND methode = ?",
-							[$route->getAlpha(), $route->getBeta(), $route->getGamma(), $route->getMethode()]);
-		if($script == "")
-			throw new Exception("Controleur non d&eacute;fini");
-		elseif (file_exists(self::DOSSIER_CONTROLEUR. $script))	// script dans le dossier des controleurs
-			require(self::DOSSIER_CONTROLEUR . $script);
-		elseif (file_exists($script))							//	script défini de manière absolue
-			require($script);
-		else throw new Exception("Controleur inexistant");
 	}
 
  	public static function CodeOnglets(HttpRoute $route)
@@ -193,7 +193,7 @@ class Page implements iPage	{
 		return $codeMenu . "\t</ul>\n";
 	}
 
-	public function URLprecedente()
+	public static function URLprecedente()
 	{
 		return BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = ? AND niveau3 = ?",
 						array($_SESSION["PEUNC"]['alphaPrecedent'],$_SESSION["PEUNC"]['betaPrecedent'],$_SESSION["PEUNC"]['gammaPrecedent']));
