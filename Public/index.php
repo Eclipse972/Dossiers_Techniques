@@ -47,7 +47,7 @@ catch(PEUNC\Exception $e)
 	$PAGE->setTitle("Erreur de base de l&apos;application");
 	$PAGE->setHeaderText("<p>Erreur de l&paos;application</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
-					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getAlpha() . " - " . $route->getGamma()
+					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getBeta() . " - " . $route->getGamma()
 					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
 	$PAGE->setView("erreur.html");
 	include $PAGE->getView();
@@ -58,8 +58,8 @@ catch(Exception $e)
 	$PAGE->setTitle("Erreur inconnue");
 	$PAGE->setHeaderText("<p>Erreur inconnue</p>");
 	$PAGE->SetSection("<h1>" . $e->getMessage() . "</h1>\n"
-					. "<p>Noeud : " . $PAGE->getAlpha() . " - " . $PAGE->getAlpha() . " - " . $PAGE->getGamma()
-					. " M&eacute;thode:" . $PAGE->getMethode() . "</p>\n");
+					. "<p>Noeud : " . $route->getAlpha() . " - " . $route->getBeta() . " - " . $route->getGamma()
+					. " M&eacute;thode:" . $route->getMethode() . "</p>\n");
 	$PAGE->setView("erreur.html");
 	include $PAGE->getView();
 }
