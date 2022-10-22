@@ -159,16 +159,16 @@ class Page implements iPage	{
 		else throw new Exception("Controleur inexistant");
 	}
 
- 	public  function AfficherOnglets()
+ 	public static function CodeOnglets(HttpRoute $route)
  	{
 		$T_Onglets = BDD::Liste_niveau();
-		echo "<ul>\n";
+		$code = "<ul>\n";
 		foreach($T_Onglets as $alpha => $code)
 		{
 			if (($alpha >= Page::ALPHA_MINI) && ($alpha <= Page::ALPHA_MAXI))
-				echo "\t<li>" . (($alpha == $this->alpha) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
+				$code .= "\t<li>" . (($alpha == $route->getAlpha()) ? str_replace('href', 'id="alpha_actif" href', $code) : $code) . "</li>\n";
 		}
-		echo "\t</ul>\n";
+		return $code . "\t</ul>\n";
 	}
 
 	public static function CodeMenu(HttpRoute $route)
