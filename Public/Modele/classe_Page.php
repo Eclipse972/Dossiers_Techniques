@@ -20,7 +20,7 @@ class Page extends PEUNC\Page
 		// pas de feuille de style supplémentaire à déclarer
 
 		// hydratation à partir de la BD
-		$Thydrate = PEUNC\BDD::SELECT("* FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($this->alpha, $this->beta, $this->gamma));
+		$Thydrate = PEUNC\BDD::SELECT("* FROM Vue_HydratePage WHERE alpha = ? AND beta = ? AND gamma = ?", array($this->route->getAlpha(), $this->route->getBeta(), $this->route->getGamma()));
 
 		if (isset($Thydrate))
 		{
@@ -62,8 +62,7 @@ class Page extends PEUNC\Page
  * ***************************/
 	public function AfficherMenu()
 	{
-		parent::AfficherMenu();
-		echo"\t<a href=/>Page d&apos;accueil</a>\n";
+		return PEUNC\Page::CodeMenu($this->route) . "\t<a href=/>Page d&apos;accueil</a>\n";
 	}
 
 	public function Apropos()	// renvoie l'URL de la page à propos de la page
