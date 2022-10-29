@@ -67,6 +67,6 @@ class Page extends PEUNC\Page
 
 	public function Apropos()	// renvoie l'URL de la page à propos de la page
 	{
-		return PEUNC\BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($this->alpha));
+		return PEUNC\BDD::SELECT("URL FROM Vue_Routes WHERE niveau1 = ? AND niveau2 = 0 AND niveau3 = 0", array($this->route->getAlpha()));
 	}
 }
