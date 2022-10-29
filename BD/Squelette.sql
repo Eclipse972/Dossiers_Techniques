@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 22 Octobre 2022 à 05:42
+-- Généré le : Sam 29 Octobre 2022 à 22:08
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,13 +39,15 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=241 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=244 ;
 
 --
 -- Contenu de la table `Squelette`
 --
 
 INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAutorise`) VALUES
+(242, 100, 1, 0, 'Pr&eacute;parer les fichiers', '', 'preparer', 'Page', 'preparer.php', 'GET', '[]'),
+(243, 100, 2, 0, 'Les pages du site', '', 'pageSite', 'Page', 'pageSite.php', 'GET', '[]'),
 (5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'PEUNC\\Page', 'home.php', 'GET', '["parametre", "param"]'),
 (6, 99, 0, 0, 'Formulaire de contact', '', 'Contact', 'PEUNC\\Contact', 'contact.php', 'GET', '[]'),
 (7, 1, 1, 0, 'Mise en situation', '', 'MES', 'Page_image', 'BP/MES.php', 'GET', '[]'),
@@ -259,6 +261,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (216, -1, 0, 0, 'Bac &agrave; sable', '', 'bacAsable', 'PEUNC\\Page', 'PEUNC/BacAsable/bacAsable.php', 'GET', '[]'),
 (219, -1, 3, 0, 'Chiffrement', '', 'chiffrement', 'PEUNC\\Page', 'PEUNC/BacAsable/chiffrement.php', 'GET', '[]'),
 (220, -1, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]'),
+(241, 100, 0, 0, 'Participez !', '', 'participer', 'Page', 'participer.php', 'GET', '[]'),
 (222, -1, 1, 0, 'Code de validation', '', 'code_validation', 'PEUNC\\Page', 'PEUNC/BacAsable/validation.php', 'GET', '[]'),
 (224, -1, 2, 0, 'Lecture jeton XSRF', '', 'lectureJetonXSRF', 'PEUNC\\Page', 'PEUNC/BacAsable/lectureJeton.php', 'GET', '[]'),
 (225, 3, 6, 0, 'Sous-ensembles', '', 'sous-ensembles', 'Page_association', 'cambreuse/sous-ensembles.php', 'GET', '[]'),

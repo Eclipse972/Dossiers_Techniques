@@ -4,7 +4,6 @@ $this->setHeaderText("<p class=\"font-effect-outline\">Les dossiers techniques d
 $this->setLogo("logo.png");
 $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("page.html");
-$this->setCSS("index");
 
 ob_start();
 ?>
@@ -22,8 +21,8 @@ ob_start();
 	</ol>
 	<p>Les pages du site</p>
 	<ol>
-		<li>l&apos;arborescence</li>
 		<li>table Support</li>
+		<li>l&apos;arborescence</li>
 		<li>les contr&ocirc;leurs</li>
 		<li>mise en situation</li>
 		<li>l&apos;association image-fichier</li>
@@ -31,7 +30,6 @@ ob_start();
 		<li>o&ugrave; mettre les fichiers</li>
 		<li>nomenclature</li>
 		<li>Page "&Agrave; propos" du support</li>
-		
 		<li>page libre</li>
 	</ol>
 	<a href=/>Retour &agrave; la page d&apos;accueil</a>
