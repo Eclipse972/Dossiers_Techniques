@@ -44,8 +44,8 @@ class BDD implements iBDD	// classe singleton
 			case 0:	// aucun résultat
 				$résultat = null;
 				break;
-			case 1:	// une seule ligne						une seule colonne					plusieurs colonnes
-				$résultat = (count($reponse[0]) == 1) ? $résultat = array_shift($reponse[0]) : $reponse[0];
+			case 1:	// une seule ligne					une seule colonne			plusieurs colonnes
+				$résultat = (count($reponse[0]) == 1) ? array_shift($reponse[0]) : $reponse[0];
 				break;
 			default: // plusieurs lignes
 				$résultat = $reponse;
