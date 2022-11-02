@@ -3,7 +3,7 @@ namespace PEUNC;
 
 include"API_BDD.php";
 
-class BDD implements iBDD
+class BDD implements iBDD	// classe singleton
 {
 	private $BD;
 	private static $instance;
@@ -18,7 +18,7 @@ class BDD implements iBDD
 			$this->BD->setAttribute(\PDO::ATTR_ERRMODE,				\PDO::ERRMODE_EXCEPTION);
 		}
 		else
-			exit("Erreur fatale: connexion &agrave; la base de données impossible!");
+			exit("Erreur fatale: connexion &agrave; la base de donn&eacute;es impossible!");
 	}
 
 	private static function getInstance()
@@ -44,8 +44,8 @@ class BDD implements iBDD
 			case 0:	// aucun résultat
 				$résultat = null;
 				break;
-			case 1:	// une seule ligne						une seule colonne					plusieurs colonnes
-				$résultat = (count($reponse[0]) == 1) ? $résultat = array_shift($reponse[0]) : $reponse[0];
+			case 1:	// une seule ligne					une seule colonne			plusieurs colonnes
+				$résultat = (count($reponse[0]) == 1) ? array_shift($reponse[0]) : $reponse[0];
 				break;
 			default: // plusieurs lignes
 				$résultat = $reponse;
