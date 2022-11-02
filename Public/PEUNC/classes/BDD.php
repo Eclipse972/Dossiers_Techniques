@@ -3,7 +3,7 @@ namespace PEUNC;
 
 include"API_BDD.php";
 
-class BDD implements iBDD
+class BDD implements iBDD	// classe singleton
 {
 	private $BD;
 	private static $instance;
