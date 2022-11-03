@@ -33,8 +33,7 @@ class BDD implements iBDD	// classe singleton
 
 	public static function SELECT($requete, array $T_parametre)
 	{
-		$pdo = self::getInstance();
-		$requete = $pdo->prepare("SELECT " . $requete);
+		$requete = self::getInstance()->prepare("SELECT " . $requete);
 		$requete->execute($T_parametre);
 		$reponse = $requete->fetchAll();
 		$requete->closeCursor();
