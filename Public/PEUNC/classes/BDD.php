@@ -17,8 +17,7 @@ class BDD implements iBDD	// classe singleton
 			$this->BD->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE,	\PDO::FETCH_ASSOC);
 			$this->BD->setAttribute(\PDO::ATTR_ERRMODE,				\PDO::ERRMODE_EXCEPTION);
 		}
-		else
-			exit("Erreur fatale: connexion &agrave; la base de donn&eacute;es impossible!");
+		else throw new Exception("Connexion &agrave; la base de donn&eacute;es impossible!");
 	}
 
 	private static function getInstance()
@@ -34,8 +33,7 @@ class BDD implements iBDD	// classe singleton
 
 	public static function SELECT($requete, array $T_parametre)
 	{
-		$pdo = self::getInstance();
-		$requete = $pdo->prepare("SELECT " . $requete);
+		$requete = self::getInstance()->prepare("SELECT " . $requete);
 		$requete->execute($T_parametre);
 		$reponse = $requete->fetchAll();
 		$requete->closeCursor();
