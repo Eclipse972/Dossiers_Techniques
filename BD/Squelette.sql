@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Mar 30 Août 2022 à 21:47
+-- Généré le : Jeu 10 Novembre 2022 à 21:54
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,19 +39,19 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=236 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=247 ;
 
 --
 -- Contenu de la table `Squelette`
 --
 
 INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu`, `ptiNom`, `classePage`, `controleur`, `methode`, `paramAutorise`) VALUES
-(1, -1, 500, 0, 'Serveur satur&eacute;', '', 'Serveur_sature', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
-(2, -1, 404, 0, 'Cette page n&apos;existe pas', '', 'Page_inexistante', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
-(3, -1, 403, 0, 'Acc&egrave;s interdit', '', 'Acces_interdit', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
-(4, -1, 0, 0, 'Erreur inconnue', '', 'Erreur', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
+(242, 100, 1, 0, 'Pr&eacute;parer les fichiers', '', 'preparer', 'Page', 'preparer.php', 'GET', '[]'),
+(243, 100, 2, 0, 'Les pages du site', '', 'pageSite', 'Page', 'pageSite.php', 'GET', '[]'),
+(245, 21, 1, 0, 'Mise en situation', '', 'MES', 'Page', 'freinAdisque/MES.php', 'GET', '[]'),
+(246, 21, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
 (5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'PEUNC\\Page', 'home.php', 'GET', '["parametre", "param"]'),
-(6, -2, 0, 0, 'Formulaire de contact', '', 'Contact', 'PEUNC\\Contact', 'contact.php', 'GET', '[]'),
+(244, 21, 0, 0, '&Agrave propos', '', 'freinAdisque', 'PageApropos', 'freinAdisque/Apropos.php', 'GET', '[]'),
 (7, 1, 1, 0, 'Mise en situation', '', 'MES', 'Page_image', 'BP/MES.php', 'GET', '[]'),
 (8, 1, 2, 0, 'Diagramme pieuvre', '', 'pieuvre', 'Page_image', 'BP/pieuvre.php', 'GET', '[]'),
 (9, 1, 3, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'BP/dessin_densemble.php', 'GET', '[]'),
@@ -186,13 +186,13 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (138, 17, 2, 2, 'phase 1', '', 'phase1', 'Page_image', 'brideAnez/phase1.php', 'GET', '[]'),
 (139, 17, 2, 3, 'd&eacute;but de la phase 2', '', 'debutPhase2', 'Page_image', 'brideAnez/debutPhase2.php', 'GET', '[]'),
 (140, 17, 2, 4, 'phase 2', '', 'phase2', 'Page_image', 'brideAnez/phase2.php', 'GET', '[]'),
-(141, 17, 7, 0, 'Sous-ensembles', '', 'SE', 'Page', 'brideAnez/SE.php', 'GET', '[]'),
+(141, 17, 7, 0, 'Sous-ensembles', '', 'SE', 'Page_association', 'brideAnez/SE.php', 'GET', '[]'),
 (142, 17, 7, 1, 'corps de la bride', '', 'corpsBride', 'Page_association', 'brideAnez/corpsBride.php', 'GET', '[]'),
 (143, 17, 7, 2, 'nez de la bride', '', 'nez2bride', 'Page_association', 'brideAnez/nez2bride.php', 'GET', '[]'),
 (144, 17, 7, 3, 'ensemble piston', '', 'ensemblePiston', 'Page_association', 'brideAnez/ensemblePiston.php', 'GET', '[]'),
 (145, 17, 7, 4, 'plaquette', '', 'plaquette', 'Page_association', 'brideAnez/plaquette.php', 'GET', '[]'),
 (146, 17, 7, 5, 'ressort', '', 'ressort', 'Page_association', 'brideAnez/ressort.php', 'GET', '[]'),
-(147, 17, 8, 0, '&Eacute;clat&eacute; de la bride', '', 'eclateBride', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
+(236, 10, 6, 0, 'Sous-ensembles', '', 'sous-ensembles', 'Page_association', 'pince2marquage/sous-ensembles.php', 'GET', '[]'),
 (148, 13, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page_image', 'prehenseur/fonctionnement.php', 'GET', '[]'),
 (149, 13, 2, 2, 'Fermeture', '', 'fermeture', 'Page_image', 'prehenseur/fermeture.php', 'GET', '[]'),
 (150, 13, 2, 1, 'ouverture', '', 'ouverture', 'Page_image', 'prehenseur/ouverture.php', 'GET', '[]'),
@@ -259,13 +259,13 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (210, 7, 6, 1, 'mors fixe', '', 'mors_fixe', 'Page_association', 'etau/CE_mors_fixe.php', 'GET', '[]'),
 (211, 7, 6, 2, 'mors mobile', '', 'mors_mobile', 'Page_association', 'etau/CE_mors_mobile.php', 'GET', '[]'),
 (213, 7, 6, 4, 'tige', '', 'tige', 'Page_association', 'etau/tige.php', 'GET', '[]'),
-(214, -2, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PEUNC\\Contact', '', 'POST', '["XSRF", "nom", "courriel", "objet", "message", "code"]'),
-(215, -1, 405, 0, 'M&eacute;thode non permise', '', 'Methode_non_permise', 'PEUNC\\Erreur', 'erreur_serveur.php', 'GET', '[]'),
-(216, -3, 0, 0, 'Bac &agrave; sable', '', 'bacAsable', 'PEUNC\\Page', 'PEUNC/BacAsable/bacAsable.php', 'GET', '[]'),
-(219, -3, 3, 0, 'Chiffrement', '', 'chiffrement', 'PEUNC\\Page', 'PEUNC/BacAsable/chiffrement.php', 'GET', '[]'),
-(220, -3, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]'),
-(222, -3, 1, 0, 'Code de validation', '', 'code_validation', 'PEUNC\\Page', 'PEUNC/BacAsable/validation.php', 'GET', '[]'),
-(224, -3, 2, 0, 'Lecture jeton XSRF', '', 'lectureJetonXSRF', 'PEUNC\\Page', 'PEUNC/BacAsable/lectureJeton.php', 'GET', '[]'),
+(214, 99, 0, 0, 'traitement formulaire de contact', '', 'Contact', 'PEUNC\\Contact', '', 'POST', '["XSRF", "nom", "courriel", "objet", "message", "code"]'),
+(216, -1, 0, 0, 'Bac &agrave; sable', '', 'bacAsable', 'PEUNC\\Page', 'PEUNC/BacAsable/bacAsable.php', 'GET', '[]'),
+(219, -1, 3, 0, 'Chiffrement', '', 'chiffrement', 'PEUNC\\Page', 'PEUNC/BacAsable/chiffrement.php', 'GET', '[]'),
+(220, -1, 4, 0, 'Fichiers JSON', '', 'json', 'PEUNC\\Page', 'PEUNC/BacAsable/JSON.php', 'GET', '[]'),
+(241, 100, 0, 0, 'Participez !', '', 'participer', 'Page', 'participer.php', 'GET', '[]'),
+(222, -1, 1, 0, 'Code de validation', '', 'code_validation', 'PEUNC\\Page', 'PEUNC/BacAsable/validation.php', 'GET', '[]'),
+(224, -1, 2, 0, 'Lecture jeton XSRF', '', 'lectureJetonXSRF', 'PEUNC\\Page', 'PEUNC/BacAsable/lectureJeton.php', 'GET', '[]'),
 (225, 3, 6, 0, 'Sous-ensembles', '', 'sous-ensembles', 'Page_association', 'cambreuse/sous-ensembles.php', 'GET', '[]'),
 (226, 3, 6, 1, 'b&acirc;ti', '', 'SE_bati', 'Page_association', 'cambreuse/SE_bati.php', 'GET', '[]'),
 (227, 3, 6, 2, 'tige de v&eacute;rin de cambrage', '', 'tige2cambrage', 'Page_association', 'cambreuse/SE_tige2cambrage.php', 'GET', '[]'),
@@ -276,7 +276,11 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (232, 20, 0, 0, '&Agrave propos', '', 'bride_hydraulique', 'PageApropos', 'bride_hydraulique/Apropos.php', 'GET', '[]'),
 (233, 20, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'bride_hydraulique/fonctionnement.php', 'GET', '[]'),
 (234, 20, 3, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'bride_hydraulique/dessin_densemble.php', 'GET', '[]'),
-(235, 20, 4, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'bride_hydraulique/nomenclature.php', 'GET', '[]');
+(235, 20, 4, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'bride_hydraulique/nomenclature.php', 'GET', '[]'),
+(237, 10, 6, 1, 'b&acirc;ti', '', 'SE_bati', 'Page_association', 'pince2marquage/SE_bati.php', 'GET', '[]'),
+(238, 10, 6, 2, 'bras sup&eacute;rieur', '', 'bras_sup', 'Page_association', 'pince2marquage/SE_bras_sup.php', 'GET', '[]'),
+(239, 10, 6, 3, 'bras inf&eacute;rieur', '', 'SE_bras_inf', 'Page_association', 'pince2marquage/SE_bras_inf.php', 'GET', '[]'),
+(240, 10, 6, 4, 'piston', '', 'SE_piston', 'Page_association', 'pince2marquage/SE_piston.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
