@@ -11,6 +11,9 @@ class Page_nomenclature extends Page
 		parent::__construct($route, $TparamURL);
 		$this->setCSS("nomenclature");
 		$this->setView("nomenclature.html");
+		// détection de colonne observation vide
+		$this->colonne_observation_vide = (PEUNC\BDD::SELECT("count(*) FROM Pieces WHERE observation <> '' AND support_ID = ?",
+											[$this->route->getAlpha()]) == 0);
 	}
 
 /* ***************************
@@ -18,7 +21,11 @@ class Page_nomenclature extends Page
  * ***************************/
 
 	public function SetColonneMatiereVide($booleen)		{ $this->colonne_matière_vide = $booleen; }
-	public function SetColonneObservationVide($booleen)	{ $this->colonne_observation_vide = $booleen; }
+	public function SetColonneObservationVide($booleen)
+	{
+		// méthode doit être inopérante durant la période de transition
+		// $this->colonne_observation_vide = $booleen;
+	}
 
 /*	exemple de contrôleur:
  *	<?php
