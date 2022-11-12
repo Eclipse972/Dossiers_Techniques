@@ -1,3 +1,2 @@
 <?php // nomenclature coupe-tube
-$this->SetColonneMatiereVide(true);
-$this->SetColonneObservationVide(true);
+$this->SetColonneMatiereVide(false);

@@ -1,3 +1,2 @@
-<?php // nomenclature préhenseur de culasse
-$this->SetColonneMatiereVide(true);
-$this->SetColonneObservationVide(true);
+<?php // nomenclature de la vanne
+$this->SetColonneMatiereVide(false);

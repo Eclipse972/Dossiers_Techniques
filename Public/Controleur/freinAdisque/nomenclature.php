@@ -1,3 +1,2 @@
-<?php
-$this->SetColonneMatiereVide(true);
-$this->SetColonneObservationVide(true);
+<?php // nomenclature frein à disque
+$this->SetColonneMatiereVide(false);

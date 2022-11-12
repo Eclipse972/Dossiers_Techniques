@@ -21,16 +21,10 @@ class Page_nomenclature extends Page
  * ***************************/
 
 	public function SetColonneMatiereVide($booleen)		{ $this->colonne_matière_vide = $booleen; }
-	public function SetColonneObservationVide($booleen)
-	{
-		// méthode doit être inopérante durant la période de transition
-		// $this->colonne_observation_vide = $booleen;
-	}
 
 /*	exemple de contrôleur:
  *	<?php
  * $this->SetColonneMatiereVide(false);
- * $this->SetColonneObservationVide(true);
  */
 
 /* ***************************
