@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Jeu 10 Novembre 2022 à 22:10
+-- Généré le : Sam 12 Novembre 2022 à 16:54
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=247 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=248 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -280,7 +280,8 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (237, 10, 6, 1, 'b&acirc;ti', '', 'SE_bati', 'Page_association', 'pince2marquage/SE_bati.php', 'GET', '[]'),
 (238, 10, 6, 2, 'bras sup&eacute;rieur', '', 'bras_sup', 'Page_association', 'pince2marquage/SE_bras_sup.php', 'GET', '[]'),
 (239, 10, 6, 3, 'bras inf&eacute;rieur', '', 'SE_bras_inf', 'Page_association', 'pince2marquage/SE_bras_inf.php', 'GET', '[]'),
-(240, 10, 6, 4, 'piston', '', 'SE_piston', 'Page_association', 'pince2marquage/SE_piston.php', 'GET', '[]');
+(240, 10, 6, 4, 'piston', '', 'SE_piston', 'Page_association', 'pince2marquage/SE_piston.php', 'GET', '[]'),
+(247, 21, 4, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'freinAdisque/nomenclature.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 22 Octobre 2022 à 06:06
+-- Généré le : Sam 12 Novembre 2022 à 16:54
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -355,7 +355,21 @@ INSERT INTO `Pieces` (`support_ID`, `nom`, `repere`, `quantite`, `matiere_ID`, `
 (20, 'vis de la chape', 7, 1, 0, '', 'vis-chape', 0),
 (20, 'couvercle', 8, 1, 12, '', 'couvercle', 0),
 (20, 'piston', 10, 1, 12, '', 'piston', 0),
-(20, 'joint torique', 11, 1, 0, 'standard', 'joint', 0);
+(20, 'joint torique', 11, 1, 0, 'standard', 'joint', 0),
+(21, 'disque', 1, 1, 0, '', 'disque', 0),
+(21, 'plaquette', 2, 2, 0, '', 'plaquette', 0),
+(21, 'contre &eacute;trier', 3, 1, 0, '', 'contreEtrier', 0),
+(21, 'corps d&apos;&eacute;trier', 4, 1, 0, '', 'corpsEtrier', 0),
+(21, 'branche &eacute;trier', 5, 1, 0, '', 'brancheEtrier', 0),
+(21, 'colonnette B', 6, 1, 0, '', 'colonnetteB', 0),
+(21, 'tube colonnette B', 7, 1, 0, '', 'tubeColonnetteB', 0),
+(21, 'vis H78', 8, 2, 0, '', 'visH78', 0),
+(21, 'colonnette A', 9, 1, 0, '', 'colonnetteA', 0),
+(21, 'vis CHc147', 10, 2, 0, '', 'visCHc147', 0),
+(21, 'piston', 11, 1, 0, '', 'piston', 0),
+(21, 'joint carr&eacute;', 12, 1, 0, '', 'jointCarre', 0),
+(21, 'joint de piston', 13, 1, 0, '', 'joint2piston', 0),
+(21, 'joint colonnette', 14, 2, 0, '', 'jointColonnette', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
