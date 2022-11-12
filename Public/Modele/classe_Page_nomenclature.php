@@ -11,24 +11,15 @@ class Page_nomenclature extends Page
 		parent::__construct($route, $TparamURL);
 		$this->setCSS("nomenclature");
 		$this->setView("nomenclature.html");
+		// détection de colonne matière vide
+		$this->colonne_matière_vide = (PEUNC\BDD::SELECT("count(*) FROM Pieces WHERE matiere_ID > 0 AND support_ID = ?",
+										[$this->route->getAlpha()]) == 0);
+
+		// détection de colonne observation vide
+		$this->colonne_observation_vide = (PEUNC\BDD::SELECT("count(*) FROM Pieces WHERE observation <> '' AND support_ID = ?",
+											[$this->route->getAlpha()]) == 0);
 	}
 
-/* ***************************
- * MUTATEURS (SETTER)
- * ***************************/
-
-	public function SetColonneMatiereVide($booleen)		{ $this->colonne_matière_vide = $booleen; }
-	public function SetColonneObservationVide($booleen)	{ $this->colonne_observation_vide = $booleen; }
-
-/*	exemple de contrôleur:
- *	<?php
- * $this->SetColonneMatiereVide(false);
- * $this->SetColonneObservationVide(true);
- */
-
-/* ***************************
- * AUTRE
- * ***************************/
 	public function InfoMatiere()
 	{
 		$code = ($this->colonne_matière_vide) ? "" : "\t<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>\n";
