@@ -6,7 +6,7 @@ $this->setFooter(" - <a href=/Contact>Me contacter</a>");
 $this->setView("index.html");
 $this->setCSS("index");
 
-$NB_colonne = 5;
+$NB_colonne = 6;
 $code = '';
 $Tréponse = PEUNC\BDD::SELECT("* FROM Vue_code_vignettes", []);
 foreach($Tréponse as $id => $ligne)
