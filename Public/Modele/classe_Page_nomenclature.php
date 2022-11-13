@@ -22,15 +22,14 @@ class Page_nomenclature extends Page
 
 	public function InfoMatiere()
 	{
-		$code = ($this->colonne_matière_vide) ? "" : "\t<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>\n";
-		return $code;
+		return ($this->colonne_matière_vide) ? "" : "\t<p>Cliquez sur le nom de la mati&egrave;re pour trouver sa définition sur wikip&eacute;dia dans un nouvel onglet.</p>\n";
 	}
 
 	public function ColonnesSupplementaires()
 	{
-		$code =		($this->colonne_matière_vide)	 	? "" : "<th>Mati&egrave;re</th>" ;
-		$code .=	($this->colonne_observation_vide)	? "" : "<th>Observations</th>";
-		return $code . "\n";
+		return	(($this->colonne_matière_vide)		? "" : "<th>Mati&egrave;re</th>")
+			.	(($this->colonne_observation_vide)	? "" : "<th>Observations</th>")
+			.	"\n";
 	}
 
 	public function CorpsNomenclature()
@@ -45,7 +44,7 @@ class Page_nomenclature extends Page
 				$code .= ($this->colonne_observation_vide)	? "" : "\t\t{$ligne['observation']}\n" ;
 				$code .= "\t</tr>\n";
 			}
-		else throw new \Exception("Nomenclature inexistante");
+		else throw new Exception("Nomenclature inexistante");
 		return $code;
 	}
 }
