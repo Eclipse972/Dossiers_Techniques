@@ -6,6 +6,5 @@ ob_start();	// d&eacute;but du code <section>
 	de la roue 	et des plaquettes venant frotter de chaque côt&eacute; du disque.</p>
 	<img src="/Supports/freinAdisque/images/mes.png" height=px class=association alt="Mise en situation">
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);
