@@ -26,10 +26,6 @@ class Page_association extends Page {
  * ***************************/
 
 	// les différents types d'association
-	public function setDessin2definition($deLaPiece)	{ // nom de la pièce obligatoire
-		$this->setTitreAssociation("Dessin de d&eacute;finition " . $deLaPiece);
-	}
-
 	public function setEclate($titre = null)			{
 		$valeur = isset($titre) ? $titre : "&Eacute;clat&eacute;";
 		$this->setTitreAssociation($valeur);
