@@ -7,9 +7,9 @@ class Page_association extends Page {
  * Les fichiers sont au format edrawing de SolidWorks de préférence
  * */
 
-	protected $image;				// nom de l'image à afficher avec son extension
+	protected $image;			// nom de l'image à afficher avec son extension
 	protected $fichier;			// nom du fichier associé à l'image avec son extension
-	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image'
+	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image
 
  	public function __construct(PEUNC\HttpRoute $route, array $TparamURL = []) {
 		parent::__construct($route, $TparamURL);
@@ -26,11 +26,6 @@ class Page_association extends Page {
  * ***************************/
 
 	// les différents types d'association
-	public function setDessinDensemble($titre = null)	{
-		$valeur = isset($titre) ? $titre : "Dessin d&apos;ensemble";
-		$this->setTitreAssociation($valeur);
-	}
-
 	public function setDessin2definition($deLaPiece)	{ // nom de la pièce obligatoire
 		$this->setTitreAssociation("Dessin de d&eacute;finition " . $deLaPiece);
 	}
@@ -41,6 +36,26 @@ class Page_association extends Page {
 		$this->commentaireHTML = "<p style=\"text-align:center\">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src=\"/images/icone_eclater_rassembler.png\" alt = \"icone\"> pour &eacute;clater/rassembler la maquette num&eacute;rique</p>";
 	}
 	// fin de la liste
+
+	// En fait les fichiers sont des fichiers eDrawing. Donc les pages doivent être du même style
+	public function setPiece($titre)
+	{
+		$this->setTitreAssociation($titre);
+		$this->commentaireHTML = "<p>Piece</p>";
+	}
+
+	public function setAssemblage($titre)
+	{
+		$this->setTitreAssociation($titre);
+		$this->commentaireHTML = "<p style=\"text-align:center\">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src=\"/images/icone_eclater_rassembler.png\" alt = \"icone\"> pour &eacute;clater/rassembler la maquette num&eacute;rique</p>";
+	}
+
+	public function setMiseEnPlan($titre)
+	{
+		$this->setTitreAssociation($titre);
+		$this->commentaireHTML = "<p>Mise en plan</p>";
+	}
+	// fin des nouvelles méthode
 
 	public function setTitreAssociation($titre = null) {
 		$this->codeTitre = isset($titre) ? $titre : "";
@@ -59,7 +74,7 @@ class Page_association extends Page {
 
 /* Le controleur a la structure suivante :
  * <?php
- * $this->setDessinDensemble() ou $this->setEclate() ou ...
+ * $this->setMiseEnPlan("Dessin d&apos;ensemble") ou $this->setEclate() ou ...
  * Remarque: cette manière de faire permet de faire planter php en cas d'erreur de nom
  *
  * this->SetImage(...)

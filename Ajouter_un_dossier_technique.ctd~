@@ -87,11 +87,11 @@ ptiNom: MES
 classePage: classe qui servira à créer la page Cf les type de pages disponile (lien à venir)
 controleur: {dossier du support}/MES.php</rich_text>
     </node>
-    <node name="dessin d'ensemble" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865399" ts_lastsave="1668727385">
+    <node name="dessin d'ensemble" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1661865399" ts_lastsave="1661885244">
       <rich_text>Le contrôleur nommé dessin_densemble
 Il ne fait que 5 lignes
 &lt;?php // dessin d'ensemble de {nom du support}
-$this-&gt;setMiseEnPlan("Dessin d&amp;apos;ensemble"); permet de dire que l'association est un dessin d'ensemble
+$this-&gt;setDessinDensemble(); permet de dire que l'association est un dessin d'ensemble
 $this-&gt;setImage("dessin_{ptiNom du support}.png");
 $this-&gt;setFichier("{ptiNom du support}.EDRW");
 </rich_text>

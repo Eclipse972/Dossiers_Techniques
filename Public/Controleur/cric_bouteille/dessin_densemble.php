@@ -1,4 +1,4 @@
 <?php // dessin d'ensemble du cric
-$this->setDessinDensemble();
+$this->setMiseEnPlan("Dessin d&apos;ensemble");
 $this->setImage("dessin_cric.png");
 $this->setFichier("cric.EDRW");

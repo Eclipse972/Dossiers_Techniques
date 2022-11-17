@@ -1,4 +1,4 @@
 <?php // dessin d'ensemble de la butée 5 axes
-$this->setDessinDensemble();
+$this->setMiseEnPlan("Dessin d&apos;ensemble");
 $this->setImage("dessin_butee.png");
 $this->setFichier("butee.EDRW");
