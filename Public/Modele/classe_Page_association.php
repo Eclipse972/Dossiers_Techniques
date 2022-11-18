@@ -1,17 +1,19 @@
 <?php
-require"Modele/classe_Page.php";
 
-class Page_association extends Page {
+class Page_association extends Page
+{
 /*	Affiche une page avec titre avec une image qui est un lien vers un fichier
  * C'est le cas des dessins d'ensemble et des éclatés.
  * Les fichiers sont au format edrawing de SolidWorks de préférence
  * */
 
 	protected $image;			// nom de l'image à afficher avec son extension
-	protected $fichier;			// nom du fichier associé à l'image avec son extension
+	protected $fichier;			// nom du fichier associé à l'image sans son extension
+	protected $extension;		// extension du fichier
 	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image
 
- 	public function __construct(PEUNC\HttpRoute $route, array $TparamURL = []) {
+ 	public function __construct(PEUNC\HttpRoute $route, array $TparamURL = [])
+ 	{
 		parent::__construct($route, $TparamURL);
 		// image et dossier instanciées dans le constructeur de la classe mère
 
@@ -25,36 +27,37 @@ class Page_association extends Page {
  * MUTATEURS (SETTER)
  * ***************************/
 
-	// En fait les fichiers sont des fichiers eDrawing. Donc les pages doivent être du même style
+	// Les fichiers sont des fichiers eDrawing.
 	public function setPiece($titre)
 	{
 		$this->setTitreAssociation($titre);
 		$this->commentaireHTML = "<p>Piece</p>";
+		$this->extension = "EPRT";
 	}
 
 	public function setAssemblage($titre)
 	{
 		$this->setTitreAssociation($titre);
 		$this->commentaireHTML = "<p style=\"text-align:center\">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src=\"/images/icone_eclater_rassembler.png\" alt = \"icone\"> pour &eacute;clater/rassembler la maquette num&eacute;rique</p>";
+		$this->extension = "EASM";
 	}
 
 	public function setMiseEnPlan($titre)
 	{
 		$this->setTitreAssociation($titre);
 		$this->commentaireHTML = "<p>Mise en plan</p>";
+		$this->extension = "EDRW";
 	}
-	// fin des nouvelles méthode
+	// fin des types d'association
 
-	public function setTitreAssociation($titre = null) {
-		$this->codeTitre = isset($titre) ? $titre : "";
-	}
+	public function setTitreAssociation($titre = null) { $this->codeTitre = isset($titre) ? $titre : ""; }
 
-	public function SetImage($image) {	// défini l'image à afficher
-		$this->image = PEUNC\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');
-	}
+	public function SetImage($image)	// défini l'image à afficher
+	{	$this->image = PEUNC\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');	}
 
-	public function setFichier($fichier) {	// défini le fichier à télécharger avec recherche d'existence du fichier
-		$fichier = "Supports/{$this->dossier}fichiers/{$fichier}";
+	public function setFichier($fichier)	// défini le fichier à télécharger avec recherche d'existence du fichier
+	{
+		$fichier = "Supports/{$this->dossier}fichiers/{$fichier}.{$this->extension}";
 		$this->fichier = (file_exists($fichier)) ? "/" . $fichier : "#";
 	}
 
@@ -72,7 +75,8 @@ class Page_association extends Page {
 /* ***************************
  * ASSESSURS (GETTER)
  * ***************************/
-	public function getSection() { // redéfinition du code pour afficher la page
+	public function getSection() // code pour afficher la page
+	{
 		return	$this->getTitrePage()	// titre de la page
 			.	"<a href=\"{$this->fichier}\" title=\"T&eacute;l&eacute;charger le fichier\">{$this->image}</a>\n"	// image est un lien avec un commentaire
 			.	(isset($this->commentaireHTML) ? $this->commentaireHTML : "");	// éventuel commentaire sous l'image
