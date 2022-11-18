@@ -1,4 +1,4 @@
 <?php // éclaté du casse-noix
-$this->setEclate();
+$this->setAssemblage("&Eacute;clat&eacute;");
 $this->SetImage("eclate_casseNoix.png");
 $this->setFichier("casseNoix.EASM");

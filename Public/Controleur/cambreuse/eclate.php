@@ -1,4 +1,4 @@
 <?php // éclaté de la cambreuse
-$this->setEclate();
+$this->setAssemblage("&Eacute;clat&eacute;");
 $this->SetImage("eclate_cambreuse.png");
 $this->setFichier("cambreuse.EASM");

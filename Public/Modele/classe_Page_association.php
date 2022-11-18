@@ -25,14 +25,6 @@ class Page_association extends Page {
  * MUTATEURS (SETTER)
  * ***************************/
 
-	// les différents types d'association
-	public function setEclate($titre = null)			{
-		$valeur = isset($titre) ? $titre : "&Eacute;clat&eacute;";
-		$this->setTitreAssociation($valeur);
-		$this->commentaireHTML = "<p style=\"text-align:center\">Dans e-Drawing, cliquez sur l&apos;ic&ocirc;ne <img src=\"/images/icone_eclater_rassembler.png\" alt = \"icone\"> pour &eacute;clater/rassembler la maquette num&eacute;rique</p>";
-	}
-	// fin de la liste
-
 	// En fait les fichiers sont des fichiers eDrawing. Donc les pages doivent être du même style
 	public function setPiece($titre)
 	{
@@ -70,7 +62,7 @@ class Page_association extends Page {
 
 /* Le controleur a la structure suivante :
  * <?php
- * $this->setMiseEnPlan("Dessin d&apos;ensemble") ou $this->setEclate() ou ...
+ * $this->setMiseEnPlan("Dessin d&apos;ensemble") ou $this->setAssemblage("&Eacute;clat&eacute;") ou ...
  * Remarque: cette manière de faire permet de faire planter php en cas d'erreur de nom
  *
  * this->SetImage(...)

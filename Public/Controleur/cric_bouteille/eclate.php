@@ -1,4 +1,4 @@
 <?php // éclaté du cric bouteille
-$this->setEclate();
+$this->setAssemblage("&Eacute;clat&eacute;");
 $this->SetImage("eclate_cric.png");
 $this->setFichier("cric.EASM");
