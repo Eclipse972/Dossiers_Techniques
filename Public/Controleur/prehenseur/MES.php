@@ -12,6 +12,5 @@ ob_start();	// début du code <section>
 <p>Le pr&eacute;henseur vient donc chercher un adaptateur sur lequel est fix&eacute;e la culasse et d&eacute;pose l&apos;ensemble sur la palette des centres d&apos;usinage.</p>
 <img src="/Supports/prehenseur/images/mes2.png"  alt="culasse">
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

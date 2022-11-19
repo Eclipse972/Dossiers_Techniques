@@ -11,6 +11,5 @@ ob_start();	// début du code <section>
 	<p>Entre sa position haute  et basse, le piston fait varier le volume d&apos;huile dans le corps de pompe. Dans cette phase ce volume est en diminution.
 	L&apos;huile contenu dans la pompe est pouss&eacute; vers le v&eacute;rin de lev&eacute;e. La tige de v&eacute;rin monte et l&egrave;ve la charge.</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

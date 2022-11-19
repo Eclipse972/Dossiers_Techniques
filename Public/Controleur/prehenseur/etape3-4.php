@@ -6,6 +6,5 @@ ob_start();	// début du code <section>
 <img src="/Supports/prehenseur/images/etape3.png"  height=500px alt="&eacute;tape 3">
 <img src="/Supports/prehenseur/images/etape4.png"  height=500px alt="&eacute;tape 4">
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

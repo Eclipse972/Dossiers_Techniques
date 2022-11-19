@@ -13,6 +13,5 @@ s&eacute;curit&eacute; (hauteur du caract&egrave;re : 4 mm pour une profondeur d
 &agrave; tout moment &ecirc;tre remplac&eacute;e par une t&ecirc;te de serrage). L&apos;unit&eacute; pneumatique se d&eacute;cline en 3 tailles, la plus petite
 pouvant se monter &agrave; l&apos;extr&eacute;mit&eacute; d&apos;un bras robotis&eacute;.</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

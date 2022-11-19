@@ -17,6 +17,5 @@ ob_start();	// début du code <section>
 	<p>La charge est trop lourde. La soupape de surcharge est r&eacute;gl&eacute;e en usine en fonction de la puissance nominale et ce r&eacute;glage ne devront pas être modifi&eacute;.</p>
 	<p>- Veillez à ce que le cric ne grippe pas ce qui provoquerait une perte de charge.</p>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

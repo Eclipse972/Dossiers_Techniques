@@ -14,6 +14,5 @@ ob_start();	// début du code <section>
 <img src="/Supports/casse_noix/images/levier_baisse.png" style=width:300px alt="levier baiss&eacute;e">
 </div>
 <?php
-$tampon = ob_get_contents();
+$this->setSection(ob_get_contents());
 ob_end_clean();
-$this->setSection($tampon);

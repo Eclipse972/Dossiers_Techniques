@@ -1,10 +1,5 @@
 <?php // flasque de l'unité de marquage
-ob_start();	// début du code <section>
-?>
-	<h1>Flasque</h1>
-	<p style="text-align:center">Cliquez sur l&apos;image pour t&eacute;l&eacute;charger le fichier associ&eacute;.</p>
-	<a href="/Supports/unite2marquage/fichiers/flasque.EPRT"><img src="/Supports/unite2marquage/images/flasque.png" class="association" alt="association"></a>
-<?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setPiece("Flasque");
+$this->SetImage("flasque");
+$this->setCommentaire("<p style=\"text-align:center\">Remarque: cette pi&egrave;ce est d&eacute;formable donc ne constitue pas une classe d&apos;&eacute;quivalence.</p>");
+$this->setFichier("flasque");
