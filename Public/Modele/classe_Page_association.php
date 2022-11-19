@@ -7,8 +7,8 @@ class Page_association extends Page
  * Les fichiers sont au format edrawing de SolidWorks de préférence
  * */
 
-	protected $image;			// nom de l'image à afficher avec son extension
-	protected $fichier;			// nom du fichier associé à l'image sans son extension
+	protected $image	= null;	// nom de l'image à afficher sans son extension
+	protected $fichier	= null;	// nom du fichier associé à l'image sans son extension
 	protected $extension;		// extension du fichier
 	protected $commentaireHTML;	// code html du commentaire ajouté en dessous de l'image
 
@@ -52,13 +52,16 @@ class Page_association extends Page
 
 	public function setTitreAssociation($titre = null) { $this->codeTitre = isset($titre) ? $titre : ""; }
 
-	public function SetImage($image)	// défini l'image à afficher
-	{	$this->image = PEUNC\Page::BaliseImage("/Supports/{$this->dossier}images/{$image}", "{$this->codeTitre} {$this->du_support}", 'class="association"');	}
-
-	public function setFichier($fichier)	// défini le fichier à télécharger avec recherche d'existence du fichier
+	public function SetImage($image)
 	{
-		$fichier = "Supports/{$this->dossier}fichiers/{$fichier}.{$this->extension}";
-		$this->fichier = (file_exists($fichier)) ? "/" . $fichier : "#";
+		$this->image = $image;
+		if (!isset($this->fichier))	$this->fichier = $this->image;
+	}
+		
+	public function setFichier($fichier)
+	{
+		$this->fichier = $fichier;
+		if (!isset($this->image))	$this->image = $this->fichier;
 	}
 
 	public function setCommentaire($commentaire) { $this->commentaireHTML = $commentaire; }
@@ -77,6 +80,13 @@ class Page_association extends Page
  * ***************************/
 	public function getSection() // code pour afficher la page
 	{
+		// recherche de l'image
+		$this->image = PEUNC\Page::BaliseImage("/Supports/{$this->dossier}images/{$this->image}.png", "{$this->codeTitre} {$this->du_support}", 'class="association"');
+
+		// recherche du fichier
+		$fichier = "Supports/{$this->dossier}fichiers/{$this->fichier}.{$this->extension}";
+		$this->fichier = (file_exists($fichier)) ? "/" . $fichier : "#";
+		
 		return	$this->getTitrePage()	// titre de la page
 			.	"<a href=\"{$this->fichier}\" title=\"T&eacute;l&eacute;charger le fichier\">{$this->image}</a>\n"	// image est un lien avec un commentaire
 			.	(isset($this->commentaireHTML) ? $this->commentaireHTML : "");	// éventuel commentaire sous l'image
