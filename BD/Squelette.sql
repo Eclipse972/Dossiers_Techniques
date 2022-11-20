@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Sam 12 Novembre 2022 à 20:04
+-- Généré le : Dim 20 Novembre 2022 à 12:48
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `Squelette` (
   `paramAutorise` varchar(99) collate latin1_general_ci NOT NULL default '[]' COMMENT 'syntaxe JSON',
   PRIMARY KEY  (`ID`),
   UNIQUE KEY `navigation` (`alpha`,`beta`,`gamma`,`methode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=248 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=250 ;
 
 --
 -- Contenu de la table `Squelette`
@@ -49,7 +49,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (242, 100, 1, 0, 'Pr&eacute;parer les fichiers', '', 'preparer', 'Page', 'preparer.php', 'GET', '[]'),
 (243, 100, 2, 0, 'Les pages du site', '', 'pageSite', 'Page', 'pageSite.php', 'GET', '[]'),
 (245, 21, 1, 0, 'Mise en situation', '', 'MES', 'Page', 'freinAdisque/MES.php', 'GET', '[]'),
-(246, 21, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
+(246, 21, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'freinAdisque/fonctionnement.php', 'GET', '[]'),
 (5, 0, 0, 0, 'Page d&apos;accueil', '', 'home', 'PEUNC\\Page', 'home.php', 'GET', '["parametre", "param"]'),
 (244, 21, 0, 0, '&Agrave propos', '', 'freinAdisque', 'PageApropos', 'freinAdisque/Apropos.php', 'GET', '[]'),
 (7, 1, 1, 0, 'Mise en situation', '', 'MES', 'Page_image', 'BP/MES.php', 'GET', '[]'),
@@ -105,7 +105,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (57, 7, 5, 0, '&Eacute;clat&eacute;', '', 'eclate', 'Page_association', 'etau/eclate.php', 'GET', '[]'),
 (58, 7, 6, 0, 'Classes d&apos;&eacute;quivalence', '', 'CE', 'Page', 'etau/CE.php', 'GET', '[]'),
 (59, 8, 1, 0, 'Mise en situation', '', 'MES', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
-(60, 8, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'pageDTenConstruction.php', 'GET', '[]'),
+(60, 8, 2, 0, 'Fonctionnement', '', 'fonctionnement', 'Page', 'extracteur2roulement/fonctionnement.php', 'GET', '[]'),
 (61, 8, 3, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'extracteur2roulement/dessin_densemble.php', 'GET', '[]'),
 (62, 8, 4, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'nomenclature.php', 'GET', '[]'),
 (63, 8, 5, 0, '&Eacute;clat&eacute;', '', 'eclate', 'Page_association', 'extracteur2roulement/eclate.php', 'GET', '[]'),
@@ -207,7 +207,7 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (159, 18, 2, 5, 'Levier', '', 'levier', 'Page_association', 'unite2marquage/levier.php', 'GET', '[]'),
 (160, 18, 4, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'unite2marquage/dessin_densemble.php', 'GET', '[]'),
 (161, 18, 7, 0, 'Flasque droit', '', 'flasqueDroit', 'Page_image', 'unite2marquage/flasqueDroit.php', 'GET', '[]'),
-(162, 18, 7, 1, 'flasque', '', 'flasque', 'Page', 'unite2marquage/flasque.php', 'GET', '[]'),
+(162, 18, 7, 1, 'flasque', '', 'flasque', 'Page_association', 'unite2marquage/flasque.php', 'GET', '[]'),
 (163, 18, 7, 2, 'Dessin de d&eacute;finition', '', 'dessin2definition', 'Page_association', 'unite2marquage/dessin2definition.php', 'GET', '[]'),
 (164, 18, 8, 0, 'M&eacute;canique', '', 'mecanique', 'Page_image', 'unite2marquage/mecanique.php', 'GET', '[]'),
 (165, 18, 8, 1, 'efforts embiellage/Levier', '', 'efforts_embiellage-levier', 'Page_image', 'unite2marquage/efforts_embiellage-levier.php', 'GET', '[]'),
@@ -281,7 +281,9 @@ INSERT INTO `Squelette` (`ID`, `alpha`, `beta`, `gamma`, `texteMenu`, `imageMenu
 (238, 10, 6, 2, 'bras sup&eacute;rieur', '', 'bras_sup', 'Page_association', 'pince2marquage/SE_bras_sup.php', 'GET', '[]'),
 (239, 10, 6, 3, 'bras inf&eacute;rieur', '', 'SE_bras_inf', 'Page_association', 'pince2marquage/SE_bras_inf.php', 'GET', '[]'),
 (240, 10, 6, 4, 'piston', '', 'SE_piston', 'Page_association', 'pince2marquage/SE_piston.php', 'GET', '[]'),
-(247, 21, 4, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'nomenclature.php', 'GET', '[]');
+(247, 21, 5, 0, 'Nomenclature', '', 'nomenclature', 'Page_nomenclature', 'nomenclature.php', 'GET', '[]'),
+(248, 21, 3, 0, 'Dessin d&apos;ensemble', '', 'dessin_densemble', 'Page_association', 'freinAdisque/dessin_densemble.php', 'GET', '[]'),
+(249, 21, 4, 0, '&Eacute;clat&eacute;', '', 'eclate', 'Page_association', 'freinAdisque/eclate.php', 'GET', '[]');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

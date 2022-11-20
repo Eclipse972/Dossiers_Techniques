@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: dossiers.techniques.sql.free.fr
--- Généré le : Jeu 10 Novembre 2022 à 21:56
+-- Généré le : Dim 20 Novembre 2022 à 12:49
 -- Version du serveur: 5.0.83
 -- Version de PHP: 5.3.9
 
@@ -61,7 +61,7 @@ INSERT INTO `Supports` (`ID`, `nom`, `pti_nom`, `dossier`, `article_ID`, `zip`) 
 (19, 'vanne Legris', 'vanne', 'vanne', 2, 'Vanne'),
 (14, 'moteur de mod&eacute;lisme', 'moteur', 'moteur2modelisme', 1, ''),
 (20, 'bride hydraulique', 'bride', 'bride_hydraulique', 2, ''),
-(21, 'frein &agrave: disque', 'freinAdisque', 'freinAdisque', 1, '');
+(21, 'frein &agrave; disque', 'freinAdisque', 'freinAdisque', 1, '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
