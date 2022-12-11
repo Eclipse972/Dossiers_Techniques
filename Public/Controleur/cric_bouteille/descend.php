@@ -8,5 +8,4 @@ ob_start();	// début du code <section>
 	<p>L&apos;huile contenu dans la chambre de v&eacute;rin retourne dans le r&eacute;servoir. La tige de v&eacute;rin descend sous l&apos;action de la charge.</p>
 	<img src="/Supports/cric_bouteille/images/decharge.png" class=image_centree style=width:400px alt="Circulation de l&apos;huile">
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

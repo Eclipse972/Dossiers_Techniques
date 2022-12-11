@@ -9,6 +9,4 @@ ob_start();
 		<li>le fichier pr&eacute;henseur pour &eacute;tude d'ouverture permet de voir le fonctionnement</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setDescriptionZip($tampon);
+$this->setDescriptionZip(ob_get_clean());

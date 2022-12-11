@@ -14,6 +14,4 @@ ob_start();	// début du code <section>
 	<li>Pression d&apos;utilisation : 0,6 N/mm²</li>
 	<li>Course du piston : 50 mm</li>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

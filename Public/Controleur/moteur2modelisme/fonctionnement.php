@@ -26,6 +26,4 @@ ob_start();	// début du code <section>
 	<img src="/Supports/moteur2modelisme/images/descente.png" alt ="descente du piston">
 	</div>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

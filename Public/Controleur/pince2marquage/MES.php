@@ -6,5 +6,4 @@ ob_start();	// début du code <section>
 <img src="/Supports/pince2marquage/images/presentation.png" class=image_centree alt="Pr&eacute;sentation">
 <img src="/Supports/pince2marquage/images/douille.png" class=image_centree alt="Douille marqu&eacute;e">
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

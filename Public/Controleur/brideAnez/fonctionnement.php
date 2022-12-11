@@ -9,5 +9,4 @@ ob_start();	// début du code <section>
 	</ul>
 	<p>En position de repos le nez de la bride est compl&egrave;tement rentr&eacute; et de ce fait, l&apos;op&eacute;rateur peut soulever le bras articul&eacute; et enlever la pi&egrave;ce usin&eacute;e.</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

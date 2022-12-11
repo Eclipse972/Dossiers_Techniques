@@ -20,7 +20,4 @@ ob_start();	// début du code <section>
 	<img src="/Supports/moteur2modelisme/images/fonctionnement_moteur.gif" width=300px alt ="animation moteur">
 </div>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

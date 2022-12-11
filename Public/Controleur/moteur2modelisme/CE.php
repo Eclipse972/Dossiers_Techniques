@@ -31,5 +31,4 @@ Et les bagues int&eacute;rieures sont solidaires du vilebrequin. Dans les deux c
 repr&eacute;sent&eacute;es en jaune.</p>
 <p>Voir le menu ci-contre pour plus de d&eacute;tails sur chaque classe d&apos;&eacute;quivalence.</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

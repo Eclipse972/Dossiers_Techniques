@@ -22,5 +22,4 @@ ob_start();	// début du code <section>
 	<p>ATTENTION : le cric est uniquement un appareil de levage. Apr&egrave;s levage, toujours utiliser un support de s&eacute;curit&eacute; avant d&apos;effectuer votre r&eacute;paration. Ne jamais utiliser le cric au-delà des capacit&eacute;s indiqu&eacute;es(2 tonnes).
 	</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

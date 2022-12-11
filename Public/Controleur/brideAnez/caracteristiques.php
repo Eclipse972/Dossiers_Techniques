@@ -16,6 +16,4 @@ ob_start();	// début du code <section>
 	<h2>Régulateur de pression</h2><p></p>
 	<p>Pression de service : 7 MPa</p>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

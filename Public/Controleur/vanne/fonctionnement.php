@@ -16,6 +16,4 @@ ob_start();	// début du code <section>
 	<img src="/Supports/vanne/images/vanne_fermee.png" style="width:300px" class="image_centree" alt="vanne ferm&eacute;e">
 	</div>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

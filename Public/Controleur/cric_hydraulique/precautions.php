@@ -10,5 +10,4 @@ ob_start();	// début du code <section>
 	<li>V&eacute;rifier le niveau d'huile r&eacute;guli&egrave;rement.</li>
 	</ul>
  <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

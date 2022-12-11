@@ -9,6 +9,4 @@ ob_start();	// d&eacute;but du code <section>
 	<p>Enfin, pour terminer le bridage, il suffit de commander l’alimentation de pression hydraulique qui exerce un effort sur le piston, effort qui par l’intermédiaire du levier sera transmis à la pièce à brider.</p>
 	<p>La bride n’est pas le seul élément intervenant dans le blocage (liaison encastrement) de la pièce sur la table de la machine outil, cette dernière doit aussi être mise en position par des butées et / ou des guides,  fixés à cette table.</p>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
-
+$this->setSection(ob_get_clean());

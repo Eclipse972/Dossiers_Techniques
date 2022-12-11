@@ -19,6 +19,4 @@ ob_start();	// début du code <section>
 		<li>F3 : s&apos;adapter à l&apos;orifice de sortie du circuit hydraulique.</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

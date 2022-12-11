@@ -9,5 +9,4 @@ ob_start();	// début du code <section>
 </ul>
 <p>Cliquez dans le sous-menu pour plus de pr&eacute;cisions.</p></section>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

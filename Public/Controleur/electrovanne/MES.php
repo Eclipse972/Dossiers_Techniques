@@ -7,6 +7,4 @@ ob_start();	// début du code <section>
 <p>L'&eacute;lectro-vanne dans la chaîne de commande</p>
 <img src="/Supports/electrovanne/images/chaine_commande.png"  alt="Chaine de commande">
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

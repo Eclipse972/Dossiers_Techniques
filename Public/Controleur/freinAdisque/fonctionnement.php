@@ -13,5 +13,4 @@ ob_start();	// d&eacute;but du code <section>
 		</iframe>
 	</div>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

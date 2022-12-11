@@ -23,5 +23,4 @@ ob_start();	// début du code <section>
 <p>L&apos;alimentation hydraulique se fait par les tuyaux flexibles.</p>
 <img src="/Supports/brideAnez/images/figure1.png" style=width:900px class=image_centree alt="bride dans son contexte">
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

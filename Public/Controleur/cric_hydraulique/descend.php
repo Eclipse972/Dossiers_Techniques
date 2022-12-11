@@ -12,6 +12,4 @@ ob_start();	// début du code <section>
 	<li>Le poids du v&eacute;hicule suffit pour obtenir la rentr&eacute;e de tige. Lorsque le v&eacute;hicule est en appui sur le sol, deux ressorts de rappel positionne le bras en position initiale.</li>
 	</ol>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

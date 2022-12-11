@@ -7,5 +7,4 @@ ob_start();	// début du code <section>
 <p> Il est dot&eacute; d'une soupape de s&eacute;curit&eacute; en cas de surcharge</p>
 <img src="/Supports/cric_bouteille/images/cric_reel.png"  alt="cric r&eacute;el">
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

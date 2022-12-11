@@ -10,9 +10,7 @@ ob_start();
 		<li>contient les dessins de d&eacute;finition</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setDescriptionZip($tampon);
+$this->setDescriptionZip(ob_get_clean());
 
 // lien
 $this->setLien("source : J&eacute;r&ocirc;me Laparre", "http://laparrej.free.fr/pro_sw.htm#e");

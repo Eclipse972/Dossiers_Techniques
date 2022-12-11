@@ -8,6 +8,4 @@ ob_start();	// début du code <section>
 	</p>
 	<img src="/Supports/vanne/images/mes.png" height=px class=association alt="Mise en situation">
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());

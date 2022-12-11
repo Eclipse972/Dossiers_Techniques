@@ -9,6 +9,4 @@ ob_start();
 		<li>rajout d&apos;une contrainte limite</li>
 	</ul>
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setDescriptionZip($tampon);
+$this->setDescriptionZip(ob_get_clean());

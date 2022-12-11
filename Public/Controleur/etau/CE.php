@@ -12,5 +12,4 @@ ob_start();	// début du code <section>
 <p>Tige de poign&eacute;e</p>
 <img src="/Supports/etau/images/CE_tige_de_poignee.png" class="association" alt="Tige de poignée">
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

@@ -8,5 +8,4 @@ ob_start();	// début du code <section>
 		<li>Le module hydraulique contient peut-&ecirc;tre trop d&apos;huile, v&eacute;rifiez le niveau d&apos;huile.</li>
 	</ul>
 <?php
-$this->setSection(ob_get_contents());
-ob_end_clean();
+$this->setSection(ob_get_clean());

@@ -17,6 +17,4 @@ apr&egrave;s l&apos;op&eacute;ration de surmoulage. (voir photos 4 et 4bis).
 </p>
 <img src="/Supports/cambreuse/images/photo34_et4bis_mes.png"  alt="photos 3, 4 et 4bis">
 <?php
-$tampon = ob_get_contents();
-ob_end_clean();
-$this->setSection($tampon);
+$this->setSection(ob_get_clean());
