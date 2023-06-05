@@ -8,3 +8,6 @@ config_chiffrement.php
 
 # les archives zip dont certaines dépassent les 100Mo. Limite de github
 *.zip
+
+# dossier PEUNC
+Public/PEUNC/
