@@ -86,3 +86,29 @@ footer img {
 	font-size: 36px;
 	text-align:center;
 }
+
+/* pied de page ------------------------------------------------------------------- */
+footer {
+	background-color:var(--couleur2);
+	margin-top:9px;
+	display:flex;
+    justify-content:center;
+}
+
+footer img {
+	display:block;
+	height: 40px;
+	vertical-align:middle;
+	margin: 9px 0 9px 0;
+}
+
+footer p {
+	margin:0 20px 0 5px;
+	font-size:16px;
+	color:var(--couleur5);
+}
+
+footer a {
+	display:flex;
+	align-items:center;
+}
