@@ -1,4 +1,4 @@
-<?php // fichier non suivi par git
+<?php # configuration chez free
 $developpement = false;	// site en developpement ?
 
 $dbname = $developpement ? 'dossier_te_ch_nique'	: 'dossiers_techniques';
