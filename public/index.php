@@ -1,5 +1,9 @@
 <?php
-// Charge l'autoloader de Composer
+// Active les erreurs en production (à désactiver après les tests)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Charge l'autoloader
 require __DIR__ . '/../vendor/autoload.php';
 
 // Importations nécessaires
