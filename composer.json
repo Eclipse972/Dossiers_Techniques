@@ -1,0 +1,14 @@
+{
+    "name": "eclipse972/dossiers-techniques",
+    "description": "Mon site de dossiers techniques utilisables en cours.",
+    "type": "project",
+    "require": {
+        "slim/slim": "^4.15",
+        "twig/twig": "^3.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eclipse972\\DossiersTechniques\\": "src/"
+        }
+    }
+}
