@@ -23,7 +23,5 @@ $app->getContainer()->set('twig', $twig);
 
 // Routes
 $app->get('/', [HomeController::class, 'index']);
-$app->get('/liste', [ListeController::class, 'afficherListe']);
-
 // Démarre l'application
 $app->run();
