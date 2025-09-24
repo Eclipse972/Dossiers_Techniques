@@ -96,7 +96,7 @@ class HttpRoute
 				$jeton = Formulaire::DecoderJeton($_POST["CSRF"]);
 
 				if (!isset($jeton->noeud))	// si le jeton est invalide
-					throw new ApplicationExceotion("Jeton CSRF invalide");
+					throw new ApplicationException("Jeton CSRF invalide");
 				
 				return $jeton->noeud;	// renvoie la position du formulaire
 				break;
