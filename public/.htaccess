@@ -1,22 +1,16 @@
-# redirection des erreurs vers le routeur de PEUNC
-ErrorDocument 403 /index.php
-ErrorDocument 404 /index.php
-ErrorDocument 405 /index.php
-ErrorDocument 500 /index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-<IfDefine Free>
-php56 1
-</IfDefine>
-Options -Indexes
+    # Redirige toutes les requêtes vers index.php, sauf pour les fichiers/dossiers existants
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
 
-#protection du fichier de connexion
-<files connexion.php>
-order allow,deny
-deny from all
-</files>
+    # Désactive le listing des dossiers
+    Options -Indexes
 
-<Files ".ht*">
-Order allow,deny
-Deny from all
-Satisfy all
-</Files>
+    # Bloque l'accès aux fichiers sensibles
+    <FilesMatch "\.(env|ini|log|json|lock|gitignore|gitattributes)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
