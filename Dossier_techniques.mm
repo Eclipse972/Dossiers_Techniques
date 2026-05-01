@@ -1,6 +1,6 @@
-<map version="freeplane 1.6.0">
+<map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" FOLDED="false" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle" zoom="1.21">
+<node TEXT="Dossiers techniques" LOCALIZED_STYLE_REF="styles.topic" FOLDED="false" ID="ID_1" CREATED="1527579372171" MODIFIED="1527580449525" STYLE="bubble"><hook NAME="MapStyle">
     <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
@@ -61,7 +61,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<node TEXT="mes choix" FOLDED="true" POSITION="left" ID="ID_6" CREATED="1527579372171" MODIFIED="1531430492229" STYLE="fork">
+<node TEXT="mes choix" POSITION="left" ID="ID_6" CREATED="1527579372171" MODIFIED="1531430492229" STYLE="fork">
 <edge WIDTH="2"/>
 <node TEXT="Pourquoi ce site?" FOLDED="true" ID="ID_1784952177" CREATED="1530492366471" MODIFIED="1530492446800">
 <node TEXT="objectif z&#xe9;ro papier" ID="ID_1037076862" CREATED="1530492398033" MODIFIED="1530492541687"><richcontent TYPE="NOTE">
@@ -889,7 +889,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -1022,7 +1021,7 @@
 <node TEXT="cr&#xe9;ation/modification d&apos;un menu" ID="ID_1907753568" CREATED="1530657625186" MODIFIED="1530657748615"/>
 </node>
 </node>
-<node TEXT="Base de donn&#xe9;es" POSITION="left" ID="ID_124628161" CREATED="1527579778570" MODIFIED="1528741666144" STYLE="fork">
+<node TEXT="Base de donn&#xe9;es" FOLDED="true" POSITION="left" ID="ID_124628161" CREATED="1527579778570" MODIFIED="1528741666144" STYLE="fork">
 <edge WIDTH="2"/>
 <node TEXT="version MySQL 5.0.77 avec utilisation de PDO" ID="ID_834857297" CREATED="1527580002839" MODIFIED="1532148639692"><richcontent TYPE="NOTE">
 
