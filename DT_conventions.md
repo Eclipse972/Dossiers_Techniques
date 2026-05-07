@@ -160,6 +160,23 @@ Données injectées dans une balise avec attribut data-*
   }
 }
 
+# Templates PHP
+
+## Responsabilité
+- Structure HTML minimale (doctype, head, body)
+- Injection des données JSON
+- Chargement des scripts JS nécessaires
+
+## Structure type
+- Balise <div id="app-data" data-json='...'> OU
+- <script type="application/json" id="page-data">...</script>
+- Scripts JS en fin de body
+
+## Données fournies
+- Métadonnées de la page (titre, type)
+- Données métier (liste fichiers, navigation)
+- Configuration (chemins, constantes)
+
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
 - 1 classe = 1 responsabilité
