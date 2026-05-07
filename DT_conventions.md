@@ -58,6 +58,38 @@ Exemples:
 - composer pour Slim et mes fichiers
 - JS : Aucun (vanilla JS)
 
+# Architecture applicative
+
+## Principe général
+- PHP génère le template HTML minimal + données JSON embarquées
+- JavaScript construit l'intégralité du contenu visible
+- Fichiers techniques stockés dans /public/supports/{nom_support}/
+
+## Flux de données
+1. Requête utilisateur → Slim Router
+2. Contrôleur récupère les données (BDD)
+3. Template PHP injecte JSON dans le DOM (balise <div id="data">)
+4. JS lit le JSON et génère l'affichage complet
+
+## Responsabilités
+
+### PHP (Backend)
+- Routage des URLs
+- Récupération des données en BDD
+- Construction du JSON
+- Rendu du template minimal (structure HTML + <script>)
+
+### JavaScript (Frontend)
+- Lecture du JSON embarqué
+- Génération du menu de navigation
+- Construction du contenu principal
+- Gestion des interactions utilisateur
+
+## Scripts JS par page
+- `menu-builder.js` : génère le menu de navigation
+- `page-builder.js` : construit le contenu principal
+- Scripts spécifiques par type de page (dessin, nomenclature, éclaté)
+
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
 - 1 classe = 1 responsabilité
