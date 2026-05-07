@@ -49,7 +49,7 @@ Exemples:
 - depart est correct
 
 # Frameworks et bibliothèques
-- Backend : Slim framework
+- Backend : Slim framework 4
 - Frontend : aucun
 - Base de données : mariaDB
 - Interdit : React, Vue, Angular
