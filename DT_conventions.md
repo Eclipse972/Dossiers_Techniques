@@ -54,9 +54,6 @@ Exemples:
 - Base de données : mariaDB
 - Interdit : React, Vue, Angular
 
-# Outils de développement
-VS Code (recommandé)
-
 # Gestion des dépendances
 - composer pour Slim et mes fichiers
 - JS : Aucun (vanilla JS)
