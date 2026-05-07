@@ -39,7 +39,9 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 - Classes : `PascalCase`
 - Fichiers : `kebab-case`
 - Constantes : `UPPER_SNAKE_CASE`
-Remarque: tous les noms de variable, classe et fichiers sont en français non accentué
+
+# Conventions de nommage
+Bien que PHP et Slim utilisent l'anglais. Tous les noms de variable, classe et fichiers seront en français non accentué
 Exemples:
 - start est interdit car en anglais
 - départ est interdit car il y un accent
