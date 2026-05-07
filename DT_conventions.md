@@ -11,28 +11,44 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 # Arborescence
 C'est une arborescence classique de slim frameworklégèrement modifiée
 /
-├── public/                          # Dossier racine accessible via le web
-│   ├── index.php                    # Point d'entrée principal de l'application
-│   ├── css/                         # Fichiers CSS
-│   ├── js/                          # Fichiers JavaScript
-│   ├── images/                      # Images
-│   └── .htaccess                    # Configuration Apache pour la réécriture d'URL
-├── src/                             # Code source de l'application
-│   ├── Controllers/                 # Contrôleurs (gestion des requêtes HTTP)
-│   ├── Middleware/                  # Middlewares (traitements intermédiaires)
-│   ├── Models/                      # Modèles (logique métier et données)
-│   ├── Services/                    # Services réutilisables (ex: base de données, email)
-│   └── Utilities/                   # Fonctions ou classes utilitaires
-├── templates/                       # Modèles de vues (ex: Twig, PHP)
-├── config/                          # Fichiers de configuration
-│   ├── routes.php                   # Définition des routes
-│   ├── dependencies.php             # Définitions des dépendances (conteneur PSR-11)
-│   └── settings.php                 # Paramètres de l'application
-├── vendor/                          # Dépendances gérées par Composer
-├── composer.json                    # Dépendances PHP et règles d'autochargement
-├── composer.lock                    # fige les versions précises des dépendances installées par Composer
-├── DT_conventions.md                # mes conventions de programation qui servira aussi à un agent IA
-└── README.md                        # Documentation du projet
+├── public/                         # Dossier racine accessible via le web
+│   ├── js/
+│   │   ├── menu-builder.js         # Construction du menu
+│   │   ├── page-builder.js         # Construction du contenu
+│   │   └── types/                  # Scripts par type de page
+│   │       ├── dessin.js
+│   │       ├── nomenclature.js
+│   │       └── eclate.js
+│   ├── index.php                   # Point d'entrée principal de l'application
+│   ├── css/                        # Fichiers CSS
+│   ├── js/                         # Fichiers JavaScript
+│   ├── images/                     # Images
+│   ├── supports/                   # Fichiers techniques par support
+│   │   ├── support-a/
+│   │   │   ├── images/				# images du support
+│   │   │   ├── pieces/				# fichiers edrawing
+│   │   │   ├── assemblages/		# fichiers edrawing
+│   │   │   └── dessins/			# fichiers edrawing
+│   │   └── support-b/
+|	|
+│   └── .htaccess					# Configuration Apache pour la réécriture d'URL
+|
+├── src/                            # Code source de l'application
+│   ├── Controllers/                # Contrôleurs (gestion des requêtes HTTP)
+│   ├── Middleware/                 # Middlewares (traitements intermédiaires)
+│   ├── Models/                     # Modèles (logique métier et données)
+│   ├── Services/                   # Services réutilisables (ex: base de données, email)
+│   └── Utilities/                  # Fonctions ou classes utilitaires
+├── templates/                      # Modèles de vues (ex: Twig, PHP)
+├── config/                         # Fichiers de configuration
+│   ├── routes.php                  # Définition des routes
+│   ├── dependencies.php            # Définitions des dépendances (conteneur PSR-11)
+│   └── settings.php                # Paramètres de l'application
+├── vendor/                         # Dépendances gérées par Composer
+├── composer.json                   # Dépendances PHP et règles d'autochargement
+├── composer.lock                   # fige les versions précises des dépendances installées par Composer
+├── DT_conventions.md               # mes conventions de programation qui servira aussi à un agent IA
+└── README.md                       # Documentation du projet
 
 # style d'écriture des noms
 - Variables/fonctions : `snake_case`
