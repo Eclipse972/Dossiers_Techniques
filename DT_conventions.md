@@ -36,6 +36,7 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 
 # style d'écriture des noms
 - Variables/fonctions : `snake_case`
+- nom des tables et vues de base de données : `snake_case`
 - Classes : `PascalCase`
 - Fichiers : `kebab-case`
 - Constantes : `UPPER_SNAKE_CASE`
