@@ -59,9 +59,9 @@ Exemples:
 - JS : Aucun (vanilla JS)
 
 # Mes pratiques de code
-- DRY (Don't Repeat Yourself)
-- Fonctions < 20 lignes
-- 1 classe = 1 responsabilité (SOLID)
+- Fonctions ou une méthode ne doit pas dépasser 30 lignes
+- 1 classe = 1 responsabilité
+- le nom d'une variable ou de constante doit être explicite
 
 # Gestion des erreurs
 Exceptions personnalisées en PHP et JS
