@@ -35,6 +35,7 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 |
 ├── src/                            # Code source de l'application
 │   ├── Controllers/                # Contrôleurs (gestion des requêtes HTTP)
+│   ├── Exceptions/                	# Exceptions personnalisée
 │   ├── Middleware/                 # Middlewares (traitements intermédiaires)
 │   ├── Models/                     # Modèles (logique métier et données)
 │   ├── Services/                   # Services réutilisables (ex: base de données, email)
@@ -182,8 +183,22 @@ Données injectées dans une balise avec attribut data-*
 - 1 classe = 1 responsabilité
 - le nom d'une variable ou de constante doit être explicite
 
-# Gestion des erreurs
-Exceptions personnalisées en PHP et JS
+# Gestion des exceptions
+## Emplacement
+- **Dossier** : `src/Exceptions/`
+- **Namespace** : `App\Exceptions`
+
+## Organisation
+- `Http/` : Exceptions HTTP (404, 401, etc.)
+- `Business/` : Exceptions métier spécifiques
+- `Technical/` : Exceptions techniques (DB, filesystem, etc.)
+
+## Conventions de nommage
+- Suffixe obligatoire : `Exception`
+- Exemple : `SupportNotFoundException`, `InvalidFileException`
+
+## Utilisation
+Toutes les exceptions personnalisées doivent étendre `App\Exceptions\BaseException`
 
 # Tests
 Outils à définir
