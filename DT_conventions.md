@@ -106,6 +106,60 @@ Exemples:
 - `page-builder.js` : construit le contenu principal
 - Scripts spécifiques par type de page (dessin, nomenclature, éclaté)
 
+# JavaScript
+
+## Principes
+- Vanilla JS uniquement (ES6+)
+- Modules ES6 si nécessaire (import/export)
+- Code organisé par responsabilité
+
+## Organisation des scripts
+- `menu-builder.js` : fonction buildMenu(data)
+- `page-builder.js` : fonction buildPage(data, type)
+- Scripts type dans `/js/types/` : exports de fonctions spécialisées
+
+## Gestion des données
+- Lecture du JSON depuis le DOM au chargement
+- Validation basique des données reçues (vérifier présence clés attendues)
+- Gestion des erreurs si données manquantes/incorrectes
+
+## Manipulation du DOM
+- Création d'éléments via createElement() (pas de innerHTML avec données utilisateur)
+- Classes CSS via classList
+- Événements via addEventListener()
+
+## Performance
+- Pas de manipulation DOM dans des boucles si évitable
+- Event delegation pour les listes d'éléments
+- Lazy loading des images si nécessaire
+
+# Format des données JSON
+
+## Structure générale
+Données injectées dans une balise avec attribut data-*
+
+## Nomenclature des clés
+- snake_case (cohérent avec PHP/BDD)
+- Clés explicites en français non accentué
+
+## Exemple de structure
+{
+  "support": "nom_du_support",
+  "type_page": "dessin_ensemble",
+  "titre": "Dessin d'ensemble",
+  "fichiers": [
+    {
+      "nom": "plan_001.pdf",
+      "chemin": "/supports/support-a/dessins/plan_001.pdf",
+      "taille": "2.3 Mo"
+    }
+  ],
+  "navigation": {
+    "precedent": "/support-a/page-2",
+    "suivant": "/support-a/page-4"
+  }
+}
+
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
 - 1 classe = 1 responsabilité
