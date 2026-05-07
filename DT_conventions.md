@@ -70,10 +70,9 @@ Exceptions personnalisées en PHP et JS
 Outils à définir
 
 # Documentation
-- pas de fichier séparé
-- chaque fichiers contient sa propre documentation
-- PHP en PHPdoc
-- JS en JSdoc
+- chaque fichier contient sa propre documentation
+- script PHP avec PHPdoc pour chaque méthode et la classe
+- script JS en JSdoc pour chaque fonction ou méthode
 - Html et CSS sous forme de commentaire dans le code
 
 # Sécurité
