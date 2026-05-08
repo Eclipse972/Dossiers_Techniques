@@ -58,11 +58,15 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 - Constantes : `UPPER_SNAKE_CASE`
 
 # Conventions de nommage
-Bien que PHP et Slim utilisent l'anglais. Tous les noms de variable, classe et fichiers seront en français non accentué
-Exemples:
-- start est interdit car en anglais
-- départ est interdit car il y un accent
-- depart est correct
+Conserver l’anglais pour les mots-clés des langages (ex: function, class, fetchAll()), les méthodes des frameworks (ex: addRoute() de Slim), et les APIs/standards (ex: JSON, DOM).
+
+Noms personnalisés : Utiliser le français non accentué pour :
+- Les variables, fonctions, classes, fichiers, et tables de BDD que tu crées.
+- Les clés JSON et les données métier.
+
+Exemples en PHP:
+- $identifiant_utilisateur = $requete->fetchAll(); // fetchAll() reste en anglais
+- class GestionDossier { ... } // Classe personnalisée en français
 
 # Frameworks et bibliothèques
 - Backend : Slim framework 4
