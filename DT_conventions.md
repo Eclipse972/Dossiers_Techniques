@@ -46,9 +46,6 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── Controleur/                 # Contrôleurs (gestion des requêtes HTTP)
 │   ├── Modele/                     # Modèles (logique métier et données)
 │   ├── Exceptions/                 # Exceptions personnalisées
-│   ├── Middleware/                 # Middlewares (traitements intermédiaires)
-│   ├── Service/                    # Services réutilisables (ex: base de données)
-│   ├── Utilitaire/                 # Fonctions ou classes utilitaires
 │   ├── Vue/                        # Templates Twig (.twig)
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
