@@ -118,6 +118,33 @@ Données injectées dans une balise avec attribut data-*
   }
 }
 
+# JavaScript
+
+## Principes
+- Vanilla JS uniquement (ES6+)
+- Modules ES6 si nécessaire (import/export)
+- Code organisé par responsabilité
+
+## Organisation des scripts
+- `menu-builder.js` : fonction buildMenu(data)
+- `page-builder.js` : fonction buildPage(data, type)
+- Scripts type dans `/js/types/` : exports de fonctions spécialisées
+
+## Gestion des données
+- Lecture du JSON depuis le DOM au chargement
+- Validation basique des données reçues (vérifier présence clés attendues)
+- Gestion des erreurs si données manquantes/incorrectes
+
+## Manipulation du DOM
+- Création d'éléments via createElement() (pas de innerHTML avec données utilisateur)
+- Classes CSS via classList
+- Événements via addEventListener()
+
+## Performance
+- Pas de manipulation DOM dans des boucles si évitable
+- Event delegation pour les listes d'éléments
+- Lazy loading des images si nécessaire
+
 # style d'écriture des noms
 - Variables/fonctions : `snake_case`
 - nom des tables et vues de base de données : `snake_case`
@@ -154,33 +181,6 @@ Exemples en PHP:
 - `menu-builder.js` : génère le menu de navigation
 - `page-builder.js` : construit le contenu principal
 - Scripts spécifiques par type de page (dessin, nomenclature, éclaté)
-
-# JavaScript
-
-## Principes
-- Vanilla JS uniquement (ES6+)
-- Modules ES6 si nécessaire (import/export)
-- Code organisé par responsabilité
-
-## Organisation des scripts
-- `menu-builder.js` : fonction buildMenu(data)
-- `page-builder.js` : fonction buildPage(data, type)
-- Scripts type dans `/js/types/` : exports de fonctions spécialisées
-
-## Gestion des données
-- Lecture du JSON depuis le DOM au chargement
-- Validation basique des données reçues (vérifier présence clés attendues)
-- Gestion des erreurs si données manquantes/incorrectes
-
-## Manipulation du DOM
-- Création d'éléments via createElement() (pas de innerHTML avec données utilisateur)
-- Classes CSS via classList
-- Événements via addEventListener()
-
-## Performance
-- Pas de manipulation DOM dans des boucles si évitable
-- Event delegation pour les listes d'éléments
-- Lazy loading des images si nécessaire
 
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
