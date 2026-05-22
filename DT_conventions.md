@@ -21,7 +21,6 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 - JS : aucun (vanilla JS)
 
 # Arborescence
-C'est une arborescence classique de Slim framework légèrement modifiée.
 /
 ├── public/                         # Dossier racine accessible via le web
 │   ├── index.php                   # Point d'entrée principal de l'application
@@ -43,18 +42,18 @@ C'est une arborescence classique de Slim framework légèrement modifiée.
 │   │   └── support-b/
 │   └── .htaccess                   # Configuration Apache pour la réécriture d'URL
 │
-├── src/                            # Code source de l'application
-│   ├── Controllers/                # Contrôleurs (gestion des requêtes HTTP)
+├── src/                            # Tous les scripts du projet (PHP, config, templates)
+│   ├── Controleur/                 # Contrôleurs (gestion des requêtes HTTP)
+│   ├── Modele/                     # Modèles (logique métier et données)
 │   ├── Exceptions/                 # Exceptions personnalisées
 │   ├── Middleware/                 # Middlewares (traitements intermédiaires)
-│   ├── Models/                     # Modèles (logique métier et données)
-│   ├── Services/                   # Services réutilisables (ex: base de données)
-│   └── Utilities/                  # Fonctions ou classes utilitaires
-├── templates/                      # Templates Twig (.twig)
-├── config/                         # Fichiers de configuration
-│   ├── routes.php                  # Définition des routes
-│   ├── dependencies.php            # Définitions des dépendances (conteneur PSR-11)
-│   └── settings.php                # Paramètres de l'application
+│   ├── Service/                    # Services réutilisables (ex: base de données)
+│   ├── Utilitaire/                 # Fonctions ou classes utilitaires
+│   ├── Vue/                        # Templates Twig (.twig)
+│   └── config/                     # Fichiers de configuration
+│       ├── routes.php              # Définition des routes
+│       ├── dependencies.php        # Définitions des dépendances (conteneur PSR-11)
+│       └── settings.php            # Paramètres de l'application
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
