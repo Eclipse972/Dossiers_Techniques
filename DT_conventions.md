@@ -54,6 +54,9 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │       ├── routes.php              # Définition des routes
 │       ├── dependencies.php        # Définitions des dépendances (conteneur PSR-11)
 │       └── settings.php            # Paramètres de l'application
+├── BDD/                            # Sauvegarde de la base de données
+│   ├── tables/                     # Scripts SQL de création des tables
+│   └── vues/                       # Scripts SQL de création des vues
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
