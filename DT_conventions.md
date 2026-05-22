@@ -1,26 +1,27 @@
 Ici se trouvent mes règles pour le développement de mon site de dossiers techniques en ligne.
 
-# langages
-## backend
+# Langages
+## Backend
 - PHP 8
 - SQL via PDO
-## frontend
-- html 5
+## Frontend
+- HTML 5
 - CSS 3
 - JS
 
 # Frameworks et bibliothèques
 - Backend : Slim framework 4
+- Templates : Twig
 - Frontend : aucun
-- Base de données : mariaDB
+- Base de données : MariaDB
 - Interdit : React, Vue, Angular
 
 # Gestion des dépendances
-- composer pour Slim et mes fichiers
-- JS : Aucun (vanilla JS)
+- Composer pour Slim, Twig et mes fichiers
+- JS : aucun (vanilla JS)
 
 # Arborescence
-C'est une arborescence classique de slim frameworklégèrement modifiée
+C'est une arborescence classique de Slim framework légèrement modifiée.
 /
 ├── public/                         # Dossier racine accessible via le web
 │   ├── index.php                   # Point d'entrée principal de l'application
@@ -35,72 +36,82 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 │   ├── images/                     # Images
 │   ├── supports/                   # Fichiers techniques par support
 │   │   ├── support-a/
-│   │   │   ├── images/				# images du support
-│   │   │   ├── pieces/				# fichiers edrawing
-│   │   │   ├── assemblages/		# fichiers edrawing
-│   │   │   └── dessins/			# fichiers edrawing
+│   │   │   ├── images/             # Images du support
+│   │   │   ├── pieces/             # Fichiers eDrawing
+│   │   │   ├── assemblages/        # Fichiers eDrawing
+│   │   │   └── dessins/            # Fichiers eDrawing
 │   │   └── support-b/
-|	|
-│   └── .htaccess					# Configuration Apache pour la réécriture d'URL
-|
+│   └── .htaccess                   # Configuration Apache pour la réécriture d'URL
+│
 ├── src/                            # Code source de l'application
 │   ├── Controllers/                # Contrôleurs (gestion des requêtes HTTP)
-│   ├── Exceptions/                	# Exceptions personnalisée
+│   ├── Exceptions/                 # Exceptions personnalisées
 │   ├── Middleware/                 # Middlewares (traitements intermédiaires)
 │   ├── Models/                     # Modèles (logique métier et données)
-│   ├── Services/                   # Services réutilisables (ex: base de données, email)
+│   ├── Services/                   # Services réutilisables (ex: base de données)
 │   └── Utilities/                  # Fonctions ou classes utilitaires
-├── templates/                      # Modèles de vues (ex: Twig, PHP)
+├── templates/                      # Templates Twig (.twig)
 ├── config/                         # Fichiers de configuration
 │   ├── routes.php                  # Définition des routes
 │   ├── dependencies.php            # Définitions des dépendances (conteneur PSR-11)
 │   └── settings.php                # Paramètres de l'application
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
-├── composer.lock                   # fige les versions précises des dépendances installées par Composer
-├── DT_conventions.md               # mes conventions de programation qui servira aussi à un agent IA
+├── composer.lock                   # Fige les versions précises des dépendances
+├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA
 └── README.md                       # Documentation du projet
 
 # Architecture applicative
 
 ## Principe général
-- PHP génère le template HTML minimal + données JSON embarquées
+- PHP/Slim gère le routage et la logique métier
+- Twig génère le HTML avec les données JSON embarquées
 - JavaScript construit l'intégralité du contenu visible
 - Fichiers techniques stockés dans /public/supports/{nom_support}/
 
 ## Flux de données
 1. Requête utilisateur → Slim Router
 2. Contrôleur récupère les données (BDD)
-3. Template PHP injecte JSON dans le DOM (balise <div id="data">)
-4. JS lit le JSON et génère l'affichage complet
+3. Contrôleur passe les données au template Twig
+4. Twig injecte le JSON dans le DOM (balise `<div id="app-data" data-json='...'>`)
+5. JS lit le JSON et génère l'affichage complet
 
-# Templates PHP
+## Responsabilités
 
-## Responsabilité
+### PHP/Slim (Backend)
+- Routage des URLs
+- Récupération des données en BDD
+- Construction du JSON
+- Transmission des données à Twig
+
+### Twig (Templates)
 - Structure HTML minimale (doctype, head, body)
-- Injection des données JSON
+- Injection des données JSON dans le DOM
 - Chargement des scripts JS nécessaires
+- Données fournies : métadonnées de la page, données métier, configuration
 
-## Structure type
-- Balise <div id="app-data" data-json='...'> OU
-- <script type="application/json" id="page-data">...</script>
-- Scripts JS en fin de body
+### JavaScript (Frontend)
+- Lecture du JSON embarqué
+- Génération du menu de navigation
+- Construction du contenu principal
+- Gestion des interactions utilisateur
 
-## Données fournies
-- Métadonnées de la page (titre, type)
-- Données métier (liste fichiers, navigation)
-- Configuration (chemins, constantes)
+## Scripts JS par page
+- `menu-builder.js` : génère le menu de navigation via buildMenu(data)
+- `page-builder.js` : construit le contenu principal via buildPage(data, type)
+- Scripts spécifiques par type de page dans `/js/types/` (dessin, nomenclature, éclaté)
 
 # Format des données JSON
 
 ## Structure générale
-Données injectées dans une balise avec attribut data-*
+Données injectées par Twig dans une balise avec attribut data-json.
 
 ## Nomenclature des clés
 - snake_case (cohérent avec PHP/BDD)
 - Clés explicites en français non accentué
 
 ## Exemple de structure
+```json
 {
   "support": "nom_du_support",
   "type_page": "dessin_ensemble",
@@ -117,6 +128,7 @@ Données injectées dans une balise avec attribut data-*
     "suivant": "/support-a/page-4"
   }
 }
+```
 
 # JavaScript
 
@@ -125,14 +137,9 @@ Données injectées dans une balise avec attribut data-*
 - Modules ES6 si nécessaire (import/export)
 - Code organisé par responsabilité
 
-## Organisation des scripts
-- `menu-builder.js` : fonction buildMenu(data)
-- `page-builder.js` : fonction buildPage(data, type)
-- Scripts type dans `/js/types/` : exports de fonctions spécialisées
-
 ## Gestion des données
 - Lecture du JSON depuis le DOM au chargement
-- Validation basique des données reçues (vérifier présence clés attendues)
+- Validation basique des données reçues (vérifier présence des clés attendues)
 - Gestion des erreurs si données manquantes/incorrectes
 
 ## Manipulation du DOM
@@ -145,59 +152,41 @@ Données injectées dans une balise avec attribut data-*
 - Event delegation pour les listes d'éléments
 - Lazy loading des images si nécessaire
 
-# style d'écriture des noms
+# Style d'écriture des noms
 - Variables/fonctions : `snake_case`
-- nom des tables et vues de base de données : `snake_case`
+- Tables et vues de base de données : `snake_case`
 - Classes : `PascalCase`
 - Fichiers : `kebab-case`
 - Constantes : `UPPER_SNAKE_CASE`
 
 # Conventions de nommage
-Conserver l’anglais pour les mots-clés des langages (ex: function, class, fetchAll()), les méthodes des frameworks (ex: addRoute() de Slim), et les APIs/standards (ex: JSON, DOM).
+Conserver l'anglais pour les mots-clés des langages (ex: function, class, fetchAll()), les méthodes des frameworks (ex: addRoute() de Slim), et les APIs/standards (ex: JSON, DOM).
 
-Noms personnalisés : Utiliser le français non accentué pour :
-- Les variables, fonctions, classes, fichiers, et tables de BDD que tu crées.
-- Les clés JSON et les données métier.
+Noms personnalisés : utiliser le français non accentué pour :
+- Les variables, fonctions, classes, fichiers et tables de BDD que tu crées
+- Les clés JSON et les données métier
 
-Exemples en PHP:
-- $identifiant_utilisateur = $requete->fetchAll(); // fetchAll() reste en anglais
-- class GestionDossier { ... } // Classe personnalisée en français
+Exemples en PHP :
+- `$identifiant_utilisateur = $requete->fetchAll();` // fetchAll() reste en anglais
+- `class GestionDossier { ... }` // classe personnalisée en français
 
-## Responsabilités
-
-### PHP (Backend)
-- Routage des URLs
-- Récupération des données en BDD
-- Construction du JSON
-- Rendu du template minimal (structure HTML + <script>)
-
-### JavaScript (Frontend)
-- Lecture du JSON embarqué
-- Génération du menu de navigation
-- Construction du contenu principal
-- Gestion des interactions utilisateur
-
-## Scripts JS par page
-- `menu-builder.js` : génère le menu de navigation
-- `page-builder.js` : construit le contenu principal
-- Scripts spécifiques par type de page (dessin, nomenclature, éclaté)
-
-# Mes pratiques de code
-- Fonctions ou une méthode ne doit pas dépasser 30 lignes
+# Pratiques de code
+- Une fonction ou méthode ne doit pas dépasser 30 lignes
 - 1 classe = 1 responsabilité
-- une fonction/méthode ne fait qu'une seule chose
-- en PHP utiliser les namespaces et l'autoloading
-- le nom d'une variable ou de constante doit être explicite
+- Une fonction/méthode ne fait qu'une seule chose
+- En PHP : utiliser les namespaces et l'autoloading
+- Le nom d'une variable ou constante doit être explicite
 
 # Gestion des exceptions
+
 ## Emplacement
-- **Dossier** : `src/Exceptions/`
-- **Namespace** : `App\Exceptions`
+- Dossier : `src/Exceptions/`
+- Namespace : `App\Exceptions`
 
 ## Organisation
-- `Http/` : Exceptions HTTP (404, 401, etc.)
-- `Business/` : Exceptions métier spécifiques
-- `Technical/` : Exceptions techniques (DB, filesystem, etc.)
+- `Http/` : exceptions HTTP (404, 401, etc.)
+- `Business/` : exceptions métier spécifiques
+- `Technical/` : exceptions techniques (DB, filesystem, etc.)
 
 ## Conventions de nommage
 - Suffixe obligatoire : `Exception`
@@ -206,17 +195,20 @@ Exemples en PHP:
 ## Utilisation
 Toutes les exceptions personnalisées doivent étendre `App\Exceptions\BaseException`
 
-# Tests
+# Documentation
+- Chaque fichier contient sa propre documentation
+- PHP : PHPDoc pour chaque classe et méthode
+- JS : JSDoc pour chaque fonction ou méthode
+- HTML et CSS : commentaires dans le code
+
+# Qualité
+
+## Tests
 Outils à définir
 
-# Documentation
-- chaque fichier contient sa propre documentation
-- script PHP avec PHPdoc pour chaque méthode et la classe
-- script JS en JSdoc pour chaque fonction ou méthode
-- Html et CSS sous forme de commentaire dans le code
+## Sécurité
+À définir
 
-# Sécurité
-
-# Performance
-- Backend : Utiliser un serveur de cache comme redis qui est disponible chez o2switch
-- Frontend : pas de minification pour avoir un code lisible
+## Performance
+- Backend : utiliser Redis comme serveur de cache (disponible chez o2switch)
+- Frontend : pas de minification pour conserver un code lisible
