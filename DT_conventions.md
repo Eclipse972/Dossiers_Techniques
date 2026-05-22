@@ -57,6 +57,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── BDD/                            # Sauvegarde de la base de données
 │   ├── tables/                     # Scripts SQL de création des tables
 │   └── vues/                       # Scripts SQL de création des vues
+├── documentation/                  # Documentation du projet
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
