@@ -8,6 +8,16 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 - CSS 3
 - JS
 
+# Frameworks et bibliothèques
+- Backend : Slim framework 4
+- Frontend : aucun
+- Base de données : mariaDB
+- Interdit : React, Vue, Angular
+
+# Gestion des dépendances
+- composer pour Slim et mes fichiers
+- JS : Aucun (vanilla JS)
+
 # Arborescence
 C'est une arborescence classique de slim frameworklégèrement modifiée
 /
@@ -67,16 +77,6 @@ Noms personnalisés : Utiliser le français non accentué pour :
 Exemples en PHP:
 - $identifiant_utilisateur = $requete->fetchAll(); // fetchAll() reste en anglais
 - class GestionDossier { ... } // Classe personnalisée en français
-
-# Frameworks et bibliothèques
-- Backend : Slim framework 4
-- Frontend : aucun
-- Base de données : mariaDB
-- Interdit : React, Vue, Angular
-
-# Gestion des dépendances
-- composer pour Slim et mes fichiers
-- JS : Aucun (vanilla JS)
 
 # Architecture applicative
 
