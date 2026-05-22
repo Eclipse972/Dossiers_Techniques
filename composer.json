@@ -1,6 +1,6 @@
 {
     "name": "eclipse972/dossiers-techniques",
-    "description": "Mon site de dossiers techniques utilisables en cours.",
+    "description": "Mon site de dossiers techniques en lignes pour mes élèves.",
     "type": "project",
     "require": {
         "slim/slim": "^4.15",
@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Eclipse972\\DossiersTechniques\\": "src/"
+            "DossiersTechniques\\": "src/"
         }
     }
 }
