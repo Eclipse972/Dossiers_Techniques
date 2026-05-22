@@ -91,6 +91,33 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 - Données métier (liste fichiers, navigation)
 - Configuration (chemins, constantes)
 
+# Format des données JSON
+
+## Structure générale
+Données injectées dans une balise avec attribut data-*
+
+## Nomenclature des clés
+- snake_case (cohérent avec PHP/BDD)
+- Clés explicites en français non accentué
+
+## Exemple de structure
+{
+  "support": "nom_du_support",
+  "type_page": "dessin_ensemble",
+  "titre": "Dessin d'ensemble",
+  "fichiers": [
+    {
+      "nom": "plan_001.pdf",
+      "chemin": "/supports/support-a/dessins/plan_001.pdf",
+      "taille": "2.3 Mo"
+    }
+  ],
+  "navigation": {
+    "precedent": "/support-a/page-2",
+    "suivant": "/support-a/page-4"
+  }
+}
+
 # style d'écriture des noms
 - Variables/fonctions : `snake_case`
 - nom des tables et vues de base de données : `snake_case`
@@ -154,33 +181,6 @@ Exemples en PHP:
 - Pas de manipulation DOM dans des boucles si évitable
 - Event delegation pour les listes d'éléments
 - Lazy loading des images si nécessaire
-
-# Format des données JSON
-
-## Structure générale
-Données injectées dans une balise avec attribut data-*
-
-## Nomenclature des clés
-- snake_case (cohérent avec PHP/BDD)
-- Clés explicites en français non accentué
-
-## Exemple de structure
-{
-  "support": "nom_du_support",
-  "type_page": "dessin_ensemble",
-  "titre": "Dessin d'ensemble",
-  "fichiers": [
-    {
-      "nom": "plan_001.pdf",
-      "chemin": "/supports/support-a/dessins/plan_001.pdf",
-      "taille": "2.3 Mo"
-    }
-  ],
-  "navigation": {
-    "precedent": "/support-a/page-2",
-    "suivant": "/support-a/page-4"
-  }
-}
 
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
