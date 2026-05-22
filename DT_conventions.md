@@ -49,9 +49,9 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── Vue/                        # Templates Twig (.twig)
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
-│       ├── dependencies.php        # Définitions des dépendances (conteneur PSR-11)
-│       └── settings.php            # Paramètres de l'application
-├── BDD/                            # Sauvegarde de la base de données
+│       ├── dependances.php         # Définitions des dépendances (conteneur PSR-11)
+│       └── reglages.php            # Paramètres de l'application
+├── BDD/                            # Sauvegarde de la base de données (local uniquement)
 │   ├── tables/                     # Scripts SQL de création des tables
 │   └── vues/                       # Scripts SQL de création des vues
 ├── documentation/                  # Documentation du projet
