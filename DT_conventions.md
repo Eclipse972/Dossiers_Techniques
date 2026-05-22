@@ -54,7 +54,8 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── BDD/                            # Sauvegarde de la base de données (local uniquement)
 │   ├── tables/                     # Scripts SQL de création des tables
 │   └── vues/                       # Scripts SQL de création des vues
-├── documentation/                  # Documentation du projet
+├── documentation/                  # Documentation du projet (local uniquement)
+├── old-site/                       # Ancien site conservé pour référence (local uniquement)
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
