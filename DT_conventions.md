@@ -1,4 +1,5 @@
 Ici se trouvent mes règles pour le développement de mon site de dossiers techniques en ligne.
+
 # langages
 ## backend
 - PHP 8
@@ -60,6 +61,36 @@ C'est une arborescence classique de slim frameworklégèrement modifiée
 ├── DT_conventions.md               # mes conventions de programation qui servira aussi à un agent IA
 └── README.md                       # Documentation du projet
 
+# Architecture applicative
+
+## Principe général
+- PHP génère le template HTML minimal + données JSON embarquées
+- JavaScript construit l'intégralité du contenu visible
+- Fichiers techniques stockés dans /public/supports/{nom_support}/
+
+## Flux de données
+1. Requête utilisateur → Slim Router
+2. Contrôleur récupère les données (BDD)
+3. Template PHP injecte JSON dans le DOM (balise <div id="data">)
+4. JS lit le JSON et génère l'affichage complet
+
+# Templates PHP
+
+## Responsabilité
+- Structure HTML minimale (doctype, head, body)
+- Injection des données JSON
+- Chargement des scripts JS nécessaires
+
+## Structure type
+- Balise <div id="app-data" data-json='...'> OU
+- <script type="application/json" id="page-data">...</script>
+- Scripts JS en fin de body
+
+## Données fournies
+- Métadonnées de la page (titre, type)
+- Données métier (liste fichiers, navigation)
+- Configuration (chemins, constantes)
+
 # style d'écriture des noms
 - Variables/fonctions : `snake_case`
 - nom des tables et vues de base de données : `snake_case`
@@ -77,19 +108,6 @@ Noms personnalisés : Utiliser le français non accentué pour :
 Exemples en PHP:
 - $identifiant_utilisateur = $requete->fetchAll(); // fetchAll() reste en anglais
 - class GestionDossier { ... } // Classe personnalisée en français
-
-# Architecture applicative
-
-## Principe général
-- PHP génère le template HTML minimal + données JSON embarquées
-- JavaScript construit l'intégralité du contenu visible
-- Fichiers techniques stockés dans /public/supports/{nom_support}/
-
-## Flux de données
-1. Requête utilisateur → Slim Router
-2. Contrôleur récupère les données (BDD)
-3. Template PHP injecte JSON dans le DOM (balise <div id="data">)
-4. JS lit le JSON et génère l'affichage complet
 
 ## Responsabilités
 
@@ -163,23 +181,6 @@ Données injectées dans une balise avec attribut data-*
     "suivant": "/support-a/page-4"
   }
 }
-
-# Templates PHP
-
-## Responsabilité
-- Structure HTML minimale (doctype, head, body)
-- Injection des données JSON
-- Chargement des scripts JS nécessaires
-
-## Structure type
-- Balise <div id="app-data" data-json='...'> OU
-- <script type="application/json" id="page-data">...</script>
-- Scripts JS en fin de body
-
-## Données fournies
-- Métadonnées de la page (titre, type)
-- Données métier (liste fichiers, navigation)
-- Configuration (chemins, constantes)
 
 # Mes pratiques de code
 - Fonctions ou une méthode ne doit pas dépasser 30 lignes
