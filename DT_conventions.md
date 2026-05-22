@@ -44,6 +44,8 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │
 ├── src/                            # Tous les scripts du projet (PHP, config, templates)
 │   ├── Controleur/                 # Contrôleurs (gestion des requêtes HTTP)
+│   |   ├── SupportControleur.php   # classe-mère de tous les supports
+│   |   └── AutrePageControleur.php # controleur pour les pages qutre celle d'un dossier technique (accueil, contact, ...)
 │   ├── Modele/                     # Modèles (logique métier et données)
 │   ├── Exceptions/                 # Exceptions personnalisées
 │   ├── Vue/                        # Templates Twig (.twig)
