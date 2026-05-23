@@ -1,0 +1,54 @@
+#!/bin/bash
+
+SITE="VolÉval"
+SERVER="rogu0302@marigane.o2switch.net" # Adresse du serveur
+
+DEST_DEV="devEvaluation"	# Dossier de destination pour le développement
+DEST_PROD="Evaluation"		# Dossier de destination pour la production
+
+# Constantes pour simuler un booléen
+VRAI=1
+FAUX=0
+
+sync_VolEval() {
+	local mode=$1	# récupération du paramètre
+	echo -n "${SITE}: synchronisation du site de "
+
+	if [[ $mode -eq $VRAI ]]; then
+		echo "production"
+		# Transfert vers le site production
+		rsync -e ssh -av --delete-after --exclude='public/Tests' --exclude='public/bac_a_sable' public Application vendor autoloader.php ${SERVER}:~/${DEST_PROD}/
+	else
+		echo "développement"
+		# Transfert vers le site de développement
+		rsync -e ssh -av --delete-after public Application vendor autoloader.php ${SERVER}:~/${DEST_DEV}/
+	fi
+}
+
+# Fonction pour afficher l'aide
+show_help() {
+	echo "Synchronisation du site VolÉval.net"  # Titre de l'aide
+	echo "Utilisation : maj-site [option]"  # Instructions générales
+	echo "option : dev pour développement, prod pour production"  # Options possibles
+	echo "Exemple : maj-site prod pour mettre à jour le site de production"  # Exemple d'utilisation
+}
+
+# Programme principal ============================================================
+case "$1" in
+	--help)
+		show_help  # Affichage de l'aide
+		exit 0  # Sortie après affichage de l'aide
+		;;
+	dev)
+		sync_VolEval $FAUX  # Synchronisation vers développement
+		exit 0  # Sortie après synchronisation
+		;;
+	prod)
+		sync_VolEval $VRAI  # Synchronisation vers production
+		exit 0  # Sortie après synchronisation
+		;;
+	*)
+		echo "Paramètre inconnu"  # Message d'erreur si paramètre non reconnu
+		exit 1  # Sortie avec erreur
+		;;
+esac
