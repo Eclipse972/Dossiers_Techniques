@@ -10,7 +10,7 @@ DEST_PROD="dossiers-techniques"	# Dossier de destination pour la production
 VRAI=1
 FAUX=0
 
-sync_VolEval() {
+synchronise() {
 	local mode=$1	# récupération du paramètre
 	echo -n "${SITE}: synchronisation du site de "
 
@@ -40,11 +40,11 @@ case "$1" in
 		exit 0  # Sortie après affichage de l'aide
 		;;
 	dev)
-		sync_VolEval $FAUX  # Synchronisation vers développement
+		synchronise $FAUX  # Synchronisation vers développement
 		exit 0  # Sortie après synchronisation
 		;;
 	prod)
-		sync_VolEval $VRAI  # Synchronisation vers production
+		synchronise $VRAI  # Synchronisation vers production
 		exit 0  # Sortie après synchronisation
 		;;
 	*)
