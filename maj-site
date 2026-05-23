@@ -34,7 +34,7 @@ case "$1" in
 		show_help
 		exit 0
 		;;
-	dev)
+	dev|"")
 		synchronise $FAUX
 		exit 0
 		;;
