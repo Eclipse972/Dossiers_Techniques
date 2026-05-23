@@ -1,35 +1,24 @@
 <?php
-// Active les erreurs en développement (à désactiver en prod)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-// Charge l'autoloader
-require __DIR__ . '/../vendor/autoload.php';
+# forcer l'affichage des erreurs pour le site de developpement
+if (substr(__DIR__, 18, 3) == 'dev') {
+	ini_set('display_errors', 1);
+	error_reporting(E_ALL);
+}
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use Slim\Factory\AppFactory;
-use Twig\Loader\FilesystemLoader;
-use Twig\Environment;
-use Eclipse972\DossiersTechniques\Controllers\PageController;
 
-// Initialise Slim
+// --- Conteneur de dépendances ---
+$conteneur = require __DIR__ . '/../src/config/dependances.php';
+
+// --- Création de l'application Slim ---
+AppFactory::setContainer($conteneur);
 $app = AppFactory::create();
 
-// Configuration de Twig (avec cache pour la prod)
-$loader = new FilesystemLoader(__DIR__ . '/../templates');
-$twig = new Environment($loader, [
-    'cache' => __DIR__ . '/../cache',
-]);
+// --- Enregistrement des routes ---
+require __DIR__ . '/../src/config/routes.php';
 
-// Ajoute Twig au conteneur
-$app->getContainer()->set('twig', $twig);
-
-// Route pour l'accueil (version avec typage explicite)
-$app->get('/', function (Request $request, Response $response) use ($twig) {
-    $controller = new PageController($twig);
-    return $controller->accueil($response);
-});
-
-// Démarre l'application
+// --- Lancement ---
 $app->run();
