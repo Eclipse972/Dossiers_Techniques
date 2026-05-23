@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700&effect=outline" />
+    <link rel="stylesheet" href="/CSS/commun.css" />
+    {% block css %}{% endblock %}
+    <title>{{ title }}</title>
+</head>
+
+<body>
+
+<header>
+    <div id="logo"><img src="{{ logo_url }}" alt="{{ logo_description }}" /></div>
+    <div id="titre">{{ header }}</div>
+</header>
+
+<main role="main">
+    {% block contenu %}{% endblock %}
+</main>
+
+<footer>
+    <p>Site optimisé pour <img src="/images/chrome.png" alt="Logo Chrome" /> et <img src="/images/firefox.png" alt="Logo Firefox" />
+        - <a target="_blank" href="http://faq.sw.free.fr">Ma FAQ SolidWorks</a>
+        - dernière mise à jour du 23 mai 2026
+    </p>
+</footer>
+
+</body>
+</html>

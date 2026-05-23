@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+<nav>
+   {{ nav|raw }}
+</nav>
+
+<section>
+    {% block section %}{% endblock %}
+</section>
+{% endblock %}
