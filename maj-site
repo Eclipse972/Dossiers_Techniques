@@ -43,7 +43,8 @@ case "$1" in
 		exit 0
 		;;
 	*)
-		echo "Paramètre inconnu"
+		echo "'$1': paramètre inconnu"
+		echo "Utilisez --help pour l'aide."
 		exit 1
 		;;
 esac
