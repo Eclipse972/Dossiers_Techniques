@@ -1,28 +1,23 @@
 #!/bin/bash
 
-SITE="Mes dossiers techniques en ligne"
-SERVER="sc2rogu0302@marigane.o2switch.net" # Adresse du serveur
-
-DEST_DEV="devDT"				# Dossier de destination pour le développement
-DEST_PROD="dossiers-techniques"	# Dossier de destination pour la production
+# Synchronisation des sites de dévelopement et de production pour mes dossiers techniques en ligne
 
 # Constantes pour simuler un booléen
 VRAI=1
 FAUX=0
 
 synchronise() {
-	local mode=$1	# récupération du paramètre
-	echo -n "${SITE}: synchronisation du site de "
-
-	if [[ $mode -eq $VRAI ]]; then
-		echo "production"
-		# Transfert vers le site production
-		rsync -e ssh -av --delete-after --exclude='public/Tests' --exclude='public/bac_a_sable' public Application vendor autoloader.php ${SERVER}:~/${DEST_PROD}/
+	local version
+	local dossier
+	if [[ $1 -eq $VRAI ]]; then
+		version="production"
+		dossier="devDT"
 	else
-		echo "développement"
-		# Transfert vers le site de développement
-		rsync -e ssh -av --delete-after public Application vendor autoloader.php ${SERVER}:~/${DEST_DEV}/
+		version="développement"
+		dossier="dossiers-techniques"
 	fi
+	echo -n "Mes dossiers techniques en ligne: synchronisation du site de $version"
+	rsync -e ssh -av --delete-after public src sc2rogu0302@marigane.o2switch.net:~/${dossier}/
 }
 
 # Fonction pour afficher l'aide
