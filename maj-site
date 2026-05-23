@@ -16,7 +16,7 @@ synchronise() {
 		version="développement"
 		dossier="devDT"
 	fi
-	echo -n "Mes dossiers techniques en ligne: synchronisation du site de $version"
+	echo "Mes dossiers techniques en ligne: synchronisation du site de $version"
 	rsync -e ssh -av --delete-after public src sc2rogu0302@marigane.o2switch.net:~/${dossier}/
 }
 
