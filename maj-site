@@ -1,10 +1,10 @@
 #!/bin/bash
 
-SITE="VolÉval"
-SERVER="rogu0302@marigane.o2switch.net" # Adresse du serveur
+SITE="Mes dossiers techniques en ligne"
+SERVER="sc2rogu0302@marigane.o2switch.net" # Adresse du serveur
 
-DEST_DEV="devEvaluation"	# Dossier de destination pour le développement
-DEST_PROD="Evaluation"		# Dossier de destination pour la production
+DEST_DEV="devDT"				# Dossier de destination pour le développement
+DEST_PROD="dossiers-techniques"	# Dossier de destination pour la production
 
 # Constantes pour simuler un booléen
 VRAI=1
