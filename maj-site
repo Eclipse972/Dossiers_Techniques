@@ -31,19 +31,19 @@ show_help() {
 # Programme principal ============================================================
 case "$1" in
 	--help)
-		show_help  # Affichage de l'aide
-		exit 0  # Sortie après affichage de l'aide
+		show_help
+		exit 0
 		;;
 	dev)
-		synchronise $FAUX  # Synchronisation vers développement
-		exit 0  # Sortie après synchronisation
+		synchronise $FAUX
+		exit 0
 		;;
 	prod)
-		synchronise $VRAI  # Synchronisation vers production
-		exit 0  # Sortie après synchronisation
+		synchronise $VRAI
+		exit 0
 		;;
 	*)
-		echo "Paramètre inconnu"  # Message d'erreur si paramètre non reconnu
-		exit 1  # Sortie avec erreur
+		echo "Paramètre inconnu"
+		exit 1
 		;;
 esac
