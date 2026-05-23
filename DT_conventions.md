@@ -64,7 +64,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── vendor/                         # Dépendances gérées par Composer
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
-├── maj-site                        # Script rsync de déploiement sur O2switch (local uniquement)
+├── maj-site.conf                   # fichier de configuration pour mon script maj-site
 ├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA (local uniquement)
 └── README.md                       # Documentation du projet
 
