@@ -6,7 +6,7 @@ body {
 	--couleur3: #EFECCA;
 	--couleur4: #046380;
 	--couleur5: #002F2F;
-	
+
 	--largeur_1e_colonne:200px;
 	--largeur_2e_colonne:1200px;
 	/* fin de déclaraion de variables */
@@ -14,7 +14,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
-header, section, footer, main { 
+header, section, footer, main {
 	width:calc(var(--largeur_1e_colonne) + var(--largeur_2e_colonne) + 8px);
 	margin:auto;
 }
@@ -45,24 +45,7 @@ section h2 {
 	font-size: 20px;
 	margin-top: 0;
 }
-/* pied de page -------------------------------------------------------------------------------- */
-footer {
-	font-size:16px;
-	text-align: center;
-}
 
-footer a { 
-	text-decoration:none;
-	color:var(--couleur5);
-	padding:3px;
-}
-
-footer a:hover { background-color:var(--couleur2); }
-
-footer img {
-	height:32px;
-	vertical-align:middle;
-}
 /* logo  et titre de lapage ------------------------------------------------------------------- */
 #logo, #titre {
 	display:inline-block;
@@ -87,7 +70,7 @@ footer img {
 	text-align:center;
 }
 
-/* pied de page ------------------------------------------------------------------- */
+/* pied de page -------------------------------------------------------------------------------- */
 footer {
 	background-color:var(--couleur2);
 	margin-top:9px;
@@ -96,19 +79,21 @@ footer {
 }
 
 footer img {
-	display:block;
 	height: 40px;
 	vertical-align:middle;
 	margin: 9px 0 9px 0;
 }
 
 footer p {
-	margin:0 20px 0 5px;
+	margin:auto;
 	font-size:16px;
 	color:var(--couleur5);
 }
 
 footer a {
-	display:flex;
-	align-items:center;
+	text-decoration:none;
+	color:var(--couleur5);
+	padding:3px;
 }
+
+footer a:hover { background-color:var(--couleur2); }
