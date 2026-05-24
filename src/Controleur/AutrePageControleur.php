@@ -37,6 +37,11 @@ class AutrePageControleur
      */
     public function accueil(Request $requete, Response $reponse): Response
     {
-        return $this->vue->render($reponse, 'accueil.twig', ['titre' => "Bienvenue sur mes dossiers techniques !"]);
+        return $this->vue->render($reponse, 'home.html.twig',  [
+                    'title'            => 'Accueil',
+                    'header'           => 'Mes dossiers techniques',
+                    'logo_url'         => '/images/logo.png',
+                    'logo_description' => 'LOGO',
+                ]);
     }
 }
