@@ -49,9 +49,6 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── Modele/                     # Modèles (logique métier et données)
 │   ├── Exceptions/                 # Exceptions personnalisées
 │   ├── Vue/                        # Templates Twig (.twig)
-│   |   ├── accueil.twig            # page d'accueil permettant la sélection d'un dossier technique
-│   |   ├── nomenclature.twig       # pages de type nomenclature
-│   |   └── image-fichier.twig      # pages de type association image-fichier Ex: dessin d'ensemble
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
 │       ├── dependances.php         # Définitions des dépendances (conteneur PSR-11)
