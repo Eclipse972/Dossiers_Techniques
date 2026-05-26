@@ -26,6 +26,8 @@
     </p>
 </footer>
 
+{% block templates %}{% endblock %}
+
 <script type="application/json" id="app-data">
 {{ app_data | default([]) | json_encode | raw }}
 </script>
