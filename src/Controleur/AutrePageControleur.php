@@ -66,6 +66,7 @@ class AutrePageControleur
                     'header'           => 'Les dossiers techniques de ChristopHe',
                     'logo_url'         => '/images/logo.png',
                     'logo_description' => 'LOGO',
+                    'app_data'          => $listeSupport
                 ]);
     }
 }
