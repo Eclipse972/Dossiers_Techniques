@@ -27,7 +27,7 @@
 </footer>
 
 <script type="application/json" id="app-data">
-    {{ app_data | default({}) | json_encode | raw }}
+    {{ app_data | default([]) | json_encode | raw }}
 </script>
 
 {% block scripts %}{% endblock %}
