@@ -46,7 +46,7 @@ function creerVignette(support) {
     lien.href = `/Support/${support.dossier}`;
 
     const img = document.createElement('img');
-    img.src = `/Support/${support.dossier}/images/${support.image}`;
+    img.src = `/Supports/${support.dossier}/images/${support.image}`;
     img.alt = support.nom;
 
     lien.appendChild(img);
