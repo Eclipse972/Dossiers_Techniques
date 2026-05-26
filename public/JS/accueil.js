@@ -60,7 +60,7 @@ function creerVignette(support) {
 const tableau = document.querySelector('section table');
 if (!tableau) {
 	console.error('accueil.js : balise <table> introuvable dans <section>');
-	return;
+	exit;
 }
 const listeSupport = lireAppData()
 
