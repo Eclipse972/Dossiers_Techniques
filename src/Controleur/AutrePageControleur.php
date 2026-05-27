@@ -62,8 +62,8 @@ class AutrePageControleur
         ];
 
         return $this->vue->render($reponse, 'home.html.twig',  [
-                    'title'            => 'Accueil',
-                    'header'           => 'Les dossiers techniques de ChristopHe',
+                    'title'            => 'Dossiers techniques de ChristopHe',
+                    'header'           => 'Les dossiers techniques en ligne de ChristopHe',
                     'logo_url'         => '/images/logo.png',
                     'logo_description' => 'LOGO',
                     'app_data'          => $listeSupport
