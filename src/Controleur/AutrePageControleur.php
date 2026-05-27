@@ -1,10 +1,9 @@
 <?php
 /**
- * Contrôleur pour les pages générales de l'application
- * (accueil, contact, etc.).
- *
- * Gère les requêtes HTTP qui ne concernent pas
- * un dossier technique spécifique.
+ * Contrôleur pour les pages autres que celles d'un dossier technique
+ * 	- page d'accueil
+ * 	- formulaire de contact
+ * 	- etc
  */
 
 namespace DossiersTechniques\Controleur;
