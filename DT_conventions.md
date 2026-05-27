@@ -1,19 +1,47 @@
 Ici se trouvent mes règles pour le développement de mon site de dossiers techniques en ligne.
 
 # Table des matières
-1. [Langages](#langages)
-2. [Frameworks et bibliothèques](#frameworks-et-bibliothèques)
-3. [Gestion des dépendances](#gestion-des-dépendances)
-4. [Arborescence](#arborescence)
-5. [Architecture applicative](#architecture-applicative)
-6. [Format des données JSON](#format-des-données-json)
-7. [JavaScript](#javascript)
-8. [Style d'écriture des noms](#style-décriture-des-noms)
-9. [Conventions de nommage](#conventions-de-nommage)
-10. [Pratiques de code](#pratiques-de-code)
-11. [Gestion des exceptions](#gestion-des-exceptions)
-12. [Documentation](#documentation)
-13. [Qualité](#qualité)
+- [Table des matières](#table-des-matières)
+- [Langages](#langages)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+- [Frameworks et bibliothèques](#frameworks-et-bibliothèques)
+- [Gestion des dépendances](#gestion-des-dépendances)
+- [Arborescence](#arborescence)
+- [Architecture applicative](#architecture-applicative)
+  - [Principe général](#principe-général)
+  - [Flux de données](#flux-de-données)
+  - [Responsabilités](#responsabilités)
+    - [PHP/Slim (Backend)](#phpslim-backend)
+    - [Twig (Templates)](#twig-templates)
+    - [JavaScript (Frontend)](#javascript-frontend)
+  - [Scripts JS par page](#scripts-js-par-page)
+- [Format des données JSON](#format-des-données-json)
+  - [Structure générale](#structure-générale)
+  - [Nomenclature des clés](#nomenclature-des-clés)
+  - [Exemple de structure](#exemple-de-structure)
+- [JavaScript](#javascript)
+  - [Principes](#principes)
+  - [Stratégie de rendu côté client](#stratégie-de-rendu-côté-client)
+  - [Règles d'usage](#règles-dusage)
+  - [Gestion des données](#gestion-des-données)
+  - [Manipulation du DOM](#manipulation-du-dom)
+  - [Performance](#performance)
+  - [Manipulation du DOM](#manipulation-du-dom-1)
+  - [Performance](#performance-1)
+- [Style d'écriture des noms](#style-décriture-des-noms)
+- [Conventions de nommage](#conventions-de-nommage)
+- [Pratiques de code](#pratiques-de-code)
+- [Gestion des exceptions](#gestion-des-exceptions)
+  - [Emplacement](#emplacement)
+  - [Organisation](#organisation)
+  - [Conventions de nommage](#conventions-de-nommage-1)
+  - [Utilisation](#utilisation)
+- [Documentation](#documentation)
+- [Qualité](#qualité)
+  - [Tests](#tests)
+  - [Sécurité](#sécurité)
+  - [Performance](#performance-2)
 
 # Langages
 ## Backend
@@ -36,6 +64,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 - JS : aucun (vanilla JS)
 
 # Arborescence
+```
 /
 ├── public/                         # Dossier racine accessible via le web
 │   ├── index.php                   # Point d'entrée principal de l'application
@@ -76,7 +105,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── maj-site.conf                   # fichier de configuration pour mon script maj-site
 ├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA (local uniquement)
 └── README.md                       # Documentation du projet
-
+```
 # Architecture applicative
 
 ## Principe général
