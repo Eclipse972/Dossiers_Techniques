@@ -150,10 +150,68 @@ Données injectées par Twig dans une balise avec attribut data-json.
 - Modules ES6 si nécessaire (import/export)
 - Code organisé par responsabilité
 
+## Stratégie de rendu côté client
+Deux mécanismes complémentaires sont utilisés pour construire l'affichage :
+
+1. **Texte à trous (DOM Binding déclaratif)** : le template Twig produit une structure
+   HTML avec des balises `<span>`, `<p>`, etc. portant des identifiants explicites.
+   JS lit le JSON embarqué et injecte les valeurs dans ces emplacements réservés.
+   Exemple : `<span id="titre-support"></span>` → rempli par JS via `textContent`.
+
+2. **Clonage de templates natifs (HTMLTemplateElement)** : pour les structures répétées
+   ou complexes (listes, cartes, lignes de tableau), on privilégie la balise `<template>`
+   côté HTML. JS clone son contenu via `template.content.cloneNode(true)`, le remplit,
+   puis l'insère dans le DOM. Cela évite de construire du HTML complexe en JS.
+
+Ces deux approches constituent une **hydratation légère** : le HTML est pré-structuré
+par Twig, JS se charge uniquement de l'enrichir avec les données.
+
+## Règles d'usage
+- Préférer `<template>` dès qu'un bloc HTML est répété (nomenclature, liste de fichiers…)
+- Utiliser les identifiants `id` pour les emplacements uniques, les classes pour les
+  emplacements répétés à l'intérieur d'un clone de `<template>`
+- Ne jamais construire de HTML complexe par concaténation de chaînes en JS
+- Injection de texte via `textContent` (jamais `innerHTML` avec des données utilisateur)
+
 ## Gestion des données
 - Lecture du JSON depuis le DOM au chargement
 - Validation basique des données reçues (vérifier présence des clés attendues)
 - Gestion des erreurs si données manquantes/incorrectes
+
+## Manipulation du DOM
+- Création d'éléments via `createElement()` uniquement pour les cas simples (1-2 noeuds)
+- Clonage via `template.content.cloneNode(true)` pour les structures répétées
+- Classes CSS via `classList`
+- Événements via `addEventListener()`
+
+## Performance
+- Pas de manipulation DOM dans des boucles : chaque `appendChild()` en boucle force
+  le navigateur à recalculer le rendu à chaque itération. Utiliser un `DocumentFragment`
+  pour accumuler les éléments, puis les insérer en une seule opération.
+```js
+  const fragment = document.createDocumentFragment();
+  pieces.forEach(piece => fragment.appendChild(creer_ligne(piece)));
+  document.querySelector('#tableau').appendChild(fragment); // 1 seul reflow
+```
+
+- Event delegation pour les listes d'éléments : plutôt qu'un écouteur par élément,
+  poser un seul écouteur sur le parent. Les événements remontent naturellement du fils
+  vers le parent (bubbling). Indispensable avec les `<template>` clonés car les éléments
+  n'existent pas encore au chargement de la page.
+```js
+  document.querySelector('#liste-pieces').addEventListener('click', (event) => {
+      const piece = event.target.closest('.piece');
+      if (!piece) return;
+      gerer_clic(piece);
+  });
+```
+
+- Lazy loading des images : ajouter `loading="lazy"` sur les `<img>` pour que le
+  navigateur ne télécharge que les images proches de la zone visible. Utile sur les
+  pages avec beaucoup de photos de pièces.
+```html
+  <img src="/supports/support-a/images/vue_ensemble.jpg" alt="Vue d'ensemble" loading="lazy">
+```
 
 ## Manipulation du DOM
 - Création d'éléments via createElement() (pas de innerHTML avec données utilisateur)
