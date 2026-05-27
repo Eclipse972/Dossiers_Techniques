@@ -32,7 +32,7 @@ class AutrePageControleur
      * @param Request  $requete  Requête HTTP entrante
      * @param Response $reponse  Réponse HTTP à retourner
      *
-     * @return Response La réponse avec le rendu du template accueil.twig
+     * @return Response La réponse avec le rendu du template home.html.twig
      */
     public function accueil(Request $requete, Response $reponse): Response
     {
