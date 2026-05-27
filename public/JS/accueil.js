@@ -1,24 +1,17 @@
 /**
  * accueil.js
- * Génère dynamiquement les vignettes des supports techniques
- * à partir des données JSON reçues.
+ * Génère dynamiquement les vignettes des supports techniques.
  *
- * Structure d'une vignette (cellule <td>) :
- *   <td>
- *     <a href="/Support/{dossier}">
- *       <img src="/Support/{dossier}/images/{image}" alt="{nom}" />
- *       {nom}
- *     </a>
- *   </td>
+ * Données  : JSON injecté par Twig dans  <script id="app-data">
+ * Structure : template HTML déclaré dans <template id="vignette">
  *
- * Le tableau est organisé en lignes de 5 colonnes.
+ * Le tableau est organisé en lignes de NB_COLONNES colonnes.
  */
 
 const NB_COLONNES = 5;
 
 /**
- * Lit les données JSON injectées par Twig dans la balise
- * <script type="application/json" id="app-data">.
+ * Lit les données JSON injectées par Twig.
  *
  * @returns {Array} Liste des supports, ou tableau vide si absent / invalide.
  */
@@ -28,50 +21,45 @@ function lireAppData() {
     try {
         return JSON.parse(balise.textContent);
     } catch (e) {
-        console.error('accueil.js : impossible de parser app-data', e);
+        console.error('accueil.js : impossible de parser #app-data', e);
         return [];
     }
 }
 
 /**
- * Crée une cellule <td> contenant la vignette d'un support.
+ * Crée une cellule <td> en clonant le <template id="vignette">
+ * et en remplissant ses emplacements avec les données du support.
  *
- * @param {Object} support  Objet avec les propriétés nom, image, dossier.
+ * @param {HTMLTemplateElement} template  Le template à cloner.
+ * @param {Object}              support   Objet { nom, image, dossier }.
  * @returns {HTMLTableCellElement}
  */
-function creerVignette(support) {
-    const td = document.createElement('td');
+function creerVignette(template, support) {
+    const clone = template.content.cloneNode(true);
 
-    const lien = document.createElement('a');
-    lien.href = `/Support/${support.dossier}`;
+    clone.querySelector('a').href           = `/${support.dossier}/MES`;
+    clone.querySelector('img').src          = `/Supports/${support.dossier}/images/${support.image}`;
+    clone.querySelector('img').alt          = support.nom;
+    clone.querySelector('span').textContent = support.nom;
 
-    const img = document.createElement('img');
-    img.src = `/Supports/${support.dossier}/images/${support.image}`;
-    img.alt = support.nom;
-
-    lien.appendChild(img);
-    lien.appendChild(document.createTextNode(support.nom));
-    td.appendChild(lien);
-
-    return td;
+    // cloneNode(true) retourne un DocumentFragment ; on récupère
+    // le <td> racine pour pouvoir l'ajouter à la ligne.
+    return clone.firstElementChild;
 }
 
-// programme principal
-const tableau = document.querySelector('section table');
-if (!tableau) {
-	console.error('accueil.js : balise <table> introuvable dans <section>');
-	exit;
-}
-const listeSupport = lireAppData()
+/* ---- programme principal ------------------------------------------------------------------ */
+const tableau  = document.querySelector('section table');
+if (!tableau)  console.error('accueil.js : <table> introuvable dans <section>');
+
+const template = document.getElementById('vignette');
+if (!template) console.error('accueil.js : <template id="vignette"> introuvable');
 
 let ligne = null;
 
-listeSupport.forEach((support, index) => {
-	// Nouvelle ligne toutes les NB_COLONNES cellules
-	if (index % NB_COLONNES === 0) {
-		ligne = document.createElement('tr');
-		tableau.appendChild(ligne);
-	}
-	ligne.appendChild(creerVignette(support));
+lireAppData().forEach((support, index) => {
+    if (index % NB_COLONNES === 0) {
+        ligne = document.createElement('tr');
+        tableau.appendChild(ligne);
+    }
+    ligne.appendChild(creerVignette(template, support));
 });
-
