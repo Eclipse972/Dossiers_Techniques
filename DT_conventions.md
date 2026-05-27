@@ -185,7 +185,6 @@ par Twig, JS se charge uniquement de l'enrichir avec les données.
 ## Manipulation du DOM
 - Création d'éléments via `createElement()` uniquement pour les cas simples (1-2 noeuds)
 - Clonage via `template.content.cloneNode(true)` pour les structures répétées
-- Classes CSS via `classList`
 - Événements via `addEventListener()`
 
 ## Manipulation du DOM
