@@ -1,16 +1,19 @@
 Ici se trouvent mes règles pour le développement de mon site de dossiers techniques en ligne.
 
 # Table des matières
-1. [Langages et frameworks](#langages)
-2. [Arborescence](#arborescence)
-3. [Architecture applicative](#architecture)
-4. [Format des données JSON](#json)
-5. [JavaScript](#javascript)
-6. [Conventions de nommage](#nommage)
-7. [Pratiques de code](#pratiques)
-8. [Gestion des exceptions](#exceptions)
-9. [Documentation](#documentation)
-10. [Qualité](#qualite)
+1. [Langages](#langages)
+2. [Frameworks et bibliothèques](#frameworks-et-bibliothèques)
+3. [Gestion des dépendances](#gestion-des-dépendances)
+4. [Arborescence](#arborescence)
+5. [Architecture applicative](#architecture-applicative)
+6. [Format des données JSON](#format-des-données-json)
+7. [JavaScript](#javascript)
+8. [Style d'écriture des noms](#style-décriture-des-noms)
+9. [Conventions de nommage](#conventions-de-nommage)
+10. [Pratiques de code](#pratiques-de-code)
+11. [Gestion des exceptions](#gestion-des-exceptions)
+12. [Documentation](#documentation)
+13. [Qualité](#qualité)
 
 # Langages
 ## Backend
