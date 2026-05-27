@@ -75,7 +75,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── composer.json                   # Dépendances PHP et règles d'autochargement
 ├── composer.lock                   # Fige les versions précises des dépendances
 ├── maj-site.conf                   # fichier de configuration pour mon script maj-site
-├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA (local uniquement)
+├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA
 └── README.md                       # Documentation du projet
 ```
 # Architecture applicative
