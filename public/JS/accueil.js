@@ -8,7 +8,7 @@
  * Le tableau est organisé en lignes de NB_COLONNES colonnes.
  */
 
-const NB_COLONNES = 5;
+const NB_COLONNES = 6;
 
 /**
  * Lit les données JSON injectées par Twig.
