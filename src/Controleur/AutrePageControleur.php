@@ -58,7 +58,7 @@ class AutrePageControleur
             ['nom' => 'Pompe à palettes',       'image' => 'pompe.png',				'dossier' => 'pompeApalettes'],
             ['nom' => 'Préhenseur de cuasse',	'image' => 'prehenseur.png',        'dossier' => 'prehenseur'],
             ['nom' => 'Unité de marquage',      'image' => 'unite2marquage.png',    'dossier' => 'unite2marquage'],
-            ['nom' => 'Vanne sphérique',			'image' => 'vanne.png',             'dossier' => 'vanne'],
+            ['nom' => 'Vanne sphérique',		'image' => 'vanne.png',             'dossier' => 'vanne'],
         ];
 
         return $this->vue->render($reponse, 'home.html.twig',  [
