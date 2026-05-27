@@ -38,7 +38,7 @@ function creerVignette(template, support) {
     const clone = template.content.cloneNode(true);
 
     clone.querySelector('a').href           = `/${support.dossier}/MES`;
-    clone.querySelector('img').src          = `/Supports/${support.dossier}/images/${support.image}`;
+    clone.querySelector('img').src          = `/supports/${support.dossier}/images/${support.image}`;
     clone.querySelector('img').alt          = support.nom;
     clone.querySelector('span').textContent = support.nom;
 
