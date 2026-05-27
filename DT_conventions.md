@@ -1,5 +1,17 @@
 Ici se trouvent mes règles pour le développement de mon site de dossiers techniques en ligne.
 
+# Table des matières
+1. [Langages et frameworks](#langages)
+2. [Arborescence](#arborescence)
+3. [Architecture applicative](#architecture)
+4. [Format des données JSON](#json)
+5. [JavaScript](#javascript)
+6. [Conventions de nommage](#nommage)
+7. [Pratiques de code](#pratiques)
+8. [Gestion des exceptions](#exceptions)
+9. [Documentation](#documentation)
+10. [Qualité](#qualite)
+
 # Langages
 ## Backend
 - PHP 8
