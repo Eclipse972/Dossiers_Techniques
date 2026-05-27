@@ -184,6 +184,7 @@ par Twig, JS se charge uniquement de l'enrichir avec les données.
 
 ## Manipulation du DOM
 - Création d'éléments via `createElement()` uniquement pour les cas simples (1-2 noeuds)
+- Ajout dans des emplacement identifiés sur la page. Exemple <span id="nom"></span>
 - Clonage via `template.content.cloneNode(true)` pour les structures répétées
 - Événements via `addEventListener()`
 
