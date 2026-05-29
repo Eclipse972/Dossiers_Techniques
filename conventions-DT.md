@@ -59,7 +59,13 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   |   └── AutrePageControleur.php # controleur pour les pages qutre celle d'un dossier technique (accueil, contact, ...)
 │   ├── Modele/                     # Modèles (logique métier et données)
 │   ├── Exceptions/                 # Exceptions personnalisées
-│   ├── Vue/                        # Templates Twig (.twig)
+│	├── Vue/                        # Templates Twig
+│	│	├── supports/				# templates spécifique à chaque support
+│	│	│   └── urls.html.twig		# URLs centralisées des ressources
+│	│	├── base.html.twig
+│	│	├── home.html.twig
+│	│	├── pageDT.html.twig
+│	│	└── pageDT-include.html.twig
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
 │       ├── dependances.php         # Définitions des dépendances (conteneur PSR-11)
