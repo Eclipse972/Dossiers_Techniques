@@ -256,5 +256,8 @@ Outils à définir
 À définir
 
 ## Performance
-- Backend : utiliser Redis comme serveur de cache (disponible chez o2switch)
-- Frontend : pas de minification pour conserver un code lisible
+- Backend : LiteSpeed Cache (LSCache) activé depuis cPanel, sans modification du code.
+- Contrôle fin du cache par en-tête HTTP depuis les contrôleurs Slim :
+  - `header('X-LiteSpeed-Cache-Control: public, max-age=3600')` — page statique (dossier technique)
+  - `header('X-LiteSpeed-Cache-Control: no-cache')` — page dynamique ou privée
+  - `header('X-LiteSpeed-Purge: url=/chemin/page')` — invalider une page du cache
