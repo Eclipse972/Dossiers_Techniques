@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block contenu %}
+{% block balise_nav %}
 <nav>
-   {{ nav|raw }}
+{{ nav | raw }}
 </nav>
+{% endblock %}
 
-<section>
-    {% block section %}{% endblock %}
-</section>
+{% block contenu %}
+{{ contenuHTML | raw }}
 {% endblock %}
