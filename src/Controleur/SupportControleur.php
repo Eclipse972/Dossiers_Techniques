@@ -55,6 +55,20 @@ abstract class SupportControleur
 	abstract protected function aPropos(Request $requete, Response $reponse): Response;
 	abstract protected function nomenclature(Request $requete, Response $reponse): Response;
 
+	/**
+	 * Les pages de rendu classiques
+	 * Beaucoup de page reposent sur le même modèle. L'objectif est de fatoriser le code ici.
+	 * Les classes-filles appèloront simplement ces méthodes.
+	 *
+	 * Ces pages sont :
+	 * 	- mise en situation
+	 * 	- dessin d'ensemble
+	 * 	- nomenclature
+	 * 	- éclaté
+	 * 	- les pages de type association image-fichier
+	 * 	- les pages pur html
+	 */
+
 	// outils pour les classes-filles
     /*public function rendu_miseEnSituation(Response $reponse, string $template): Response {
 		return $this->vue->render($reponse, $template, [
