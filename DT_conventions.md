@@ -153,6 +153,7 @@ Données injectées par Twig dans une balise avec attribut data-json.
 - Vanilla JS uniquement (ES6+)
 - Modules ES6 si nécessaire (import/export)
 - Code organisé par responsabilité
+- Pas de minification pour conserver un code lisible
 
 ## Stratégie de rendu côté client
 Deux mécanismes complémentaires sont utilisés pour construire l'affichage :
