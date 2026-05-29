@@ -16,10 +16,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 - [Qualité](#qualité)
 
 # Langages
-## Backend
 - PHP 8
-- SQL via PDO
-## Frontend
 - HTML 5
 - CSS 3
 - JS
@@ -27,9 +24,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 # Frameworks et bibliothèques
 - Backend : Slim framework 4
 - Templates : Twig
-- Frontend : aucun
-- Base de données : MariaDB
-- Interdit : React, Vue, Angular
+- Interdit : framework frontend
 
 # Gestion des dépendances
 - Composer pour Slim, Twig et mes fichiers
@@ -78,6 +73,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── DT_conventions.md               # Conventions de programmation pour le projet et l'agent IA
 └── README.md                       # Documentation du projet
 ```
+
 # Architecture applicative
 
 ## Principe général
@@ -88,7 +84,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 
 ## Flux de données
 1. Requête utilisateur → Slim Router
-2. Contrôleur récupère les données (BDD)
+2. Contrôleur lit les données (tableaux associatifs PHP)
 3. Contrôleur passe les données au template Twig
 4. Twig injecte le JSON dans le DOM (balise `<div id="app-data" data-json='...'>`)
 5. JS lit le JSON et génère l'affichage complet
@@ -97,7 +93,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 
 ### PHP/Slim (Backend)
 - Routage des URLs
-- Récupération des données en BDD
+- Lecture des données depuis des tableaux associatifs
 - Construction du JSON
 - Transmission des données à Twig
 
@@ -124,7 +120,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 Données injectées par Twig dans une balise avec attribut data-json.
 
 ## Nomenclature des clés
-- snake_case (cohérent avec PHP/BDD)
+- snake_case (cohérent avec PHP)
 - Clés explicites en français non accentué
 
 ## Exemple de structure
@@ -210,7 +206,7 @@ par Twig, JS se charge uniquement de l'enrichir avec les données.
 Conserver l'anglais pour les mots-clés des langages (ex: function, class, fetchAll()), les méthodes des frameworks (ex: addRoute() de Slim), et les APIs/standards (ex: JSON, DOM).
 
 Noms personnalisés : utiliser le français non accentué pour :
-- Les variables, fonctions, classes, fichiers et tables de BDD que tu crées
+- Les variables, fonctions, classes et fichiers
 - Les clés JSON et les données métier
 
 Exemples en PHP :
