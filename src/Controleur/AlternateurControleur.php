@@ -18,7 +18,7 @@ class AlternateurControleur extends SupportControleur
     public function __construct(Twig $vue)
     {
         parent::__construct($vue);
-        $this->hydrate('alternateur', "de l'", 'alternateur');
+        $this->hydrate('alternateur', "de l'", 'alternateur', 'alternateur.png');
     }
 
     /**
