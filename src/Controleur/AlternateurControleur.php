@@ -30,7 +30,7 @@ class AlternateurControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    protected function miseEnSituation(Request $requete, Response $reponse): Response
+    public function miseEnSituation(Request $requete, Response $reponse): Response
     {
         return $this->renduMES($reponse);
     }
