@@ -22,20 +22,6 @@ class AlternateurControleur extends SupportControleur
     }
 
     /**
-     * Hydratation pour l'alternateur.
-     *
-     * @param string $nom     Nom du support
-     * @param string $du      Article défini contracté (ex : "de l'")
-     * @param string $dossier Dossier racine du support (sans espace)
-     */
-    protected function hydrate(string $nom, string $du, string $dossier): void
-    {
-        $this->nom        = $nom;
-        $this->article_du = $du;
-        $this->dossier    = $dossier;
-    }
-
-    /**
      * Affiche la page de mise en situation de l'alternateur.
      *
      * @route /alternateur/mise-en-situation

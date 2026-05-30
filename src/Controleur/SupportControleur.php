@@ -30,18 +30,20 @@ abstract class SupportControleur
      */
     public function __construct(private Twig $vue) {}
 
-	/**
-	 * Hydratation du support
-	 *
-	 * Fonction que dois appeler chaque constructeur des classes-filles
-	 * pour donner les caractéristiques de chaque support
-	 *
-	 * @param string $nom nom du support
-	 * @param string $du article pour écrire par exemple dossier technique 'du' support
-	 * @param string $dossier racine du dossier pour les images, fichiers et templates.
+    /**
+     * Hydratation pour chaque support
+     *
+     * @param string $nom     Nom du support
+     * @param string $du      Article défini contracté (ex : "de l'")
+     * @param string $dossier Dossier racine du support (sans espace)
 	 * ATTENTION: le dossier ne doit pas contenir d'espace
-	 */
-	abstract protected function hydrate(string $nom, string $du, string $dossier): void;
+     */
+    protected function hydrate(string $nom, string $du, string $dossier): void
+    {
+        $this->nom        = $nom;
+        $this->article_du = $du;
+        $this->dossier    = $dossier;
+    }
 
 	/**
 	 * Le dossier technique minimal d'un support nécessite les pages suivantes :
