@@ -3,12 +3,12 @@
     Variable requise : dossier (nom du dossier du support)
 
 	UTILISATION
-	1- Dans les template des supports ajouter: {% include 'supports/urls.html.twig' %}
+	1- Dans les template des supports ajouter: {% include 'supports/urls.twig' %}
 	2- La variable dossier étant passée par le contrôleur, toutes les URLs sont construites automatiquement.
 	Il n'y aura rien à changer si la structure des dossiers évolue.
 
 	EXEMPLE :
-	{% include 'supports/urls.html.twig' %}
+	{% include 'supports/urls.twig' %}
 
 	<img src="{{ url_image }}/photo.png" />
 #}
