@@ -11,9 +11,9 @@ use Slim\Views\Twig;
 abstract class SupportControleur
 {
 	// propritétés à instancier obligatoirement
-	protected string $nom;
-	protected string $article_du; // "du ", "de la " ou "de l'"
-	protected string $dossier;
+	protected string $nom;			// nom tout en minuscules
+	protected string $article_du;	// "du ", "de la " ou "de l'"
+	protected string $dossier;		// emplacement racine des fichiers associés
 
 	// propriété à instancier par les méthodes des classes-filles
 	protected string $template;
