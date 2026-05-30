@@ -13,7 +13,7 @@ Je sera amené à créer un certain nombre de templates. J'ai besoin un moyen de
    - 45 : le 5e fils de 4
    - 123 : 3 fils de 12 qui est le 2e fils de 1
 
-3. zéro n'est pas utilisé car zérone peut être un numéro de rang.
+3. zéro n'est pas utilisé car zéro ne peut être un numéro de rang.
 
 # Limites
 Ce système suppose qu'une même fratrie ne dépasse pas 9 membres.
