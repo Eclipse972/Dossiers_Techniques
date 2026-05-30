@@ -61,7 +61,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── Exceptions/                 # Exceptions personnalisées
 │	├── Vue/                        # Templates Twig
 │	│	├── supports/				# templates spécifique à chaque support
-│	│	│   └── urls.twig		# URLs centralisées des ressources
+│	│	│   └── urls.twig			# URLs centralisées des ressources
 │	│	├── base.html.twig
 │	│	├── home.html.twig
 │	│	├── pageDT.html.twig
