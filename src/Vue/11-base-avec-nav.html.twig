@@ -1,0 +1,11 @@
+{#
+   Template de base pour les pages avec menu
+#}
+
+{% extends '1-base.html.twig' %}
+
+{% block balise_nav %}
+<nav>
+{{ menu | raw }}
+</nav>
+{% endblock %}
