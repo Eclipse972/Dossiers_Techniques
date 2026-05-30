@@ -10,7 +10,7 @@ use Slim\Views\Twig;
 
 abstract class SupportControleur
 {
-	// propritété à instancier obligatoirement
+	// propritétés à instancier obligatoirement
 	protected string $nom;
 	protected string $article_du; // "du ", "de la " ou "de l'"
 	protected string $dossier;
