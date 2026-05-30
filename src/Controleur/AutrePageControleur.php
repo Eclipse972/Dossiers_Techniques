@@ -38,7 +38,7 @@ class AutrePageControleur
     {
         $listeSupport = [ // données de chaque support classés par ordre alphabétique
             ['nom' => 'Alternateur',			'image' => 'alternateur.png',       'dossier' => 'alternateur'],
-            ['nom' => 'Bouton poussoir',		'image' => 'BP.png',                'dossier' => 'BP'],
+            ['nom' => 'Bouton poussoir',		'image' => 'BP.png',                'dossier' => 'bouton-poussoir'],
             ['nom' => 'Bride à nez',			'image' => 'bride.png',				'dossier' => 'brideAnez'],
             ['nom' => 'Bride hydraulique',		'image' => 'bride.png',				'dossier' => 'bride_hydraulique'],
             ['nom' => 'Butée 5 axes',			'image' => 'butee.png',		        'dossier' => 'butee5axes'],
