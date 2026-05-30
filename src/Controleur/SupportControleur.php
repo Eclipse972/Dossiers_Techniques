@@ -56,9 +56,9 @@ abstract class SupportControleur
 	abstract protected function nomenclature(Request $requete, Response $reponse): Response;
 
 	/**
-	 * Les pages de rendu classiques
-	 * Beaucoup de page reposent sur le même modèle. L'objectif est de fatoriser le code ici.
-	 * Les classes-filles appèloront simplement ces méthodes.
+	 * Les rendus des pages classiques
+	 * Beaucoup de pages reposent sur le même modèle. L'objectif est de factoriser le code ici.
+	 * Les classes-filles appelleront simplement ces méthodes.
 	 *
 	 * Ces pages sont :
 	 * 	- mise en situation
