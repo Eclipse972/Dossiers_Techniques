@@ -14,6 +14,7 @@ abstract class SupportControleur
 	protected string $nom;			// nom tout en minuscules
 	protected string $article_du;	// "du ", "de la " ou "de l'"
 	protected string $dossier;		// emplacement racine des fichiers associés
+	protected string $logo;			// image du support
 
 	// propriété à instancier par les méthodes des classes-filles
 	protected string $template;
@@ -36,13 +37,16 @@ abstract class SupportControleur
      * @param string $nom     Nom du support
      * @param string $du      Article défini contracté (ex : "de l'")
      * @param string $dossier Dossier racine du support (sans espace)
+     * @param string $logo	  image du support servant de logo
+	 *
 	 * ATTENTION: le dossier ne doit pas contenir d'espace
      */
-    protected function hydrate(string $nom, string $du, string $dossier): void
+    protected function hydrate(string $nom, string $du, string $dossier, string $logo): void
     {
         $this->nom        = $nom;
         $this->article_du = $du;
         $this->dossier    = $dossier;
+        $this->logo       = $logo;
     }
 
 	/**
@@ -82,7 +86,7 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'			=> $this->nom,
 				'title'				=> "DT {$this->nom}",
-				'logo_url'			=> "/supports/{$this->dossier}/image.png",
+				'logo_url'			=> "/supports/{$this->dossier}/{$this->logo}",
 				'logo_description'	=> "À propos {$this->article_du}{$this->nom}",
 				'header'			=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'				=> $this->article_du,
