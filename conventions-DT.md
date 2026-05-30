@@ -218,6 +218,12 @@ Exemples en PHP :
 - `$identifiant_utilisateur = $requete->fetchAll();` // fetchAll() reste en anglais
 - `class GestionDossier { ... }` // classe personnalisée en français
 
+URL et nom de fichiers : pas de majuscule ni sigle mais des noms en toutes lettres en minuscules et kébab-case
+- MES -> mise-en-situation
+- BP -> bouton-poussoir
+- brideAnez -> bride-a-nez
+Les noms doivent être lisibles.
+
 # Pratiques de code
 - Une fonction ou méthode ne doit pas dépasser 30 lignes
 - 1 classe = 1 responsabilité
