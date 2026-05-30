@@ -24,7 +24,7 @@ class AlternateurControleur extends SupportControleur
     /**
      * Affiche la page de mise en situation de l'alternateur.
      *
-     * @route /alternateur/MES
+     * @route /alternateur/mise-en-situation
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

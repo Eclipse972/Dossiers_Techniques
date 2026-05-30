@@ -10,4 +10,4 @@ use DossiersTechniques\Controleur\AlternateurControleur;
 $app->get('/', [AutrePageControleur::class, 'accueil']);
 
 // dossier technique de l'alternateur
-$app->get('/alternateur/MES', [AlternateurControleur::class, 'miseEnSituation']);
+$app->get('/alternateur/mise-en-situation', [AlternateurControleur::class, 'miseEnSituation']);
