@@ -69,12 +69,24 @@ abstract class SupportControleur
 	 * 	- les pages pur html
 	 */
 
-	// outils pour les classes-filles
-    /*public function rendu_miseEnSituation(Response $reponse, string $template): Response {
-		return $this->vue->render($reponse, $template, [
-				'support'	=> $this->nom,
-				'du'		=> $this->article_du,
-				'dossier'	=> $this->dossier,
+	/**
+	 * Rendu des pages de mise en situation
+	 *
+	 * @param Response $reponse
+	 *
+	 * @return Response
+	 */
+    protected function renduMES(Response $reponse): Response {
+		return $this->vue->render($reponse, '112-pageDT.html.twig', [
+				'support'			=> $this->nom,
+				'title'				=> "DT {$this->nom}",
+				'logo_url'			=> "/supports/{$this->dossier}/image.png",
+				'logo_description'	=> "À propos {$this->article_du}{$this->nom}",
+				'header'			=> "Dossier technique {$this->article_du}{$this->nom}",
+				'du'				=> $this->article_du,
+				'dossier'			=> $this->dossier,
+				'contenu'			=> 'MES',
+				'menu'				=> '<p>en construction</p>',
   		]);
-	}*/
+	}
 }
