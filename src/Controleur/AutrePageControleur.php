@@ -56,7 +56,7 @@ class AutrePageControleur
             ['nom' => 'Pince de robot',			'image' => 'pince.png',				'dossier' => 'pince-de-robot'],
             ['nom' => 'Pompe à palettes',		'image' => 'pompe.png',				'dossier' => 'pompe-a-palettes'],
             ['nom' => 'Préhenseur de culasse',	'image' => 'prehenseur.png',        'dossier' => 'prehenseur'],
-            ['nom' => 'Unité de marquage',		'image' => 'unite2marquage.png',    'dossier' => 'unite2marquage'],
+            ['nom' => 'Unité de marquage',		'image' => 'unite2marquage.png',    'dossier' => 'unite-de-marquage'],
             ['nom' => 'Vanne sphérique',		'image' => 'vanne.png',             'dossier' => 'vanne'],
         ];
 
