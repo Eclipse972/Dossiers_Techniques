@@ -4,6 +4,10 @@
 
 {% extends '1-base.html.twig' %}
 
+{% block logo %}
+<a href="#" title="À propos {{ du }}{{ support }}"><img src="{{ logo_url }}" /></a>
+{% endblock %}
+
 {% block css %}
 	<link rel="stylesheet" href="/CSS/pageDT.css" />
 {% endblock %}
