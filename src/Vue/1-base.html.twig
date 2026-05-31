@@ -11,7 +11,9 @@
 <body>
 
 <header>
-    <div id="logo"><img src="{{ logo_url }}" alt="{{ logo_description }}" /></div>
+    <div id="logo">
+		{% block logo %}{% endblock %}
+	</div>
     <div id="titre"><p class="font-effect-outline">{{ header }}</p></div>
 </header>
 
