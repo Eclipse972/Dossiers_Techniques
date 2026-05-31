@@ -46,7 +46,7 @@ class AutrePageControleur
             ['nom' => 'Casse-noix',				'image' => 'casseNoix.png',			'dossier' => 'casse_noix'],
             ['nom' => 'Coupe-tube',				'image' => 'mini_coupe-tube.png',	'dossier' => 'coupe-tube'],
             ['nom' => 'Cric bouteille',			'image' => 'cric.png',				'dossier' => 'cric-bouteille'],
-            ['nom' => 'Cric hydraulique',		'image' => 'cric.png',				'dossier' => 'cric_hydraulique'],
+            ['nom' => 'Cric hydraulique',		'image' => 'cric.png',				'dossier' => 'cric-hydraulique'],
             ['nom' => 'Électrovanne',			'image' => 'electrovanne.png',      'dossier' => 'electrovanne'],
             ['nom' => 'Étau',					'image' => 'etau.png',				'dossier' => 'etau'],
             ['nom' => 'Extracteur de roulement','image' => 'extracteur.png',		'dossier' => 'extracteur2roulement'],
