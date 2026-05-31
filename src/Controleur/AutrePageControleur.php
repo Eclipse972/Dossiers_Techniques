@@ -43,7 +43,7 @@ class AutrePageControleur
             ['nom' => 'Bride hydraulique',		'image' => 'bride.png',				'dossier' => 'bride-hydraulique'],
             ['nom' => 'Butée 5 axes',			'image' => 'butee.png',		        'dossier' => 'butee-5-axes'],
             ['nom' => 'Cambreuse',				'image' => 'cambreuse.png',         'dossier' => 'cambreuse'],
-            ['nom' => 'Casse-noix',				'image' => 'casseNoix.png',			'dossier' => 'casse_noix'],
+            ['nom' => 'Casse-noix',				'image' => 'casseNoix.png',			'dossier' => 'casse-noix'],
             ['nom' => 'Coupe-tube',				'image' => 'mini_coupe-tube.png',	'dossier' => 'coupe-tube'],
             ['nom' => 'Cric bouteille',			'image' => 'cric.png',				'dossier' => 'cric-bouteille'],
             ['nom' => 'Cric hydraulique',		'image' => 'cric.png',				'dossier' => 'cric-hydraulique'],
