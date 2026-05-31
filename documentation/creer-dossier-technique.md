@@ -1,4 +1,10 @@
 # Créer un nouveau dossier technique
+
+# Création des fichiers
+### Fichiers eDrawing
+### Les images
+
+# Les dossiers sur le site
 Liste des dossiers où intervenir
 - public/supports/ : contient les fichiers asociés au support (images, pièces, assemblage, mises en plen, ...)
 - src/Vue/supports : templates twig
