@@ -41,7 +41,7 @@ class AutrePageControleur
             ['nom' => 'Bouton poussoir',		'image' => 'BP.png',                'dossier' => 'bouton-poussoir'],
             ['nom' => 'Bride à nez',			'image' => 'bride.png',				'dossier' => 'bride-a-nez'],
             ['nom' => 'Bride hydraulique',		'image' => 'bride.png',				'dossier' => 'bride-hydraulique'],
-            ['nom' => 'Butée 5 axes',			'image' => 'butee.png',		        'dossier' => 'butee5axes'],
+            ['nom' => 'Butée 5 axes',			'image' => 'butee.png',		        'dossier' => 'butee-5-axes'],
             ['nom' => 'Cambreuse',				'image' => 'cambreuse.png',         'dossier' => 'cambreuse'],
             ['nom' => 'Casse-noix',				'image' => 'casseNoix.png',			'dossier' => 'casse_noix'],
             ['nom' => 'Coupe-tube',				'image' => 'mini_coupe-tube.png',	'dossier' => 'coupe-tube'],
