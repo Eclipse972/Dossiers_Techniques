@@ -9,6 +9,7 @@ use DossiersTechniques\Controleur\BoutonPoussoirControleur;
 use DossiersTechniques\Controleur\BrideAnezControleur;
 use DossiersTechniques\Controleur\BrideHydrauliqueControleur;
 use DossiersTechniques\Controleur\Butee5axesControleur;
+use DossiersTechniques\Controleur\CambreuseControleur;
 
 /** @var App $app */
 $app->get('/', [AutrePageControleur::class, 'accueil']);
@@ -28,3 +29,6 @@ $app->get('/bride-hydraulique/mise-en-situation', [BrideHydrauliqueControleur::c
 
 // dossier technique de la butée 5 axes
 $app->get('/butee-5-axes/mise-en-situation', [Butee5axesControleur::class, 'miseEnSituation']);
+
+// dossier technique de la cambreuse
+$app->get('/cambreuse/mise-en-situation', [CambreuseControleur::class, 'miseEnSituation']);
