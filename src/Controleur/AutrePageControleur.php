@@ -53,7 +53,7 @@ class AutrePageControleur
             ['nom' => 'Frein à disque',			'image' => 'frein.png',				'dossier' => 'frein-a-disque'],
             ['nom' => 'Moteur de modélisme',	'image' => 'moteur.png',			'dossier' => 'moteur-de-modelisme'],
             ['nom' => 'Pince de marquage',		'image' => 'pince.png', 			'dossier' => 'pince-de-marquage'],
-            ['nom' => 'Pince de robot',			'image' => 'pince.png',				'dossier' => 'pince2robot'],
+            ['nom' => 'Pince de robot',			'image' => 'pince.png',				'dossier' => 'pince-de-robot'],
             ['nom' => 'Pompe à palettes',		'image' => 'pompe.png',				'dossier' => 'pompeApalettes'],
             ['nom' => 'Préhenseur de culasse',	'image' => 'prehenseur.png',        'dossier' => 'prehenseur'],
             ['nom' => 'Unité de marquage',		'image' => 'unite2marquage.png',    'dossier' => 'unite2marquage'],
