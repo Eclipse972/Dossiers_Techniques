@@ -51,7 +51,7 @@ class AutrePageControleur
             ['nom' => 'Étau',					'image' => 'etau.png',				'dossier' => 'etau'],
             ['nom' => 'Extracteur de roulement','image' => 'extracteur.png',		'dossier' => 'extracteur-de-roulement'],
             ['nom' => 'Frein à disque',			'image' => 'frein.png',				'dossier' => 'frein-a-disque'],
-            ['nom' => 'Moteur de modélisme',	'image' => 'moteur.png',			'dossier' => 'moteur2modelisme'],
+            ['nom' => 'Moteur de modélisme',	'image' => 'moteur.png',			'dossier' => 'moteur-de-modelisme'],
             ['nom' => 'Pince de marquage',		'image' => 'pince.png', 			'dossier' => 'pince2marquage'],
             ['nom' => 'Pince de robot',			'image' => 'pince.png',				'dossier' => 'pince2robot'],
             ['nom' => 'Pompe à palettes',		'image' => 'pompe.png',				'dossier' => 'pompeApalettes'],
