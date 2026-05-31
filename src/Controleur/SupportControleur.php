@@ -87,7 +87,6 @@ abstract class SupportControleur
 				'support'			=> $this->nom,
 				'title'				=> "DT {$this->nom}",
 				'logo_url'			=> "/supports/{$this->dossier}/images/{$this->logo}",
-				'logo_description'	=> "À propos {$this->article_du}{$this->nom}",
 				'header'			=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'				=> $this->article_du,
 				'dossier'			=> $this->dossier,
