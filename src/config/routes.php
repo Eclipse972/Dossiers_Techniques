@@ -7,6 +7,7 @@ use Slim\App; // ou le type réel de $app
 use DossiersTechniques\Controleur\AlternateurControleur;
 use DossiersTechniques\Controleur\BoutonPoussoirControleur;
 use DossiersTechniques\Controleur\BrideAnezControleur;
+use DossiersTechniques\Controleur\BrideHydrauliqueControleur;
 
 /** @var App $app */
 $app->get('/', [AutrePageControleur::class, 'accueil']);
@@ -19,3 +20,7 @@ $app->get('/bouton-poussoir/mise-en-situation', [BoutonPoussoirControleur::class
 
 // dossier technique de la bride à nez
 $app->get('/bride-a-nez/mise-en-situation', [BrideAnezControleur::class, 'miseEnSituation']);
+
+
+// dossier technique de la bride à nez
+$app->get('/bride-hydraulique/mise-en-situation', [BrideHydrauliqueControleur::class, 'miseEnSituation']);
