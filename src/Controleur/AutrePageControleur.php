@@ -49,7 +49,7 @@ class AutrePageControleur
             ['nom' => 'Cric hydraulique',		'image' => 'cric.png',				'dossier' => 'cric-hydraulique'],
             ['nom' => 'Électrovanne',			'image' => 'electrovanne.png',      'dossier' => 'electrovanne'],
             ['nom' => 'Étau',					'image' => 'etau.png',				'dossier' => 'etau'],
-            ['nom' => 'Extracteur de roulement','image' => 'extracteur.png',		'dossier' => 'extracteur2roulement'],
+            ['nom' => 'Extracteur de roulement','image' => 'extracteur.png',		'dossier' => 'extracteur-de-roulement'],
             ['nom' => 'Frein à disque',			'image' => 'frein.png',				'dossier' => 'freinAdisque'],
             ['nom' => 'Moteur de modélisme',	'image' => 'moteur.png',			'dossier' => 'moteur2modelisme'],
             ['nom' => 'Pince de marquage',		'image' => 'pince.png', 			'dossier' => 'pince2marquage'],
