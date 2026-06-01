@@ -96,6 +96,32 @@ abstract class SupportControleur
 	}
 
 	/**
+	 * Rendu des pages à propos
+	 *
+	 * @param Response      $reponse        Objet réponse HTTP
+	 * @param string|null   $archiveZip     Chemin relatif vers l'archive ZIP (null si indisponible)
+	 * @param string|null   $descriptionZip Description HTML de l'archive (null pour le texte par défaut)
+	 * @param array         $listeLien      Liste de liens associés, chaque entrée sous la forme
+	 *                                      ['url' => string, 'texte' => string]
+	 *
+	 * @return Response
+	 */
+	protected function renduApropos(Response $reponse, ?string $archiveZip, ?string $descriptionZip, array $listeLien): Response {
+		return $this->vue->render($reponse, '113-page-a-propos.html.twig', [
+			'support'        => $this->nom,
+			'title'          => "DT {$this->nom}",
+			'logo_url'       => "/supports/{$this->dossier}/images/{$this->logo}",
+			'header'         => "À propos {$this->article_du}{$this->nom}",
+			'du'             => $this->article_du,
+			'dossier'        => $this->dossier,
+			'archiveZip'     => $archiveZip,
+			'descriptionZip' => $descriptionZip,
+			'listeLien'      => $listeLien,
+			'menu'           => '<p>en construction</p>',
+		]);
+	}
+
+	/**
 	 * Fonctions utilitaires
 	 * Elles sont statiques permettant de les utiliser independamment de l'objet comme un outil
 	 */
