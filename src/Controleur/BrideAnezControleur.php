@@ -21,6 +21,26 @@ class BrideAnezControleur extends SupportControleur
         $this->hydrate('bride à nez', "de la ", 'bride-a-nez', 'bride.png');
     }
 
+
+    /**
+     * Affiche la page 'à propos' de la bride nez
+     *
+     * @route /bride-a-nez
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'bride-a-nez.zip',
+			[],
+			[]
+		);
+    }
+
     /**
      * Affiche la page de mise en situation de l'alternateur.
      *
@@ -59,20 +79,6 @@ class BrideAnezControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
