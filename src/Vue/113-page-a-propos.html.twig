@@ -1,0 +1,35 @@
+{#
+	Pages de type à propos
+#}
+
+{% extends '11-base-avec-nav.html.twig' %}
+
+{% block logo %}
+<a href="/{{ dossier }}/mise-en-situation" title="Retour au dossier technique {{ du }}{{ support }}"><img src="{{ logo_url }}" /></a>
+{% endblock %}
+
+{% block contenu %}
+<div style="width:700px; margin:auto;">
+<p><u><b>La maquette numérique</b></u></p>
+{% if archiveZip is null %}
+ <p>Archive zip non disponible</p>
+{% else %}
+<a href="/supports/{{ dossier }}/{{ archiveZip }}">Cliquez ici pour télécharger l'archive ZIP {{ du }}{{ support }}</a>
+{{ descriptionZip | default("<p>la maquette comporte une configuration éclatée et le dessin d'ensemble</p>") | raw }}
+{% endif %}
+
+{% if listeLien == [] %}
+    <p><u><b>Aucun lien associé.</b></u></p>
+{% elseif listeLien|length == 1 %}
+    <p><u><b>Lien associé</b></u>: <a href="{{ listeLien[0].url }}">{{ listeLien[0].texte }}</a></p>
+{% else %}
+    <p><u><b>Liste des liens associés</b></u></p>
+    <ul>
+	{% for lien in listeLien %}
+		<li><a href="{{ lien.url }}">{{ lien.texte }}</a></li>
+	{% endfor %}
+    </ul>
+{% endif %}
+<a href="/{{ dossier }}/mise-en-situation">Retourner sur le dossier technique {{ du }}{{ support }}</a>
+</div>
+{% endblock %}
