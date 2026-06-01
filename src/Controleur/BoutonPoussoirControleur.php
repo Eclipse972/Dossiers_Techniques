@@ -22,6 +22,29 @@ class BoutonPoussoirControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' du bouton poussoir
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+		$listeLien = [];
+		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#b', "site de l'auteur");
+        return $this->renduApropos(
+			$reponse,
+			'BP.zip',
+			[
+				'configuration contenant un écorché',
+				'sous-ensembles fixe et mobile',
+			],
+			$listeLien
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de l'alternateur.
      *
      * @route /alternateur/mise-en-situation
@@ -59,20 +82,6 @@ class BoutonPoussoirControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
