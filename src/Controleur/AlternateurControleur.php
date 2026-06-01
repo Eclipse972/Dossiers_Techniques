@@ -22,6 +22,27 @@ class AlternateurControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
+     *
+     * @route /alternateur
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'alternateur.zip',
+			[
+				'contient deux configurations complémentaires',
+				"dessin de l'éclaté"
+			],
+			[]
+		);
+    }
+	
+    /**
      * Affiche la page de mise en situation de l'alternateur.
      *
      * @route /alternateur/mise-en-situation
@@ -61,26 +82,5 @@ class AlternateurControleur extends SupportControleur
     public function nomenclature(Request $requete, Response $reponse): Response
     {
         return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response {
-        return $this->renduApropos(
-			$reponse,
-			'alternateur.zip',
-			[
-				'contient deux configurations complémentaires',
-				"dessin de l'éclaté"
-			],
-			[]
-		);
     }
 }
