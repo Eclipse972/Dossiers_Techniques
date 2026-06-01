@@ -84,7 +84,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ## Principe général
 - PHP/Slim gère le routage et la logique métier
 - Twig génère le HTML avec les données JSON embarquées
-- JavaScript gère les comportements et construit le contenu des certaines pages via le pattern data-json.
+- JavaScript gère les comportements et construit le contenu de certaines pages via le pattern data-json.
 - Fichiers techniques stockés dans /public/supports/{nom_support}/
 
 ## Flux de données
