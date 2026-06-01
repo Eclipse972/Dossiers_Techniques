@@ -21,7 +21,7 @@ class CambreuseControleur extends SupportControleur
         $this->hydrate('cambreuse', "de la ", 'cambreuse', 'cambreuse.png');
     }
 
-		/**
+	/**
      * Affiche la page 'à propos'
      *
      * @route /cambreuse
@@ -77,7 +77,7 @@ class CambreuseControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
-	 * 
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
