@@ -28,6 +28,7 @@ use DossiersTechniques\Controleur\VanneSpheriqueControleur;
 use Slim\App;
 /** @var App $app */
 
+// liste des supports
 $app->get('/', [AutrePageControleur::class, 'accueil']);
 
 // dossier technique de l'alternateur
