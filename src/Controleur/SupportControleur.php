@@ -94,4 +94,35 @@ abstract class SupportControleur
 				'menu'				=> '<p>en construction</p>',
   		]);
 	}
+
+	/**
+	 * Fonctions utilitaires
+	 * Elles sont statiques permettant de les utiliser independamment de l'objet comme un outil
+	 */
+
+	/**
+	 * Ajoute un lien à une liste.
+	 *
+	 * Garantit la cohérence du tableau : évite les erreurs d'ordre des clés
+	 * ou faute de frappe sur leur nom ('urll', 'Url', etc.).
+	 *
+	 * @param array  &$liste La liste de liens à compléter
+	 * @param string  $url   L'URL du lien
+	 * @param string  $texte Le texte affiché
+	*
+	* @example
+	* $liste = [];
+	* self::ajouteLien($liste, 'https://example.com', 'Accueil');
+	* self::ajouteLien($liste, 'https://example.com/contact', 'Contact');
+	*
+	* Résultat:
+	* 	$liste === [
+	* 		['url' => 'https://example.com',         'texte' => 'Accueil'],
+	* 		['url' => 'https://example.com/contact', 'texte' => 'Contact'],
+	* 	]
+	*/
+	protected static function ajouteLien(array &$liste, string $url, string $texte): void
+	{
+		$liste[] = ['url' => $url, 'texte' => $texte];
+	}
 }
