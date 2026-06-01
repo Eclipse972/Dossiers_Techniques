@@ -90,7 +90,7 @@ abstract class SupportControleur
 				'header'			=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'				=> $this->article_du,
 				'dossier'			=> $this->dossier,
-				'contenu'			=> 'mise-en-situation',
+				'fichier'			=> 'mise-en-situation',
 				'menu'				=> '<p>en construction</p>',
   		]);
 	}
