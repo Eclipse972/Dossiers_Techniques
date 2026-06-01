@@ -33,7 +33,7 @@ class CoupeTubeControleur extends SupportControleur
      */
     public function aPropos(Request $requete, Response $reponse): Response {
         $listeLien = [];
-		self::ajouteLien($listeLien,'https://www.bricodepot.fr/beauvais/mini-coupe-tube/prod5924/', "ches brico-dépôt");
+		self::ajouteLien($listeLien,'https://www.leroymerlin.fr/produits/coupe-tubes-minicut-i-pro-minicut-ii-pro-pour-de-tuyaux-3-16-mm-88326399.html', "chez Leroy Merlin");
         return $this->renduApropos(
 			$reponse,
 			'mini-coupe-tube.zip',
