@@ -28,6 +28,7 @@ class CasseNoixControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
@@ -36,7 +37,7 @@ class CasseNoixControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page du dessin d'ensemble du casse-noix.
+     * Affiche la page du dessin d'ensemble
      *
      * @route /casse-noix/dessin-densemble
      *
@@ -50,12 +51,13 @@ class CasseNoixControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature du casse-noix.
+     * Affiche la page de nomenclature
      *
      * @route /casse-noix/nomenclature
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 * 
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
