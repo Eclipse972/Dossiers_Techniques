@@ -33,67 +33,126 @@ $app->get('/', [AutrePageControleur::class, 'accueil']);
 
 // dossier technique de l'alternateur
 $app->group('/alternateur', function($group) {
-    $group->get('',						[AlternateurControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',	[AlternateurControleur::class, 'miseEnSituation']);
+    $group->get('',                    [AlternateurControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [AlternateurControleur::class, 'miseEnSituation']);
 });
 
 // dossier technique du bouton poussoir
-$app->get('/bouton-poussoir/mise-en-situation', [BoutonPoussoirControleur::class, 'miseEnSituation']);
+$app->group('/bouton-poussoir', function($group) {
+    $group->get('',                    [BoutonPoussoirControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [BoutonPoussoirControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la bride à nez
-$app->get('/bride-a-nez/mise-en-situation', [BrideAnezControleur::class, 'miseEnSituation']);
+$app->group('/bride-a-nez', function($group) {
+    $group->get('',                    [BrideAnezControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [BrideAnezControleur::class, 'miseEnSituation']);
+});
 
-
-// dossier technique de la bride à nez
-$app->get('/bride-hydraulique/mise-en-situation', [BrideHydrauliqueControleur::class, 'miseEnSituation']);
+// dossier technique de la bride hydraulique
+$app->group('/bride-hydraulique', function($group) {
+    $group->get('',                    [BrideHydrauliqueControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [BrideHydrauliqueControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la butée 5 axes
-$app->get('/butee-5-axes/mise-en-situation', [Butee5axesControleur::class, 'miseEnSituation']);
+$app->group('/butee-5-axes', function($group) {
+    $group->get('',                    [Butee5axesControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [Butee5axesControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la cambreuse
-$app->get('/cambreuse/mise-en-situation', [CambreuseControleur::class, 'miseEnSituation']);
+$app->group('/cambreuse', function($group) {
+    $group->get('',                    [CambreuseControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [CambreuseControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du casse-noix
-$app->get('/casse-noix/mise-en-situation', [CasseNoixControleur::class, 'miseEnSituation']);
+$app->group('/casse-noix', function($group) {
+    $group->get('',                    [CasseNoixControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [CasseNoixControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du mini coupe-tube
-$app->get('/coupe-tube/mise-en-situation', [CoupeTubeControleur::class, 'miseEnSituation']);
+$app->group('/coupe-tube', function($group) {
+    $group->get('',                    [CoupeTubeControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [CoupeTubeControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du cric bouteille
-$app->get('/cric-bouteille/mise-en-situation', [CricBouteilleControleur::class, 'miseEnSituation']);
+$app->group('/cric-bouteille', function($group) {
+    $group->get('',                    [CricBouteilleControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [CricBouteilleControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du cric hydraulique
-$app->get('/cric-hydraulique/mise-en-situation', [CricHydrauliqueControleur::class, 'miseEnSituation']);
+$app->group('/cric-hydraulique', function($group) {
+    $group->get('',                    [CricHydrauliqueControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [CricHydrauliqueControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de l'électrovanne
-$app->get('/electrovanne/mise-en-situation', [ElectrovanneControleur::class, 'miseEnSituation']);
+$app->group('/electrovanne', function($group) {
+    $group->get('',                    [ElectrovanneControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [ElectrovanneControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de l'étau
-$app->get('/etau/mise-en-situation', [EtauControleur::class, 'miseEnSituation']);
+$app->group('/etau', function($group) {
+    $group->get('',                    [EtauControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [EtauControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de l'extracteur de roulement
-$app->get('/extracteur-de-roulement/mise-en-situation', [ExtracteurRoulementControleur::class, 'miseEnSituation']);
+$app->group('/extracteur-de-roulement', function($group) {
+    $group->get('',                    [ExtracteurRoulementControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [ExtracteurRoulementControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du frein à disque
-$app->get('/frein-a-disque/mise-en-situation', [FreinDisqueControleur::class, 'miseEnSituation']);
+$app->group('/frein-a-disque', function($group) {
+    $group->get('',                    [FreinDisqueControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [FreinDisqueControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du moteur de modélisme
-$app->get('/moteur-de-modelisme/mise-en-situation', [MoteurModelismeControleur::class, 'miseEnSituation']);
+$app->group('/moteur-de-modelisme', function($group) {
+    $group->get('',                    [MoteurModelismeControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [MoteurModelismeControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la pince de marquage
-$app->get('/pince-de-marquage/mise-en-situation', [PinceMarquageControleur::class, 'miseEnSituation']);
+$app->group('/pince-de-marquage', function($group) {
+    $group->get('',                    [PinceMarquageControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [PinceMarquageControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la pince de robot
-$app->get('/pince-de-robot/mise-en-situation', [PinceRobotControleur::class, 'miseEnSituation']);
+$app->group('/pince-de-robot', function($group) {
+    $group->get('',                    [PinceRobotControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [PinceRobotControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la pompe à palettes
-$app->get('/pompe-a-palettes/mise-en-situation', [PompePalettesControleur::class, 'miseEnSituation']);
+$app->group('/pompe-a-palettes', function($group) {
+    $group->get('',                    [PompePalettesControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [PompePalettesControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique du préhenseur de culasse
-$app->get('/prehenseur-de-culasse/mise-en-situation', [PrehenseurCulasseControleur::class, 'miseEnSituation']);
+$app->group('/prehenseur-de-culasse', function($group) {
+    $group->get('',                    [PrehenseurCulasseControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [PrehenseurCulasseControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de l'unité de marquage
-$app->get('/unite-de-marquage/mise-en-situation', [UniteMarquageControleur::class, 'miseEnSituation']);
+$app->group('/unite-de-marquage', function($group) {
+    $group->get('',                    [UniteMarquageControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [UniteMarquageControleur::class, 'miseEnSituation']);
+});
 
 // dossier technique de la vanne sphérique
-$app->get('/vanne-spherique/mise-en-situation', [VanneSpheriqueControleur::class, 'miseEnSituation']);
+$app->group('/vanne-spherique', function($group) {
+    $group->get('',                    [VanneSpheriqueControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',  [VanneSpheriqueControleur::class, 'miseEnSituation']);
+});
