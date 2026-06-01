@@ -41,8 +41,7 @@ abstract class SupportControleur
 	 *
 	 * ATTENTION: le dossier ne doit pas contenir d'espace
      */
-    protected function hydrate(string $nom, string $du, string $dossier, string $logo): void
-    {
+    protected function hydrate(string $nom, string $du, string $dossier, string $logo): void {
         $this->nom        = $nom;
         $this->article_du = $du;
         $this->dossier    = $dossier;
@@ -56,10 +55,10 @@ abstract class SupportControleur
 	 * 	- une nomenclature
 	 * 	- une page 'à propos' donnant une archive zip et une description
 	 */
-	abstract protected function miseEnSituation(Request $requete, Response $reponse): Response;
-	abstract protected function dessinDensemble(Request $requete, Response $reponse): Response;
-	abstract protected function aPropos(Request $requete, Response $reponse): Response;
-	abstract protected function nomenclature(Request $requete, Response $reponse): Response;
+	abstract public function miseEnSituation(Request $requete, Response $reponse): Response;
+	abstract public function dessinDensemble(Request $requete, Response $reponse): Response;
+	abstract public function aPropos(Request $requete, Response $reponse): Response;
+	abstract public function nomenclature(Request $requete, Response $reponse): Response;
 
 	/**
 	 * Les rendus des pages classiques

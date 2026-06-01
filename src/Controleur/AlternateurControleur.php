@@ -44,7 +44,7 @@ class AlternateurControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    protected function dessinDensemble(Request $requete, Response $reponse): Response
+    public function dessinDensemble(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
@@ -58,7 +58,7 @@ class AlternateurControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    protected function nomenclature(Request $requete, Response $reponse): Response
+    public function nomenclature(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
