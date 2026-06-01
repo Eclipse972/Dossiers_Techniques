@@ -84,7 +84,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ## Principe général
 - PHP/Slim gère le routage et la logique métier
 - Twig génère le HTML avec les données JSON embarquées
-- JavaScript construit l'intégralité du contenu visible
+- JavaScript gère les comportements et construit le contenu des certaines pages via le pattern data-json.
 - Fichiers techniques stockés dans /public/supports/{nom_support}/
 
 ## Flux de données
@@ -96,28 +96,37 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 
 ## Responsabilités
 
-### PHP/Slim (Backend)
+### PHP/Slim (côté serveur)
 - Routage des URLs
 - Lecture des données depuis des tableaux associatifs
 - Construction du JSON
 - Transmission des données à Twig
 
-### Twig (Templates)
-- Structure HTML minimale (doctype, head, body)
-- Injection des données JSON dans le DOM
+### Twig (côté serveur)
+- Structure HTML (doctype, head, body)
+- Injection des données JSON dans le DOM via `data-json` pour les pages DT
 - Chargement des scripts JS nécessaires
-- Données fournies : métadonnées de la page, données métier, configuration
+- Rendu direct du contenu pour les pages simples, à condition que le template reste
+  lisible : conditions à plat, boucles sans imbrication. Dès qu'une condition apparaît
+  dans une boucle, ou qu'une logique se répète, basculer vers le pattern data-json + JS.
 
-### JavaScript (Frontend)
-- Lecture du JSON embarqué
-- Génération du menu de navigation
-- Construction du contenu principal
-- Gestion des interactions utilisateur
+### JavaScript (côté client)
+- Comportements et interactions : menu de navigation, animations, événements utilisateur
+- Pour les pages DT : lecture du JSON embarqué, génération du contenu principal
+- Validation basique des données reçues
 
-## Scripts JS par page
-- `menu-builder.js` : génère le menu de navigation via buildMenu(data)
-- `page-builder.js` : construit le contenu principal via buildPage(data, type)
-- Scripts spécifiques par type de page dans `/js/types/` (dessin, nomenclature, éclaté)
+### Choisir entre Twig et JS
+**La page a-t-elle besoin d'interaction ou d'animation ?**
+- Oui → JS (menu, transitions, événements)
+- Non → continuer
+
+**Les données sont-elles entièrement connues côté serveur ?**
+- Non → pattern data-json + JS
+- Oui → continuer
+
+**Le template reste-t-il lisible : pas de condition dans une boucle, pas de logique répétée ?**
+- Non → pattern data-json + JS
+- Oui → Twig suffit
 
 # Format des données JSON
 
