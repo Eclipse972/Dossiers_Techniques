@@ -21,6 +21,27 @@ class CoupeTubeControleur extends SupportControleur
         $this->hydrate('mini coupe-tube', "du ", 'coupe-tube', 'mini_coupe-tube.png');
     }
 
+	/**
+     * Affiche la page 'à propos'
+     *
+     * @route /coupe-tube
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        $listeLien = [];
+		self::ajouteLien($listeLien,'https://www.bricodepot.fr/beauvais/mini-coupe-tube/prod5924/', "ches brico-dépôt");
+        return $this->renduApropos(
+			$reponse,
+			'mini-coupe-tube.zip',
+			["contient aussi d'autres miseen plan"],
+			$listeLien
+		);
+    }
+
     /**
      * Affiche la page de mise en situation du coupe-tube.
      *
@@ -28,6 +49,7 @@ class CoupeTubeControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
@@ -42,6 +64,7 @@ class CoupeTubeControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
@@ -56,23 +79,10 @@ class CoupeTubeControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du coupe-tube (archive zip + description).
-     *
-     * @route /coupe-tube
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
