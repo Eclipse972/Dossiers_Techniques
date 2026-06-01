@@ -21,8 +21,27 @@ class BrideHydrauliqueControleur extends SupportControleur
         $this->hydrate('bride hydraulique', "de la ", 'bride-hydraulique', 'bride.png');
     }
 
+	/**
+     * Affiche la page 'à propos' de la bride hydraulique
+     *
+     * @route /bride-hydrauique
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			null,
+			[],
+			[],
+		);
+    }
+
     /**
-     * Affiche la page de mise en situation de l'alternateur.
+     * Affiche la page de mise en situation de la bride hydrauique.
      *
      * @route /bride-hydraulique/mise-en-situation
      *
@@ -62,20 +81,6 @@ class BrideHydrauliqueControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
