@@ -72,8 +72,12 @@ class AlternateurControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    protected function aPropos(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'alternateur.zip',
+			"\t<ul>\n\t\t<li>contient deux configuraions compl&eacute;mentaires</li>\n\t\t<li>dessin de l&apos;&eacute;clat&eacute;</li>\n\t</ul>",
+			[]
+		);
     }
 }

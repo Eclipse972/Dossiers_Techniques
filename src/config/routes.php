@@ -31,6 +31,7 @@ use Slim\App;
 $app->get('/', [AutrePageControleur::class, 'accueil']);
 
 // dossier technique de l'alternateur
+$app->get('/alternateur', [AlternateurControleur::class, 'aPropos']);
 $app->get('/alternateur/mise-en-situation', [AlternateurControleur::class, 'miseEnSituation']);
 
 // dossier technique du bouton poussoir
