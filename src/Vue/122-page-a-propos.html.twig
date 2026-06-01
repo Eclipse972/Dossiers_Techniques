@@ -31,12 +31,12 @@
 {% if listeLien == [] %}
     <p><u><b>Aucun lien associé.</b></u></p>
 {% elseif listeLien|length == 1 %}
-    <p><u><b>Lien associé</b></u>: <a href="{{ listeLien[0].url }}">{{ listeLien[0].texte }}</a></p>
+    <p><u><b>Lien associé</b></u>: <a href="{{ listeLien[0].url }}" target="_blank">{{ listeLien[0].texte }}</a></p>
 {% else %}
     <p><u><b>Liste des liens associés</b></u></p>
     <ul>
 	{% for lien in listeLien %}
-		<li><a href="{{ lien.url }}">{{ lien.texte }}</a></li>
+		<li><a href="{{ lien.url }}" target="_blank">{{ lien.texte }}</a></li>
 	{% endfor %}
     </ul>
 {% endif %}
