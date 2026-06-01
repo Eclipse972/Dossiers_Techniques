@@ -76,7 +76,10 @@ class AlternateurControleur extends SupportControleur
         return $this->renduApropos(
 			$reponse,
 			'alternateur.zip',
-			"\t<ul>\n\t\t<li>contient deux configuraions compl&eacute;mentaires</li>\n\t\t<li>dessin de l&apos;&eacute;clat&eacute;</li>\n\t</ul>",
+			[
+				'contient deux configurations complémentaires',
+				"dessin de l'éclaté"
+			],
 			[]
 		);
     }
