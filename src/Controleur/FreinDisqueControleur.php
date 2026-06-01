@@ -66,7 +66,7 @@ class FreinDisqueControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du frein à disque (archive zip + description).
      *
-     * @route /frein-a-disque/a-propos
+     * @route /frein-a-disque
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

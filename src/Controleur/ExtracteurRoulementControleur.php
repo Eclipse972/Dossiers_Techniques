@@ -66,7 +66,7 @@ class ExtracteurRoulementControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de l' extracteur de roulement (archive zip + description).
      *
-     * @route /extracteur-de-roulement/a-propos
+     * @route /extracteur-de-roulement
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

@@ -66,7 +66,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du préhenseur de culasse (archive zip + description).
      *
-     * @route /prehenseur-de-culasse/a-propos
+     * @route /prehenseur-de-culasse
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

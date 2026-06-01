@@ -66,7 +66,7 @@ class CricHydrauliqueControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du cric hydraulique (archive zip + description).
      *
-     * @route /cric-hydraulique/a-propos
+     * @route /cric-hydraulique
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

@@ -66,7 +66,7 @@ class PompePalettesControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de la pompe à palettes (archive zip + description).
      *
-     * @route /pompe-a-palettes/a-propos
+     * @route /pompe-a-palettes
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

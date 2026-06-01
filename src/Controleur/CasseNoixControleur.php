@@ -66,7 +66,7 @@ class CasseNoixControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du casse-noix (archive zip + description).
      *
-     * @route /casse-noix/a-propos
+     * @route /casse-noix
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

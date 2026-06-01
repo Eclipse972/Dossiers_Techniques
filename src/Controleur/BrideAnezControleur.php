@@ -66,7 +66,7 @@ class BrideAnezControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de l'alternateur (archive zip + description).
      *
-     * @route /alternateur/a-propos
+     * @route /alternateur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

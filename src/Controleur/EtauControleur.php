@@ -66,7 +66,7 @@ class EtauControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de l'étau (archive zip + description).
      *
-     * @route /etau/a-propos
+     * @route /etau
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

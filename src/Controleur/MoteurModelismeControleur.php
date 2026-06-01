@@ -66,7 +66,7 @@ class MoteurModelismeControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du moteur de modélisme (archive zip + description).
      *
-     * @route /moteur-de-modelisme/a-propos
+     * @route /moteur-de-modelisme
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

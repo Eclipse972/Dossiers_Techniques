@@ -66,7 +66,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de l' unité de marquage (archive zip + description).
      *
-     * @route /unite-de-marquage/a-propos
+     * @route /unite-de-marquage
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

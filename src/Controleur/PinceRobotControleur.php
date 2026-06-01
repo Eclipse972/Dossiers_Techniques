@@ -66,7 +66,7 @@ class PinceRobotControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' de la pince de robot (archive zip + description).
      *
-     * @route /pince-de-robot/a-propos
+     * @route /pince-de-robot
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
