@@ -21,6 +21,25 @@ class CambreuseControleur extends SupportControleur
         $this->hydrate('cambreuse', "de la ", 'cambreuse', 'cambreuse.png');
     }
 
+		/**
+     * Affiche la page 'à propos'
+     *
+     * @route /cambreuse
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'cambreuse.zip',
+			[],
+			[]
+		);
+    }
+
     /**
      * Affiche la page de mise en situation de l'alternateur.
      *
@@ -59,20 +78,6 @@ class CambreuseControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
