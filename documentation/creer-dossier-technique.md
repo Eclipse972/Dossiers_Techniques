@@ -2,6 +2,8 @@
 
 # Création des fichiers
 ### Fichiers eDrawing
+l'assemblage doit contenir un éclaté
+il faut le dessin d'ensemble
 ### Les images
 
 # Les dossiers sur le site
