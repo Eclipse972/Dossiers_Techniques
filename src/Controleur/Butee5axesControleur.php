@@ -47,10 +47,11 @@ class Butee5axesControleur extends SupportControleur
     /**
      * Affiche la page de mise en situation
      *
-     * @route /alternateur/mise-en-situation
+     * @route /butee-5-axes/mise-en-situation
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
@@ -59,12 +60,13 @@ class Butee5axesControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page du dessin d'ensemble de l'alternateur.
+     * Affiche la page du dessin d'ensemble
      *
-     * @route /alternateur/dessin-densemble
+     * @route /butee-5-axes/dessin-densemble
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
@@ -73,12 +75,13 @@ class Butee5axesControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de l'alternateur.
+     * Affiche la page de nomenclature
      *
-     * @route /alternateur/nomenclature
+     * @route /butee-5-axes/nomenclature
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
