@@ -21,8 +21,31 @@ class Butee5axesControleur extends SupportControleur
         $this->hydrate('butée 5 axes', "de la ", 'butee-5-axes', 'butee.png');
     }
 
+	/**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'butee-5-axes.zip',
+			[
+				"chaque axe fait l'objet d'une configuration dans le fichier Butée",
+				"éclaté sur un fichier séparé",
+				"contient les dessins de définition"
+			],
+			[]
+		);
+    }
+
     /**
-     * Affiche la page de mise en situation de l'alternateur.
+     * Affiche la page de mise en situation
      *
      * @route /alternateur/mise-en-situation
      *
@@ -59,20 +82,6 @@ class Butee5axesControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
