@@ -106,7 +106,7 @@ abstract class SupportControleur
 	 * @return Response
 	 */
 	public function renduApropos(Response $reponse, ?string $archiveZip, ?string $descriptionZip, array $listeLien): Response {
-		return $this->vue->render($reponse, '113-page-a-propos.html.twig', [
+		return $this->vue->render($reponse, '122-page-a-propos.html.twig', [
 			'support'        => $this->nom,
 			'title'          => "DT {$this->nom}",
 			'logo_url'       => "/supports/{$this->dossier}/images/{$this->logo}",
