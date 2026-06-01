@@ -11,13 +11,13 @@ use Slim\Views\Twig;
 abstract class SupportControleur
 {
 	// propritétés à instancier obligatoirement
-	protected string $nom;			// nom tout en minuscules
-	protected string $article_du;	// "du ", "de la " ou "de l'"
-	protected string $dossier;		// emplacement racine des fichiers associés
-	protected string $logo;			// image du support
+	public string $nom;			// nom tout en minuscules
+	public string $article_du;	// "du ", "de la " ou "de l'"
+	public string $dossier;		// emplacement racine des fichiers associés
+	public string $logo;			// image du support
 
 	// propriété à instancier par les méthodes des classes-filles
-	protected string $template;
+	public string $template;
 
     /**
      * Constructeur : injection du moteur de templates.
@@ -41,7 +41,7 @@ abstract class SupportControleur
 	 *
 	 * ATTENTION: le dossier ne doit pas contenir d'espace
      */
-    protected function hydrate(string $nom, string $du, string $dossier, string $logo): void {
+    public function hydrate(string $nom, string $du, string $dossier, string $logo): void {
         $this->nom        = $nom;
         $this->article_du = $du;
         $this->dossier    = $dossier;
@@ -81,7 +81,7 @@ abstract class SupportControleur
 	 *
 	 * @return Response
 	 */
-    protected function renduMES(Response $reponse): Response {
+    public function renduMES(Response $reponse): Response {
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'			=> $this->nom,
 				'title'				=> "DT {$this->nom}",
@@ -105,7 +105,7 @@ abstract class SupportControleur
 	 *
 	 * @return Response
 	 */
-	protected function renduApropos(Response $reponse, ?string $archiveZip, ?string $descriptionZip, array $listeLien): Response {
+	public function renduApropos(Response $reponse, ?string $archiveZip, ?string $descriptionZip, array $listeLien): Response {
 		return $this->vue->render($reponse, '113-page-a-propos.html.twig', [
 			'support'        => $this->nom,
 			'title'          => "DT {$this->nom}",
@@ -146,7 +146,7 @@ abstract class SupportControleur
 	* 		['url' => 'https://example.com/contact', 'texte' => 'Contact'],
 	* 	]
 	*/
-	protected static function ajouteLien(array &$liste, string $url, string $texte): void
+	public static function ajouteLien(array &$liste, string $url, string $texte): void
 	{
 		$liste[] = ['url' => $url, 'texte' => $texte];
 	}
