@@ -98,14 +98,14 @@ abstract class SupportControleur
 	 * Rendu des pages à propos
 	 *
 	 * @param Response      $reponse        Objet réponse HTTP
-	 * @param string|null   $archiveZip     Chemin relatif vers l'archive ZIP (null si indisponible)
-	 * @param string|null   $descriptionZip Description HTML de l'archive (null pour le texte par défaut)
+	 * @param string|null	$archiveZip     Chemin relatif vers l'archive ZIP (null si indisponible)
+	 * @param array			$descriptionZip liste de chaine de caractère
+	 * 										['texte 1', 'texte 2', ... ]
 	 * @param array         $listeLien      Liste de liens associés, chaque entrée sous la forme
 	 *                                      ['url' => string, 'texte' => string]
-	 *
 	 * @return Response
 	 */
-	public function renduApropos(Response $reponse, ?string $archiveZip, ?string $descriptionZip, array $listeLien): Response {
+	public function renduApropos(Response $reponse, ?string $archiveZip, array $descriptionZip, array $listeLien): Response {
 		return $this->vue->render($reponse, '122-page-a-propos.html.twig', [
 			'support'        => $this->nom,
 			'title'          => "DT {$this->nom}",

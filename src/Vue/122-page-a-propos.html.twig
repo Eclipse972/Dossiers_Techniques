@@ -14,8 +14,18 @@
 {% if archiveZip is null %}
  <p>Archive zip non disponible</p>
 {% else %}
-<a href="/supports/{{ dossier }}/{{ archiveZip }}">Cliquez ici pour télécharger l'archive ZIP {{ du }}{{ support }}</a>
-{{ descriptionZip | default("<p>la maquette comporte une configuration éclatée et le dessin d'ensemble</p>") | raw }}
+	<a href="/supports/{{ dossier }}/{{ archiveZip }}">Cliquez ici pour télécharger l'archive ZIP {{ du }}{{ support }}</a>
+	{% if descriptionZip == [] %}
+		<p>la maquette comporte une configuration éclatée de l'assemblage et le dessin d'ensemble</p>
+	{% else %}
+		<ul>
+			<li>la maquette comporte une configuration éclatée de l'assemblage</li>
+			<li>le dessin d'ensemble</li>
+		{% for item in descriptionZip %}
+			<li>{{ item | raw }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
 {% endif %}
 
 {% if listeLien == [] %}
