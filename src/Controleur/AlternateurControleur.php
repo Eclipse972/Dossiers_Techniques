@@ -28,6 +28,7 @@ class AlternateurControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 * 
      * @return Response
      */
     public function aPropos(Request $requete, Response $reponse): Response {
@@ -41,7 +42,7 @@ class AlternateurControleur extends SupportControleur
 			[]
 		);
     }
-	
+
     /**
      * Affiche la page de mise en situation de l'alternateur.
      *
