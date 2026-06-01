@@ -31,7 +31,10 @@ section {
 	background-color:white;
 	min-height:550px;
 }
+
 section a { text-decoration: none; }
+
+section a:hover { text-decoration: underline;}
 
 section h1 {
 	text-decoration: underline;
