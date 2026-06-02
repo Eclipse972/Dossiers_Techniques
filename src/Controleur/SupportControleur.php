@@ -16,9 +16,6 @@ abstract class SupportControleur
 	public string $dossier;		// emplacement racine des fichiers associés
 	public string $logo;			// image du support
 
-	// propriété à instancier par les méthodes des classes-filles
-	public string $template;
-
     /**
      * Constructeur : injection du moteur de templates.
      *
