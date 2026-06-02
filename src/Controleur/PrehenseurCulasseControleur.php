@@ -22,6 +22,28 @@ class PrehenseurCulasseControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' du bouton poussoir
+     *
+     * @route /prehenseur-de-culasse
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'prehenseur-de-culasse.zip',
+			[
+				"plusieurs fichiers au lieu d'utiliser des configurations",
+				"le fichier préhenseur pour étude d'ouverture permet de voir le fonctionnement",
+			],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation du préhenseur de culasse.
      *
      * @route /prehenseur-de-culasse/mise-en-situation
@@ -59,20 +81,6 @@ class PrehenseurCulasseControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du préhenseur de culasse (archive zip + description).
-     *
-     * @route /prehenseur-de-culasse
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
