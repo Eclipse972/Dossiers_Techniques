@@ -34,7 +34,7 @@ class FreinDisqueControleur extends SupportControleur
     public function aPropos(Request $requete, Response $reponse): Response {
         return $this->renduApropos(
 			$reponse,
-			null,
+			'frein-a-disque.zip',
 			[],
 			[]
 		);
