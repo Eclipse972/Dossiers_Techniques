@@ -34,6 +34,8 @@ section {
 
 section a { text-decoration: none; }
 
+section a, section a:visited { color: var(--couleur5); }
+
 section a:hover { text-decoration: underline;}
 
 section h1 {
