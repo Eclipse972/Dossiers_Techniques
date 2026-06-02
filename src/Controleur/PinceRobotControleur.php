@@ -22,6 +22,28 @@ class PinceRobotControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'pince-de-robot.zip',
+			[
+				"par défaut le corps est caché",
+				"rajout d'une contrainte limite"
+			],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de la pince de robot.
      *
      * @route /pince-de-robot/mise-en-situation
@@ -59,20 +81,6 @@ class PinceRobotControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de la pince de robot (archive zip + description).
-     *
-     * @route /pince-de-robot
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
