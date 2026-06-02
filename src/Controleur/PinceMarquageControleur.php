@@ -22,6 +22,28 @@ class PinceMarquageControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'pince-de-marquage.zip',
+			[
+				"les rouleaux ne roulent pas correctement sur la came",
+				"dessin d'ensemble absent"
+			],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de la pince de marquage.
      *
      * @route /pince-de-marquage/mise-en-situation
@@ -59,20 +81,6 @@ class PinceMarquageControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de la pince de marquage (archive zip + description).
-     *
-     * @route /pince-de-marquage
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
