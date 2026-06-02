@@ -22,6 +22,25 @@ class PompePalettesControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'pompe-a-palettes.zip',
+			["contient une configuration pour les étapes de l'assemblage"],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de la pompe à palettes.
      *
      * @route /pompe-a-palettes/mise-en-situation
@@ -59,20 +78,6 @@ class PompePalettesControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de la pompe à palettes (archive zip + description).
-     *
-     * @route /pompe-a-palettes
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
