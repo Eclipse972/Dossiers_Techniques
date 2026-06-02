@@ -22,6 +22,25 @@ class CricHydrauliqueControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' du cric bouteille
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			null,
+			[],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation du cric hydraulique.
      *
      * @route /cric-hydraulique/mise-en-situation
@@ -59,20 +78,6 @@ class CricHydrauliqueControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du cric hydraulique (archive zip + description).
-     *
-     * @route /cric-hydraulique
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
