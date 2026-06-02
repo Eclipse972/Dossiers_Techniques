@@ -22,6 +22,25 @@ class FreinDisqueControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			null,
+			[],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation du frein à disque.
      *
      * @route /frein-a-disque/mise-en-situation
@@ -59,20 +78,6 @@ class FreinDisqueControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du frein à disque (archive zip + description).
-     *
-     * @route /frein-a-disque
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
