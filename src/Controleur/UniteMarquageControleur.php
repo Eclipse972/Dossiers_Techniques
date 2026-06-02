@@ -22,7 +22,7 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page 'à propos' du bouton poussoir
+     * Affiche la page 'à propos'
      *
      * @route /prehenseur-de-culasse
      *
