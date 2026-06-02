@@ -22,6 +22,31 @@ class ElectrovanneControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+    	$listeLien = [];
+		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#e', "site de Jérôme Laparre");
+        return $this->renduApropos(
+			$reponse,
+			'electrovanne.zip',
+			[
+				"une des configurations est un écorché",
+				"la maquette est fixe",
+				"contient les dessins de définition"
+			],
+			$listeLien
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de l'électrovanne.
      *
      * @route /electrovanne/mise-en-situation
@@ -59,20 +84,6 @@ class ElectrovanneControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'électrovanne (archive zip + description).
-     *
-     * @route /electrovanne
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
