@@ -22,6 +22,29 @@ class CricBouteilleControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' du cric bouteille
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'cric-bouteille.zip',
+			[
+				"le fichier s'apelle Assemblage2",
+				"la maquette est mobile",
+				"pas de simulation des clapets"
+			],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation du cric bouteille.
      *
      * @route /cric-bouteille/mise-en-situation
@@ -59,20 +82,6 @@ class CricBouteilleControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du cric bouteille (archive zip + description).
-     *
-     * @route /cric-bouteille
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
