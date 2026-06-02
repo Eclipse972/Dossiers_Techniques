@@ -22,6 +22,27 @@ class EtauControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+    	$listeLien = [];
+		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#e', "site de Jérôme Laparre");
+        return $this->renduApropos(
+			$reponse,
+			'etau.zip',
+			["maquette construite à partir des classes d'équivalence"],
+			$listeLien
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de l'étau.
      *
      * @route /etau/mise-en-situation
@@ -59,20 +80,6 @@ class EtauControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'étau (archive zip + description).
-     *
-     * @route /etau
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
