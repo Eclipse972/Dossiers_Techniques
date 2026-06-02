@@ -36,14 +36,13 @@ section a { text-decoration: none; }
 
 section a, section a:visited { color: var(--couleur5); }
 
-section a:hover { text-decoration: underline;}
-
 section h1 {
 	text-decoration: underline;
 	text-align: center;
 	font-size: 25px;
 	margin-top: 0;
 }
+
 section h2 {
 	text-decoration: underline;
 	text-align: left;
