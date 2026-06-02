@@ -24,7 +24,7 @@ class EtauControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /etau
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

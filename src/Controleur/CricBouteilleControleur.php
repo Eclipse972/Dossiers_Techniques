@@ -24,7 +24,7 @@ class CricBouteilleControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du cric bouteille
      *
-     * @route /bouton-pousssoir
+     * @route /cric-bouteille
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

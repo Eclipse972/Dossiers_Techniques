@@ -24,7 +24,7 @@ class ElectrovanneControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /electrovanne
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

@@ -24,7 +24,7 @@ class PinceMarquageControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /pince-de-marquage
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
