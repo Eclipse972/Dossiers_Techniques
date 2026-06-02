@@ -1,0 +1,6 @@
+#a-propos {
+	width:700px;
+	margin:auto;
+}
+
+#a-propos a:hover { text-decoration: underline;}
