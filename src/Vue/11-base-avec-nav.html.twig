@@ -14,7 +14,7 @@
 
 {% block balise_nav %}
 <nav>
-{{ menu | raw }}
+{% include 'supports/' ~ dossier ~ '/menu.html.twig' %}
 <a href="/">Page d'accueil</a>
 </nav>
 {% endblock %}
