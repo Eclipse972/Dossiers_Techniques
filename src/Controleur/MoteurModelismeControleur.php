@@ -22,6 +22,25 @@ class MoteurModelismeControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'moteur-de-modelisme.zip',
+			[],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation du moteur de modélisme.
      *
      * @route /moteur-de-modelisme/mise-en-situation
@@ -59,20 +78,6 @@ class MoteurModelismeControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' du moteur de modélisme (archive zip + description).
-     *
-     * @route /moteur-de-modelisme
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
