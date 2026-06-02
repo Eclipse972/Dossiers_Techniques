@@ -22,7 +22,26 @@ class VanneSpheriqueControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de mise en situation de la vanne sphérique.
+     * Affiche la page 'à propos'
+     *
+     * @route /prehenseur-de-culasse
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'vanne-spherique.zip',
+			["Ajout d'une contrainte limite pour simuler les fins de course angulaire du levier."],
+			[]
+		);
+    }
+
+    /**
+     * Affiche la page de mise en situation
      *
      * @route /vanne-spherique/mise-en-situation
      *
@@ -59,20 +78,6 @@ class VanneSpheriqueControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de la vanne sphérique (archive zip + description).
-     *
-     * @route /vanne-spherique
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
