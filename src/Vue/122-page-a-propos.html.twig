@@ -16,7 +16,7 @@
 <div id="a-propos">
 <p><u><b>La maquette numérique</b></u></p>
 {% if archiveZip is null %}
- <p>Archive zip non disponible</p>
+<p>Archive zip non disponible</p>
 {% else %}
 	<a href="/supports/{{ dossier }}/{{ archiveZip }}">Cliquez ici pour télécharger l'archive ZIP {{ du }}{{ support }}</a>
 	{% if descriptionZip == [] %}
