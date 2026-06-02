@@ -22,6 +22,25 @@ class ExtracteurRoulementControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos'
+     *
+     * @route /bouton-pousssoir
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'extracteur_de_roulement.zip',
+			[],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de l' extracteur de roulement.
      *
      * @route /extracteur-de-roulement/mise-en-situation
@@ -59,20 +78,6 @@ class ExtracteurRoulementControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l' extracteur de roulement (archive zip + description).
-     *
-     * @route /extracteur-de-roulement
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
