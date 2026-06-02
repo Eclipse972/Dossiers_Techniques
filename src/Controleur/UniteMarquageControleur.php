@@ -22,6 +22,28 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
+     * Affiche la page 'à propos' du bouton poussoir
+     *
+     * @route /prehenseur-de-culasse
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function aPropos(Request $requete, Response $reponse): Response {
+        return $this->renduApropos(
+			$reponse,
+			'unite-de-marquage.zip',
+			[
+				"plusieurs fichiers au lieu d'utiliser des configurations",
+				"le fichier préhenseur pour étude d'ouverture permet de voir le fonctionnement",
+			],
+			[]
+		);
+    }
+
+    /**
      * Affiche la page de mise en situation de l' unité de marquage.
      *
      * @route /unite-de-marquage/mise-en-situation
@@ -59,20 +81,6 @@ class UniteMarquageControleur extends SupportControleur
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $reponse;
-    }
-
-    /**
-     * Affiche la page 'à propos' de l' unité de marquage (archive zip + description).
-     *
-     * @route /unite-de-marquage
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response
     {
         return $reponse;
     }
