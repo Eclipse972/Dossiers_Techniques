@@ -84,4 +84,102 @@ class PinceMarquageControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+     * Affiche la page de fonctionnement de la pince de marquage.
+     *
+     * @route /pince-de-marquage/fonctionnement
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function fonctionnement(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'éclaté de la pince de marquage.
+     *
+     * @route /pince-de-marquage/eclate
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page principale des sous-ensembles.
+     *
+     * @route /pince-de-marquage/sous-ensembles
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function sousEnsembles(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche le sous-ensemble du bâti.
+     *
+     * @route /pince-de-marquage/sous-ensembles/bati
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function SEbati(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche le sous-ensemble du bras supérieur.
+     *
+     * @route /pince-de-marquage/sous-ensembles/bras-superieur
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function SEbrasSuperieur(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche le sous-ensemble du bras inférieur.
+     *
+     * @route /pince-de-marquage/sous-ensembles/bras-inferieur
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function SEbrasInferieur(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche le sous-ensemble du piston.
+     *
+     * @route /pince-de-marquage/sous-ensembles/piston
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function SEpiston(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
 }

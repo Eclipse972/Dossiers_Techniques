@@ -247,8 +247,17 @@ $app->group('/moteur-de-modelisme', function($group) {
 
 // dossier technique de la pince de marquage
 $app->group('/pince-de-marquage', function($group) {
-    $group->get('',                    [PinceMarquageControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [PinceMarquageControleur::class, 'miseEnSituation']);
+    $group->get('',                                    [PinceMarquageControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',                  [PinceMarquageControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',                     [PinceMarquageControleur::class, 'fonctionnement']);
+    $group->get('/dessin-densemble',                   [PinceMarquageControleur::class, 'dessinDensemble']);
+    $group->get('/nomenclature',                       [PinceMarquageControleur::class, 'nomenclature']);
+    $group->get('/eclate',                             [PinceMarquageControleur::class, 'eclate']);
+    $group->get('/sous-ensembles',                     [PinceMarquageControleur::class, 'sousEnsembles']);
+    $group->get('/sous-ensembles/bati',                [PinceMarquageControleur::class, 'SEbati']);
+    $group->get('/sous-ensembles/bras-superieur',      [PinceMarquageControleur::class, 'SEbrasSuperieur']);
+    $group->get('/sous-ensembles/bras-inferieur',      [PinceMarquageControleur::class, 'SEbrasInferieur']);
+    $group->get('/sous-ensembles/piston',              [PinceMarquageControleur::class, 'SEpiston']);
 });
 
 // dossier technique de la pince de robot
