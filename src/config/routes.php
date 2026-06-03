@@ -121,8 +121,12 @@ $app->group('/cambreuse', function($group) {
 
 // dossier technique du casse-noix
 $app->group('/casse-noix', function($group) {
-    $group->get('',                    [CasseNoixControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [CasseNoixControleur::class, 'miseEnSituation']);
+	$group->get('',						[CasseNoixControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',	[CasseNoixControleur::class, 'miseEnSituation']);
+	$group->get('/diagramme-A-0',		[CasseNoixControleur::class, 'diagrammeA0']);
+	$group->get('/dessin-densemble',	[CasseNoixControleur::class, 'dessinDensemble']);
+	$group->get('/eclate',				[CasseNoixControleur::class, 'eclate']);
+	$group->get('/nomenclature',		[CasseNoixControleur::class, 'nomenclature']);
 });
 
 // dossier technique du mini coupe-tube

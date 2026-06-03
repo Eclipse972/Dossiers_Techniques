@@ -22,65 +22,96 @@ class CasseNoixControleur extends SupportControleur
     }
 
 	/**
-     * Affiche la page 'à propos'
-     *
-     * @route /cambreuse
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	 * Affiche la page 'à propos'
 	 *
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response {
-        return $this->renduApropos(
+	 * @route /casse-noix
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function aPropos(Request $requete, Response $reponse): Response {
+		return $this->renduApropos(
 			$reponse,
-			'cambreuse.zip',
+			'casse-noix.zip',
 			[],
 			[]
 		);
-    }
+	}
 
-    /**
-     * Affiche la page de mise en situation
-     *
-     * @route /casse-noix/mise-en-situation
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	/**
+	 * Affiche la page de mise en situation
 	 *
-     * @return Response
-     */
-    public function miseEnSituation(Request $requete, Response $reponse): Response
-    {
-        return $this->renduMES($reponse);
-    }
-
-    /**
-     * Affiche la page du dessin d'ensemble
-     *
-     * @route /casse-noix/dessin-densemble
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function dessinDensemble(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    /**
-     * Affiche la page de nomenclature
-     *
-     * @route /casse-noix/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	 * @route /casse-noix/mise-en-situation
 	 *
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function miseEnSituation(Request $requete, Response $reponse): Response
+	{
+		return $this->renduMES($reponse);
+	}
+
+	/**
+	 * Affiche la page du diagramme A-0
+	 *
+	 * @route /casse-noix/diagramme-A-0
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function diagrammeA0(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du dessin d'ensemble
+	 *
+	 * @route /casse-noix/dessin-densemble
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function dessinDensemble(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'éclaté
+	 *
+	 * @route /casse-noix/eclate
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function eclate(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de nomenclature
+	 *
+	 * @route /casse-noix/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
 }
