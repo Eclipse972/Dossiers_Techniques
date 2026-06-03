@@ -184,6 +184,11 @@ abstract class SupportControleur
 	 * @param int          $quantite     La quantité de l'élément
 	 * @param string|null  $matiere      La matière de la pièce (null par défaut)
 	 * @param string|null  $observation  Observations ou remarques (null par défaut)
+	 *
+	 * @example
+	 * $nomenclature = [];
+	 * self::ajouteLigneNomenclature($nomenclature, 'Vis M6', 1, 'vis-m6', 'vis.png', 4, 'Acier', 'Fixation carter');
+	 * self::ajouteLigneNomenclature($nomenclature, 'Écrou', 2, 'ecrou', 'ecrou.png', 4);
 	 */
 	public static function ajouteLigneNomenclature(array &$nomenclature, string $nom, int $repere, string $fichier, string $image, int $quantite, ?string $matiere = null, ?string $observation = null): void
 	{
