@@ -5,6 +5,7 @@ nav, section {
 	display:inline-block;
 	vertical-align:top;
 }
+
 /* zone centrale ------------------------------------------------------------------------------ */
 section ul { margin:0; }
 
@@ -12,6 +13,7 @@ section img {
 	padding: 4px;
 	max-width:1100px
 }
+
 /*	--------------------------------------------------------------------------------------------
 	---------------------------------- pour la navigation --------------------------------------
 	-------------------------------------------------------------------------------------------- */
@@ -21,6 +23,7 @@ nav {
 	text-align:center;
 	font-size:20px;
 }
+
 nav a {
 	text-decoration:none;	/* aucun lien n'est souligné */
 	color:var(--couleur4);	/* couleur par défaut */
@@ -34,11 +37,13 @@ nav ul {
 	margin-bottom: 30px;
 	padding: 0;
 }
+
 /* menu --------------------------------------------------------------------------------------- */
 nav li {
 	line-height: 30px;
 	margin-bottom: 10px;
 }
+
 nav li a {
 	display: block;
 	color: white; /* tous les items du menu sont écrits en blanc*/
@@ -47,7 +52,7 @@ nav li a {
 	border-radius:9px;
 }
 
-nav li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
+nav li a:hover, #menu-actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
 nav ul ul {
@@ -61,7 +66,8 @@ nav ul ul a {
 	border-radius:0;	/* pour avoir des coins carrés contrairement aux items arrondis*/
 	font-weight:normal;
 }
-#gamma_actif {font-weight:bold;}
+
+#sous-menu-actif { font-weight:bold; }
 
 nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
@@ -73,11 +79,13 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 	margin: 2px;
 	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
 }
+
 .image_centree {
 	display: block;
 	max-width: 100%;
 	margin: 0 auto;
 }
+
 .colonne { /* colonne moitié de page */
 	display: inline-block;
 	vertical-align: top;
@@ -85,14 +93,17 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol�
 	padding-top: 0;
 	width: 49%;
 }
+
 .association {
 	display: block;
 	margin: auto;
 }
+
 #page_image {
 	width:80%;
 	margin:auto;
 }
+
 #page_image img {
 	max-height: 450px;
 	display: block;
