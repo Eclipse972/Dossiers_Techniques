@@ -50,7 +50,10 @@ nav li a {
 nav li a:hover, #beta_actif { background-color: var(--couleur2); } /* couleur du menu sélectionné et celui sous la souris */
 
 /* sous-menu ---------------------------------------------------------------------------------- */
-nav ul ul {	margin: 5px; }
+nav ul ul {
+	margin: 5px;
+	display: none;
+}
 
 nav ul ul a {
 	color: black; 	/* tous les textes du sous-menu sont en noir */
