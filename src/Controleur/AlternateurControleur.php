@@ -22,13 +22,13 @@ class AlternateurControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page 'à propos' de l'alternateur (archive zip + description).
+     * Affiche la page 'à propos' de l'alternateur
      *
      * @route /alternateur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
-	 * 
+	 *
      * @return Response
      */
     public function aPropos(Request $requete, Response $reponse): Response {
@@ -68,7 +68,22 @@ class AlternateurControleur extends SupportControleur
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'éclaté
+     *
+     * @route /alternateur/eclate
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 
     /**
@@ -78,10 +93,11 @@ class AlternateurControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 }
