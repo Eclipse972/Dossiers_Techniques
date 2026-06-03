@@ -225,6 +225,10 @@ $app->group('/extracteur-de-roulement', function($group) {
 $app->group('/frein-a-disque', function($group) {
     $group->get('',                    [FreinDisqueControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [FreinDisqueControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',     [FreinDisqueControleur::class, 'fonctionnement']);
+    $group->get('/dessin-densemble',   [FreinDisqueControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',             [FreinDisqueControleur::class, 'eclate']);
+    $group->get('/nomenclature',       [FreinDisqueControleur::class, 'nomenclature']);
 });
 
 // dossier technique du moteur de modélisme
