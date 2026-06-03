@@ -1,6 +1,6 @@
 const urlCourante = window.location.pathname;
 
-// Parcourt tous les li de niveau 1
+// Parcourt tous les li du menu
 document.querySelectorAll('nav > ul > li').forEach(li => {
 
     const lien = li.querySelector(':scope > a');
@@ -13,7 +13,7 @@ document.querySelectorAll('nav > ul > li').forEach(li => {
         if (sousMenu) {
             sousMenu.style.display = 'block';
 
-            // Parcourt les du sous-menu
+            // Parcourt les li des sous-menu
             sousMenu.querySelectorAll(':scope > li').forEach(liEnfant => {
 
                 const lienEnfant = liEnfant.querySelector(':scope > a');
