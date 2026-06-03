@@ -87,4 +87,34 @@ class ElectrovanneControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+	 * Affiche la page de fonctionnement
+	 *
+	 * @route /electrovanne/fonctionnement
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnement(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page d'analyse fonctionnelle
+	 *
+	 * @route /electrovanne/analyse-fonctionnelle
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function analyseFonctionnelle(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
 }

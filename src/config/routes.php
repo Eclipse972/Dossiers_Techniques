@@ -188,8 +188,12 @@ $app->group('/cric-hydraulique', function($group) {
 
 // dossier technique de l'électrovanne
 $app->group('/electrovanne', function($group) {
-    $group->get('',                    [ElectrovanneControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [ElectrovanneControleur::class, 'miseEnSituation']);
+	$group->get('',							[ElectrovanneControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',		[ElectrovanneControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',			[ElectrovanneControleur::class, 'fonctionnement']);
+	$group->get('/analyse-fonctionnelle',	[ElectrovanneControleur::class, 'analyseFonctionnelle']);
+	$group->get('/dessin-densemble',		[ElectrovanneControleur::class, 'dessinDensemble']);
+	$group->get('/nomenclature',			[ElectrovanneControleur::class, 'nomenclature']);
 });
 
 // dossier technique de l'étau
