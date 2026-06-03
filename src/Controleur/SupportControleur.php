@@ -57,8 +57,9 @@ abstract class SupportControleur
 	abstract public function aPropos(Request $requete, Response $reponse): Response;
 	abstract public function nomenclature(Request $requete, Response $reponse): Response;
 
-	/**
+	/********************************************************************************************************************
 	 * Les rendus des pages classiques
+	 * ===============================
 	 * Beaucoup de pages reposent sur le même modèle. L'objectif est de factoriser le code ici.
 	 * Les classes-filles appelleront simplement ces méthodes.
 	 *
@@ -70,7 +71,7 @@ abstract class SupportControleur
 	 * 	- éclaté
 	 * 	- les pages de type association image-fichier
 	 * 	- les pages pur html
-	 */
+	 **********************************************************************************************************************/
 
 	/**
 	 * Rendu des pages en construction d'un dossier technique
@@ -138,10 +139,11 @@ abstract class SupportControleur
 		]);
 	}
 
-	/**
+	/*****************************************************************************************************************
 	 * Fonctions utilitaires
+	 * =====================
 	 * Elles sont statiques permettant de les utiliser independamment de l'objet comme un outil
-	 */
+	 *****************************************************************************************************************/
 
 	/**
 	 * Ajoute un lien à une liste.
