@@ -264,6 +264,9 @@ $app->group('/pince-de-marquage', function($group) {
 $app->group('/pince-de-robot', function($group) {
     $group->get('',                    [PinceRobotControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [PinceRobotControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',     [PinceRobotControleur::class, 'fonctionnement']);
+    $group->get('/nomenclature',       [PinceRobotControleur::class, 'nomenclature']);
+    $group->get('/eclate',             [PinceRobotControleur::class, 'eclate']);
 });
 
 // dossier technique de la pompe à palettes

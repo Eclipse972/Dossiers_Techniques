@@ -84,4 +84,32 @@ class PinceRobotControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+     * Affiche la page de fonctionnement de la pince de robot.
+     *
+     * @route /pince-de-robot/fonctionnement
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function fonctionnement(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'éclaté de la pince de robot.
+     *
+     * @route /pince-de-robot/eclate
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
 }
