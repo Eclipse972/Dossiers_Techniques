@@ -84,4 +84,242 @@ class UniteMarquageControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+     * Affiche la page des éléments constitutifs.
+     *
+     * @route /unite-de-marquage/elements
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elements(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'élément corps.
+     *
+     * @route /unite-de-marquage/elements/corps
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elementsCorps(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'élément vérin.
+     *
+     * @route /unite-de-marquage/elements/verin
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elementsVerin(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'élément enclume.
+     *
+     * @route /unite-de-marquage/elements/enclume
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elementsEnclume(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'élément embiellage.
+     *
+     * @route /unite-de-marquage/elements/embiellage
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elementsEmbiellage(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'élément levier.
+     *
+     * @route /unite-de-marquage/elements/levier
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function elementsLevier(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de fonctionnement.
+     *
+     * @route /unite-de-marquage/fonctionnement
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function fonctionnement(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de la vue éclatée.
+     *
+     * @route /unite-de-marquage/eclate
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page des classes d'équivalence.
+     *
+     * @route /unite-de-marquage/CE
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function classeEquivalence(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page du flasque droit.
+     *
+     * @route /unite-de-marquage/flasque-droit
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function flasqueDroit(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de détail du flasque.
+     *
+     * @route /unite-de-marquage/flasque-droit/flasque
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function flasqueDroitFlasque(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche le dessin de définition du flasque droit.
+     *
+     * @route /unite-de-marquage/flasque-droit/dessin-definition
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function flasqueDroitDessinDefinition(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de mécanique globale.
+     *
+     * @route /unite-de-marquage/mecanique
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function mecanique(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche l'étude des efforts embiellage/levier.
+     *
+     * @route /unite-de-marquage/mecanique/efforts-embiellage-levier
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function mecaEffortsEmbiellageLevier(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche l'étude de l'effort de marquage.
+     *
+     * @route /unite-de-marquage/mecanique/effort-marquage
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function mecaEffortMarquage(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche l'étude de la vitesse de la biellette.
+     *
+     * @route /unite-de-marquage/mecanique/vitesse-bielette
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function mecaVitesseBiellette(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche l'étude de la vitesse du levier.
+     *
+     * @route /unite-de-marquage/mecanique/vitesse-levier
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function mecaVitesseLevier(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
 }
