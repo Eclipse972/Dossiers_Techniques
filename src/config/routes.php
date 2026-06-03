@@ -280,8 +280,30 @@ $app->group('/pompe-a-palettes', function($group) {
 
 // dossier technique du préhenseur de culasse
 $app->group('/prehenseur-de-culasse', function($group) {
-    $group->get('',                    [PrehenseurCulasseControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [PrehenseurCulasseControleur::class, 'miseEnSituation']);
+    $group->get('',												[PrehenseurCulasseControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',							[PrehenseurCulasseControleur::class, 'miseEnSituation']);
+    $group->get('/mise-en-situation/dispositif-de-transfert',	[PrehenseurCulasseControleur::class, 'MESdispositif']);
+    $group->get('/mise-en-situation/etape1',					[PrehenseurCulasseControleur::class, 'MESetape1']);
+    $group->get('/mise-en-situation/etape2',					[PrehenseurCulasseControleur::class, 'MESetape2']);
+    $group->get('/mise-en-situation/etape3-4',					[PrehenseurCulasseControleur::class, 'MESetape34']);
+    $group->get('/mise-en-situation/etape5',					[PrehenseurCulasseControleur::class, 'MESetape5']);
+    $group->get('/mise-en-situation/etape6',					[PrehenseurCulasseControleur::class, 'MESetape6']);
+    $group->get('/fonctionnement',								[PrehenseurCulasseControleur::class, 'fonctionnement']);
+    $group->get('/fonctionnement/ouverture',					[PrehenseurCulasseControleur::class, 'fonctionnementOuverture']);
+    $group->get('/fonctionnement/fermeture', 					[PrehenseurCulasseControleur::class, 'fonctionnementFermeture']);
+    $group->get('/dessin-densemble',							[PrehenseurCulasseControleur::class, 'dessinDensemble']);
+    $group->get('/nomenclature',								[PrehenseurCulasseControleur::class, 'nomenclature']);
+    $group->get('/eclate',										[PrehenseurCulasseControleur::class, 'eclate']);
+    $group->get('/eclate/bati',									[PrehenseurCulasseControleur::class, 'eclateBati']);
+    $group->get('/eclate/tige-verin',							[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
+    $group->get('/eclate/biellette',							[PrehenseurCulasseControleur::class, 'eclateBiellette']);
+    $group->get('/eclate/bras-avec-2doigts',					[PrehenseurCulasseControleur::class, 'eclateBras2Doigts']);
+    $group->get('/eclate/bras-avec-1doigt',						[PrehenseurCulasseControleur::class, 'eclateBras1Doigt']);
+    $group->get('/mecanique',									[PrehenseurCulasseControleur::class, 'mecanique']);
+    $group->get('/mecanique/deplacement-tige',					[PrehenseurCulasseControleur::class, 'mecaDeplacementTige']);
+    $group->get('/mecanique/deplacement-pince',					[PrehenseurCulasseControleur::class, 'mecaDeplacementPince']);
+    $group->get('/mecanique/effort-tige',						[PrehenseurCulasseControleur::class, 'mecaEffortTige']);
+    $group->get('/mecanique/effort-articulation',				[PrehenseurCulasseControleur::class, 'mecaEffortArticulation']);
 });
 
 // dossier technique de l'unité de marquage
