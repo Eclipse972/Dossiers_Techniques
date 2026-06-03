@@ -83,8 +83,20 @@ $app->group('/bride-hydraulique', function($group) {
 
 // dossier technique de la butée 5 axes
 $app->group('/butee-5-axes', function($group) {
-    $group->get('',                    [Butee5axesControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [Butee5axesControleur::class, 'miseEnSituation']);
+    $group->get('',                                 [Butee5axesControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',               [Butee5axesControleur::class, 'miseEnSituation']);
+    $group->get('/axes',                            [Butee5axesControleur::class, 'axes']);
+    $group->get('/axes/axe1',                       [Butee5axesControleur::class, 'axe1']);
+    $group->get('/axes/axe2',                       [Butee5axesControleur::class, 'axe2']);
+    $group->get('/axes/axe3',                       [Butee5axesControleur::class, 'axe3']);
+    $group->get('/axes/axe4',                       [Butee5axesControleur::class, 'axe4']);
+    $group->get('/axes/axe5',                       [Butee5axesControleur::class, 'axe5']);
+    $group->get('/dessin-densemble',                [Butee5axesControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',                          [Butee5axesControleur::class, 'eclate']);
+    $group->get('/nomenclature',                    [Butee5axesControleur::class, 'nomenclature']);
+    $group->get('/dessin-definition',               [Butee5axesControleur::class, 'dessinDefinition']);
+    $group->get('/dessin-definition/socle',         [Butee5axesControleur::class, 'dessinDefinitionSocle']);
+    $group->get('/dessin-definition/contre-embase', [Butee5axesControleur::class, 'dessinDefinitionContreEmbase']);
 });
 
 // dossier technique de la cambreuse
