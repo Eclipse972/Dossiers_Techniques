@@ -86,4 +86,30 @@ class BoutonPoussoirControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+     * Affiche la page du diagramme pieuvre.
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function pieuvre(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'éclaté.
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 * 
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
 }

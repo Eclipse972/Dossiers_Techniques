@@ -44,6 +44,10 @@ $app->group('/alternateur', function($group) {
 $app->group('/bouton-poussoir', function($group) {
     $group->get('',                    [BoutonPoussoirControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [BoutonPoussoirControleur::class, 'miseEnSituation']);
+    $group->get('/pieuvre',            [BoutonPoussoirControleur::class, 'pieuvre']);
+    $group->get('/dessin-densemble',   [BoutonPoussoirControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',             [BoutonPoussoirControleur::class, 'eclate']);
+    $group->get('/nomenclature',       [BoutonPoussoirControleur::class, 'nomenclature']);
 });
 
 // dossier technique de la bride à nez
