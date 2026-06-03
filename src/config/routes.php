@@ -273,6 +273,9 @@ $app->group('/pince-de-robot', function($group) {
 $app->group('/pompe-a-palettes', function($group) {
     $group->get('',                    [PompePalettesControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [PompePalettesControleur::class, 'miseEnSituation']);
+    $group->get('/dessin-densemble',   [PompePalettesControleur::class, 'dessinDensemble']);
+    $group->get('/nomenclature',       [PompePalettesControleur::class, 'nomenclature']);
+    $group->get('/eclate',             [PompePalettesControleur::class, 'eclate']);
 });
 
 // dossier technique du préhenseur de culasse
