@@ -24,7 +24,7 @@ class CricHydrauliqueControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du cric bouteille
      *
-     * @route /bouton-pousssoir
+	 * @route /cric-hydraulique
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -81,4 +81,184 @@ class CricHydrauliqueControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+	 * Affiche la page de fonctionnement
+	 *
+	 * @route /cric-hydraulique/fonctionnement
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnement(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de la montée
+	 *
+	 * @route /cric-hydraulique/fonctionnement/monte
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementMonte(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de la descente
+	 *
+	 * @route /cric-hydraulique/fonctionnement/descend
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementDescend(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page des précautions d'utilisation
+	 *
+	 * @route /cric-hydraulique/fonctionnement/precautions
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementPrecautions(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page d'analyse fonctionnelle
+	 *
+	 * @route /cric-hydraulique/analyse-fonctionnelle
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function analyseFonctionnelle(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du diagramme des intéracteurs
+	 *
+	 * @route /cric-hydraulique/analyse-fonctionnelle/pieuvre
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function AFpieuvre(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du FAST Levage du véhicule
+	 *
+	 * @route /cric-hydraulique/analyse-fonctionnelle/fast-evage
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function AFfastEvage(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du FAST Dépose du véhicule
+	 *
+	 * @route /cric-hydraulique/analyse-fonctionnelle/fast-depose
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function AFfastDepose(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'éclaté
+	 *
+	 * @route /cric-hydraulique/eclate
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function eclate(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page d'entretien du cric
+	 *
+	 * @route /cric-hydraulique/entretien
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function entretien(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de problème au levage
+	 *
+	 * @route /cric-hydraulique/entretien/probleme-levage
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function entretienProblemeLevage(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de problème à la descente
+	 *
+	 * @route /cric-hydraulique/entretien/probleme-descente
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function entretienProblemeDescente(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
 }

@@ -169,8 +169,21 @@ $app->group('/cric-bouteille', function($group) {
 
 // dossier technique du cric hydraulique
 $app->group('/cric-hydraulique', function($group) {
-    $group->get('',                    [CricHydrauliqueControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [CricHydrauliqueControleur::class, 'miseEnSituation']);
+	$group->get('',								[CricHydrauliqueControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',			[CricHydrauliqueControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',				[CricHydrauliqueControleur::class, 'fonctionnement']);
+	$group->get('/fonctionnement/monte',		[CricHydrauliqueControleur::class, 'fonctionnementMonte']);
+	$group->get('/fonctionnement/descend',		[CricHydrauliqueControleur::class, 'fonctionnementDescend']);
+	$group->get('/fonctionnement/precautions',	[CricHydrauliqueControleur::class, 'fonctionnementPrecautions']);
+	$group->get('/analyse-fonctionnelle',		[CricHydrauliqueControleur::class, 'analyseFonctionnelle']);
+	$group->get('/analyse-fonctionnelle/pieuvre',					[CricHydrauliqueControleur::class, 'AFpieuvre']);
+	$group->get('/analyse-fonctionnelle/fast-evage',				[CricHydrauliqueControleur::class, 'AFfastEvage']);
+	$group->get('/analyse-fonctionnelle/fast-depose',				[CricHydrauliqueControleur::class, 'AFfastDepose']);
+	$group->get('/eclate',						[CricHydrauliqueControleur::class, 'eclate']);
+	$group->get('/nomenclature',				[CricHydrauliqueControleur::class, 'nomenclature']);
+	$group->get('/entretien',					[CricHydrauliqueControleur::class, 'entretien']);
+	$group->get('/entretien/probleme-levage',	[CricHydrauliqueControleur::class, 'entretienProblemeLevage']);
+	$group->get('/entretien/probleme-descente',	[CricHydrauliqueControleur::class, 'entretienProblemeDescente']);
 });
 
 // dossier technique de l'électrovanne
