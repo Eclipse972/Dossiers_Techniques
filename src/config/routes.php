@@ -141,8 +141,30 @@ $app->group('/coupe-tube', function($group) {
 
 // dossier technique du cric bouteille
 $app->group('/cric-bouteille', function($group) {
-    $group->get('',                    [CricBouteilleControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [CricBouteilleControleur::class, 'miseEnSituation']);
+	$group->get('',										[CricBouteilleControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',					[CricBouteilleControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',						[CricBouteilleControleur::class, 'fonctionnement']);
+	$group->get('/fonctionnement/monte',				[CricBouteilleControleur::class, 'fonctionnementMonte']);
+	$group->get('/fonctionnement/descend',				[CricBouteilleControleur::class, 'fonctionnementDescend']);
+	$group->get('/analyse-fonctionnelle',				[CricBouteilleControleur::class, 'analyseFonctionnelle']);
+	$group->get('/dessin-densemble',					[CricBouteilleControleur::class, 'dessinDensemble']);
+	$group->get('/nomenclature',						[CricBouteilleControleur::class, 'nomenclature']);
+	$group->get('/eclate',								[CricBouteilleControleur::class, 'eclate']);
+	$group->get('/dessin-definition',					[CricBouteilleControleur::class, 'dessinDefinition']);
+	$group->get('/dessin-definition/axe-articulation',	[CricBouteilleControleur::class, 'dessinDefinitionAxeArticulation']);
+	$group->get('/dessin-definition/biellette',			[CricBouteilleControleur::class, 'dessinDefinitionBiellette']);
+	$group->get('/dessin-definition/chandelle',			[CricBouteilleControleur::class, 'dessinDefinitionChandelle']);
+	$group->get('/dessin-definition/chape',				[CricBouteilleControleur::class, 'dessinDefinitionChape']);
+	$group->get('/dessin-definition/corps-pompe',		[CricBouteilleControleur::class, 'dessinDefinitionCorpsPompe']);
+	$group->get('/dessin-definition/cylindre-principal',[CricBouteilleControleur::class, 'dessinDefinitionCylindrePrincipal']);
+	$group->get('/dessin-definition/embase',			[CricBouteilleControleur::class, 'dessinDefinitionEmbase']);
+	$group->get('/dessin-definition/levier',			[CricBouteilleControleur::class, 'dessinDefinitionLevier']);
+	$group->get('/dessin-definition/piston-pompe',		[CricBouteilleControleur::class, 'dessinDefinitionPistonPompe']);
+	$group->get('/dessin-definition/piston-recepteur',	[CricBouteilleControleur::class, 'dessinDefinitionPistonRecepteur']);
+	$group->get('/dessin-definition/pointeau',			[CricBouteilleControleur::class, 'dessinDefinitionPointeau']);
+	$group->get('/dessin-definition/tarage',			[CricBouteilleControleur::class, 'dessinDefinitionTarage']);
+	$group->get('/dessin-definition/reservoir',			[CricBouteilleControleur::class, 'dessinDefinitionReservoir']);
+	$group->get('/dessin-definition/tirantM4',			[CricBouteilleControleur::class, 'dessinDefinitionTirantM4']);
 });
 
 // dossier technique du cric hydraulique
