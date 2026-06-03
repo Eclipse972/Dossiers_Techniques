@@ -28,7 +28,7 @@ class BoutonPoussoirControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
-	 * 
+	 *
      * @return Response
      */
     public function aPropos(Request $requete, Response $reponse): Response {
@@ -70,7 +70,7 @@ class BoutonPoussoirControleur extends SupportControleur
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 
     /**
@@ -84,6 +84,6 @@ class BoutonPoussoirControleur extends SupportControleur
      */
     public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

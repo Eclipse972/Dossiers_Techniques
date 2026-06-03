@@ -68,7 +68,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 
     /**
@@ -82,6 +82,6 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 }

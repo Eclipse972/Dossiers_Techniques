@@ -66,7 +66,7 @@ class CasseNoixControleur extends SupportControleur
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 
     /**
@@ -76,11 +76,11 @@ class CasseNoixControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
-	 * 
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $reponse;
+        return $this->renduPageEnConstruction($requete, $reponse);
     }
 }
