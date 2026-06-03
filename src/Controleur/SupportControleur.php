@@ -154,20 +154,47 @@ abstract class SupportControleur
 	 * @param array  &$liste La liste de liens à compléter
 	 * @param string  $url   L'URL du lien
 	 * @param string  $texte Le texte affiché
-	*
-	* @example
-	* $liste = [];
-	* self::ajouteLien($liste, 'https://example.com', 'Accueil');
-	* self::ajouteLien($liste, 'https://example.com/contact', 'Contact');
-	*
-	* Résultat:
-	* 	$liste === [
-	* 		['url' => 'https://example.com',         'texte' => 'Accueil'],
-	* 		['url' => 'https://example.com/contact', 'texte' => 'Contact'],
-	* 	]
-	*/
+	 *
+	 * @example
+	 * $liste = [];
+	 * self::ajouteLien($liste, 'https://example.com', 'Accueil');
+	 * self::ajouteLien($liste, 'https://example.com/contact', 'Contact');
+	 *
+	 * Résultat:
+	 * 	$liste === [
+	 * 		['url' => 'https://example.com',         'texte' => 'Accueil'],
+	 * 		['url' => 'https://example.com/contact', 'texte' => 'Contact'],
+	 * 	]
+	 */
 	public static function ajouteLien(array &$liste, string $url, string $texte): void
 	{
 		$liste[] = ['url' => $url, 'texte' => $texte];
+	}
+
+	/**
+	 * Ajoute une ligne à une nomenclature.
+	 *
+	 * Garantit la cohérence du tableau de nomenclature en uniformisant les clés.
+	 *
+	 * @param array       &$nomenclature Le tableau de nomenclature à compléter
+	 * @param string       $nom          Le nom de la pièce ou de l'élément
+	 * @param int          $repere       Le numéro de repère de la pièce
+	 * @param string       $fichier      Le nom du fichier associé
+	 * @param string       $image        Le nom de l'image associée
+	 * @param int          $quantite     La quantité de l'élément
+	 * @param string|null  $matiere      La matière de la pièce (null par défaut)
+	 * @param string|null  $observation  Observations ou remarques (null par défaut)
+	 */
+	public static function ajouteLigneNomenclature(array &$nomenclature, string $nom, int $repere, string $fichier, string $image, int $quantite, ?string $matiere = null, ?string $observation = null): void
+	{
+		$nomenclature[] = [
+			'nom'         => $nom,
+			'repere'      => $repere,
+			'fichier'     => $fichier,
+			'image'       => $image,
+			'quantite'    => $quantite,
+			'matiere'     => $matiere,
+			'observation' => $observation
+		];
 	}
 }
