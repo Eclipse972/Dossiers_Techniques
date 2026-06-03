@@ -33,8 +33,11 @@ $app->get('/', [AutrePageControleur::class, 'accueil']);
 
 // dossier technique de l'alternateur
 $app->group('/alternateur', function($group) {
-    $group->get('',                    [AlternateurControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [AlternateurControleur::class, 'miseEnSituation']);
+    $group->get('',						[AlternateurControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',	[AlternateurControleur::class, 'miseEnSituation']);
+    $group->get('/dessin-densemble',	[AlternateurControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',				[AlternateurControleur::class, 'eclate']);
+    $group->get('/nomenclature',		[AlternateurControleur::class, 'nomenclature']);
 });
 
 // dossier technique du bouton poussoir
