@@ -233,8 +233,16 @@ $app->group('/frein-a-disque', function($group) {
 
 // dossier technique du moteur de modélisme
 $app->group('/moteur-de-modelisme', function($group) {
-    $group->get('',                    [MoteurModelismeControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [MoteurModelismeControleur::class, 'miseEnSituation']);
+    $group->get('',									[MoteurModelismeControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',				[MoteurModelismeControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',					[MoteurModelismeControleur::class, 'fonctionnement']);
+    $group->get('/classe-equivalence',				[MoteurModelismeControleur::class, 'classeEquivalence']);
+    $group->get('/classe-equivalence/bati',			[MoteurModelismeControleur::class, 'CEbati']);
+    $group->get('/classe-equivalence/vilebrequin',	[MoteurModelismeControleur::class, 'CEvilebrequin']);
+    $group->get('/classe-equivalence/bielle',		[MoteurModelismeControleur::class, 'CEbielle']);
+    $group->get('/classe-equivalence/piston',		[MoteurModelismeControleur::class, 'CEpiston']);
+    $group->get('/nomenclature',					[MoteurModelismeControleur::class, 'nomenclature']);
+    $group->get('/eclate',							[MoteurModelismeControleur::class, 'eclate']);
 });
 
 // dossier technique de la pince de marquage

@@ -81,4 +81,102 @@ class MoteurModelismeControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+     * Affiche la page de fonctionnement du moteur de modélisme.
+     *
+     * @route /moteur-de-modelisme/fonctionnement
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function fonctionnement(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page principale des classes d'équivalence.
+     *
+     * @route /moteur-de-modelisme/CE
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function classeEquivalence(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la classe d'équivalence 1 (le bâti).
+     *
+     * @route /moteur-de-modelisme/classe-equivalence/bati
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function CEbati(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la classe d'équivalence 2 (le vilebrequin).
+     *
+     * @route /moteur-de-modelisme/classe-equivalence/vilebrequin
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function CEvilebrequin(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la classe d'équivalence 3 (la bielle).
+     *
+     * @route /moteur-de-modelisme/classe-equivalence/bielle
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function CEbielle(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la classe d'équivalence 4 (le piston).
+     *
+     * @route /moteur-de-modelisme/classe-equivalence/piston
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function CEpiston(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+    /**
+     * Affiche la page de l'éclaté du moteur de modélisme.
+     *
+     * @route /moteur-de-modelisme/eclate
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function eclate(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
 }
