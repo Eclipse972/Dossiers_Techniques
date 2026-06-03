@@ -74,8 +74,11 @@ $app->group('/bride-a-nez', function($group) {
 
 // dossier technique de la bride hydraulique
 $app->group('/bride-hydraulique', function($group) {
-    $group->get('',                    [BrideHydrauliqueControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [BrideHydrauliqueControleur::class, 'miseEnSituation']);
+    $group->get('', 					[BrideHydrauliqueControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',	[BrideHydrauliqueControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',		[BrideHydrauliqueControleur::class, 'fonctionnement']);
+    $group->get('/dessin-densemble',	[BrideHydrauliqueControleur::class, 'dessinDensemble']);
+    $group->get('/nomenclature',		[BrideHydrauliqueControleur::class, 'nomenclature']);
 });
 
 // dossier technique de la butée 5 axes
