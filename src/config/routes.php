@@ -198,8 +198,17 @@ $app->group('/electrovanne', function($group) {
 
 // dossier technique de l'étau
 $app->group('/etau', function($group) {
-    $group->get('',                    [EtauControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [EtauControleur::class, 'miseEnSituation']);
+	$group->get('',										[EtauControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',					[EtauControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',						[EtauControleur::class, 'fonctionnement']);
+	$group->get('/dessin-densemble',					[EtauControleur::class, 'dessinDensemble']);
+	$group->get('/nomenclature',						[EtauControleur::class, 'nomenclature']);
+	$group->get('/eclate',								[EtauControleur::class, 'eclate']);
+	$group->get('/classe-equivalence',					[EtauControleur::class, 'classeEquivalence']);
+	$group->get('/classe-equivalence/mors-fixe',	[EtauControleur::class, 'CEmorsFixe']);
+	$group->get('/classe-equivalence/mors-mobile',	[EtauControleur::class, 'CEmorsMobile']);
+	$group->get('/classe-equivalence/vis',			[EtauControleur::class, 'CEvis']);
+	$group->get('/classe-equivalence/tige',		[EtauControleur::class, 'CEtige']);
 });
 
 // dossier technique de l'extracteur de roulement
