@@ -131,8 +131,12 @@ $app->group('/casse-noix', function($group) {
 
 // dossier technique du mini coupe-tube
 $app->group('/coupe-tube', function($group) {
-    $group->get('',                    [CoupeTubeControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',  [CoupeTubeControleur::class, 'miseEnSituation']);
+	$group->get('',						[CoupeTubeControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',	[CoupeTubeControleur::class, 'miseEnSituation']);
+	$group->get('/diagramme-A-0',		[CoupeTubeControleur::class, 'diagrammeA0']);
+	$group->get('/dessin-densemble',	[CoupeTubeControleur::class, 'dessinDensemble']);
+	$group->get('/eclate',				[CoupeTubeControleur::class, 'eclate']);
+	$group->get('/nomenclature',		[CoupeTubeControleur::class, 'nomenclature']);
 });
 
 // dossier technique du cric bouteille
