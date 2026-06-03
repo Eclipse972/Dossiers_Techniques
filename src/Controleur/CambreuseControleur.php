@@ -84,4 +84,184 @@ class CambreuseControleur extends SupportControleur
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
+
+	/**
+	 * Affiche la page de fonctionnement
+	 *
+	 * @route /cambreuse/fonctionnement
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnement(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'étape 1 du fonctionnement
+	 *
+	 * @route /cambreuse/fonctionnement/etape1
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementEtape1(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'étape 2 du fonctionnement
+	 *
+	 * @route /cambreuse/fonctionnement/etape2
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementEtape2(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'étape 3 du fonctionnement
+	 *
+	 * @route /cambreuse/fonctionnement/etape3
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function fonctionnementEtape3(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page des caractéristiques
+	 *
+	 * @route /cambreuse/caracteristiques
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function caracteristiques(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'éclaté
+	 *
+	 * @route /cambreuse/eclate
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function eclate(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page des sous-ensembles
+	 *
+	 * @route /cambreuse/sous-ensembles
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function sousEnsembles(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du sous-ensemble bâti
+	 *
+	 * @route /cambreuse/sous-ensembles/SE-bati
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function SEbati(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de la tige de vérin de cambrage
+	 *
+	 * @route /cambreuse/sous-ensembles/tige-cambrage
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function tigeCambrage(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de la tige de vérin de bridage
+	 *
+	 * @route /cambreuse/sous-ensembles/tige-bridage
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function tigeBridage(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du sous-ensemble basculeur
+	 *
+	 * @route /cambreuse/sous-ensembles/SE-basculeur
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function SEbasculeur(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page du sous-ensemble bielle
+	 *
+	 * @route /cambreuse/sous-ensembles/SE-bielle
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function SEbielle(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
 }
