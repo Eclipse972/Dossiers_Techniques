@@ -334,4 +334,8 @@ $app->group('/unite-de-marquage', function($group) {
 $app->group('/vanne-spherique', function($group) {
     $group->get('',                    [VanneSpheriqueControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [VanneSpheriqueControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',     [VanneSpheriqueControleur::class, 'fonctionnement']);
+    $group->get('/dessin-densemble',   [VanneSpheriqueControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',             [VanneSpheriqueControleur::class, 'eclate']);
+    $group->get('/nomenclature',       [VanneSpheriqueControleur::class, 'nomenclature']);
 });
