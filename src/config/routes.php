@@ -215,6 +215,10 @@ $app->group('/etau', function($group) {
 $app->group('/extracteur-de-roulement', function($group) {
     $group->get('',                    [ExtracteurRoulementControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',  [ExtracteurRoulementControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',     [ExtracteurRoulementControleur::class, 'fonctionnement']);
+    $group->get('/dessin-densemble',   [ExtracteurRoulementControleur::class, 'dessinDensemble']);
+    $group->get('/nomenclature',       [ExtracteurRoulementControleur::class, 'nomenclature']);
+    $group->get('/eclate',             [ExtracteurRoulementControleur::class, 'eclate']);
 });
 
 // dossier technique du frein à disque
