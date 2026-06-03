@@ -63,6 +63,7 @@ abstract class SupportControleur
 	 * Les classes-filles appelleront simplement ces méthodes.
 	 *
 	 * Ces pages sont :
+	 * 	- page de dossier technique en construction
 	 * 	- mise en situation
 	 * 	- dessin d'ensemble
 	 * 	- nomenclature
@@ -70,6 +71,26 @@ abstract class SupportControleur
 	 * 	- les pages de type association image-fichier
 	 * 	- les pages pur html
 	 */
+
+	/**
+	 * Rendu des pages en construction d'un dossier technique
+	 *
+	 * @param Request $requete
+	 * @param Response $reponse
+	 *
+	 * @return Response
+	 */
+    public function renduPageEnConstruction(Request $requete, Response $reponse): Response {
+		return $this->vue->render($reponse, '113-en-construction.html.twig', [
+				'support'			=> $this->nom,
+				'title'				=> "DT {$this->nom}",
+				'logo_url'			=> "/supports/{$this->dossier}/images/{$this->logo}",
+				'header'			=> "Dossier technique {$this->article_du}{$this->nom}",
+				'du'				=> $this->article_du,
+				'dossier'			=> $this->dossier,
+				'url'				=> $requete->getUri()->getPath()
+  		]);
+	}
 
 	/**
 	 * Rendu des pages de mise en situation
