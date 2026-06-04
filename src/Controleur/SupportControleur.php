@@ -84,7 +84,6 @@ abstract class SupportControleur
     public function renduPageEnConstruction(Request $requete, Response $reponse): Response {
 		return $this->vue->render($reponse, '113-en-construction.html.twig', [
 				'support'	=> $this->nom,
-				'title'		=> "DT {$this->nom}",
 				'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
 				'header'	=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'		=> $this->article_du,
