@@ -123,7 +123,7 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '13-page-a-propos.html.twig', [
 			'support'		=> $this->nom,
 			'logo'			=> $this->logo,
-			'du	'			=> $this->article_du,
+			'du'			=> $this->article_du,
 			'dossier'		=> $this->dossier,
 			'archiveZip'	=> $archiveZip,
 			'descriptionZip'=> $descriptionZip,
