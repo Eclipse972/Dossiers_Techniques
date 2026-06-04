@@ -9,7 +9,9 @@
 {% block texte_header %}Dossier technique {{ du }}{{ support }}{% endblock %}
 
 {% block logo %}
-<a href="/{{ dossier }}" title="À propos {{ du }}{{ support }}"><img src="{{ logo_url }}" /></a>
+<a href="/{{ dossier }}" title="À propos {{ du }}{{ support }}">
+	<img src="/supports/{{ dossier }}/images/{{ logo }}" alt="image {{ du }}{{ support }}" />
+</a>
 {% endblock %}
 
 {% block css %}
