@@ -138,7 +138,7 @@ abstract class SupportControleur
 	 * @param array		$nomenclature
 	 */
 	public function renduNomenclature(Response $reponse, array $nomenclature): Response {
-		return $this->vue->render($reponse, '111-omenclature.html.twig', [
+		return $this->vue->render($reponse, '111-nomenclature.html.twig', [
 			'support'	=> $this->nom,
 			'logo'		=> $this->logo,
 			'du'		=> $this->article_du,
