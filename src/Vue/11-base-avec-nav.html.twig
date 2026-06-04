@@ -4,6 +4,8 @@
 
 {% extends '1-base.html.twig' %}
 
+{% block balise_title %}Dossier technique {{ du }}{{ support }}{% endblock %}
+
 {% block logo %}
 <a href="/{{ dossier }}" title="À propos {{ du }}{{ support }}"><img src="{{ logo_url }}" /></a>
 {% endblock %}
