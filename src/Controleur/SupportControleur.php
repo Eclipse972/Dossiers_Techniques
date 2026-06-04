@@ -84,7 +84,7 @@ abstract class SupportControleur
     public function renduPageEnConstruction(Request $requete, Response $reponse): Response {
 		return $this->vue->render($reponse, '113-en-construction.html.twig', [
 				'support'	=> $this->nom,
-				'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
+				'logo'		=> $this->logo,
 				'du'		=> $this->article_du,
 				'dossier'	=> $this->dossier,
 				'url'		=> $requete->getUri()->getPath()
@@ -101,11 +101,10 @@ abstract class SupportControleur
     public function renduMES(Response $reponse): Response {
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'	=> $this->nom,
-				'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
+				'logo'		=> $this->logo,
 				'du'		=> $this->article_du,
 				'dossier'	=> $this->dossier,
 				'fichier'	=> 'mise-en-situation',
-				'menu'		=> '<p>en construction</p>',
   		]);
 	}
 
@@ -122,13 +121,13 @@ abstract class SupportControleur
 	 */
 	public function renduApropos(Response $reponse, ?string $archiveZip, array $descriptionZip, array $listeLien): Response {
 		return $this->vue->render($reponse, '122-page-a-propos.html.twig', [
-			'support'        => $this->nom,
-			'logo_url'       => "/supports/{$this->dossier}/images/{$this->logo}",
-			'du'             => $this->article_du,
-			'dossier'        => $this->dossier,
-			'archiveZip'     => $archiveZip,
-			'descriptionZip' => $descriptionZip,
-			'listeLien'      => $listeLien,
+			'support'		=> $this->nom,
+			'logo'			=> $this->logo,
+			'du	'			=> $this->article_du,
+			'dossier'		=> $this->dossier,
+			'archiveZip'	=> $archiveZip,
+			'descriptionZip'=> $descriptionZip,
+			'listeLien'		=> $listeLien,
 		]);
 	}
 
@@ -141,7 +140,7 @@ abstract class SupportControleur
 	public function renduNomenclature(Response $reponse, array $nomenclature): Response {
 		return $this->vue->render($reponse, '111-omenclature.html.twig', [
 			'support'	=> $this->nom,
-			'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
+			'logo'		=> $this->logo,
 			'du'		=> $this->article_du,
 			'dossier'	=> $this->dossier,
 		]);
