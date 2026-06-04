@@ -13,7 +13,9 @@
 {% block texte_header %}À propos {{ du }}{{ support }}{% endblock %}
 
 {% block logo %}
-<a href="/{{ dossier }}/mise-en-situation" title="Retour au dossier technique {{ du }}{{ support }}"><img src="{{ logo_url }}" /></a>
+<a href="/{{ dossier }}/mise-en-situation" title="Retour au dossier technique {{ du }}{{ support }}">
+	<img src="/supports/{{ dossier }}/images/{{ logo }}" alt="image {{ du }}{{ support }}" />
+</a>
 {% endblock %}
 
 {% block contenu %}
