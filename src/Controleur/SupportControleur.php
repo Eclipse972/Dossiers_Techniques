@@ -85,7 +85,6 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '113-en-construction.html.twig', [
 				'support'	=> $this->nom,
 				'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
-				'header'	=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'		=> $this->article_du,
 				'dossier'	=> $this->dossier,
 				'url'		=> $requete->getUri()->getPath()
@@ -103,7 +102,6 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'	=> $this->nom,
 				'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
-				'header'	=> "Dossier technique {$this->article_du}{$this->nom}",
 				'du'		=> $this->article_du,
 				'dossier'	=> $this->dossier,
 				'fichier'	=> 'mise-en-situation',
@@ -126,7 +124,6 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '122-page-a-propos.html.twig', [
 			'support'        => $this->nom,
 			'logo_url'       => "/supports/{$this->dossier}/images/{$this->logo}",
-			'header'         => "À propos {$this->article_du}{$this->nom}",
 			'du'             => $this->article_du,
 			'dossier'        => $this->dossier,
 			'archiveZip'     => $archiveZip,
@@ -145,7 +142,6 @@ abstract class SupportControleur
 		return $this->vue->render($reponse, '111-omenclature.html.twig', [
 			'support'	=> $this->nom,
 			'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
-			'header'	=> "Dossier technique {$this->article_du}{$this->nom}",
 			'du'		=> $this->article_du,
 			'dossier'	=> $this->dossier,
 		]);
