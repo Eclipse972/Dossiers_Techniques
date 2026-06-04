@@ -60,7 +60,7 @@ class AutrePageControleur
             ['nom' => 'Vanne sphérique',		'image' => 'vanne.png',             'dossier' => 'vanne-spherique'],
         ];
 
-        return $this->vue->render($reponse, '121-home.html.twig',  [
+        return $this->vue->render($reponse, '12-home.html.twig',  [
                     'title'				=> 'DT de ChristopHe',
                     'header'			=> 'Les dossiers techniques en ligne de ChristopHe',
                     'logo_url'			=> '/images/logo.png',
