@@ -135,7 +135,23 @@ abstract class SupportControleur
 			'archiveZip'     => $archiveZip,
 			'descriptionZip' => $descriptionZip,
 			'listeLien'      => $listeLien,
-			'menu'           => '<p>en construction</p>',
+		]);
+	}
+
+	/**
+	 * Rendu des pages de nomenclature
+	 *
+	 * @param Response	$reponse        Objet réponse HTTP
+	 * @param array		$nomenclature
+	 */
+	public function renduNomenclature(Response $reponse, array $nomenclature): Response {
+		return $this->vue->render($reponse, '111-omenclature.html.twig', [
+			'support'	=> $this->nom,
+			'title'		=> "DT {$this->nom}",
+			'logo_url'	=> "/supports/{$this->dossier}/images/{$this->logo}",
+			'header'	=> "Dossier technique {$this->article_du}{$this->nom}",
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
 		]);
 	}
 
