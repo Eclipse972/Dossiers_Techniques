@@ -143,6 +143,7 @@ abstract class SupportControleur
 			'logo'		=> $this->logo,
 			'du'		=> $this->article_du,
 			'dossier'	=> $this->dossier,
+			'app_data'	=> $nomenclature,
 		]);
 	}
 
