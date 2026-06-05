@@ -210,7 +210,8 @@ par Twig, JS se charge uniquement de l'enrichir avec les données.
 - Lazy loading des images si nécessaire
 
 # Style d'écriture des noms
-- Variables/fonctions : `camelCase`
+- Variables : `snake_case`
+- Fonctions : `camelCase`
 - Classes : `PascalCase`
 - Fichiers : `kebab-case`
 - Constantes : `UPPER_SNAKE_CASE`
