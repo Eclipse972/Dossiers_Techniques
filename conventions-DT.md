@@ -274,7 +274,13 @@ Outils à définir
 
 ## Performance
 - Backend : LiteSpeed Cache (LSCache) activé depuis cPanel, sans modification du code.
-- Contrôle fin du cache par en-tête HTTP depuis les contrôleurs Slim :
-  - `header('X-LiteSpeed-Cache-Control: public, max-age=3600')` — page statique (dossier technique)
-  - `header('X-LiteSpeed-Cache-Control: no-cache')` — page dynamique ou privée
-  - `header('X-LiteSpeed-Purge: url=/chemin/page')` — invalider une page du cache
+- Contrôle fin du cache par en-tête HTTP depuis les contrôleurs Slim via `withHeader()` sur l'objet réponse.
+  PSR-7 étant immuable, `withHeader()` retourne une nouvelle instance — toujours réassigner avant de passer la réponse à Twig :
+```php
+  $reponse = $reponse->withHeader('X-LiteSpeed-Cache-Control', 'public, max-age=3600');
+  return $this->vue->render($reponse, 'template.html.twig', [...]);
+```
+  - `public, max-age=3600` — page statique (dossier technique)
+  - `no-cache` — page dynamique ou privée
+  - Pour invalider une URL : `$reponse->withHeader('X-LiteSpeed-Purge', 'url=/chemin/page')`
+- Purge globale du cache : cPanel → LiteSpeed Web Cache Manager → Flush All
