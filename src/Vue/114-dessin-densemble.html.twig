@@ -1,0 +1,15 @@
+{#
+	Page de dessin d'ensemble
+	Par convention :
+		- image: dessin-{{ support }}.png
+		- fichier: {{ support }}.EDRW
+#}
+
+{% extends '11-base-avec-nav.html.twig' %}
+
+{% block contenu %}
+<h1>Dessin d'ensemble</h1>
+<a href="/supports/{{ dossier }}/fichiers/{{ support }}.EDRW" title="Télécharger le dessin d'ensemble {{ du }}{{ support }}">
+    <img src="/supports/{{ dossier }}/images/dessin-{{ support }}.png" alt="Dessin d'ensemble {{ du }}{{ support }}" class="association">
+</a>
+{% endblock %}
