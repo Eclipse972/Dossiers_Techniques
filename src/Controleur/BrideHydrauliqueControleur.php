@@ -68,7 +68,7 @@ class BrideHydrauliqueControleur extends SupportControleur
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduDessinDensemble($reponse);
     }
 
 /**
