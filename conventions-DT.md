@@ -36,13 +36,10 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 ├── public/                         # Dossier racine accessible via le web
 │   ├── index.php                   # Point d'entrée principal de l'application
 │   ├── css/                        # Fichiers CSS
-│   ├── js/                         # Fichiers JavaScript
-│   │   ├── menu-builder.js         # Construction du menu
-│   │   ├── page-builder.js         # Construction du contenu
-│   │   └── types/                  # Scripts par type de page
-│   │       ├── dessin.js
-│   │       ├── nomenclature.js
-│   │       └── eclate.js
+│   ├── JS/                         # Fichiers JavaScript
+│   │   ├── accueil.js              # création de la page d'accueil
+│   │   ├── gerer-menu.js           # Construction du menu
+│   │   └── creer-nomenclature.js   # contruction de la nomenclature
 │   ├── images/                     # Images
 │   ├── supports/                   # Fichiers techniques par support
 │   │   ├── support-a/
