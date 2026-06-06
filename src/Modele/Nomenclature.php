@@ -65,6 +65,8 @@ class Nomenclature
      * Retourne un tableau prêt à être passé à Twig, contenant
      * l'état des colonnes optionnelles et toutes les lignes triées par repère.
      *
+	 * @param string $dossier
+	 * 
      * @return array{
      *     col_matiere_vide: bool,
      *     col_observation_vide: bool,
@@ -75,15 +77,16 @@ class Nomenclature
      * $donnees = $nomenclature->preparerVue();
      * return $this->vue->render($reponse, 'nomenclature.html.twig', $donnees);
      */
-    public function preparerVue(): array
+    public function preparerVue(string $dossier): array
     {
         $lignes = $this->lignes;
         usort($lignes, fn($a, $b) => $a['repere'] <=> $b['repere']);
 
         return [
-            'col_matiere_vide'     => $this->col_matiere_vide,
-            'col_observation_vide' => $this->col_observation_vide,
-            'lignes'               => $lignes,
+            'col_matiere_vide'		=> $this->col_matiere_vide,
+            'col_observation_vide'	=> $this->col_observation_vide,
+			'dossier'				=> $dossier,
+            'lignes'				=> $lignes,
         ];
     }
 

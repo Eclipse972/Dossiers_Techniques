@@ -114,6 +114,6 @@ class AlternateurControleur extends SupportControleur
 		$nomenclature->ajouterLigne(22, 'roulement 6202',						1, 'roulement2.EPRT');
 		$nomenclature->ajouterLigne(23, 'bague de roulement',					1, 'bague2roulement.EPRT',	'téflon');
 		$nomenclature->ajouterLigne(25, 'joint',								1, 'joint.EPRT');
-        return $this->renduNomenclature($reponse, $nomenclature->preparerVue());
+        return $this->renduNomenclature($reponse, $nomenclature->preparerVue($this->dossier));
     }
 }
