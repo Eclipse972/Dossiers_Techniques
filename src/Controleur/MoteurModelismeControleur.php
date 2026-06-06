@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class MoteurModelismeControleur extends SupportControleur
 {
@@ -24,7 +25,7 @@ class MoteurModelismeControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /moteur-de-modelisme
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -69,18 +70,35 @@ class MoteurModelismeControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature du moteur de modélisme.
-     *
-     * @route /moteur-de-modelisme/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature du moteur de modélisme.
+	 *
+	 * @route /moteur2modelisme/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'carter moteur',							1,	'carter_moteur.EPRT');
+		Nomenclature::ajouterLigne(2,	'cylindre',									1,	'cylindre.EPRT');
+		Nomenclature::ajouterLigne(3,	'culasse',									1,	'culasse.EPRT');
+		Nomenclature::ajouterLigne(4,	'vis CHc M3-15',							1,	'CHcM3-15.EPRT');
+		Nomenclature::ajouterLigne(5,	'joint capot',								1,	'joint_capot.EPRT');
+		Nomenclature::ajouterLigne(6,	'capot',									1,	'capot.EPRT');
+		Nomenclature::ajouterLigne(7,	'grand roulement',							1,	'grand_roulement.EASM');
+		Nomenclature::ajouterLigne(8,	'axe piston',								1,	'axe_piston.EPRT');
+		Nomenclature::ajouterLigne(9,	'jonc',										1,	'jonc.EPRT');
+		Nomenclature::ajouterLigne(10,	'petit roulement',							1,	'petit_roulement.EASM');
+		Nomenclature::ajouterLigne(11,	'coussinet ø5',								1,	'coussinet_d5.EPRT');
+		Nomenclature::ajouterLigne(12,	'bielle',									1,	'bielle.EPRT');
+		Nomenclature::ajouterLigne(13,	'vilebrequin',								1,	'vilebrequin.EPRT');
+		Nomenclature::ajouterLigne(14,	'piston',									1,	'piston.EPRT');
+		Nomenclature::ajouterLigne(15,	'coussinet ø6',								1,	'coussinet_d6.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page de fonctionnement du moteur de modélisme.
