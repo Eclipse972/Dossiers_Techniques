@@ -35,7 +35,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 /
 ├── public/                         # Dossier racine accessible via le web
 │   ├── index.php                   # Point d'entrée principal de l'application
-│   ├── css/                        # Fichiers CSS
+│   ├── CSS/                        # feuilles de style
 │   ├── JS/                         # Fichiers JavaScript
 │   │   ├── accueil.js              # création de la page d'accueil
 │   │   ├── gerer-menu.js           # Construction du menu
