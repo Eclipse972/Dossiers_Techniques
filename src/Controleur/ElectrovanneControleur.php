@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class ElectrovanneControleur extends SupportControleur
 {
@@ -75,18 +76,31 @@ class ElectrovanneControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de l'électrovanne.
-     *
-     * @route /electrovanne/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature de l'électrovanne.
+	 *
+	 * @route /electrovanne/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Corps',			1,	'corps.EPRT');
+		Nomenclature::ajouterLigne(2,	'Membrane',			1,	'membrane.EPRT');
+		Nomenclature::ajouterLigne(3,	'Joint torique',	2,	'joint_torique.EPRT');
+		Nomenclature::ajouterLigne(4,	'Noyau',			1,	'noyau.EPRT');
+		Nomenclature::ajouterLigne(5,	'Ressort',			1,	'ressort.EPRT');
+		Nomenclature::ajouterLigne(6,	'Support',			1,	'support.EPRT');
+		Nomenclature::ajouterLigne(7,	'Axe guide',		1,	'axe_guide.EPRT');
+		Nomenclature::ajouterLigne(8,	'Bobine',			1,	'bobine.EPRT');
+		Nomenclature::ajouterLigne(9,	'Boitier',			1,	'boitier.EPRT');
+		Nomenclature::ajouterLigne(10,	'Vis CHc M5-25',	1,	'vis.EPRT');
+		Nomenclature::ajouterLigne(11,	'Écrou',			1,	'ecrou.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
 	 * Affiche la page de fonctionnement
