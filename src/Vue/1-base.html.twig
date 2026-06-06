@@ -35,9 +35,11 @@
 
 {% block templates %}{% endblock %}
 
+{% if app_data is defined %}
 <script type="application/json" id="app-data">
-{{ app_data | default([]) | json_encode(constant('JSON_PRETTY_PRINT')) | raw }}
+{{ app_data | json_encode(constant('JSON_PRETTY_PRINT')) | raw }}
 </script>
+{% endif %}
 
 {% block scripts %}{% endblock %}
 
