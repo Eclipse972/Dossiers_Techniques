@@ -147,6 +147,20 @@ abstract class SupportControleur
 		]);
 	}
 
+	/**
+	 * Rendu des pages de dessin d'ensemble
+	 *
+	 * @param Response	$reponse        Objet réponse HTTP
+	 */
+	public function renduDessinDensemble(Response $reponse): Response {
+		return $this->vue->render($reponse, '114-dessin-densemble.html.twig', [
+			'support'	=> $this->nom,
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
+			'logo'		=> $this->logo,
+		]);
+	}
+
 	/*****************************************************************************************************************
 	 * Fonctions utilitaires
 	 * =====================
