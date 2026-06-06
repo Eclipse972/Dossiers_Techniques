@@ -175,6 +175,24 @@ abstract class SupportControleur
 		]);
 	}
 
+	/**
+     * Rendu des pages foncionnement
+     *
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function renduFonctionnement(Response $reponse): Response
+    {
+        return $this->vue->render($reponse, '112-pageDT.html.twig', [
+			'support'	=> $this->nom,
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
+			'logo'		=> $this->logo,
+			'fichier'	=> 'fonctionnement',
+		]);
+    }
+
 	/*****************************************************************************************************************
 	 * Fonctions utilitaires
 	 * =====================
