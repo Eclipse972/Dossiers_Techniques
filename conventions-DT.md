@@ -44,9 +44,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── supports/                   # Fichiers techniques par support
 │   │   ├── support-a/
 │   │   │   ├── images/             # Images du support
-│   │   │   ├── pieces/             # Fichiers eDrawing
-│   │   │   ├── assemblages/        # Fichiers eDrawing
-│   │   │   └── dessins/            # Fichiers eDrawing
+│   │   │   └── fichiers/           # Fichiers eDrawing (pièces, assemblages et mises en plan)
 │   │   └── support-b/
 │   └── .htaccess                   # Configuration Apache pour la réécriture d'URL
 │
