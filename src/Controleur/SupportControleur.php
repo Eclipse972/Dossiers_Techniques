@@ -26,7 +26,7 @@ abstract class SupportControleur
      *
      * @param Twig $vue Moteur de templates Twig
      */
-    public function __construct(private Twig $vue) {}
+    public function __construct(protected Twig $vue) {}
 
     /**
      * Hydratation pour chaque support
