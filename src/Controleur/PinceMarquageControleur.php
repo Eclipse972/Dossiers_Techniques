@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class PinceMarquageControleur extends SupportControleur
 {
@@ -72,18 +73,45 @@ class PinceMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de la pince de marquage.
-     *
-     * @route /pince-de-marquage/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature de la pince de marquage.
+	 *
+	 * @route /pince2marquage/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Support de vérin',			1,	'support2verin.EPRT');
+		Nomenclature::ajouterLigne(2,	'Fond',						1,	'fond.EPRT');
+		Nomenclature::ajouterLigne(3,	'Plaque avant',				1,	'plaque_avant.EPRT');
+		Nomenclature::ajouterLigne(4,	'Goupile ISO 87-34-5x16-A',	4,	'goupille.EPRT');
+		Nomenclature::ajouterLigne(5,	'Tôle de protection',		1,	'tole2protection.EPRT');
+		Nomenclature::ajouterLigne(6,	'Vis épaulée M5x40 NF E 27-191', 2, 'vis_epauleeM5x40.EPRT');
+		Nomenclature::ajouterLigne(7,	'Entretoise',				4,	'entretoise.EPRT');
+		Nomenclature::ajouterLigne(8,	'Bras supérieur',			1,	'bras_superieur.EPRT');
+		Nomenclature::ajouterLigne(9,	'Bras inférieur',			1,	'bras_inferieur.EPRT');
+		Nomenclature::ajouterLigne(10,	'Carter supérieur',			1,	'carter_superieur.EPRT');
+		Nomenclature::ajouterLigne(11,	'Carter inférieur',			1,	'carter_inferieur.EPRT');
+		Nomenclature::ajouterLigne(12,	'Corps vérin PES 32 P NA 254', 1, 'corps_verin.EPRT');
+		Nomenclature::ajouterLigne(13,	'Piston PES 32 NA 25 DM4',	1,	'piston.EASM');
+		Nomenclature::ajouterLigne(14,	'Came',						1,	'came.EPRT');
+		Nomenclature::ajouterLigne(15,	'Axe',						1,	'axe.EPRT');
+		Nomenclature::ajouterLigne(16,	'Entretoise ep. 1.8',		1,	'entretoise_ep1.8.EPRT');
+		Nomenclature::ajouterLigne(17,	'Enclume',					1,	'enclume.EPRT');
+		Nomenclature::ajouterLigne(18,	'Plaque d\'appui',			1,	'plaque_dappui.EPRT');
+		Nomenclature::ajouterLigne(19,	'Poinçon',					1,	'poincon.EPRT');
+		Nomenclature::ajouterLigne(20,	'Roulement SNR 624EE',		1,	'roulement.EASM');
+		Nomenclature::ajouterLigne(21,	'Vis FHC NF E 27-160M3X0,5-8-8.8', 13, 'visFHC.EPRT');
+		Nomenclature::ajouterLigne(22,	'Vis CZX NF E25-11 M3-0,5-10-4,8-1', 8, 'visCZX.EPRT');
+		Nomenclature::ajouterLigne(23,	'Vis sans tête à bout plat NF E-27-180 M3x0,5-8-3,3h', 1, 'vis_sans_tete.EPRT');
+		Nomenclature::ajouterLigne(24,	'Vis ISO 4762-M5x16-8.8',	8,	'visISO.EPRT');
+		Nomenclature::ajouterLigne(25,	'Ressort de rappel',		1,	'ressort.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page de fonctionnement de la pince de marquage.
