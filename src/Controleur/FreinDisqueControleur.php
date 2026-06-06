@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class FreinDisqueControleur extends SupportControleur
 {
@@ -24,7 +25,7 @@ class FreinDisqueControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /frein-a-disque
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -69,18 +70,34 @@ class FreinDisqueControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature du frein à disque.
-     *
-     * @route /frein-a-disque/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature du frein à disque.
+	 *
+	 * @route /freinAdisque/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'disque',				1,	'disque.EPRT');
+		Nomenclature::ajouterLigne(2,	'plaquette',			2,	'plaquette.EPRT');
+		Nomenclature::ajouterLigne(3,	'contre étrier',		1,	'contreEtrier.EPRT');
+		Nomenclature::ajouterLigne(4,	'corps d\'étrier',		1,	'corpsEtrier.EPRT');
+		Nomenclature::ajouterLigne(5,	'branche étrier',		1,	'brancheEtrier.EPRT');
+		Nomenclature::ajouterLigne(6,	'colonnette B',			1,	'colonnetteB.EPRT');
+		Nomenclature::ajouterLigne(7,	'tube colonnette B',	1,	'tubeColonnetteB.EPRT');
+		Nomenclature::ajouterLigne(8,	'vis H78',				2,	'visH78.EPRT');
+		Nomenclature::ajouterLigne(9,	'colonnette A',			1,	'colonnetteA.EPRT');
+		Nomenclature::ajouterLigne(10,	'vis CHc147',			2,	'visCHc147.EPRT');
+		Nomenclature::ajouterLigne(11,	'piston',				1,	'piston.EPRT');
+		Nomenclature::ajouterLigne(12,	'joint carré',			1,	'jointCarre.EPRT');
+		Nomenclature::ajouterLigne(13,	'joint de piston',		1,	'joint2piston.EPRT');
+		Nomenclature::ajouterLigne(14,	'joint colonnette',		2,	'jointColonnette.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page de fonctionnement du frein à disque.
