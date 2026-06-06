@@ -63,8 +63,7 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │	│	└── pageDT-include.html.twig
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
-│       ├── dependances.php         # Définitions des dépendances (conteneur PSR-11)
-│       └── reglages.php            # Paramètres de l'application
+│       └── dependances.php         # Définitions des dépendances (conteneur PSR-11)
 ├── documentation/                  # Documentation du projet (local uniquement)
 ├── old-site/                       # Ancien site conservé pour référence (local uniquement)
 ├── vendor/                         # Dépendances gérées par Composer
