@@ -1,0 +1,19 @@
+{#
+	Page d'éclaté
+	Par convention :
+		- image: eclate-{{ dossier }}.png
+		- fichier: {{ dossier }}.EASM
+	Où dossier est le nom du support en keba-case (nom du dossier sur le disque ainsi que l'URL de base du support).
+	Exemple: bouton-poussoir
+#}
+
+{% extends '11-base-avec-nav.html.twig' %}
+
+{% block contenu %}
+<h1>Éclaté</h1>
+<a href="/supports/{{ dossier }}/fichiers/{{ dossier }}.EASM" title="Télécharger l'éclaté {{ du }}{{ support }}">
+    <img src="/supports/{{ dossier }}/images/eclate-{{ dossier }}.png" alt="Éclaté {{ du }}{{ support }}" class="association">
+</a>
+<p>Cliquer sur l'image pour télécharger l'éclaté.</p>
+<p>Puis dans e-Drawing, cliquez sur l'icône <img src="/images/icone_eclater_rassembler.png" alt = "icone"> pour éclater/rassembler la maquette numérique</p></section>
+{% endblock %}
