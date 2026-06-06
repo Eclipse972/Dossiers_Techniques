@@ -40,12 +40,13 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   │   ├── accueil.js              # création de la page d'accueil
 │   │   ├── gerer-menu.js           # Construction du menu
 │   │   └── creer-nomenclature.js   # contruction de la nomenclature
-│   ├── images/                     # Images
-│   ├── supports/                   # Fichiers techniques par support
-│   │   ├── support-a/
+│   ├── images/                     # images du site
+│   ├── supports/					# Dossier contenant les supports (alternateur, bouton-poussoir, ...)
+│   │   ├── alternateur/			# dossier de l'alternateur
 │   │   │   ├── images/             # Images du support
-│   │   │   └── fichiers/           # Fichiers eDrawing (pièces, assemblages et mises en plan)
-│   │   └── support-b/
+│   │   │   ├── fichiers/           # Images du support
+│   │   │   └── alternateur.zip     # archive à télécharger
+│   │   └── bouton-poussoir/		# même structure que alternateur/
 │   └── .htaccess                   # Configuration Apache pour la réécriture d'URL
 │
 ├── src/                            # Tous les scripts du projet (PHP, config, templates)
