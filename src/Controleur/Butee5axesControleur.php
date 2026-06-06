@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class Butee5axesControleur extends SupportControleur
 {
@@ -74,21 +75,33 @@ class Butee5axesControleur extends SupportControleur
         return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    /**
-     * Affiche la page de nomenclature
-     *
-     * @route /butee-5-axes/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+/**
+	 * Affiche la page de nomenclature de la butée 5 axes.
 	 *
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
+	 * @route /butee5axes/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'socle',			1,	'socle.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(2,	'contre embase',	1,	'contreembase.EPRT',	'EN AW 2017');
+		Nomenclature::ajouterLigne(3,	'module bis',		1,	'module.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(4,	'axe',				1,	'axe4.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(5,	'vis CHc M4 - 55',	1,	'vis4x55.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(6,	'embase',			1,	'embase.EPRT',			'EN AW 2017',	'commerce');
+		Nomenclature::ajouterLigne(7,	'intermédiaire',	1,	'intermediaire.EPRT',	'EN AW 2017');
+		Nomenclature::ajouterLigne(8,	'bouton',			1,	'bouton.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(9,	'tige filetée',		1,	'tige_filetee.EPRT',	'EN AW 2017',	'commerce');
+		Nomenclature::ajouterLigne(10,	'axe',				1,	'axe10.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(11,	'embout',			1,	'embout.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(12,	'tige',				1,	'tige.EPRT',			'EN AW 2017');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 	/**
      * Affiche la page de présentation des axes
      *
