@@ -107,7 +107,13 @@ class VanneSpheriqueControleur extends SupportControleur
      */
     public function fonctionnement(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->vue->render($reponse, '112-pageDT.html.twig', [
+			'support'	=> $this->nom,
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
+			'logo'		=> $this->logo,
+			'fichier'	=> 'fonctionnement',
+		]);
     }
 
     /**
