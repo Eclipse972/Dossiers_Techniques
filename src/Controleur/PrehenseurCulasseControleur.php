@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class PrehenseurCulasseControleur extends SupportControleur
 {
@@ -72,18 +73,50 @@ class PrehenseurCulasseControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature du préhenseur de culasse.
-     *
-     * @route /prehenseur-de-culasse/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature du préhenseur de culasse.
+	 *
+	 * @route /prehenseur-de-culasse/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Châssis',							1,	'chassis.EPRT');
+		Nomenclature::ajouterLigne(2,	'Renfort',							2,	'renfort.EPRT');
+		Nomenclature::ajouterLigne(3,	'Vis H M5 8',						4,	'visHM5-8.EPRT');
+		Nomenclature::ajouterLigne(4,	'Vis H M 10',						14,	'visHM6-10.EPRT');
+		Nomenclature::ajouterLigne(5,	'Rail TKSD',						4,	'railTKSD.EPRT');
+		Nomenclature::ajouterLigne(6,	'Chariot',							4,	'chariot.EPRT');
+		Nomenclature::ajouterLigne(7,	'Ensemble mécano-soudé 2 doigts',	1,	'ensemble2doigts.EASM');
+		Nomenclature::ajouterLigne(8,	'Vis HM8 16',						4,	'visHM8-16.EPRT');
+		Nomenclature::ajouterLigne(9,	'Rondelle M8',						4,	'rondelleM8.EPRT');
+		Nomenclature::ajouterLigne(10,	'Guide ressort',					4,	'guide.EPRT');
+		Nomenclature::ajouterLigne(11,	'Vis CHc M8 12',					3,	'visCHcM8-12.EPRT');
+		Nomenclature::ajouterLigne(13,	'Doigt',							3,	'doigt.EPRT');
+		Nomenclature::ajouterLigne(14,	'Vic CHc M5 16',					32,	'visCHcM5-16.EPRT');
+		Nomenclature::ajouterLigne(15,	'Écrou H M16',						4,	'ecrouHM16.EPRT');
+		Nomenclature::ajouterLigne(16,	'Équerre mobile',					2,	'equerreUPN.EPRT');
+		Nomenclature::ajouterLigne(18,	'Carter',							1,	'carter.EPRT');
+		Nomenclature::ajouterLigne(19,	'Bague',							4,	'bague2biellette.EPRT');
+		Nomenclature::ajouterLigne(20,	'Biellette',						2,	'biellette.EPRT');
+		Nomenclature::ajouterLigne(21,	'Fixation vérin',					2,	'bride.EPRT');
+		Nomenclature::ajouterLigne(22,	'Corps de vérin Joucomatic',		1,	'corps2verin.EPRT',		'',	'K 63 D 80 M');
+		Nomenclature::ajouterLigne(23,	'Noix',								1,	'noix.EPRT');
+		Nomenclature::ajouterLigne(24,	'Ensemble mécano-soudé 1 doigt',	1,	'ensemble1doigt.EASM');
+		Nomenclature::ajouterLigne(25,	'Piston du vérin',					1,	'piston.EPRT');
+		Nomenclature::ajouterLigne(26,	'Ressort',							1,	'ressort.EPRT');
+		Nomenclature::ajouterLigne(27,	'Équerre fixe',						2,	'equerre_fixe.EPRT');
+		Nomenclature::ajouterLigne(28,	'Vis CHc M8 30',					4,	'visCHcM8-30.EPRT');
+		Nomenclature::ajouterLigne(29,	'Vis CHc M6 25',					4,	'visCHcM6-25.EPRT');
+		Nomenclature::ajouterLigne(30,	'Rondelle M6',						4,	'rondelleM6.EPRT');
+		Nomenclature::ajouterLigne(31,	'Vis CHc M10 25',					4,	'visCHcM10-25.EPRT');
+		Nomenclature::ajouterLigne(32,	'Vis CHc M4 22',					16,	'visCHcM4-22.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page du dispositif de transfert.
