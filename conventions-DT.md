@@ -57,10 +57,8 @@ Ici se trouvent mes règles pour le développement de mon site de dossiers techn
 │   ├── Exceptions/                 # Exceptions personnalisées
 │	├── Vue/                        # Templates Twig
 │	│	├── supports/				# templates spécifique à chaque support
-│	│	├── base.html.twig
-│	│	├── home.html.twig
-│	│	├── pageDT.html.twig
-│	│	└── pageDT-include.html.twig
+│	│	├── No-template.html.twig	# structure des noms de template
+│	│	└── numerotation-template.md # la numérotaion des templates expliquée
 │   └── config/                     # Fichiers de configuration
 │       ├── routes.php              # Définition des routes
 │       └── dependances.php         # Définitions des dépendances (conteneur PSR-11)
