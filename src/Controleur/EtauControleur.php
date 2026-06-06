@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class EtauControleur extends SupportControleur
 {
@@ -71,18 +72,35 @@ class EtauControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de l'étau.
-     *
-     * @route /etau/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature de l'étau de modélisme.
+	 *
+	 * @route /etau/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Mors mobile',					1,	'mors-mobile.EPRT');
+		Nomenclature::ajouterLigne(2,	'Mors fixe',					1,	'mors-fixe.EPRT');
+		Nomenclature::ajouterLigne(3,	'Garniture de mors mobile',		1,	'garniture-mors-mobile.EPRT');
+		Nomenclature::ajouterLigne(4,	'Vis FS M5-20 5-6',				4,	'vis_FS_M5-20.EPRT');
+		Nomenclature::ajouterLigne(5,	'Garniture de mors fixe',		1,	'garniture-mors-fixe.EPRT');
+		Nomenclature::ajouterLigne(6,	'Vis de manoeuvre',				1,	'vis2manoeuvre.EPRT');
+		Nomenclature::ajouterLigne(7,	'Écrou H M12-8',				1,	'ecrou-H-M12.EPRT');
+		Nomenclature::ajouterLigne(8,	'Bague de renfort',				1,	'bague2renfort.EPRT');
+		Nomenclature::ajouterLigne(9,	'Tige de poignée',				1,	'tige2poignee.EPRT');
+		Nomenclature::ajouterLigne(10,	'Semelle',						1,	'semelle.EPRT');
+		Nomenclature::ajouterLigne(11,	'Vis CHc M5-10 - 8.8',			2,	'vis_CHC_M5-10.EPRT');
+		Nomenclature::ajouterLigne(12,	'Tige guide',					2,	'tige_guide.EPRT');
+		Nomenclature::ajouterLigne(13,	'Vis sans tête HC M4-6',		2,	'vis_HC_M4-6.EPRT');
+		Nomenclature::ajouterLigne(14,	'Goupille élastique',			1,	'goupille_elastique_3x16.EPRT');
+		Nomenclature::ajouterLigne(15,	'Embout de tige de poignée',	2,	'embout2poignee.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
 	 * Affiche la page de fonctionnement
