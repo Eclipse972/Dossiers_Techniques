@@ -114,7 +114,7 @@ class EtauControleur extends SupportControleur
 	 */
 	public function fonctionnement(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduFonctionnement($reponse);
 	}
 
 	/**
