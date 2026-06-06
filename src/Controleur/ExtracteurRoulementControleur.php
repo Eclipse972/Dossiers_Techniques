@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class ExtracteurRoulementControleur extends SupportControleur
 {
@@ -69,18 +70,25 @@ class ExtracteurRoulementControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de l' extracteur de roulement.
-     *
-     * @route /extracteur-de-roulement/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature de l'extracteur de roulement.
+	 *
+	 * @route /extracteur2roulement/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Corps',	1,	'corps.EPRT');
+		Nomenclature::ajouterLigne(2,	'Vis',		1,	'vis.EPRT');
+		Nomenclature::ajouterLigne(3,	'Écrou',	1,	'ecrou.EPRT');
+		Nomenclature::ajouterLigne(4,	'Axe',		2,	'axe.EPRT');
+		Nomenclature::ajouterLigne(5,	'Doigt',	2,	'doigt.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page de fonctionnement de l'extracteur de roulement.
