@@ -125,6 +125,6 @@ class CoupeTubeControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse);
 	}
 }
