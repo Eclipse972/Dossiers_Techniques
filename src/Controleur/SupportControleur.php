@@ -161,6 +161,20 @@ abstract class SupportControleur
 		]);
 	}
 
+	/**
+	 * Rendu des pages de d'éclaté
+	 *
+	 * @param Response	$reponse        Objet réponse HTTP
+	 */
+	public function renduEclate(Response $reponse): Response {
+		return $this->vue->render($reponse, '115-eclate.html.twig', [
+			'support'	=> $this->nom,
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
+			'logo'		=> $this->logo,
+		]);
+	}
+
 	/*****************************************************************************************************************
 	 * Fonctions utilitaires
 	 * =====================
