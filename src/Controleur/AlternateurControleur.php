@@ -87,33 +87,33 @@ class AlternateurControleur extends SupportControleur
         return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    /**
-     * Affiche la page de nomenclature de l'alternateur.
-     *
-     * @route /alternateur/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	/**
+	 * Affiche la page de nomenclature de l'alternateur.
 	 *
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-		$nomenclature = new Nomenclature();
-		$nomenclature->ajouterLigne(1,  'carter gauche',						1, 'carter_gauche.EPRT');
-		$nomenclature->ajouterLigne(3,  'carter droit',							1, 'carter_droit.EPRT',		'AU4-G');
-		$nomenclature->ajouterLigne(4,  'rotor à griffes',						1, 'rotorAgriffes.EASM');
-		$nomenclature->ajouterLigne(5,  'stator',								1, 'stator.EPRT');
-		$nomenclature->ajouterLigne(6,  'arbre du rotor',						1, 'arbreDUrotor.EPRT');
-		$nomenclature->ajouterLigne(10, 'rondelle',								1, 'rondelle.EPRT');
-		$nomenclature->ajouterLigne(11, 'poulie pour courroie polyV',			1, 'poulie.EPRT');
-		$nomenclature->ajouterLigne(12, 'écrou',								1, 'ecrou.EPRT');
-		$nomenclature->ajouterLigne(15, 'vis ISO M5x85x26',						4, 'vis_ISO_M5x85x26.EPRT');
-		$nomenclature->ajouterLigne(20, 'plaque support de roulement',			1, 'plaque.EPRT');
-		$nomenclature->ajouterLigne(21, 'roulement ⌀int 17 ⌀ext 52 l:17 - 2RS', 1, 'roulement1.EPRT');
-		$nomenclature->ajouterLigne(22, 'roulement 6202',						1, 'roulement2.EPRT');
-		$nomenclature->ajouterLigne(23, 'bague de roulement',					1, 'bague2roulement.EPRT',	'téflon');
-		$nomenclature->ajouterLigne(25, 'joint',								1, 'joint.EPRT');
-        return $this->renduNomenclature($reponse, $nomenclature->preparerVue($this->dossier));
-    }
+	 * @route /alternateur/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'carter gauche',						1,	'carter_gauche.EPRT');
+		Nomenclature::ajouterLigne(3,	'carter droit',							1,	'carter_droit.EPRT',		'AU4-G');
+		Nomenclature::ajouterLigne(4,	'rotor à griffes',						1,	'rotorAgriffes.EASM');
+		Nomenclature::ajouterLigne(5,	'stator',								1,	'stator.EPRT');
+		Nomenclature::ajouterLigne(6,	'arbre du rotor',						1,	'arbreDUrotor.EPRT');
+		Nomenclature::ajouterLigne(10,	'rondelle',								1,	'rondelle.EPRT');
+		Nomenclature::ajouterLigne(11,	'poulie pour courroie polyV',			1,	'poulie.EPRT');
+		Nomenclature::ajouterLigne(12,	'écrou',								1,	'ecrou.EPRT');
+		Nomenclature::ajouterLigne(15,	'vis ISO M5x85x26',						4,	'vis_ISO_M5x85x26.EPRT');
+		Nomenclature::ajouterLigne(20,	'plaque support de roulement',			1,	'plaque.EPRT');
+		Nomenclature::ajouterLigne(21,	'roulement ⌀int 17 ⌀ext 52 l:17 - 2RS',	1,	'roulement1.EPRT');
+		Nomenclature::ajouterLigne(22,	'roulement 6202',						1,	'roulement2.EPRT');
+		Nomenclature::ajouterLigne(23,	'bague de roulement',					1,	'bague2roulement.EPRT',		'téflon');
+		Nomenclature::ajouterLigne(25,	'joint',								1,	'joint.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 }
