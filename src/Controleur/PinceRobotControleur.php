@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class PinceRobotControleur extends SupportControleur
 {
@@ -72,18 +73,28 @@ class PinceRobotControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature de la pince de robot.
-     *
-     * @route /pince-de-robot/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * Affiche la page de nomenclature de la pince de robot.
+	 *
+	 * @route /pince2robot/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Corps',									1,	'corps.EASM');
+		Nomenclature::ajouterLigne(2,	'Vis',										1,	'vis.EPRT');
+		Nomenclature::ajouterLigne(3,	'Écrou',									1,	'ecrou.EPRT');
+		Nomenclature::ajouterLigne(4,	'roulement à double rangée de billes',		1,	'roulement.EASM');
+		Nomenclature::ajouterLigne(5,	'Levier',									2,	'levier.EPRT');
+		Nomenclature::ajouterLigne(6,	'Doigt',									2,	'doigt.EPRT');
+		Nomenclature::ajouterLigne(7,	'Grande biellette',							4,	'grande_biellette.EPRT');
+		Nomenclature::ajouterLigne(8,	'Petite biellette',							2,	'petite_biellette.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
      * Affiche la page de fonctionnement de la pince de robot.
