@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class CoupeTubeControleur extends SupportControleur
 {
@@ -73,19 +74,29 @@ class CoupeTubeControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de nomenclature du coupe-tube.
-     *
-     * @route /coupe-tube/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	 * Affiche la page de nomenclature du mini coupe-tube.
 	 *
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * @route /mini_coupe-tube/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Corps',							1,	'corps.EPRT');
+		Nomenclature::ajouterLigne(2,	'Coulisseau',						1,	'coulisseau.EPRT');
+		Nomenclature::ajouterLigne(3,	'Rouleau',							2,	'rouleau.EPRT');
+		Nomenclature::ajouterLigne(4,	'Axe de rouleau',					2,	'axe2rouleau.EPRT');
+		Nomenclature::ajouterLigne(5,	'Molette',							1,	'molette.EPRT');
+		Nomenclature::ajouterLigne(6,	'Axe de molette',					1,	'axe2molette.EPRT');
+		Nomenclature::ajouterLigne(7,	'Axe de manoeuvre',					1,	'axe2manoeuvre.EPRT');
+		Nomenclature::ajouterLigne(8,	'Anneau élastique d\'arbre',		1,	'anneau_elastique.EPRT');
+		Nomenclature::ajouterLigne(9,	'Bouton de manoeuvre',				1,	'bouton2manoeuvre.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
 	 * Affiche la page du diagramme A-0
