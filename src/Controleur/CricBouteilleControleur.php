@@ -7,6 +7,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use DossiersTechniques\Modele\Nomenclature;
 
 class CricBouteilleControleur extends SupportControleur
 {
@@ -72,19 +73,53 @@ class CricBouteilleControleur extends SupportControleur
         return $this->renduPageEnConstruction($requete, $reponse);
     }
 
-    /**
-     * Affiche la page de nomenclature du cric bouteille.
-     *
-     * @route /cric-bouteille/nomenclature
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function nomenclature(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+   /**
+	 * Affiche la page de nomenclature du cric bouteille.
+	 *
+	 * @route /cric_bouteille/nomenclature
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function nomenclature(Request $requete, Response $reponse): Response
+	{
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Embase de cric',						1,	'Embase.EPRT',				'EN AW 2017');
+		Nomenclature::ajouterLigne(2,	'Corps de pompe',						1,	'Corps2pompe.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(3,	'Piston de pompe',						1,	'piston_pompe.EPRT',		'S 235 (E24)');
+		Nomenclature::ajouterLigne(4,	'Axe d\'articulation',					2,	'axe_articulation.EPRT',	'S 235 (E24)');
+		Nomenclature::ajouterLigne(5,	'Segment d\'arrêt radial 6 x 0,7',		4,	'segment_arret.EPRT');
+		Nomenclature::ajouterLigne(6,	'Articulation',							1,	'articulation.EPRT',		'EN AW 2017');
+		Nomenclature::ajouterLigne(7,	'Piston récepteur',						1,	'piston_recepteur.EPRT',	'EN AW 2017');
+		Nomenclature::ajouterLigne(8,	'Couvercle',							1,	'Couvercle.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(9,	'Cylindre principal',					1,	'cylindre_principal.EPRT',	'PMMA',			'Polyméthylméthacrylate');
+		Nomenclature::ajouterLigne(10,	'Réservoir',							1,	'reservoir.EPRT',			'PMMA',			'Polyméthylméthacrylate');
+		Nomenclature::ajouterLigne(11,	'Écrou M4',								4,	'ecrouM4.EPRT');
+		Nomenclature::ajouterLigne(12,	'Rondelle M4',							4,	'rondelleM4.EPRT');
+		Nomenclature::ajouterLigne(13,	'Tirant',								4,	'tirant.EPRT',				'S 235 (E24)');
+		Nomenclature::ajouterLigne(14,	'Biellette',							1,	'biellette.EPRT',			'S 235 (E24)');
+		Nomenclature::ajouterLigne(15,	'Axe d\'articulation de chape',			1,	'axe_chape.EPRT');
+		Nomenclature::ajouterLigne(16,	'Pointeau',								1,	'pointeau.EPRT',			'',				'Vis sans tête à bout plat HC M10-30 modifiée');
+		Nomenclature::ajouterLigne(17,	'Joint de pointeau de retour',			1,	'joint2pointeau.EPRT');
+		Nomenclature::ajouterLigne(18,	'Chandelle',							1,	'Chandelle.EPRT',			'EN AW 2017');
+		Nomenclature::ajouterLigne(19,	'Bille de tarage',						1,	'bille_tarage.EPRT');
+		Nomenclature::ajouterLigne(20,	'Poussoir de tarage',					1,	'poussoir2tarage.EPRT',		'S 235 (E24)');
+		Nomenclature::ajouterLigne(21,	'Ressort de tarage',					1,	'ressort2tarage.EPRT',		'C 60');
+		Nomenclature::ajouterLigne(22,	'Vis de tarage',						1,	'vis2tarage.EPRT',			'S 235 (E24)');
+		Nomenclature::ajouterLigne(23,	'Bouchon de tarage',					1,	'bouchon_tarage.EPRT');
+		Nomenclature::ajouterLigne(24,	'Joint plat de bouchon de tarage',		1,	'joint2tarage.EPRT');
+		Nomenclature::ajouterLigne(25,	'Bouchon de remplissage',				1,	'bouchon2remplissage.EPRT');
+		Nomenclature::ajouterLigne(26,	'Bille d\'admission',					1,	'bille_admission.EPRT');
+		Nomenclature::ajouterLigne(27,	'Joint de pompe',						1,	'joint2pompe.EPRT');
+		Nomenclature::ajouterLigne(28,	'Joint torique de piston',				1,	'joint2piston.EPRT');
+		Nomenclature::ajouterLigne(29,	'Vis de fixation du corps de pompe',	1,	'vis2fixation_du_corps2pompe.EPRT');
+		Nomenclature::ajouterLigne(30,	'Levier',								1,	'levier.EPRT',				'S 235 (E24)');
+		Nomenclature::ajouterLigne(31,	'Joint torique de réservoir',			1,	'joint2reservoir.EPRT');
+		Nomenclature::ajouterLigne(32,	'Joint torique de corps de pompe',		1,	'joint_torique2corps2pompe.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
+	}
 
 	/**
 	 * Affiche la page de fonctionnement
