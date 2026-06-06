@@ -11,29 +11,29 @@ use DossiersTechniques\Modele\Nomenclature;
 
 class AlternateurControleur extends SupportControleur
 {
-    /**
-     * Constructeur : initialise le support Alternateur.
-     *
-     * @param Twig $vue Moteur de templates Twig
-     */
-    public function __construct(Twig $vue)
-    {
-        parent::__construct($vue);
-        $this->hydrate('alternateur', "de l'", 'alternateur', 'alternateur.png');
-    }
-
-    /**
-     * Affiche la page 'à propos' de l'alternateur
-     *
-     * @route /alternateur
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	/**
+	 * Constructeur : initialise le support Alternateur.
 	 *
-     * @return Response
-     */
-    public function aPropos(Request $requete, Response $reponse): Response {
-        return $this->renduApropos(
+	 * @param Twig $vue Moteur de templates Twig
+	 */
+	public function __construct(Twig $vue)
+	{
+		parent::__construct($vue);
+		$this->hydrate('alternateur', "de l'", 'alternateur', 'alternateur.png');
+	}
+
+	/**
+	 * Affiche la page 'à propos' de l'alternateur
+	 *
+	 * @route /alternateur
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function aPropos(Request $requete, Response $reponse): Response {
+		return $this->renduApropos(
 			$reponse,
 			'alternateur.zip',
 			[
@@ -42,50 +42,52 @@ class AlternateurControleur extends SupportControleur
 			],
 			[]
 		);
-    }
+	}
 
-    /**
-     * Affiche la page de mise en situation de l'alternateur.
-     *
-     * @route /alternateur/mise-en-situation
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function miseEnSituation(Request $requete, Response $reponse): Response
-    {
-        return $this->renduMES($reponse);
-    }
-
-    /**
-     * Affiche la page du dessin d'ensemble de l'alternateur.
-     *
-     * @route /alternateur/dessin-densemble
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-     * @return Response
-     */
-    public function dessinDensemble(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    /**
-     * Affiche la page de l'éclaté
-     *
-     * @route /alternateur/eclate
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
+	/**
+	 * Affiche la page de mise en situation de l'alternateur.
 	 *
-     * @return Response
-     */
-    public function eclate(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
+	 * @route /alternateur/mise-en-situation
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function miseEnSituation(Request $requete, Response $reponse): Response
+	{
+		return $this->renduMES($reponse);
+	}
+
+	/**
+	 * Affiche la page du dessin d'ensemble de l'alternateur.
+	 *
+	 * @route /alternateur/dessin-densemble
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function dessinDensemble(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
+
+	/**
+	 * Affiche la page de l'éclaté
+	 *
+	 * @route /alternateur/eclate
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function eclate(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageEnConstruction($requete, $reponse);
+	}
 
 	/**
 	 * Affiche la page de nomenclature de l'alternateur.
