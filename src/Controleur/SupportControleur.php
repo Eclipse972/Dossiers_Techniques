@@ -176,7 +176,7 @@ abstract class SupportControleur
 	}
 
 	/**
-     * Rendu des pages foncionnement
+     * Rendu des pages fonctionnement
      *
      * @param Response $reponse Réponse HTTP à retourner
 	 *
@@ -193,6 +193,38 @@ abstract class SupportControleur
 		]);
     }
 
+	/**
+     * Rendu des pages avec image centrale
+     *
+     * @param Response $reponse Réponse HTTP à retourner
+	 * @param string $titre de la page
+	 * @param string $texte_au_dessus de l'image
+	 * @param string $image nom de fichier avec son extension
+	 * @param string $commentaire_image alt de l'image
+	 * @param string $texte_au_dessous de l'image
+	 *
+     * @return Response
+     */
+    public function renduPageImage(
+		Response $reponse,
+		string $titre,
+		string $texte_au_dessus,
+		string $image,
+		string $commentaire_image,
+		string $texte_au_dessous
+	): Response {
+        return $this->vue->render($reponse, '116-page-image.html.twig', [
+			'support'	=> $this->nom,
+			'du'		=> $this->article_du,
+			'dossier'	=> $this->dossier,
+			'logo'		=> $this->logo,
+			'titre'		=> $titre,
+			'texte_au_dessus'	=> $texte_au_dessus,
+			'image'		=> $image,
+			'commentaire_image'	=> $commentaire_image,
+			'texte_au_dessous'	=> $texte_au_dessous
+		]);
+    }
 	/*****************************************************************************************************************
 	 * Fonctions utilitaires
 	 * =====================

@@ -1,0 +1,18 @@
+{#
+	Page image
+	La partie principale de la page est une images.
+	La page contient :
+	- un titre
+	- un texte au dessu de l'image éventuellement vide
+	- une image occupant la plus grande partie de la page
+	- un texte en dessous de l'image éventuellement vide
+#}
+
+{% extends '11-base-avec-nav.html.twig' %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+{{ texte_au_dessus }}
+<img src="/supports/{{ dossier }}/images/{{ image }}" alt="{{ commentaire_image }}" class="association">
+{{ texte_au_dessous }}
+{% endblock %}
