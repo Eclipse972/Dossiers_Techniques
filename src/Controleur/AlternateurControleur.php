@@ -93,13 +93,14 @@ class AlternateurControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->vue->render($reponse, '112-pageDT.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
-			'fichier'	=> 'eclate',
-		]);
+		return $this->renduPageImage(
+			$reponse,
+			"Éclaté",
+			"",
+			'eclate.png',
+			"éclaté de l'aternateur",
+			"<p>Pas de fichier disponible.</p>"
+		);
 	}
 
 	/**
