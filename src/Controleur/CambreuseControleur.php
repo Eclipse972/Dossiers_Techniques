@@ -152,7 +152,16 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function fonctionnementEtape1(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Étape 1",
+			"<p>L'opérateur met en place les branches de frein sur le posoir.
+			<br>Nota: le flasque avant est caché</p>",
+			'position1.png',
+			"étape 1",
+			"",
+			700
+		);
 	}
 
 	/**
@@ -167,7 +176,16 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function fonctionnementEtape2(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Étape 2",
+			"<p>Le vérin pneumatique de bridage est actionné en premier de façon à bloquer les branches dans le posoir sur leur partie avant.
+			<br>Nota: le flasque avant est caché</p>",
+			'position2.png',
+			"étape 2",
+			"",
+			700
+		);
 	}
 
 	/**
@@ -182,7 +200,17 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function fonctionnementEtape3(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Étape 3",
+			"<p>Ensuite, le vérin pneumatique de cambrage actionne par l'intermédiaire de la bielle le basculeur qui pivote autour de deux axes (28).
+			Le basculeur soulève alors la partie arrière des branches de frein pour leur donner la forme souhaitée.
+			<br>Nota: le flasque avant est caché</p>",
+			'position3.png',
+			"étape 3",
+			"",
+			700
+		);
 	}
 
 	/**
