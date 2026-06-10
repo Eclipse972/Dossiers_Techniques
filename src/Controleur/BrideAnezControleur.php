@@ -265,7 +265,15 @@ class BrideAnezControleur extends SupportControleur
      */
     public function montageBridage(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageImage(
+			$reponse,
+			"Montage de bridage sur plateau tournant",
+			"",
+			'montage_bridage.png',
+			"montage de bridage",
+			"",
+			750
+		);
     }
 
     /**
