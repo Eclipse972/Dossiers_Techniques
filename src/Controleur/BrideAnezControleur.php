@@ -142,7 +142,19 @@ class BrideAnezControleur extends SupportControleur
      */
     public function fonctionnementDebutPhase1(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+		$texte =
+			"<p>La tige du vérin et le nez sont totalement rentrés. L'axe est en contact avec l'extrémité gauche du trou oblong qui se trouve sur le nez.</p>
+			<p>On alimente ensuite la chambre par l'orifice de droite avec de l'huile sous pression. C'est le début de la phase 1.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Début de la phase 1",
+			$texte,
+			'nez_rentre.png',
+			"bride nez rentré",
+			"",
+			400
+		);
     }
 
     /**
