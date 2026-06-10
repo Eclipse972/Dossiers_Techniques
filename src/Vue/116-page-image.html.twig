@@ -13,6 +13,6 @@
 {% block contenu %}
 <h1>{{ titre }}</h1>
 {{ texte_au_dessus | raw }}
-<img src="/supports/{{ dossier }}/images/{{ image }}" alt="{{ commentaire_image }}" class="association">
+<img src="/supports/{{ dossier }}/images/{{ image }}" alt="{{ commentaire_image }}" class="association" height="{{ hauteur_image }}px">
 {{ texte_au_dessous | raw }}
 {% endblock %}

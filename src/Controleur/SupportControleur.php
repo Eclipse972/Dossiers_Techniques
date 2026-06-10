@@ -202,6 +202,7 @@ abstract class SupportControleur
 	 * @param string $image nom de fichier avec son extension
 	 * @param string $commentaire_image alt de l'image
 	 * @param string $texte_au_dessous de l'image
+	 * @param int 	$hauteur de l'image en pixel
 	 *
      * @return Response
      */
@@ -211,16 +212,18 @@ abstract class SupportControleur
 		string $texte_au_dessus,
 		string $image,
 		string $commentaire_image,
-		string $texte_au_dessous
+		string $texte_au_dessous,
+		int 	$hauteur = 400
 	): Response {
         return $this->vue->render($reponse, '116-page-image.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
-			'titre'		=> $titre,
+			'support'			=> $this->nom,
+			'du'				=> $this->article_du,
+			'dossier'			=> $this->dossier,
+			'logo'				=> $this->logo,
+			'titre'				=> $titre,
 			'texte_au_dessus'	=> $texte_au_dessus,
-			'image'		=> $image,
+			'image'				=> $image,
+			'hauteur_image'		=> $hauteur,
 			'commentaire_image'	=> $commentaire_image,
 			'texte_au_dessous'	=> $texte_au_dessous
 		]);
