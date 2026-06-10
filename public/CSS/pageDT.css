@@ -98,14 +98,3 @@ nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survol√
 	display: block;
 	margin: auto;
 }
-
-#page_image {
-	width:80%;
-	margin:auto;
-}
-
-#page_image img {
-	max-height: 450px;
-	display: block;
-	margin: auto;
-}
