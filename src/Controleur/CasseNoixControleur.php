@@ -68,7 +68,15 @@ class CasseNoixControleur extends SupportControleur
 	 */
 	public function diagrammeA0(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Diagramme A-0",
+			"",
+			'diagrammeA0.png',
+			"diagramme A-0 du casse-noix",
+			"",
+			700
+		);
 	}
 
 	/**
