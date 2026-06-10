@@ -129,7 +129,15 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axe1(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Présentation de l'axe 1",
+			"<p>Rotation de 360° de la pièce (2) autour de la pièce (1).</p>",
+			'axe1.gif',
+			"axe 1 de la butée",
+			"",
+			500
+		);
     }
 
     /**
@@ -144,7 +152,15 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axe2(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Présentation de l'axe 2",
+			"<p>Rotation de 90° de la pièce (3) autour de la pièce (2).</p>",
+			'axe2.gif',
+			"axe 2 de la butée",
+			"",
+			500
+		);
     }
 
     /**
@@ -159,7 +175,15 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axe3(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Présentation de l'axe 3",
+			"<p>Rotation de 90° de la pièce (6) autour de la pièce (3).</p>",
+			'axe3.gif',
+			"axe 3 de la butée",
+			"",
+			500
+		);
     }
 
     /**
@@ -174,7 +198,15 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axe4(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+       return $this->renduPageImage(
+			$reponse,
+			"Présentation de l'axe 4",
+			"<p>Rotation de 360° de la pièce (7) autour de la pièce (6).</p>",
+			'axe4.gif',
+			"axe 4 de la butée",
+			"",
+			500
+		);
     }
 
     /**
@@ -189,7 +221,15 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axe5(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Présentation de l'axe 5",
+			"<p>Translation de la pièce (12) dans la pièce (7).</p>",
+			'axe5.gif',
+			"axe 5 de la butée",
+			"",
+			500
+		);
     }
 
     /**
