@@ -129,6 +129,34 @@ class ElectrovanneControleur extends SupportControleur
 	 */
 	public function analyseFonctionnelle(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		$au_dessus="
+			<h1>Analyse fonctionnelle</h1>
+			<p>L'environnement de l'électro-vanne est le suivant :</p>
+			<ul>
+				<li>le micro ordinateur &agrave; travers un circuit de commande</li>
+				<li>le circuit hydraulique</li>
+				<li>l'environnement extérieur</li>
+			</ul>
+			<p>Le diagramme pieuvre de l'électrovanne est le suivant:</p>";
+
+		$en_dessous="
+			<p>Fonctions de l'électro-vanne :</p>
+			<ul>
+				<li>Fp : commander l'ouverture et la fermeture d'un circuit hydraulique à l'aide d'un micro-ordinateur.</li>
+				<li>F1 : ne pas inonder le milieu extérieur.</li>
+				<li>F2 : s'adapter à l'orifice d'entrée du circuit hydraulique.</li>
+				<li>F3 : s'adapter à l'orifice de sortie du circuit hydraulique.</li>
+			</ul>
+		";
+
+		return $this->renduPageImage(
+			$reponse,
+			"Analyse fonctionnelle",
+			$au_dessus,
+			'pieuvre.png',
+			"pieuvre de l'électrovanne",
+			$en_dessous,
+			300
+		);
 	}
 }
