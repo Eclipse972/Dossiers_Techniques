@@ -143,7 +143,7 @@ class BrideAnezControleur extends SupportControleur
     public function fonctionnementDebutPhase1(Request $requete, Response $reponse): Response
     {
 		$texte =
-			"<p>La tige du vérin et le nez sont totalement rentrés. L'axe est en contact avec l'extrémité gauche du trou oblong qui se trouve sur le nez.</p>
+			"<p>La tige du vérin et le nez sont totalement rentrés. L'axe est en contact avec l'extrémité gauche du trou oblong dans le nez.</p>
 			<p>On alimente ensuite la chambre par l'orifice de droite avec de l'huile sous pression. C'est le début de la phase 1.</p>";
 
         return $this->renduPageImage(
@@ -169,7 +169,19 @@ class BrideAnezControleur extends SupportControleur
      */
     public function fonctionnementPhase1(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte =
+			"<p>Le piston pousse le nez. Pour éviter qu'il tourne il y a une lame de ressort (non visible sur l'animation) sous le nez qui le maintient à l'horizontale.
+			<br>La phase se termine lorsque l'axe entre en contact avec le côté droit du trou oblong.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"La phase 1",
+			$texte,
+			'sortie_nez.gif',
+			"sortie du nez",
+			"",
+			500
+		);
     }
 
     /**
@@ -184,7 +196,19 @@ class BrideAnezControleur extends SupportControleur
      */
     public function fonctionnementDebutPhase2(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte =
+			"<p>Le nez est totalement sorti mais la tige de vérin n'est pas en bout de course. L'axe est en contact avec l'extrémité droite du trou oblong dans le nez.
+			<br>On continue d'alimenter la chambre avec de l'huile sous pression. C'est le début de la phase 2.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Début de la phase 2",
+			$texte,
+			'debut_rotation.png',
+			"début de la rotation du nez",
+			"",
+			500
+		);
     }
 
     /**
@@ -199,7 +223,19 @@ class BrideAnezControleur extends SupportControleur
      */
     public function fonctionnementPhase2(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte =
+			"<p>Le piston pousse le nez mais celui-ci ne peut plus avancer à cause de l'axe en contact avec le trou oblong. Le seul mouvement possible est une rotation autour de l'axe.
+			<br>La lame de ressort (non visible sur l'animation) ne peut plus maintenir le nez à l'horizontale et se déforme.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"La phase 2",
+			$texte,
+			'rotation_nez.gif',
+			"rotation du nez",
+			"",
+			550
+		);
     }
 
     /**
