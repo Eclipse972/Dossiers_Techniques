@@ -72,14 +72,6 @@ nav ul ul a {
 nav ul ul a:hover { background-color: var(--couleur1); } /* le sous item survolé est coloré */
 
 /* class et id ------------------------------------------------------------------------------------------------------- */
-.icone { /* formatage affichage */
-	height: 40px;
-	vertical-align: middle;
-	padding: 2px;
-	margin: 2px;
-	display: inline; /* pour contrecarrer l'instruction display:block de la balise img */
-}
-
 .image_centree {
 	display: block;
 	max-width: 100%;
