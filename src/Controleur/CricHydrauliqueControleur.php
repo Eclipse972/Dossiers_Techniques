@@ -184,7 +184,25 @@ class CricHydrauliqueControleur extends SupportControleur
 	 */
 	public function AFpieuvre(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		$texte="
+			<p><b>FP1: l'utilisateur doit pouvoir lever son véhicule</p>
+			<p><b>FP2: l'utilisateur doit pouvoir déposer son véhicule</p>
+			<p><b>Fc1: Le cric doit pouvoir soulever un véhicule de 2 tonnes</p>
+			<p><b>Fc2: Le cric doit suffisamment soulever le véhicule</p>
+			<p><b>Fc3: Le cric doit facilement se positionner</p>
+			<p><b>Fc4: Le cric doit s'adapter à des hauteurs de châssis différentes</p>
+			<p><b>Fc5: Le cric doit résister à son milieu</p>
+			<p><b>Fc6: Le cric doit &ecirc;tre transportable</p>";
+
+		return $this->renduPageImage(
+			$reponse,
+			"Diagramme des intéracteurs",
+			"",
+			'pieuvre.png',
+			"pieuvre du cric hydraulique",
+			$texte,
+			400
+		);
 	}
 
 	/**
@@ -199,7 +217,15 @@ class CricHydrauliqueControleur extends SupportControleur
 	 */
 	public function AFfastEvage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			'FAST "Levage du véhicule"',
+			"",
+			'fast_levage.png',
+			"FAST levage du véhicule",
+			"",
+			700
+		);
 	}
 
 	/**
@@ -214,7 +240,15 @@ class CricHydrauliqueControleur extends SupportControleur
 	 */
 	public function AFfastDepose(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			'FAST "Dépose du véhicule"',
+			"",
+			'fast_depose.png',
+			"FAST dépose du véhicule",
+			"",
+			700
+		);
 	}
 
 	/**
@@ -229,7 +263,15 @@ class CricHydrauliqueControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Éclaté",
+			"",
+			'cric_hydrau_eclate.png',
+			"éclaté du cric hydraulique",
+			"",
+			700
+		);
 	}
 
 	/**
