@@ -110,7 +110,15 @@ class CoupeTubeControleur extends SupportControleur
 	 */
 	public function diagrammeA0(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImage(
+			$reponse,
+			"Analyse fonctionnelle",
+			"",
+			'diagrammeA-0.png',
+			"diagramme A-0",
+			"",
+			400
+		);
 	}
 
 	/**
