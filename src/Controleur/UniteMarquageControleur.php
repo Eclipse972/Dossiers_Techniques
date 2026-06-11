@@ -265,7 +265,15 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function mecanique(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Mécanique",
+			"Graphe Méca3D :",
+			'grapheMeca3D.png',
+			"graphe méca 3D",
+			"",
+			700
+		);
     }
 
     /**
@@ -279,7 +287,15 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function mecaEffortsEmbiellageLevier(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Courbe des efforts transmis par l'embiellage sur le levier",
+			"",
+			'effort_pivot_glissant.png',
+			"courbe effort pivot glissant",
+			"",
+			800
+		);
     }
 
     /**
@@ -293,7 +309,15 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function mecaEffortMarquage(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Courbe de l'effort de marquage",
+			"",
+			'effort_marquage.png',
+			"courbe effort de marquage",
+			"",
+			800
+		);
     }
 
     /**
@@ -307,7 +331,15 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function mecaVitesseBiellette(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Courbe de la vitesse de la biellette par rapport à l'embase",
+			"",
+			'vitesse_biellette.png',
+			"courbe vitesse de la bielette",
+			"",
+			800
+		);
     }
 
     /**
@@ -321,6 +353,14 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function mecaVitesseLevier(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Courbe de la vitesse de la biellette par rapport à l'embase",
+			"",
+			'vitesse_levier.png',
+			"courbe vitesse du levier",
+			"",
+			800
+		);
     }
 }
