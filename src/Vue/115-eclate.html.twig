@@ -1,19 +1,18 @@
 {#
-	Page d'éclaté
-	Par convention :
-		- image: eclate-{{ dossier }}.png
-		- fichier: {{ dossier }}.EASM
-	Où dossier est le nom du support en keba-case (nom du dossier sur le disque ainsi que l'URL de base du support).
-	Exemple: bouton-poussoir
+    Page d'éclaté
+    Variables attendues :
+        - fichier : nom de base du fichier eDrawing sans extension (ex: bouton-poussoir)
+        - image   : nom de base du fichier image sans extension (ex: eclate-bouton-poussoir)
+    Les extensions sont fixes : .EASM pour les fichiers, .png pour les images.
 #}
 
 {% extends '11-base-avec-nav.html.twig' %}
 
 {% block contenu %}
-<h1>{{ titre | default('Éclaté') }}</h1>
-<a href="/supports/{{ dossier }}/fichiers/{{ dossier }}.EASM" title="Télécharger l'éclaté {{ du }}{{ support }}">
-    <img src="/supports/{{ dossier }}/images/eclate-{{ dossier }}.png" alt="Éclaté {{ du }}{{ support }}" class="association">
+<h1>{{ titre }}</h1>
+<a href="/supports/{{ dossier }}/fichiers/{{ fichier }}.EASM" title="Télécharger l'éclaté {{ du }}{{ support }}">
+    <img src="/supports/{{ dossier }}/images/{{ image }}.png" alt="Éclaté {{ du }}{{ support }}" class="association">
 </a>
 <p>Cliquer sur l'image pour télécharger l'éclaté.
-<br>Puis dans e-Drawing, cliquez sur l'icône <img src="/images/icone_eclater_rassembler.png" alt = "icone éclater/rassembler"> pour éclater/rassembler la maquette numérique</p></section>
+<br>Puis dans e-Drawing, cliquez sur l'icône <img src="/images/icone_eclater_rassembler.png" alt="icone éclater/rassembler"> pour éclater/rassembler la maquette numérique</p>
 {% endblock %}

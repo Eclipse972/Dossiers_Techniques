@@ -162,16 +162,27 @@ abstract class SupportControleur
 	}
 
 	/**
-	 * Rendu des pages de d'éclaté
+	 * Rendu des pages d'éclaté
 	 *
-	 * @param Response	$reponse        Objet réponse HTTP
+	 * @param Response  $reponse    Objet réponse HTTP
+	 * @param string    $fichier    Nom de base du fichier eDrawing, sans extension (ex: bouton-poussoir)
+	 * @param string    $image      Nom de base du fichier image, sans extension (ex: eclate-bouton-poussoir)
+	 * @param string    $titre      Titre de la page
 	 */
-	public function renduEclate(Response $reponse): Response {
+	public function renduEclate(
+		Response $reponse,
+		string $fichier,
+		string $image,
+		string $titre = 'Éclaté'
+	): Response {
 		return $this->vue->render($reponse, '115-eclate.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
+			'support'   => $this->nom,
+			'du'        => $this->article_du,
+			'dossier'   => $this->dossier,
+			'logo'      => $this->logo,
+			'titre'     => $titre,
+			'fichier'   => $fichier,
+			'image'     => $image,
 		]);
 	}
 
