@@ -255,7 +255,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function sousEnsembles(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'cambreuse', 'eclate_cambreuse2', 'Les sous-ensembles de la cambreuse');
 	}
 
 	/**
@@ -270,7 +270,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function SEbati(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'SE_bati', 'SE_bati', 'Sous-ensemble bâti');
 	}
 
 	/**
@@ -285,7 +285,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function tigeCambrage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'SE_tige2cambrage', 'SE_tige2cambrage', 'Sous-ensemble tige de vérin de cambrage');
 	}
 
 	/**
@@ -300,7 +300,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function tigeBridage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'SE_tige2bridage', 'SE_tige2bridage', 'Sous-ensemble tige de vérin de bridage');
 	}
 
 	/**
@@ -315,7 +315,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function SEbasculeur(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'SE_basculeur', 'SE_basculeur', 'Sous-ensemble basculeur');
 	}
 
 	/**
@@ -330,6 +330,6 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function SEbielle(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'SE_bielle', 'SE_bielle', 'Sous-ensemble bielle');
 	}
 }
