@@ -209,7 +209,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESetape5(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Étape 5",
+			"Le portique se déplace vers le centre d'usinage où une culasse attend d'être usinée.",
+			'etape5.png',
+			"étape 5",
+			"",
+			700
+		);
     }
 
     /**
@@ -223,7 +231,19 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESetape6(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+		$texte="
+		<p>Le portique amène le préhenseur vide dans le centre d'usinage afin de chercher la culasse usinée (avec son adaptateur).
+		<br>Il place ensuite la culasse à usiner dans le centre d'usinage et transfererera par la suite la culasse usinée vers le prochain convoyeur.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Étape 6",
+			$texte,
+			'etape6.png',
+			"étape 6",
+			"",
+			600
+		);
     }
 
     /**
