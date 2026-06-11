@@ -120,7 +120,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de l'éclaté
 	 *
-	 * @route /etau/eclate
+	 * @route /etau/eclates
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -133,24 +133,9 @@ class EtauControleur extends SupportControleur
 	}
 
 	/**
-	 * Affiche la page des classes d'équivalence
-	 *
-	 * @route /etau/classe-equivalence
-	 *
-	 * @param Request  $requete Requête HTTP entrante
-	 * @param Response $reponse Réponse HTTP à retourner
-	 *
-	 * @return Response
-	 */
-	public function classeEquivalence(Request $requete, Response $reponse): Response
-	{
-		return $this->renduPageEnConstruction($requete, $reponse);
-	}
-
-	/**
 	 * Affiche la page de la classe d'équivalence du mors fixe
 	 *
-	 * @route /etau/classe-equivalence/mors-fixe
+	 * @route /etau/eclates/mors-fixe
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -165,7 +150,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence du mors mobile
 	 *
-	 * @route /etau/classe-equivalence/mors-mobile
+	 * @route /etau/eclates/mors-mobile
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -180,7 +165,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence de la vis de manoeuvre
 	 *
-	 * @route /etau/classe-equivalence/vis
+	 * @route /etau/eclates/vis
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -195,7 +180,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence de la tige
 	 *
-	 * @route /etau/classe-equivalence/tige
+	 * @route /etau/eclates/tige
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
