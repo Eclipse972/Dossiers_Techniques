@@ -138,7 +138,7 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse);
+        return $this->renduEclate($reponse, 'pince-de-marquage', 'eclate-pince-de-marquage');
     }
 
     /**

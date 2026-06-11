@@ -105,6 +105,6 @@ class PompePalettesControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse);
+        return $this->renduEclate($reponse, 'pompe-a-palettes', 'eclate-pompe-a-palettes');
     }
 }

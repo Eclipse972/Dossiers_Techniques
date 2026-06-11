@@ -210,7 +210,7 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduEclate($reponse);
+		return $this->renduEclate($reponse, 'cric-bouteille', 'eclate-cric-bouteille');
 	}
 
 	/**

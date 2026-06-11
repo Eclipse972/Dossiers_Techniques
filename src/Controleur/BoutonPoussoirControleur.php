@@ -130,6 +130,6 @@ class BoutonPoussoirControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse);
+        return $this->renduEclate($reponse, 'bouton-poussoir', 'eclate-bouton-poussoir');
     }
 }

@@ -195,7 +195,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse);
+        return $this->renduEclate($reponse, 'unite-de-marquage', 'eclate-unite-de-marquage');
     }
 
     /**

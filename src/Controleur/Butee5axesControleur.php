@@ -244,7 +244,7 @@ class Butee5axesControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse);
+        return $this->renduEclate($reponse, 'butee-5-axes', 'eclate-butee-5-axes');
     }
 
     /**

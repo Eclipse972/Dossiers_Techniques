@@ -240,7 +240,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduEclate($reponse);
+		return $this->renduEclate($reponse, 'cambreuse', 'eclate-cambreuse');
 	}
 
 	/**
