@@ -116,6 +116,7 @@ $app->group('/cambreuse', function($group) {
 	$group->get('/eclate/SE-basculeur',		[CambreuseControleur::class, 'SEbasculeur']);
 	$group->get('/eclate/SE-bielle',		[CambreuseControleur::class, 'SEbielle']);
 	$group->get('/nomenclature',			[CambreuseControleur::class, 'nomenclature']);
+	$group->get('/pieces-detachees',			[CambreuseControleur::class, 'piecesDetachees']);
 });
 
 // dossier technique du casse-noix

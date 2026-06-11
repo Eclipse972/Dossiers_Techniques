@@ -317,4 +317,27 @@ class CambreuseControleur extends SupportControleur
 	{
 		return $this->renduEclate($reponse, 'SE_bielle', 'SE_bielle', 'Sous-ensemble bielle');
 	}
+
+	/**
+	 * Affiche l'éclaté en pièces détachées
+	 *
+	 * @route /cambreuse/pieces-detachees
+	 *
+	 * @param Request  $requete Requête HTTP entrante
+	 * @param Response $reponse Réponse HTTP à retourner
+	 *
+	 * @return Response
+	 */
+	public function piecesDetachees(Request $requete, Response $reponse): Response
+	{
+		return $this->renduPageImage(
+			$reponse,
+			"Pièce détachées",
+			"",
+			'eclate-cambreuse.png',
+			"cambreuse en pièces détachées",
+			"<p>Pas de fichier disponible.</p>",
+			800
+		);
+	}
 }
