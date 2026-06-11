@@ -174,7 +174,7 @@ class EtauControleur extends SupportControleur
 	 */
 	public function CEvis(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'CE_vis_de_manoeuvre', 'CE_vis_de_manoeuvre', "Classe d'équivalence vis de manoeuvre");
 	}
 
 	/**
