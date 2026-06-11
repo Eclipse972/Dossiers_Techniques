@@ -159,7 +159,7 @@ class EtauControleur extends SupportControleur
 	 */
 	public function CEmorsFixe(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'CE_mors_fixe', 'CE_mors_fixe', "Classe d'équivalence mors fixe");
 	}
 
 	/**
@@ -174,7 +174,7 @@ class EtauControleur extends SupportControleur
 	 */
 	public function CEmorsMobile(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'CE_mors_mobile', 'CE_mors_mobile', "Classe d'équivalence mors mobile");
 	}
 
 	/**
