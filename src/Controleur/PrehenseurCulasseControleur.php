@@ -271,7 +271,19 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function fonctionnementOuverture(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte="
+		<p>La tige de vérin sort. La noix descend et pousse les biellettes
+		<br>Les biellettes écartent les deux bras. Les ressorts se compriment.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Ouverture",
+			$texte,
+			'ouverture.gif',
+			"ouverture du préhyenseur",
+			"",
+			600
+		);
     }
 
     /**
@@ -285,7 +297,19 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function fonctionnementFermeture(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte="
+		<p>La tige de vérin rentre. La noix monte et entraîne les biellettes
+		<br>Les biellettes rapprochent les deux bras. Les ressorts se relâchent.</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Fermeture",
+			$texte,
+			'fermeture.gif',
+			"fermeture du préhyenseur",
+			"",
+			600
+		);
     }
 
     /**
