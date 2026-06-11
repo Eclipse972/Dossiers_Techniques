@@ -189,6 +189,6 @@ class EtauControleur extends SupportControleur
 	 */
 	public function CEtige(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduEclate($reponse, 'CE_tige_de_poignee', 'CE_tige_de_poignee', "Classe d'équivalence tige de poignée");
 	}
 }
