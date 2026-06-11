@@ -101,22 +101,21 @@ $app->group('/butee-5-axes', function($group) {
 
 // dossier technique de la cambreuse
 $app->group('/cambreuse', function($group) {
-	$group->get('',								[CambreuseControleur::class, 'aPropos']);
-	$group->get('/mise-en-situation',			[CambreuseControleur::class, 'miseEnSituation']);
-	$group->get('/fonctionnement',				[CambreuseControleur::class, 'fonctionnement']);
-	$group->get('/fonctionnement/etape1',		[CambreuseControleur::class, 'fonctionnementEtape1']);
-	$group->get('/fonctionnement/etape2',		[CambreuseControleur::class, 'fonctionnementEtape2']);
-	$group->get('/fonctionnement/etape3',		[CambreuseControleur::class, 'fonctionnementEtape3']);
-	$group->get('/caracteristiques',			[CambreuseControleur::class, 'caracteristiques']);
-	$group->get('/dessin-densemble',			[CambreuseControleur::class, 'dessinDensemble']);
-	$group->get('/eclate',						[CambreuseControleur::class, 'eclate']);
-	$group->get('/sous-ensembles',				[CambreuseControleur::class, 'sousEnsembles']);
-	$group->get('/sous-ensembles/SE-bati',		[CambreuseControleur::class, 'SEbati']);
-	$group->get('/sous-ensembles/tige-cambrage',[CambreuseControleur::class, 'tigeCambrage']);
-	$group->get('/sous-ensembles/tige-bridage',	[CambreuseControleur::class, 'tigeBridage']);
-	$group->get('/sous-ensembles/SE-basculeur',	[CambreuseControleur::class, 'SEbasculeur']);
-	$group->get('/sous-ensembles/SE-bielle',	[CambreuseControleur::class, 'SEbielle']);
-	$group->get('/nomenclature',				[CambreuseControleur::class, 'nomenclature']);
+	$group->get('',							[CambreuseControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',		[CambreuseControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',			[CambreuseControleur::class, 'fonctionnement']);
+	$group->get('/fonctionnement/etape1',	[CambreuseControleur::class, 'fonctionnementEtape1']);
+	$group->get('/fonctionnement/etape2',	[CambreuseControleur::class, 'fonctionnementEtape2']);
+	$group->get('/fonctionnement/etape3',	[CambreuseControleur::class, 'fonctionnementEtape3']);
+	$group->get('/caracteristiques',		[CambreuseControleur::class, 'caracteristiques']);
+	$group->get('/dessin-densemble',		[CambreuseControleur::class, 'dessinDensemble']);
+	$group->get('/eclate',					[CambreuseControleur::class, 'eclate']);
+	$group->get('/eclate/SE-bati',			[CambreuseControleur::class, 'SEbati']);
+	$group->get('/eclate/tige-cambrage',	[CambreuseControleur::class, 'tigeCambrage']);
+	$group->get('/eclate/tige-bridage',		[CambreuseControleur::class, 'tigeBridage']);
+	$group->get('/eclate/SE-basculeur',		[CambreuseControleur::class, 'SEbasculeur']);
+	$group->get('/eclate/SE-bielle',		[CambreuseControleur::class, 'SEbielle']);
+	$group->get('/nomenclature',			[CambreuseControleur::class, 'nomenclature']);
 });
 
 // dossier technique du casse-noix

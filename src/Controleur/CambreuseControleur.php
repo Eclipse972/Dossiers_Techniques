@@ -229,7 +229,7 @@ class CambreuseControleur extends SupportControleur
 	}
 
 	/**
-	 * Affiche la page de l'éclaté
+	 * Affiche la page des eclate
 	 *
 	 * @route /cambreuse/eclate
 	 *
@@ -240,28 +240,13 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduEclate($reponse, 'cambreuse', 'eclate-cambreuse');
-	}
-
-	/**
-	 * Affiche la page des sous-ensembles
-	 *
-	 * @route /cambreuse/sous-ensembles
-	 *
-	 * @param Request  $requete Requête HTTP entrante
-	 * @param Response $reponse Réponse HTTP à retourner
-	 *
-	 * @return Response
-	 */
-	public function sousEnsembles(Request $requete, Response $reponse): Response
-	{
-		return $this->renduEclate($reponse, 'cambreuse', 'eclate_cambreuse2', 'Les sous-ensembles de la cambreuse');
+		return $this->renduEclate($reponse, 'cambreuse', 'eclate_cambreuse2', 'Les eclate de la cambreuse');
 	}
 
 	/**
 	 * Affiche la page du sous-ensemble bâti
 	 *
-	 * @route /cambreuse/sous-ensembles/SE-bati
+	 * @route /cambreuse/eclate/SE-bati
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -276,7 +261,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page de la tige de vérin de cambrage
 	 *
-	 * @route /cambreuse/sous-ensembles/tige-cambrage
+	 * @route /cambreuse/eclate/tige-cambrage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -291,7 +276,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page de la tige de vérin de bridage
 	 *
-	 * @route /cambreuse/sous-ensembles/tige-bridage
+	 * @route /cambreuse/eclate/tige-bridage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -306,7 +291,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble basculeur
 	 *
-	 * @route /cambreuse/sous-ensembles/SE-basculeur
+	 * @route /cambreuse/eclate/SE-basculeur
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -321,7 +306,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble bielle
 	 *
-	 * @route /cambreuse/sous-ensembles/SE-bielle
+	 * @route /cambreuse/eclate/SE-bielle
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
