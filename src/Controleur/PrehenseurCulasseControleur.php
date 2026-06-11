@@ -337,7 +337,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function eclateBati(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'CE1', 'CE1', "Classe d'équivalence : bâti");
     }
 
     /**
@@ -351,7 +351,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function eclateTigeVerin(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'CE2', 'CE2', "Classe d'équivalence : tige de vérin");
     }
 
     /**
@@ -365,7 +365,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function eclateBiellette(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'CE3', 'CE3', "Classe d'équivalence : biellette");
     }
 
     /**
@@ -379,7 +379,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function eclateBras2Doigts(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'CE4', 'CE4', "Classe d'équivalence : bras avec deux doigts");
     }
 
     /**
@@ -393,7 +393,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function eclateBras1Doigt(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'CE5', 'CE5', "Classe d'équivalence : bras avec un doigt");
     }
 
     /**
