@@ -152,7 +152,7 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function sousEnsembles(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'pince', 'eclateSE', 'Les sous-ensembles');
     }
 
     /**
@@ -166,7 +166,7 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function SEbati(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'SE_bati', 'SE_bati', 'Sous-ensemble bâti');
     }
 
     /**
@@ -180,7 +180,7 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function SEbrasSuperieur(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'SE_bras_superieur', 'SE_bras_superieur', 'Sous-ensemble bras supérieur');
     }
 
     /**
@@ -194,7 +194,7 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function SEbrasInferieur(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'SE_bras_inferieur', 'SE_bras_inferieur', 'Sous-ensemble bras inférieur');
     }
 
     /**
@@ -208,6 +208,6 @@ class PinceMarquageControleur extends SupportControleur
      */
     public function SEpiston(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'SE_piston', 'SE_piston', 'Sous-ensemble piston');
     }
 }
