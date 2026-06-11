@@ -129,7 +129,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESdispositif(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Dispositif de transfert",
+			"",
+			'dispositif_transfert.png',
+			"dispositif de transfert",
+			"",
+			600
+		);
     }
 
     /**
@@ -143,7 +151,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESetape1(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Étape 1",
+			"La culasse et son adaptateur arrivent sur le plateau rotatif. Celui-ci effectue une rotation d'un quart de tour. Les deux préhenseurs sont à vide",
+			'etape1.png',
+			"étape 1",
+			"",
+			700
+		);
     }
 
     /**
@@ -157,7 +173,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESetape2(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Étape 2",
+			"Le portique descend, un préhenseur attrape l'adaptateur de culasse.",
+			'etape2.png',
+			"étape 2",
+			"",
+			700
+		);
     }
 
     /**
