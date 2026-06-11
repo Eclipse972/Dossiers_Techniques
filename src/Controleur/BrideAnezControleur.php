@@ -309,7 +309,7 @@ class BrideAnezControleur extends SupportControleur
      */
     public function sousEnsembles(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'bride', 'eclateSE');
     }
 
     /**
@@ -324,7 +324,7 @@ class BrideAnezControleur extends SupportControleur
      */
     public function SEcorpsBride(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'corps2bride', 'corps2bride', "Classe d'équivalence : corps de la bride");
     }
 
     /**
@@ -354,7 +354,7 @@ class BrideAnezControleur extends SupportControleur
      */
     public function SEensemblePiston(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'piston_complet', 'piston_complet', "Classe d'équivalence : piston de la bride");
     }
 
     /**
