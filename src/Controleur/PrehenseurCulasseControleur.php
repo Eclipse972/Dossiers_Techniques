@@ -407,7 +407,19 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function mecanique(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        $texte="
+		<p>Courbes des déplacements obtenues à l'aide d'un logiciel de calcul et de simulation
+		<br>pour une vitesse en sortie de tige du piston V = 60mm/s</p>";
+
+        return $this->renduPageImage(
+			$reponse,
+			"Simulations mécaniques",
+			$texte,
+			'vue2dessus.png',
+			"mécanique",
+			"",
+			600
+		);
     }
 
     /**
@@ -421,7 +433,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function mecaDeplacementTige(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Évolution du déplacement de la TIGE du vérin par rapport au CHÂSSIS en fonction du temps",
+			"",
+			'tige.png',
+			"déplacement de la tige",
+			"",
+			600
+		);
     }
 
     /**
@@ -435,7 +455,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function mecaDeplacementPince(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Évolution du déplacement de la PINCE par rapport au CHÂSSIS en fonction du temps",
+			"",
+			'pince.png',
+			"déplacement de la pince",
+			"",
+			600
+		);
     }
 
     /**
@@ -449,7 +477,15 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function mecaEffortTige(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Évolution de l'effort développé de la tige de vérin en fonction du temps",
+			"",
+			'effort_tige.png',
+			"effort de la tige",
+			"",
+			600
+		);
     }
 
     /**
@@ -463,6 +499,14 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function mecaEffortArticulation(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Évolution de l'effort développé dans l'articulation biellette-noix en fonction du temps",
+			"",
+			'effort_articulation.png',
+			"effort de l'articulation",
+			"",
+			600
+		);
     }
 }
