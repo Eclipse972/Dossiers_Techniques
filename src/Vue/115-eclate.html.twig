@@ -10,7 +10,7 @@
 {% extends '11-base-avec-nav.html.twig' %}
 
 {% block contenu %}
-<h1>Éclaté</h1>
+<h1>{{ titre | default('Éclaté') }}</h1>
 <a href="/supports/{{ dossier }}/fichiers/{{ dossier }}.EASM" title="Télécharger l'éclaté {{ du }}{{ support }}">
     <img src="/supports/{{ dossier }}/images/eclate-{{ dossier }}.png" alt="Éclaté {{ du }}{{ support }}" class="association">
 </a>
