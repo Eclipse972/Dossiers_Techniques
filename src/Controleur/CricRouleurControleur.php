@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use DossiersTechniques\Modele\Nomenclature;
 
-class CricHydrauliqueControleur extends SupportControleur
+class CricRouleurControleur extends SupportControleur
 {
     /**
      * Constructeur : initialise le support cric rouleur.
