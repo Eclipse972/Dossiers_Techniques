@@ -168,7 +168,7 @@ $app->group('/cric-bouteille', function($group) {
 });
 
 // dossier technique du cric hydraulique
-$app->group('/cric-hydraulique', function($group) {
+$app->group('/cric-rouleur', function($group) {
 	$group->get('',										[CricHydrauliqueControleur::class, 'aPropos']);
 	$group->get('/mise-en-situation',					[CricHydrauliqueControleur::class, 'miseEnSituation']);
 	$group->get('/fonctionnement',						[CricHydrauliqueControleur::class, 'fonctionnement']);

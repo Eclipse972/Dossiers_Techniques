@@ -19,13 +19,13 @@ class CricHydrauliqueControleur extends SupportControleur
     public function __construct(Twig $vue)
     {
         parent::__construct($vue);
-        $this->hydrate('cric hydraulique', "du ", 'cric-hydraulique', 'cric.png');
+        $this->hydrate('cric hydraulique', "du ", 'cric-rouleur', 'cric.png');
     }
 
     /**
      * Affiche la page 'à propos' du cric bouteille
      *
-	 * @route /cric-hydraulique
+	 * @route /cric-rouleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -44,7 +44,7 @@ class CricHydrauliqueControleur extends SupportControleur
     /**
      * Affiche la page de mise en situation du cric hydraulique.
      *
-     * @route /cric-hydraulique/mise-en-situation
+     * @route /cric-rouleur/mise-en-situation
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -58,7 +58,7 @@ class CricHydrauliqueControleur extends SupportControleur
     /**
      * Affiche la page du dessin d'ensemble du cric hydraulique.
      *
-     * @route /cric-hydraulique/dessin-densemble
+     * @route /cric-rouleur/dessin-densemble
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -100,7 +100,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de fonctionnement
 	 *
-	 * @route /cric-hydraulique/fonctionnement
+	 * @route /cric-rouleur/fonctionnement
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -115,7 +115,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de la montée
 	 *
-	 * @route /cric-hydraulique/fonctionnement/monte
+	 * @route /cric-rouleur/fonctionnement/monte
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -130,7 +130,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de la descente
 	 *
-	 * @route /cric-hydraulique/fonctionnement/descend
+	 * @route /cric-rouleur/fonctionnement/descend
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -145,7 +145,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page des précautions d'utilisation
 	 *
-	 * @route /cric-hydraulique/fonctionnement/precautions
+	 * @route /cric-rouleur/fonctionnement/precautions
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -160,7 +160,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page d'analyse fonctionnelle
 	 *
-	 * @route /cric-hydraulique/analyse-fonctionnelle
+	 * @route /cric-rouleur/analyse-fonctionnelle
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -175,7 +175,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page du diagramme des intéracteurs
 	 *
-	 * @route /cric-hydraulique/analyse-fonctionnelle/pieuvre
+	 * @route /cric-rouleur/analyse-fonctionnelle/pieuvre
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -208,7 +208,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page du FAST Levage du véhicule
 	 *
-	 * @route /cric-hydraulique/analyse-fonctionnelle/fast-evage
+	 * @route /cric-rouleur/analyse-fonctionnelle/fast-evage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -231,7 +231,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page du FAST Dépose du véhicule
 	 *
-	 * @route /cric-hydraulique/analyse-fonctionnelle/fast-depose
+	 * @route /cric-rouleur/analyse-fonctionnelle/fast-depose
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -254,7 +254,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de l'éclaté
 	 *
-	 * @route /cric-hydraulique/eclate
+	 * @route /cric-rouleur/eclate
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -277,7 +277,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page d'entretien du cric
 	 *
-	 * @route /cric-hydraulique/entretien
+	 * @route /cric-rouleur/entretien
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -292,7 +292,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de problème au levage
 	 *
-	 * @route /cric-hydraulique/entretien/probleme-levage
+	 * @route /cric-rouleur/entretien/probleme-levage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -307,7 +307,7 @@ class CricHydrauliqueControleur extends SupportControleur
 	/**
 	 * Affiche la page de problème à la descente
 	 *
-	 * @route /cric-hydraulique/entretien/probleme-descente
+	 * @route /cric-rouleur/entretien/probleme-descente
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
