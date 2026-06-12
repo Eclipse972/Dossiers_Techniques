@@ -110,11 +110,11 @@ $app->group('/cambreuse', function($group) {
 	$group->get('/caracteristiques',				[CambreuseControleur::class, 'caracteristiques']);
 	$group->get('/dessin-densemble',				[CambreuseControleur::class, 'dessinDensemble']);
 	$group->get('/classe-equivalence',				[CambreuseControleur::class, 'eclate']);
-	$group->get('/classe-equivalence/SE-bati',		[CambreuseControleur::class, 'SEbati']);
+	$group->get('/classe-equivalence/bati',			[CambreuseControleur::class, 'SEbati']);
 	$group->get('/classe-equivalence/tige-cambrage',[CambreuseControleur::class, 'tigeCambrage']);
 	$group->get('/classe-equivalence/tige-bridage',	[CambreuseControleur::class, 'tigeBridage']);
-	$group->get('/classe-equivalence/SE-basculeur',	[CambreuseControleur::class, 'SEbasculeur']);
-	$group->get('/classe-equivalence/SE-bielle',	[CambreuseControleur::class, 'SEbielle']);
+	$group->get('/classe-equivalence/basculeur',	[CambreuseControleur::class, 'SEbasculeur']);
+	$group->get('/classe-equivalence/bielle',		[CambreuseControleur::class, 'SEbielle']);
 	$group->get('/nomenclature',					[CambreuseControleur::class, 'nomenclature']);
 	$group->get('/pieces-detachees',				[CambreuseControleur::class, 'piecesDetachees']);
 });

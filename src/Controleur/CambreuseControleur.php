@@ -246,7 +246,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble bâti
 	 *
-	 * @route /cambreuse/classe-equivalence/SE-bati
+	 * @route /cambreuse/classe-equivalence/bati
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -291,7 +291,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble basculeur
 	 *
-	 * @route /cambreuse/classe-equivalence/SE-basculeur
+	 * @route /cambreuse/classe-equivalence/basculeur
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -306,7 +306,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble bielle
 	 *
-	 * @route /cambreuse/classe-equivalence/SE-bielle
+	 * @route /cambreuse/classe-equivalence/bielle
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
