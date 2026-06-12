@@ -52,24 +52,24 @@ $app->group('/bouton-poussoir', function($group) {
 
 // dossier technique de la bride à nez
 $app->group('/bride-a-nez', function($group) {
-    $group->get('',									[BrideAnezControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',				[BrideAnezControleur::class, 'miseEnSituation']);
-    $group->get('/fonctionnement',					[BrideAnezControleur::class, 'fonctionnement']);
-    $group->get('/fonctionnement/debut-phase1',		[BrideAnezControleur::class, 'fonctionnementDebutPhase1']);
-    $group->get('/fonctionnement/phase1',			[BrideAnezControleur::class, 'fonctionnementPhase1']);
-    $group->get('/fonctionnement/debut-phase2',		[BrideAnezControleur::class, 'fonctionnementDebutPhase2']);
-    $group->get('/fonctionnement/phase2',			[BrideAnezControleur::class, 'fonctionnementPhase2']);
-    $group->get('/caracteristiques',				[BrideAnezControleur::class, 'caracteristiques']);
-    $group->get('/montage-bridage',					[BrideAnezControleur::class, 'montageBridage']);
-    $group->get('/dessin-densemble',				[BrideAnezControleur::class, 'dessinDensemble']);
-    $group->get('/eclate-montage',					[BrideAnezControleur::class, 'eclateMontage']);
-    $group->get('/sous-ensembles',					[BrideAnezControleur::class, 'sousEnsembles']);
-    $group->get('/sous-ensembles/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
-    $group->get('/sous-ensembles/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
-    $group->get('/sous-ensembles/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);
-    $group->get('/sous-ensembles/plaquette',		[BrideAnezControleur::class, 'SEplaquette']);
-    $group->get('/sous-ensembles/ressort',			[BrideAnezControleur::class, 'SEressort']);
-    $group->get('/nomenclature',					[BrideAnezControleur::class, 'nomenclature']);
+    $group->get('',										[BrideAnezControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',					[BrideAnezControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',						[BrideAnezControleur::class, 'fonctionnement']);
+    $group->get('/fonctionnement/debut-phase1',			[BrideAnezControleur::class, 'fonctionnementDebutPhase1']);
+    $group->get('/fonctionnement/phase1',				[BrideAnezControleur::class, 'fonctionnementPhase1']);
+    $group->get('/fonctionnement/debut-phase2',			[BrideAnezControleur::class, 'fonctionnementDebutPhase2']);
+    $group->get('/fonctionnement/phase2',				[BrideAnezControleur::class, 'fonctionnementPhase2']);
+    $group->get('/caracteristiques',					[BrideAnezControleur::class, 'caracteristiques']);
+    $group->get('/montage-bridage',						[BrideAnezControleur::class, 'montageBridage']);
+    $group->get('/dessin-densemble',					[BrideAnezControleur::class, 'dessinDensemble']);
+    $group->get('/classe-equivalence',					[BrideAnezControleur::class, 'sousEnsembles']);
+    $group->get('/classe-equivalence/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
+    $group->get('/classe-equivalence/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
+    $group->get('/classe-equivalence/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);
+    $group->get('/classe-equivalence/plaquette',		[BrideAnezControleur::class, 'SEplaquette']);
+    $group->get('/classe-equivalence/ressort',			[BrideAnezControleur::class, 'SEressort']);
+    $group->get('/nomenclature',						[BrideAnezControleur::class, 'nomenclature']);
+    $group->get('/eclate-montage',						[BrideAnezControleur::class, 'eclateMontage']);
 });
 
 // dossier technique de la bride hydraulique
