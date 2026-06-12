@@ -62,7 +62,7 @@ $app->group('/bride-a-nez', function($group) {
     $group->get('/caracteristiques',					[BrideAnezControleur::class, 'caracteristiques']);
     $group->get('/montage-bridage',						[BrideAnezControleur::class, 'montageBridage']);
     $group->get('/dessin-densemble',					[BrideAnezControleur::class, 'dessinDensemble']);
-    $group->get('/classe-equivalence',					[BrideAnezControleur::class, 'sousEnsembles']);
+    $group->get('/classe-equivalence',					[BrideAnezControleur::class, 'classeEquivalence']);
     $group->get('/classe-equivalence/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
     $group->get('/classe-equivalence/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
     $group->get('/classe-equivalence/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);

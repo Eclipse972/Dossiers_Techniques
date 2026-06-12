@@ -315,7 +315,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function sousEnsembles(Request $requete, Response $reponse): Response
+    public function classeEquivalence(Request $requete, Response $reponse): Response
     {
         return $this->renduEclate($reponse, 'bride', 'eclateSE', "Classes d'équivalence");
     }
