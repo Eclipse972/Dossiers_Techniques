@@ -294,7 +294,15 @@ class BrideAnezControleur extends SupportControleur
      */
     public function eclateMontage(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Éclaté du montage",
+			"",
+			'vue_eclatee.png',
+			'pièces détachées',
+			'<p>Pas de fichier disponible</p>',
+			750
+		);
     }
 
     /**
