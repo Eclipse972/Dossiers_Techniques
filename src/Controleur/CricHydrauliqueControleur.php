@@ -1,6 +1,6 @@
 <?php
 /**
- * Contrôleur du cric hydraulique
+ * Contrôleur du cric rouleur
  */
 namespace DossiersTechniques\Controleur;
 
@@ -12,14 +12,14 @@ use DossiersTechniques\Modele\Nomenclature;
 class CricHydrauliqueControleur extends SupportControleur
 {
     /**
-     * Constructeur : initialise le support cric hydraulique.
+     * Constructeur : initialise le support cric rouleur.
      *
      * @param Twig $vue Moteur de templates Twig
      */
     public function __construct(Twig $vue)
     {
         parent::__construct($vue);
-        $this->hydrate('cric hydraulique', "du ", 'cric-rouleur', 'cric.png');
+        $this->hydrate('cric rouleur', "du ", 'cric-rouleur', 'cric.png');
     }
 
     /**
@@ -42,7 +42,7 @@ class CricHydrauliqueControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de mise en situation du cric hydraulique.
+     * Affiche la page de mise en situation du cric rouleur.
      *
      * @route /cric-rouleur/mise-en-situation
      *
@@ -56,7 +56,7 @@ class CricHydrauliqueControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page du dessin d'ensemble du cric hydraulique.
+     * Affiche la page du dessin d'ensemble du cric rouleur.
      *
      * @route /cric-rouleur/dessin-densemble
      *
@@ -70,7 +70,7 @@ class CricHydrauliqueControleur extends SupportControleur
     }
 
     /**
-	 * Affiche la page de nomenclature du cric hydraulique 2 tonnes.
+	 * Affiche la page de nomenclature du cric rouleur 2 tonnes.
 	 *
 	 * @route /cric_hydraulique/nomenclature
 	 *
@@ -199,7 +199,7 @@ class CricHydrauliqueControleur extends SupportControleur
 			"Diagramme des intéracteurs",
 			"",
 			'pieuvre.png',
-			"pieuvre du cric hydraulique",
+			"pieuvre du cric rouleur",
 			$texte,
 			400
 		);
@@ -268,7 +268,7 @@ class CricHydrauliqueControleur extends SupportControleur
 			"Éclaté",
 			"",
 			'cric_hydrau_eclate.png',
-			"éclaté du cric hydraulique",
+			"éclaté du cric rouleur",
 			"",
 			700
 		);

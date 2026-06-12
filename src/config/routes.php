@@ -167,7 +167,7 @@ $app->group('/cric-bouteille', function($group) {
 	$group->get('/dessin-definition/tirantM4',			[CricBouteilleControleur::class, 'dessinDefinitionTirantM4']);
 });
 
-// dossier technique du cric hydraulique
+// dossier technique du cric rouleur
 $app->group('/cric-rouleur', function($group) {
 	$group->get('',										[CricHydrauliqueControleur::class, 'aPropos']);
 	$group->get('/mise-en-situation',					[CricHydrauliqueControleur::class, 'miseEnSituation']);
