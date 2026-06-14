@@ -292,12 +292,12 @@ $app->group('/prehenseur-de-culasse', function($group) {
     $group->get('/fonctionnement/fermeture', 					[PrehenseurCulasseControleur::class, 'fonctionnementFermeture']);
     $group->get('/dessin-densemble',							[PrehenseurCulasseControleur::class, 'dessinDensemble']);
     $group->get('/nomenclature',								[PrehenseurCulasseControleur::class, 'nomenclature']);
-    $group->get('/eclate',										[PrehenseurCulasseControleur::class, 'classeEquivalence']);
-    $group->get('/eclate/bati',									[PrehenseurCulasseControleur::class, 'eclateBati']);
-    $group->get('/eclate/tige-verin',							[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
-    $group->get('/eclate/biellette',							[PrehenseurCulasseControleur::class, 'eclateBiellette']);
-    $group->get('/eclate/bras-avec-2doigts',					[PrehenseurCulasseControleur::class, 'eclateBras2Doigts']);
-    $group->get('/eclate/bras-avec-1doigt',						[PrehenseurCulasseControleur::class, 'eclateBras1Doigt']);
+    $group->get('/classe-equivalence',										[PrehenseurCulasseControleur::class, 'classeEquivalence']);
+    $group->get('/classe-equivalence/bati',									[PrehenseurCulasseControleur::class, 'eclateBati']);
+    $group->get('/classe-equivalence/tige-verin',							[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
+    $group->get('/classe-equivalence/biellette',							[PrehenseurCulasseControleur::class, 'eclateBiellette']);
+    $group->get('/classe-equivalence/bras-avec-2doigts',					[PrehenseurCulasseControleur::class, 'eclateBras2Doigts']);
+    $group->get('/classe-equivalence/bras-avec-1doigt',						[PrehenseurCulasseControleur::class, 'eclateBras1Doigt']);
     $group->get('/mecanique',									[PrehenseurCulasseControleur::class, 'mecanique']);
     $group->get('/mecanique/deplacement-tige',					[PrehenseurCulasseControleur::class, 'mecaDeplacementTige']);
     $group->get('/mecanique/deplacement-pince',					[PrehenseurCulasseControleur::class, 'mecaDeplacementPince']);

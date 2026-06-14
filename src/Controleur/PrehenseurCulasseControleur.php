@@ -315,7 +315,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la page de la vue éclatée en classe d'équivalence.
      *
-     * @route /prehenseur-de-culasse/eclate
+     * @route /prehenseur-de-culasse/classe-equivalence
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -337,7 +337,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la vue éclatée du bâti.
      *
-     * @route /prehenseur-de-culasse/eclate/bati
+     * @route /prehenseur-de-culasse/classe-equivalence/bati
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -351,7 +351,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la vue éclatée de la tige de vérin.
      *
-     * @route /prehenseur-de-culasse/eclate/tige-verin
+     * @route /prehenseur-de-culasse/classe-equivalence/tige-verin
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -365,7 +365,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la vue éclatée de la biellette.
      *
-     * @route /prehenseur-de-culasse/eclate/biellette
+     * @route /prehenseur-de-culasse/classe-equivalence/biellette
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -379,7 +379,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la vue éclatée du bras avec 2 doigts.
      *
-     * @route /prehenseur-de-culasse/eclate/bras-avec-2doigts
+     * @route /prehenseur-de-culasse/classe-equivalence/bras-avec-2doigts
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -393,7 +393,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     /**
      * Affiche la vue éclatée du bras avec 1 doigt.
      *
-     * @route /prehenseur-de-culasse/eclate/bras-avec-1doigt
+     * @route /prehenseur-de-culasse/classe-equivalence/bras-avec-1doigt
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
