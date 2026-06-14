@@ -25,7 +25,7 @@ class BoutonPoussoirControleur extends SupportControleur
     /**
      * Affiche la page 'à propos' du bouton poussoir
      *
-     * @route /bouton-pousssoir
+     * @route /bouton-poussoir
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -49,7 +49,7 @@ class BoutonPoussoirControleur extends SupportControleur
     /**
      * Affiche la page de mise en situation de l'alternateur.
      *
-     * @route /alternateur/mise-en-situation
+     * @route /bouton-poussoir/mise-en-situation
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -63,7 +63,7 @@ class BoutonPoussoirControleur extends SupportControleur
     /**
      * Affiche la page du dessin d'ensemble de l'alternateur.
      *
-     * @route /alternateur/dessin-densemble
+     * @route /bouton-poussoir/dessin-densemble
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
