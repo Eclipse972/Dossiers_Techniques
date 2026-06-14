@@ -52,24 +52,24 @@ $app->group('/bouton-poussoir', function($group) {
 
 // dossier technique de la bride à nez
 $app->group('/bride-a-nez', function($group) {
-    $group->get('',									[BrideAnezControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',				[BrideAnezControleur::class, 'miseEnSituation']);
-    $group->get('/fonctionnement',					[BrideAnezControleur::class, 'fonctionnement']);
-    $group->get('/fonctionnement/debut-phase1',		[BrideAnezControleur::class, 'fonctionnementDebutPhase1']);
-    $group->get('/fonctionnement/phase1',			[BrideAnezControleur::class, 'fonctionnementPhase1']);
-    $group->get('/fonctionnement/debut-phase2',		[BrideAnezControleur::class, 'fonctionnementDebutPhase2']);
-    $group->get('/fonctionnement/phase2',			[BrideAnezControleur::class, 'fonctionnementPhase2']);
-    $group->get('/caracteristiques',				[BrideAnezControleur::class, 'caracteristiques']);
-    $group->get('/montage-bridage',					[BrideAnezControleur::class, 'montageBridage']);
-    $group->get('/dessin-densemble',				[BrideAnezControleur::class, 'dessinDensemble']);
-    $group->get('/eclate-montage',					[BrideAnezControleur::class, 'eclateMontage']);
-    $group->get('/sous-ensembles',					[BrideAnezControleur::class, 'sousEnsembles']);
-    $group->get('/sous-ensembles/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
-    $group->get('/sous-ensembles/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
-    $group->get('/sous-ensembles/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);
-    $group->get('/sous-ensembles/plaquette',		[BrideAnezControleur::class, 'SEplaquette']);
-    $group->get('/sous-ensembles/ressort',			[BrideAnezControleur::class, 'SEressort']);
-    $group->get('/nomenclature',					[BrideAnezControleur::class, 'nomenclature']);
+    $group->get('',										[BrideAnezControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',					[BrideAnezControleur::class, 'miseEnSituation']);
+    $group->get('/fonctionnement',						[BrideAnezControleur::class, 'fonctionnement']);
+    $group->get('/fonctionnement/debut-phase1',			[BrideAnezControleur::class, 'fonctionnementDebutPhase1']);
+    $group->get('/fonctionnement/phase1',				[BrideAnezControleur::class, 'fonctionnementPhase1']);
+    $group->get('/fonctionnement/debut-phase2',			[BrideAnezControleur::class, 'fonctionnementDebutPhase2']);
+    $group->get('/fonctionnement/phase2',				[BrideAnezControleur::class, 'fonctionnementPhase2']);
+    $group->get('/caracteristiques',					[BrideAnezControleur::class, 'caracteristiques']);
+    $group->get('/montage-bridage',						[BrideAnezControleur::class, 'montageBridage']);
+    $group->get('/dessin-densemble',					[BrideAnezControleur::class, 'dessinDensemble']);
+    $group->get('/classe-equivalence',					[BrideAnezControleur::class, 'classeEquivalence']);
+    $group->get('/classe-equivalence/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
+    $group->get('/classe-equivalence/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
+    $group->get('/classe-equivalence/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);
+    $group->get('/classe-equivalence/plaquette',		[BrideAnezControleur::class, 'SEplaquette']);
+    $group->get('/classe-equivalence/ressort',			[BrideAnezControleur::class, 'SEressort']);
+    $group->get('/nomenclature',						[BrideAnezControleur::class, 'nomenclature']);
+    $group->get('/eclate-montage',						[BrideAnezControleur::class, 'eclateMontage']);
 });
 
 // dossier technique de la bride hydraulique
@@ -101,22 +101,22 @@ $app->group('/butee-5-axes', function($group) {
 
 // dossier technique de la cambreuse
 $app->group('/cambreuse', function($group) {
-	$group->get('',							[CambreuseControleur::class, 'aPropos']);
-	$group->get('/mise-en-situation',		[CambreuseControleur::class, 'miseEnSituation']);
-	$group->get('/fonctionnement',			[CambreuseControleur::class, 'fonctionnement']);
-	$group->get('/fonctionnement/etape1',	[CambreuseControleur::class, 'fonctionnementEtape1']);
-	$group->get('/fonctionnement/etape2',	[CambreuseControleur::class, 'fonctionnementEtape2']);
-	$group->get('/fonctionnement/etape3',	[CambreuseControleur::class, 'fonctionnementEtape3']);
-	$group->get('/caracteristiques',		[CambreuseControleur::class, 'caracteristiques']);
-	$group->get('/dessin-densemble',		[CambreuseControleur::class, 'dessinDensemble']);
-	$group->get('/eclate',					[CambreuseControleur::class, 'eclate']);
-	$group->get('/eclate/SE-bati',			[CambreuseControleur::class, 'SEbati']);
-	$group->get('/eclate/tige-cambrage',	[CambreuseControleur::class, 'tigeCambrage']);
-	$group->get('/eclate/tige-bridage',		[CambreuseControleur::class, 'tigeBridage']);
-	$group->get('/eclate/SE-basculeur',		[CambreuseControleur::class, 'SEbasculeur']);
-	$group->get('/eclate/SE-bielle',		[CambreuseControleur::class, 'SEbielle']);
-	$group->get('/nomenclature',			[CambreuseControleur::class, 'nomenclature']);
-	$group->get('/pieces-detachees',			[CambreuseControleur::class, 'piecesDetachees']);
+	$group->get('',									[CambreuseControleur::class, 'aPropos']);
+	$group->get('/mise-en-situation',				[CambreuseControleur::class, 'miseEnSituation']);
+	$group->get('/fonctionnement',					[CambreuseControleur::class, 'fonctionnement']);
+	$group->get('/fonctionnement/etape1',			[CambreuseControleur::class, 'fonctionnementEtape1']);
+	$group->get('/fonctionnement/etape2',			[CambreuseControleur::class, 'fonctionnementEtape2']);
+	$group->get('/fonctionnement/etape3',			[CambreuseControleur::class, 'fonctionnementEtape3']);
+	$group->get('/caracteristiques',				[CambreuseControleur::class, 'caracteristiques']);
+	$group->get('/dessin-densemble',				[CambreuseControleur::class, 'dessinDensemble']);
+	$group->get('/classe-equivalence',				[CambreuseControleur::class, 'eclate']);
+	$group->get('/classe-equivalence/bati',			[CambreuseControleur::class, 'SEbati']);
+	$group->get('/classe-equivalence/tige-cambrage',[CambreuseControleur::class, 'tigeCambrage']);
+	$group->get('/classe-equivalence/tige-bridage',	[CambreuseControleur::class, 'tigeBridage']);
+	$group->get('/classe-equivalence/basculeur',	[CambreuseControleur::class, 'SEbasculeur']);
+	$group->get('/classe-equivalence/bielle',		[CambreuseControleur::class, 'SEbielle']);
+	$group->get('/nomenclature',					[CambreuseControleur::class, 'nomenclature']);
+	$group->get('/pieces-detachees',				[CambreuseControleur::class, 'piecesDetachees']);
 });
 
 // dossier technique du casse-noix

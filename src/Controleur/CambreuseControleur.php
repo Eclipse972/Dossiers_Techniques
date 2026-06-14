@@ -231,7 +231,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page des eclate
 	 *
-	 * @route /cambreuse/eclate
+	 * @route /cambreuse/classe-equivalence
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -240,13 +240,13 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function eclate(Request $requete, Response $reponse): Response
 	{
-		return $this->renduEclate($reponse, 'cambreuse', 'eclate_cambreuse2', 'Les eclate de la cambreuse');
+		return $this->renduEclate($reponse, 'cambreuse', 'eclate_cambreuse2', "Les classes d'équivalence de la cambreuse");
 	}
 
 	/**
 	 * Affiche la page du sous-ensemble bâti
 	 *
-	 * @route /cambreuse/eclate/SE-bati
+	 * @route /cambreuse/classe-equivalence/bati
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -261,7 +261,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page de la tige de vérin de cambrage
 	 *
-	 * @route /cambreuse/eclate/tige-cambrage
+	 * @route /cambreuse/classe-equivalence/tige-cambrage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -276,7 +276,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page de la tige de vérin de bridage
 	 *
-	 * @route /cambreuse/eclate/tige-bridage
+	 * @route /cambreuse/classe-equivalence/tige-bridage
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -291,7 +291,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble basculeur
 	 *
-	 * @route /cambreuse/eclate/SE-basculeur
+	 * @route /cambreuse/classe-equivalence/basculeur
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -306,7 +306,7 @@ class CambreuseControleur extends SupportControleur
 	/**
 	 * Affiche la page du sous-ensemble bielle
 	 *
-	 * @route /cambreuse/eclate/SE-bielle
+	 * @route /cambreuse/classe-equivalence/bielle
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

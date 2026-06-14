@@ -294,28 +294,36 @@ class BrideAnezControleur extends SupportControleur
      */
     public function eclateMontage(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Éclaté du montage",
+			"",
+			'vue_eclatee.png',
+			'pièces détachées',
+			'<p>Pas de fichier disponible</p>',
+			750
+		);
     }
 
     /**
-     * Affiche la page des sous-ensembles de la bride à nez.
+     * Affiche la page des classes d'équivalence de la bride à nez.
      *
-     * @route /bride-a-nez/sous-ensembles
+     * @route /bride-a-nez/classe-equivalence
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
 	 *
      * @return Response
      */
-    public function sousEnsembles(Request $requete, Response $reponse): Response
+    public function classeEquivalence(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse, 'bride', 'eclateSE');
+        return $this->renduEclate($reponse, 'bride', 'eclateSE', "Classes d'équivalence");
     }
 
     /**
      * Affiche la page du sous-ensemble corps de la bride.
      *
-     * @route /bride-a-nez/SE/corps-bride
+     * @route /bride-a-nez/classe-equivalence/corps-bride
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -330,7 +338,7 @@ class BrideAnezControleur extends SupportControleur
     /**
      * Affiche la page du sous-ensemble nez de la bride.
      *
-     * @route /bride-a-nez/SE/nez-bride
+     * @route /bride-a-nez/classe-equivalence/nez-bride
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -345,7 +353,7 @@ class BrideAnezControleur extends SupportControleur
     /**
      * Affiche la page du sous-ensemble ensemble piston.
      *
-     * @route /bride-a-nez/SE/ensemble-piston
+     * @route /bride-a-nez/classe-equivalence/ensemble-piston
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -360,7 +368,7 @@ class BrideAnezControleur extends SupportControleur
     /**
      * Affiche la page du sous-ensemble plaquette.
      *
-     * @route /bride-a-nez/SE/plaquette
+     * @route /bride-a-nez/classe-equivalence/plaquette
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -375,7 +383,7 @@ class BrideAnezControleur extends SupportControleur
     /**
      * Affiche la page du sous-ensemble ressort.
      *
-     * @route /bride-a-nez/SE/ressort
+     * @route /bride-a-nez/classe-equivalence/ressort
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
