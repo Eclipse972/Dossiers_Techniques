@@ -292,7 +292,7 @@ $app->group('/prehenseur-de-culasse', function($group) {
     $group->get('/fonctionnement/fermeture', 					[PrehenseurCulasseControleur::class, 'fonctionnementFermeture']);
     $group->get('/dessin-densemble',							[PrehenseurCulasseControleur::class, 'dessinDensemble']);
     $group->get('/nomenclature',								[PrehenseurCulasseControleur::class, 'nomenclature']);
-    $group->get('/eclate',										[PrehenseurCulasseControleur::class, 'eclate']);
+    $group->get('/eclate',										[PrehenseurCulasseControleur::class, 'classeEquivalence']);
     $group->get('/eclate/bati',									[PrehenseurCulasseControleur::class, 'eclateBati']);
     $group->get('/eclate/tige-verin',							[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
     $group->get('/eclate/biellette',							[PrehenseurCulasseControleur::class, 'eclateBiellette']);

@@ -313,7 +313,7 @@ class PrehenseurCulasseControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de la vue éclatée globale.
+     * Affiche la page de la vue éclatée en classe d'équivalence.
      *
      * @route /prehenseur-de-culasse/eclate
      *
@@ -321,9 +321,17 @@ class PrehenseurCulasseControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    public function eclate(Request $requete, Response $reponse): Response
+    public function classeEquivalence(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Classe d'équivalences",
+			"",
+			'eclate_CE.png',
+			"classes d'équivalence du préhenseur",
+			"",
+			600
+		);
     }
 
     /**
