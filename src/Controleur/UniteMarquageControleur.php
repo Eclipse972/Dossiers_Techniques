@@ -280,31 +280,6 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche le dessin de définition du flasque droit.
-     *
-     * @route /unite-de-marquage/flasque-droit/dessin-definition
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function definitionFlasqueDroit(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageImageFichier(
-			$reponse,
-			"Définition du flasque droit",
-			"",
-			'definition_flasque.png',
-			'definition_flasque.EDRW',
-			"définition du flasque",
-			"Télécharger le fichier",
-			"",
-			700
-		);
-    }
-
-    /**
      * Affiche la page de mécanique globale.
      *
      * @route /unite-de-marquage/mecanique
@@ -403,7 +378,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
-	 * 
+	 *
      * @return Response
      */
     public function mecaVitesseLevier(Request $requete, Response $reponse): Response
