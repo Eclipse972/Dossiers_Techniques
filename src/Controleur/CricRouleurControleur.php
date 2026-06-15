@@ -301,7 +301,7 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function entretienProblemeLevage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'probleme-levage.html');
 	}
 
 	/**
@@ -316,6 +316,6 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function entretienProblemeDescente(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'probleme-descente.html');
 	}
 }
