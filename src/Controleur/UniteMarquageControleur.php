@@ -51,6 +51,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
@@ -65,6 +66,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function dessinDensemble(Request $requete, Response $reponse): Response
@@ -79,6 +81,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function nomenclature(Request $requete, Response $reponse): Response
@@ -93,6 +96,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elements(Request $requete, Response $reponse): Response
@@ -117,6 +121,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elementsCorps(Request $requete, Response $reponse): Response
@@ -131,6 +136,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elementsVerin(Request $requete, Response $reponse): Response
@@ -145,6 +151,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elementsEnclume(Request $requete, Response $reponse): Response
@@ -159,6 +166,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elementsEmbiellage(Request $requete, Response $reponse): Response
@@ -173,6 +181,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function elementsLevier(Request $requete, Response $reponse): Response
@@ -187,6 +196,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function fonctionnement(Request $requete, Response $reponse): Response
@@ -201,6 +211,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function caracteristiques(Request $requete, Response $reponse): Response
@@ -215,6 +226,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function eclate(Request $requete, Response $reponse): Response
@@ -229,6 +241,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function classeEquivalence(Request $requete, Response $reponse): Response
@@ -243,6 +256,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function flasqueDroit(Request $requete, Response $reponse): Response
@@ -257,6 +271,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function flasqueDroitFlasque(Request $requete, Response $reponse): Response
@@ -271,6 +286,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function definitionFlasqueDroit(Request $requete, Response $reponse): Response
@@ -295,6 +311,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function mecanique(Request $requete, Response $reponse): Response
@@ -317,6 +334,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function mecaEffortsEmbiellageLevier(Request $requete, Response $reponse): Response
@@ -339,6 +357,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function mecaEffortMarquage(Request $requete, Response $reponse): Response
@@ -361,6 +380,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 *
      * @return Response
      */
     public function mecaVitesseBiellette(Request $requete, Response $reponse): Response
@@ -383,6 +403,7 @@ class UniteMarquageControleur extends SupportControleur
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
+	 * 
      * @return Response
      */
     public function mecaVitesseLevier(Request $requete, Response $reponse): Response
