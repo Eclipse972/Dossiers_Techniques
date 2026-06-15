@@ -120,7 +120,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de l'éclaté
 	 *
-	 * @route /etau/eclates
+	 * @route /etau/classe-equivalence
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -135,7 +135,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence du mors fixe
 	 *
-	 * @route /etau/eclates/mors-fixe
+	 * @route /etau/classe-equivalence/mors-fixe
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -150,7 +150,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence du mors mobile
 	 *
-	 * @route /etau/eclates/mors-mobile
+	 * @route /etau/classe-equivalence/mors-mobile
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -165,7 +165,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence de la vis de manoeuvre
 	 *
-	 * @route /etau/eclates/vis
+	 * @route /etau/classe-equivalence/vis
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -180,7 +180,7 @@ class EtauControleur extends SupportControleur
 	/**
 	 * Affiche la page de la classe d'équivalence de la tige
 	 *
-	 * @route /etau/eclates/tige
+	 * @route /etau/classe-equivalence/tige
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
