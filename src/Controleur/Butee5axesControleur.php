@@ -25,7 +25,7 @@ class Butee5axesControleur extends SupportControleur
 	/**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /butee-5-axes
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -78,7 +78,7 @@ class Butee5axesControleur extends SupportControleur
 /**
 	 * Affiche la page de nomenclature de la butée 5 axes.
 	 *
-	 * @route /butee5axes/nomenclature
+	 * @route /butee-5-axes/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

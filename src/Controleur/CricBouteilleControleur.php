@@ -76,7 +76,7 @@ class CricBouteilleControleur extends SupportControleur
    /**
 	 * Affiche la page de nomenclature du cric bouteille.
 	 *
-	 * @route /cric_bouteille/nomenclature
+	 * @route /cric-bouteille/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

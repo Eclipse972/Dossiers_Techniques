@@ -25,7 +25,7 @@ class ExtracteurRoulementControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /bouton-pousssoir
+     * @route /extracteur-de-roulement
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -72,7 +72,7 @@ class ExtracteurRoulementControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature de l'extracteur de roulement.
 	 *
-	 * @route /extracteur2roulement/nomenclature
+	 * @route /extracteur-de-roulement/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

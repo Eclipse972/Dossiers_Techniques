@@ -25,7 +25,7 @@ class BrideHydrauliqueControleur extends SupportControleur
 	/**
      * Affiche la page 'à propos' de la bride hydraulique
      *
-     * @route /bride-hydrauique
+     * @route /bride-hydraulique
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -100,6 +100,8 @@ class BrideHydrauliqueControleur extends SupportControleur
 	/**
      * Affiche la page de fonctionnement de la bride hydraulique.
      *
+	 * @route bride-hydraulique/fonctionnement
+	 * 
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
 	 *

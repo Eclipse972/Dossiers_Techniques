@@ -112,7 +112,7 @@ class CasseNoixControleur extends SupportControleur
 	/**
 	 * Affiche la page de nomenclature du casse-noix.
 	 *
-	 * @route /casse_noix/nomenclature
+	 * @route /casse-noix/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

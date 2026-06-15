@@ -76,7 +76,7 @@ class CoupeTubeControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature du mini coupe-tube.
 	 *
-	 * @route /mini_coupe-tube/nomenclature
+	 * @route /coupe-tube/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

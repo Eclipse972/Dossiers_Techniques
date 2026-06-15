@@ -25,7 +25,7 @@ class VanneSpheriqueControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /prehenseur-de-culasse
+     * @route /vanne-spherique
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -72,7 +72,7 @@ class VanneSpheriqueControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature de la vanne Legris.
 	 *
-	 * @route /vanne/nomenclature
+	 * @route /vanne-spherique/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

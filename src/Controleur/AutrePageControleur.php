@@ -29,6 +29,8 @@ class AutrePageControleur
     /**
      * Affiche la page d'accueil de l'application.
      *
+	 * @route /
+	 *
      * @param Request  $requete  Requête HTTP entrante
      * @param Response $reponse  Réponse HTTP à retourner
      *

@@ -75,7 +75,7 @@ class PinceRobotControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature de la pince de robot.
 	 *
-	 * @route /pince2robot/nomenclature
+	 * @route /pince-de-robot/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

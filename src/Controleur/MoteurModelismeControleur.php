@@ -72,7 +72,7 @@ class MoteurModelismeControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature du moteur de modélisme.
 	 *
-	 * @route /moteur2modelisme/nomenclature
+	 * @route /moteur-de-modelisme/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
@@ -117,7 +117,7 @@ class MoteurModelismeControleur extends SupportControleur
     /**
      * Affiche la page principale des classes d'équivalence.
      *
-     * @route /moteur-de-modelisme/CE
+     * @route /moteur-de-modelisme/classe-equivalence
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

@@ -72,7 +72,7 @@ class CricRouleurControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature du cric rouleur 2 tonnes.
 	 *
-	 * @route /cric_hydraulique/nomenclature
+	 * @route /cric-rouleur/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

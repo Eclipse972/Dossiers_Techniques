@@ -75,7 +75,7 @@ class PinceMarquageControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature de la pince de marquage.
 	 *
-	 * @route /pince2marquage/nomenclature
+	 * @route /pince-de-marquage/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

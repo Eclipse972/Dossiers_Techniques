@@ -25,7 +25,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page 'à propos'
      *
-     * @route /prehenseur-de-culasse
+     * @route /unite-de-marquage
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner

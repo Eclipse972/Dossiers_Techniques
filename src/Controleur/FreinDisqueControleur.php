@@ -72,7 +72,7 @@ class FreinDisqueControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature du frein à disque.
 	 *
-	 * @route /freinAdisque/nomenclature
+	 * @route /frein-a-disque/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner

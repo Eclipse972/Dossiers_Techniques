@@ -105,7 +105,7 @@ class BoutonPoussoirControleur extends SupportControleur
      * Affiche la page du diagramme pieuvre.
      *
 	 * @route /bouton-poussoir/pieuvre
-	 * 
+	 *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
 	 *
@@ -125,6 +125,8 @@ class BoutonPoussoirControleur extends SupportControleur
     /**
      * Affiche la page de l'éclaté.
      *
+	 * @route /bouton-poussoir/eclate
+	 *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
 	 *

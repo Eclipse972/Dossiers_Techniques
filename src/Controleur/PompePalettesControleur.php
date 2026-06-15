@@ -72,7 +72,7 @@ class PompePalettesControleur extends SupportControleur
     /**
 	 * Affiche la page de nomenclature de la pompe à palettes.
 	 *
-	 * @route /pompeApalettes/nomenclature
+	 * @route /pompe-a-palettes/nomenclature
 	 *
 	 * @param Request  $requete Requête HTTP entrante
 	 * @param Response $reponse Réponse HTTP à retourner
