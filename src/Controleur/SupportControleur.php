@@ -247,6 +247,7 @@ abstract class SupportControleur
 	 * @param string $titre de la page
 	 * @param string $texte_au_dessus de l'image
 	 * @param string $image nom de fichier avec son extension
+	 * @param string $fichier nom de fichier avec son extension
 	 * @param string $commentaire_image alt de l'image
 	 * @param string $titre_lien bulle apparaissant au survol de l'image
 	 * @param string $texte_au_dessous de l'image
@@ -259,6 +260,7 @@ abstract class SupportControleur
 		string $titre,
 		string $texte_au_dessus,
 		string $image,
+		string $fichier,
 		string $commentaire_image,
 		string $titre_lien,
 		string $texte_au_dessous,
@@ -272,6 +274,7 @@ abstract class SupportControleur
 			'titre'				=> $titre,
 			'texte_au_dessus'	=> $texte_au_dessus,
 			'image'				=> $image,
+			'fichier'			=> $fichier,
 			'hauteur_image'		=> $hauteur,
 			'commentaire_image'	=> $commentaire_image,
 			'titre_lien'		=> $titre_lien,
