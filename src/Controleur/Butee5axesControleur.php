@@ -259,7 +259,7 @@ class Butee5axesControleur extends SupportControleur
      */
     public function dessinDefinition(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageOrdinaire($reponse, 'dessin-definition.html');
     }
 
     /**
