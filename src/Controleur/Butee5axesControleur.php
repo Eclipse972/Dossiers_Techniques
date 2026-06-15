@@ -299,6 +299,16 @@ class Butee5axesControleur extends SupportControleur
      */
     public function dessinDefinitionContreEmbase(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+    	return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de la contre-embase",
+			'',
+			'def_contre_embase.png',
+			'def_contre_embase.EDRW',
+			"Définition de la contre-embase de la butée 5 axes",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
     }
 }
