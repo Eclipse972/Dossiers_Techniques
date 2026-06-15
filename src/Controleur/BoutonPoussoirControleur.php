@@ -34,7 +34,7 @@ class BoutonPoussoirControleur extends SupportControleur
      */
     public function aPropos(Request $requete, Response $reponse): Response {
 		$listeLien = [];
-		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#b', "site de l'auteur");
+		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#b', "site de Jérôme Laparre");
         return $this->renduApropos(
 			$reponse,
 			'BP.zip',
