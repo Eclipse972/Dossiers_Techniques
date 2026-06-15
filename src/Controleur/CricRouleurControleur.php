@@ -124,7 +124,7 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function fonctionnementMonte(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'montee.html.twig');
 	}
 
 	/**
@@ -139,7 +139,7 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function fonctionnementDescend(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'descente.html.twig');
 	}
 
 	/**
@@ -154,7 +154,7 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function fonctionnementPrecautions(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'precautions.html');
 	}
 
 	/**
