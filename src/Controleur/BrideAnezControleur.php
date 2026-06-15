@@ -387,7 +387,17 @@ class BrideAnezControleur extends SupportControleur
      */
     public function plaquette(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Classe d'équivalence: plaquette de la bride",
+			"",
+			'plaquette_plastique.png',
+			'plaquette_plastique.EPRT',
+			"télécharger la plaquette",
+			"Télecherger la maquette eDrawing de la plaquette",
+			"<p style=\"text-align:center\">Cette classe d'équivalence est composée d'une seule pièce</p>",
+			500
+		);
     }
 
     /**
