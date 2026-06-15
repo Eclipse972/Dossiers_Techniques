@@ -239,6 +239,46 @@ abstract class SupportControleur
 			'texte_au_dessous'	=> $texte_au_dessous
 		]);
     }
+
+	/**
+     * Rendu des pages association image-fichier
+     *
+     * @param Response $reponse Réponse HTTP à retourner
+	 * @param string $titre de la page
+	 * @param string $texte_au_dessus de l'image
+	 * @param string $image nom de fichier avec son extension
+	 * @param string $commentaire_image alt de l'image
+	 * @param string $titre_lien bulle apparaissant au survol de l'image
+	 * @param string $texte_au_dessous de l'image
+	 * @param int 	$hauteur de l'image en pixel
+	 *
+     * @return Response
+     */
+    public function renduPageImageFichier(
+		Response $reponse,
+		string $titre,
+		string $texte_au_dessus,
+		string $image,
+		string $commentaire_image,
+		string $titre_lien,
+		string $texte_au_dessous,
+		int 	$hauteur = 400
+	): Response {
+        return $this->vue->render($reponse, '117-association-image-fichier.html.twig', [
+			'support'			=> $this->nom,
+			'du'				=> $this->article_du,
+			'dossier'			=> $this->dossier,
+			'logo'				=> $this->logo,
+			'titre'				=> $titre,
+			'texte_au_dessus'	=> $texte_au_dessus,
+			'image'				=> $image,
+			'hauteur_image'		=> $hauteur,
+			'commentaire_image'	=> $commentaire_image,
+			'titre_lien'		=> $titre_lien,
+			'texte_au_dessous'	=> $texte_au_dessous
+		]);
+    }
+
 	/*****************************************************************************************************************
 	 * Fonctions utilitaires
 	 * =====================
