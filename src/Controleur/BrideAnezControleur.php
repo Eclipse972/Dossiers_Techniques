@@ -250,13 +250,7 @@ class BrideAnezControleur extends SupportControleur
      */
     public function caracteristiques(Request $requete, Response $reponse): Response
     {
-        return $this->vue->render($reponse, '112-pageDT.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
-			'fichier'	=> 'caracteristiques',
-		]);
+        return $this->renduPageOrdinaire($reponse, 'caracteristiques.html');
     }
 
     /**
