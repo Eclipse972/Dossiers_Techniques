@@ -347,7 +347,17 @@ class BrideAnezControleur extends SupportControleur
      */
     public function SEnezBride(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Classe d'équivalence: nez de la bride",
+			"",
+			'nez2bride.png',
+			'nez2bride.EPRT',
+			"télécharger le nez",
+			"Télecherger la maquette eDrawing du nez",
+			"<p style=\"text-align:center\">Cette classe d'équivalence est composée d'une seule pièce</p>",
+			700
+		);
     }
 
     /**
