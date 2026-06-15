@@ -113,13 +113,7 @@ class BoutonPoussoirControleur extends SupportControleur
      */
     public function pieuvre(Request $requete, Response $reponse): Response
     {
-        return $this->vue->render($reponse, '112-pageDT.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
-			'fichier'	=> 'pieuvre',
-		]);
+        return $this->renduPageOrdinaire($reponse, 'pieuvre.html.twig');
     }
 
     /**
