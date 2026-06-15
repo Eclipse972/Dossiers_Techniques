@@ -195,7 +195,7 @@ class PrehenseurCulasseControleur extends SupportControleur
      */
     public function MESetape34(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageOrdinaire($reponse, 'etapes34.html.twig');
     }
 
     /**
