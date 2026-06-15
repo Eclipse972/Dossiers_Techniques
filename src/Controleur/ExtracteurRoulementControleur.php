@@ -115,6 +115,10 @@ class ExtracteurRoulementControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate(
+			$reponse,
+			'extracteur',
+			'eclate_extracteur'
+		);
     }
 }
