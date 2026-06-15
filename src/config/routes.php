@@ -151,20 +151,20 @@ $app->group('/cric-bouteille', function($group) {
 	$group->get('/nomenclature',						[CricBouteilleControleur::class, 'nomenclature']);
 	$group->get('/eclate',								[CricBouteilleControleur::class, 'eclate']);
 	$group->get('/dessin-definition',					[CricBouteilleControleur::class, 'dessinDefinition']);
-	$group->get('/dessin-definition/axe-articulation',	[CricBouteilleControleur::class, 'dessinDefinitionAxeArticulation']);
-	$group->get('/dessin-definition/biellette',			[CricBouteilleControleur::class, 'dessinDefinitionBiellette']);
-	$group->get('/dessin-definition/chandelle',			[CricBouteilleControleur::class, 'dessinDefinitionChandelle']);
-	$group->get('/dessin-definition/chape',				[CricBouteilleControleur::class, 'dessinDefinitionChape']);
-	$group->get('/dessin-definition/corps-pompe',		[CricBouteilleControleur::class, 'dessinDefinitionCorpsPompe']);
-	$group->get('/dessin-definition/cylindre-principal',[CricBouteilleControleur::class, 'dessinDefinitionCylindrePrincipal']);
-	$group->get('/dessin-definition/embase',			[CricBouteilleControleur::class, 'dessinDefinitionEmbase']);
-	$group->get('/dessin-definition/levier',			[CricBouteilleControleur::class, 'dessinDefinitionLevier']);
-	$group->get('/dessin-definition/piston-pompe',		[CricBouteilleControleur::class, 'dessinDefinitionPistonPompe']);
-	$group->get('/dessin-definition/piston-recepteur',	[CricBouteilleControleur::class, 'dessinDefinitionPistonRecepteur']);
-	$group->get('/dessin-definition/pointeau',			[CricBouteilleControleur::class, 'dessinDefinitionPointeau']);
-	$group->get('/dessin-definition/tarage',			[CricBouteilleControleur::class, 'dessinDefinitionTarage']);
-	$group->get('/dessin-definition/reservoir',			[CricBouteilleControleur::class, 'dessinDefinitionReservoir']);
-	$group->get('/dessin-definition/tirantM4',			[CricBouteilleControleur::class, 'dessinDefinitionTirantM4']);
+	$group->get('/dessin-definition/axe-articulation',	[CricBouteilleControleur::class, 'definitionAxeArticulation']);
+	$group->get('/dessin-definition/biellette',			[CricBouteilleControleur::class, 'definitionBiellette']);
+	$group->get('/dessin-definition/chandelle',			[CricBouteilleControleur::class, 'definitionChandelle']);
+	$group->get('/dessin-definition/chape',				[CricBouteilleControleur::class, 'definitionChape']);
+	$group->get('/dessin-definition/corps-pompe',		[CricBouteilleControleur::class, 'definitionCorpsPompe']);
+	$group->get('/dessin-definition/cylindre-principal',[CricBouteilleControleur::class, 'definitionCylindrePrincipal']);
+	$group->get('/dessin-definition/embase',			[CricBouteilleControleur::class, 'definitionEmbase']);
+	$group->get('/dessin-definition/levier',			[CricBouteilleControleur::class, 'definitionLevier']);
+	$group->get('/dessin-definition/piston-pompe',		[CricBouteilleControleur::class, 'definitionPistonPompe']);
+	$group->get('/dessin-definition/piston-recepteur',	[CricBouteilleControleur::class, 'definitionPistonRecepteur']);
+	$group->get('/dessin-definition/pointeau',			[CricBouteilleControleur::class, 'definitionPointeau']);
+	$group->get('/dessin-definition/tarage',			[CricBouteilleControleur::class, 'definitionTarage']);
+	$group->get('/dessin-definition/reservoir',			[CricBouteilleControleur::class, 'definitionReservoir']);
+	$group->get('/dessin-definition/tirantM4',			[CricBouteilleControleur::class, 'definitionTirantM4']);
 });
 
 // dossier technique du cric rouleur

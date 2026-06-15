@@ -238,7 +238,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionAxeArticulation(Request $requete, Response $reponse): Response
+	public function definitionAxeArticulation(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -253,7 +253,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionBiellette(Request $requete, Response $reponse): Response
+	public function definitionBiellette(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -268,7 +268,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionChandelle(Request $requete, Response $reponse): Response
+	public function definitionChandelle(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -283,7 +283,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionChape(Request $requete, Response $reponse): Response
+	public function definitionChape(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -298,7 +298,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionCorpsPompe(Request $requete, Response $reponse): Response
+	public function definitionCorpsPompe(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -313,7 +313,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionCylindrePrincipal(Request $requete, Response $reponse): Response
+	public function definitionCylindrePrincipal(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -328,7 +328,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionEmbase(Request $requete, Response $reponse): Response
+	public function definitionEmbase(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -343,7 +343,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionLevier(Request $requete, Response $reponse): Response
+	public function definitionLevier(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -358,7 +358,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionPistonPompe(Request $requete, Response $reponse): Response
+	public function definitionPistonPompe(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -373,7 +373,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionPistonRecepteur(Request $requete, Response $reponse): Response
+	public function definitionPistonRecepteur(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -388,7 +388,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionPointeau(Request $requete, Response $reponse): Response
+	public function definitionPointeau(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -403,7 +403,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionTarage(Request $requete, Response $reponse): Response
+	public function definitionTarage(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -418,7 +418,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionReservoir(Request $requete, Response $reponse): Response
+	public function definitionReservoir(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
@@ -433,7 +433,7 @@ class CricBouteilleControleur extends SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function dessinDefinitionTirantM4(Request $requete, Response $reponse): Response
+	public function definitionTirantM4(Request $requete, Response $reponse): Response
 	{
 		return $this->renduPageEnConstruction($requete, $reponse);
 	}
