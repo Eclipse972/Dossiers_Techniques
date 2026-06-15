@@ -163,7 +163,7 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function fonctionnementDescend(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'descente.html.twig');
 	}
 
 	/**
