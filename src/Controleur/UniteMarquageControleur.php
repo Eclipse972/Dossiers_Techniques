@@ -261,7 +261,17 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function definitionFlasqueDroit(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du flasque droit",
+			"",
+			'definition_flasque.png',
+			'definition_flasque.EDRW',
+			"définition du flasque",
+			"Télécharger le fichier",
+			"",
+			700
+		);
     }
 
     /**
