@@ -114,7 +114,7 @@ class Butee5axesControleur extends SupportControleur
      */
     public function axes(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageOrdinaire($reponse, 'axes.html.twig');
     }
 
     /**
