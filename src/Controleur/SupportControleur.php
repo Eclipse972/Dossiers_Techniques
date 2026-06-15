@@ -92,19 +92,22 @@ abstract class SupportControleur
 	}
 
 	/**
-	 * Rendu des pages de mise en situation
+	 * Rendu des pages ordinaires
 	 *
-	 * @param Response $reponse
+	 * Crée une page avec du code isssu d'un fichier.
+	 * 
+	 * @param Response $reponse Objet réponse HTTP
+	 * @param string   $fichier Nom du fichier de contenu (sans extension)
 	 *
 	 * @return Response
 	 */
-    public function renduMES(Response $reponse): Response {
+    public function renduPageOrdinaire(Response $reponse, string $fichier): Response {
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'	=> $this->nom,
 				'logo'		=> $this->logo,
 				'du'		=> $this->article_du,
 				'dossier'	=> $this->dossier,
-				'fichier'	=> 'mise-en-situation',
+				'fichier'	=> $fichier,
   		]);
 	}
 
@@ -185,24 +188,6 @@ abstract class SupportControleur
 			'image'     => $image,
 		]);
 	}
-
-	/**
-     * Rendu des pages fonctionnement
-     *
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function renduFonctionnement(Response $reponse): Response
-    {
-        return $this->vue->render($reponse, '112-pageDT.html.twig', [
-			'support'	=> $this->nom,
-			'du'		=> $this->article_du,
-			'dossier'	=> $this->dossier,
-			'logo'		=> $this->logo,
-			'fichier'	=> 'fonctionnement',
-		]);
-    }
 
 	/**
      * Rendu des pages avec image centrale
