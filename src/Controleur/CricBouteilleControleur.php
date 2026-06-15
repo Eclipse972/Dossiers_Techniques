@@ -240,7 +240,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionAxeArticulation(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de l'axe d'articulation",
+			'',
+			'def_axe_articulation.png',
+			'def_axe_articulation.EDRW',
+			"Définition de l'axe d'articulation du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			600
+		);
 	}
 
 	/**
@@ -255,7 +265,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionBiellette(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de la biellette",
+			'',
+			'def_biellette.png',
+			'def_biellette.EDRW',
+			"Définition de la biellette du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			600
+		);
 	}
 
 	/**
@@ -270,7 +290,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionChandelle(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de la chandelle",
+			'',
+			'def_chandelle.png',
+			'def_chandelle.EDRW',
+			"Définition de la chandelle du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -285,7 +315,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionChape(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de la chape",
+			'',
+			'def_chape.png',
+			'def_chape.EDRW',
+			"Définition de la chape du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			700
+		);
 	}
 
 	/**
@@ -300,7 +340,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionCorpsPompe(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du corps de pompe",
+			'',
+			'def_corps2pompe.png',
+			'def_corps2pompe.EDRW',
+			"Définition du corps de pompe du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			700
+		);
 	}
 
 	/**
@@ -315,7 +365,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionCylindrePrincipal(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du cylindre principal",
+			'',
+			'def_cylindre_principal.png',
+			'def_cylindre_principal.EDRW',
+			"Définition du cylindre principal du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -330,7 +390,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionEmbase(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition de l'embase",
+			'',
+			'def_embase.png',
+			'def_embase.EDRW',
+			"Définition de l'embase du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -345,7 +415,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionLevier(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du levier",
+			'',
+			'def_levier.png',
+			'def_levier.EDRW',
+			"Définition du levier du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			700
+		);
 	}
 
 	/**
@@ -360,7 +440,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionPistonPompe(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du piston de pompe",
+			'',
+			'def_piston2pompe.png',
+			'def_piston2pompe.EDRW',
+			"Définition du piston de pompe du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -375,7 +465,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionPistonRecepteur(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du piston récepteur",
+			'',
+			'def_piston_recepteur.png',
+			'def_piston_recepteur.EDRW',
+			"Définition du piston récepteur du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -390,7 +490,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionPointeau(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du pointeau",
+			'',
+			'def_pointeau.png',
+			'def_pointeau.EDRW',
+			"Définition du pointeau du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -405,7 +515,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionTarage(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition des éléments de tarage",
+			'',
+			'def_tarage.png',
+			'def_tarage.EDRW',
+			"Définition des éléments de tarage du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -420,7 +540,17 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionReservoir(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du réservoir",
+			'',
+			'def_reservoir.png',
+			'def_reservoir.EDRW',
+			"Définition du réservoir du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 
 	/**
@@ -435,6 +565,16 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function definitionTirantM4(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du tirant M4",
+			'',
+			'def_tirants_M4.png',
+			'def_tirants_M4.EDRW',
+			"Définition du tirant M4 du cric bouteille",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
 	}
 }
