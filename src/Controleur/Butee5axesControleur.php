@@ -274,7 +274,17 @@ class Butee5axesControleur extends SupportControleur
      */
     public function dessinDefinitionSocle(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Définition du socle",
+			'',
+			'def_socle.png',
+			'def_socle.EDRW',
+			"Définition du socle de la butée 5 axes",
+			'Télécharger le fichier',
+			'Mise en plan',
+			800
+		);
     }
 
     /**
