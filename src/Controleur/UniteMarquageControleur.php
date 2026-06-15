@@ -250,36 +250,6 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page du flasque droit.
-     *
-     * @route /unite-de-marquage/flasque-droit
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function flasqueDroit(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    /**
-     * Affiche la page de détail du flasque.
-     *
-     * @route /unite-de-marquage/flasque-droit/flasque
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function flasqueDroitFlasque(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageEnConstruction($requete, $reponse);
-    }
-
-    /**
      * Affiche la page de mécanique globale.
      *
      * @route /unite-de-marquage/mecanique
