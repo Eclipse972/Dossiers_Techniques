@@ -194,6 +194,20 @@ class UniteMarquageControleur extends SupportControleur
         return $this->renduPageOrdinaire($reponse, 'fonctionnement.html.twig');
     }
 
+	    /**
+     * Affiche la page de fonctionnement.
+     *
+     * @route /unite-de-marquage/caracteristiques
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+     * @return Response
+     */
+    public function caracteristiques(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageOrdinaire($reponse, 'caracteristiques.html');
+    }
+
     /**
      * Affiche la page de la vue éclatée.
      *

@@ -316,6 +316,7 @@ $app->group('/unite-de-marquage', function($group) {
     $group->get('/elements/embiellage',                  [UniteMarquageControleur::class, 'elementsEmbiellage']);
     $group->get('/elements/levier',                      [UniteMarquageControleur::class, 'elementsLevier']);
     $group->get('/fonctionnement',                       [UniteMarquageControleur::class, 'fonctionnement']);
+    $group->get('/caracteristiques',                    [UniteMarquageControleur::class, 'caracteristiques']);
     $group->get('/dessin-densemble',                     [UniteMarquageControleur::class, 'dessinDensemble']);
     $group->get('/eclate',                               [UniteMarquageControleur::class, 'eclate']);
     $group->get('/CE',                                   [UniteMarquageControleur::class, 'classeEquivalence']);
