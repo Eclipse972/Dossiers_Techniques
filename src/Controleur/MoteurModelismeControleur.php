@@ -125,7 +125,7 @@ class MoteurModelismeControleur extends SupportControleur
      */
     public function classeEquivalence(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageOrdinaire($reponse, 'classes-equivalence.html.twig');
     }
 
     /**
@@ -153,7 +153,12 @@ class MoteurModelismeControleur extends SupportControleur
      */
     public function CEvilebrequin(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate(
+			$reponse,
+			'CE2-vilebrequin',
+			'vilebrequin',
+			"Classe d'équivalence: vilebrequin"
+		);
     }
 
     /**
@@ -167,7 +172,12 @@ class MoteurModelismeControleur extends SupportControleur
      */
     public function CEbielle(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate(
+			$reponse,
+			'CE3-bielle',
+			'CE3-bielle',
+			"Classe d'équivalence: bielle équipée"
+		);
     }
 
     /**
@@ -181,7 +191,12 @@ class MoteurModelismeControleur extends SupportControleur
      */
     public function CEpiston(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate(
+			$reponse,
+			'CE4-piston',
+			'CE4-piston',
+			"Classe d'équivalence: piston"
+		);
     }
 
     /**
@@ -195,6 +210,14 @@ class MoteurModelismeControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImage(
+			$reponse,
+			"Éclaté",
+			"",
+			'eclate_moteur.png',
+			"éclaté du moteur de modélisme",
+			"<p>Pas de fichier disponible.</p>",
+			700
+		);
     }
 }
