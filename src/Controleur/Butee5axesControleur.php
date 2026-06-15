@@ -272,7 +272,7 @@ class Butee5axesControleur extends SupportControleur
      *
      * @return Response
      */
-    public function dessinDefinitionSocle(Request $requete, Response $reponse): Response
+    public function definitionSocle(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImageFichier(
 			$reponse,
@@ -297,7 +297,7 @@ class Butee5axesControleur extends SupportControleur
      *
      * @return Response
      */
-    public function dessinDefinitionContreEmbase(Request $requete, Response $reponse): Response
+    public function definitionContreEmbase(Request $requete, Response $reponse): Response
     {
     	return $this->renduPageImageFichier(
 			$reponse,

@@ -95,8 +95,8 @@ $app->group('/butee-5-axes', function($group) {
     $group->get('/eclate',                          [Butee5axesControleur::class, 'eclate']);
     $group->get('/nomenclature',                    [Butee5axesControleur::class, 'nomenclature']);
     $group->get('/dessin-definition',               [Butee5axesControleur::class, 'dessinDefinition']);
-    $group->get('/dessin-definition/socle',         [Butee5axesControleur::class, 'dessinDefinitionSocle']);
-    $group->get('/dessin-definition/contre-embase', [Butee5axesControleur::class, 'dessinDefinitionContreEmbase']);
+    $group->get('/dessin-definition/socle',         [Butee5axesControleur::class, 'definitionSocle']);
+    $group->get('/dessin-definition/contre-embase', [Butee5axesControleur::class, 'definitionContreEmbase']);
 });
 
 // dossier technique de la cambreuse
