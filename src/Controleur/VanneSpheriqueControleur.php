@@ -107,7 +107,7 @@ class VanneSpheriqueControleur extends SupportControleur
      */
     public function fonctionnement(Request $requete, Response $reponse): Response
     {
-		return $this->renduFonctionnement($reponse);
+		return $this->renduPageOrdinaire($reponse, 'fonctionnement');
     }
 
     /**
