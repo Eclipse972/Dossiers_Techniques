@@ -169,7 +169,7 @@ class CricRouleurControleur extends SupportControleur
 	 */
 	public function analyseFonctionnelle(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'analyse-fonctionnelle.html');
 	}
 
 	/**
