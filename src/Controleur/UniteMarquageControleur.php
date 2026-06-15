@@ -259,7 +259,7 @@ class UniteMarquageControleur extends SupportControleur
      * @param Response $reponse Réponse HTTP à retourner
      * @return Response
      */
-    public function flasqueDroitDessinDefinition(Request $requete, Response $reponse): Response
+    public function definitionFlasqueDroit(Request $requete, Response $reponse): Response
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
