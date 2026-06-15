@@ -124,6 +124,16 @@ class FreinDisqueControleur extends SupportControleur
      */
     public function eclate(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Éclaté",
+			"",
+			'eclate_frein.png',
+			'eclate_frein.EDRW',
+			"mise en plan",
+			"Télécharger la mise en plan",
+			"<p>Mise en plan</p>",
+			800
+		);
     }
 }
