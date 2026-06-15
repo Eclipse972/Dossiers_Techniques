@@ -225,7 +225,7 @@ class CambreuseControleur extends SupportControleur
 	 */
 	public function caracteristiques(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'caracteristiques.html');
 	}
 
 	/**
