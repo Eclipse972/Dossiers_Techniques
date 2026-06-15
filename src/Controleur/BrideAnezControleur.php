@@ -412,6 +412,16 @@ class BrideAnezControleur extends SupportControleur
      */
     public function ressort(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Classe d'équivalence: ressort de la bride",
+			"",
+			'ressort.png',
+			'ressort.EPRT',
+			"télécharger le ressort",
+			"Télecherger la maquette eDrawing du ressort",
+			"<p style=\"text-align:center\">Cette classe d'équivalence est composée d'une seule pièce</p>",
+			500
+		);
     }
 }
