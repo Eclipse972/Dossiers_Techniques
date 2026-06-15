@@ -58,7 +58,7 @@ class ElectrovanneControleur extends SupportControleur
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageOrdinaire($reponse, 'mise-en-situation');
+        return $this->renduPageOrdinaire($reponse, 'mise-en-situation.html.twig');
     }
 
     /**
@@ -114,7 +114,7 @@ class ElectrovanneControleur extends SupportControleur
 	 */
 	public function fonctionnement(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'fonctionnement');
+		return $this->renduPageOrdinaire($reponse, 'fonctionnement.html.twig');
 	}
 
 	/**

@@ -95,9 +95,9 @@ abstract class SupportControleur
 	 * Rendu des pages ordinaires
 	 *
 	 * Crée une page avec du code isssu d'un fichier.
-	 * 
+	 *
 	 * @param Response $reponse Objet réponse HTTP
-	 * @param string   $fichier Nom du fichier de contenu (sans extension)
+	 * @param string   $fichier Nom du fichier de contenu (sans l'extension .html.twig)
 	 *
 	 * @return Response
 	 */

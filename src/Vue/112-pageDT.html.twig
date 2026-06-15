@@ -1,14 +1,13 @@
 {#
 	Page de dossier technique
-	Ce template insère le contenu d'un template donné par fichierContenu.
-	Exemple supports/alternateur/mise-en-situation.html.twig
+	Ce template insère le contenu d'un fichier. Le fichier a l'extension .html.twig ou .html.
+	Twig permet l'utilisation des variables mais on peut aussi fournir du html pur.
 
-	Le code doit être mis dans un fichier twig dans le dossier src/Vue/supports/nom-support.
-	Ceci permet au conroleur de lui transmettre des variables
+	Le code doit être mis dans un fichier twig/html dans le dossier src/Vue/supports/nom-support.
 #}
 
 {% extends '11-base-avec-nav.html.twig' %}
 
 {% block contenu %}
-{% include 'supports/' ~ dossier ~ '/' ~ fichier ~ '.html.twig' %}
+{% include 'supports/' ~ dossier ~ '/' ~ fichier %}
 {% endblock %}
