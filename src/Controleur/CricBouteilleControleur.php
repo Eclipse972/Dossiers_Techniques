@@ -148,7 +148,7 @@ class CricBouteilleControleur extends SupportControleur
 	 */
 	public function fonctionnementMonte(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageEnConstruction($requete, $reponse);
+		return $this->renduPageOrdinaire($reponse, 'montee.html.twig');
 	}
 
 	/**
