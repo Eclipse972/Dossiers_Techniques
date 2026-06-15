@@ -52,7 +52,7 @@ class PompePalettesControleur extends SupportControleur
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
     {
-        return $this->renduMES($reponse);
+        return $this->renduPageOrdinaire($reponse, 'mise-en-situation');
     }
 
     /**

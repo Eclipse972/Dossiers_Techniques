@@ -53,7 +53,7 @@ class BrideHydrauliqueControleur extends SupportControleur
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
     {
-        return $this->renduMES($reponse);
+        return $this->renduPageOrdinaire($reponse, 'mise-en-situation');
     }
 
     /**
@@ -101,7 +101,7 @@ class BrideHydrauliqueControleur extends SupportControleur
      * Affiche la page de fonctionnement de la bride hydraulique.
      *
 	 * @route bride-hydraulique/fonctionnement
-	 * 
+	 *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
 	 *
