@@ -292,12 +292,12 @@ $app->group('/prehenseur-de-culasse', function($group) {
     $group->get('/fonctionnement/fermeture', 					[PrehenseurCulasseControleur::class, 'fonctionnementFermeture']);
     $group->get('/dessin-densemble',							[PrehenseurCulasseControleur::class, 'dessinDensemble']);
     $group->get('/nomenclature',								[PrehenseurCulasseControleur::class, 'nomenclature']);
-    $group->get('/classe-equivalence',										[PrehenseurCulasseControleur::class, 'classeEquivalence']);
-    $group->get('/classe-equivalence/bati',									[PrehenseurCulasseControleur::class, 'eclateBati']);
-    $group->get('/classe-equivalence/tige-verin',							[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
-    $group->get('/classe-equivalence/biellette',							[PrehenseurCulasseControleur::class, 'eclateBiellette']);
-    $group->get('/classe-equivalence/bras-avec-2doigts',					[PrehenseurCulasseControleur::class, 'eclateBras2Doigts']);
-    $group->get('/classe-equivalence/bras-avec-1doigt',						[PrehenseurCulasseControleur::class, 'eclateBras1Doigt']);
+    $group->get('/classe-equivalence',							[PrehenseurCulasseControleur::class, 'classeEquivalence']);
+    $group->get('/classe-equivalence/bati',						[PrehenseurCulasseControleur::class, 'eclateBati']);
+    $group->get('/classe-equivalence/tige-verin',				[PrehenseurCulasseControleur::class, 'eclateTigeVerin']);
+    $group->get('/classe-equivalence/biellette',				[PrehenseurCulasseControleur::class, 'eclateBiellette']);
+    $group->get('/classe-equivalence/bras-avec-2doigts',		[PrehenseurCulasseControleur::class, 'eclateBras2Doigts']);
+    $group->get('/classe-equivalence/bras-avec-1doigt',			[PrehenseurCulasseControleur::class, 'eclateBras1Doigt']);
     $group->get('/mecanique',									[PrehenseurCulasseControleur::class, 'mecanique']);
     $group->get('/mecanique/deplacement-tige',					[PrehenseurCulasseControleur::class, 'mecaDeplacementTige']);
     $group->get('/mecanique/deplacement-pince',					[PrehenseurCulasseControleur::class, 'mecaDeplacementPince']);
@@ -307,27 +307,27 @@ $app->group('/prehenseur-de-culasse', function($group) {
 
 // dossier technique de l'unité de marquage
 $app->group('/unite-de-marquage', function($group) {
-    $group->get('',                                      [UniteMarquageControleur::class, 'aPropos']);
-    $group->get('/mise-en-situation',                    [UniteMarquageControleur::class, 'miseEnSituation']);
-    $group->get('/elements',                             [UniteMarquageControleur::class, 'elements']);
-    $group->get('/elements/corps',                       [UniteMarquageControleur::class, 'elementsCorps']);
-    $group->get('/elements/verin',                       [UniteMarquageControleur::class, 'elementsVerin']);
-    $group->get('/elements/enclume',                     [UniteMarquageControleur::class, 'elementsEnclume']);
-    $group->get('/elements/embiellage',                  [UniteMarquageControleur::class, 'elementsEmbiellage']);
-    $group->get('/elements/levier',                      [UniteMarquageControleur::class, 'elementsLevier']);
-    $group->get('/fonctionnement',                       [UniteMarquageControleur::class, 'fonctionnement']);
-    $group->get('/caracteristiques',                    [UniteMarquageControleur::class, 'caracteristiques']);
-    $group->get('/dessin-densemble',                     [UniteMarquageControleur::class, 'dessinDensemble']);
-    $group->get('/eclate',                               [UniteMarquageControleur::class, 'eclate']);
-    $group->get('/CE',                                   [UniteMarquageControleur::class, 'classeEquivalence']);
-    $group->get('/flasque-droit',                        [UniteMarquageControleur::class, 'flasqueDroit']);
-    $group->get('/flasque-droit/flasque',                [UniteMarquageControleur::class, 'flasqueDroitFlasque']);
-    $group->get('/flasque-droit/dessin-definition',      [UniteMarquageControleur::class, 'definitionFlasqueDroit']);
-    $group->get('/mecanique',                            [UniteMarquageControleur::class, 'mecanique']);
-    $group->get('/mecanique/efforts-embiellage-levier',  [UniteMarquageControleur::class, 'mecaEffortsEmbiellageLevier']);
-    $group->get('/mecanique/effort-marquage',            [UniteMarquageControleur::class, 'mecaEffortMarquage']);
-    $group->get('/mecanique/vitesse-bielette',           [UniteMarquageControleur::class, 'mecaVitesseBiellette']);
-    $group->get('/mecanique/vitesse-levier',             [UniteMarquageControleur::class, 'mecaVitesseLevier']);
+    $group->get('',										[UniteMarquageControleur::class, 'aPropos']);
+    $group->get('/mise-en-situation',					[UniteMarquageControleur::class, 'miseEnSituation']);
+    $group->get('/elements',							[UniteMarquageControleur::class, 'elements']);
+    $group->get('/elements/corps',						[UniteMarquageControleur::class, 'elementsCorps']);
+    $group->get('/elements/verin',						[UniteMarquageControleur::class, 'elementsVerin']);
+    $group->get('/elements/enclume',					[UniteMarquageControleur::class, 'elementsEnclume']);
+    $group->get('/elements/embiellage',					[UniteMarquageControleur::class, 'elementsEmbiellage']);
+    $group->get('/elements/levier',						[UniteMarquageControleur::class, 'elementsLevier']);
+    $group->get('/fonctionnement',						[UniteMarquageControleur::class, 'fonctionnement']);
+    $group->get('/caracteristiques',					[UniteMarquageControleur::class, 'caracteristiques']);
+    $group->get('/dessin-densemble',					[UniteMarquageControleur::class, 'dessinDensemble']);
+    $group->get('/eclate',								[UniteMarquageControleur::class, 'eclate']);
+    $group->get('/CE',									[UniteMarquageControleur::class, 'classeEquivalence']);
+    $group->get('/flasque-droit',						[UniteMarquageControleur::class, 'flasqueDroit']);
+    $group->get('/flasque-droit/flasque',				[UniteMarquageControleur::class, 'flasqueDroitFlasque']);
+    $group->get('/flasque-droit/dessin-definition',		[UniteMarquageControleur::class, 'definitionFlasqueDroit']);
+    $group->get('/mecanique',							[UniteMarquageControleur::class, 'mecanique']);
+    $group->get('/mecanique/efforts-embiellage-levier',	[UniteMarquageControleur::class, 'mecaEffortsEmbiellageLevier']);
+    $group->get('/mecanique/effort-marquage',			[UniteMarquageControleur::class, 'mecaEffortMarquage']);
+    $group->get('/mecanique/vitesse-bielette',			[UniteMarquageControleur::class, 'mecaVitesseBiellette']);
+    $group->get('/mecanique/vitesse-levier',			[UniteMarquageControleur::class, 'mecaVitesseLevier']);
 });
 
 // dossier technique de la vanne sphérique
