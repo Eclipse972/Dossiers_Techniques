@@ -330,7 +330,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function SEcorpsBride(Request $requete, Response $reponse): Response
+    public function corpsBride(Request $requete, Response $reponse): Response
     {
         return $this->renduEclate($reponse, 'corps2bride', 'corps2bride', "Classe d'équivalence : corps de la bride");
     }
@@ -345,7 +345,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function SEnezBride(Request $requete, Response $reponse): Response
+    public function nezBride(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImageFichier(
 			$reponse,
@@ -370,7 +370,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function SEensemblePiston(Request $requete, Response $reponse): Response
+    public function ensemblePiston(Request $requete, Response $reponse): Response
     {
         return $this->renduEclate($reponse, 'piston_complet', 'piston_complet', "Classe d'équivalence : piston de la bride");
     }
@@ -385,7 +385,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function SEplaquette(Request $requete, Response $reponse): Response
+    public function plaquette(Request $requete, Response $reponse): Response
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }
@@ -400,7 +400,7 @@ class BrideAnezControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function SEressort(Request $requete, Response $reponse): Response
+    public function ressort(Request $requete, Response $reponse): Response
     {
         return $this->renduPageEnConstruction($requete, $reponse);
     }

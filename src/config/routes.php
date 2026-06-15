@@ -63,11 +63,11 @@ $app->group('/bride-a-nez', function($group) {
     $group->get('/montage-bridage',						[BrideAnezControleur::class, 'montageBridage']);
     $group->get('/dessin-densemble',					[BrideAnezControleur::class, 'dessinDensemble']);
     $group->get('/classe-equivalence',					[BrideAnezControleur::class, 'classeEquivalence']);
-    $group->get('/classe-equivalence/corps-bride',		[BrideAnezControleur::class, 'SEcorpsBride']);
-    $group->get('/classe-equivalence/nez-bride', 		[BrideAnezControleur::class, 'SEnezBride']);
-    $group->get('/classe-equivalence/ensemble-piston',	[BrideAnezControleur::class, 'SEensemblePiston']);
-    $group->get('/classe-equivalence/plaquette',		[BrideAnezControleur::class, 'SEplaquette']);
-    $group->get('/classe-equivalence/ressort',			[BrideAnezControleur::class, 'SEressort']);
+    $group->get('/classe-equivalence/corps-bride',		[BrideAnezControleur::class, 'corpsBride']);
+    $group->get('/classe-equivalence/nez-bride', 		[BrideAnezControleur::class, 'nezBride']);
+    $group->get('/classe-equivalence/ensemble-piston',	[BrideAnezControleur::class, 'ensemblePiston']);
+    $group->get('/classe-equivalence/plaquette',		[BrideAnezControleur::class, 'plaquette']);
+    $group->get('/classe-equivalence/ressort',			[BrideAnezControleur::class, 'ressort']);
     $group->get('/nomenclature',						[BrideAnezControleur::class, 'nomenclature']);
     $group->get('/eclate-montage',						[BrideAnezControleur::class, 'eclateMontage']);
 });
