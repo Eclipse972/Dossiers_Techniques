@@ -319,7 +319,7 @@ $app->group('/unite-de-marquage', function($group) {
     $group->get('/caracteristiques',					[UniteMarquageControleur::class, 'caracteristiques']);
     $group->get('/dessin-densemble',					[UniteMarquageControleur::class, 'dessinDensemble']);
     $group->get('/eclate',								[UniteMarquageControleur::class, 'eclate']);
-    $group->get('/CE',									[UniteMarquageControleur::class, 'classeEquivalence']);
+    $group->get('/classe-equivalence',					[UniteMarquageControleur::class, 'classeEquivalence']);
     $group->get('/mecanique',							[UniteMarquageControleur::class, 'mecanique']);
     $group->get('/mecanique/efforts-embiellage-levier',	[UniteMarquageControleur::class, 'mecaEffortsEmbiellageLevier']);
     $group->get('/mecanique/effort-marquage',			[UniteMarquageControleur::class, 'mecaEffortMarquage']);

@@ -237,7 +237,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page des classes d'équivalence.
      *
-     * @route /unite-de-marquage/CE
+     * @route /unite-de-marquage/classe-equivalence
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
