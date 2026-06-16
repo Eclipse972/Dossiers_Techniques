@@ -132,7 +132,7 @@ class Butee5axesControleur extends SupportControleur
         return $this->renduPageImage(
 			$reponse,
 			"Présentation de l'axe 1",
-			"<p>Rotation de 360° de la pièce (2) autour de la pièce (1).</p>",
+			"<p>Rotation de 360° de la contre-embase autour du socle.</p>",
 			'axe1.gif',
 			"axe 1 de la butée",
 			"",
@@ -155,7 +155,7 @@ class Butee5axesControleur extends SupportControleur
         return $this->renduPageImage(
 			$reponse,
 			"Présentation de l'axe 2",
-			"<p>Rotation de 90° de la pièce (3) autour de la pièce (2).</p>",
+			"<p>Rotation de 90° du module bis autour de contre-embase.</p>",
 			'axe2.gif',
 			"axe 2 de la butée",
 			"",
@@ -178,7 +178,7 @@ class Butee5axesControleur extends SupportControleur
         return $this->renduPageImage(
 			$reponse,
 			"Présentation de l'axe 3",
-			"<p>Rotation de 90° de la pièce (6) autour de la pièce (3).</p>",
+			"<p>Rotation de 90° de l'embase autour du module bis.</p>",
 			'axe3.gif',
 			"axe 3 de la butée",
 			"",
@@ -201,7 +201,7 @@ class Butee5axesControleur extends SupportControleur
        return $this->renduPageImage(
 			$reponse,
 			"Présentation de l'axe 4",
-			"<p>Rotation de 360° de la pièce (7) autour de la pièce (6).</p>",
+			"<p>Rotation de 360° de l'intermédiaire autour de l'embase.</p>",
 			'axe4.gif',
 			"axe 4 de la butée",
 			"",
@@ -224,7 +224,7 @@ class Butee5axesControleur extends SupportControleur
         return $this->renduPageImage(
 			$reponse,
 			"Présentation de l'axe 5",
-			"<p>Translation de la pièce (12) dans la pièce (7).</p>",
+			"<p>Translation de la tige dans l'intermédiaire.</p>",
 			'axe5.gif',
 			"axe 5 de la butée",
 			"",
