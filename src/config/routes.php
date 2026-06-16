@@ -180,6 +180,7 @@ $app->group('/cric-rouleur', function($group) {
 	$group->get('/analyse-fonctionnelle/fast-evage',	[CricRouleurControleur::class, 'AFfastEvage']);
 	$group->get('/analyse-fonctionnelle/fast-depose',	[CricRouleurControleur::class, 'AFfastDepose']);
 	$group->get('/eclate',								[CricRouleurControleur::class, 'eclate']);
+	$group->get('/dessin-densemble',					[CricRouleurControleur::class, 'dessinDensemble']);
 	$group->get('/nomenclature',						[CricRouleurControleur::class, 'nomenclature']);
 	$group->get('/entretien',							[CricRouleurControleur::class, 'entretien']);
 	$group->get('/entretien/probleme-levage',			[CricRouleurControleur::class, 'entretienProblemeLevage']);
