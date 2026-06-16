@@ -321,10 +321,10 @@ $app->group('/unite-de-marquage', function($group) {
     $group->get('/eclate',								[UniteMarquageControleur::class, 'eclate']);
     $group->get('/classe-equivalence',					[UniteMarquageControleur::class, 'classeEquivalence']);
     $group->get('/mecanique',							[UniteMarquageControleur::class, 'mecanique']);
-    $group->get('/mecanique/efforts-embiellage-levier',	[UniteMarquageControleur::class, 'mecaEffortsEmbiellageLevier']);
-    $group->get('/mecanique/effort-marquage',			[UniteMarquageControleur::class, 'mecaEffortMarquage']);
-    $group->get('/mecanique/vitesse-bielette',			[UniteMarquageControleur::class, 'mecaVitesseBiellette']);
-    $group->get('/mecanique/vitesse-levier',			[UniteMarquageControleur::class, 'mecaVitesseLevier']);
+    $group->get('/mecanique/efforts-embiellage-levier',	[UniteMarquageControleur::class, 'effortEmbiellageLevier']);
+    $group->get('/mecanique/effort-marquage',			[UniteMarquageControleur::class, 'effortMarquage']);
+    $group->get('/mecanique/vitesse-bielette',			[UniteMarquageControleur::class, 'vitesseBiellette']);
+    $group->get('/mecanique/vitesse-levier',			[UniteMarquageControleur::class, 'vitesseLevier']);
 });
 
 // dossier technique de la vanne sphérique

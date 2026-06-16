@@ -282,7 +282,7 @@ class UniteMarquageControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function mecaEffortsEmbiellageLevier(Request $requete, Response $reponse): Response
+    public function effortEmbiellageLevier(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImage(
 			$reponse,
@@ -305,7 +305,7 @@ class UniteMarquageControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function mecaEffortMarquage(Request $requete, Response $reponse): Response
+    public function effortMarquage(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImage(
 			$reponse,
@@ -328,7 +328,7 @@ class UniteMarquageControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function mecaVitesseBiellette(Request $requete, Response $reponse): Response
+    public function vitesseBiellette(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImage(
 			$reponse,
@@ -351,7 +351,7 @@ class UniteMarquageControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function mecaVitesseLevier(Request $requete, Response $reponse): Response
+    public function vitesseLevier(Request $requete, Response $reponse): Response
     {
         return $this->renduPageImage(
 			$reponse,
