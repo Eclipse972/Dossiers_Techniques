@@ -87,7 +87,12 @@ class UniteMarquageControleur extends SupportControleur
     public function nomenclature(Request $requete, Response $reponse): Response
     {
 		Nomenclature::creer();
-		Nomenclature::ajouterLigne(1,	'Flasque droit',			1,	'flasque-droit.EPRT');
+		Nomenclature::ajouterLigne(1,	'Flasque droit',				1,	'flasque-droit.EPRT');
+		Nomenclature::ajouterLigne(2,	'Flasque gauche',				1,	'flasque-gauche.EPRT');
+		Nomenclature::ajouterLigne(3,	'Entretoise arrière',			1,	'entretoise-arriere.EPRT');
+		Nomenclature::ajouterLigne(4,	'Entretoise avant',				1,	'entretoise-avant.EPRT');
+		Nomenclature::ajouterLigne(5,	'Goupille cylindrique 10 x 60',	4,	'goupille-cylindrique10x60.EPRT');
+		Nomenclature::ajouterLigne(6,	'Vis CHc M8 x 90',				4,	'vis-CHc-M8x90.EPRT', 'ISO 8734');
 		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
