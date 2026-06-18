@@ -86,7 +86,9 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function nomenclature(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+		Nomenclature::creer();
+		Nomenclature::ajouterLigne(1,	'Flasque droit',			1,	'flasque-droit.EPRT');
+		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
 	/**
