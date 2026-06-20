@@ -98,6 +98,18 @@ class UniteMarquageControleur extends SupportControleur
 	#	Nomenclature::ajouterLigne(9,	'Support enclume',				1,	'support-enclume.EPRT'); image manquante
 		Nomenclature::ajouterLigne(10,	'Goupille cylindrique 10 x 40',	2,	'goupille-cylindrique10x40.EPRT',	'ISO 8734');
 		Nomenclature::ajouterLigne(11,	'Vis CHc M16 x 70',				4,	'vis-CHc-M16x70.EPRT');
+	#	Nomenclature::ajouterLigne(12,	'Enclume',						1,	'enclume.EPRT'); conflit pièce et ensemble de pièces du même nom
+		Nomenclature::ajouterLigne(13,	'Vis CHc M12 x 35',				2,	'vis-CHc-M12x35.EPRT');
+		Nomenclature::ajouterLigne(14,	'Support détecteur',			1,	'support-detecteur.EPRT');
+		Nomenclature::ajouterLigne(15,	'DPI K62',						1,	'DPI-K62.EPRT');
+	#	Nomenclature::ajouterLigne(16,	'Vis CHc M4 x 15',				2,	'vis-CHc-M4x15.EPRT'); image absente
+		Nomenclature::ajouterLigne(17,	'Fond avant',					1,	'fond-avant.EPRT');
+		Nomenclature::ajouterLigne(18,	'Tube',							1,	'tube.EPRT');
+		Nomenclature::ajouterLigne(19,	'Fond arrière',					1,	'fond-arriere.EPRT');
+		Nomenclature::ajouterLigne(20,	'Écrou tirant',					8,	'ecrou-tirant.EPRT');
+	#	Nomenclature::ajouterLigne(21,	'Tirant',						4,	'tirant.EPRT'); image manquante
+		Nomenclature::ajouterLigne(22,	'Vis Hc M6 x 10',				4,	'vis-Hc-M6x10.EPRT');
+		Nomenclature::ajouterLigne(23,	'Support vérin',				1,	'support-verin.EPRT');
 		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
