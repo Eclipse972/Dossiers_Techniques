@@ -14,3 +14,7 @@ Liste des dossiers où intervenir
 - scr/config/routes.php : contient toutes les routes des pages du dossier technique
 
 IDÉE: script qui crée les dossiers ainsi que les ébauches des scripts (controleur, templates)
+
+# EN VRAC
+errreur classique sur le nom des images: utiliser le même nom pour la pièce et sa classe d'équivalence associée. Ex: piston.
+En ne faisant pas attention on va écraser une des deux images
