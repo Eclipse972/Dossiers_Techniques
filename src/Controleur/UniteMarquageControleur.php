@@ -110,6 +110,9 @@ class UniteMarquageControleur extends SupportControleur
 	#	Nomenclature::ajouterLigne(21,	'Tirant',						4,	'tirant.EPRT'); image manquante
 		Nomenclature::ajouterLigne(22,	'Vis Hc M6 x 10',				4,	'vis-Hc-M6x10.EPRT');
 		Nomenclature::ajouterLigne(23,	'Support vérin',				1,	'support-verin.EPRT');
+		Nomenclature::ajouterLigne(24,	'Vis CHc M10 x 25',				4,	'vis-CHc-M10x25.EPRT');
+		Nomenclature::ajouterLigne(25,	'Axe levier',					1,	'axe-levier.EPRT');
+		Nomenclature::ajouterLigne(26,	'Coussinet XFM 3034 26',		2,	'coussinet-XFM-3034-26.EPRT');
 		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
