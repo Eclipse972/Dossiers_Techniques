@@ -347,7 +347,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function CEembiellage(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'embiellage', 'embiellage', 'Embiellage');
     }
 
 	/**
@@ -362,7 +362,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function CElevier(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'levier', 'ensemble-levier', 'Levier');
     }
 
     /**
