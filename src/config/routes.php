@@ -315,7 +315,7 @@ $app->group('/unite-de-marquage', function($group) {
     $group->get('/elements/verin',						[UniteMarquageControleur::class, 'elementsVerin']);
     $group->get('/elements/enclume',					[UniteMarquageControleur::class, 'ensembleEnclume']);
     $group->get('/elements/embiellage',					[UniteMarquageControleur::class, 'elementsEmbiellage']);
-    $group->get('/elements/levier',						[UniteMarquageControleur::class, 'elementsLevier']);
+    $group->get('/elements/levier',						[UniteMarquageControleur::class, 'ensembleLevier']);
     $group->get('/fonctionnement',						[UniteMarquageControleur::class, 'fonctionnement']);
     $group->get('/caracteristiques',					[UniteMarquageControleur::class, 'caracteristiques']);
     $group->get('/dessin-densemble',					[UniteMarquageControleur::class, 'dessinDensemble']);

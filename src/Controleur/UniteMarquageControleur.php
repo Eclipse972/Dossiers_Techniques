@@ -225,7 +225,7 @@ class UniteMarquageControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function elementsLevier(Request $requete, Response $reponse): Response
+    public function ensembleLevier(Request $requete, Response $reponse): Response
     {
         return $this->renduEclate($reponse, 'levier', 'levier', 'Levier');
     }
