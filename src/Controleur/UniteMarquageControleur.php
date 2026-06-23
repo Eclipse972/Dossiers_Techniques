@@ -201,36 +201,6 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de l'élément embiellage.
-     *
-     * @route /unite-de-marquage/element/embiellage
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function elementsEmbiellage(Request $requete, Response $reponse): Response
-    {
-        return $this->renduEclate($reponse, 'embiellage', 'embiellage', 'Embiellage');
-    }
-
-    /**
-     * Affiche la page de l'élément levier.
-     *
-     * @route /unite-de-marquage/element/levier
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function ensembleLevier(Request $requete, Response $reponse): Response
-    {
-        return $this->renduEclate($reponse, 'levier', 'ensemble-levier', 'Levier');
-    }
-
-    /**
      * Affiche la page de fonctionnement.
      *
      * @route /unite-de-marquage/fonctionnement
