@@ -310,12 +310,12 @@ $app->group('/prehenseur-de-culasse', function($group) {
 $app->group('/unite-de-marquage', function($group) {
     $group->get('',										[UniteMarquageControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',					[UniteMarquageControleur::class, 'miseEnSituation']);
-    $group->get('/elements',							[UniteMarquageControleur::class, 'elements']);
-    $group->get('/elements/corps',						[UniteMarquageControleur::class, 'elementsCorps']);
-    $group->get('/elements/verin',						[UniteMarquageControleur::class, 'elementsVerin']);
-    $group->get('/elements/enclume',					[UniteMarquageControleur::class, 'ensembleEnclume']);
-    $group->get('/elements/embiellage',					[UniteMarquageControleur::class, 'elementsEmbiellage']);
-    $group->get('/elements/levier',						[UniteMarquageControleur::class, 'ensembleLevier']);
+    $group->get('/element',								[UniteMarquageControleur::class, 'elements']);
+    $group->get('/element/corps',						[UniteMarquageControleur::class, 'elementsCorps']);
+    $group->get('/element/verin',						[UniteMarquageControleur::class, 'elementsVerin']);
+    $group->get('/element/enclume',						[UniteMarquageControleur::class, 'ensembleEnclume']);
+    $group->get('/element/embiellage',					[UniteMarquageControleur::class, 'elementsEmbiellage']);
+    $group->get('/element/levier',						[UniteMarquageControleur::class, 'ensembleLevier']);
     $group->get('/fonctionnement',						[UniteMarquageControleur::class, 'fonctionnement']);
     $group->get('/caracteristiques',					[UniteMarquageControleur::class, 'caracteristiques']);
     $group->get('/dessin-densemble',					[UniteMarquageControleur::class, 'dessinDensemble']);

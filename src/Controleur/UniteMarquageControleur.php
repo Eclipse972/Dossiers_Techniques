@@ -133,7 +133,7 @@ class UniteMarquageControleur extends SupportControleur
 	/**
      * Affiche la page des éléments constitutifs.
      *
-     * @route /unite-de-marquage/elements
+     * @route /unite-de-marquage/element
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -158,7 +158,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page de l'élément corps.
      *
-     * @route /unite-de-marquage/elements/corps
+     * @route /unite-de-marquage/element/corps
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -173,7 +173,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page de l'élément vérin.
      *
-     * @route /unite-de-marquage/elements/verin
+     * @route /unite-de-marquage/element/verin
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -188,7 +188,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page de l'élément enclume.
      *
-     * @route /unite-de-marquage/elements/enclume
+     * @route /unite-de-marquage/element/enclume
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -203,7 +203,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page de l'élément embiellage.
      *
-     * @route /unite-de-marquage/elements/embiellage
+     * @route /unite-de-marquage/element/embiellage
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
@@ -218,7 +218,7 @@ class UniteMarquageControleur extends SupportControleur
     /**
      * Affiche la page de l'élément levier.
      *
-     * @route /unite-de-marquage/elements/levier
+     * @route /unite-de-marquage/element/levier
      *
      * @param Request  $requete Requête HTTP entrante
      * @param Response $reponse Réponse HTTP à retourner
