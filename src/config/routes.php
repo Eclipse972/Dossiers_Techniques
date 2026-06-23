@@ -310,7 +310,6 @@ $app->group('/prehenseur-de-culasse', function($group) {
 $app->group('/unite-de-marquage', function($group) {
     $group->get('',										[UniteMarquageControleur::class, 'aPropos']);
     $group->get('/mise-en-situation',					[UniteMarquageControleur::class, 'miseEnSituation']);
-    $group->get('/element',								[UniteMarquageControleur::class, 'elements']);
     $group->get('/fonctionnement',						[UniteMarquageControleur::class, 'fonctionnement']);
     $group->get('/caracteristiques',					[UniteMarquageControleur::class, 'caracteristiques']);
     $group->get('/dessin-densemble',					[UniteMarquageControleur::class, 'dessinDensemble']);

@@ -130,46 +130,6 @@ class UniteMarquageControleur extends SupportControleur
 		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
-	/**
-     * Affiche la page des éléments constitutifs.
-     *
-     * @route /unite-de-marquage/element
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function elements(Request $requete, Response $reponse): Response
-    {
-        return $this->renduPageImageFichier(
-			$reponse,
-			"Éléments constitutuifs",
-			"<p style=\"text-align:center\">Cliquez sur l'image pour télécharger le fichier associé.</p>",
-			'unite2marquage.png',
-			'unite-de-marquage.EASM',
-			"unité de marquage",
-			"télécharger la maquette numérique",
-			"<p style=\"text-align:center\">Cliquez dans le menu pour afficher les éléments individuellement.</p><p>ATTENTION: ces éléments ne sont pas des classes d'équivalence.</p>",
-			600
-		);
-    }
-
-    /**
-     * Affiche la page de l'élément corps.
-     *
-     * @route /unite-de-marquage/element/corps
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function elementsCorps(Request $requete, Response $reponse): Response
-    {
-        return $this->renduEclate($reponse, 'embase', 'embase', 'Corps');
-    }
-
     /**
      * Affiche la page de fonctionnement.
      *
