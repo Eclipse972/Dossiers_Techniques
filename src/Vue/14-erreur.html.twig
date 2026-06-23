@@ -1,0 +1,15 @@
+{% extends '1-base.html.twig' %}
+
+{% block css %}
+	<link rel="stylesheet" href="/CSS/erreur.css" />
+{% endblock %}
+
+{% block balise_title %}Erreur{% if code %} {{ code }}{% endif %}{% endblock %}
+
+{% block texte_header %}Erreur{% if code %} {{ code }}{% endif %}{% endblock %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+<p>{{ message }}</p>
+<p><a href="/">Retour à la page d'accueil</a></p>
+{% endblock %}
