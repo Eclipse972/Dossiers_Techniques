@@ -9,7 +9,7 @@
 {% block texte_header %}Une erreur s'est produite !{% endblock %}
 
 {% block contenu %}
-<div class="section-erreur" data-code="{{ code ?? '' }}">
+<div class="section-erreur" data-code="{{ code ?? 'XXX' }}">
 	<div class="erreur-contenu">
 		<h1>{{ titre }}</h1>
 		<p>{{ message }}</p>
