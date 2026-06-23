@@ -3,6 +3,7 @@
  * Contrôleur pour les pages autres que celles d'un dossier technique
  * 	- page d'accueil
  * 	- formulaire de contact
+ * 	- pages d'erreur
  * 	- etc
  */
 
@@ -11,6 +12,7 @@ namespace DossiersTechniques\Controleur;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use Psr\Http\Message\ResponseFactoryInterface;
 
 class AutrePageControleur
 {
@@ -61,12 +63,32 @@ class AutrePageControleur
 			['nom' => 'Vanne sphérique',		'image' => 'vanne.png',             'dossier' => 'vanne-spherique'],
 		];
 
-        return $this->vue->render($reponse, '12-home.html.twig',  [
-                    'title'				=> 'DT de ChristopHe',
-                    'header'			=> 'Les dossiers techniques en ligne de ChristopHe',
-                    'logo_url'			=> '/images/logo.png',
-                    'logo_description'	=> 'LOGO',
-                    'app_data'			=> $listeSupport
-                ]);
-    }
+		return $this->vue->render($reponse, '12-home.html.twig', [
+			'title'				=> 'DT de ChristopHe',
+			'header'			=> 'Les dossiers techniques en ligne de ChristopHe',
+			'logo_url'			=> '/images/logo.png',
+			'logo_description'	=> 'LOGO',
+			'app_data'			=> $listeSupport,
+		]);
+	}
+
+	/**
+	 * Fabrique un handler d'erreur pour le middleware Slim.
+	 *
+	 * @param ResponseFactoryInterface $factory Fabrique de réponses HTTP
+	 * @param int    $statut Code HTTP de la réponse (404, 500…)
+	 * @param string $titre  Titre de la page d'erreur
+	 *
+	 * @return \Closure Handler compatible avec setErrorHandler()
+	 */
+	public function creerHandlerErreur(ResponseFactoryInterface $factory, int $statut, string $titre): \Closure {
+		return function (Request $requete, \Throwable $e) use ($factory, $statut, $titre) {
+			$reponse = $factory->createResponse($statut);
+			return $this->vue->render($reponse, 'erreur.html.twig', [
+				'titre'   => $titre,
+				'message' => $e->getMessage(),
+				'code'    => $e->getCode() ?: null,
+			]);
+		};
+	}
 }
