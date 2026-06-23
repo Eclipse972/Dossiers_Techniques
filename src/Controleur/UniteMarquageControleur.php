@@ -227,7 +227,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function CEpiston(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'piston', 'ensemble-piston', 'Piston');
     }
 
 	/**
