@@ -212,7 +212,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function CEembase(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'embase', 'embase', 'Embase');
     }
 
 	/**
