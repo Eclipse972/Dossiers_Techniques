@@ -37,6 +37,8 @@ $errorMiddleware->setErrorHandler(
 	PDOException::class,
 	$pageErreur->creerHandlerErreur($factory, 500, "Erreur de base de données")
 );
+
+# toujours en dernier pour capturer toutes les erreurs inconnues
 $errorMiddleware->setDefaultErrorHandler(
 	$pageErreur->creerHandlerErreur($factory, 500, "Erreur inconnue")
 );
