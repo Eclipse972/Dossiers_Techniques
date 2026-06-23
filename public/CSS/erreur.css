@@ -1,0 +1,56 @@
+/* Page d'erreur ---------------------------------------------------------------- */
+
+.section-erreur {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 700px;
+	overflow: hidden;
+}
+
+/* gros code HTTP en arrière-plan */
+.section-erreur::before {
+	content: attr(data-code);
+	position: absolute;
+	font-size: 400px;
+	font-weight: bold;
+	color: var(--couleur1);
+	letter-spacing: -20px;
+	user-select: none;
+	z-index: 0;
+}
+
+.erreur-contenu {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+
+.erreur-contenu h1 {
+	font-size: 36px;
+	color: var(--couleur4);
+	text-decoration: none;
+}
+
+.erreur-contenu p {
+	font-size: 20px;
+	color: var(--couleur5);
+	margin: 10px 0;
+}
+
+.erreur-contenu a,
+.erreur-contenu a:visited {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: var(--couleur4);
+	color: white !important;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+.erreur-contenu a:hover {
+	background-color: var(--couleur5);
+}
