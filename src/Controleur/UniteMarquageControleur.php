@@ -102,7 +102,7 @@ class UniteMarquageControleur extends SupportControleur
 		Nomenclature::ajouterLigne(13,	'Vis CHc M12 x 35',				2,	'vis-CHc-M12x35.EPRT');
 		Nomenclature::ajouterLigne(14,	'Support détecteur',			1,	'support-detecteur.EPRT');
 		Nomenclature::ajouterLigne(15,	'DPI K62',						1,	'DPI-K62.EPRT');
-	#	Nomenclature::ajouterLigne(16,	'Vis CHc M4 x 15',				2,	'vis-CHc-M4x15.EPRT'); image absente
+		Nomenclature::ajouterLigne(16,	'Vis CHc M4 x 15',				2,	'vis-CHc-M4x15.EPRT');
 		Nomenclature::ajouterLigne(17,	'Fond avant',					1,	'fond-avant.EPRT');
 		Nomenclature::ajouterLigne(18,	'Tube',							1,	'tube.EPRT');
 		Nomenclature::ajouterLigne(19,	'Fond arrière',					1,	'fond-arriere.EPRT');
