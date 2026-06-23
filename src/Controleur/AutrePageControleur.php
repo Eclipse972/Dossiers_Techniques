@@ -82,9 +82,10 @@ class AutrePageControleur
 	 * @return \Closure Handler compatible avec setErrorHandler()
 	 */
 	public function creerHandlerErreur(ResponseFactoryInterface $factory, int $statut, string $titre): \Closure {
-		return function (Request $requete, \Throwable $e) use ($factory, $statut, $titre) {
+		$vue = $this->vue; // capturé avant que Slim ne réaffecte $this sur son conteneur
+		return function (Request $requete, \Throwable $e) use ($factory, $statut, $titre, $vue) {
 			$reponse = $factory->createResponse($statut);
-			return $this->vue->render($reponse, 'erreur.html.twig', [
+			return $vue->render($reponse, '14-erreur.html.twig', [
 				'titre'   => $titre,
 				'message' => $e->getMessage(),
 				'code'    => $e->getCode() ?: null,
