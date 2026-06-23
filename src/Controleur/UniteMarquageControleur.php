@@ -121,7 +121,7 @@ class UniteMarquageControleur extends SupportControleur
 	#	Nomenclature::ajouterLigne(32,	'Axe biellette-chape',			1,	'axe-biellette-chape.EPRT');
 		Nomenclature::ajouterLigne(33,	'Galet',						2,	'galet.EPRT');
 		Nomenclature::ajouterLigne(34,	'Coussinet XSM',				4,	'coussinet-XSM.EPRT');
-	#	Nomenclature::ajouterLigne(35,	'Coussinet XFM',				2,	'coussinet-XFM.EPRT'); fichiers manquants
+		Nomenclature::ajouterLigne(35,	'Coussinet XFM',				2,	'coussinet-XFM.EPRT');
 	#	Nomenclature::ajouterLigne(36,	'Piston',						1,	'piston.EPRT'); pièce et ensemble du même nom
 		Nomenclature::ajouterLigne(37,	'Tige piston',					1,	'tige-piston.EPRT');
 		Nomenclature::ajouterLigne(38,	'Chape',						1,	'chape.EPRT');
