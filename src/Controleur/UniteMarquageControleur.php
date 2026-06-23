@@ -257,7 +257,17 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function classeEquivalence(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduPageImageFichier(
+			$reponse,
+			"Classes d'équivalence",
+			"<p style=\"text-align:center\">Cliquez sur l'image pour télécharger le fichier associé.</p>",
+			'unite2marquage.png',
+			'unite-de-marquage.EASM',
+			"unité de marquage",
+			"télécharger la maquette numérique",
+			"<p style=\"text-align:center\">Cliquez dans le menu pour afficher chaque classes d'équivalence.</p><p>ATTENTION: ces éléments ne sont pas des classes d'équivalence.</p>",
+			600
+		);
     }
 
 	/**
