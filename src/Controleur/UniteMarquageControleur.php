@@ -290,6 +290,81 @@ class UniteMarquageControleur extends SupportControleur
         return $this->renduPageEnConstruction($requete, $reponse);
     }
 
+	/**
+     * Affiche la page de la classe d'équivalence embase.
+     *
+     * @route /unite-de-marquage/classe-equivalence/embase
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function CEembase(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+	/**
+     * Affiche la page de la classe d'équivalence piston.
+     *
+     * @route /unite-de-marquage/classe-equivalence/piston
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function CEpiston(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+	/**
+     * Affiche la page de la classe d'équivalence galet.
+     *
+     * @route /unite-de-marquage/classe-equivalence/galet
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function CEgalet(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+	/**
+     * Affiche la page de la classe d'équivalence embiellage.
+     *
+     * @route /unite-de-marquage/classe-equivalence/embiellage
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function CEembiellage(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
+	/**
+     * Affiche la page de la classe d'équivalence levier.
+     *
+     * @route /unite-de-marquage/classe-equivalence/levier
+     *
+     * @param Request  $requete Requête HTTP entrante
+     * @param Response $reponse Réponse HTTP à retourner
+	 *
+     * @return Response
+     */
+    public function CElevier(Request $requete, Response $reponse): Response
+    {
+        return $this->renduPageEnConstruction($requete, $reponse);
+    }
+
     /**
      * Affiche la page de mécanique globale.
      *
