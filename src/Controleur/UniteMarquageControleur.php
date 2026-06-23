@@ -197,7 +197,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function ensembleEnclume(Request $requete, Response $reponse): Response
     {
-        return $this->renduEclate($reponse, 'enclume', 'enclume', 'Enclume');
+        return $this->renduEclate($reponse, 'enclume', 'ensemble-enclume', 'Enclume');
     }
 
     /**
