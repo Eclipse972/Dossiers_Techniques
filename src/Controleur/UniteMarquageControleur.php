@@ -95,7 +95,7 @@ class UniteMarquageControleur extends SupportControleur
 		Nomenclature::ajouterLigne(6,	'Vis CHc M8 x 90',				4,	'vis-CHc-M8x90.EPRT');
 		Nomenclature::ajouterLigne(7,	'Came',							2,	'came.EPRT');
 		Nomenclature::ajouterLigne(8,	'Vis CHc M5 x 25',				6,	'vis-CHc-M5x25.EPRT');
-	#	Nomenclature::ajouterLigne(9,	'Support enclume',				1,	'support-enclume.EPRT'); image manquante
+		Nomenclature::ajouterLigne(9,	'Support enclume',				1,	'support-enclume.EPRT');
 		Nomenclature::ajouterLigne(10,	'Goupille cylindrique 10 x 40',	2,	'goupille-cylindrique10x40.EPRT',	'ISO 8734');
 		Nomenclature::ajouterLigne(11,	'Vis CHc M16 x 70',				4,	'vis-CHc-M16x70.EPRT');
 	#	Nomenclature::ajouterLigne(12,	'Enclume',						1,	'enclume.EPRT'); conflit pièce et ensemble de pièces du même nom
