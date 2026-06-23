@@ -125,8 +125,8 @@ class UniteMarquageControleur extends SupportControleur
 	#	Nomenclature::ajouterLigne(36,	'Piston',						1,	'piston.EPRT'); pièce et ensemble du même nom
 		Nomenclature::ajouterLigne(37,	'Tige piston',					1,	'tige-piston.EPRT');
 		Nomenclature::ajouterLigne(38,	'Chape',						1,	'chape.EPRT');
-	#	Nomenclature::ajouterLigne(39,	'Joint racleur',				1,	'joint-racleur.EPRT'); fichiers absents
-	#	Nomenclature::ajouterLigne(40,	'Joint circulaire',				1,	'joint-circulaire.EPRT');fichiers absents
+		Nomenclature::ajouterLigne(39,	'Joint racleur',				1,	'joint-racleur.EPRT');
+		Nomenclature::ajouterLigne(40,	'Joint circulaire',				1,	'joint-circulaire.EPRT');
 		return $this->renduNomenclature($reponse, Nomenclature::preparerVue($this->dossier));
     }
 
