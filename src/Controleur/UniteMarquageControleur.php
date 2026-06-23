@@ -242,7 +242,7 @@ class UniteMarquageControleur extends SupportControleur
      */
     public function CEgalet(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageEnConstruction($requete, $reponse);
+        return $this->renduEclate($reponse, 'galet', 'ensemble-galet', 'Galet');
     }
 
 	/**
