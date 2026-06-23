@@ -186,21 +186,6 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de l'élément enclume.
-     *
-     * @route /unite-de-marquage/element/enclume
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function ensembleEnclume(Request $requete, Response $reponse): Response
-    {
-        return $this->renduEclate($reponse, 'enclume', 'ensemble-enclume', 'Enclume');
-    }
-
-    /**
      * Affiche la page de fonctionnement.
      *
      * @route /unite-de-marquage/fonctionnement
