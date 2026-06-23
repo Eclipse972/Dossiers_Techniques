@@ -171,21 +171,6 @@ class UniteMarquageControleur extends SupportControleur
     }
 
     /**
-     * Affiche la page de l'élément vérin.
-     *
-     * @route /unite-de-marquage/element/verin
-     *
-     * @param Request  $requete Requête HTTP entrante
-     * @param Response $reponse Réponse HTTP à retourner
-	 *
-     * @return Response
-     */
-    public function elementsVerin(Request $requete, Response $reponse): Response
-    {
-        return $this->renduEclate($reponse, 'verin', 'verin', 'Vérin');
-    }
-
-    /**
      * Affiche la page de fonctionnement.
      *
      * @route /unite-de-marquage/fonctionnement
