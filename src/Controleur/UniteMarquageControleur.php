@@ -114,10 +114,10 @@ class UniteMarquageControleur extends SupportControleur
 		Nomenclature::ajouterLigne(25,	'Axe levier',					1,	'axe-levier.EPRT');
 		Nomenclature::ajouterLigne(26,	'Coussinet XFM 3034 26',		2,	'coussinet-XFM-3034-26.EPRT');
 		Nomenclature::ajouterLigne(27,	'Rondelle de butées AS 3047',	2,	'rondelle-AS-3047.EPRT');
-	#	Nomenclature::ajouterLigne(28,	'Levier',						1,	'levier.EPRT');il manque le fichier
+	#	Nomenclature::ajouterLigne(28,	'Levier',						1,	'levier.EPRT');conflit entre l pièce et l'ensemble
 		Nomenclature::ajouterLigne(29,	'Vis CHc M8 x 20',				2,	'vis-CHc-M8x20.EPRT');
 		Nomenclature::ajouterLigne(30,	'Axe biellette-levier',			1,	'axe-biellette-levier.EPRT');
-	#	Nomenclature::ajouterLigne(31,	'Biellette',					2,	'biellette.EPRT'); fichiers absents
+		Nomenclature::ajouterLigne(31,	'Biellette',					2,	'biellette.EPRT');
 	#	Nomenclature::ajouterLigne(32,	'Axe biellette-chape',			1,	'axe-biellette-chape.EPRT');
 		Nomenclature::ajouterLigne(33,	'Galet',						2,	'galet.EPRT');
 		Nomenclature::ajouterLigne(34,	'Coussinet XSM',				4,	'coussinet-XSM.EPRT');
