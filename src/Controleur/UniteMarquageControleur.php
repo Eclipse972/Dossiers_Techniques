@@ -118,7 +118,7 @@ class UniteMarquageControleur extends SupportControleur
 		Nomenclature::ajouterLigne(29,	'Vis CHc M8 x 20',				2,	'vis-CHc-M8x20.EPRT');
 		Nomenclature::ajouterLigne(30,	'Axe biellette-levier',			1,	'axe-biellette-levier.EPRT');
 		Nomenclature::ajouterLigne(31,	'Biellette',					2,	'biellette.EPRT');
-	#	Nomenclature::ajouterLigne(32,	'Axe biellette-chape',			1,	'axe-biellette-chape.EPRT');
+		Nomenclature::ajouterLigne(32,	'Axe biellette-chape',			1,	'axe-biellette-chape.EPRT');
 		Nomenclature::ajouterLigne(33,	'Galet',						2,	'galet.EPRT');
 		Nomenclature::ajouterLigne(34,	'Coussinet XSM',				4,	'coussinet-XSM.EPRT');
 		Nomenclature::ajouterLigne(35,	'Coussinet XFM',				2,	'coussinet-XFM.EPRT');
