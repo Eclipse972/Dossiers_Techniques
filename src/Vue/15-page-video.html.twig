@@ -1,0 +1,15 @@
+{% extends "11-base-avec-nav.html.twig" %}
+
+{% block contenu %}
+<h1>{{ titre }}</h1>
+<div align="center">
+	<iframe
+		width="896" height="504"
+		src="https://www.youtube.com/embed/{{ chemin_video }}"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen>
+	</iframe>
+</div>
+{% endblock %}

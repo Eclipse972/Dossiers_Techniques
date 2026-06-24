@@ -266,4 +266,24 @@ abstract class SupportControleur
 			'texte_au_dessous'	=> $texte_au_dessous
 		]);
     }
+
+	/**
+	 * Rendu des pages vidéo YouTube
+	 *
+	 * @param Response	$reponse		Objet réponse HTTP
+	 * @param string	$titre			Titre de la page
+	 * @param string	$chemin_video	Identifiant YouTube de la vidéo (ex : 4ZCPfgWiX2s)
+	 *
+	 * @return Response
+	 */
+	public function renduPageVideo(Response $reponse, string $titre, string $chemin_video): Response {
+		return $this->vue->render($reponse, '15-page-video.html.twig', [
+			'support'		=> $this->nom,
+			'du'			=> $this->article_du,
+			'dossier'		=> $this->dossier,
+			'logo'			=> $this->logo,
+			'titre'			=> $titre,
+			'chemin_video'	=> $chemin_video,
+		]);
+	}
 }
