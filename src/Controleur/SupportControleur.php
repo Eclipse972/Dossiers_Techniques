@@ -117,9 +117,8 @@ abstract class SupportControleur
 	 * La page mise en situation est le point d'entrée de tous les supports.
 	 * URL = /mise-en-situation et
 	 * template mise-en-situation.html.twig dans le dossier src/Vue/supports/nom-support.
-	 * 
+	 *
 	 * @param Response $reponse Objet réponse HTTP
-	 * @param string   $fichier Nom du fichier de contenu avec son extension .html.twig ou .html.
 	 *
 	 * @return Response
 	 */
