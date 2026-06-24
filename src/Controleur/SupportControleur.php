@@ -127,6 +127,23 @@ abstract class SupportControleur
         return $this->renduPageOrdinaire($reponse, 'mise-en-situation.html.twig');
 	}
 
+
+	/**
+	 * Rendu des pages de fonctionnement
+	 *
+	 * La page fonctionnement n'est pas obligatoire mais fortement recommandée.
+	 * URL = fonctionnement
+	 * template fonctionnement.html.twig dans le dossier src/Vue/supports/nom-support.
+	 *
+	 * @param Response $reponse Objet réponse HTTP
+	 *
+	 * @return Response
+	 */
+    public function renduPageFonctionnement(Response $reponse): Response
+	{
+        return $this->renduPageFonctionnement($reponse);
+	}
+
 	/**
 	 * Rendu des pages à propos
 	 *
