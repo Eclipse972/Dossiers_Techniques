@@ -237,17 +237,17 @@ abstract class SupportControleur
 	 * @param string $image nom de fichier avec son extension
 	 * @param string $commentaire_image alt de l'image
 	 * @param string $texte_au_dessous de l'image
-	 * @param int 	$hauteur de l'image en pixel
+	 * @param int 	 $hauteur de l'image en pixel
 	 *
      * @return Response
      */
     public function renduPageImage(
 		Response $reponse,
-		string $titre,
-		string $texte_au_dessus,
-		string $image,
-		string $commentaire_image,
-		string $texte_au_dessous,
+		string	$titre,
+		string	$texte_au_dessus,
+		string	$image,
+		string	$commentaire_image,
+		string	$texte_au_dessous,
 		int		$hauteur = 400
 	): Response {
         return $this->vue->render($reponse, '116-page-image.html.twig', [
