@@ -141,7 +141,7 @@ abstract class SupportControleur
 	 */
     public function renduPageFonctionnement(Response $reponse): Response
 	{
-        return $this->renduPageFonctionnement($reponse);
+        return $this->renduPageOrdinaire($reponse, 'fonctionnement.html.twig');
 	}
 
 	/**
