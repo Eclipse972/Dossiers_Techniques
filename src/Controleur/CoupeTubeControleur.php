@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use DossiersTechniques\Modele\Nomenclature;
+use DossiersTechniques\Modele\Lien;
 
 class CoupeTubeControleur extends SupportControleur
 {
@@ -32,17 +33,16 @@ class CoupeTubeControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function aPropos(Request $requete, Response $reponse): Response {
-        $listeLien = [];
-		self::ajouteLien($listeLien,'https://www.leroymerlin.fr/produits/coupe-tubes-minicut-i-pro-minicut-ii-pro-pour-de-tuyaux-3-16-mm-88326399.html', "chez Leroy Merlin");
-        return $this->renduApropos(
+	public function aPropos(Request $requete, Response $reponse): Response {
+		Lien::creer();
+		Lien::ajouter('https://www.leroymerlin.fr/produits/coupe-tubes-minicut-i-pro-minicut-ii-pro-pour-de-tuyaux-3-16-mm-88326399.html', "chez Leroy Merlin");
+		return $this->renduApropos(
 			$reponse,
 			'mini-coupe-tube.zip',
-			["contient aussi d'autres miseen plan"],
-			$listeLien
+			["contient aussi d'autres mises en plan"],
+			Lien::obtenir()
 		);
-    }
-
+	}
     /**
      * Affiche la page de mise en situation du coupe-tube.
      *

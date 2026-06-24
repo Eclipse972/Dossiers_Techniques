@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use DossiersTechniques\Modele\Nomenclature;
+use DossiersTechniques\Modele\Lien;
 
 class BoutonPoussoirControleur extends SupportControleur
 {
@@ -33,18 +34,18 @@ class BoutonPoussoirControleur extends SupportControleur
      * @return Response
      */
     public function aPropos(Request $requete, Response $reponse): Response {
-		$listeLien = [];
-		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#b', "site de Jérôme Laparre");
-        return $this->renduApropos(
+		Lien::creer();
+		Lien::ajouter('http://laparrej.free.fr/pro_sw.htm#b', "site de Jérôme Laparre");
+		return $this->renduApropos(
 			$reponse,
 			'BP.zip',
 			[
 				'configuration contenant un écorché',
 				'sous-ensembles fixe et mobile',
 			],
-			$listeLien
+			Lien::obtenir()
 		);
-    }
+	}
 
     /**
      * Affiche la page de mise en situation de l'alternateur.

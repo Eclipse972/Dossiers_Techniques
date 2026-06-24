@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use DossiersTechniques\Modele\Nomenclature;
+use DossiersTechniques\Modele\Lien;
 
 class ElectrovanneControleur extends SupportControleur
 {
@@ -32,10 +33,10 @@ class ElectrovanneControleur extends SupportControleur
 	 *
      * @return Response
      */
-    public function aPropos(Request $requete, Response $reponse): Response {
-    	$listeLien = [];
-		self::ajouteLien($listeLien,'http://laparrej.free.fr/pro_sw.htm#e', "site de Jérôme Laparre");
-        return $this->renduApropos(
+	public function aPropos(Request $requete, Response $reponse): Response {
+		Lien::creer();
+		Lien::ajouter('http://laparrej.free.fr/pro_sw.htm#e', "site de Jérôme Laparre");
+		return $this->renduApropos(
 			$reponse,
 			'electrovanne.zip',
 			[
@@ -43,9 +44,9 @@ class ElectrovanneControleur extends SupportControleur
 				"la maquette est fixe",
 				"contient les dessins de définition"
 			],
-			$listeLien
+			Lien::obtenir()
 		);
-    }
+	}
 
     /**
      * Affiche la page de mise en situation de l'électrovanne.
