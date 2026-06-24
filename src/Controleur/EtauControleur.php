@@ -115,7 +115,7 @@ class EtauControleur extends SupportControleur
 	 */
 	public function fonctionnement(Request $requete, Response $reponse): Response
 	{
-		return $this->renduPageOrdinaire($reponse, 'fonctionnement.html.twig');
+		return $this->renduPageFonctionnement($reponse);
 	}
 
 	/**
