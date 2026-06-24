@@ -110,7 +110,7 @@ class FreinDisqueControleur extends SupportControleur
      */
     public function fonctionnement(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageOrdinaire($reponse, 'fonctionnement.html.twig');
+        return $this->renduPageVideo($reponse, "Fonctionnement du frein à disque", '4ZCPfgWiX2s');
     }
 
     /**
