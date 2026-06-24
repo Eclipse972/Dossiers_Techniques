@@ -55,7 +55,7 @@ class EtauControleur extends SupportControleur
      */
     public function miseEnSituation(Request $requete, Response $reponse): Response
     {
-        return $this->renduPageOrdinaire($reponse, 'mise-en-situation.html.twig');
+        return $this->renduPageMiseEnSituation($reponse);
     }
 
     /**
