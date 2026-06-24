@@ -38,7 +38,8 @@ abstract class SupportControleur
 	 *
 	 * ATTENTION: le nom du dossier en kebab-case donc pas d'espace
      */
-    public function hydrate(string $nom, string $du, string $dossier, string $logo): void {
+    public function hydrate(string $nom, string $du, string $dossier, string $logo): void
+	{
         $this->nom        = $nom;
         $this->article_du = $du;
         $this->dossier    = $dossier;
@@ -81,7 +82,8 @@ abstract class SupportControleur
 	 *
 	 * @return Response
 	 */
-    public function renduPageEnConstruction(Request $requete, Response $reponse): Response {
+    public function renduPageEnConstruction(Request $requete, Response $reponse): Response
+	{
 		return $this->vue->render($reponse, '113-en-construction.html.twig', [
 				'support'	=> $this->nom,
 				'logo'		=> $this->logo,
@@ -101,7 +103,8 @@ abstract class SupportControleur
 	 *
 	 * @return Response
 	 */
-    public function renduPageOrdinaire(Response $reponse, string $fichier): Response {
+    public function renduPageOrdinaire(Response $reponse, string $fichier): Response
+	{
 		return $this->vue->render($reponse, '112-pageDT.html.twig', [
 				'support'	=> $this->nom,
 				'logo'		=> $this->logo,
@@ -155,7 +158,8 @@ abstract class SupportControleur
 	 *                                      ['url' => string, 'texte' => string]
 	 * @return Response
 	 */
-	public function renduApropos(Response $reponse, ?string $archiveZip, array $descriptionZip, array $listeLien): Response {
+	public function renduApropos(Response $reponse, ?string $archiveZip, array $descriptionZip, array $listeLien): Response
+	{
 		return $this->vue->render($reponse, '13-page-a-propos.html.twig', [
 			'support'		=> $this->nom,
 			'logo'			=> $this->logo,
@@ -173,7 +177,8 @@ abstract class SupportControleur
 	 * @param Response	$reponse        Objet réponse HTTP
 	 * @param array		$nomenclature
 	 */
-	public function renduNomenclature(Response $reponse, array $nomenclature): Response {
+	public function renduNomenclature(Response $reponse, array $nomenclature): Response
+	{
 		return $this->vue->render($reponse, '111-nomenclature.html.twig', [
 			'support'	=> $this->nom,
 			'logo'		=> $this->logo,
@@ -188,7 +193,8 @@ abstract class SupportControleur
 	 *
 	 * @param Response	$reponse        Objet réponse HTTP
 	 */
-	public function renduDessinDensemble(Response $reponse): Response {
+	public function renduDessinDensemble(Response $reponse): Response
+	{
 		return $this->vue->render($reponse, '114-dessin-densemble.html.twig', [
 			'support'	=> $this->nom,
 			'du'		=> $this->article_du,
@@ -242,7 +248,7 @@ abstract class SupportControleur
 		string $image,
 		string $commentaire_image,
 		string $texte_au_dessous,
-		int 	$hauteur = 400
+		int		$hauteur = 400
 	): Response {
         return $this->vue->render($reponse, '116-page-image.html.twig', [
 			'support'			=> $this->nom,
@@ -309,7 +315,8 @@ abstract class SupportControleur
 	 *
 	 * @return Response
 	 */
-	public function renduPageVideo(Response $reponse, string $titre, string $chemin_video): Response {
+	public function renduPageVideo(Response $reponse, string $titre, string $chemin_video): Response
+	{
 		return $this->vue->render($reponse, '15-page-video.html.twig', [
 			'support'		=> $this->nom,
 			'du'			=> $this->article_du,
