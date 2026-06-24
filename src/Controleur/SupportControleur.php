@@ -36,7 +36,7 @@ abstract class SupportControleur
      * @param string $dossier Dossier racine du support (sans espace)
      * @param string $logo	  image du support servant de logo
 	 *
-	 * ATTENTION: le dossier ne doit pas contenir d'espace
+	 * ATTENTION: le nom du dossier en kebab-case donc pas d'espace
      */
     public function hydrate(string $nom, string $du, string $dossier, string $logo): void {
         $this->nom        = $nom;
